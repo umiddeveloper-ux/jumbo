@@ -1,0 +1,40 @@
+/* =====================================================================
+   Home: top-10 block (visitors and players) + faded world map behind the landing
+   ===================================================================== */
+.top10 { margin-top: 8px; }
+.top10-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.top10-title { margin: 28px 0 0; }
+.top10-sub { margin: 0; font-weight: 700; color: var(--lp-muted); }
+.top10 .rate-list { gap: 8px; }
+.top10-foot { margin-top: 14px; display: flex; justify-content: center; }
+.top10-foot .rate-mini-link { font-size: 1rem; }
+.top10-cta {
+    display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 16px; border-radius: 20px;
+    background: var(--lp-surface); border: 2px dashed var(--lp-primary-edge);
+    font-weight: 800; color: var(--lp-text);
+}
+.top10-cta span { flex: 1; font-size: 1.02rem; line-height: 1.35; }
+.top10-cta .lp-btn { text-decoration: none; display: inline-flex; flex-shrink: 0; }
+@media (max-width: 560px) {
+    .top10-cta { flex-direction: column; text-align: center; }
+}
+
+/* ----- world map behind the guest landing ----- */
+.land-wrap { position: relative; overflow: hidden; }
+.land-wrap > .land, .land-wrap > .dash { position: relative; z-index: 1; }
+.land-bg {
+    position: absolute; top: 0; left: 0; right: 0; height: 1100px; z-index: 0; pointer-events: none;
+    background: url("maps/world.svg") center 70px / max(1250px, 118%) auto no-repeat;
+    /* Light theme: the pale-blue land needs more punch to read on a light page. */
+    opacity: 0.48;
+    filter: brightness(0.72) saturate(1.35);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 92%);
+            mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 92%);
+}
+:root[data-theme="dark"] .land-bg { opacity: 0.2; filter: none; }
+@media (max-width: 767px) {
+    .land-bg { height: 900px; background-size: max(900px, 240%) auto; background-position: 38% 90px; }
+}
+
+/* Text laid over the map stays readable */
+.land-hero-sub { color: var(--lp-text); opacity: 0.85; }

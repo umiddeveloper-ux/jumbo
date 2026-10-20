@@ -1,0 +1,33 @@
+﻿@using JumboWeb.Services
+@inject SessionTokenAccessor TokenAccessor
+@inject IServiceProvider Services
+
+<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="new[] { typeof(Client._Imports).Assembly }" NotFoundPage="typeof(Pages.NotFound)">
+    <Found Context="routeData">
+        <RouteView RouteData="routeData" DefaultLayout="typeof(Layout.SiteLayout)" />
+        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+    </Found>
+</Router>
+
+@code {
+    // The access_token cookie is read from the initial (static) HTTP request in App.razor and
+    // handed over here. IHttpContextAccessor is not available when the circuit is opened over
+    // long-polling (WebSockets blocked by a proxy), so this is the transport-independent path.
+    [Parameter] public string? AccessToken { get; set; }
+
+    // Interface language resolved from the cookie / browser on the initial request.
+    [Parameter] public string? Lang { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Always taken from the cookie of this page load: no cookie (signed out) means no token, never a leftover one.
+        TokenAccessor.Token = string.IsNullOrEmpty(AccessToken) ? null : AccessToken;
+        if (!string.IsNullOrEmpty(Lang))
+        {
+            // Resolved only now, NOT via @inject: UserPreferencesService needs LpApiClient, and that client reads
+            // the access token when it is created. Injecting it would build the client before the token above is
+            // set, and every API call of the circuit would go out unauthenticated (401).
+            Services.GetRequiredService<UserPreferencesService>().SetInitialLanguage(Lang);
+        }
+    }
+}

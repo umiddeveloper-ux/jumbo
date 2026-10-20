@@ -1,0 +1,69 @@
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+
+@if (_data is not null)
+{
+    var pct = _data.GoalWords > 0 ? Math.Min(100, _data.TodayWords * 100 / _data.GoalWords) : 0;
+    <div class="daily-card @(_data.GoalMetToday ? "met" : "")">
+        <div class="daily-top">
+            <div class="daily-ring" style="--p: @pct">
+                <span class="daily-ring-inner">@(_data.GoalMetToday ? "✓" : $"{_data.TodayWords}")</span>
+            </div>
+
+            <div class="daily-main">
+                <div class="daily-title">@Loc["Daily_Title"]</div>
+                <div class="daily-progress">@Loc.Format("Daily_Progress", Math.Min(_data.TodayWords, _data.GoalWords), _data.GoalWords)</div>
+                <div class="daily-msg">
+                    @if (_data.GoalMetToday)
+                    {
+                        @Loc["Daily_GoalDone"]
+                    }
+                    else if (_data.StreakAtRisk)
+                    {
+                        @Loc["Daily_AtRisk"]
+                    }
+                    else if (_data.TodayWords == 0)
+                    {
+                        @Loc["Daily_StartPrompt"]
+                    }
+                </div>
+            </div>
+
+            <div class="daily-streak @(_data.Streak > 0 ? "alive" : "")">
+                <span class="daily-flame">🔥</span>
+                <span class="daily-streak-num">@_data.Streak</span>
+                <span class="daily-streak-label">@Loc["Daily_StreakLabel"]</span>
+            </div>
+        </div>
+
+        <div class="daily-week">
+            @for (int i = 0; i < _data.Week.Count; i++)
+            {
+                var d = _data.Week[i];
+                var isToday = i == _data.Week.Count - 1;
+                <div class="daily-day @(d.GoalMet ? "met" : "") @(isToday ? "today" : "")">
+                    <span class="daily-day-dot">@(d.GoalMet ? "✓" : "")</span>
+                    <span class="daily-day-name">@Loc[$"Day_{d.Date.DayOfWeek}"]</span>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    private DailyProgressDto? _data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _data = await ApiClient.GetDailyProgressAsync();
+        }
+        catch
+        {
+            // The card is decorative: never let it break the home page.
+            _data = null;
+        }
+    }
+}

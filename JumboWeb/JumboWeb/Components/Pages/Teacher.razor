@@ -1,0 +1,299 @@
+@page "/teacher"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared.Entities
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["TC_Nav"]</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <div class="tc">
+        <h1 class="tc-title">🧑‍🏫 @(IsDirector ? Loc["TC_DirectorTitle"] : Loc["TC_Title"])</h1>
+        @if (!string.IsNullOrEmpty(UserState.CurrentUser?.School))
+        {
+            <p class="tc-school">🏫 @UserState.CurrentUser!.School</p>
+        }
+
+        @if (_noSchool)
+        {
+            <div class="lp-empty-state">@Loc["TC_NoSchool"]</div>
+        }
+        else
+        {
+            @if (TotalPending > 0)
+            {
+                <div class="tc-alert">⏳ @Loc.Format("TC_PendingTotal", TotalPending)</div>
+            }
+
+            <a class="tc-card te-entry" href="/teacher/exam">
+                <span class="te-entry-icon">📝</span>
+                <span class="te-entry-text"><b>@Loc["TE_CardTitle"]</b><small>@Loc["TE_CardHint"]</small></span>
+                <span class="te-entry-go">→</span>
+            </a>
+
+            @if (_classes.Count == 0)
+            {
+                <div class="tc-empty">
+                    <Tiger Mood="wave" Size="120" />
+                    <p>@Loc["TC_NoClasses"]</p>
+                </div>
+            }
+
+            <div class="tc-grid">
+                @foreach (var c in _classes)
+                {
+                    var cls = c;
+                    <a class="tc-class @(cls.IsArchived ? "archived" : "")" href="/teacher/class/@cls.ClassId">
+                        <div class="tc-class-head">
+                            <span class="tc-class-name">@cls.Name</span>
+                            @if (cls.IsArchived)
+                            {
+                                <span class="tc-badge">@Loc["TC_Archived"]</span>
+                            }
+                            else if (cls.PendingCount > 0)
+                            {
+                                <span class="tc-badge pending">⏳ @cls.PendingCount</span>
+                            }
+                        </div>
+                        @if (IsDirector && !string.IsNullOrEmpty(cls.TeacherName))
+                        {
+                            <div class="tc-class-teacher">@Loc.Format("TC_Teacher", cls.TeacherName)</div>
+                        }
+                        <div class="tc-stats">
+                            <div class="tc-stat"><b>@cls.StudentCount</b><span>@Loc["TC_Students"]</span></div>
+                            <div class="tc-stat"><b>@cls.ActiveWeek</b><span>@Loc["TC_Active"]</span></div>
+                            <div class="tc-stat"><b>@(cls.AvgExamPercent is { } p ? $"{p}%" : "—")</b><span>@Loc["TC_AvgExam"]</span></div>
+                        </div>
+                    </a>
+                }
+            </div>
+
+            <section class="tc-card tc-new">
+                <div class="settings-label">@Loc["TC_NewClass"]</div>
+                <div class="tc-new-row">
+                    <input class="lp-input" type="text" maxlength="60" placeholder="@Loc["TC_ClassNamePh"]"
+                           @bind="_newName" @bind:event="oninput" @onkeydown="OnNameKey" />
+                    <button type="button" class="lp-btn" disabled="@_busy" @onclick="CreateAsync">@Loc["TC_Create"]</button>
+                </div>
+                <p class="tc-hint">@Loc["TC_NameHint"]</p>
+                @if (!string.IsNullOrEmpty(_error))
+                {
+                    <p class="validation-message">@_error</p>
+                }
+            </section>
+
+            <section class="tc-card tc-school-report">
+                <h2 class="tc-sub">📊 @Loc["RP_SchoolLinkTitle"]</h2>
+                <p class="tc-hint">@Loc["RP_LinkHint"]</p>
+                @if (_link is null)
+                {
+                    <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="CreateLinkAsync">@Loc["RP_LinkCreate"]</button>
+                }
+                else
+                {
+                    <div class="tc-linkbox">@LinkUrl</div>
+                    <div class="tc-link-actions">
+                        <a class="lp-btn lp-btn-sm" href="/r/@_link.Token" target="_blank" rel="noopener">@Loc["RP_LinkOpen"]</a>
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="CopyLinkAsync">@(_copied ? "✓ " + Loc["TC_Copied"] : Loc["RP_LinkCopy"])</button>
+                        <button type="button" class="tc-link" disabled="@_busy" @onclick="RevokeLinkAsync">@Loc["RP_LinkRevoke"]</button>
+                    </div>
+                }
+            </section>
+
+            @if (_tg is { Enabled: true })
+            {
+                <section class="tc-card tc-telegram">
+                    <h2 class="tc-sub">✈️ Telegram</h2>
+                    <h3 class="tg-subtitle">@Loc["TG_MineTitle"]</h3>
+                    <p class="tc-hint">@Loc["TG_MineHint"]</p>
+                    @foreach (var c in _tg.Connections.Where(x => x.IsMine))
+                    {
+                        var conn = c;
+                        <div class="tg-row">
+                            @if (conn.Connected)
+                            {
+                                <span class="tg-name">✅ @(string.IsNullOrWhiteSpace(conn.Name) ? Loc["TG_Someone"] : conn.Name)</span>
+                                <span class="tg-sub">@Loc["TG_MineConnected"]</span>
+                            }
+                            else
+                            {
+                                <span class="tg-name">⏳ @Loc["TG_MineWaiting"]</span>
+                                <div class="tc-link-actions">
+                                    <a class="lp-btn lp-btn-sm" href="@conn.Url" target="_blank" rel="noopener">@Loc["TG_Open"]</a>
+                                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => CopyTelegramAsync(conn)">@(_tgCopied == conn.Id ? "✓ " + Loc["TC_Copied"] : Loc["RP_LinkCopy"])</button>
+                                </div>
+                            }
+                            <button type="button" class="tc-link" disabled="@_busy" @onclick="() => RemoveTelegramAsync(conn)">@Loc[conn.Connected ? "TG_Disconnect" : "TG_Cancel"]</button>
+                        </div>
+                    }
+                    <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="() => CreateTelegramAsync(true)">🔔 @Loc["TG_AddMine"]</button>
+
+                    <h3 class="tg-subtitle">@Loc["TG_Title"]</h3>
+                    <p class="tc-hint">@Loc["TG_Hint"]</p>
+
+                    @foreach (var c in _tg.Connections.Where(x => !x.IsMine))
+                    {
+                        var conn = c;
+                        <div class="tg-row">
+                            @if (conn.Connected)
+                            {
+                                <span class="tg-name">✅ @(string.IsNullOrWhiteSpace(conn.Name) ? Loc["TG_Someone"] : conn.Name)</span>
+                                <span class="tg-sub">@Loc["TG_Connected"]</span>
+                            }
+                            else
+                            {
+                                <span class="tg-name">⏳ @Loc["TG_Waiting"]</span>
+                                <div class="tc-linkbox">@conn.Url</div>
+                                <div class="tc-link-actions">
+                                    <a class="lp-btn lp-btn-sm" href="@conn.Url" target="_blank" rel="noopener">@Loc["TG_Open"]</a>
+                                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => CopyTelegramAsync(conn)">@(_tgCopied == conn.Id ? "✓ " + Loc["TC_Copied"] : Loc["RP_LinkCopy"])</button>
+                                </div>
+                            }
+                            <button type="button" class="tc-link" disabled="@_busy" @onclick="() => RemoveTelegramAsync(conn)">@Loc[conn.Connected ? "TG_Disconnect" : "TG_Cancel"]</button>
+                        </div>
+                    }
+
+                    <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="() => CreateTelegramAsync(false)">➕ @Loc["TG_Add"]</button>
+                </section>
+            }
+        }
+    </div>
+}
+
+@code {
+    private bool _loaded, _busy, _noSchool;
+    private string _newName = string.Empty;
+    private string _error = string.Empty;
+    private List<ClassDto> _classes = new();
+    private ReportLinkDto? _link;
+    private TelegramStatusDto? _tg;
+    private int _tgCopied;
+    private bool _copied;
+    private string LinkUrl => Nav.ToAbsoluteUri($"/r/{_link!.Token}").ToString();
+
+    private bool IsDirector => UserState.CurrentUser?.Role == UserRole.Director;
+    private int TotalPending => _classes.Where(c => !c.IsArchived).Sum(c => c.PendingCount);
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        // The API checks the role too; this keeps everybody else out of the UI.
+        if (UserState.CurrentUser?.Role is not (UserRole.Teacher or UserRole.Director))
+        {
+            Nav.NavigateTo("/for-schools", replace: true);
+            return;
+        }
+
+        await LoadAsync();
+        _loaded = true;
+    }
+
+    private async Task LoadAsync()
+    {
+        try
+        {
+            _classes = await ApiClient.TeacherGetClassesAsync(includeArchived: true);
+            _link = await ApiClient.TeacherGetSchoolReportLinkAsync();
+            _tg = await ApiClient.TeacherGetTelegramAsync();
+            _noSchool = false;
+        }
+        catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.Conflict) { _noSchool = true; }
+        catch (Exception ex) { _error = ex.Message; }
+    }
+
+    private async Task CreateLinkAsync()
+    {
+        _busy = true;
+        try { _link = await ApiClient.TeacherCreateSchoolReportLinkAsync(); }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _busy = false; }
+    }
+
+    private async Task CopyLinkAsync()
+    {
+        try { await JS.InvokeVoidAsync("lp.copyText", LinkUrl); } catch { }
+        _copied = true;
+        StateHasChanged();
+        await Task.Delay(2000);
+        _copied = false;
+    }
+
+    private async Task CreateTelegramAsync(bool mine)
+    {
+        _busy = true;
+        try { await ApiClient.TeacherCreateTelegramLinkAsync(mine); _tg = await ApiClient.TeacherGetTelegramAsync(); }
+        catch (Exception ex) { _error = Loc[$"TG_Err_{ex.Message}"] is var t && t != $"TG_Err_{ex.Message}" ? t : ex.Message; }
+        finally { _busy = false; }
+    }
+
+    private async Task RemoveTelegramAsync(TelegramConnectionDto c)
+    {
+        _busy = true;
+        try { await ApiClient.TeacherRemoveTelegramAsync(c.Id); _tg = await ApiClient.TeacherGetTelegramAsync(); }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _busy = false; }
+    }
+
+    private async Task CopyTelegramAsync(TelegramConnectionDto c)
+    {
+        try { await JS.InvokeVoidAsync("lp.copyText", c.Url ?? string.Empty); } catch { }
+        _tgCopied = c.Id;
+        StateHasChanged();
+        await Task.Delay(2000);
+        _tgCopied = 0;
+    }
+
+    private async Task RevokeLinkAsync()
+    {
+        _busy = true;
+        try { await ApiClient.TeacherRevokeSchoolReportLinkAsync(); _link = null; }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _busy = false; }
+    }
+
+    private async Task OnNameKey(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter") await CreateAsync();
+    }
+
+    private async Task CreateAsync()
+    {
+        if (_busy) return;
+        _error = string.Empty;
+        if (string.IsNullOrWhiteSpace(_newName))
+        {
+            _error = Loc["TC_NameRequired"];
+            return;
+        }
+
+        _busy = true;
+        try
+        {
+            var created = await ApiClient.TeacherCreateClassAsync(_newName.Trim());
+            if (created is not null)
+            {
+                Nav.NavigateTo($"/teacher/class/{created.ClassId}");
+                return;
+            }
+        }
+        catch (Exception ex)
+        {
+            var key = $"TC_Err_{ex.Message}";
+            var text = Loc[key];
+            _error = text == key ? ex.Message : text;
+        }
+        finally
+        {
+            _busy = false;
+        }
+    }
+}

@@ -1,0 +1,191 @@
+@page "/little-polyglot/letter/{Letter}/test"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc.Format("LetterTest_PageTitle", Letter)</PageTitle>
+
+<div class="game-topbar">
+    <button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backTo", $"/little-polyglot/letter/{Uri.EscapeDataString(Letter)}")'>@Loc["Common_BackArrow"]</button>
+    <span style="font-size:0.85rem;color:var(--lp-muted)">@_step / @_totalSteps</span>
+</div>
+
+<!-- Progress -->
+<div class="listen-progress-wrap">
+    <div class="listen-progress-bar">
+        <div class="listen-progress-fill" style="width:@(_progressPct)%"></div>
+    </div>
+</div>
+
+@if (_isBusy)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_hasNoData)
+{
+    <div class="lp-empty-state">@Loc.Format("LetterTest_NotEnoughWords", Letter)</div>
+    <button class="lp-btn lp-btn-full" style="margin-top:12px"
+            @onclick='() => JS.InvokeVoidAsync("lp.backTo", $"/little-polyglot/letter/{Uri.EscapeDataString(Letter)}")'>@Loc["Common_Back"]</button>
+}
+else if (_isGameWon)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="cheer" Size="150" /></div>
+        <div class="game-result-title">@Loc["LetterTest_Completed"]</div>
+        <div class="game-result-sub">@Loc.Format("LetterTest_Summary", _totalSteps)</div>
+        <button class="lp-btn lp-btn-full"
+                @onclick='() => JS.InvokeVoidAsync("lp.backTo", $"/little-polyglot/letter/{Uri.EscapeDataString(Letter)}")'>@Loc["Common_Continue"]</button>
+    </div>
+}
+else
+{
+    <!-- SVG + English word -->
+    <div class="letter-test-card">
+        <div class="letter-test-svg">@((MarkupString)_currentSvg)</div>
+        <div class="letter-test-word">@_currentEnWord</div>
+    </div>
+
+    <!-- 4 translation options -->
+    <div class="letter-options-list">
+        @foreach (var opt in _options)
+        {
+            var o = opt;
+            <button class="answer-option @GetOptClass(o)" disabled="@(!_isInteractive)"
+                    @onclick="() => SelectOption(o)">
+                @o.Translation
+            </button>
+        }
+    </div>
+}
+
+@code {
+    private const int MaxSteps = 10;
+
+    [Parameter] public string Letter { get; set; } = string.Empty;
+
+    private record WordData(int WordId, int SvgImageId, string EnglishWord, string RussianWord, string SvgHtml);
+    private List<WordData> _words = new();
+    private List<LetterOpt> _options = new();
+    private int _stepIndex;
+    private int _step, _totalSteps;
+    private string _currentSvg = string.Empty;
+    private string _currentEnWord = string.Empty;
+    private bool _isBusy, _hasNoData, _isGameWon, _isInteractive;
+    private int _userId;
+
+    private double _progressPct => _totalSteps > 0 ? _step * 100.0 / _totalSteps : 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        _userId = UserState.CurrentUser?.UserId ?? 0;
+        await LoadGame();
+    }
+
+    private async Task LoadGame()
+    {
+        _isBusy = true;
+        _words.Clear(); _stepIndex = -1; _step = 0; _isGameWon = false; _hasNoData = false;
+
+        var enWords = await ApiClient.GetWordsByLetterAsync(Letter, Prefs.StudyLangId, 500);
+        if (enWords.Count < 4) { _hasNoData = true; _isBusy = false; return; }
+
+        var userWords = await ApiClient.GetUserWordsAsync();
+        var rep = userWords.ToDictionary(uw => uw.WordId, uw => uw.RepeatingCount);
+
+        foreach (var w in enWords)
+        {
+            var ru = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+            var svg = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
+            _words.Add(new WordData(w.WordId, w.SvgImageId, w.WordName,
+                ru?.WordName ?? w.WordName, svg));
+        }
+
+        _words = _words
+            .OrderBy(_ => Random.Shared.Next())
+            .OrderBy(w => rep.TryGetValue(w.WordId, out var c) ? c : 0)
+            .ToList();
+        _totalSteps = Math.Min(MaxSteps, _words.Count);
+        _stepIndex = 0; _step = 1;
+        _isBusy = false;
+        await LoadStep();
+    }
+
+    private async Task LoadStep()
+    {
+        var target = _words[_stepIndex];
+        _currentSvg = target.SvgHtml;
+        _currentEnWord = target.EnglishWord;
+
+        var distractors = _words
+            .Where(w => w.SvgImageId != target.SvgImageId && !Jumbo.Shared.WordMatch.SameMeaning(w.RussianWord, target.RussianWord))
+            .OrderBy(_ => Random.Shared.Next()).Take(3).ToList();
+        while (distractors.Count < 3)
+            distractors.Add(_words.First(w => w != target));
+
+        var raw = new List<(string T, bool IsT)>
+        {
+            (target.RussianWord, true),
+            (distractors[0].RussianWord, false),
+            (distractors[1].RussianWord, false),
+            (distractors[2].RussianWord, false),
+        };
+        _options = raw.OrderBy(_ => Random.Shared.Next())
+            .Select(r => new LetterOpt { Translation = r.T, IsTarget = r.IsT }).ToList();
+
+        await Task.Delay(50);
+        _isInteractive = true;
+    }
+
+    private async Task SelectOption(LetterOpt opt)
+    {
+        if (!_isInteractive) return;
+        _isInteractive = false;
+
+        if (opt.IsTarget)
+        {
+            opt.State = OptState.Correct;
+            await ApiClient.IncrementWordRepetitionAsync(_words[_stepIndex].WordId);
+            StateHasChanged();
+            await Task.Delay(700);
+
+            _stepIndex++; _step++;
+            if (_step > _totalSteps || _stepIndex >= _words.Count)
+            { _isGameWon = true; return; }
+
+            opt.State = OptState.Normal;
+            await LoadStep();
+        }
+        else
+        {
+            opt.State = OptState.Wrong;
+            var correct = _options.FirstOrDefault(o => o.IsTarget);
+            StateHasChanged();
+            await Task.Delay(400);
+            if (correct != null) { correct.State = OptState.Correct; StateHasChanged(); }
+            await Task.Delay(1200);
+            foreach (var o in _options) o.State = OptState.Normal;
+            _isInteractive = true;
+        }
+    }
+
+    private string GetOptClass(LetterOpt o) => o.State switch
+    {
+        OptState.Correct => "correct-answer", OptState.Wrong => "wrong-answer", _ => ""
+    };
+
+    private enum OptState { Normal, Correct, Wrong }
+    private class LetterOpt
+    {
+        public string Translation { get; set; } = string.Empty;
+        public bool IsTarget { get; set; }
+        public OptState State { get; set; }
+    }
+}

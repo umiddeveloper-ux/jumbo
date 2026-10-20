@@ -1,0 +1,637 @@
+@page "/admin"
+@page "/admin/{Section}"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared.Entities
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject TopicVideoStore Videos
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["Admin_Title"]</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <div class="adm">
+        <h1 class="adm-title">@SectionIcon @Loc[SectionLabel]</h1>
+
+        @if (!string.IsNullOrEmpty(_message))
+        {
+            <div class="lp-success-msg">@_message</div>
+        }
+        @if (!string.IsNullOrEmpty(_error))
+        {
+            <p class="validation-message">@_error</p>
+        }
+
+        @if (_tab == "requests")
+        {
+            <div class="rate-period adm-status">
+                @foreach (var (key, label) in Statuses)
+                {
+                    var k = key;
+                    <button type="button" class="rate-chip @(_status == k ? "on" : "")" @onclick="() => SetStatusAsync(k)">@Loc[label]</button>
+                }
+            </div>
+
+            @if (_requests.Count == 0)
+            {
+                <div class="lp-empty-state">@Loc["Admin_Empty"]</div>
+            }
+            @foreach (var r in _requests)
+            {
+                var req = r;
+                <article class="adm-card">
+                    <div class="adm-card-head">
+                        <div>
+                            <div class="adm-name">@(req.ApplicantName ?? "—") <span class="adm-login">@@@req.ApplicantLogin</span></div>
+                            <div class="adm-meta">
+                                <span class="adm-badge @(req.Role == UserRole.Director ? "dir" : "tea")">@Loc[$"Role_{req.Role}"]</span>
+                                @Loc[$"Region_{req.Region}"] · @req.CreatedAt.ToString("yyyy-MM-dd")
+                            </div>
+                        </div>
+                        <span class="adm-state @req.Status.ToString().ToLowerInvariant()">@req.Status</span>
+                    </div>
+
+                    <div class="adm-row"><b>@Loc["Admin_Typed"]:</b> @req.SchoolName</div>
+                    @if (!string.IsNullOrEmpty(req.Phone)) { <div class="adm-row">📞 @req.Phone</div> }
+                    @if (!string.IsNullOrEmpty(req.Comment)) { <div class="adm-row">💬 @req.Comment</div> }
+                    @if (!string.IsNullOrEmpty(req.AdminNote)) { <div class="adm-row muted">📝 @req.AdminNote</div> }
+
+                    @if (req.Status == StaffRequestStatus.Pending)
+                    {
+                        @if (_deciding == req.Id)
+                        {
+                            <div class="adm-decide">
+                                @if (_decision == "approve")
+                                {
+                                    <div class="settings-label">@Loc["Admin_ChooseSchool"]</div>
+                                    <select class="lp-select" @bind="_chosenSchool">
+                                        <option value="0">➕ @Loc["Admin_CreateNew"]</option>
+                                        @foreach (var s in _regionSchools)
+                                        {
+                                            <option value="@s.SchoolId">@s.Name @(s.IsVerified ? "✓" : "")</option>
+                                        }
+                                    </select>
+                                    @if (_chosenSchool == 0)
+                                    {
+                                        <div class="settings-label">@Loc["Admin_NewName"]</div>
+                                        <input class="lp-input" type="text" maxlength="150" @bind="_newSchoolName" @bind:event="oninput" />
+                                    }
+                                }
+                                <div class="settings-label">@Loc["Admin_Note"]</div>
+                                <input class="lp-input" type="text" maxlength="500" @bind="_note" @bind:event="oninput" />
+                                <div class="adm-actions">
+                                    <button type="button" class="lp-btn lp-btn-sm @(_decision == "reject" ? "adm-danger" : "")" disabled="@_busy" @onclick="() => ConfirmAsync(req)">@Loc["Admin_Confirm"]</button>
+                                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _deciding = 0">@Loc["Common_Cancel"]</button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="adm-actions">
+                                <button type="button" class="lp-btn lp-btn-sm" @onclick='() => StartDecisionAsync(req, "approve")'>✓ @Loc["Admin_Approve"]</button>
+                                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick='() => StartDecisionAsync(req, "reject")'>✕ @Loc["Admin_Reject"]</button>
+                            </div>
+                        }
+                    }
+                </article>
+            }
+        }
+        else if (_tab == "videos")
+        {
+            <p class="reg-help">@Loc["VD_Hint"]</p>
+            <section class="adm-card">
+                <div class="adm-ver-grid">
+                    <label>@Loc["VD_Lang"]
+                        <select class="lp-select" value="@_vLang" @onchange="OnVideoLangChanged">
+                            @foreach (var l in Jumbo.Shared.TopicVideoPaths.Languages)
+                            {
+                                <option value="@l">@VideoLangName(l)</option>
+                            }
+                        </select>
+                    </label>
+                    <label>@Loc["VD_Book"]
+                        <select class="lp-select" value="@_vBook" @onchange="OnVideoBookChanged">
+                            @for (var b = 1; b <= Jumbo.Shared.Course.BookCount; b++)
+                            {
+                                <option value="@b">@Loc.Format("TE_BookCol", b)</option>
+                            }
+                        </select>
+                    </label>
+                </div>
+                <label>@Loc["VD_Topic"]
+                    <select class="lp-select" @bind="_vSeq">
+                        @foreach (var s in _vSubjects)
+                        {
+                            <option value="@s.SequenceNumber">@s.SequenceNumber. @s.SubjectName@(_vFiles.ContainsKey(s.SequenceNumber) ? " ✓" : "")</option>
+                        }
+                    </select>
+                </label>
+                <label>@Loc["VD_File"]
+                    <InputFile class="lp-input" accept="video/mp4,.mp4" OnChange="OnVideoPicked" />
+                </label>
+                @if (_vFile is not null)
+                {
+                    <p class="reg-help">🎞 @_vFile.Name · @FormatSize(_vFile.Size)@(_vFile.Size > 60L * 1024 * 1024 ? " · " + Loc["VD_Big"] : "")@(_vFiles.ContainsKey(_vSeq) ? " · " + Loc["VD_WillReplace"] : "")</p>
+                }
+                @if (_vBusy)
+                {
+                    <div class="adm-progress"><div style="width:@(_vFile is { Size: > 0 } ? Math.Min(100, _vSent * 100 / _vFile.Size) : 0)%"></div></div>
+                    <p class="reg-help">@Loc["VD_Uploading"] @FormatSize(_vSent)</p>
+                }
+                <button type="button" class="lp-btn lp-btn-sm" disabled="@(_vBusy || _vFile is null || _vSeq == 0)" @onclick="UploadVideoAsync">⬆ @Loc["VD_Upload"]</button>
+                @* the answer is shown here as well: the list below is long and the page above is out of sight *@
+                @if (!string.IsNullOrEmpty(_message)) { <div class="lp-success-msg">@_message</div> }
+                @if (!string.IsNullOrEmpty(_error)) { <p class="validation-message">@_error</p> }
+            </section>
+
+            <section class="adm-card">
+                <div class="settings-label">@Loc.Format("VD_Status", VideoLangName(_vLang), _vBook, _vFiles.Count, _vSubjects.Count)</div>
+                @foreach (var s in _vSubjects)
+                {
+                    var seq = s.SequenceNumber;
+                    <div class="adm-row">
+                        <b>@seq.</b> <span>@s.SubjectName</span>
+                        @if (_vFiles.TryGetValue(seq, out var info))
+                        {
+                            <span class="reg-help">✓ @FormatSize(info.Size) · @info.ModifiedUtc.AddHours(5).ToString("dd.MM.yyyy")</span>
+                            <a class="lp-btn lp-btn-sm lp-btn-outline" target="_blank" href="@Jumbo.Shared.TopicVideoPaths.Url(_vLang, _vBook, seq)">▶ @Loc["VD_Watch"]</a>
+                            <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _vSeq = seq">@Loc["VD_Replace"]</button>
+                            <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => DeleteVideoAsync(seq)">🗑</button>
+                        }
+                        else
+                        {
+                            <span class="reg-help">— @Loc["VD_None"]</span>
+                            <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _vSeq = seq">⬆ @Loc["VD_Upload"]</button>
+                        }
+                    </div>
+                }
+            </section>
+        }
+        else if (_tab == "prices")
+        {
+            <p class="reg-help">@Loc["PR_Hint"]</p>
+            <section class="adm-card">
+                @foreach (var plan in new[] { Jumbo.Shared.Plans.Silver, Jumbo.Shared.Plans.Gold })
+                {
+                    var p = plan;
+                    <div class="settings-label"><span class="plan-coin plan-@p pp-coin" style="width:22px;height:22px;font-size:.8rem;display:inline-flex;vertical-align:middle">★</span> @Loc[JumboWeb.Components.Pages.PlansPage.PlanKey(p)]</div>
+                    <div class="adm-ver-grid">
+                        <label>@Loc["PP_Monthly"] (@Loc["Money_Currency"])<input class="lp-input" type="number" min="0" step="1000" placeholder="0" @bind="PriceRef(p, Jumbo.Shared.Plans.Month).Amount" /></label>
+                        <label>@Loc["PP_Yearly"] (@Loc["Money_Currency"])<input class="lp-input" type="number" min="0" step="1000" placeholder="0" @bind="PriceRef(p, Jumbo.Shared.Plans.Year).Amount" /></label>
+                    </div>
+                }
+                <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="SavePricesAsync">@Loc["PR_Save"]</button>
+            </section>
+        }
+        else if (_tab == "balance")
+        {
+            <p class="reg-help">@Loc["BA_Hint"]</p>
+            <section class="adm-card">
+                <label>@Loc["PA_User"]<input class="lp-input" type="text" maxlength="60" @bind="_topUser" @bind:event="oninput" placeholder="A0000001" /></label>
+                <div class="adm-ver-grid">
+                    <label>@Loc["BA_Amount"] (@Loc["Money_Currency"])<input class="lp-input" type="number" min="1" step="1000" @bind="_topAmount" /></label>
+                    <label>@Loc["BA_Note"]<input class="lp-input" type="text" maxlength="200" @bind="_topNote" /></label>
+                </div>
+                <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="TopUpAsync">💳 @Loc["BA_Do"]</button>
+                @if (!string.IsNullOrEmpty(_message)) { <div class="lp-success-msg">@_message</div> }
+                @if (!string.IsNullOrEmpty(_error)) { <p class="validation-message">@_error</p> }
+            </section>
+            <section class="adm-card">
+                <div class="settings-label">@Loc["BA_History"]</div>
+                @foreach (var t in _balanceTx)
+                {
+                    <div class="adm-row">
+                        <span class="reg-help">@t.CreatedAt.AddHours(5).ToString("dd.MM.yyyy HH:mm")</span>
+                        <b>@t.PublicId</b> <span>@t.UserName</span>
+                        <span class="reg-help">@(t.Kind == "purchase" ? "🛒 " + t.Note : "💳 " + (t.Provider ?? "") + (string.IsNullOrEmpty(t.Note) ? "" : " · " + t.Note))</span>
+                        <b>@(t.Amount > 0 ? "+" : "")@Jumbo.Shared.Money.Format(t.Amount)</b>
+                    </div>
+                }
+            </section>
+        }
+        else if (_tab == "plans")
+        {
+            <p class="reg-help">@Loc["PA_Hint"]</p>
+            <section class="adm-card">
+                <label>@Loc["PA_User"]<input class="lp-input" type="text" maxlength="60" @bind="_planUser" @bind:event="oninput" /></label>
+                <div class="adm-ver-grid">
+                    <label>@Loc["PA_Plan"]
+                        <select class="lp-select" @bind="_planKind">
+                            @foreach (var p in Jumbo.Shared.Plans.All)
+                            {
+                                <option value="@p">@Loc[JumboWeb.Components.Pages.PlansPage.PlanKey(p)]</option>
+                            }
+                        </select>
+                    </label>
+                    <label>@Loc["PA_Until"]<input class="lp-input" type="date" @bind="_planUntil" /></label>
+                </div>
+                <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="SavePlanAsync">@Loc["PA_Save"]</button>
+            </section>
+            <section class="adm-card">
+                <div class="settings-label">@Loc.Format("PA_List", _planUsers.Count)</div>
+                @foreach (var u in _planUsers)
+                {
+                    <div class="adm-row">
+                        <span class="plan-coin plan-@u.Plan pp-coin" style="width:22px;height:22px;font-size:.8rem">★</span>
+                        <b>@u.Name</b> <span class="reg-help">@u.PublicId · @u.Username</span>
+                        <span>@Loc[JumboWeb.Components.Pages.PlansPage.PlanKey(u.Plan)]@(u.PlanUntil is { } d ? " · " + d.ToLocalTime().ToString("dd.MM.yyyy") : "")</span>
+                    </div>
+                }
+            </section>
+        }
+        else if (_tab == "versions")
+        {
+            <p class="reg-help">@Loc["Ver_Hint"]</p>
+            @foreach (var v in _versions)
+            {
+                var ver = v;
+                <section class="adm-card">
+                    <div class="settings-label">@(ver.Platform == "android" ? "🤖 Android" : ver.Platform == "ios" ? "🍎 iOS" : "🪟 Windows")</div>
+                    <div class="adm-ver-grid">
+                        <label>@Loc["Ver_Latest"]<input class="lp-input" type="number" min="0" @bind="ver.LatestCode" /></label>
+                        <label>@Loc["Ver_Min"]<input class="lp-input" type="number" min="0" @bind="ver.MinCode" /></label>
+                    </div>
+                    <label>@Loc["Ver_Url"]<input class="lp-input" type="text" maxlength="500" placeholder="https://play.google.com/store/apps/details?id=uz.jumbo.app" @bind="ver.Url" /></label>
+                    <label>@Loc["Ver_NotesRu"]<input class="lp-input" type="text" maxlength="500" @bind="ver.NotesRu" /></label>
+                    <label>@Loc["Ver_NotesEn"]<input class="lp-input" type="text" maxlength="500" @bind="ver.NotesEn" /></label>
+                    <label>@Loc["Ver_NotesUz"]<input class="lp-input" type="text" maxlength="500" @bind="ver.NotesUz" /></label>
+                    <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="() => SaveVersionAsync(ver)">@Loc["Ver_Save"]</button>
+                </section>
+            }
+        }
+        else if (_tab == "subscribers")
+        {
+            <section class="adm-card">
+                <div class="settings-label">@Loc["Admin_FeedbackTitle"]: @_feedback.Count</div>
+                @foreach (var f in _feedback)
+                {
+                    <article class="adm-msg">
+                        <div class="adm-msg-head"><b>@f.Email</b> <small>@f.Lang.ToUpperInvariant() · @f.CreatedAt.ToString("yyyy-MM-dd HH:mm")</small></div>
+                        <p>@f.Message</p>
+                    </article>
+                }
+            </section>
+            <section class="adm-card">
+                <div class="settings-label">@Loc.Format("Admin_SubscribersCount", _subscribers.Count)</div>
+                @if (_subscribers.Count == 0)
+                {
+                    <div class="lp-empty-state">@Loc["Admin_Empty"]</div>
+                }
+                else
+                {
+                    <textarea class="lp-input" readonly rows="6" onclick="this.select()">@string.Join("; ", _subscribers.Select(x => x.Email))</textarea>
+                    <ul class="adm-subs">
+                        @foreach (var x in _subscribers)
+                        {
+                            <li><span>@x.Email</span> <small>@x.Lang.ToUpperInvariant() · @x.CreatedAt.ToString("yyyy-MM-dd HH:mm")</small></li>
+                        }
+                    </ul>
+                }
+            </section>
+        }
+        else
+        {
+            <section class="adm-card">
+                <div class="settings-label">@Loc["Admin_AddSchool"]</div>
+                <div class="adm-add">
+                    <select class="lp-select" @bind="_addRegion">
+                        <option value="">@Loc["Reg_RegionPlaceholder"]</option>
+                        @foreach (var rc in UzRegions.Codes)
+                        {
+                            <option value="@rc">@Loc[$"Region_{rc}"]</option>
+                        }
+                    </select>
+                    <input class="lp-input" type="text" maxlength="150" placeholder="@Loc["Reg_SchoolPlaceholder"]" @bind="_addName" @bind:event="oninput" />
+                    <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="AddSchoolAsync">＋</button>
+                </div>
+            </section>
+
+            <select class="lp-select adm-filter" value="@_schoolRegion" @onchange="OnSchoolRegionChanged">
+                <option value="">@Loc["Admin_AllRegions"]</option>
+                @foreach (var rc in UzRegions.Codes)
+                {
+                    <option value="@rc">@Loc[$"Region_{rc}"]</option>
+                }
+            </select>
+
+            @if (_schools.Count == 0)
+            {
+                <div class="lp-empty-state">@Loc["Admin_Empty"]</div>
+            }
+            <div class="adm-schools">
+                @foreach (var s in _schools)
+                {
+                    var school = s;
+                    <div class="adm-school">
+                        <div class="adm-school-text">
+                            <div class="adm-name">@school.Name</div>
+                            <div class="adm-meta">@Loc[$"Region_{school.Region}"] · @Loc.Format("Admin_Staff", school.StaffCount)</div>
+                        </div>
+                        <button type="button" class="adm-verify @(school.IsVerified ? "on" : "")" @onclick="() => ToggleVerifiedAsync(school)">
+                            @(school.IsVerified ? "✓ " + Loc["Admin_Verified"] : Loc["Admin_Unverified"])
+                        </button>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private static readonly (string Key, string Label)[] Statuses =
+    [
+        ("pending", "Admin_Pending"), ("approved", "Admin_Approved"), ("rejected", "Admin_Rejected")
+    ];
+
+    private bool _loaded, _busy;
+    private string _tab = "requests";
+    private string _status = "pending";
+    private string _message = string.Empty, _error = string.Empty;
+
+    private List<StaffRequestDto> _requests = new();
+    private int _deciding;
+    private string _decision = "approve";
+    private List<SchoolDto> _regionSchools = new();
+    private int _chosenSchool;
+    private string _newSchoolName = string.Empty;
+    private string _note = string.Empty;
+
+    private List<AppVersionDto> _versions = new();
+    private List<PlanUserDto> _planUsers = new();
+
+    // ── prices of the versions and the balance ──
+    private List<PlanPriceDto> _priceRows = new();
+    private string _topUser = string.Empty, _topNote = string.Empty;
+    private long? _topAmount;
+    private List<BalanceTransactionDto> _balanceTx = new();
+
+    // a price row of a version for a period (made when it is not there yet), for the input fields
+    private PlanPriceDto PriceRef(string plan, string period)
+    {
+        var row = _priceRows.FirstOrDefault(r => r.Plan == plan && r.Period == period);
+        if (row is null) { row = new PlanPriceDto { Plan = plan, Period = period }; _priceRows.Add(row); }
+        return row;
+    }
+
+    private async Task SavePricesAsync()
+    {
+        _message = _error = string.Empty;
+        _busy = true;
+        try { _priceRows = await ApiClient.AdminSetPlanPricesAsync(_priceRows); _message = Loc["PR_Saved"]; }
+        catch (Exception ex) { _error = Loc[$"PR_Err_{ex.Message}"]; }
+        finally { _busy = false; }
+    }
+
+    private async Task TopUpAsync()
+    {
+        _message = _error = string.Empty;
+        if (_topAmount is not { } amount) { _error = Loc["BA_Err_BAD_AMOUNT"]; return; }
+        _busy = true;
+        try
+        {
+            var user = await ApiClient.AdminTopUpAsync(new TopUpRequest { Username = _topUser, Amount = amount, Note = string.IsNullOrWhiteSpace(_topNote) ? null : _topNote });
+            _message = Loc.Format("BA_Done", user?.PublicId ?? _topUser, Jumbo.Shared.Money.Format(user?.Balance ?? 0));
+            _topAmount = null;
+            _balanceTx = await ApiClient.AdminGetBalanceTransactionsAsync();
+        }
+        catch (Exception ex) { _error = Loc[$"BA_Err_{ex.Message}"]; }
+        finally { _busy = false; }
+    }
+
+    // ── videos of the topics ──
+    private string _vLang = "en";
+    private int _vBook = 1, _vSeq;
+    private List<Subject> _vSubjects = new();
+    private Dictionary<int, TopicVideoStore.VideoInfo> _vFiles = new();
+    private IBrowserFile? _vFile;
+    private bool _vBusy;
+    private long _vSent;
+    private string _planUser = string.Empty;
+    private string _planKind = Jumbo.Shared.Plans.Silver;
+    private DateTime _planUntil = DateTime.Today.AddMonths(1);
+    private List<SubscriberDto> _subscribers = new();
+    private List<FeedbackDto> _feedback = new();
+    private List<SchoolDto> _schools = new();
+    private string _schoolRegion = string.Empty;
+    private string _addRegion = string.Empty;
+    private string _addName = string.Empty;
+
+    /// <summary>The section of the page (the left menu of the admin): requests, schools, subscribers, versions, plans, videos.</summary>
+    [Parameter] public string? Section { get; set; }
+
+    private static readonly string[] Sections = ["requests", "schools", "subscribers", "versions", "plans", "prices", "balance", "videos"];
+
+    private string SectionLabel => _tab switch
+    {
+        "schools" => "Admin_TabSchools", "subscribers" => "Admin_TabSubscribers", "versions" => "Admin_TabVersions",
+        "plans" => "Admin_TabPlans", "videos" => "Admin_TabVideos", "prices" => "Admin_TabPrices", "balance" => "Admin_TabBalance", _ => "Admin_TabRequests"
+    };
+
+    private string SectionIcon => _tab switch
+    {
+        "schools" => "🏫", "subscribers" => "💬", "versions" => "📱", "plans" => "🪙", "videos" => "🎬", "prices" => "🏷", "balance" => "💳", _ => "📨"
+    };
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        // Pages are also protected by the API (Admin role); this keeps everybody else out of the UI.
+        if (UserState.CurrentUser?.Role != UserRole.Admin)
+        {
+            Nav.NavigateTo("/", replace: true);
+            return;
+        }
+
+        // "/admin" is the first section
+        if (string.IsNullOrEmpty(Section)) { Nav.NavigateTo("/admin/requests", replace: true); return; }
+        var tab = Sections.Contains(Section) ? Section : "requests";
+        if (_loaded && tab == _tab) return;
+
+        await SetTabAsync(tab);
+        _loaded = true;
+    }
+
+    private async Task SetTabAsync(string tab)
+    {
+        _tab = tab;
+        _message = _error = string.Empty;
+        if (tab == "requests") await LoadRequestsAsync();
+        else if (tab == "videos") await LoadVideosAsync();
+        else if (tab == "prices") { try { _priceRows = await ApiClient.GetPlanPricesAsync(); } catch (Exception ex) { _error = ex.Message; } }
+        else if (tab == "balance") { try { _balanceTx = await ApiClient.AdminGetBalanceTransactionsAsync(); } catch (Exception ex) { _error = ex.Message; } }
+        else if (tab == "plans") { try { _planUsers = await ApiClient.AdminGetPlansAsync(); } catch (Exception ex) { _error = ex.Message; } }
+        else if (tab == "versions") { try { _versions = await ApiClient.AdminGetAppVersionsAsync(); } catch (Exception ex) { _error = ex.Message; } }
+        else if (tab == "subscribers") { try { _subscribers = await ApiClient.AdminGetSubscribersAsync(); _feedback = await ApiClient.AdminGetFeedbackAsync(); } catch (Exception ex) { _error = ex.Message; } }
+        else await LoadSchoolsAsync();
+    }
+
+    private static string VideoLangName(string code) => code switch { "ru" => "Русский", "uz" => "O'zbekcha", _ => "English" };
+
+    private static string FormatSize(long bytes) => bytes >= 1024 * 1024 ? $"{bytes / 1048576.0:0.#} MB" : $"{Math.Max(1, bytes / 1024)} KB";
+
+    private async Task LoadVideosAsync()
+    {
+        try
+        {
+            _vSubjects = (await ApiClient.GetSubjectsByBookAsync(_vBook)).OrderBy(s => s.SequenceNumber).ToList();
+            _vFiles = Videos.Book(_vLang, _vBook);
+            if (_vSeq == 0 || _vSubjects.All(s => s.SequenceNumber != _vSeq)) _vSeq = _vSubjects.FirstOrDefault()?.SequenceNumber ?? 0;
+        }
+        catch (Exception ex) { _error = ex.Message; }
+    }
+
+    private async Task OnVideoLangChanged(ChangeEventArgs e) { _vLang = e.Value?.ToString() ?? "en"; await LoadVideosAsync(); }
+    private async Task OnVideoBookChanged(ChangeEventArgs e) { _vBook = int.TryParse(e.Value?.ToString(), out var b) ? b : 1; _vSeq = 0; await LoadVideosAsync(); }
+
+    private void OnVideoPicked(InputFileChangeEventArgs e) { _vFile = e.File; _message = _error = string.Empty; }
+
+    private async Task UploadVideoAsync()
+    {
+        if (_vFile is null || _vSeq == 0) return;
+        _message = _error = string.Empty;
+        if (!_vFile.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase)) { _error = Loc["VD_Err_NOT_MP4"]; return; }
+        if (_vFile.Size > TopicVideoStore.MaxBytes) { _error = Loc["VD_Err_TOO_BIG"]; return; }
+
+        _vBusy = true;
+        _vSent = 0;
+        try
+        {
+            await using var stream = _vFile.OpenReadStream(TopicVideoStore.MaxBytes);
+            await Videos.SaveAsync(_vLang, _vBook, _vSeq, stream, sent => { _vSent = sent; _ = InvokeAsync(StateHasChanged); });
+            _message = Loc.Format("VD_Saved", VideoLangName(_vLang), _vBook, _vSeq);
+            _vFile = null;
+            _vFiles = Videos.Book(_vLang, _vBook);
+        }
+        catch (InvalidDataException ex) { _error = Loc[$"VD_Err_{ex.Message}"]; }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _vBusy = false; }
+    }
+
+    private async Task DeleteVideoAsync(int seq)
+    {
+        if (!await JS.InvokeAsync<bool>("confirm", Loc.Format("VD_ConfirmDelete", VideoLangName(_vLang), _vBook, seq))) return;
+        try { Videos.Delete(_vLang, _vBook, seq); _vFiles = Videos.Book(_vLang, _vBook); _message = Loc["VD_Deleted"]; }
+        catch (Exception ex) { _error = ex.Message; }
+    }
+
+    private async Task SavePlanAsync()
+    {
+        _message = _error = string.Empty;
+        _busy = true;
+        try
+        {
+            // valid through the end of the chosen day
+            await ApiClient.AdminSetPlanAsync(new SetPlanRequest
+            {
+                Username = _planUser, Plan = _planKind, Until = DateTime.SpecifyKind(_planUntil.Date.AddDays(1), DateTimeKind.Utc)
+            });
+            _message = Loc["PA_Saved"];
+            _planUsers = await ApiClient.AdminGetPlansAsync();
+        }
+        catch (Exception ex) { _error = Loc[$"PA_Err_{ex.Message}"]; }
+        finally { _busy = false; }
+    }
+
+    private async Task SaveVersionAsync(AppVersionDto v)
+    {
+        _message = _error = string.Empty;
+        _busy = true;
+        try { await ApiClient.AdminSetAppVersionAsync(v); _message = Loc["Ver_Saved"]; }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _busy = false; }
+    }
+
+    private async Task SetStatusAsync(string status) { _status = status; _deciding = 0; await LoadRequestsAsync(); }
+
+    private async Task LoadRequestsAsync()
+    {
+        try { _requests = await ApiClient.AdminGetStaffRequestsAsync(_status); }
+        catch (Exception ex) { _error = ex.Message; _requests = new(); }
+    }
+
+    private async Task StartDecisionAsync(StaffRequestDto req, string decision)
+    {
+        _message = _error = string.Empty;
+        _deciding = req.Id;
+        _decision = decision;
+        _note = string.Empty;
+        _newSchoolName = req.SchoolName;
+
+        if (decision == "approve")
+        {
+            try { _regionSchools = await ApiClient.AdminGetSchoolsAsync(req.Region); } catch { _regionSchools = new(); }
+            // Pre-select an existing school with the same name, otherwise "create new".
+            var same = _regionSchools.FirstOrDefault(s => string.Equals(s.Name, req.SchoolName, StringComparison.OrdinalIgnoreCase));
+            _chosenSchool = same?.SchoolId ?? 0;
+        }
+    }
+
+    private async Task ConfirmAsync(StaffRequestDto req)
+    {
+        _busy = true;
+        _message = _error = string.Empty;
+        try
+        {
+            if (_decision == "approve")
+            {
+                await ApiClient.AdminApproveStaffRequestAsync(req.Id, new ApproveStaffRequest
+                {
+                    SchoolId = _chosenSchool > 0 ? _chosenSchool : null,
+                    NewSchoolName = _chosenSchool > 0 ? null : _newSchoolName,
+                    Note = _note
+                });
+            }
+            else
+            {
+                await ApiClient.AdminRejectStaffRequestAsync(req.Id, new RejectStaffRequest { Note = _note });
+            }
+            _deciding = 0;
+            _message = Loc["Admin_Done"];
+            await LoadRequestsAsync();
+        }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _busy = false; }
+    }
+
+    private async Task LoadSchoolsAsync()
+    {
+        try { _schools = await ApiClient.AdminGetSchoolsAsync(string.IsNullOrEmpty(_schoolRegion) ? null : _schoolRegion); }
+        catch (Exception ex) { _error = ex.Message; _schools = new(); }
+    }
+
+    private async Task OnSchoolRegionChanged(ChangeEventArgs e) { _schoolRegion = e.Value?.ToString() ?? string.Empty; await LoadSchoolsAsync(); }
+
+    private async Task AddSchoolAsync()
+    {
+        _message = _error = string.Empty;
+        if (string.IsNullOrEmpty(_addRegion) || string.IsNullOrWhiteSpace(_addName)) return;
+        _busy = true;
+        try
+        {
+            await ApiClient.AdminCreateSchoolAsync(new CreateSchoolRequest { Region = _addRegion, Name = _addName.Trim() });
+            _addName = string.Empty;
+            _message = Loc["Admin_Done"];
+            await LoadSchoolsAsync();
+        }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _busy = false; }
+    }
+
+    private async Task ToggleVerifiedAsync(SchoolDto school)
+    {
+        try
+        {
+            await ApiClient.AdminSetSchoolVerifiedAsync(school.SchoolId, !school.IsVerified);
+            school.IsVerified = !school.IsVerified;
+        }
+        catch (Exception ex) { _error = ex.Message; }
+    }
+}

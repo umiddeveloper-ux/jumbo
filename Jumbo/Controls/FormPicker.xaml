@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Jumbo.Controls.FormPicker">
+    <VerticalStackLayout Spacing="5">
+        <Label x:Name="CaptionLabel" FontFamily="NunitoExtraBold" FontSize="13"
+               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+        <Border StrokeShape="RoundRectangle 16" StrokeThickness="2" Padding="14,0" HeightRequest="52"
+                Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+            <Picker x:Name="Input" BackgroundColor="Transparent" FontFamily="NunitoBold" FontSize="17" VerticalOptions="Center" VerticalTextAlignment="Center"
+                    SelectedIndexChanged="OnSelectedIndexChanged" />
+        </Border>
+    </VerticalStackLayout>
+</ContentView>

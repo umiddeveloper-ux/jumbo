@@ -1,0 +1,17 @@
+@* The video of a topic in the language the learner studies. The files are not part of the site: they lie on the server in
+   /opt/littlepolyglot/media/videos/{lang}/book-01/05.mp4 (+ an optional poster 05.jpg) and nginx serves them at /videos/... (uploaded in the
+   admin page). A topic with no file in this language shows nothing: the video fails to load and its frame hides itself. *@
+<div class="topic-video">
+    <video controls playsinline preload="metadata"
+           src="@Jumbo.Shared.TopicVideoPaths.Url(Lang, Book, Seq)"
+           poster="@Jumbo.Shared.TopicVideoPaths.Url(Lang, Book, Seq, "jpg")"
+           onerror="this.parentElement.style.display='none'"></video>
+</div>
+
+@code {
+    [Parameter] public int Book { get; set; }
+    [Parameter] public int Seq { get; set; }
+
+    /// <summary>The study language: en / ru / uz.</summary>
+    [Parameter] public string Lang { get; set; } = "en";
+}

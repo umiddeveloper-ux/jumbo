@@ -1,0 +1,174 @@
+@page "/little-polyglot/games"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+<PageTitle>@Loc["Games_Title"] — Jumbo</PageTitle>
+
+<p class="lp-page-title">🎮 @Loc["Games_Title"]</p>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <p class="lp-section-title">@Loc["Games_Sub"]</p>
+    <div class="lesson-grid">
+        @foreach (var g in GameList)
+        {
+            var game = g;
+            <div class="lesson-card @(_game == game.Key ? "on" : "")" role="button" @onclick="() => SelectGame(game.Key)">
+                <div class="lesson-icon">@game.Icon</div>
+                <div class="lesson-name">@Loc[game.Title]</div>
+                <div class="lesson-desc">@Loc[game.Desc]</div>
+            </div>
+        }
+    </div>
+
+    @if (_game is not null)
+    {
+        @if (NextTopic(_game) is { } next)
+        {
+            <button type="button" class="lp-btn lp-btn-full games-next" @onclick="() => Play(_game, next.SubjectId)">
+                ▶ @Loc.Format("Games_Next", next.SubjectName)
+            </button>
+        }
+
+        <p class="lp-section-title">@Loc["Games_Pick"]</p>
+        <div class="book-chips">
+            @foreach (var bn in _books)
+            {
+                var b = bn;
+                var pct = BookPercent(_game, b);
+                <button type="button" class="book-chip @(b == _book ? "selected" : "") @(pct >= 100 ? "done" : "")" @onclick="() => SelectBookAsync(b)">
+                    <span class="book-chip-num">@(pct >= 100 ? "✓" : b.ToString())</span>
+                    <span class="book-chip-bar"><span style="width: @(pct)%"></span></span>
+                </button>
+            }
+        </div>
+
+        <div class="subject-grid">
+            @foreach (var s in TopicsOf(_book))
+            {
+                var sid = s.SubjectId;
+                var won = Won(_game, sid);
+                var dashOffset = RingCircumference * (won ? 0 : 1);
+                <div class="subject-card @(sid == SubjectParam ? "current" : "")" role="button" @onclick="() => Play(_game, sid)">
+                    <div class="subject-ring">
+                        <svg viewBox="0 0 68 68" class="subject-ring-svg">
+                            <circle class="subject-ring-track" cx="34" cy="34" r="@Inv(RingRadius)" />
+                            @if (won)
+                            {
+                                <circle class="subject-ring-fill" cx="34" cy="34" r="@Inv(RingRadius)"
+                                        style="stroke-dasharray: @Inv(RingCircumference); stroke-dashoffset: @Inv(dashOffset)" />
+                            }
+                        </svg>
+                        <div class="subject-svg">
+                            @if (_svgMap.TryGetValue(s.SvgImageId, out var svg))
+                            {
+                                @((MarkupString)svg)
+                            }
+                            else
+                            {
+                                <span style="font-size:2rem">📦</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="subject-name">@s.SubjectName</div>
+                    @if (won)
+                    {
+                        <div class="subject-passed">@Loc["Subjects_Passed"]</div>
+                    }
+                </div>
+            }
+        </div>
+    }
+}
+
+@code {
+    // Optional: opened from a topic page ("more games for this topic") - that topic's book is shown first.
+    [SupplyParameterFromQuery(Name = "subject")] public int? SubjectParam { get; set; }
+
+    private static readonly (string Key, string Icon, string Title, string Desc)[] GameList =
+    [
+        ("sequence", "🔡", "Game_SequenceTitle", "Game_SequenceDesc"),
+        ("steps", "📊", "Game_StepsTitle", "Game_StepsDesc"),
+    ];
+
+    private const double RingRadius = 30;
+    private const double RingCircumference = 2 * Math.PI * RingRadius;
+
+    // Razor formats numbers with the current culture; CSS needs a dot.
+    private static string Inv(double d) => d.ToString(System.Globalization.CultureInfo.InvariantCulture);
+
+    private List<int> _books = new();
+    private readonly Dictionary<int, List<Subject>> _subjectsByBook = new();
+    private Dictionary<int, UserSubjectProgress> _progress = new();
+    private readonly Dictionary<int, string> _svgMap = new();
+    private string? _game;
+    private int _book = 1;
+    private bool _loaded;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _books = (await ApiClient.GetBookNumbersAsync()).OrderBy(b => b).ToList();
+        foreach (var b in _books)
+            _subjectsByBook[b] = (await ApiClient.GetSubjectsByBookAsync(b)).OrderBy(s => s.SequenceNumber).ToList();
+        _progress = (await ApiClient.GetUserSubjectProgressAsync()).ToDictionary(p => p.SubjectId);
+
+        // Start in the book of the requested topic, else of the first topic that is not fully won, else the last book.
+        var requested = SubjectParam is { } sp ? _subjectsByBook.Values.SelectMany(x => x).FirstOrDefault(s => s.SubjectId == sp) : null;
+        var firstOpen = _books.SelectMany(b => _subjectsByBook[b]).FirstOrDefault(s => !(_progress.TryGetValue(s.SubjectId, out var p) && p.AllWon));
+        _book = requested?.BookId ?? firstOpen?.BookId ?? _books.LastOrDefault(1);
+
+        await EnsureSvgsAsync(_book);
+        _loaded = true;
+    }
+
+    private async Task SelectGame(string key)
+    {
+        _game = _game == key ? null : key;
+        await EnsureSvgsAsync(_book);
+    }
+
+    private async Task SelectBookAsync(int book)
+    {
+        _book = book;
+        await EnsureSvgsAsync(book);
+    }
+
+    private async Task EnsureSvgsAsync(int book)
+    {
+        foreach (var s in TopicsOf(book))
+        {
+            if (_svgMap.ContainsKey(s.SvgImageId)) continue;
+            var svg = await ApiClient.GetSvgByIdAsync(s.SvgImageId);
+            if (!string.IsNullOrEmpty(svg)) _svgMap[s.SvgImageId] = svg;
+        }
+    }
+
+    private List<Subject> TopicsOf(int book) => _subjectsByBook.TryGetValue(book, out var l) ? l : new();
+
+    private bool Won(string? game, int subjectId) =>
+        _progress.TryGetValue(subjectId, out var p) && (game == "sequence" ? p.SequenceWon : game == "steps" && p.StepsWon);
+
+    // The first topic (over all books, in order) where this game is not won yet.
+    private Subject? NextTopic(string? game) =>
+        _books.SelectMany(b => _subjectsByBook[b]).FirstOrDefault(s => !Won(game, s.SubjectId));
+
+    private int BookPercent(string? game, int book)
+    {
+        var list = TopicsOf(book);
+        return list.Count == 0 ? 0 : list.Count(s => Won(game, s.SubjectId)) * 100 / list.Count;
+    }
+
+    private void Play(string? game, int subjectId)
+    {
+        if (game is null) return;
+        Nav.NavigateTo($"/little-polyglot/games/{game}/{subjectId}");
+    }
+}

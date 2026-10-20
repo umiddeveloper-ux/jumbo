@@ -1,0 +1,309 @@
+@page "/teacher/exam"
+@rendermode InteractiveServer
+@implements IDisposable
+@using JumboWeb.Services
+@using Jumbo.Shared.Dtos
+@using Jumbo.Shared.Entities
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["TE_Title"]</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <div class="tc te">
+        <a class="tc-back" href="/teacher">← @Loc["TC_Back"]</a>
+        <h1 class="tc-title">📝 @Loc["TE_Title"]</h1>
+
+        @if (_noSchool)
+        {
+            <div class="lp-empty-state">@Loc["TC_NoSchool"]</div>
+        }
+        else if (_current is null)
+        {
+            @* ── start a new exam ── *@
+            <section class="tc-card">
+                <p class="te-intro">@Loc["TE_Intro"]</p>
+                <div class="settings-label">@Loc["TE_Count"]</div>
+                <div class="exam-counts te-counts">
+                    @foreach (var n in Counts)
+                    {
+                        var c = n;
+                        <button type="button" class="exam-count @(_count == c ? "selected" : "")"
+                                aria-pressed="@(_count == c ? "true" : "false")" @onclick="() => _count = c">@c</button>
+                    }
+                </div>
+                @if (!string.IsNullOrEmpty(_error))
+                {
+                    <p class="validation-message">@_error</p>
+                }
+                <button type="button" class="lp-btn lp-btn-full te-start" disabled="@_busy" @onclick="StartAsync">▶ @Loc["TE_Start"]</button>
+            </section>
+
+            <h2 class="tc-sub">@Loc["TE_TeamsTitle"]</h2>
+            <p class="te-intro">@Loc["TE_TeamsHint"]</p>
+            @if (_teams.Count == 0)
+            {
+                <div class="tc-empty te-wait"><p>@Loc["TC_NoClasses"]</p></div>
+            }
+            else
+            {
+                <div class="tc-grid">
+                    @foreach (var t in _teams)
+                    {
+                        <a class="tc-class @(t.IsArchived ? "archived" : "")" href="/teacher/exam/team/@t.ClassId">
+                            <div class="tc-class-head">
+                                <span class="tc-class-name">@t.Name</span>
+                                @if (t.IsArchived) { <span class="tc-badge">@Loc["TC_Archived"]</span> }
+                            </div>
+                            <div class="tc-stats te-team-stats">
+                                <div class="tc-stat"><b>@(t.AvgBestPercent is { } p ? $"{p}%" : "—")</b><span>@Loc["TE_TeamAvg"]</span></div>
+                                <div class="tc-stat"><b>@t.ExaminedCount / @t.PupilCount</b><span>@Loc["TE_TeamExamined"]</span></div>
+                            </div>
+                        </a>
+                    }
+                </div>
+            }
+
+            @if (_exams.Count > 0)
+            {
+                <h2 class="tc-sub">@Loc["TE_History"]</h2>
+                <div class="te-history">
+                    @foreach (var e in _exams)
+                    {
+                        var ex = e;
+                        <button type="button" class="te-hist-row" @onclick="() => OpenAsync(ex.TeacherExamId)">
+                            <span class="te-hist-date">@When(ex.CreatedAt)</span>
+                            <span class="te-hist-main">@Loc.Format("TE_Questions", ex.WordCount) · @Loc.Format("TE_Participants", ex.ParticipantCount)</span>
+                            <span class="te-hist-avg">@(ex.AvgPercent is { } p ? $"{p}%" : "—")</span>
+                        </button>
+                    }
+                </div>
+            }
+        }
+        else
+        {
+            var exam = _current.Exam;
+            @* ── a running / finished exam ── *@
+            <section class="tc-card te-codecard @(Active ? "live" : "over")">
+                <div class="settings-label">@Loc["TE_Code"]</div>
+                <div class="te-code">@FormatCode(exam.Code)</div>
+                @if (Active)
+                {
+                    <div class="te-timer">⏱ @Loc.Format("TE_Left", Remaining.ToString(@"m\:ss"))</div>
+                    <p class="tc-hint">@Loc["TE_ShowCode"]</p>
+                }
+                else
+                {
+                    <div class="te-timer over">@Loc["TE_Expired"]</div>
+                }
+                <div class="te-meta">@Loc.Format("TE_Questions", exam.WordCount) · @When(exam.CreatedAt)</div>
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline te-newbtn" @onclick="BackAsync">
+                    @(Active ? Loc["TE_AllExams"] : Loc["TE_NewExam"])
+                </button>
+            </section>
+
+            <h2 class="tc-sub">
+                @Loc["TE_Results"]
+                <span class="te-count">@Loc.Format("TE_Participants", exam.ParticipantCount)@(exam.AvgPercent is { } a ? " · " + Loc.Format("TE_Avg", a) : "")</span>
+            </h2>
+            @if (_current.Results.Count > 0)
+            {
+                <div class="rp-tools rp-noprint te-tools">
+                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="Print">🖨 @Loc["RP_Print"]</button>
+                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="ExportAsync">📊 @Loc["RP_Excel"]</button>
+                </div>
+            }
+
+            @if (_current.Results.Count == 0)
+            {
+                <div class="tc-empty te-wait">
+                    <p>@Loc["TE_NoResults"]</p>
+                </div>
+            }
+            else
+            {
+                <div class="te-table-wrap">
+                    <table class="te-table">
+                        <thead>
+                            <tr>
+                                <th>@Loc["TE_ColPupil"]</th>
+                                <th>@Loc["TE_ColTeam"]</th>
+                                <th class="num">@Loc["TE_ColBook"]</th>
+                                <th class="num">✓</th>
+                                <th class="num">✗</th>
+                                <th class="num">%</th>
+                                <th class="num">@Loc["TE_ColWhen"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var r in _current.Results)
+                            {
+                                <tr>
+                                    <td class="name">@r.Name</td>
+                                    <td>@(r.ClassName ?? "—")</td>
+                                    <td class="num">@r.BookNumber</td>
+                                    <td class="num ok">@r.CorrectCount</td>
+                                    <td class="num bad">@r.WrongCount</td>
+                                    <td class="num pct">@r.Percent%</td>
+                                    <td class="num">@When(r.TakenAt)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        }
+    </div>
+}
+
+@code {
+    private static readonly int[] Counts = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+
+    // Pupils may hand in an exam for a while after it was created (the server accepts it for 3 hours).
+    private static readonly TimeSpan WatchWindow = TimeSpan.FromHours(3);
+
+    private bool _loaded, _busy, _noSchool;
+    private int _count = 20;
+    private string _error = string.Empty;
+    private List<TeacherExamSummaryDto> _exams = new();
+    private List<ExamTeamDto> _teams = new();
+    private TeacherExamDetailDto? _current;
+    private DateTime _now = DateTime.UtcNow;
+
+    private CancellationTokenSource? _cts;
+
+    private bool Active => _current is not null && _current.Exam.ExpiresAt > _now;
+    private TimeSpan Remaining
+    {
+        get
+        {
+            if (_current is null) return TimeSpan.Zero;
+            var left = _current.Exam.ExpiresAt - _now;
+            return left > TimeSpan.Zero ? left : TimeSpan.Zero;
+        }
+    }
+
+    private async Task Print() => await JS.InvokeVoidAsync("lp.printPage");
+
+    private async Task ExportAsync()
+    {
+        if (_current is null) return;
+        var rows = new List<IReadOnlyList<object?>>
+        {
+            new List<object?> { Loc["TE_ColPupil"], Loc["TE_ColTeam"], Loc["TE_ColBook"], "✓", "✗", "%", Loc["TE_ColWhen"] }
+        };
+        foreach (var r in _current.Results)
+            rows.Add(new List<object?> { r.Name, r.ClassName ?? "", r.BookNumber, r.CorrectCount, r.WrongCount, r.Percent, When(r.TakenAt) });
+
+        var bytes = XlsxWriter.Build(Loc["TE_Title"], rows);
+        var file = $"Jumbo-exam-{_current.Exam.Code}-{DateTime.UtcNow.AddHours(5):yyyy-MM-dd}.xlsx";
+        await JS.InvokeVoidAsync("lp.downloadFile", file, Convert.ToBase64String(bytes), XlsxWriter.MimeType);
+    }
+
+    private static string FormatCode(string code) => code.Length == 6 ? $"{code[..3]} {code[3..]}" : code;
+
+    // App time is UTC+5.
+    private static string When(DateTime utc) => utc.AddHours(5).ToString("dd.MM HH:mm");
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        if (UserState.CurrentUser?.Role is not (UserRole.Teacher or UserRole.Director))
+        {
+            Nav.NavigateTo("/for-schools", replace: true);
+            return;
+        }
+
+        try
+        {
+            _exams = await ApiClient.TeacherGetExamsAsync();
+            _teams = await ApiClient.TeacherGetExamTeamsAsync();
+            // An exam that is still running is shown right away (the page was reloaded or left and opened again).
+            var running = _exams.FirstOrDefault(e => e.ExpiresAt > DateTime.UtcNow);
+            if (running is not null) _current = await ApiClient.TeacherGetExamAsync(running.TeacherExamId);
+        }
+        catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.Conflict) { _noSchool = true; }
+        catch (Exception ex) { _error = ex.Message; }
+
+        _loaded = true;
+        _cts = new CancellationTokenSource();
+        _ = TickAsync(_cts.Token);
+    }
+
+    // Every second: the countdown. Every 5 seconds: the pupils' results that have arrived.
+    private async Task TickAsync(CancellationToken token)
+    {
+        using var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+        var n = 0;
+        try
+        {
+            while (await timer.WaitForNextTickAsync(token))
+            {
+                _now = DateTime.UtcNow;
+                if (++n % 5 == 0 && _current is { } c && _now - c.Exam.CreatedAt < WatchWindow)
+                {
+                    try { _current = await ApiClient.TeacherGetExamAsync(c.Exam.TeacherExamId) ?? _current; } catch { }
+                }
+                await InvokeAsync(StateHasChanged);
+            }
+        }
+        catch (OperationCanceledException) { }
+    }
+
+    private async Task StartAsync()
+    {
+        if (_busy) return;
+        _busy = true;
+        _error = string.Empty;
+        try
+        {
+            var created = await ApiClient.TeacherCreateExamAsync(_count);
+            if (created is not null)
+            {
+                _now = DateTime.UtcNow;
+                _current = new TeacherExamDetailDto { Exam = created };
+            }
+        }
+        catch (Exception ex)
+        {
+            var key = $"TE_Err_{ex.Message}";
+            var text = Loc[key];
+            _error = text == key ? ex.Message : text;
+        }
+        finally
+        {
+            _busy = false;
+        }
+    }
+
+    private async Task OpenAsync(int id)
+    {
+        try { _current = await ApiClient.TeacherGetExamAsync(id); }
+        catch (Exception ex) { _error = ex.Message; }
+    }
+
+    private async Task BackAsync()
+    {
+        _current = null;
+        try
+        {
+            _exams = await ApiClient.TeacherGetExamsAsync();
+            _teams = await ApiClient.TeacherGetExamTeamsAsync();
+        }
+        catch { }
+    }
+
+    public void Dispose()
+    {
+        _cts?.Cancel();
+        _cts?.Dispose();
+    }
+}

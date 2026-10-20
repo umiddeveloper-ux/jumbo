@@ -1,0 +1,363 @@
+@page "/little-polyglot/games/steps/{SubjectId:int}"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject LivesService Lives
+@inject IJSRuntime JS
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+<PageTitle>@Loc["Game_StepsTitle"]</PageTitle>
+
+<div class="game-topbar">
+    <button class="lp-back-btn" @onclick="GoBack">@Loc["Common_BackArrow"]</button>
+    @if (!_isGameOver && !_isGameWon)
+    {
+        <TigerCoach @ref="_coach" />
+    }
+    else
+    {
+        <span class="coach"></span>
+    }
+    <span class="game-lives" aria-hidden="true"></span>
+</div>
+
+@if (Blocked)
+{
+    <BlockNotice Failed="@(false)" OnBack="GoBack" OnUnlocked="RestartGame" />
+}
+else if (_isBusy)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_hasNoData)
+{
+    <div class="lp-empty-state">@Loc["Common_NoWordsFound"]</div>
+    <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick="GoBack">@Loc["Common_Back"]</button>
+}
+else if (_isGameOver)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="sad" Size="150" /></div>
+        <div class="game-result-title">@Loc["Common_GameOver"]</div>
+        <div class="game-result-sub">@Loc.Format("StepsGame_LostAtStep", _currentStep, _totalSteps)</div>
+        <button class="lp-btn lp-btn-full" @onclick="RestartGame">@Loc["Common_Again"]</button>
+        <button class="lp-btn lp-btn-full lp-btn-outline" @onclick="GoBack">@Loc["Common_Exit"]</button>
+    </div>
+}
+else if (_isGameWon)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="cheer" Size="160" /></div>
+        <div class="game-result-title">@Loc.Format("StepsGame_Won", _totalSteps)</div>
+        <div class="game-result-sub">@Loc.Format("Common_LpEarned", LpReward)</div>
+        <button class="lp-btn lp-btn-full" @onclick="GoBack">@Loc["Common_Continue"]</button>
+    </div>
+}
+else
+{
+    <div class="steps-layout">
+        <!-- Left: lifelines -->
+        <div class="steps-lifelines">
+            <button class="lifeline-btn @(!_canFiftyFifty ? "used" : "")"
+                    @onclick="UseFiftyFifty" disabled="@(!_canFiftyFifty)">
+                <span>50/50</span>
+            </button>
+            <button class="lifeline-btn @(!_canAudience ? "used" : "")"
+                    @onclick="UseAudienceHelp" disabled="@(!_canAudience)">
+                <span>👥</span>
+            </button>
+        </div>
+
+        <!-- Center: question -->
+        <div class="steps-center">
+            <div class="steps-svg-wrap">
+                @((MarkupString)_currentSvg)
+            </div>
+            <div class="steps-translation">@_currentTranslation</div>
+
+            @if (_showAudience)
+            {
+                <div class="audience-panel">
+                    @foreach (var r in _audienceResults)
+                    {
+                        <div class="audience-row @(r.IsTarget ? "audience-correct" : "")">
+                            <span class="audience-letter">@r.Letter</span>
+                            <div class="audience-bar-wrap">
+                                <div class="audience-bar" style="width:@(r.Percentage)%"></div>
+                            </div>
+                            <span class="audience-pct">@(r.Percentage)%</span>
+                        </div>
+                    }
+                    <button class="lp-btn lp-btn-sm" style="margin-top:8px" @onclick="() => _showAudience = false">@Loc["StepsGame_Close"]</button>
+                </div>
+            }
+            else
+            {
+                @foreach (var ans in _answers)
+                {
+                    var a = ans;
+                    @if (a.IsVisible)
+                    {
+                        <button class="answer-option @GetAnswerClass(a)" disabled="@(!_isInteractive)"
+                                @onclick="() => SelectAnswer(a)">
+                            <span class="answer-letter">@a.Letter</span>
+                            <span class="answer-word">@a.Word</span>
+                        </button>
+                    }
+                }
+            }
+        </div>
+
+        <!-- Right: steps ladder -->
+        <div class="steps-ladder">
+            @for (int i = _steps.Count - 1; i >= 0; i--)
+            {
+                var s = _steps[i];
+                <div class="step-item @(s.IsCurrent ? "current" : s.IsPassed ? "passed" : "") @(s.IsMilestone ? "milestone" : "")">
+                    <span class="step-num">@s.Num</span>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    // No lives and no LP: the 5-hour block.
+    private bool Blocked => Lives.IsBlocked;
+
+    private const int MaxSteps = 15;
+    private const int LpReward = 10;
+
+    [Parameter] public int SubjectId { get; set; }
+    private TigerCoach? _coach;
+
+    private record WordData(int WordId, int SvgImageId, string EnglishWord, string TranslationWord, string SvgHtml);
+    private List<WordData> _gameWords = new();
+    private List<AnswerOpt> _answers = new();
+    private List<StepItem> _steps = new();
+    private List<AudienceBar> _audienceResults = new();
+    private int _questionIndex;
+    private int _currentStep, _totalSteps;
+    private string _currentSvg = string.Empty;
+    private string _currentTranslation = string.Empty;
+    private bool _isBusy, _hasNoData, _isGameOver, _isGameWon, _isInteractive;
+    private bool _canFiftyFifty = true, _canAudience = true, _showAudience;
+    private int _userId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        _userId = UserState.CurrentUser?.UserId ?? 0;
+        await LoadGame();
+    }
+
+    private async Task LoadGame()
+    {
+        _isBusy = true;
+        _isGameOver = _isGameWon = _hasNoData = false;
+        _canFiftyFifty = _canAudience = true;
+        _showAudience = false;
+        _gameWords.Clear(); _answers.Clear(); _steps.Clear();
+
+        await Lives.CheckRegenAsync();
+
+        var words = await ApiClient.GetWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId, MaxSteps);
+        if (words.Count < 4) { _hasNoData = true; _isBusy = false; return; }
+
+        var userWords = await ApiClient.GetUserWordsAsync();
+        var rep = userWords.ToDictionary(uw => uw.WordId, uw => uw.RepeatingCount);
+        var sorted = words
+            .OrderBy(_ => Random.Shared.Next())
+            .OrderBy(w => rep.TryGetValue(w.WordId, out var c) ? c : 0)
+            .Take(MaxSteps).ToList();
+
+        foreach (var w in sorted)
+        {
+            var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+            var svg   = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
+            _gameWords.Add(new WordData(w.WordId, w.SvgImageId, w.WordName,
+                trans?.WordName ?? w.WordName, svg));
+        }
+        _gameWords = _gameWords.OrderBy(_ => Random.Shared.Next()).ToList();
+        _totalSteps = _gameWords.Count;
+
+        _steps.Clear();
+        for (int i = 1; i <= _totalSteps; i++)
+            _steps.Add(new StepItem { Num = i, IsMilestone = i % 5 == 0 || i == _totalSteps });
+
+        _questionIndex = 0;
+        _currentStep = 1;
+        UpdateStepHighlights();
+        _isBusy = false;
+        await LoadQuestion();
+    }
+
+    private async Task LoadQuestion()
+    {
+        var target = _gameWords[_questionIndex];
+        _currentSvg = target.SvgHtml;
+        _currentTranslation = target.TranslationWord;
+
+        var distractors = _gameWords
+            .Where(w => w.SvgImageId != target.SvgImageId && !Jumbo.Shared.WordMatch.SameMeaning(w.TranslationWord, target.TranslationWord))
+            .OrderBy(_ => Random.Shared.Next()).Take(3).ToList();
+        while (distractors.Count < 3)
+            distractors.Add(_gameWords.First(w => w != target));
+
+        var raw = new List<(string Word, bool IsTarget)>
+        {
+            (target.EnglishWord, true),
+            (distractors[0].EnglishWord, false),
+            (distractors[1].EnglishWord, false),
+            (distractors[2].EnglishWord, false),
+        };
+
+        string[] letters = ["A", "B", "C", "D"];
+        var shuffled = raw.OrderBy(_ => Random.Shared.Next()).ToList();
+        _answers = shuffled.Select((x, i) => new AnswerOpt
+        {
+            Letter = letters[i], Word = x.Word,
+            IsTarget = x.IsTarget, IsVisible = true
+        }).ToList();
+
+        await Task.Delay(50);
+        _isInteractive = true;
+    }
+
+    private async Task SelectAnswer(AnswerOpt answer)
+    {
+        if (!_isInteractive) return;
+        _isInteractive = false;
+        _showAudience = false;
+
+        if (answer.IsTarget)
+        {
+            answer.State = AnsState.Correct;
+            _coach?.Cheer();
+            StateHasChanged();
+            await Task.Delay(900);
+
+            _questionIndex++;
+            if (_questionIndex >= _gameWords.Count)
+            {
+                _currentStep = _totalSteps;
+                UpdateStepHighlights();
+                await ApiClient.EnsureWordsExistAsync(_gameWords.Select(w => w.WordId));
+                await ApiClient.MarkGameWonAsync(SubjectId, "Steps");
+                await Lives.AddLpAsync(LpReward);
+                _isGameWon = true;
+            }
+            else
+            {
+                _currentStep++;
+                UpdateStepHighlights();
+                await LoadQuestion();
+            }
+        }
+        else
+        {
+            answer.State = AnsState.Wrong;
+            _coach?.Oops();
+            var correct = _answers.FirstOrDefault(a => a.IsTarget);
+            StateHasChanged();
+            await Lives.TakeDamageAsync();
+            await Task.Delay(400);
+            if (correct != null) { correct.State = AnsState.Correct; StateHasChanged(); }
+            await Task.Delay(1500);
+            _isGameOver = true;
+        }
+    }
+
+    private void UseFiftyFifty()
+    {
+        if (!_canFiftyFifty) return;
+        _canFiftyFifty = false;
+        var wrong = _answers.Where(a => !a.IsTarget && a.IsVisible)
+            .OrderBy(_ => Random.Shared.Next()).Take(2).ToList();
+        foreach (var a in wrong) a.IsVisible = false;
+    }
+
+    private void UseAudienceHelp()
+    {
+        if (!_canAudience) return;
+        _canAudience = false;
+
+        int correctPct = Random.Shared.Next(62, 82);
+        var visWrong = _answers.Where(a => !a.IsTarget && a.IsVisible).ToList();
+        int remaining = 100 - correctPct;
+        var wrongPcts = new List<int>();
+        for (int i = 0; i < visWrong.Count - 1; i++)
+        {
+            int p = Random.Shared.Next(1, Math.Max(2, remaining - (visWrong.Count - i - 1)));
+            wrongPcts.Add(p); remaining -= p;
+        }
+        if (visWrong.Count > 0) wrongPcts.Add(Math.Max(0, remaining));
+        wrongPcts = wrongPcts.OrderBy(_ => Random.Shared.Next()).ToList();
+
+        _audienceResults.Clear();
+        int wi = 0;
+        foreach (var ans in _answers)
+        {
+            int pct = !ans.IsVisible ? 0 : ans.IsTarget ? correctPct : (wi < wrongPcts.Count ? wrongPcts[wi++] : 0);
+            _audienceResults.Add(new AudienceBar { Letter = ans.Letter, Word = ans.Word, Percentage = pct, IsTarget = ans.IsTarget });
+        }
+        _showAudience = true;
+    }
+
+    private void UpdateStepHighlights()
+    {
+        foreach (var s in _steps)
+        {
+            s.IsCurrent = s.Num == _currentStep;
+            s.IsPassed  = s.Num < _currentStep;
+        }
+    }
+
+    private string GetAnswerClass(AnswerOpt a) => a.State switch
+    {
+        AnsState.Correct => "correct-answer",
+        AnsState.Wrong   => "wrong-answer",
+        _ => ""
+    };
+
+    private void GoBack() => _ = JS.InvokeVoidAsync("lp.goBack", "/little-polyglot");
+
+    private async Task RestartGame()
+    {
+        await Lives.CheckRegenAsync();
+        if (!Lives.CanPlay) return;
+        await LoadGame();
+    }
+
+    private enum AnsState { Normal, Correct, Wrong }
+
+    private class AnswerOpt
+    {
+        public string Letter { get; set; } = string.Empty;
+        public string Word { get; set; } = string.Empty;
+        public bool IsTarget { get; set; }
+        public bool IsVisible { get; set; } = true;
+        public AnsState State { get; set; }
+    }
+
+    private class StepItem
+    {
+        public int Num { get; set; }
+        public bool IsMilestone { get; set; }
+        public bool IsCurrent { get; set; }
+        public bool IsPassed { get; set; }
+    }
+
+    private class AudienceBar
+    {
+        public string Letter { get; set; } = string.Empty;
+        public string Word { get; set; } = string.Empty;
+        public int Percentage { get; set; }
+        public bool IsTarget { get; set; }
+    }
+}

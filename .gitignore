@@ -1,0 +1,43 @@
+# --- build output and IDE
+bin/
+obj/
+.vs/
+.idea/
+*.user
+*.suo
+.codex-build/
+.claude/
+
+# --- secrets and signing: NEVER commit
+*.keystore
+*.jks
+*.pfx
+Jumbo/signing/
+.env
+.env.*
+!.env.example
+
+# --- release files of the app (big, made by build-release.ps1)
+Jumbo/release-out/
+*.apk
+*.aab
+*.zip
+
+# --- videos and other big media live on the server / are kept apart from the code
+TopicVideos/
+videos/
+media/
+media-dev/
+*.mp4
+*.mov
+
+# --- logs and local leftovers
+*.log
+*.err.log
+*.out.log
+*.job.log
+*.bak
+
+# --- local helper scripts and agent folders (may hold local tokens/passwords)
+.local-test/
+.agents/

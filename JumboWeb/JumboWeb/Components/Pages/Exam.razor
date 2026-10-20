@@ -1,0 +1,271 @@
+@page "/exam"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@inject LivesService Lives
+
+<PageTitle>@Loc["SiteHome_ExamCardTitle"]</PageTitle>
+
+<div class="exam-page">
+    <header class="exam-hero">
+        <Tiger Head="true" Mood="idle" Size="76" />
+        <div class="exam-hero-text">
+            <h1 class="exam-title">@Loc["Exam_Heading"]</h1>
+            <p class="exam-intro">@Loc["Exam_Intro"]</p>
+        </div>
+    </header>
+
+    @if (!_loaded)
+    {
+        <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+    }
+    else if (_blocked)
+    {
+        @* No lives and no LP: the 5-hour block, and the exam is closed until it is over (the same notice as in the games). *@
+        <BlockNotice OnBack="LeaveBlocked" OnUnlocked="Unblocked" />
+    }
+    else if (!_profileOk)
+    {
+        @* The exam needs the player's school and team: ask for them here, then go straight on to the exam. *@
+        <section class="exam-card exam-gate">
+            <h2 class="exam-gate-title">@Loc["Exam_GateTitle"]</h2>
+            <p class="exam-gate-text">@Loc["Exam_GateText"]</p>
+
+            <TeamPicker @bind-Region="_region" @bind-ClassId="_pickedClassId" />
+
+            @if (!string.IsNullOrEmpty(_gateError))
+            {
+                <p class="validation-message">@_gateError</p>
+            }
+
+            <button type="button" class="lp-btn lp-btn-full" disabled="@_saving" @onclick="SaveProfile">
+                @Loc["Exam_GateSave"] →
+            </button>
+        </section>
+    }
+    else
+    {
+        <div class="exam-modes" role="tablist">
+            <button type="button" role="tab" aria-selected="@(!_teacherMode ? "true" : "false")" class="exam-mode @(!_teacherMode ? "on" : "")" @onclick="() => SetMode(false)">📝 @Loc["Exam_ModeFree"]</button>
+            <button type="button" role="tab" aria-selected="@(_teacherMode ? "true" : "false")" class="exam-mode @(_teacherMode ? "on" : "")" @onclick="() => SetMode(true)">🧑‍🏫 @Loc["Exam_ModeTeacher"]</button>
+        </div>
+
+        <section class="exam-card">
+            <h2 class="exam-step"><span class="exam-step-num">1</span>@Loc["Exam_ChooseBook"]</h2>
+            <div class="exam-books">
+                @foreach (var bn in _bookNumbers)
+                {
+                    var num = bn;
+                    <button type="button" class="exam-book @(_selectedBook == num ? "selected" : "")"
+                            aria-pressed="@(_selectedBook == num ? "true" : "false")"
+                            @onclick="() => _selectedBook = num">
+                        <span class="exam-book-num">@num</span>
+                        <span class="exam-book-label">@Loc.Format("Common_BookLabel", num)</span>
+                        @if (!_teacherMode && _results.TryGetValue(num, out var r))
+                        {
+                            @* The latest exam in this book: right, wrong, percent. *@
+                            <span class="exam-book-stats">
+                                <span class="ok">✓ @r.CorrectCount</span>
+                                <span class="bad">✗ @r.WrongCount</span>
+                            </span>
+                            <span class="exam-book-pct">@r.Percent%</span>
+                        }
+                    </button>
+                }
+            </div>
+            @if (!_teacherMode && _results.Count > 0)
+            {
+                <p class="exam-note">@Loc["Exam_BestNote"]</p>
+            }
+        </section>
+
+        @if (!_teacherMode)
+        {
+            <section class="exam-card">
+                <h2 class="exam-step"><span class="exam-step-num">2</span>@Loc["Exam_WordCount"]</h2>
+                <div class="exam-counts">
+                    @foreach (var count in WordCounts)
+                    {
+                        var c = count;
+                        <button type="button" class="exam-count @(_selectedCount == c ? "selected" : "")"
+                                aria-pressed="@(_selectedCount == c ? "true" : "false")"
+                                @onclick="() => _selectedCount = c">@c</button>
+                    }
+                </div>
+            </section>
+        }
+        else
+        {
+            <section class="exam-card">
+                <h2 class="exam-step"><span class="exam-step-num">2</span>@Loc["Exam_CodeStep"]</h2>
+                <input id="exam-code" class="exam-code-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6"
+                       autocomplete="off" spellcheck="false" placeholder="••••••" aria-label="@Loc["Exam_CodeStep"]"
+                       value="@_code" @oninput="OnCodeInput" @onkeydown="OnCodeKey" />
+                <p class="exam-note">@Loc["Exam_CodeHint"]</p>
+                @if (!string.IsNullOrEmpty(_codeError))
+                {
+                    <p class="validation-message">@_codeError</p>
+                }
+            </section>
+        }
+
+        @* Always visible at the bottom of the screen, so "Start" never hides below the fold. *@
+        <div class="exam-bar">
+            <div class="exam-bar-text @(CanStart ? "ready" : "")">
+                @if (CanStart && _teacherMode)
+                {
+                    @Loc.Format("Exam_TeacherSelected", _selectedBook!)
+                }
+                else if (CanStart)
+                {
+                    @Loc.Format("Exam_Selected", _selectedBook!, _selectedCount!)
+                }
+                else
+                {
+                    @Loc[_teacherMode ? "Exam_HintTeacher" : "Exam_Hint"]
+                }
+            </div>
+            <button type="button" class="lp-btn exam-go" disabled="@(!CanStart || _joining)" @onclick="Start">
+                @Loc["Exam_StartButton"]
+            </button>
+        </div>
+    }
+</div>
+
+@code {
+    private static readonly int[] WordCounts = { 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+
+    private List<int> _bookNumbers = new();
+    private Dictionary<int, MyExamBookResultDto> _results = new();
+    private int? _selectedBook;
+    private int? _selectedCount;
+    private bool _loaded;
+    private bool _blocked;      // lives and LP are both 0: the exam is not available
+
+    // Profile gate: school and team must be filled in before the exam.
+    private bool _profileOk;
+    private string _region = string.Empty;
+    private string _school = string.Empty;
+    private string _team = string.Empty;
+    private int? _pickedClassId;
+    private string _gateError = string.Empty;
+    private bool _saving;
+
+    // "Teacher's exam": the pupil picks a book and types the 6-digit code the teacher shows; the teacher sets the number of questions.
+    private bool _teacherMode;
+    private string _code = string.Empty;
+    private string _codeError = string.Empty;
+    private bool _joining;
+
+    private bool CanStart => _selectedBook.HasValue && (_teacherMode ? _code.Length == 6 : _selectedCount.HasValue);
+
+    private void SetMode(bool teacher)
+    {
+        _teacherMode = teacher;
+        _codeError = string.Empty;
+    }
+
+    private async Task OnCodeInput(ChangeEventArgs e)
+    {
+        var typed = e.Value?.ToString() ?? string.Empty;
+        _code = new string(typed.Where(char.IsAsciiDigit).Take(6).ToArray());
+        _codeError = string.Empty;
+        // Letters and the like never stay in the box (Blazor would not repaint it when the value did not change).
+        if (typed != _code) { try { await JS.InvokeVoidAsync("lp.setCodeValue", _code); } catch { } }
+    }
+
+    private async Task OnCodeKey(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && CanStart) await Start();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Prefs.EnsureLoadedAsync();
+        await UserState.EnsureLoadedAsync();
+
+        if (!Lives.Initialized) await Lives.InitAsync();
+        await Lives.CheckRegenAsync();
+        _blocked = Lives.Initialized && Lives.IsBlocked;
+
+        var user = UserState.CurrentUser;
+        _region = user?.Region ?? string.Empty;
+        _school = user?.School ?? string.Empty;
+        _team = user?.Team ?? string.Empty;
+        _profileOk = !string.IsNullOrWhiteSpace(_region) && !string.IsNullOrWhiteSpace(_school) && !string.IsNullOrWhiteSpace(_team);
+
+        _bookNumbers = (await ApiClient.GetBookNumbersAsync()).OrderBy(b => b).ToList();
+        // free exams are not stored any more: there is no "best result" to show under the books
+        _loaded = true;
+    }
+
+    private void LeaveBlocked() => Nav.NavigateTo("/little-polyglot");
+
+    // The 5 hours are over: the lives are back and the exam opens.
+    private void Unblocked() => _blocked = false;
+
+    // The school and team are picked from the lists; the teacher confirms later, but the learner can examine right away.
+    private async Task SaveProfile()
+    {
+        _gateError = string.Empty;
+        if (_pickedClassId is not { } classId)
+        {
+            _gateError = Loc["Exam_GateRequired"];
+            return;
+        }
+
+        _saving = true;
+        try
+        {
+            await ApiClient.SelectTeamAsync(classId);
+            UserState.Invalidate();
+            await UserState.EnsureLoadedAsync();
+            _profileOk = true;          // straight on to choosing the book
+        }
+        catch (Exception ex)
+        {
+            var key = $"Team_Err_{ex.Message}";
+            var text = Loc[key];
+            _gateError = text == key ? ex.Message : text;
+        }
+        finally
+        {
+            _saving = false;
+        }
+    }
+
+    private async Task Start()
+    {
+        if (!CanStart || _joining) return;
+        if (!_teacherMode)
+        {
+            Nav.NavigateTo($"/exam/quiz/{_selectedBook}/{_selectedCount}");
+            return;
+        }
+
+        // The server checks the code (it works for 5 minutes) and says how many questions the teacher chose.
+        _joining = true;
+        _codeError = string.Empty;
+        try
+        {
+            var joined = await ApiClient.JoinTeacherExamAsync(_code);
+            if (joined is not null)
+                Nav.NavigateTo($"/exam/quiz/{_selectedBook}/{joined.WordCount}?te={joined.TeacherExamId}");
+        }
+        catch (Exception ex)
+        {
+            var key = $"Exam_CodeErr_{ex.Message}";
+            var text = Loc[key];
+            _codeError = text == key ? ex.Message : text;
+        }
+        finally
+        {
+            _joining = false;
+        }
+    }
+}

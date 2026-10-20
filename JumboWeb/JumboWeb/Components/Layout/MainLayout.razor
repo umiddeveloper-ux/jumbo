@@ -1,0 +1,121 @@
+@inherits LayoutComponentBase
+@using JumboWeb.Services
+@using System.ComponentModel
+@inject UserStateService UserState
+@inject UserPreferencesService Prefs
+@inject LivesService LivesService
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@implements IDisposable
+
+<div class="lp-app">
+    @if (!_initialized)
+    {
+        <div class="lp-loading">@Loc["Common_Loading"]</div>
+    }
+    else
+    {
+        @if (!_isRegisterPage)
+        {
+            <header class="lp-header">
+                <span class="lp-header-brand">
+                    <img src="favicon.svg" alt="@Loc["Common_LpBrand"]" class="lp-header-icon" />
+                    @Loc["Common_LpBrand"]
+                </span>
+                <div class="lp-header-status">
+                    <span class="lp-lives">@LivesService.LivesDisplay</span>
+                    <span class="lp-lp">@LivesService.LpDisplay</span>
+                </div>
+            </header>
+        }
+
+        <div class="lp-content @(_isRegisterPage ? "full" : "")">
+            @Body
+        </div>
+
+        @if (UserState.IsRegistered && !_isRegisterPage)
+        {
+            <nav class="lp-tabs">
+                <button class="lp-tab @(IsActive("") ? "active" : "")" @onclick='() => Go("/")'>
+                    <span class="tab-icon">🏠</span>
+                    <span class="tab-label">@Loc["LpLayout_HomeTab"]</span>
+                    @if (IsActive("")) { <div class="lp-tab-indicator"></div> }
+                </button>
+                <button class="lp-tab @(IsActive("dictionary") ? "active" : "")" @onclick='() => Go("/dictionary")'>
+                    <span class="tab-icon">📖</span>
+                    <span class="tab-label">@Loc["DictionaryTitle"]</span>
+                    @if (IsActive("dictionary")) { <div class="lp-tab-indicator"></div> }
+                </button>
+                <button class="lp-tab @(IsActive("awards") ? "active" : "")" @onclick='() => Go("/awards")'>
+                    <span class="tab-icon">🏆</span>
+                    <span class="tab-label">@Loc["AwardsTitle"]</span>
+                    @if (IsActive("awards")) { <div class="lp-tab-indicator"></div> }
+                </button>
+                <button class="lp-tab @(IsActive("settings") ? "active" : "")" @onclick='() => Go("/settings")'>
+                    <span class="tab-icon">⚙️</span>
+                    <span class="tab-label">@Loc["SettingsTitle"]</span>
+                    @if (IsActive("settings")) { <div class="lp-tab-indicator"></div> }
+                </button>
+            </nav>
+        }
+    }
+</div>
+
+<div id="blazor-error-ui" data-nosnippet>
+    @Loc["LpLayout_ErrorBanner"] <a href="." class="reload">@Loc["LpLayout_ReloadLink"]</a>
+    <span class="dismiss">🗙</span>
+</div>
+
+@code {
+    private bool _initialized;
+    private string _currentPath = string.Empty;
+    private bool _isRegisterPage => _currentPath.Equals("register", StringComparison.OrdinalIgnoreCase);
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        await LivesService.InitAsync();
+
+        _currentPath = GetPath(Nav.Uri);
+
+        if (!UserState.IsRegistered && !_isRegisterPage)
+            Nav.NavigateTo("/register", replace: true);
+
+        Nav.LocationChanged += OnLocationChanged;
+        LivesService.PropertyChanged += OnLivesChanged;
+        _initialized = true;
+        StateHasChanged();
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        _currentPath = GetPath(e.Location);
+        if (!UserState.IsRegistered && !_isRegisterPage)
+            Nav.NavigateTo("/register", replace: true);
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void OnLivesChanged(object? sender, PropertyChangedEventArgs e)
+        => InvokeAsync(StateHasChanged);
+
+    private string GetPath(string uri)
+        => Nav.ToBaseRelativePath(uri).Split('?')[0].Trim('/');
+
+    private bool IsActive(string segment)
+    {
+        if (segment == "")
+            return _currentPath == "" || _currentPath == "/";
+        return _currentPath.StartsWith(segment, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private void Go(string path) => Nav.NavigateTo(path);
+
+    public void Dispose()
+    {
+        Nav.LocationChanged -= OnLocationChanged;
+        LivesService.PropertyChanged -= OnLivesChanged;
+    }
+}

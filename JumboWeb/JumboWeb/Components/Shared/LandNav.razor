@@ -1,0 +1,45 @@
+@using JumboWeb.Services
+@inject AppLocalizer Loc
+@inject IJSRuntime JS
+
+@* Top bar of the public pages (landing, "For schools") for visitors who are not signed in. *@
+<header class="land-nav">
+    <a class="land-brand" href="/"><img src="favicon.svg" alt="" /><span>@Loc["Common_BrandName"]</span></a>
+    @if (Minimal)
+    {
+        @* the menu of the landing: every item scrolls to its part of the page *@
+        <nav class="land-menu" aria-label="Menu">
+            @foreach (var (id, key) in Items)
+            {
+                var target = id;
+                <a href="#@target" @onclick="() => GoAsync(target)" @onclick:preventDefault="true">@Loc[key]</a>
+            }
+        </nav>
+    }
+    <div class="land-nav-actions">
+        @if (!Minimal)
+        {
+            <a class="land-nav-link" href="/plans">@Loc["Plan_Nav"]</a>
+            <a class="land-nav-link" href="/for-schools">@Loc["FS_Nav"]</a>
+        }
+        <LanguageSwitcher />
+        @if (!Minimal)
+        {
+            <ThemeToggle />
+            <a class="lp-btn lp-btn-outline lp-btn-sm" href="/login">@Loc["Land_Login"]</a>
+            <a class="lp-btn lp-btn-sm land-nav-cta" href="/register">@Loc["Land_Register"]</a>
+        }
+    </div>
+</header>
+
+@code {
+    /// <summary>The landing page: only the icon, the language and the theme (the buttons to sign in and register are in the page itself).</summary>
+    [Parameter] public bool Minimal { get; set; }
+
+    private static readonly (string Id, string Key)[] Items =
+    [
+        ("shots", "Nav_App"), ("top", "Nav_Top"), ("how", "Nav_How"), ("features", "Nav_Feat"), ("download", "Nav_Get"), ("contact", "Nav_Contact"),
+    ];
+
+    private async Task GoAsync(string id) => await JS.InvokeVoidAsync("lp.goTo", id);
+}

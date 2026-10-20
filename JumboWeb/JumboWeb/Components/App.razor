@@ -1,0 +1,525 @@
+﻿<!DOCTYPE html>
+@using JumboWeb.Services
+<html lang="@_lang">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <script>
+        // Apply the saved (or system) theme before first paint to avoid a light flash.
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('jumbo-theme'); } catch (e) { }
+            if (t !== 'dark' && t !== 'light')
+                t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+            // the colour theme bought in the market (the page sets the right one of the learner once it knows who it is)
+            try { var p = localStorage.getItem('lp-palette'); if (p) document.documentElement.setAttribute('data-palette', p); } catch (e) { }
+        })();
+    </script>
+    <script>
+        // First visit, nobody has picked a language yet: guess it from the country. The browser's time zone tells the country without
+        // asking for the location and without calling any outside service: Uzbekistan -> Uzbek, Russia and the Russian-speaking
+        // countries -> Russian; elsewhere the browser's language (uz / ru / en), else English. The guess is kept in the "jumbo-geo"
+        // cookie for 30 days, the page is rendered again once if the server had chosen another language. A language picked with the
+        // switch ("jumbo-lang" cookie) or saved in the profile always wins.
+        (function () {
+            var UZ = { 'Asia/Tashkent': 1, 'Asia/Samarkand': 1 };
+            var RU = {};
+            ('Europe/Kaliningrad Europe/Moscow Europe/Simferopol Europe/Kirov Europe/Volgograd Europe/Astrakhan Europe/Saratov Europe/Ulyanovsk Europe/Samara ' +
+             'Asia/Yekaterinburg Asia/Omsk Asia/Novosibirsk Asia/Barnaul Asia/Tomsk Asia/Novokuznetsk Asia/Krasnoyarsk Asia/Irkutsk Asia/Chita Asia/Yakutsk ' +
+             'Asia/Khandyga Asia/Vladivostok Asia/Ust-Nera Asia/Magadan Asia/Sakhalin Asia/Srednekolymsk Asia/Kamchatka Asia/Anadyr ' +
+             'Europe/Minsk Asia/Almaty Asia/Qyzylorda Asia/Qostanay Asia/Aqtobe Asia/Aqtau Asia/Atyrau Asia/Oral Asia/Bishkek Asia/Dushanbe Asia/Ashgabat ' +
+             'Europe/Kyiv Europe/Kiev Europe/Uzhgorod Europe/Zaporozhye Europe/Chisinau Asia/Yerevan Asia/Baku').split(' ').forEach(function (z) { RU[z] = 1; });
+
+            window.lpDetectLang = function (tz, langs) {
+                if (UZ[tz]) return 'uz';
+                if (RU[tz]) return 'ru';
+                for (var i = 0; i < (langs || []).length; i++) {
+                    var l = String(langs[i]).toLowerCase();
+                    if (l.indexOf('uz') === 0) return 'uz';
+                    if (l.indexOf('ru') === 0) return 'ru';
+                    if (l.indexOf('en') === 0) return 'en';
+                }
+                return 'en';
+            };
+
+            try {
+                if (/(^|;\s*)(jumbo-lang|jumbo-geo)=/.test(document.cookie)) return;
+                var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
+                var code = window.lpDetectLang(tz, navigator.languages || [navigator.language]);
+                document.cookie = 'jumbo-geo=' + code + '; path=/; max-age=2592000; samesite=lax';
+                // reload only when the cookie was really stored (no endless reloads when cookies are blocked)
+                if (/(^|;\s*)jumbo-geo=/.test(document.cookie) && document.documentElement.lang !== code) window.location.reload();
+            } catch (e) { }
+        })();
+    </script>
+    <ResourcePreloader />
+    <link rel="stylesheet" href="@Assets["lib/bootstrap/dist/css/bootstrap.min.css"]" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Andika:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="@Assets["app.css"]" />
+    <link rel="stylesheet" href="@Assets["jumbo-theme.css"]" />
+    <link rel="stylesheet" href="@Assets["tiger.css"]" />
+    <link rel="stylesheet" href="@Assets["home.css"]" />
+    <link rel="stylesheet" href="@Assets["rating.css"]" />
+    <link rel="stylesheet" href="@Assets["top10.css"]" />
+    <link rel="stylesheet" href="@Assets["lang.css"]" />
+    <link rel="stylesheet" href="@Assets["exam.css"]" />
+    <link rel="stylesheet" href="@Assets["schools.css"]" />
+    <link rel="stylesheet" href="@Assets["teacher.css"]" />
+    <link rel="stylesheet" href="@Assets["report.css"]" />
+    <link rel="stylesheet" href="@Assets["JumboWeb.styles.css"]" />
+    <ImportMap />
+    <link rel="icon" type="image/svg+xml" href="@Assets["favicon.svg"]" />
+    <link rel="alternate icon" type="image/png" href="@Assets["favicon.png"]" />
+    <link rel="apple-touch-icon" href="@Assets["apple-touch-icon.png"]" />
+    <meta name="theme-color" content="#1CB0F6" />
+    <HeadOutlet />
+</head>
+
+<body>
+    <Routes AccessToken="@HttpContext?.Request.Cookies["access_token"]" Lang="@_lang" @rendermode="new InteractiveServerRenderMode(prerender: false)" />
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+    <script>
+        // The "Rejoining the server..." overlay of Blazor blocks the whole page while the connection is down. If it stays up
+        // (a phone that was asleep, a restarted server) and the server answers again, load the page afresh.
+        (function () {
+            var since = 0;
+            function overlayUp() {
+                var m = document.getElementById('components-reconnect-modal');
+                return !!(m && m.shadowRoot && m.shadowRoot.querySelector('.components-reconnect-visible'));
+            }
+            setInterval(function () {
+                if (!overlayUp()) { since = 0; return; }
+                if (!since) since = Date.now();
+                if (Date.now() - since < 8000) return;
+                fetch('/', { cache: 'no-store' }).then(function (r) { if (r.ok) window.location.reload(); }).catch(function () { });
+            }, 3000);
+            // back on the tab after a sleep: no need to wait the 8 seconds
+            document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible' && since) since = 1; });
+        })();
+
+        window.lp = {
+            // Numbers that count up from 0 when they come into view (the top-10 tiles). Elements with data-count="N" inside the container.
+            countUp: function (container) {
+                var root = document.querySelector(container);
+                if (!root) return;
+                var els = Array.prototype.slice.call(root.querySelectorAll('[data-count]'));
+                var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (!els.length || calm || !('IntersectionObserver' in window)) return;      // the final numbers are already written
+                function run(el, delay) {
+                    var end = parseInt(el.getAttribute('data-count'), 10) || 0, start = null, ms = 1300 + Math.min(end, 200) * 4;
+                    function frame(t) {
+                        if (start === null) start = t + delay;
+                        var p = Math.max(0, Math.min(1, (t - start) / ms));
+                        var eased = 1 - Math.pow(1 - p, 3);
+                        el.textContent = String(Math.round(end * eased));
+                        if (p < 1) requestAnimationFrame(frame); else el.textContent = String(end);
+                    }
+                    requestAnimationFrame(frame);
+                }
+                els.forEach(function (el) { el.textContent = '0'; });
+                var seen = 0;
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (!e.isIntersecting) return;
+                        io.unobserve(e.target);
+                        run(e.target, (seen++) % 5 * 90);      // a little stagger along the row
+                    });
+                }, { threshold: 0.6 });
+                els.forEach(function (el) { io.observe(el); });
+            },
+            // The menu of the landing: a smooth scroll to the part of the page (the CSS scroll-margin keeps it below the bar).
+            goTo: function (id) {
+                var el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: id === 'shots' ? 'center' : 'start' });
+            },
+            // The carousel of the landing page: the phone in the middle is the active one. Scroll-snap does the moving; the script marks the
+            // active slide, runs the arrows and dots, and turns the pages by itself (it stops while the visitor touches or points at it, or when
+            // the tab is hidden, or when the system asks for less motion).
+            carousel: function (id) {
+                var root = document.getElementById(id);
+                if (!root || root.__lp) return;
+                root.__lp = true;
+                var track = root.querySelector('.shots-track');
+                var originals = Array.prototype.slice.call(track.children);
+                var n = originals.length;
+                var dots = Array.prototype.slice.call(root.querySelectorAll('.shots-dot'));
+                var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                // an endless ring: the set of slides is copied before and after, the page jumps by one set when it comes near an edge
+                function copy(src) { var c = src.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.removeAttribute('aria-label'); return c; }
+                var before = originals.map(copy), after = originals.map(copy);
+                before.forEach(function (c) { track.insertBefore(c, originals[0]); });
+                after.forEach(function (c) { track.appendChild(c); });
+                var slides = Array.prototype.slice.call(track.children);      // 3n
+
+                var active = n, paused = false, pausedUntil = 0, settle = 0;
+                function center(i) { return slides[i].offsetLeft + slides[i].offsetWidth / 2 - track.clientWidth / 2; }
+                function setWidth() { return slides[n].offsetLeft - slides[0].offsetLeft; }
+                function mark(i) {
+                    active = i;
+                    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); s.classList.toggle('near', Math.abs(k - i) === 1); });
+                    dots.forEach(function (d, k) { d.classList.toggle('on', k === i % n); d.setAttribute('aria-selected', k === i % n); });
+                }
+                function go(i, instant) {
+                    track.scrollTo({ left: center(i), behavior: instant || calm ? 'auto' : 'smooth' });
+                    mark(i);
+                }
+                function nearest() {
+                    var mid = track.scrollLeft + track.clientWidth / 2, best = 0, d = 1e9;
+                    slides.forEach(function (s, k) { var x = Math.abs(s.offsetLeft + s.offsetWidth / 2 - mid); if (x < d) { d = x; best = k; } });
+                    return best;
+                }
+                function recenter() {      // after the movement has stopped: back to the middle set
+                    var i = nearest();
+                    if (i < n) { track.style.scrollSnapType = 'none'; track.scrollLeft += setWidth(); mark(i + n); requestAnimationFrame(function () { track.style.scrollSnapType = ''; }); }
+                    else if (i >= 2 * n) { track.style.scrollSnapType = 'none'; track.scrollLeft -= setWidth(); mark(i - n); requestAnimationFrame(function () { track.style.scrollSnapType = ''; }); }
+                }
+                var raf = 0;
+                track.addEventListener('scroll', function () {
+                    if (!raf) raf = requestAnimationFrame(function () { raf = 0; var k = nearest(); if (k !== active) mark(k); });
+                    clearTimeout(settle); settle = setTimeout(recenter, 140);
+                }, { passive: true });
+
+                function hold() { pausedUntil = Date.now() + 8000; }
+                root.querySelector('.shots-arrow.prev').addEventListener('click', function () { hold(); go(active - 1); });
+                root.querySelector('.shots-arrow.next').addEventListener('click', function () { hold(); go(active + 1); });
+                dots.forEach(function (d, k) { d.addEventListener('click', function () { hold(); go(n + k); }); });
+                slides.forEach(function (s, k) { s.addEventListener('click', function () { if (k !== active) { hold(); go(k); } }); });
+                ['pointerenter', 'touchstart', 'focusin'].forEach(function (e) { root.addEventListener(e, function () { paused = true; }, { passive: true }); });
+                ['pointerleave', 'touchend', 'focusout'].forEach(function (e) { root.addEventListener(e, function () { paused = false; pausedUntil = Date.now() + 3000; }, { passive: true }); });
+
+                var timer = setInterval(function () {
+                    if (!document.body.contains(root)) { clearInterval(timer); root.__lp = false; return; }      // the page was left
+                    if (calm || paused || document.hidden || Date.now() < pausedUntil) return;
+                    go(active + 1);
+                }, 3600);
+                window.addEventListener('resize', function () { go(active, true); });
+                function start() { go(n, true); }
+                start();
+                // the images are not loaded yet at the first moment: set the middle again when they are
+                var imgs = root.querySelectorAll('img'), left = imgs.length;
+                imgs.forEach(function (im) { if (im.complete) left--; else im.addEventListener('load', function () { if (--left <= 0) go(active, true); }); });
+                setTimeout(function () { go(active, true); }, 400);
+            },
+            // The eye of a password field: show / hide the typed text (the button sits next to the input inside .pw-wrap).
+            togglePw: function (btn) {
+                var wrap = btn.closest('.pw-wrap');
+                var input = wrap && wrap.querySelector('input');
+                if (!input) return;
+                var show = input.type === 'password';
+                var pos = null;
+                try { pos = [input.selectionStart, input.selectionEnd]; } catch (e) { }
+                input.type = show ? 'text' : 'password';
+                btn.classList.toggle('on', show);
+                btn.setAttribute('aria-pressed', show ? 'true' : 'false');
+                var label = show ? btn.getAttribute('data-hide') : btn.getAttribute('data-show');
+                if (label) { btn.title = label; btn.setAttribute('aria-label', label); }
+                try { if (pos) input.setSelectionRange(pos[0], pos[1]); } catch (e) { }
+            },
+            speak: function (word, lang) {
+                if (!('speechSynthesis' in window)) return;
+                window.speechSynthesis.cancel();
+                var u = new SpeechSynthesisUtterance(word);
+                u.lang = lang || 'en-US';
+                u.rate = 0.85;
+                window.speechSynthesis.speak(u);
+            },
+            // Like speak, but the promise is kept until the word has been said ("listen to all" reads one after another).
+            speakWait: function (word, lang) {
+                return new Promise(function (resolve) {
+                    if (!('speechSynthesis' in window)) { resolve(); return; }
+                    window.speechSynthesis.cancel();
+                    var u = new SpeechSynthesisUtterance(word);
+                    u.lang = lang || 'en-US';
+                    u.rate = 0.85;
+                    var done = false, finish = function () { if (!done) { done = true; resolve(); } };
+                    u.onend = finish; u.onerror = finish;
+                    setTimeout(finish, 5000);              // never wait for ever
+                    window.speechSynthesis.speak(u);
+                });
+            },
+            setLang: function (code) {
+                try { document.cookie = 'jumbo-lang=' + code + '; path=/; max-age=31536000; samesite=lax'; } catch (e) { }
+                document.documentElement.setAttribute('lang', code);
+            },
+            reload: function () { window.location.reload(); },
+            // "Build the phrase": drag a word (from the bank or from a cell) onto a cell / the bank. The .NET side gets
+            // DropTile(source, target): source "b:<id>" | "s:<cell>", target = cell index, -1 = bank, 99 = after the last word.
+            phraseDrag: {
+                ref: null, st: null, handlers: null, justDragged: false,
+                attach: function (ref) {
+                    this.detach();
+                    var self = this, THRESH = 6;
+                    this.ref = ref;
+                    function clear() { document.querySelectorAll('.phr-over').forEach(function (e) { e.classList.remove('phr-over'); }); }
+                    function targetAt(x, y) {
+                        var el = document.elementFromPoint(x, y);
+                        if (!el) return null;
+                        var slot = el.closest('.phr-slot');
+                        if (slot && slot.dataset.slot !== undefined) return { idx: +slot.dataset.slot, el: slot };
+                        if (el.closest('.phr-bank')) return { idx: -1, el: el.closest('.phr-bank') };
+                        if (el.closest('.phr-slots')) return { idx: 99, el: el.closest('.phr-slots') };
+                        return null;
+                    }
+                    function finish(cancel, e) {
+                        var s = self.st; self.st = null;
+                        if (!s || !s.moved) return;
+                        clear();
+                        if (s.ghost) s.ghost.remove();
+                        s.el.classList.remove('phr-dragging');
+                        self.justDragged = true; setTimeout(function () { self.justDragged = false; }, 60);   // swallow the click that follows a drag
+                        if (cancel) return;
+                        var t = targetAt(e.clientX, e.clientY);
+                        if (t && self.ref) self.ref.invokeMethodAsync('DropTile', s.src, t.idx);
+                    }
+                    this.handlers = {
+                        down: function (e) {
+                            if (e.button !== undefined && e.button !== 0) return;
+                            var t = e.target.closest ? e.target.closest('.phr-tile, .phr-slot') : null;
+                            if (!t || t.disabled || !t.dataset.src) return;
+                            self.st = { el: t, src: t.dataset.src, x: e.clientX, y: e.clientY, id: e.pointerId, moved: false, ghost: null };
+                        },
+                        move: function (e) {
+                            var s = self.st;
+                            if (!s || e.pointerId !== s.id) return;
+                            if (!s.moved) {
+                                if (Math.hypot(e.clientX - s.x, e.clientY - s.y) < THRESH) return;
+                                s.moved = true;
+                                var r = s.el.getBoundingClientRect();
+                                s.ghost = s.el.cloneNode(true);
+                                s.ghost.classList.add('phr-ghost');
+                                s.ghost.style.width = r.width + 'px'; s.ghost.style.height = r.height + 'px';
+                                document.body.appendChild(s.ghost);
+                                s.el.classList.add('phr-dragging');
+                            }
+                            e.preventDefault();
+                            s.ghost.style.left = (e.clientX - s.ghost.offsetWidth / 2) + 'px';
+                            s.ghost.style.top = (e.clientY - s.ghost.offsetHeight / 2) + 'px';
+                            clear();
+                            var t = targetAt(e.clientX, e.clientY);
+                            if (t) t.el.classList.add('phr-over');
+                        },
+                        up: function (e) { if (self.st && e.pointerId === self.st.id) finish(false, e); },
+                        cancel: function (e) { if (self.st && e.pointerId === self.st.id) finish(true, e); },
+                        click: function (e) { if (self.justDragged) { e.stopPropagation(); e.preventDefault(); } },
+                        select: function (e) { if (self.st && self.st.moved) e.preventDefault(); }
+                    };
+                    var h = this.handlers;
+                    document.addEventListener('pointerdown', h.down, true);
+                    document.addEventListener('pointermove', h.move, { passive: false, capture: true });
+                    document.addEventListener('pointerup', h.up, true);
+                    document.addEventListener('pointercancel', h.cancel, true);
+                    document.addEventListener('click', h.click, true);
+                    document.addEventListener('selectstart', h.select, true);
+                },
+                detach: function () {
+                    var h = this.handlers; if (!h) return;
+                    document.removeEventListener('pointerdown', h.down, true);
+                    document.removeEventListener('pointermove', h.move, { capture: true });
+                    document.removeEventListener('pointerup', h.up, true);
+                    document.removeEventListener('pointercancel', h.cancel, true);
+                    document.removeEventListener('click', h.click, true);
+                    document.removeEventListener('selectstart', h.select, true);
+                    this.handlers = null; this.st = null; this.ref = null;
+                }
+            },
+            setCodeValue: function (v) { var el = document.getElementById('exam-code'); if (el) el.value = v; },
+            // What is really typed in the login form right now (browser autofill can change the fields without Blazor noticing).
+            readLogin: function () {
+                var u = document.getElementById('login-username'), p = document.getElementById('login-password');
+                return [u ? u.value : '', p ? p.value : ''];
+            },
+            focusExamInput: function (i) {
+                var el = document.querySelectorAll('.exam-quiz-input')[i];
+                if (el) el.focus();
+            },
+            toggleTheme: function () {
+                var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                try { localStorage.setItem('jumbo-theme', next); } catch (e) { }
+                return next;
+            },
+            stopSpeech: function () {
+                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            },
+            // Input mask of every phone field (<input type="tel">): only a leading "+" and digits can be typed, at most 15 digits
+            // (the international limit), grouped with spaces like "+998 90 123 45 67". Pasted text is cleaned the same way.
+            // An empty field gets the visitor's country code when it is focused (taken from the example number).
+            phoneMask: (function () {
+                var CODES = ['998', '996', '992', '993', '994', '380', '375', '971', '90', '82', '81', '86', '91', '49', '44', '7', '1'];
+                var GROUPS = { '998': [2, 3, 2, 2], '7': [3, 3, 2, 2], '996': [3, 2, 2, 2], '992': [2, 3, 2, 2], '993': [2, 2, 2, 2],
+                    '994': [2, 3, 2, 2], '380': [2, 3, 2, 2], '375': [2, 3, 2, 2], '971': [2, 3, 4], '82': [2, 4, 4], '81': [2, 4, 4],
+                    '86': [3, 4, 4], '91': [5, 5], '90': [3, 3, 2, 2], '49': [3, 8], '44': [4, 6], '1': [3, 3, 4] };
+                function format(raw) {
+                    var d = String(raw || '').replace(/\D/g, '').slice(0, 15);
+                    if (!d) return String(raw || '').charAt(0) === '+' ? '+' : '';
+                    var cc = '';
+                    for (var i = 0; i < CODES.length; i++) if (d.indexOf(CODES[i]) === 0) { cc = CODES[i]; break; }
+                    // a country's numbers have a fixed length: the digits after the country code are cut at the sum of its groups
+                    // (Germany and the unknown codes vary: the international limit of 15 digits applies)
+                    var sizes = GROUPS[cc] || [3, 3, 3, 3, 3];
+                    if (cc && cc !== '49') d = d.slice(0, cc.length + sizes.reduce(function (a, b) { return a + b; }, 0));
+                    var rest = d.slice(cc.length), out = '+' + (cc || ''), pos = 0;
+                    if (!cc) { out = '+' + rest.slice(0, 3); rest = rest.slice(3); }
+                    for (var g = 0; g < sizes.length && pos < rest.length; g++) { out += ' ' + rest.substr(pos, sizes[g]); pos += sizes[g]; }
+                    if (pos < rest.length) out += ' ' + rest.slice(pos);
+                    return out;
+                }
+                function digitsBefore(s, caret) { return s.slice(0, caret).replace(/\D/g, '').length; }
+                function caretAfter(s, n) { if (n <= 0) return s.charAt(0) === '+' ? 1 : 0; var c = 0; for (var i = 0; i < s.length; i++) { if (/\d/.test(s.charAt(i)) && ++c === n) return i + 1; } return s.length; }
+                function isPhone(el) { return el && el.tagName === 'INPUT' && el.type === 'tel'; }
+                function notify(el) { el.dispatchEvent(new Event('input', { bubbles: true })); }
+
+                document.addEventListener('input', function (e) {
+                    var el = e.target; if (!isPhone(el)) return;
+                    var before = el.value, caret = el.selectionStart == null ? before.length : el.selectionStart;
+                    var n = digitsBefore(before, caret), after = format(before);
+                    if (after !== before) {
+                        el.value = after;
+                        try { var p = caretAfter(after, n); el.setSelectionRange(p, p); } catch (x) { }
+                    }
+                }, true);
+                // a number is "+" and digits: block everything else before it appears
+                document.addEventListener('keypress', function (e) {
+                    var el = e.target; if (!isPhone(el) || e.ctrlKey || e.metaKey || e.key.length !== 1) return;
+                    if (!/[0-9+ ]/.test(e.key) || (e.key === '+' && el.value.indexOf('+') >= 0 && el.selectionStart !== 0)) e.preventDefault();
+                }, true);
+                document.addEventListener('focusin', function (e) {
+                    var el = e.target; if (!isPhone(el) || el.value) return;
+                    var hint = (window.lp && lp.phoneHint ? lp.phoneHint() : '') || '';
+                    var code = hint.split(' ')[0];
+                    if (code && code.charAt(0) === '+') { el.value = code + ' '; notify(el); try { el.setSelectionRange(el.value.length, el.value.length); } catch (x) { } }
+                });
+                // only the country code left: the field counts as empty
+                document.addEventListener('focusout', function (e) {
+                    var el = e.target; if (!isPhone(el) || !el.value) return;
+                    var hint = (window.lp && lp.phoneHint ? lp.phoneHint() : '') || '', code = hint.split(' ')[0].replace(/\D/g, '');
+                    if (el.value.replace(/\D/g, '') === code) { el.value = ''; notify(el); }
+                });
+                return { format: format };
+            })(),
+            // Example phone number for the visitor's country (no location permission: time zone + language region).
+            phoneHint: function () {
+                var hints = {
+                    UZ: '+998 00 000 00 00', RU: '+7 000 000 00 00', KZ: '+7 000 000 00 00', KG: '+996 000 00 00 00',
+                    TJ: '+992 00 000 00 00', TM: '+993 00 00 00 00', AZ: '+994 00 000 00 00', TR: '+90 000 000 00 00',
+                    UA: '+380 00 000 00 00', BY: '+375 00 000 00 00', AE: '+971 00 000 0000', KR: '+82 00 0000 0000',
+                    JP: '+81 00 0000 0000', CN: '+86 000 0000 0000', IN: '+91 00000 00000', GB: '+44 0000 000000',
+                    DE: '+49 000 00000000', US: '+1 000 000 0000', CA: '+1 000 000 0000'
+                };
+                var zones = {
+                    'Asia/Tashkent': 'UZ', 'Asia/Samarkand': 'UZ', 'Asia/Almaty': 'KZ', 'Asia/Qostanay': 'KZ', 'Asia/Aqtobe': 'KZ',
+                    'Asia/Aqtau': 'KZ', 'Asia/Atyrau': 'KZ', 'Asia/Oral': 'KZ', 'Asia/Qyzylorda': 'KZ', 'Asia/Bishkek': 'KG',
+                    'Asia/Dushanbe': 'TJ', 'Asia/Ashgabat': 'TM', 'Asia/Baku': 'AZ', 'Europe/Istanbul': 'TR', 'Europe/Kiev': 'UA',
+                    'Europe/Kyiv': 'UA', 'Europe/Minsk': 'BY', 'Asia/Dubai': 'AE', 'Asia/Seoul': 'KR', 'Asia/Tokyo': 'JP',
+                    'Asia/Shanghai': 'CN', 'Asia/Kolkata': 'IN', 'Asia/Calcutta': 'IN', 'Europe/London': 'GB', 'Europe/Berlin': 'DE',
+                    'Europe/Moscow': 'RU', 'Europe/Kaliningrad': 'RU', 'Europe/Samara': 'RU', 'Asia/Yekaterinburg': 'RU',
+                    'Asia/Omsk': 'RU', 'Asia/Novosibirsk': 'RU', 'Asia/Krasnoyarsk': 'RU', 'Asia/Irkutsk': 'RU',
+                    'Asia/Yakutsk': 'RU', 'Asia/Vladivostok': 'RU', 'Asia/Magadan': 'RU', 'Asia/Kamchatka': 'RU'
+                };
+                var country = null;
+                try {
+                    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+                    country = zones[tz] || (tz.indexOf('America/') === 0 ? 'US' : null);
+                } catch (e) { }
+                if (!country) {
+                    var m = /[-_]([A-Za-z]{2})$/.exec(navigator.language || '');
+                    if (m) country = m[1].toUpperCase();
+                }
+                return hints[country] || hints.UZ;     // the site is Uzbek: that is the default example
+            },
+            // "Back" like the browser's: to the page the user came from (the alphabet, the map...), or to the fallback when this page was opened directly.
+            // In-app history: the path of every history entry of this tab (Blazor numbers the entries in history.state._index).
+            nav: (function () {
+                var KEY = 'lp-nav', map = {};
+                try { map = JSON.parse(sessionStorage.getItem(KEY) || '{}'); } catch (e) { }
+                // a page opened by a full load has no state yet: for Blazor it is entry 0
+                function idx() { var s = history.state; return s && typeof s._index === 'number' ? s._index : 0; }
+                function rec() {
+                    var i = idx();
+                    map[i] = location.pathname;
+                    try { sessionStorage.setItem(KEY, JSON.stringify(map)); } catch (e) { }
+                }
+                ['pushState', 'replaceState'].forEach(function (fn) {
+                    var orig = history[fn];
+                    history[fn] = function () { var r = orig.apply(this, arguments); rec(); return r; };
+                });
+                window.addEventListener('popstate', rec);
+                rec();
+                return { rec: rec, prev: function () { rec(); var i = idx(); return i > 0 ? (map[i - 1] || null) : null; } };
+            })(),
+            // Phone layout (the same breakpoint as the CSS).
+            // Back from a topic: on a phone to the book page (map + topic list), on a computer to the page it was opened from (the home map).
+            backFromTopic: function (book) {
+                if (window.matchMedia('(max-width: 767px)').matches) this.backTo('/little-polyglot/book/' + book);
+                else this.goBack('/little-polyglot');
+            },
+            isMobile: function () { return window.matchMedia('(max-width: 767px)').matches; },
+            open: function (path) {
+                if (window.Blazor && Blazor.navigateTo) Blazor.navigateTo(path); else window.location.href = path;
+            },
+            // "Back" like the browser's: to the page the user came from; when the page was opened directly, to the fallback.
+            goBack: function (fallback) {
+                if (this.nav.prev()) history.back(); else this.open(fallback);
+            },
+            // "Back" to the page's parent. If the entry before this one IS the parent, step back in the history (no growing
+            // history, the browser's Back keeps working); otherwise open the parent. Either way the user lands on the parent.
+            backTo: function (parent) {
+                if (this.nav.prev() === parent) history.back(); else this.open(parent);
+            },
+            copyText: function (text) {
+                if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+                var ta = document.createElement('textarea');
+                ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+                document.body.appendChild(ta); ta.select();
+                try { document.execCommand('copy'); } catch (e) { }
+                document.body.removeChild(ta);
+            },
+            // The colour theme of the market ('' = the usual colours).
+            setPalette: function (key) {
+                var root = document.documentElement;
+                if (key) root.setAttribute('data-palette', key); else root.removeAttribute('data-palette');
+                try { if (key) localStorage.setItem('lp-palette', key); else localStorage.removeItem('lp-palette'); } catch (e) { }
+            },
+            // A small memory of the browser (the results of the games of Book 0): a failure (private mode) is never an error.
+            store: {
+                get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) { } }
+            },
+            // A page opened at "#something" (a QR code of a part of the page): scroll to that element once the page is drawn.
+            // The layout draws the page a moment after the first render, so the element is waited for (up to ~5 s).
+            scrollToHash: function () {
+                var id = decodeURIComponent((location.hash || '').slice(1));
+                if (!id) return;
+                var tries = 0;
+                (function seek() {
+                    var el = document.getElementById(id);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    else if (++tries < 25) setTimeout(seek, 200);
+                })();
+            },
+            printPage: function () { window.print(); },
+            downloadFile: function (name, base64, mime) {
+                var a = document.createElement('a');
+                a.href = 'data:' + mime + ';base64,' + base64;
+                a.download = name;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            }
+        };
+    </script>
+</body>
+
+</html>
+
+@code {
+    [CascadingParameter] private HttpContext? HttpContext { get; set; }
+
+    private string _lang => AppLanguages.Resolve(HttpContext);
+}

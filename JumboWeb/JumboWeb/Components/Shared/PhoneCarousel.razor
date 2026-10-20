@@ -1,0 +1,41 @@
+@using JumboWeb.Services
+@inject AppLocalizer Loc
+@inject IJSRuntime JS
+
+@* The carousel at the top of the landing page: real screenshots of the Android app in phone frames. The centred phone is the big one;
+   it moves by itself, by the arrows, by the dots and by a swipe (the script is lp.carousel in App.razor). *@
+<section class="shots" id="shots" aria-roledescription="carousel" aria-label="@Loc["Land_HeroTitle"]">
+    <div class="shots-glow" aria-hidden="true"></div>
+    <button type="button" class="shots-arrow prev" aria-label="@Loc["Land_ShotsPrev"]">‹</button>
+    <div class="shots-track">
+        @for (int i = 1; i <= Count; i++)
+        {
+            var n = i;
+            <figure class="shot" aria-roledescription="slide" aria-label="@Loc[$"Land_Shot{n}"]">
+                <div class="shot-phone">
+                    <img src="landing/shot-@(n).webp" alt="@Loc[$"Land_Shot{n}"]" width="560" height="1250" loading="eager" draggable="false" />
+                </div>
+                <figcaption>@Loc[$"Land_Shot{n}"]</figcaption>
+            </figure>
+        }
+    </div>
+    <button type="button" class="shots-arrow next" aria-label="@Loc["Land_ShotsNext"]">›</button>
+    <div class="shots-dots" role="tablist">
+        @for (int i = 1; i <= Count; i++)
+        {
+            <button type="button" class="shots-dot" aria-label="@i"></button>
+        }
+    </div>
+</section>
+
+@code {
+    private const int Count = 7;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try { await JS.InvokeVoidAsync("lp.carousel", "shots"); } catch { /* no script (prerender): the carousel still scrolls by hand */ }
+        }
+    }
+}

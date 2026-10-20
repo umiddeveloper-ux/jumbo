@@ -1,0 +1,61 @@
+@using JumboWeb.Services
+@inject AppLocalizer Loc
+@inject UserStateService UserState
+@implements IDisposable
+
+@* A small Jumbo in the game's top bar that reacts to answers: call Cheer() on a correct one, Oops() on a wrong one.
+   It goes back to idle by itself after a moment. *@
+<div class="coach" aria-live="polite">
+    <Tiger Head="true" Size="64" Mood="@_mood" />
+    @if (!string.IsNullOrEmpty(UserState.CurrentUser?.PetSvg))
+    {
+        @* the pet bought in the market: next to Jumbo, jumps with joy on a right answer *@
+        <span class="coach-pet @(_mood == "cheer" ? "joy" : "")" aria-hidden="true">@((MarkupString)UserState.CurrentUser!.PetSvg!)</span>
+    }
+    @if (_phrase is not null)
+    {
+        <span class="coach-bubble @_mood" @key="_version">@_phrase</span>
+    }
+</div>
+
+@code {
+    private static readonly string[] CheerKeys = ["Tiger_Cheer1", "Tiger_Cheer2", "Tiger_Cheer3"];
+    private static readonly string[] OopsKeys = ["Tiger_Oops1", "Tiger_Oops2", "Tiger_Oops3"];
+
+    private string _mood = "idle";
+    private string? _phrase;
+    private int _version;
+    private int _cheerIdx, _oopsIdx;
+    private CancellationTokenSource? _cts;
+
+    public void Cheer() => React("cheer", Loc[CheerKeys[_cheerIdx++ % CheerKeys.Length]]);
+
+    public void Oops() => React("sad", Loc[OopsKeys[_oopsIdx++ % OopsKeys.Length]]);
+
+    private void React(string mood, string phrase)
+    {
+        _mood = mood;
+        _phrase = phrase;
+        _version++;
+        InvokeAsync(StateHasChanged);
+
+        _cts?.Cancel();
+        _cts = new CancellationTokenSource();
+        _ = ResetLaterAsync(_cts.Token);
+    }
+
+    private async Task ResetLaterAsync(CancellationToken ct)
+    {
+        try
+        {
+            await Task.Delay(1700, ct);
+            _mood = "idle";
+            _phrase = null;
+            await InvokeAsync(StateHasChanged);
+        }
+        catch (TaskCanceledException) { }
+        catch (ObjectDisposedException) { }
+    }
+
+    public void Dispose() => _cts?.Cancel();
+}

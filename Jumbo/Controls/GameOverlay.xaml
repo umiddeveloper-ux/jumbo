@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             x:Class="Jumbo.Controls.GameOverlay">
+    <!-- End-of-game panel (win / lose / locked) with Jumbo reacting. Put it over the game and bind IsVisible. -->
+    <Grid BackgroundColor="#B30E1A2B">
+        <ScrollView VerticalOptions="Center">
+            <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 28" Padding="22,18,22,22"
+                    HorizontalOptions="Fill" MaximumWidthRequest="380" Margin="22,18">
+                <VerticalStackLayout Spacing="12">
+                    <ctl:TigerView x:Name="Tiger" Size="130" />
+                    <Label x:Name="TitleLabel" FontFamily="NunitoBlack" FontSize="25" HorizontalTextAlignment="Center" />
+                    <Label x:Name="MessageLabel" FontSize="15" HorizontalTextAlignment="Center" IsVisible="False"
+                           TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                    <Border x:Name="RewardChip" StrokeThickness="0" StrokeShape="RoundRectangle 14" Padding="14,6" HorizontalOptions="Center"
+                            BackgroundColor="{StaticResource WarningAsbestos}" IsVisible="False">
+                        <Label x:Name="RewardLabel" FontFamily="NunitoBlack" FontSize="17" TextColor="#8A6A00" />
+                    </Border>
+                    <ctl:ChunkyButton x:Name="PrimaryButton" Margin="0,6,0,0" IsVisible="False" />
+                    <ctl:ChunkyButton x:Name="SecondaryButton" Kind="outline" IsVisible="False" />
+                </VerticalStackLayout>
+            </Border>
+        </ScrollView>
+    </Grid>
+</ContentView>

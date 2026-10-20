@@ -1,0 +1,114 @@
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+
+@* Region -> school -> team, all from lists (nothing is typed). Schools are the verified ones a teacher has
+   registered; teams are the ones that school's teachers created. The parent keeps the chosen region and team. *@
+<div class="team-picker">
+    <div class="settings-label">@Loc["Reg_RegionLabel"]</div>
+    <select class="lp-select" value="@Region" @onchange="OnRegionChanged">
+        <option value="">@Loc["Reg_RegionPlaceholder"]</option>
+        @foreach (var rc in UzRegions.Codes)
+        {
+            <option value="@rc">@Loc[$"Region_{rc}"]</option>
+        }
+    </select>
+
+    @if (!string.IsNullOrEmpty(Region))
+    {
+        <div class="settings-label">@Loc["Reg_SchoolLabel"]</div>
+        @if (_schools.Count == 0)
+        {
+            <p class="pick-empty">@Loc["Pick_NoSchools"]</p>
+        }
+        else
+        {
+            <select class="lp-select" value="@_schoolId" @onchange="OnSchoolChanged">
+                <option value="0">@Loc["Pick_SchoolPh"]</option>
+                @foreach (var s in _schools)
+                {
+                    <option value="@s.SchoolId">@s.Name</option>
+                }
+            </select>
+        }
+    }
+
+    @if (_schoolId > 0)
+    {
+        <div class="settings-label">@Loc["Reg_TeamLabel"]</div>
+        @if (_teams.Count == 0)
+        {
+            <p class="pick-empty">@Loc["Pick_NoTeams"]</p>
+        }
+        else
+        {
+            <select class="lp-select" value="@(ClassId ?? 0)" @onchange="OnTeamChanged">
+                <option value="0">@Loc["Pick_TeamPh"]</option>
+                @foreach (var t in _teams)
+                {
+                    <option value="@t.ClassId">@t.Name</option>
+                }
+            </select>
+            <p class="reg-help">@Loc["Pick_Hint"]</p>
+        }
+    }
+</div>
+
+@code {
+    [Parameter] public string Region { get; set; } = string.Empty;
+    [Parameter] public EventCallback<string> RegionChanged { get; set; }
+
+    [Parameter] public int? ClassId { get; set; }
+    [Parameter] public EventCallback<int?> ClassIdChanged { get; set; }
+
+    private List<SchoolDto> _schools = new();
+    private List<TeamOptionDto> _teams = new();
+    private int _schoolId;
+    private string _loadedRegion = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!string.IsNullOrEmpty(Region)) await LoadSchoolsAsync();
+    }
+
+    private async Task OnRegionChanged(ChangeEventArgs e)
+    {
+        Region = e.Value?.ToString() ?? string.Empty;
+        _schoolId = 0;
+        _teams = new();
+        await RegionChanged.InvokeAsync(Region);
+        await SetTeamAsync(null);
+        await LoadSchoolsAsync();
+    }
+
+    private async Task OnSchoolChanged(ChangeEventArgs e)
+    {
+        _schoolId = int.TryParse(e.Value?.ToString(), out var id) ? id : 0;
+        await SetTeamAsync(null);
+        await LoadTeamsAsync();
+    }
+
+    private async Task OnTeamChanged(ChangeEventArgs e)
+    {
+        await SetTeamAsync(int.TryParse(e.Value?.ToString(), out var id) && id > 0 ? id : null);
+    }
+
+    private async Task SetTeamAsync(int? id)
+    {
+        ClassId = id;
+        await ClassIdChanged.InvokeAsync(id);
+    }
+
+    private async Task LoadSchoolsAsync()
+    {
+        _loadedRegion = Region;
+        try { _schools = string.IsNullOrEmpty(Region) ? new() : await ApiClient.GetDirectorySchoolsAsync(Region); }
+        catch { _schools = new(); }
+    }
+
+    private async Task LoadTeamsAsync()
+    {
+        try { _teams = _schoolId > 0 ? await ApiClient.GetDirectoryTeamsAsync(_schoolId) : new(); }
+        catch { _teams = new(); }
+    }
+}

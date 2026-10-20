@@ -1,0 +1,60 @@
+@page "/little-polyglot/book/{BookNumber:int}"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc.Format("Subjects_PageTitle", BookNumber)</PageTitle>
+
+<button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/little-polyglot")'>@Loc["Common_BackArrow"]</button>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_path.Count == 0)
+{
+    <p class="lp-page-title">@Loc.Format("Subjects_Heading", BookNumber)</p>
+    <div class="lp-empty-state">@Loc["Subjects_NoTopics"]</div>
+}
+else
+{
+    <TopicSnake Book="BookNumber" Path="_path" Progress="_progress" Svgs="_svgMap" />
+}
+
+@code {
+    [Parameter] public int BookNumber { get; set; }
+
+    private List<Subject> _path = new();
+    private Dictionary<int, UserSubjectProgress> _progress = new();
+    private Dictionary<int, string> _svgMap = new();
+    private bool _loaded;
+    private int _loadedBook = -1;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (BookNumber == 0) { Nav.NavigateTo("/little-polyglot/book-zero", replace: true); return; }   // book 0 is the alphabet and the numbers
+        if (_loadedBook == BookNumber) return;
+        if (!(await ApiClient.GetUnlockedBooksAsync()).Contains(BookNumber))
+        {
+            Nav.NavigateTo("/little-polyglot", replace: true);
+            return;
+        }
+        _loadedBook = BookNumber;
+        _loaded = false;
+
+        _path = (await ApiClient.GetSubjectsByBookAsync(BookNumber)).OrderBy(s => s.SequenceNumber).ToList();
+        _progress = (await ApiClient.GetUserSubjectProgressAsync()).ToDictionary(p => p.SubjectId);
+        foreach (var s in _path)
+        {
+            if (_svgMap.ContainsKey(s.SvgImageId)) continue;
+            var svg = await ApiClient.GetSvgByIdAsync(s.SvgImageId);
+            if (!string.IsNullOrEmpty(svg)) _svgMap[s.SvgImageId] = svg;
+        }
+        _loaded = true;
+    }
+}

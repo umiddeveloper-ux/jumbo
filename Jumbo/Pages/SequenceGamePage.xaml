@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns:u="clr-namespace:Jumbo.Utilities"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Jumbo.Pages.SequenceGamePage"
+             x:DataType="pageModels:SequenceGamePageModel"
+             x:Name="SequenceGamePageRoot"
+             Title="{u:Tr Key=Game_SequenceTitle}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SequenceGamePageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedTo" Command="{Binding NavigatedToCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SequenceGamePageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom" Command="{Binding NavigatedFromCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SequenceGamePageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing" Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- Основной layout: 1/3 сверху + 2/3 снизу -->
+    <Grid RowDefinitions="*, 2*">
+
+        <!-- ══ ВЕРХНЯЯ ПАНЕЛЬ: чёрный фон, отсчёт / слово ══ -->
+        <Grid Grid.Row="0" IsVisible="{Binding IsTopAreaVisible}">
+
+            <!-- Чёрный блок — растянут на всю ширину -->
+            <Border HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    Margin="16,8"
+                    StrokeShape="RoundRectangle 24"
+                    BackgroundColor="#000000"
+                    StrokeThickness="0">
+
+                <!-- Текст: отсчёт или слово -->
+                <Label Text="{Binding TopText}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center">
+                    <Label.Triggers>
+                        <!-- Крупный шрифт для цифр отсчёта -->
+                        <DataTrigger TargetType="Label" Binding="{Binding IsCountdownText}" Value="True">
+                            <Setter Property="FontSize" Value="90"/>
+                            <Setter Property="FontAttributes" Value="Bold"/>
+                        </DataTrigger>
+                        <!-- Крупный шрифт для слов -->
+                        <DataTrigger TargetType="Label" Binding="{Binding IsCountdownText}" Value="False">
+                            <Setter Property="FontSize" Value="52"/>
+                            <Setter Property="FontAttributes" Value="Bold"/>
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </Border>
+
+            <ctl:TigerCoach Mood="{Binding Coach.Mood}" Text="{Binding Coach.Text}" VerticalOptions="End" HorizontalOptions="Start" Margin="28,0,0,18" />
+
+            <!-- Прогресс раундов (вверху) -->
+            <Grid VerticalOptions="Start" Padding="16,8">
+                <Label Text="{Binding CurrentRound, Converter={StaticResource TrFormat}, ConverterParameter=Game_Round}"
+                       FontAttributes="Bold"
+                       FontSize="15"/>
+            </Grid>
+        </Grid>
+
+        <!-- ══ НИЖНЯЯ ЧАСТЬ: сетка карточек 2×2 ══ -->
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Cards}"
+                        SelectionMode="None"
+                        Margin="12,8,12,12"
+                        IsEnabled="{Binding IsSelecting}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"
+                                 VerticalItemSpacing="10"
+                                 HorizontalItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="pageModels:SequenceCardViewModel">
+                    <Border StrokeShape="RoundRectangle 14"
+                            StrokeThickness="0"
+                            Padding="0">
+
+                        <!-- Цвет фона зависит от состояния карточки -->
+                        <Border.Triggers>
+                            <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Idle">
+                                <Setter Property="BackgroundColor"
+                                        Value="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Correct">
+                                <Setter Property="BackgroundColor" Value="{StaticResource Success}"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Wrong">
+                                <Setter Property="BackgroundColor" Value="{StaticResource Warning}"/>
+                            </DataTrigger>
+                        </Border.Triggers>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:SequenceGamePageModel}}, Path=SelectCardCommand}"
+                                CommandParameter="{Binding .}"/>
+                        </Border.GestureRecognizers>
+
+                        <Grid RowDefinitions="*, Auto">
+
+                            <!-- SVG + Badge оверлей -->
+                            <Grid Grid.Row="0">
+                                <ctl:SvgPicture HeightRequest="120"
+                                         InputTransparent="True"
+                                         BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+
+                                <!-- Badge: порядковый номер нажатия -->
+                                <Border WidthRequest="34"
+                                        HeightRequest="34"
+                                        StrokeShape="RoundRectangle 17"
+                                        BackgroundColor="{StaticResource Primary}"
+                                        StrokeThickness="0"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Start"
+                                        Margin="0,6,6,0"
+                                        IsVisible="{Binding IsSelected}">
+                                    <Label Text="{Binding BadgeText}"
+                                           TextColor="White"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                                </Border>
+                            </Grid>
+
+                            <!-- Перевод снизу карточки -->
+                            <Label Grid.Row="1"
+                                   Text="{Binding TranslationWord}"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   LineBreakMode="TailTruncation"
+                                   MaxLines="2"
+                                   Padding="8,4,8,8"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+<ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding IsRoundSuccess}" Kind="win" Title="{u:Tr Key=Game_Correct}" />
+
+<ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding IsRoundFail}" Kind="lose" Title="{u:Tr Key=Game_WrongOrder}" />
+
+<ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding IsGameWon}" Kind="win" Title="{u:Tr Key=SequenceGame_Won}"
+                          Reward="{Binding RewardText}"
+                          PrimaryText="{u:Tr Key=Common_Again}" PrimaryCommand="{Binding RestartGameCommand}"
+                          SecondaryText="{u:Tr Key=Common_Back}" SecondaryCommand="{Binding GoBackCommand}" />
+
+<ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding IsGameOver}" Kind="lose" Title="{u:Tr Key=FindMeGame_OutOfLives}"
+                          PrimaryText="{u:Tr Key=Common_TryAgainLong}" PrimaryCommand="{Binding RestartGameCommand}"
+                          SecondaryText="{u:Tr Key=Common_Back}" SecondaryCommand="{Binding GoBackCommand}" />
+
+<ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding HasNoData}" Kind="lose" Title="{u:Tr Key=FindMeGame_NoWords}"
+                          PrimaryText="{u:Tr Key=Common_Back}" PrimaryCommand="{Binding GoBackCommand}" />
+
+        <!-- ══ Индикатор загрузки ══ -->
+        <ActivityIndicator Grid.Row="0" Grid.RowSpan="2"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Color="{StaticResource Primary}"
+                           HeightRequest="50" WidthRequest="50"/>
+
+<ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding IsLocked}" Kind="locked" Title="{u:Tr Key=Block_Title}" Message="{Binding LivesService.RegenMessage}"
+                          SecondaryText="{u:Tr Key=Common_Back}" SecondaryCommand="{Binding GoBackCommand}" />
+
+    </Grid>
+</ContentPage>

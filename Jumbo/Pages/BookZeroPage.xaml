@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.BookZeroPage"
+             x:DataType="pageModels:BookZeroPageModel"
+             x:Name="ZeroPage"
+             Title="{u:Tr Key=Zero_Title}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference ZeroPage}, x:DataType=ContentPage}"
+            EventName="Appearing" Command="{Binding AppearingCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference ZeroPage}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom" Command="{Binding NavigatedFromCommand}" />
+    </ContentPage.Behaviors>
+
+    <!-- Book 0: the alphabet and the numbers up to 20 with the sound. Always open, nothing here is counted. -->
+    <ScrollView>
+        <VerticalStackLayout Padding="16,12,16,28" Spacing="14" MaximumWidthRequest="760" HorizontalOptions="Fill">
+
+            <!-- Hero: ABC 123 -->
+            <Border StrokeShape="RoundRectangle 26" StrokeThickness="0" Padding="18,14" BackgroundColor="{StaticResource Primary}">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="6">
+                        <Border StrokeShape="RoundRectangle 14" StrokeThickness="0" Padding="14,5" BackgroundColor="White" HorizontalOptions="Start">
+                            <VerticalStackLayout Spacing="-2">
+                                <Label Text="ABC" FontFamily="NunitoBlack" FontSize="24" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                                <Label Text="123" FontFamily="NunitoBlack" FontSize="12" TextColor="#FF9600" HorizontalOptions="Center" CharacterSpacing="3" />
+                            </VerticalStackLayout>
+                        </Border>
+                        <Label Text="{u:Tr Key=Zero_Title}" FontFamily="NunitoBlack" FontSize="22" TextColor="White" />
+                        <Label Text="{u:Tr Key=Zero_Hint}" FontSize="13" TextColor="White" Opacity="0.92" />
+                    </VerticalStackLayout>
+                    <ctl:TigerView Grid.Column="1" Size="88" Mood="wave" VerticalOptions="Center" />
+                </Grid>
+            </Border>
+
+            <!-- Games: nothing in them is counted (no lives, no LP) -->
+            <Label Text="{u:Tr Key=ZG_Section}" FontFamily="NunitoExtraBold" FontSize="20" Margin="2,6,2,0" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Border StrokeShape="RoundRectangle 22" Padding="14" Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🎧" FontSize="34" />
+                        <Label Text="{u:Tr Key=ZG_ListenTitle}" FontFamily="NunitoBlack" FontSize="16" MinimumHeightRequest="44" />
+                        <Label Text="{u:Tr Key=ZG_ListenDesc}" FontSize="12" MinimumHeightRequest="48"
+                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=ZG_Letters}" Kind="outline" FontSize="14" Command="{Binding OpenGameCommand}" CommandParameter="listen|letters" />
+                        <Label Text="{Binding ListenLettersBest}" FontSize="14" TextColor="#FFC800" HorizontalOptions="Center" HeightRequest="18" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=ZG_Numbers}" Kind="outline" FontSize="14" Command="{Binding OpenGameCommand}" CommandParameter="listen|numbers" />
+                        <Label Text="{Binding ListenNumbersBest}" FontSize="14" TextColor="#FFC800" HorizontalOptions="Center" HeightRequest="18" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Grid.Column="1" StrokeShape="RoundRectangle 22" Padding="14" Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🚂" FontSize="34" />
+                        <Label Text="{u:Tr Key=ZG_TrainTitle}" FontFamily="NunitoBlack" FontSize="16" MinimumHeightRequest="44" />
+                        <Label Text="{u:Tr Key=ZG_TrainDesc}" FontSize="12" MinimumHeightRequest="48"
+                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=ZG_Letters}" Kind="outline" FontSize="14" Command="{Binding OpenGameCommand}" CommandParameter="train|letters" />
+                        <Label Text="{Binding TrainLettersBest}" FontSize="14" TextColor="#FFC800" HorizontalOptions="Center" HeightRequest="18" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=ZG_Numbers}" Kind="outline" FontSize="14" Command="{Binding OpenGameCommand}" CommandParameter="train|numbers" />
+                        <Label Text="{Binding TrainNumbersBest}" FontSize="14" TextColor="#FFC800" HorizontalOptions="Center" HeightRequest="18" />
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- Alphabet -->
+            <Grid ColumnDefinitions="*,Auto" Margin="2,6,2,0">
+                <Label Text="{u:Tr Key=Zero_Alphabet}" FontFamily="NunitoExtraBold" FontSize="20" VerticalOptions="Center" />
+                <ctl:ChunkyButton Grid.Column="1" Text="{Binding LettersButtonText}" Kind="outline" FontSize="14" Command="{Binding PlayLettersCommand}" />
+            </Grid>
+            <HorizontalStackLayout Spacing="8" Margin="2,-6,0,0">
+                <BoxView WidthRequest="14" HeightRequest="14" CornerRadius="7" Color="#FF9600" VerticalOptions="Center" />
+                <Label Text="{u:Tr Key=Zero_VowelsHint}" FontSize="13" VerticalOptions="Center"
+                       TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+            </HorizontalStackLayout>
+            <FlexLayout Wrap="Wrap" JustifyContent="Start" BindableLayout.ItemsSource="{Binding Letters}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="pageModels:ZeroTile">
+                        <Border StrokeShape="RoundRectangle 16" StrokeThickness="2" Padding="0" WidthRequest="72" HeightRequest="72" Margin="0,0,8,8"
+                                Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                            <Border.Triggers>
+                                <DataTrigger TargetType="Border" Binding="{Binding IsVowel}" Value="True">
+                                    <Setter Property="Stroke" Value="#FFB84D" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Border" Binding="{Binding IsActive}" Value="True">
+                                    <Setter Property="Stroke" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}" />
+                                </DataTrigger>
+                            </Border.Triggers>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:BookZeroPageModel}}, Path=SayCommand}"
+                                                      CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                            <BoxView IsVisible="{Binding IsKnown}" WidthRequest="10" HeightRequest="10" CornerRadius="5" Color="{StaticResource Success}"
+                                     HorizontalOptions="End" VerticalOptions="Start" Margin="0,5,5,0" />
+                            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="2">
+                                <Label Text="{Binding Big}" FontFamily="NunitoBlack" FontSize="30" VerticalOptions="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding IsVowel}" Value="True">
+                                            <Setter Property="TextColor" Value="#FF9600" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Label Text="{Binding Small}" FontFamily="NunitoExtraBold" FontSize="22" VerticalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                            </HorizontalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+
+            <!-- Numbers -->
+            <Grid ColumnDefinitions="*,Auto" Margin="2,10,2,0">
+                <Label Text="{u:Tr Key=Zero_Numbers}" FontFamily="NunitoExtraBold" FontSize="20" VerticalOptions="Center" />
+                <ctl:ChunkyButton Grid.Column="1" Text="{Binding NumbersButtonText}" Kind="outline" FontSize="14" Command="{Binding PlayNumbersCommand}" />
+            </Grid>
+            <FlexLayout Wrap="Wrap" JustifyContent="Start" BindableLayout.ItemsSource="{Binding Numbers}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="pageModels:ZeroTile">
+                        <Border StrokeShape="RoundRectangle 16" StrokeThickness="2" Padding="4,6" WidthRequest="100" HeightRequest="96" Margin="0,0,8,8"
+                                Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                            <Border.Triggers>
+                                <DataTrigger TargetType="Border" Binding="{Binding IsActive}" Value="True">
+                                    <Setter Property="Stroke" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}" />
+                                </DataTrigger>
+                            </Border.Triggers>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:BookZeroPageModel}}, Path=SayCommand}"
+                                                      CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                            <BoxView IsVisible="{Binding IsKnown}" WidthRequest="10" HeightRequest="10" CornerRadius="5" Color="{StaticResource Success}"
+                                     HorizontalOptions="End" VerticalOptions="Start" Margin="0,3,3,0" />
+                            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
+                                <Label Text="{Binding Big}" FontFamily="NunitoBlack" FontSize="30" HorizontalOptions="Center" TextColor="{Binding DigitColor}" />
+                                <Label Text="{Binding Small}" FontFamily="NunitoExtraBold" FontSize="14" HorizontalOptions="Center" TextColor="{StaticResource Primary}" />
+                                <Label Text="{Binding Translation}" IsVisible="{Binding HasTranslation}" FontSize="12" HorizontalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                            </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

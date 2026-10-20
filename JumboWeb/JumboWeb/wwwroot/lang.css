@@ -1,0 +1,60 @@
+/* =====================================================================
+   Interface language switch (next to the theme toggle)
+   ===================================================================== */
+.lang-switch {
+    position: relative; flex-shrink: 0; height: 38px; padding: 0 12px; margin: 0;
+    display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+    border-radius: 12px; background: var(--lp-surface);
+    border: 2px solid var(--lp-border); border-bottom-width: 4px;
+    font-weight: 900; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--lp-text);
+    transition: border-color 0.15s, background 0.15s, transform 0.08s;
+    -webkit-tap-highlight-color: transparent;
+}
+.lang-switch:hover { border-color: var(--lp-primary-edge); background: var(--lp-hover-bg); }
+.lang-switch:active { transform: translateY(2px); border-bottom-width: 2px; }
+.lang-switch:focus-within { outline: 3px solid var(--lp-primary-edge); outline-offset: 2px; }
+.lang-ico { font-size: 1rem; line-height: 1; }
+.lang-code { line-height: 1; }
+/* the real control: invisible, covers the whole pill, opens the native picker */
+.lang-switch select {
+    position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;
+    border: 0; background: transparent; font: inherit; color: inherit; appearance: none; -webkit-appearance: none;
+}
+
+/* headers are slightly smaller */
+.lp-header .lang-switch, .site-mobile-header .lang-switch { height: 34px; padding: 0 9px; }
+
+/* floating pair on login / register */
+.top-controls { position: fixed; top: 14px; right: 14px; z-index: 50; display: flex; align-items: center; gap: 8px; }
+
+/* landing nav + top bars: keep neighbours tidy */
+.site-desktop-topbar { gap: 8px; }
+.land-nav-actions .lang-switch { height: 38px; }
+
+@media (max-width: 480px) {
+    .lang-ico { display: none; }                 /* code only on narrow phones */
+    .lang-switch { padding: 0 9px; }
+    .land-nav-actions .lang-switch, .top-controls .lang-switch { height: 34px; }
+}
+
+/* Very narrow phones (320-360px): the LP header carries lives, points, language, theme and avatar */
+@media (max-width: 360px) {
+    .lp-header { padding: 0 8px; }
+    .lp-header .lp-header-icon { display: none; }
+    .lp-header-status { gap: 5px; }
+    .lp-header .lp-lives, .lp-header .lp-lp { font-size: 0.78rem; }
+    .lp-header .lang-switch { height: 30px; padding: 0 7px; font-size: 0.78rem; border-radius: 10px; }
+    .lp-header .theme-toggle { width: 30px; height: 30px; font-size: 0.9rem; border-radius: 10px; }
+    .lp-header .user-avatar { width: 28px !important; height: 28px !important; }
+    .site-mobile-header .lang-switch { height: 30px; }
+    .site-mobile-header .theme-toggle { width: 30px; height: 30px; }
+}
+
+/* 320-360px landing: the hero already has the big "Start" button, so the nav keeps brand + language + theme */
+@media (max-width: 360px) {
+    .land-nav-actions .land-nav-cta { display: none; }
+}
+
+/* the list of the native picker: the colours of the page (it was white letters on a white list on the dark landing) */
+.lang-switch select option { color: var(--lp-text); background: var(--lp-surface); }
+.lang-switch select { color-scheme: inherit; }

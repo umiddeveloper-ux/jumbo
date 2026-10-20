@@ -1,0 +1,174 @@
+@page "/little-polyglot/awards"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared.Dtos
+@inject LpApiClient ApiClient
+@inject LivesService Lives
+@inject PlayerStatsService Stats
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["Awards_PageTitle"]</PageTitle>
+
+<p class="lp-page-title">@Loc["Awards_Heading"]</p>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <p class="lp-section-title">@Loc["Awards_AchievementsSection"]</p>
+    @if (!_awards.Any())
+    {
+        <div class="lp-empty-state">@Loc["Awards_NoAwards"]</div>
+    }
+    else
+    {
+        <div class="award-grid">
+            @foreach (var a in _awards)
+            {
+                <div class="award-card @(!a.IsAchieved ? "not-achieved" : "")">
+                    <div class="award-svg">@((MarkupString)a.SvgHtml)</div>
+                    <div class="award-title">@a.Title</div>
+                </div>
+            }
+        </div>
+    }
+
+    <p class="lp-section-title">
+        @Loc["Awards_MarketSection"] &nbsp;<span class="lp-badge">@Lives.LpDisplay</span>
+        @if (Lives.ShieldCount > 0) { <span class="lp-badge mk-have" title="@Loc["Strip_Shield"]">🛡️ @Lives.ShieldCount</span> }
+        @if (Stats.FreezeCount > 0) { <span class="lp-badge mk-have" title="@Loc["Strip_Freeze"]">❄️ @Stats.FreezeCount</span> }
+    </p>
+
+    @if (!string.IsNullOrEmpty(_message))
+    {
+        <div class="mk-message @(_messageOk ? "ok" : "bad")" role="status">@_message</div>
+    }
+
+    @* things that are used up: they work at once *@
+    <h3 class="mk-group">@Loc["Market_Useful"]</h3>
+    <div class="market-grid">
+        @foreach (var m in _market.Where(i => i.Consumable))
+        {
+            @Card(m)
+        }
+    </div>
+
+    @* things that are worn: bought once, put on and taken off *@
+    <h3 class="mk-group">@Loc["Market_Style"]</h3>
+    <div class="market-grid">
+        @foreach (var m in _market.Where(i => !i.Consumable))
+        {
+            @Card(m)
+        }
+    </div>
+}
+
+@code {
+    private List<AwardVm> _awards = new();
+    private List<MarketItem> _market = new();
+    private bool _loaded, _busy, _messageOk;
+    private string _message = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        await Lives.CheckRegenAsync();
+        await Stats.RefreshAsync();
+
+        var awards = await ApiClient.GetAwardsAsync(Prefs.TransLangId);
+        _awards = awards.Select(a => new AwardVm
+        {
+            Title = a.Title,
+            SvgHtml = a.SvgImage,
+            IsAchieved = a.IsAchieved
+        }).ToList();
+
+        await LoadMarketAsync();
+        _loaded = true;
+    }
+
+    private async Task LoadMarketAsync() => _market = await ApiClient.GetMarketItemsAsync(Prefs.TransLangId);
+
+    // One card of the market: the picture, the name, what it does, the price and the button (Buy / Put on / Take off).
+    private RenderFragment Card(MarketItem m) => @<div class="market-card @(m.Equipped ? "worn" : "")">
+        <div class="award-svg">@((MarkupString)m.SvgImage)</div>
+        <div class="award-title">@m.Name</div>
+        <div class="mk-effect">@Loc[$"Market_Eff_{m.Kind}"]</div>
+        <div class="market-price">@Loc.Format("Awards_MarketPrice", m.Price)</div>
+        @if (m.Equipped)
+        {
+            <div class="mk-worn">✓ @Loc["Market_Worn"]</div>
+            <button type="button" class="lp-btn lp-btn-sm lp-btn-outline mk-btn" disabled="@_busy" @onclick="() => UnequipAsync(m)">@Loc["Market_Unequip"]</button>
+        }
+        else if (m.Owned)
+        {
+            <button type="button" class="lp-btn lp-btn-sm mk-btn" disabled="@_busy" @onclick="() => EquipAsync(m)">@Loc["Market_Equip"]</button>
+        }
+        else
+        {
+            <button type="button" class="lp-btn lp-btn-sm mk-btn @(m.CanBuy ? "" : "lp-btn-outline")" disabled="@(_busy || !m.CanBuy)" @onclick="() => BuyAsync(m)">
+                @(Lives.LpPoints < m.Price ? Loc["Market_NotEnough"] : Loc["Market_Buy"])
+            </button>
+        }
+    </div>;
+
+    private async Task BuyAsync(MarketItem m) => await RunAsync(async () =>
+    {
+        var r = await ApiClient.PurchaseAsync(m.Id);
+        Say(Loc["Market_Bought"], true);
+        return r;
+    });
+
+    private async Task EquipAsync(MarketItem m) => await RunAsync(() => ApiClient.EquipAsync(m.Id));
+
+    private async Task UnequipAsync(MarketItem m) => await RunAsync(() => ApiClient.UnequipAsync(m.Kind));
+
+    // Does the action, then reads everything again: the numbers of the learner (LP, lives, shields), the worn things (avatar, frame,
+    // theme, pet) and the shop (what can be bought now).
+    private async Task RunAsync(Func<Task<PurchaseResponse?>> action)
+    {
+        if (_busy) return;
+        _busy = true;
+        _message = string.Empty;
+        try
+        {
+            await action();
+            await Lives.InitAsync();
+            await Stats.RefreshAsync();
+            UserState.Invalidate();
+            await UserState.EnsureLoadedAsync();
+            try { await JS.InvokeVoidAsync("lp.setPalette", UserState.CurrentUser?.ThemeKey ?? ""); } catch { }
+            await LoadMarketAsync();
+        }
+        catch (Exception ex)
+        {
+            var key = $"Market_Err_{ex.Message}";
+            var text = Loc[key];
+            Say(text == key ? ex.Message : text, false);
+        }
+        finally
+        {
+            _busy = false;
+        }
+    }
+
+    private void Say(string text, bool ok)
+    {
+        _message = text;
+        _messageOk = ok;
+    }
+
+    private class AwardVm
+    {
+        public string Title     { get; set; } = string.Empty;
+        public string SvgHtml   { get; set; } = string.Empty;
+        public bool IsAchieved  { get; set; }
+    }
+}

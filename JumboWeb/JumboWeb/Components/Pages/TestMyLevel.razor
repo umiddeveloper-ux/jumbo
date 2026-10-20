@@ -1,0 +1,45 @@
+@page "/test-my-level"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject UserPreferencesService Prefs
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+<PageTitle>@Loc["SiteLayout_TestNav"]</PageTitle>
+
+<div class="exam-page">
+    <p class="lp-page-title">📝 @Loc["SiteLayout_TestNav"]</p>
+
+    <p class="lp-section-title">@Loc["Exam_WordCount"]</p>
+    <div class="exam-count-grid">
+        @foreach (var count in WordCounts)
+        {
+            var c = count;
+            <button class="exam-count-btn @(_selectedCount == c ? "selected" : "")"
+                    @onclick="() => _selectedCount = c">
+                @c
+            </button>
+        }
+    </div>
+
+    <button class="lp-btn-primary" disabled="@(!_selectedCount.HasValue)" @onclick="Start">
+        @Loc["Exam_StartButton"]
+    </button>
+</div>
+
+@code {
+    private static readonly int[] WordCounts = { 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+
+    private int? _selectedCount;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Prefs.EnsureLoadedAsync();
+    }
+
+    private void Start()
+    {
+        if (!_selectedCount.HasValue) return;
+        Nav.NavigateTo($"/test-my-level/quiz/{_selectedCount}");
+    }
+}

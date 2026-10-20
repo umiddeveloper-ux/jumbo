@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns:u="clr-namespace:Jumbo.Utilities"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:strings="clr-namespace:Jumbo.Resources.Strings"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             x:Class="Jumbo.Pages.SubjectDetailPage"
+             x:DataType="pageModels:SubjectDetailPageModel"
+             x:Name="SubjectDetailPageRoot"
+             Title="{Binding SubjectName}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SubjectDetailPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedTo"
+            Command="{Binding NavigatedToCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SubjectDetailPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom"
+            Command="{Binding NavigatedFromCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SubjectDetailPageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="16,12,16,28" Spacing="12" MaximumWidthRequest="760" HorizontalOptions="Fill"
+                                 IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}">
+
+                <!-- the picture of the topic in the three-part ring -->
+                <Grid WidthRequest="112" HeightRequest="112" HorizontalOptions="Center" IsVisible="{Binding HasSvg}">
+                    <ctl:IconRing Parts="{Binding Parts}" />
+                    <Border Margin="12" StrokeShape="RoundRectangle 40" StrokeThickness="0" Padding="0"
+                            BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+                        <ctl:SvgPicture InputTransparent="True" BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+                    </Border>
+                </Grid>
+
+                <Label Text="{Binding SubjectName}" FontFamily="NunitoBlack" FontSize="24" HorizontalTextAlignment="Center" />
+
+                <!-- The video of the topic (our file from the server). A topic without a video shows nothing here. -->
+                <toolkit:MediaElement x:Name="Player" IsVisible="{Binding HasVideo}" Source="{Binding VideoSource}"
+                                      HeightRequest="210" Aspect="AspectFit" BackgroundColor="Black"
+                                      ShouldAutoPlay="False" ShouldShowPlaybackControls="True" />
+
+                <VerticalStackLayout BindableLayout.ItemsSource="{Binding Lessons}" Spacing="10">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="pageModels:LessonItemViewModel">
+                            <Border StrokeShape="RoundRectangle 18"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                                    Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                    StrokeThickness="2" Padding="0">
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border" Binding="{Binding IsPassed}" Value="True">
+                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                    </DataTrigger>
+                                </Border.Triggers>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:SubjectDetailPageModel}}, Path=OpenLessonCommand}"
+                                        CommandParameter="{Binding .}" />
+                                </Border.GestureRecognizers>
+
+                                <Grid ColumnDefinitions="50,*,34" Padding="14,12" ColumnSpacing="8">
+                                    <Label Text="{Binding SvgIcon}" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    <VerticalStackLayout Grid.Column="1" Spacing="1" VerticalOptions="Center">
+                                        <Label Text="{Binding Name}" FontFamily="NunitoExtraBold" FontSize="17" />
+                                        <Label Text="{Binding Desc}" FontSize="13"
+                                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                                    </VerticalStackLayout>
+                                    <Border Grid.Column="2" WidthRequest="26" HeightRequest="26" StrokeShape="RoundRectangle 13"
+                                            BackgroundColor="{StaticResource Success}" StrokeThickness="0"
+                                            HorizontalOptions="End" VerticalOptions="Center" IsVisible="{Binding IsPassed}">
+                                        <Label Text="✓" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" FontSize="13" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center" HorizontalOptions="Center" Color="{StaticResource Primary}"
+                           HeightRequest="50" WidthRequest="50" />
+    </Grid>
+</ContentPage>

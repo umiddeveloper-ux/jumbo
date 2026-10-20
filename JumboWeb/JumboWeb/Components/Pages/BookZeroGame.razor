@@ -1,0 +1,286 @@
+@page "/little-polyglot/book-zero/play/{Mode}/{Kind}"
+@layout LpLayout
+@rendermode InteractiveServer
+@implements IAsyncDisposable
+@using System.Text.Json
+@using JumboWeb.Services
+@using Jumbo.Shared
+@inject IJSRuntime JS
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+<PageTitle>@Loc[Mode == "train" ? "ZG_TrainTitle" : "ZG_ListenTitle"]</PageTitle>
+
+@* Games of Book 0 (the alphabet and the numbers). Nothing here is counted: no lives, no LP, a mistake costs nothing but a star.
+   "Listen and tap": the voice says a letter or a number, the learner taps it among six.
+   "The missing wagon": a train of seven letters / numbers in order with two wagons missing; the learner puts them in. *@
+<div class="game-topbar">
+    <button class="lp-back-btn" @onclick="GoBack">@Loc["Common_BackArrow"]</button>
+    @if (!_finished)
+    {
+        <TigerCoach @ref="_coach" />
+    }
+    else
+    {
+        <span class="coach"></span>
+    }
+    <span class="game-lives" aria-hidden="true"></span>
+</div>
+
+@if (_finished)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="cheer" Size="160" /></div>
+        <div class="game-result-title">@Loc["ZG_Result"]</div>
+        <div class="zg-stars" aria-label="@Stars / 3">@string.Concat(Enumerable.Range(1, 3).Select(i => i <= Stars ? "★" : "☆"))</div>
+        <div class="game-result-sub">@Loc.Format("ZG_Mistakes", _mistakes)</div>
+        <button class="lp-btn lp-btn-full" @onclick="StartAsync">@Loc["Common_Again"]</button>
+        <button class="lp-btn lp-btn-full lp-btn-outline" @onclick="GoBack">@Loc["Common_Exit"]</button>
+    </div>
+}
+else if (_started)
+{
+    <div class="listen-progress-wrap">
+        <div class="listen-progress-bar"><div class="listen-progress-fill" style="width:@(_round * 100 / Rounds)%"></div></div>
+        <div class="listen-progress-text">@(Math.Min(_round + 1, Rounds)) / @Rounds</div>
+    </div>
+
+    @if (Mode == "train")
+    {
+        <p class="zg-hint">@Loc["ZG_TrainHint"]</p>
+        <div class="zg-train" role="list">
+            <span class="zg-loco" aria-hidden="true">🚂</span>
+            @for (int i = 0; i < _wagons.Count; i++)
+            {
+                var gapIndex = _gaps.IndexOf(i);
+                var filled = gapIndex >= 0 && _filled.Contains(i);
+                <span class="zg-wagon @(gapIndex >= 0 && !filled ? "gap" : "") @(gapIndex >= 0 && !filled && i == NextGap ? "next" : "") @(filled ? "put" : "")" role="listitem">
+                    @if (gapIndex < 0 || filled) { @_wagons[i].Big }
+                    else { <span>?</span> }
+                </span>
+            }
+        </div>
+
+        <div class="zg-grid train">
+            @foreach (var o in _options)
+            {
+                var item = o;
+                <button type="button" class="zg-tile @(_bad.Contains(item.Key) ? "bad" : "") @(_used.Contains(item.Key) ? "used" : "")"
+                        disabled="@(_locked || _used.Contains(item.Key))" @onclick="() => PlaceAsync(item)">
+                    @item.Big
+                </button>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="zg-hint">@Loc["ZG_ListenHint"]</p>
+        <button type="button" class="zg-speak" @onclick="SpeakTargetAsync" aria-label="@Loc["ZG_Repeat"]">
+            <span class="zg-speak-ico">🔊</span>
+            <span class="zg-speak-text">@Loc["ZG_Repeat"]</span>
+        </button>
+
+        <div class="zg-grid">
+            @foreach (var o in _options)
+            {
+                var item = o;
+                <button type="button" class="zg-tile @(_bad.Contains(item.Key) ? "bad" : "") @(_correctKey == item.Key ? "ok" : "")"
+                        disabled="@(_locked || _bad.Contains(item.Key))" @onclick="() => PickAsync(item)">
+                    <span>@item.Big</span>
+                    @if (item.Small.Length > 0)
+                    {
+                        <small>@item.Small</small>
+                    }
+                </button>
+            }
+        </div>
+    }
+}
+
+@code {
+    private const int ListenRounds = 10, TrainRounds = 6, WagonCount = 7, GapCount = 2;
+
+    [Parameter] public string Mode { get; set; } = "listen";      // listen | train
+    [Parameter] public string Kind { get; set; } = "letters";     // letters | numbers
+
+    private record Item(string Key, string Big, string Small, string Spoken);
+
+    private readonly Random _rnd = new();
+    private TigerCoach? _coach;
+    private bool _started, _finished, _locked;
+    private int _round, _mistakes;
+    private int Rounds => Mode == "train" ? TrainRounds : ListenRounds;
+
+    private List<Item> _options = new();
+    private readonly HashSet<string> _bad = new(), _used = new();
+    private Item? _target;
+    private string? _correctKey;
+    private bool _roundClean = true;                 // no mistake yet in this round
+
+    // the train
+    private List<Item> _wagons = new();
+    private List<int> _gaps = new();                 // positions of the missing wagons, in order
+    private readonly HashSet<int> _filled = new();
+    private int NextGap => _gaps.FirstOrDefault(g => !_filled.Contains(g), -1);
+
+    private List<Item> _targets = new();
+    private int Stars => _mistakes == 0 ? 3 : _mistakes <= 2 ? 2 : 1;
+
+    private IReadOnlyList<Item> Pool => Kind == "numbers"
+        ? Enumerable.Range(0, BookZeroData.MaxNumber + 1).Select(n => new Item("N" + n, n.ToString(), string.Empty, BookZeroData.NumberWord(n))).ToList()
+        : BookZeroData.Letters.Select(l => new Item("L" + l.Letter, l.Letter, l.Letter.ToLowerInvariant(), l.Spoken)).ToList();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender) await StartAsync();
+    }
+
+    private async Task StartAsync()
+    {
+        if (Mode != "train") Mode = "listen";
+        if (Kind != "numbers") Kind = "letters";
+        _round = 0;
+        _mistakes = 0;
+        _finished = false;
+        _started = true;
+        _targets = Pool.OrderBy(_ => _rnd.Next()).Take(ListenRounds).ToList();
+        await NewRoundAsync();
+    }
+
+    private async Task NewRoundAsync()
+    {
+        _bad.Clear();
+        _used.Clear();
+        _filled.Clear();
+        _correctKey = null;
+        _roundClean = true;
+        _locked = false;
+
+        var pool = Pool;
+        if (Mode == "train")
+        {
+            // seven in a row, two of them missing (not the first and not the last one, and not next to each other)
+            int start = _rnd.Next(0, pool.Count - WagonCount + 1);
+            _wagons = pool.Skip(start).Take(WagonCount).ToList();
+            int g1 = _rnd.Next(1, WagonCount - 1), g2;
+            do { g2 = _rnd.Next(1, WagonCount - 1); } while (Math.Abs(g2 - g1) < 2);
+            _gaps = new List<int> { g1, g2 }.OrderBy(x => x).ToList();
+
+            var missing = _gaps.Select(i => _wagons[i]).ToList();
+            var others = pool.Where(p => _wagons.All(w => w.Key != p.Key)).OrderBy(_ => _rnd.Next()).Take(2);
+            _options = missing.Concat(others).OrderBy(_ => _rnd.Next()).ToList();
+        }
+        else
+        {
+            _target = _targets[_round];
+            var others = pool.Where(p => p.Key != _target.Key).OrderBy(_ => _rnd.Next()).Take(5);
+            _options = others.Append(_target).OrderBy(_ => _rnd.Next()).ToList();
+            await SpeakTargetAsync();
+        }
+        StateHasChanged();
+    }
+
+    private async Task SpeakTargetAsync()
+    {
+        if (_target is null) return;
+        try { await JS.InvokeVoidAsync("lp.speak", _target.Spoken, "en-US"); } catch { }
+    }
+
+    // "Listen and tap"
+    private async Task PickAsync(Item item)
+    {
+        if (_locked || _target is null) return;
+        if (item.Key == _target.Key)
+        {
+            _locked = true;
+            _correctKey = item.Key;
+            _coach?.Cheer();
+            if (_roundClean) await RememberAsync(item.Key);
+            await Task.Delay(900);
+            await NextRoundAsync();
+        }
+        else
+        {
+            _bad.Add(item.Key);
+            _mistakes++;
+            _roundClean = false;
+            _coach?.Oops();
+            try { await JS.InvokeVoidAsync("lp.speak", item.Spoken, "en-US"); } catch { }      // what was tapped, so the learner hears the difference
+        }
+    }
+
+    // "The missing wagon": the tile has to be the first empty place of the train
+    private async Task PlaceAsync(Item item)
+    {
+        if (_locked) return;
+        var gap = NextGap;
+        if (gap >= 0 && _wagons[gap].Key == item.Key)
+        {
+            _filled.Add(gap);
+            _used.Add(item.Key);
+            try { await JS.InvokeVoidAsync("lp.speak", item.Spoken, "en-US"); } catch { }
+            if (NextGap < 0)
+            {
+                _locked = true;
+                _coach?.Cheer();
+                if (_roundClean) foreach (var g in _gaps) await RememberAsync(_wagons[g].Key);
+                await Task.Delay(1100);
+                await NextRoundAsync();
+            }
+        }
+        else
+        {
+            _bad.Add(item.Key);
+            _mistakes++;
+            _roundClean = false;
+            _coach?.Oops();
+            await Task.Delay(500);
+            _bad.Remove(item.Key);
+        }
+    }
+
+    private async Task NextRoundAsync()
+    {
+        _round++;
+        if (_round >= Rounds)
+        {
+            _finished = true;
+            await SaveBestAsync();
+            StateHasChanged();
+            return;
+        }
+        await NewRoundAsync();
+    }
+
+    // What the device remembers (no account needed: the page is open to everybody): the best result of each game and how many times a
+    // letter or a number was found without a mistake (three times = a green dot on its tile on the page of Book 0).
+    private async Task SaveBestAsync()
+    {
+        var key = $"bz-best-{Mode}-{Kind}";
+        try
+        {
+            int.TryParse(await JS.InvokeAsync<string?>("lp.store.get", key), out var old);
+            if (Stars > old) await JS.InvokeVoidAsync("lp.store.set", key, Stars.ToString());
+        }
+        catch { }
+    }
+
+    private async Task RememberAsync(string itemKey)
+    {
+        try
+        {
+            var json = await JS.InvokeAsync<string?>("lp.store.get", "bz-known");
+            var known = string.IsNullOrEmpty(json) ? new Dictionary<string, int>() : JsonSerializer.Deserialize<Dictionary<string, int>>(json) ?? new();
+            known[itemKey] = known.GetValueOrDefault(itemKey) + 1;
+            await JS.InvokeVoidAsync("lp.store.set", "bz-known", JsonSerializer.Serialize(known));
+        }
+        catch { }
+    }
+
+    private void GoBack() => Nav.NavigateTo("/little-polyglot/book-zero");
+
+    public async ValueTask DisposeAsync()
+    {
+        try { await JS.InvokeVoidAsync("lp.stopSpeech"); } catch { }
+    }
+}

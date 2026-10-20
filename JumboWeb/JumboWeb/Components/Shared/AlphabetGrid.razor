@@ -1,0 +1,23 @@
+@using JumboWeb.Services
+
+<div class="alphabet-grid">
+    @foreach (var item in Letters)
+    {
+        <button type="button"
+                class="alphabet-tile"
+                style="--tile-color: @LetterColors.BgColor(item.RepetitionLevel)"
+                title="@item.Letter: @item.LearnedCount / @item.TotalCount"
+                @onclick="() => OnLetterClick.InvokeAsync(item.Letter)">
+            <span class="alphabet-tile-letter">@item.Letter</span>
+            @if (item.TotalCount > 0)
+            {
+                <span class="alphabet-tile-count">@item.LearnedCount/@item.TotalCount</span>
+            }
+        </button>
+    }
+</div>
+
+@code {
+    [Parameter] public IReadOnlyList<LetterItem> Letters { get; set; } = [];
+    [Parameter] public EventCallback<string> OnLetterClick { get; set; }
+}

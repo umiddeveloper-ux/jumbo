@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.AwardPopupPage"
+             BackgroundColor="#CC081426"
+             Shell.NavBarIsVisible="False">
+
+    <!-- "You got an award!": confetti, a medal that spins in, Jumbo cheering, and the buttons "Awards" and "Close" -->
+    <Grid>
+        <GraphicsView x:Name="Confetti" InputTransparent="True" />
+
+        <Border x:Name="Card" StrokeShape="RoundRectangle 28" StrokeThickness="2" Padding="20,22,20,18" WidthRequest="330" MaximumWidthRequest="360"
+                VerticalOptions="Center" HorizontalOptions="Center" Opacity="0"
+                Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+            <VerticalStackLayout Spacing="8" HorizontalOptions="Fill">
+                <Label x:Name="TitleLabel" Text="{u:Tr Key=Award_New}" FontFamily="NunitoBlack" FontSize="26" TextColor="#FF9600" HorizontalOptions="Center" />
+
+                <Grid HeightRequest="160" WidthRequest="160" HorizontalOptions="Center">
+                    <Ellipse x:Name="Glow" Fill="#55FFC800" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <!-- a round coin: the picture of the award on a pale gold ground (a WebView has no transparent ground on Windows) -->
+                    <Border x:Name="Medal" StrokeShape="Ellipse" StrokeThickness="4" Stroke="#FFC800" BackgroundColor="#FFF0B3" WidthRequest="124" HeightRequest="124"
+                            HorizontalOptions="Center" VerticalOptions="Center" Padding="0">
+                        <WebView x:Name="MedalPicture" BackgroundColor="#FFF0B3" InputTransparent="True" Margin="14" />
+                    </Border>
+                </Grid>
+
+                <Label x:Name="NameLabel" FontFamily="NunitoBlack" FontSize="21" HorizontalTextAlignment="Center" />
+                <Label x:Name="BonusLabel" FontFamily="NunitoBlack" FontSize="19" TextColor="{StaticResource Success}" HorizontalTextAlignment="Center" IsVisible="False" />
+                <ctl:TigerView Size="92" Mood="cheer" HorizontalOptions="Center" />
+                <Label Text="{u:Tr Key=Award_Congrats}" FontSize="14" HorizontalTextAlignment="Center"
+                       TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,6,0,0">
+                    <ctl:ChunkyButton Text="{u:Tr Key=Award_Close}" Kind="outline" FontSize="15" Clicked="OnCloseClicked" />
+                    <ctl:ChunkyButton Grid.Column="1" Text="{u:Tr Key=Award_Open}" FontSize="15" Clicked="OnOpenClicked" />
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentPage>

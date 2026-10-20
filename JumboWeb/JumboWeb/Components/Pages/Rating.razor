@@ -1,0 +1,145 @@
+@page "/rating"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+
+<PageTitle>@Loc["Rating_Title"]</PageTitle>
+
+<div class="rate-page">
+    <div class="rate-head">
+        <div>
+            <h1 class="rate-title">🏆 @Loc["Rating_Title"]</h1>
+            <p class="rate-sub">@Loc["Rating_Subtitle"]</p>
+        </div>
+        <div class="rate-period" role="tablist">
+            <button type="button" class="rate-chip @(_period == "week" ? "on" : "")" @onclick='() => SetPeriod("week")'>@Loc["Rating_Week"]</button>
+            <button type="button" class="rate-chip @(_period == "all" ? "on" : "")" @onclick='() => SetPeriod("all")'>@Loc["Rating_AllTime"]</button>
+        </div>
+    </div>
+
+    <div class="rate-tabs" role="tablist">
+        @if (IsStaff)
+        {
+            <button type="button" class="rate-tab @(_classId == 0 ? "on" : "")" @onclick="() => SetClass(0)">@Loc["Rating_TeacherAll"]</button>
+            @foreach (var c in _classes)
+            {
+                var cid = c.ClassId;
+                <button type="button" class="rate-tab @(_classId == cid ? "on" : "")" @onclick="() => SetClass(cid)">@c.Name</button>
+            }
+        }
+        else
+        {
+            @foreach (var (key, label) in Scopes)
+            {
+                var k = key;
+                <button type="button" class="rate-tab @(_scope == k ? "on" : "")" @onclick="() => SetScope(k)">@Loc[label]</button>
+            }
+        }
+    </div>
+
+    @if (_loading)
+    {
+        <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+    }
+    else if (IsStaff && (_data is null || _data.Entries.Count == 0))
+    {
+        <div class="rate-empty">
+            <Tiger Mood="wave" Size="120" />
+            <p>@Loc["Rating_TeacherEmpty"]</p>
+        </div>
+    }
+    else if (_data is null || _data.Missing)
+    {
+        <div class="rate-empty">
+            <Tiger Mood="wave" Size="120" />
+            <p>@Loc[MissingKey]</p>
+            <a class="lp-btn" href="/little-polyglot/settings">@Loc["Rating_GoSettings"]</a>
+        </div>
+    }
+    else
+    {
+        @if (IsStaff)
+        {
+            <div class="rate-me none">@Loc.Format("Rating_TeacherCount", _data.Entries.Count)</div>
+        }
+        else if (_data.Me is { } me)
+        {
+            <div class="rate-me">
+                <span class="rate-me-place">@Loc.Format("Rating_MyPlace", me.Rank)</span>
+                <span class="rate-me-points">@Loc.Format("Rating_Points", me.Words)</span>
+            </div>
+        }
+        else
+        {
+            <div class="rate-me none">@Loc["Rating_NoPlace"]</div>
+        }
+
+        @if (_data.Entries.Count == 0)
+        {
+            <div class="rate-empty"><Tiger Mood="idle" Size="110" /><p>@Loc["Rating_Empty"]</p></div>
+        }
+        else
+        {
+            <div class="rate-list">
+                @foreach (var e in _data.Entries)
+                {
+                    <RatingRow Entry="e" />
+                }
+            </div>
+        }
+    }
+
+    @if (!IsStaff)
+    {
+        <p class="rate-privacy">🔒 @Loc["Rating_Privacy"]</p>
+    }
+</div>
+
+@code {
+    private static readonly (string Key, string Label)[] Scopes =
+    [
+        ("team", "Rating_ScopeTeam"), ("school", "Rating_ScopeSchool"), ("region", "Rating_ScopeRegion"), ("all", "Rating_ScopeAll")
+    ];
+
+    private bool IsStaff => Jumbo.Shared.Entities.UserRoleExtensions.IsStaff(UserState.CurrentUser?.Role);
+    private List<ClassDto> _classes = new();
+    private int _classId;               // teacher view: 0 = all of the teacher's pupils
+
+    private string _scope = "all";
+    private string _period = "week";
+    private bool _loading = true;
+    private RatingDto? _data;
+
+    private string MissingKey => _scope switch { "team" => "Rating_MissingTeam", "school" => "Rating_MissingSchool", _ => "Rating_MissingRegion" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        var u = UserState.CurrentUser;
+        if (IsStaff)
+        {
+            try { _classes = await ApiClient.TeacherGetClassesAsync(); } catch { }
+            await LoadAsync();
+            return;
+        }
+        // Start from the most personal scope the player has filled in.
+        _scope = !string.IsNullOrWhiteSpace(u?.Team) ? "team"
+               : !string.IsNullOrWhiteSpace(u?.School) ? "school"
+               : !string.IsNullOrWhiteSpace(u?.Region) ? "region" : "all";
+        await LoadAsync();
+    }
+
+    private async Task SetScope(string scope) { if (_scope == scope) return; _scope = scope; await LoadAsync(); }
+    private async Task SetClass(int classId) { if (_classId == classId) return; _classId = classId; await LoadAsync(); }
+    private async Task SetPeriod(string period) { if (_period == period) return; _period = period; await LoadAsync(); }
+
+    private async Task LoadAsync()
+    {
+        _loading = true;
+        try { _data = IsStaff ? await ApiClient.TeacherGetRatingAsync(_classId, _period) : await ApiClient.GetRatingAsync(_scope, _period); }
+        catch { _data = null; }
+        _loading = false;
+    }
+}

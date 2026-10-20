@@ -1,0 +1,169 @@
+@page "/topic/{BookNumber:int}/{Seq:int}"
+@rendermode InteractiveServer
+@implements IAsyncDisposable
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject IJSRuntime JS
+@inject AppLocalizer Loc
+
+<PageTitle>@(_subject?.SubjectName ?? "Jumbo") — Jumbo.uz</PageTitle>
+
+@* The page a QR code of a topic opens: the words of the topic with their numbers, translation and sound. Open to everybody (no sign-in);
+   instead of "Back" there is "Go to the website". *@
+<div class="tq">
+    <header class="tq-top">
+        <a class="tq-go" href="/">@Loc["Tq_GoSite"] →</a>
+        <div class="tq-tools"><LanguageSwitcher /><ThemeToggle /></div>
+    </header>
+
+    @if (!_loaded)
+    {
+        <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+    }
+    else if (_subject is null)
+    {
+        <div class="lp-empty-state">@Loc["SubjectDetail_NotFound"]</div>
+    }
+    else
+    {
+        <div class="tq-hero">
+            @if (!string.IsNullOrEmpty(_svg))
+            {
+                <div class="tq-icon">@((MarkupString)_svg)</div>
+            }
+            <div class="tq-hero-text">
+                <div class="tq-book">@Loc.Format("Common_BookLabel", BookNumber) · @Loc.Format("Tq_TopicNo", Seq)</div>
+                <h1 class="tq-title">@_subject.SubjectName</h1>
+                @if (_rows.Count > 0)
+                {
+                    <button type="button" class="lp-btn lp-btn-sm @(_playing ? "lp-btn-outline" : "")" @onclick="PlayAllAsync">
+                        @(_playing ? "■ " + Loc["Zero_Stop"] : "▶ " + Loc["Zero_PlayAll"])
+                    </button>
+                }
+            </div>
+        </div>
+
+        <TopicVideo Book="BookNumber" Seq="Seq" Lang="@(UserState.IsRegistered ? Jumbo.Shared.TopicVideoPaths.LanguageCode(Prefs.StudyLangId) : "en")" />
+
+        @if (_rows.Count == 0)
+        {
+            <div class="lp-empty-state">@Loc["Common_NoWordsFound"]</div>
+        }
+        else
+        {
+            <ul class="topic-word-list tq-list">
+                @for (int i = 0; i < _rows.Count; i++)
+                {
+                    var idx = i;
+                    var r = _rows[i];
+                    <li class="topic-word-row @(_active == idx ? "tq-on" : "")">
+                        <span class="topic-word-num">@r.Number</span>
+                        <span class="topic-word-study">@r.Word</span>
+                        <span class="topic-word-trans">@r.Translation</span>
+                        <button type="button" class="topic-word-speak" title="@Loc["ListenGame_SpeakTitle"]" aria-label="@Loc["ListenGame_SpeakTitle"]"
+                                @onclick="() => SpeakAsync(idx)">🔊</button>
+                    </li>
+                }
+            </ul>
+        }
+
+        <a class="lp-btn lp-btn-full tq-go-bottom" href="/">@Loc["Tq_GoSite"] →</a>
+    }
+</div>
+
+@code {
+    [Parameter] public int BookNumber { get; set; }
+    [Parameter] public int Seq { get; set; }
+
+    private record WordRow(int Number, string Word, string Translation);
+
+    private Jumbo.Shared.Entities.Subject? _subject;
+    private string _svg = string.Empty;
+    private List<WordRow> _rows = new();
+    private bool _loaded, _playing;
+    private int _active = -1;
+    private CancellationTokenSource? _cts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+
+        try
+        {
+            _subject = (await ApiClient.GetSubjectsByBookAsync(BookNumber)).FirstOrDefault(s => s.SequenceNumber == Seq);
+            if (_subject is not null)
+            {
+                _svg = await ApiClient.GetSvgByIdAsync(_subject.SvgImageId);
+
+                // The words are English. The translation: the signed-in learner's own language; a guest gets the language of the page
+                // (Uzbek for Uzbek, Russian otherwise).
+                var transId = UserState.IsRegistered ? Prefs.TransLangId : (Prefs.AppLangId == 3 ? 3 : 2);
+                var study = (await ApiClient.GetAllWordsBySubjectAndLanguageAsync(_subject.SubjectId, 1))
+                    .OrderBy(w => w.WordNumber).ThenBy(w => w.WordId).ToList();
+                var trans = (await ApiClient.GetAllWordsBySubjectAndLanguageAsync(_subject.SubjectId, transId))
+                    .GroupBy(w => w.SvgImageId).ToDictionary(g => g.Key, g => g.First().WordName);
+
+                for (int i = 0; i < study.Count; i++)
+                {
+                    var w = study[i];
+                    _rows.Add(new WordRow(w.WordNumber > 0 ? w.WordNumber : i + 1, w.WordName, trans.GetValueOrDefault(w.SvgImageId) ?? string.Empty));
+                }
+            }
+        }
+        catch (HttpRequestException) { /* shown as "not found" */ }
+
+        _loaded = true;
+    }
+
+    private async Task SpeakAsync(int index)
+    {
+        await StopAsync();
+        _active = index;
+        try { await JS.InvokeVoidAsync("lp.speak", _rows[index].Word, "en-US"); } catch { }
+    }
+
+    // "Listen to all": the words one after another, the one that is read is lit.
+    private async Task PlayAllAsync()
+    {
+        if (_playing) { await StopAsync(); return; }
+        await StopAsync();
+
+        _playing = true;
+        _cts = new CancellationTokenSource();
+        var token = _cts.Token;
+        try
+        {
+            for (int i = 0; i < _rows.Count && !token.IsCancellationRequested; i++)
+            {
+                _active = i;
+                StateHasChanged();
+                await JS.InvokeVoidAsync("lp.speakWait", _rows[i].Word, "en-US");
+                if (!token.IsCancellationRequested) await Task.Delay(300, token);
+            }
+        }
+        catch (OperationCanceledException) { }
+        catch (JSDisconnectedException) { }
+        finally
+        {
+            if (_cts?.Token == token) { _playing = false; _active = -1; }
+        }
+        StateHasChanged();
+    }
+
+    private async Task StopAsync()
+    {
+        _cts?.Cancel();
+        _playing = false;
+        _active = -1;
+        try { await JS.InvokeVoidAsync("lp.stopSpeech"); } catch { }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        _cts?.Cancel();
+        try { await JS.InvokeVoidAsync("lp.stopSpeech"); } catch { }
+    }
+}

@@ -1,0 +1,3023 @@
+{
+  "metadata": {
+    "book": 1,
+    "level": "A1",
+    "word_count": 300,
+    "id_range": [
+      1,
+      300
+    ],
+    "schema": [
+      "id",
+      "book",
+      "level",
+      "subject",
+      "en",
+      "ru",
+      "uz",
+      "svg"
+    ]
+  },
+  "words": [
+    {
+      "id": 1,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "I",
+      "ru": "я",
+      "uz": "men",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#42A5F5'/><text x='50' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>I</text></svg>"
+    },
+    {
+      "id": 2,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "you",
+      "ru": "ты / вы",
+      "uz": "sen / siz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#66BB6A'/><text x='50' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>YOU</text></svg>"
+    },
+    {
+      "id": 3,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "he",
+      "ru": "он",
+      "uz": "u",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#3E2723'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#42A5F5'/></svg>"
+    },
+    {
+      "id": 4,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "she",
+      "ru": "она",
+      "uz": "u",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#6D4C41'/><path d='M50 54 L26 84 H74 Z' fill='#EC407A'/></svg>"
+    },
+    {
+      "id": 5,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "we",
+      "ru": "мы",
+      "uz": "biz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><circle cx='28' cy='34' r='12' fill='#FFCCBC'/><path d='M16 27 Q28 12 40 27' fill='#5D4037'/><path d='M6 84 Q10 54 28 54 Q46 54 50 84 Z' fill='#42A5F5'/><text x='28' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>I</text><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#66BB6A'/><circle cx='72' cy='34' r='12' fill='#FFCCBC'/><path d='M60 27 Q72 12 84 27' fill='#5D4037'/><path d='M50 84 Q54 54 72 54 Q90 54 94 84 Z' fill='#FFA726'/></svg>"
+    },
+    {
+      "id": 6,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "they",
+      "ru": "они",
+      "uz": "ular",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='23' cy='38' r='10' fill='#FFCCBC'/><path d='M11 31 Q23 16 35 31' fill='#5D4037'/><path d='M1 84 Q5 52 23 52 Q41 52 45 84 Z' fill='#42A5F5'/><circle cx='41' cy='38' r='10' fill='#FFCCBC'/><path d='M29 31 Q41 16 53 31' fill='#5D4037'/><path d='M19 84 Q23 52 41 52 Q59 52 63 84 Z' fill='#66BB6A'/><circle cx='59' cy='38' r='10' fill='#FFCCBC'/><path d='M47 31 Q59 16 71 31' fill='#5D4037'/><path d='M37 84 Q41 52 59 52 Q77 52 81 84 Z' fill='#FFA726'/><circle cx='77' cy='38' r='10' fill='#FFCCBC'/><path d='M65 31 Q77 16 89 31' fill='#5D4037'/><path d='M55 84 Q59 52 77 52 Q95 52 99 84 Z' fill='#EF5350'/></svg>"
+    },
+    {
+      "id": 7,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "it",
+      "ru": "это / оно",
+      "uz": "bu / u",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='30' y='30' width='40' height='40' rx='8' fill='#90A4AE'/><text x='50' y='58' text-anchor='middle' font-family='Arial' font-size='20' font-weight='700' fill='white'>IT</text></svg>"
+    },
+    {
+      "id": 8,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "man",
+      "ru": "мужчина",
+      "uz": "erkak",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#1976D2'/></svg>"
+    },
+    {
+      "id": 9,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "woman",
+      "ru": "женщина",
+      "uz": "ayol",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M50 54 L26 84 H74 Z' fill='#EC407A'/></svg>"
+    },
+    {
+      "id": 10,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "boy",
+      "ru": "мальчик",
+      "uz": "o‘g‘il bola",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M28 84 Q32 52 50 52 Q68 52 72 84 Z' fill='#42A5F5'/></svg>"
+    },
+    {
+      "id": 11,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "girl",
+      "ru": "девочка",
+      "uz": "qiz bola",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M50 52 L26 84 H74 Z' fill='#F06292'/></svg>"
+    },
+    {
+      "id": 12,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "person",
+      "ru": "человек",
+      "uz": "odam",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#26A69A'/></svg>"
+    },
+    {
+      "id": 13,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "people",
+      "ru": "люди",
+      "uz": "odamlar",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><circle cx='18' cy='38' r='10' fill='#FFCCBC'/><path d='M6 31 Q18 16 30 31' fill='#5D4037'/><path d='M-4 84 Q0 52 18 52 Q36 52 40 84 Z' fill='#42A5F5'/><circle cx='34' cy='38' r='10' fill='#FFCCBC'/><path d='M22 31 Q34 16 46 31' fill='#5D4037'/><path d='M12 84 Q16 52 34 52 Q52 52 56 84 Z' fill='#66BB6A'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M28 84 Q32 52 50 52 Q68 52 72 84 Z' fill='#FFA726'/><circle cx='66' cy='38' r='10' fill='#FFCCBC'/><path d='M54 31 Q66 16 78 31' fill='#5D4037'/><path d='M44 84 Q48 52 66 52 Q84 52 88 84 Z' fill='#EF5350'/><circle cx='82' cy='38' r='10' fill='#FFCCBC'/><path d='M70 31 Q82 16 94 31' fill='#5D4037'/><path d='M60 84 Q64 52 82 52 Q100 52 104 84 Z' fill='#AB47BC'/></svg>"
+    },
+    {
+      "id": 14,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "friend",
+      "ru": "друг",
+      "uz": "do‘st",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='38' cy='34' r='12' fill='#FFCCBC'/><path d='M26 27 Q38 12 50 27' fill='#5D4037'/><path d='M16 84 Q20 54 38 54 Q56 54 60 84 Z' fill='#42A5F5'/><circle cx='62' cy='34' r='12' fill='#FFCCBC'/><path d='M50 27 Q62 12 74 27' fill='#5D4037'/><path d='M40 84 Q44 54 62 54 Q80 54 84 84 Z' fill='#FFB300'/><path d='M36 70 Q50 82 64 70' stroke='#E91E63' stroke-width='5' fill='none'/></svg>"
+    },
+    {
+      "id": 15,
+      "book": 1,
+      "level": "A1",
+      "subject": "People & Pronouns",
+      "en": "name",
+      "ru": "имя",
+      "uz": "ism",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='22' y='30' width='56' height='38' rx='6' fill='white' stroke='#5C6BC0' stroke-width='3'/><text x='50' y='47' text-anchor='middle' font-family='Arial' font-size='11' fill='#5C6BC0'>NAME</text><path d='M34 58 H66' stroke='#5C6BC0' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 16,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "family",
+      "ru": "семья",
+      "uz": "oila",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='23' cy='38' r='10' fill='#FFCCBC'/><path d='M11 31 Q23 16 35 31' fill='#5D4037'/><path d='M1 84 Q5 52 23 52 Q41 52 45 84 Z' fill='#1976D2'/><circle cx='41' cy='38' r='10' fill='#FFCCBC'/><path d='M29 31 Q41 16 53 31' fill='#5D4037'/><path d='M19 84 Q23 52 41 52 Q59 52 63 84 Z' fill='#EC407A'/><circle cx='59' cy='38' r='10' fill='#FFCCBC'/><path d='M47 31 Q59 16 71 31' fill='#5D4037'/><path d='M37 84 Q41 52 59 52 Q77 52 81 84 Z' fill='#66BB6A'/><circle cx='77' cy='38' r='10' fill='#FFCCBC'/><path d='M65 31 Q77 16 89 31' fill='#5D4037'/><path d='M55 84 Q59 52 77 52 Q95 52 99 84 Z' fill='#FFA726'/></svg>"
+    },
+    {
+      "id": 17,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "mother",
+      "ru": "мама",
+      "uz": "ona",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M50 54 L26 84 H74 Z' fill='#EC407A'/><circle cx='72' cy='38' r='10' fill='#FFCCBC'/><path d='M60 31 Q72 16 84 31' fill='#5D4037'/><path d='M50 84 Q54 52 72 52 Q90 52 94 84 Z' fill='#FFB300'/></svg>"
+    },
+    {
+      "id": 18,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "father",
+      "ru": "папа",
+      "uz": "ota",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#1976D2'/><circle cx='72' cy='38' r='10' fill='#FFCCBC'/><path d='M60 31 Q72 16 84 31' fill='#5D4037'/><path d='M50 84 Q54 52 72 52 Q90 52 94 84 Z' fill='#FFB300'/></svg>"
+    },
+    {
+      "id": 19,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "parent",
+      "ru": "родитель",
+      "uz": "ota-ona",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#7E57C2'/><circle cx='68' cy='38' r='10' fill='#FFCCBC'/><path d='M56 31 Q68 16 80 31' fill='#5D4037'/><path d='M46 84 Q50 52 68 52 Q86 52 90 84 Z' fill='#FFB300'/></svg>"
+    },
+    {
+      "id": 20,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "parents",
+      "ru": "родители",
+      "uz": "ota-onalar",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='28' cy='34' r='12' fill='#FFCCBC'/><path d='M16 27 Q28 12 40 27' fill='#5D4037'/><path d='M6 84 Q10 54 28 54 Q46 54 50 84 Z' fill='#1976D2'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#EC407A'/><circle cx='72' cy='34' r='12' fill='#FFCCBC'/><path d='M60 27 Q72 12 84 27' fill='#5D4037'/><path d='M50 84 Q54 54 72 54 Q90 54 94 84 Z' fill='#FFB300'/></svg>"
+    },
+    {
+      "id": 21,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "brother",
+      "ru": "брат",
+      "uz": "aka / uka",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M28 84 Q32 52 50 52 Q68 52 72 84 Z' fill='#4CAF50'/></svg>"
+    },
+    {
+      "id": 22,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "sister",
+      "ru": "сестра",
+      "uz": "opa / singil",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M50 52 L26 84 H74 Z' fill='#F06292'/></svg>"
+    },
+    {
+      "id": 23,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "son",
+      "ru": "сын",
+      "uz": "o‘g‘il",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M28 84 Q32 52 50 52 Q68 52 72 84 Z' fill='#42A5F5'/><path d='M22 72 Q50 90 78 72' stroke='#1976D2' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 24,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "daughter",
+      "ru": "дочь",
+      "uz": "qiz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M50 52 L26 84 H74 Z' fill='#EC407A'/><path d='M22 72 Q50 90 78 72' stroke='#EC407A' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 25,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "child",
+      "ru": "ребёнок",
+      "uz": "bola",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M28 84 Q32 52 50 52 Q68 52 72 84 Z' fill='#FFB300'/></svg>"
+    },
+    {
+      "id": 26,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "children",
+      "ru": "дети",
+      "uz": "bolalar",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='23' cy='38' r='10' fill='#FFCCBC'/><path d='M11 31 Q23 16 35 31' fill='#5D4037'/><path d='M1 84 Q5 52 23 52 Q41 52 45 84 Z' fill='#FFB300'/><circle cx='41' cy='38' r='10' fill='#FFCCBC'/><path d='M29 31 Q41 16 53 31' fill='#5D4037'/><path d='M19 84 Q23 52 41 52 Q59 52 63 84 Z' fill='#66BB6A'/><circle cx='59' cy='38' r='10' fill='#FFCCBC'/><path d='M47 31 Q59 16 71 31' fill='#5D4037'/><path d='M37 84 Q41 52 59 52 Q77 52 81 84 Z' fill='#42A5F5'/><circle cx='77' cy='38' r='10' fill='#FFCCBC'/><path d='M65 31 Q77 16 89 31' fill='#5D4037'/><path d='M55 84 Q59 52 77 52 Q95 52 99 84 Z' fill='#EC407A'/></svg>"
+    },
+    {
+      "id": 27,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "husband",
+      "ru": "муж",
+      "uz": "er",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#1565C0'/><circle cx='73' cy='37' r='8' fill='none' stroke='#FFD54F' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 28,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "wife",
+      "ru": "жена",
+      "uz": "xotin / rafiqa",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M50 54 L26 84 H74 Z' fill='#EC407A'/><circle cx='73' cy='37' r='8' fill='none' stroke='#FFD54F' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 29,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "home",
+      "ru": "дом / дома",
+      "uz": "uy / uyda",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><rect x='25' y='48' width='50' height='38' fill='#FFAB91'/><path d='M18 50 L50 20 L82 50 Z' fill='#D84315'/><rect x='43' y='66' width='14' height='20' fill='#6D4C41'/><rect x='30' y='58' width='12' height='10' fill='#BBDEFB'/><rect x='58' y='58' width='12' height='10' fill='#BBDEFB'/></svg>"
+    },
+    {
+      "id": 30,
+      "book": 1,
+      "level": "A1",
+      "subject": "Family",
+      "en": "love",
+      "ru": "любить / любовь",
+      "uz": "sevmoq / sevgi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M50 82 C25 60 18 44 26 32 C34 20 48 27 50 38 C52 27 66 20 74 32 C82 44 75 60 50 82 Z' fill='#E91E63'/></svg>"
+    },
+    {
+      "id": 31,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "be",
+      "ru": "быть",
+      "uz": "bo‘lmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><text x='50' y='62' text-anchor='middle' font-family='Arial' font-size='54' font-weight='700' fill='#5C6BC0'>=</text></svg>"
+    },
+    {
+      "id": 32,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "am",
+      "ru": "являюсь / есть",
+      "uz": "...man / bo‘laman",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#42A5F5'/><text x='50' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>AM</text></svg>"
+    },
+    {
+      "id": 33,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "is",
+      "ru": "является / есть",
+      "uz": "...dir / bo‘ladi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#66BB6A'/><text x='50' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>IS</text></svg>"
+    },
+    {
+      "id": 34,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "are",
+      "ru": "являемся / есть",
+      "uz": "...miz / bo‘lamiz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='28' cy='34' r='12' fill='#FFCCBC'/><path d='M16 27 Q28 12 40 27' fill='#5D4037'/><path d='M6 84 Q10 54 28 54 Q46 54 50 84 Z' fill='#42A5F5'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#66BB6A'/><circle cx='72' cy='34' r='12' fill='#FFCCBC'/><path d='M60 27 Q72 12 84 27' fill='#5D4037'/><path d='M50 84 Q54 54 72 54 Q90 54 94 84 Z' fill='#FFA726'/><text x='50' y='92' text-anchor='middle' font-family='Arial' font-size='15' font-weight='700' fill='#333'>ARE</text></svg>"
+    },
+    {
+      "id": 35,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "have",
+      "ru": "иметь",
+      "uz": "ega bo‘lmoq / bor",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><path d='M24 74 Q36 52 50 62 Q60 42 78 48 L74 74 Z' fill='#FFCCBC' stroke='#8D6E63'/><rect x='40' y='26' width='28' height='28' rx='4' fill='#FFCA28'/></svg>"
+    },
+    {
+      "id": 36,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "do",
+      "ru": "делать",
+      "uz": "qilmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='50' cy='50' r='26' fill='#E0F2F1'/><path d='M32 54 L44 66 L70 34' stroke='#26A69A' stroke-width='8' fill='none' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 37,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "make",
+      "ru": "делать / создавать",
+      "uz": "qilmoq / yaratmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M25 70 L60 35' stroke='#6D4C41' stroke-width='8'/><rect x='56' y='24' width='28' height='16' rx='3' fill='#90A4AE' transform='rotate(35 70 32)'/></svg>"
+    },
+    {
+      "id": 38,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "go",
+      "ru": "идти / ехать",
+      "uz": "bormoq / ketmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M18 50 H70' stroke='#1976D2' stroke-width='8' stroke-linecap='round'/><path d='M62 30 L84 50 L62 70 Z' fill='#1976D2'/></svg>"
+    },
+    {
+      "id": 39,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "come",
+      "ru": "приходить",
+      "uz": "kelmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><path d='M82 50 H30' stroke='#1976D2' stroke-width='8' stroke-linecap='round'/><path d='M38 30 L16 50 L38 70 Z' fill='#1976D2'/></svg>"
+    },
+    {
+      "id": 40,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "see",
+      "ru": "видеть",
+      "uz": "ko‘rmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M14 50 Q50 20 86 50 Q50 80 14 50 Z' fill='white' stroke='#333' stroke-width='3'/><circle cx='50' cy='50' r='13' fill='#42A5F5'/><circle cx='50' cy='50' r='6' fill='#111'/></svg>"
+    },
+    {
+      "id": 41,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "look",
+      "ru": "смотреть",
+      "uz": "qaramoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='42' cy='42' r='22' fill='white' stroke='#333' stroke-width='5'/><path d='M58 58 L78 78' stroke='#333' stroke-width='7' stroke-linecap='round'/><circle cx='42' cy='42' r='8' fill='#42A5F5'/></svg>"
+    },
+    {
+      "id": 42,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "know",
+      "ru": "знать",
+      "uz": "bilmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M34 36 Q34 20 50 26 Q62 16 70 30 Q84 34 74 50 Q80 66 62 68 Q52 78 40 68 Q24 68 28 52 Q18 42 34 36 Z' fill='#F8BBD0' stroke='#EC407A' stroke-width='3'/><path d='M44 30 Q40 45 52 50 M58 28 Q50 42 64 54 M38 55 Q48 58 42 70' stroke='#EC407A' fill='none'/><circle cx='75' cy='25' r='8' fill='#FFEB3B'/></svg>"
+    },
+    {
+      "id": 43,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "think",
+      "ru": "думать",
+      "uz": "o‘ylamoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><path d='M34 36 Q34 20 50 26 Q62 16 70 30 Q84 34 74 50 Q80 66 62 68 Q52 78 40 68 Q24 68 28 52 Q18 42 34 36 Z' fill='#F8BBD0' stroke='#EC407A' stroke-width='3'/><path d='M44 30 Q40 45 52 50 M58 28 Q50 42 64 54 M38 55 Q48 58 42 70' stroke='#EC407A' fill='none'/><path d='M70 22 Q86 20 86 36 Q86 48 72 48 H64 L58 58 V48 H50 Q42 48 42 38 Q42 24 56 24 Z' fill='white' stroke='#5C6BC0' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 44,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "say",
+      "ru": "сказать / говорить",
+      "uz": "aytmoq / gapirmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><path d='M18 25 H78 Q86 25 86 33 V58 Q86 66 78 66 H47 L30 80 V66 H18 Q10 66 10 58 V33 Q10 25 18 25 Z' fill='#FFFFFF' stroke='#5C6BC0' stroke-width='3'/><text x='50' y='52' text-anchor='middle' font-family='Arial' font-size='22' font-weight='700' fill='#5C6BC0'>Hi</text></svg>"
+    },
+    {
+      "id": 45,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 1",
+      "en": "speak",
+      "ru": "говорить",
+      "uz": "gapirmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M30 55 Q50 72 70 55' stroke='#E53935' stroke-width='8' fill='none'/><path d='M70 28 H86 V62 H70 L58 72 V62 H46 V28 Z' fill='#BBDEFB' stroke='#1976D2' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 46,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "want",
+      "ru": "хотеть",
+      "uz": "xohlamoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M50 82 C25 60 18 44 26 32 C34 20 48 27 50 38 C52 27 66 20 74 32 C82 44 75 60 50 82 Z' fill='#E91E63'/><path d='M18 24 H48 Q56 24 56 34 V50 H38 L24 62 V50 H18 Z' fill='white' stroke='#EC407A' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 47,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "need",
+      "ru": "нуждаться / нужно",
+      "uz": "kerak bo‘lmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><path d='M50 16 L86 82 H14 Z' fill='#FFCA28' stroke='#F57F17' stroke-width='3'/><text x='50' y='65' text-anchor='middle' font-size='38' font-family='Arial' font-weight='700' fill='#5D4037'>!</text></svg>"
+    },
+    {
+      "id": 48,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "like",
+      "ru": "нравиться / любить",
+      "uz": "yoqmoq / yaxshi ko‘rmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M50 82 C25 60 18 44 26 32 C34 20 48 27 50 38 C52 27 66 20 74 32 C82 44 75 60 50 82 Z' fill='#F06292'/><path d='M20 64 H42 Q48 64 52 58 L62 42 Q68 42 68 50 L64 62 H78 Q84 62 82 70 L78 84 H34 Q24 84 20 74 Z' fill='#FFCCBC' stroke='#8D6E63' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 49,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "eat",
+      "ru": "есть / кушать",
+      "uz": "yemoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='54' r='26' fill='#FFFDE7' stroke='#90A4AE' stroke-width='3'/><path d='M25 22 V78 M20 22 V38 M25 22 V38 M30 22 V38' stroke='#78909C' stroke-width='3' stroke-linecap='round'/><path d='M76 22 V78' stroke='#78909C' stroke-width='5' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 50,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "drink",
+      "ru": "пить",
+      "uz": "ichmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M30 28 H68 V68 Q68 84 50 84 Q32 84 32 68 Z' fill='#42A5F5'/><path d='M68 42 Q84 42 84 56 Q84 70 68 70' fill='none' stroke='#42A5F5' stroke-width='7'/><path d='M36 35 H62' stroke='white' stroke-width='3' opacity='.5'/><path d='M40 20 Q50 30 60 20' stroke='#29B6F6' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 51,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "read",
+      "ru": "читать",
+      "uz": "o‘qimoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><path d='M22 22 H50 Q56 22 56 30 V82 Q50 76 42 76 H22 Z' fill='#42A5F5'/><path d='M78 22 H56 Q50 22 50 30 V82 Q56 76 64 76 H78 Z' fill='#81C784'/><path d='M50 28 V82' stroke='#2E7D32' stroke-width='2'/><circle cx='50' cy='16' r='8' fill='#FFCCBC'/></svg>"
+    },
+    {
+      "id": 52,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "write",
+      "ru": "писать",
+      "uz": "yozmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='20' y='30' width='58' height='44' fill='white' stroke='#B0BEC5' stroke-width='3'/><path d='M38 60 L72 26 L80 34 L46 68 L34 72 Z' fill='#FFCA28' stroke='#6D4C41' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 53,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "listen",
+      "ru": "слушать",
+      "uz": "tinglamoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M42 24 Q66 18 70 48 Q72 66 54 78' fill='none' stroke='#FFCCBC' stroke-width='12' stroke-linecap='round'/><path d='M22 48 Q36 26 52 48 Q36 70 22 48' fill='none' stroke='#42A5F5' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 54,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "learn",
+      "ru": "учить / изучать",
+      "uz": "o‘rganmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M22 22 H50 Q56 22 56 30 V82 Q50 76 42 76 H22 Z' fill='#66BB6A'/><path d='M78 22 H56 Q50 22 50 30 V82 Q56 76 64 76 H78 Z' fill='#81C784'/><path d='M50 28 V82' stroke='#2E7D32' stroke-width='2'/><circle cx='74' cy='24' r='10' fill='#FFEB3B'/></svg>"
+    },
+    {
+      "id": 55,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "study",
+      "ru": "учиться / изучать",
+      "uz": "o‘qimoq / tahsil olmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='24' y='50' width='52' height='10' fill='#8D6E63'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M28 84 Q32 52 50 52 Q68 52 72 84 Z' fill='#42A5F5'/><path d='M36 58 H64' stroke='white' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 56,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "work",
+      "ru": "работать",
+      "uz": "ishlamoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><rect x='24' y='38' width='52' height='36' rx='5' fill='#795548'/><path d='M38 38 V30 H62 V38' fill='none' stroke='#5D4037' stroke-width='5'/><path d='M24 50 H76' stroke='#FFCA28' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 57,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "play",
+      "ru": "играть",
+      "uz": "o‘ynamoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='35' cy='58' r='14' fill='#FFCA28'/><circle cx='64' cy='50' r='16' fill='#42A5F5'/><path d='M24 80 Q50 92 76 80' stroke='#66BB6A' stroke-width='6' fill='none'/></svg>"
+    },
+    {
+      "id": 58,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "help",
+      "ru": "помогать / помощь",
+      "uz": "yordam bermoq / yordam",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='38' cy='34' r='12' fill='#FFCCBC'/><path d='M26 27 Q38 12 50 27' fill='#5D4037'/><path d='M16 84 Q20 54 38 54 Q56 54 60 84 Z' fill='#42A5F5'/><circle cx='62' cy='34' r='12' fill='#FFCCBC'/><path d='M50 27 Q62 12 74 27' fill='#5D4037'/><path d='M40 84 Q44 54 62 54 Q80 54 84 84 Z' fill='#66BB6A'/><path d='M36 58 Q50 68 64 58' stroke='#E91E63' stroke-width='6' fill='none'/></svg>"
+    },
+    {
+      "id": 59,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "use",
+      "ru": "использовать",
+      "uz": "ishlatmoq / foydalanmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='30' y='22' width='40' height='58' rx='6' fill='#263238'/><circle cx='50' cy='52' r='13' fill='#90CAF9'/><path d='M43 52 H57 M50 45 V59' stroke='white' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 60,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Verbs 2",
+      "en": "open",
+      "ru": "открывать",
+      "uz": "ochmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><path d='M22 26 H48 V82 H22 Z' fill='#8D6E63'/><path d='M48 26 L78 38 V86 L48 82 Z' fill='#A1887F'/><circle cx='40' cy='55' r='3' fill='#FFCA28'/></svg>"
+    },
+    {
+      "id": 61,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "school",
+      "ru": "школа",
+      "uz": "maktab",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><rect x='20' y='42' width='60' height='42' fill='#FFCC80'/><path d='M16 42 L50 18 L84 42 Z' fill='#E57373'/><rect x='44' y='62' width='12' height='22' fill='#6D4C41'/><text x='50' y='38' text-anchor='middle' font-size='12' font-family='Arial' font-weight='700'>A+</text></svg>"
+    },
+    {
+      "id": 62,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "class",
+      "ru": "класс / урок",
+      "uz": "sinf / dars",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><rect x='18' y='26' width='64' height='40' fill='#2E7D32'/><path d='M24 76 H76' stroke='#8D6E63' stroke-width='8'/><circle cx='32' cy='82' r='5' fill='#42A5F5'/><circle cx='50' cy='82' r='5' fill='#FFB300'/><circle cx='68' cy='82' r='5' fill='#EC407A'/></svg>"
+    },
+    {
+      "id": 63,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "student",
+      "ru": "ученик / студент",
+      "uz": "o‘quvchi / talaba",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M28 84 Q32 52 50 52 Q68 52 72 84 Z' fill='#42A5F5'/><path d='M22 22 H50 Q56 22 56 30 V82 Q50 76 42 76 H22 Z' fill='#66BB6A'/><path d='M78 22 H56 Q50 22 50 30 V82 Q56 76 64 76 H78 Z' fill='#81C784'/><path d='M50 28 V82' stroke='#2E7D32' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 64,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "teacher",
+      "ru": "учитель",
+      "uz": "o‘qituvchi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#5C6BC0'/><rect x='62' y='28' width='24' height='22' fill='#2E7D32'/></svg>"
+    },
+    {
+      "id": 65,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "book",
+      "ru": "книга",
+      "uz": "kitob",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><path d='M22 22 H50 Q56 22 56 30 V82 Q50 76 42 76 H22 Z' fill='#4CAF50'/><path d='M78 22 H56 Q50 22 50 30 V82 Q56 76 64 76 H78 Z' fill='#81C784'/><path d='M50 28 V82' stroke='#2E7D32' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 66,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "page",
+      "ru": "страница",
+      "uz": "sahifa",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M28 16 H64 L78 30 V84 H28 Z' fill='white' stroke='#90A4AE' stroke-width='3'/><path d='M64 16 V30 H78' fill='none' stroke='#90A4AE' stroke-width='3'/><path d='M36 44 H66 M36 56 H66 M36 68 H56' stroke='#B0BEC5' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 67,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "word",
+      "ru": "слово",
+      "uz": "so‘z",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='16' y='34' width='68' height='32' rx='6' fill='white' stroke='#5C6BC0' stroke-width='3'/><text x='50' y='56' text-anchor='middle' font-family='Arial' font-size='22' font-weight='700' fill='#5C6BC0'>ABC</text></svg>"
+    },
+    {
+      "id": 68,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "sentence",
+      "ru": "предложение",
+      "uz": "gap / jumla",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='14' y='28' width='72' height='44' rx='6' fill='white' stroke='#78909C' stroke-width='3'/><path d='M24 42 H76 M24 54 H66 M24 66 H72' stroke='#78909C' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 69,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "question",
+      "ru": "вопрос",
+      "uz": "savol",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='64' font-weight='700' fill='#5C6BC0'>?</text></svg>"
+    },
+    {
+      "id": 70,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "answer",
+      "ru": "ответ",
+      "uz": "javob",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M24 52 L42 70 L76 30' stroke='#43A047' stroke-width='10' fill='none' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 71,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "pen",
+      "ru": "ручка",
+      "uz": "ruchka",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><path d='M30 72 L70 32 L80 42 L40 82 L25 87 Z' fill='#42A5F5' stroke='#263238' stroke-width='2'/><path d='M70 32 L76 26 L86 36 L80 42 Z' fill='#FFCA28'/></svg>"
+    },
+    {
+      "id": 72,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "paper",
+      "ru": "бумага",
+      "uz": "qog‘oz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><rect x='28' y='16' width='46' height='68' fill='white' stroke='#B0BEC5' stroke-width='3'/><path d='M36 34 H66 M36 46 H66 M36 58 H60' stroke='#CFD8DC' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 73,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "desk",
+      "ru": "парта / стол",
+      "uz": "parta / stol",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='18' y='42' width='64' height='12' rx='3' fill='#8D6E63'/><path d='M28 54 V84 M72 54 V84' stroke='#5D4037' stroke-width='6'/><rect x='34' y='28' width='32' height='10' fill='#4CAF50'/></svg>"
+    },
+    {
+      "id": 74,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "chair",
+      "ru": "стул",
+      "uz": "stul",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><rect x='32' y='48' width='36' height='10' rx='2' fill='#A1887F'/><rect x='34' y='22' width='30' height='28' rx='3' fill='#8D6E63'/><path d='M38 58 V84 M62 58 V84' stroke='#5D4037' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 75,
+      "book": 1,
+      "level": "A1",
+      "subject": "Classroom & Study",
+      "en": "lesson",
+      "ru": "урок",
+      "uz": "dars",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='18' y='26' width='64' height='42' fill='#2E7D32'/><text x='50' y='54' text-anchor='middle' font-family='Arial' font-size='18' font-weight='700' fill='white'>1</text><path d='M30 78 H70' stroke='#8D6E63' stroke-width='6'/></svg>"
+    },
+    {
+      "id": 76,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "house",
+      "ru": "дом",
+      "uz": "uy",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='25' y='48' width='50' height='38' fill='#FFAB91'/><path d='M18 50 L50 20 L82 50 Z' fill='#D84315'/><rect x='43' y='66' width='14' height='20' fill='#6D4C41'/><rect x='30' y='58' width='12' height='10' fill='#BBDEFB'/><rect x='58' y='58' width='12' height='10' fill='#BBDEFB'/></svg>"
+    },
+    {
+      "id": 77,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "room",
+      "ru": "комната",
+      "uz": "xona",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M18 82 V24 H82 V82' fill='#FFF8E1' stroke='#8D6E63' stroke-width='4'/><path d='M18 82 L50 58 L82 82' fill='#D7CCC8'/><rect x='58' y='38' width='16' height='22' fill='#BBDEFB'/></svg>"
+    },
+    {
+      "id": 78,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "kitchen",
+      "ru": "кухня",
+      "uz": "oshxona",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><rect x='24' y='34' width='52' height='46' rx='4' fill='#B0BEC5'/><circle cx='38' cy='48' r='6' fill='#455A64'/><circle cx='58' cy='48' r='6' fill='#455A64'/><rect x='32' y='62' width='36' height='10' fill='#ECEFF1'/></svg>"
+    },
+    {
+      "id": 79,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "bedroom",
+      "ru": "спальня",
+      "uz": "yotoqxona",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='16' y='52' width='68' height='22' rx='4' fill='#90CAF9'/><rect x='16' y='42' width='20' height='14' fill='#E3F2FD'/><path d='M16 74 V84 M84 74 V84' stroke='#5D4037' stroke-width='5'/><path d='M16 48 V74' stroke='#5D4037' stroke-width='5'/><path d='M72 22 H86 V44 H72 Z' fill='#FFECB3'/></svg>"
+    },
+    {
+      "id": 80,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "bathroom",
+      "ru": "ванная",
+      "uz": "vanna xonasi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M22 58 H78 V66 Q78 84 60 84 H40 Q22 84 22 66 Z' fill='#B3E5FC' stroke='#0288D1' stroke-width='3'/><path d='M26 54 Q26 38 38 38 H48' stroke='#78909C' stroke-width='5' fill='none'/><circle cx='50' cy='38' r='4' fill='#78909C'/></svg>"
+    },
+    {
+      "id": 81,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "door",
+      "ru": "дверь",
+      "uz": "eshik",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='32' y='16' width='38' height='72' rx='3' fill='#8D6E63'/><circle cx='62' cy='54' r='4' fill='#FFD54F'/><path d='M30 88 H74' stroke='#5D4037' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 82,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "window",
+      "ru": "окно",
+      "uz": "deraza",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><rect x='24' y='24' width='52' height='52' fill='#81D4FA' stroke='#455A64' stroke-width='4'/><path d='M50 24 V76 M24 50 H76' stroke='white' stroke-width='4'/><path d='M30 32 L42 32' stroke='white' opacity='.6'/></svg>"
+    },
+    {
+      "id": 83,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "table",
+      "ru": "стол",
+      "uz": "stol",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='18' y='36' width='64' height='10' rx='3' fill='#8D6E63'/><path d='M26 46 V82 M74 46 V82' stroke='#5D4037' stroke-width='6'/><path d='M22 82 H78' stroke='#5D4037' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 84,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "bed",
+      "ru": "кровать",
+      "uz": "karavot",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='16' y='52' width='68' height='22' rx='4' fill='#90CAF9'/><rect x='16' y='42' width='20' height='14' fill='#E3F2FD'/><path d='M16 74 V84 M84 74 V84' stroke='#5D4037' stroke-width='5'/><path d='M16 48 V74' stroke='#5D4037' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 85,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "sofa",
+      "ru": "диван",
+      "uz": "divan",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><rect x='20' y='50' width='60' height='28' rx='8' fill='#7E57C2'/><rect x='14' y='60' width='14' height='24' rx='6' fill='#5E35B1'/><rect x='72' y='60' width='14' height='24' rx='6' fill='#5E35B1'/><path d='M25 78 V88 M75 78 V88' stroke='#4527A0' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 86,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "floor",
+      "ru": "пол",
+      "uz": "pol",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M10 82 H90 L70 42 H30 Z' fill='#D7CCC8'/><path d='M25 82 L42 42 M50 82 V42 M75 82 L58 42 M15 70 H85 M22 58 H78' stroke='#A1887F' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 87,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "wall",
+      "ru": "стена",
+      "uz": "devor",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='16' y='18' width='68' height='66' fill='#FFECB3' stroke='#D7CCC8' stroke-width='3'/><path d='M16 40 H84 M16 62 H84 M38 18 V84 M62 18 V84' stroke='#D7CCC8' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 88,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "light",
+      "ru": "свет",
+      "uz": "yorug‘lik / chiroq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='34' r='18' fill='#FFF59D' stroke='#FBC02D' stroke-width='3'/><path d='M40 55 H60 L56 72 H44 Z' fill='#90A4AE'/><path d='M28 34 H10 M72 34 H90 M50 12 V4' stroke='#FBC02D' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 89,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "clean",
+      "ru": "чистый",
+      "uz": "toza",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='28' y='48' width='44' height='26' rx='5' fill='#81D4FA'/><path d='M32 48 L42 28 H58 L68 48' fill='#B3E5FC'/><path d='M28 78 H72' stroke='#0288D1' stroke-width='5'/><path d='M72 24 L78 34 L88 38 L78 42 L72 52 L66 42 L56 38 L66 34 Z' fill='#FFEB3B'/></svg>"
+    },
+    {
+      "id": 90,
+      "book": 1,
+      "level": "A1",
+      "subject": "Home & Rooms",
+      "en": "small",
+      "ru": "маленький",
+      "uz": "kichik",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='50' cy='50' r='11' fill='#F44336'/><circle cx='50' cy='50' r='32' fill='none' stroke='#B0BEC5' stroke-dasharray='4 4'/></svg>"
+    },
+    {
+      "id": 91,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "food",
+      "ru": "еда",
+      "uz": "ovqat",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='55' r='32' fill='#FFFDE7' stroke='#90A4AE' stroke-width='3'/><circle cx='40' cy='50' r='10' fill='#8D6E63'/><rect x='52' y='43' width='18' height='12' rx='4' fill='#FFCA28'/><path d='M30 68 Q50 78 70 68' stroke='#66BB6A' stroke-width='5' fill='none'/></svg>"
+    },
+    {
+      "id": 92,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "water",
+      "ru": "вода",
+      "uz": "suv",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><path d='M50 15 C35 36 26 48 26 64 A24 24 0 0 0 74 64 C74 48 65 36 50 15 Z' fill='#4FC3F7'/></svg>"
+    },
+    {
+      "id": 93,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "tea",
+      "ru": "чай",
+      "uz": "choy",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M30 28 H68 V68 Q68 84 50 84 Q32 84 32 68 Z' fill='#A1887F'/><path d='M68 42 Q84 42 84 56 Q84 70 68 70' fill='none' stroke='#A1887F' stroke-width='7'/><path d='M36 35 H62' stroke='white' stroke-width='3' opacity='.5'/><path d='M42 20 Q46 10 50 20 Q54 30 58 20' stroke='#B0BEC5' stroke-width='3' fill='none'/></svg>"
+    },
+    {
+      "id": 94,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "coffee",
+      "ru": "кофе",
+      "uz": "qahva",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M30 28 H68 V68 Q68 84 50 84 Q32 84 32 68 Z' fill='#6D4C41'/><path d='M68 42 Q84 42 84 56 Q84 70 68 70' fill='none' stroke='#6D4C41' stroke-width='7'/><path d='M36 35 H62' stroke='white' stroke-width='3' opacity='.5'/><path d='M42 20 Q46 10 50 20 Q54 30 58 20' stroke='#B0BEC5' stroke-width='3' fill='none'/></svg>"
+    },
+    {
+      "id": 95,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "milk",
+      "ru": "молоко",
+      "uz": "sut",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><path d='M35 22 H65 L70 36 V82 H30 V36 Z' fill='#E1F5FE' stroke='#90CAF9' stroke-width='3'/><rect x='32' y='50' width='36' height='22' fill='white'/><path d='M38 22 V14 H62 V22' fill='#BBDEFB'/></svg>"
+    },
+    {
+      "id": 96,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "bread",
+      "ru": "хлеб",
+      "uz": "non",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M22 78 V48 Q22 28 42 36 Q50 20 58 36 Q78 28 78 48 V78 Z' fill='#FFCC80' stroke='#BCAAA4' stroke-width='3'/><path d='M34 52 H66 M34 66 H66' stroke='#A1887F' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 97,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "rice",
+      "ru": "рис",
+      "uz": "guruch",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><ellipse cx='50' cy='66' rx='30' ry='14' fill='#BCAAA4'/><ellipse cx='50' cy='54' rx='26' ry='12' fill='white'/><path d='M35 50 L40 58 M48 47 L52 58 M60 50 L65 58' stroke='#ECEFF1' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 98,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "meat",
+      "ru": "мясо",
+      "uz": "go‘sht",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M28 60 Q28 36 52 36 Q76 36 76 58 Q76 80 50 80 Q28 80 28 60 Z' fill='#E57373'/><circle cx='60' cy='58' r='10' fill='#FFCDD2'/><circle cx='60' cy='58' r='5' fill='white'/></svg>"
+    },
+    {
+      "id": 99,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "fish",
+      "ru": "рыба",
+      "uz": "baliq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><ellipse cx='45' cy='52' rx='28' ry='18' fill='#4FC3F7'/><path d='M70 52 L88 36 V68 Z' fill='#29B6F6'/><circle cx='34' cy='48' r='3' fill='#111'/><path d='M48 38 Q55 52 48 66' stroke='white' stroke-width='3' fill='none'/></svg>"
+    },
+    {
+      "id": 100,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "egg",
+      "ru": "яйцо",
+      "uz": "tuxum",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><ellipse cx='50' cy='55' rx='26' ry='36' fill='#FFFDE7' stroke='#E0E0E0' stroke-width='3'/><circle cx='50' cy='62' r='13' fill='#FFCA28'/></svg>"
+    },
+    {
+      "id": 101,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "apple",
+      "ru": "яблоко",
+      "uz": "olma",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M50 34 C32 25 18 42 22 62 C26 86 45 88 50 78 C55 88 74 86 78 62 C82 42 68 25 50 34 Z' fill='#E53935'/><path d='M50 34 C51 22 58 18 66 21' stroke='#43A047' stroke-width='5' fill='none'/><path d='M50 34 V22' stroke='#6D4C41' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 102,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "banana",
+      "ru": "банан",
+      "uz": "banan",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M20 28 Q42 42 70 80 Q48 88 14 40 Q12 32 20 28 Z' fill='#FFEB3B' stroke='#F9A825' stroke-width='3'/><path d='M23 35 Q43 50 62 76' stroke='#FBC02D' stroke-width='3' fill='none'/></svg>"
+    },
+    {
+      "id": 103,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "sugar",
+      "ru": "сахар",
+      "uz": "shakar",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='24' y='34' width='52' height='42' rx='5' fill='white' stroke='#B0BEC5' stroke-width='3'/><text x='50' y='59' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='#90A4AE'>SUGAR</text><circle cx='30' cy='24' r='4' fill='white' stroke='#B0BEC5'/><circle cx='42' cy='22' r='3' fill='white' stroke='#B0BEC5'/></svg>"
+    },
+    {
+      "id": 104,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "salt",
+      "ru": "соль",
+      "uz": "tuz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><rect x='36' y='28' width='28' height='48' rx='4' fill='white' stroke='#90A4AE' stroke-width='3'/><rect x='38' y='20' width='24' height='10' fill='#90A4AE'/><circle cx='44' cy='24' r='1.5'/><circle cx='50' cy='24' r='1.5'/><circle cx='56' cy='24' r='1.5'/></svg>"
+    },
+    {
+      "id": 105,
+      "book": 1,
+      "level": "A1",
+      "subject": "Food & Drink",
+      "en": "hungry",
+      "ru": "голодный",
+      "uz": "och",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='54' r='26' fill='#FFFDE7' stroke='#90A4AE' stroke-width='3'/><path d='M25 22 V78 M20 22 V38 M25 22 V38 M30 22 V38' stroke='#78909C' stroke-width='3' stroke-linecap='round'/><path d='M76 22 V78' stroke='#78909C' stroke-width='5' stroke-linecap='round'/><path d='M35 18 Q50 8 65 18' stroke='#E53935' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 106,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "one",
+      "ru": "один",
+      "uz": "bir",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='62' font-weight='700' fill='#5C6BC0'>1</text></svg>"
+    },
+    {
+      "id": 107,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "two",
+      "ru": "два",
+      "uz": "ikki",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='62' font-weight='700' fill='#5C6BC0'>2</text></svg>"
+    },
+    {
+      "id": 108,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "three",
+      "ru": "три",
+      "uz": "uch",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='62' font-weight='700' fill='#5C6BC0'>3</text></svg>"
+    },
+    {
+      "id": 109,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "four",
+      "ru": "четыре",
+      "uz": "to‘rt",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='62' font-weight='700' fill='#5C6BC0'>4</text></svg>"
+    },
+    {
+      "id": 110,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "five",
+      "ru": "пять",
+      "uz": "besh",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='62' font-weight='700' fill='#5C6BC0'>5</text></svg>"
+    },
+    {
+      "id": 111,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "six",
+      "ru": "шесть",
+      "uz": "olti",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='62' font-weight='700' fill='#5C6BC0'>6</text></svg>"
+    },
+    {
+      "id": 112,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "seven",
+      "ru": "семь",
+      "uz": "yetti",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='62' font-weight='700' fill='#5C6BC0'>7</text></svg>"
+    },
+    {
+      "id": 113,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "eight",
+      "ru": "восемь",
+      "uz": "sakkiz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='62' font-weight='700' fill='#5C6BC0'>8</text></svg>"
+    },
+    {
+      "id": 114,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "nine",
+      "ru": "девять",
+      "uz": "to‘qqiz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='62' font-weight='700' fill='#5C6BC0'>9</text></svg>"
+    },
+    {
+      "id": 115,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "ten",
+      "ru": "десять",
+      "uz": "o‘n",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><text x='50' y='72' text-anchor='middle' font-family='Arial' font-size='54' font-weight='700' fill='#5C6BC0'>10</text></svg>"
+    },
+    {
+      "id": 116,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "number",
+      "ru": "число / номер",
+      "uz": "son / raqam",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><text x='50' y='62' text-anchor='middle' font-family='Arial' font-size='38' font-weight='700' fill='#5C6BC0'>123</text></svg>"
+    },
+    {
+      "id": 117,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "first",
+      "ru": "первый",
+      "uz": "birinchi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><text x='50' y='62' text-anchor='middle' font-family='Arial' font-size='42' font-weight='700' fill='#FF9800'>1st</text></svg>"
+    },
+    {
+      "id": 118,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "second",
+      "ru": "второй",
+      "uz": "ikkinchi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><text x='50' y='62' text-anchor='middle' font-family='Arial' font-size='42' font-weight='700' fill='#42A5F5'>2nd</text></svg>"
+    },
+    {
+      "id": 119,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "many",
+      "ru": "много",
+      "uz": "ko‘p",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><circle cx='18' cy='38' r='10' fill='#FFCCBC'/><path d='M6 31 Q18 16 30 31' fill='#5D4037'/><path d='M-4 84 Q0 52 18 52 Q36 52 40 84 Z' fill='#42A5F5'/><circle cx='34' cy='38' r='10' fill='#FFCCBC'/><path d='M22 31 Q34 16 46 31' fill='#5D4037'/><path d='M12 84 Q16 52 34 52 Q52 52 56 84 Z' fill='#66BB6A'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M28 84 Q32 52 50 52 Q68 52 72 84 Z' fill='#FFA726'/><circle cx='66' cy='38' r='10' fill='#FFCCBC'/><path d='M54 31 Q66 16 78 31' fill='#5D4037'/><path d='M44 84 Q48 52 66 52 Q84 52 88 84 Z' fill='#EF5350'/><circle cx='82' cy='38' r='10' fill='#FFCCBC'/><path d='M70 31 Q82 16 94 31' fill='#5D4037'/><path d='M60 84 Q64 52 82 52 Q100 52 104 84 Z' fill='#AB47BC'/><text x='50' y='92' text-anchor='middle' font-family='Arial' font-size='18' font-weight='700' fill='#333'>•••</text></svg>"
+    },
+    {
+      "id": 120,
+      "book": 1,
+      "level": "A1",
+      "subject": "Numbers",
+      "en": "all",
+      "ru": "все / весь",
+      "uz": "hamma / barcha",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='23' cy='38' r='10' fill='#FFCCBC'/><path d='M11 31 Q23 16 35 31' fill='#5D4037'/><path d='M1 84 Q5 52 23 52 Q41 52 45 84 Z' fill='#42A5F5'/><circle cx='41' cy='38' r='10' fill='#FFCCBC'/><path d='M29 31 Q41 16 53 31' fill='#5D4037'/><path d='M19 84 Q23 52 41 52 Q59 52 63 84 Z' fill='#66BB6A'/><circle cx='59' cy='38' r='10' fill='#FFCCBC'/><path d='M47 31 Q59 16 71 31' fill='#5D4037'/><path d='M37 84 Q41 52 59 52 Q77 52 81 84 Z' fill='#FFA726'/><circle cx='77' cy='38' r='10' fill='#FFCCBC'/><path d='M65 31 Q77 16 89 31' fill='#5D4037'/><path d='M55 84 Q59 52 77 52 Q95 52 99 84 Z' fill='#EF5350'/><circle cx='50' cy='52' r='42' fill='none' stroke='#43A047' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 121,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "color",
+      "ru": "цвет",
+      "uz": "rang",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#9C27B0' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 122,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "white",
+      "ru": "белый",
+      "uz": "oq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#FAFAFA' stroke='#B0BEC5' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 123,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "black",
+      "ru": "чёрный",
+      "uz": "qora",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#212121' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 124,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "red",
+      "ru": "красный",
+      "uz": "qizil",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#F44336' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 125,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "blue",
+      "ru": "синий / голубой",
+      "uz": "ko‘k / havorang",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#2196F3' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 126,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "green",
+      "ru": "зелёный",
+      "uz": "yashil",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#4CAF50' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 127,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "yellow",
+      "ru": "жёлтый",
+      "uz": "sariq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#FFEB3B' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 128,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "brown",
+      "ru": "коричневый",
+      "uz": "jigarrang",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#795548' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 129,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "gray",
+      "ru": "серый",
+      "uz": "kulrang",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#9E9E9E' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 130,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "pink",
+      "ru": "розовый",
+      "uz": "pushti",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#E91E63' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 131,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "orange",
+      "ru": "оранжевый / апельсин",
+      "uz": "to‘q sariq / apelsin",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#FF9800' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 132,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "dark",
+      "ru": "тёмный",
+      "uz": "qorong‘i / to‘q",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#263238' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 133,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "purple",
+      "ru": "фиолетовый",
+      "uz": "binafsha",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><rect x='18' y='18' width='64' height='64' rx='14' fill='#9C27B0' stroke='none' stroke-width='3'/><circle cx='32' cy='32' r='6' fill='white' opacity='.35'/><path d='M26 70 H74' stroke='white' stroke-width='4' opacity='.25'/></svg>"
+    },
+    {
+      "id": 134,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "nice",
+      "ru": "приятный / красивый",
+      "uz": "yoqimli / chiroyli",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='50' cy='50' r='32' fill='#FFF59D'/><circle cx='38' cy='44' r='4'/><circle cx='62' cy='44' r='4'/><path d='M35 60 Q50 75 65 60' stroke='#333' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 135,
+      "book": 1,
+      "level": "A1",
+      "subject": "Colors",
+      "en": "beautiful",
+      "ru": "красивый",
+      "uz": "chiroyli",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><path d='M50 56 V88' stroke='#388E3C' stroke-width='5'/><circle cx='50' cy='44' r='9' fill='#FFEB3B'/><circle cx='50' cy='24' r='12' fill='#EC407A'/><circle cx='70' cy='44' r='12' fill='#EC407A'/><circle cx='50' cy='64' r='12' fill='#EC407A'/><circle cx='30' cy='44' r='12' fill='#EC407A'/><path d='M14 20 L20 30 L30 34 L20 38 L14 48 L8 38 L-2 34 L8 30 Z' fill='#FFD600' transform='translate(10 0)'/></svg>"
+    },
+    {
+      "id": 136,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "time",
+      "ru": "время",
+      "uz": "vaqt",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='50' r='34' fill='white' stroke='#333' stroke-width='4'/><circle cx='50' cy='50' r='3' fill='#333'/><path d='M50 50 L50 28 M50 50 L68 50' stroke='#333' stroke-width='4' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 137,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "day",
+      "ru": "день",
+      "uz": "kun",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='50' r='18' fill='#FFEB3B'/><path d='M50 8 V24 M50 76 V92 M8 50 H24 M76 50 H92 M20 20 L31 31 M80 20 L69 31 M20 80 L31 69 M80 80 L69 69' stroke='#FFB300' stroke-width='5' stroke-linecap='round'/><path d='M18 78 H82' stroke='#66BB6A' stroke-width='8'/></svg>"
+    },
+    {
+      "id": 138,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "today",
+      "ru": "сегодня",
+      "uz": "bugun",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><rect x='20' y='24' width='60' height='54' rx='4' fill='white' stroke='#5C6BC0' stroke-width='3'/><rect x='20' y='24' width='60' height='14' fill='#5C6BC0'/><circle cx='50' cy='58' r='14' fill='#FFCA28'/><text x='50' y='63' text-anchor='middle' font-size='12' font-family='Arial' font-weight='700'>NOW</text></svg>"
+    },
+    {
+      "id": 139,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "tomorrow",
+      "ru": "завтра",
+      "uz": "ertaga",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='20' y='24' width='60' height='54' rx='4' fill='white' stroke='#43A047' stroke-width='3'/><path d='M35 58 H62' stroke='#43A047' stroke-width='6'/><path d='M58 46 L72 58 L58 70 Z' fill='#43A047'/></svg>"
+    },
+    {
+      "id": 140,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "yesterday",
+      "ru": "вчера",
+      "uz": "kecha",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='20' y='24' width='60' height='54' rx='4' fill='white' stroke='#EF5350' stroke-width='3'/><path d='M65 58 H38' stroke='#EF5350' stroke-width='6'/><path d='M42 46 L28 58 L42 70 Z' fill='#EF5350'/></svg>"
+    },
+    {
+      "id": 141,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "morning",
+      "ru": "утро",
+      "uz": "ertalab",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M18 72 A32 32 0 0 1 82 72' fill='#FFEB3B'/><path d='M14 74 H86' stroke='#FFB300' stroke-width='6'/><path d='M50 18 V34 M26 32 L37 43 M74 32 L63 43' stroke='#FFB300' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 142,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "afternoon",
+      "ru": "день / послеобеденное время",
+      "uz": "tushdan keyin",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='50' cy='50' r='18' fill='#FFEB3B'/><path d='M50 8 V24 M50 76 V92 M8 50 H24 M76 50 H92 M20 20 L31 31 M80 20 L69 31 M20 80 L31 69 M80 80 L69 69' stroke='#FFB300' stroke-width='5' stroke-linecap='round'/><path d='M12 82 H88' stroke='#8BC34A' stroke-width='6'/></svg>"
+    },
+    {
+      "id": 143,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "evening",
+      "ru": "вечер",
+      "uz": "kechqurun",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect width='100' height='100' fill='#EDE7F6'/><circle cx='66' cy='36' r='18' fill='#FFCA28'/><path d='M14 76 Q50 56 86 76 V92 H14 Z' fill='#5E35B1'/></svg>"
+    },
+    {
+      "id": 144,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "night",
+      "ru": "ночь",
+      "uz": "tun",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#1A237E'/><rect width='100' height='100' fill='#1A237E'/><path d='M66 24 A24 24 0 1 0 66 66 A18 18 0 1 1 66 24' fill='#FFF59D'/><circle cx='25' cy='28' r='3' fill='white'/><circle cx='38' cy='58' r='2' fill='white'/><circle cx='80' cy='78' r='2' fill='white'/></svg>"
+    },
+    {
+      "id": 145,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "week",
+      "ru": "неделя",
+      "uz": "hafta",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='14' y='24' width='72' height='54' rx='5' fill='white' stroke='#5C6BC0' stroke-width='3'/><rect x='14' y='24' width='72' height='14' fill='#5C6BC0'/><text x='50' y='62' text-anchor='middle' font-family='Arial' font-size='22' font-weight='700'>7</text></svg>"
+    },
+    {
+      "id": 146,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "month",
+      "ru": "месяц",
+      "uz": "oy",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><rect x='14' y='20' width='72' height='60' rx='5' fill='white' stroke='#26A69A' stroke-width='3'/><path d='M14 38 H86 M32 38 V80 M50 38 V80 M68 38 V80 M14 56 H86' stroke='#B2DFDB' stroke-width='3'/><text x='50' y='74' text-anchor='middle' font-size='18' font-family='Arial' font-weight='700'>30</text></svg>"
+    },
+    {
+      "id": 147,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "year",
+      "ru": "год",
+      "uz": "yil",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='50' r='32' fill='none' stroke='#43A047' stroke-width='6'/><path d='M50 18 V82 M18 50 H82' stroke='#81C784' stroke-width='3'/><text x='50' y='56' text-anchor='middle' font-size='16' font-family='Arial' font-weight='700'>365</text></svg>"
+    },
+    {
+      "id": 148,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "now",
+      "ru": "сейчас",
+      "uz": "hozir",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='50' cy='50' r='34' fill='white' stroke='#333' stroke-width='4'/><circle cx='50' cy='50' r='3' fill='#333'/><path d='M50 50 L50 28 M50 50 L68 50' stroke='#333' stroke-width='4' stroke-linecap='round'/><circle cx='76' cy='24' r='12' fill='#EF5350'/><text x='76' y='29' text-anchor='middle' font-size='10' font-family='Arial' fill='white'>NOW</text></svg>"
+    },
+    {
+      "id": 149,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "early",
+      "ru": "рано",
+      "uz": "erta",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><circle cx='50' cy='50' r='32' fill='white' stroke='#333' stroke-width='4'/><path d='M50 50 L50 28 M50 50 L38 42' stroke='#333' stroke-width='4'/><path d='M18 20 L30 12 M82 20 L70 12' stroke='#FFB300' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 150,
+      "book": 1,
+      "level": "A1",
+      "subject": "Time & Days",
+      "en": "late",
+      "ru": "поздно",
+      "uz": "kech",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='50' cy='50' r='32' fill='white' stroke='#333' stroke-width='4'/><path d='M50 50 L50 30 M50 50 L68 64' stroke='#333' stroke-width='4'/><text x='50' y='92' text-anchor='middle' font-size='12' font-family='Arial'>late</text></svg>"
+    },
+    {
+      "id": 151,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "wake",
+      "ru": "просыпаться",
+      "uz": "uyg‘onmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><path d='M22 70 H78 V82 H22 Z' fill='#90CAF9'/><circle cx='38' cy='55' r='12' fill='#FFCCBC'/><path d='M58 24 L68 14 M70 34 L84 30 M62 44 L76 54' stroke='#FFB300' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 152,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "sleep",
+      "ru": "спать",
+      "uz": "uxlamoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M18 66 H82 V82 H18 Z' fill='#90CAF9'/><circle cx='34' cy='56' r='12' fill='#FFCCBC'/><text x='65' y='42' text-anchor='middle' font-size='26' font-family='Arial' font-weight='700' fill='#5C6BC0'>Zzz</text></svg>"
+    },
+    {
+      "id": 153,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "wash",
+      "ru": "мыть",
+      "uz": "yuvmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><path d='M28 70 Q36 44 50 58 Q62 42 76 48 L70 76 H30 Z' fill='#FFCCBC'/><path d='M32 28 H68 V38 H32 Z' fill='#90CAF9'/><path d='M40 40 C34 52 46 52 40 40 M56 40 C50 54 62 54 56 40' fill='#29B6F6'/></svg>"
+    },
+    {
+      "id": 154,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "dress",
+      "ru": "одеваться",
+      "uz": "kiyinmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M39 20 H61 L67 42 L78 86 H22 L33 42 Z' fill='#EC407A'/><path d='M39 20 Q50 32 61 20' fill='white' opacity='.5'/><circle cx='24' cy='38' r='10' fill='#FFCCBC'/><path d='M12 31 Q24 16 36 31' fill='#5D4037'/><path d='M2 84 Q6 52 24 52 Q42 52 46 84 Z' fill='#FFCCBC'/></svg>"
+    },
+    {
+      "id": 155,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "cook",
+      "ru": "готовить",
+      "uz": "pishirmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='22' y='52' width='56' height='24' rx='4' fill='#90A4AE'/><circle cx='38' cy='64' r='7' fill='#455A64'/><circle cx='60' cy='64' r='7' fill='#455A64'/><path d='M34 42 Q42 26 50 42 Q58 26 66 42' stroke='#B0BEC5' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 156,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "shower",
+      "ru": "принимать душ",
+      "uz": "dush qabul qilmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><path d='M30 28 Q30 18 42 18 H58' stroke='#607D8B' stroke-width='5' fill='none'/><path d='M58 18 L72 30' stroke='#607D8B' stroke-width='5'/><path d='M44 44 V60 M54 48 V66 M64 44 V60' stroke='#29B6F6' stroke-width='4'/><circle cx='32' cy='72' r='8' fill='#FFCCBC'/></svg>"
+    },
+    {
+      "id": 157,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "walk",
+      "ru": "ходить пешком / гулять",
+      "uz": "piyoda yurmoq / sayr qilmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><circle cx='52' cy='24' r='8' fill='#FFCCBC'/><path d='M50 32 L44 54 L30 78 M44 54 L62 78 M47 42 L32 52 M48 42 L66 48' stroke='#42A5F5' stroke-width='5' fill='none' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 158,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "sit",
+      "ru": "сидеть",
+      "uz": "o‘tirmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#42A5F5'/><rect x='54' y='58' width='30' height='10' fill='#8D6E63'/><path d='M76 68 V86' stroke='#5D4037' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 159,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "stand",
+      "ru": "стоять",
+      "uz": "turmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#42A5F5'/><path d='M32 90 H68' stroke='#455A64' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 160,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "wait",
+      "ru": "ждать",
+      "uz": "kutmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#42A5F5'/><circle cx='50' cy='50' r='34' fill='white' stroke='#333' stroke-width='4'/><circle cx='50' cy='50' r='3' fill='#333'/><path d='M50 50 L50 28 M50 50 L68 50' stroke='#333' stroke-width='4' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 161,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "start",
+      "ru": "начинать / начинаться",
+      "uz": "boshlamoq / boshlanmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='50' r='34' fill='#43A047'/><path d='M42 30 L72 50 L42 70 Z' fill='white'/></svg>"
+    },
+    {
+      "id": 162,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "finish",
+      "ru": "заканчивать",
+      "uz": "tugatmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M28 20 V82' stroke='#455A64' stroke-width='6'/><path d='M31 22 H75 L62 38 L75 54 H31 Z' fill='#FFCA28'/></svg>"
+    },
+    {
+      "id": 163,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "live",
+      "ru": "жить",
+      "uz": "yashamoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='25' y='48' width='50' height='38' fill='#FFAB91'/><path d='M18 50 L50 20 L82 50 Z' fill='#D84315'/><rect x='43' y='66' width='14' height='20' fill='#6D4C41'/><rect x='30' y='58' width='12' height='10' fill='#BBDEFB'/><rect x='58' y='58' width='12' height='10' fill='#BBDEFB'/><path d='M50 82 C25 60 18 44 26 32 C34 20 48 27 50 38 C52 27 66 20 74 32 C82 44 75 60 50 82 Z' fill='#E91E63'/></svg>"
+    },
+    {
+      "id": 164,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "visit",
+      "ru": "посещать / навещать",
+      "uz": "tashrif buyurmoq / yo‘qlamoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='25' y='48' width='50' height='38' fill='#FFAB91'/><path d='M18 50 L50 20 L82 50 Z' fill='#D84315'/><rect x='43' y='66' width='14' height='20' fill='#6D4C41'/><rect x='30' y='58' width='12' height='10' fill='#BBDEFB'/><rect x='58' y='58' width='12' height='10' fill='#BBDEFB'/><path d='M18 50 H70' stroke='#66BB6A' stroke-width='8' stroke-linecap='round'/><path d='M62 30 L84 50 L62 70 Z' fill='#66BB6A'/></svg>"
+    },
+    {
+      "id": 165,
+      "book": 1,
+      "level": "A1",
+      "subject": "Daily Routine",
+      "en": "call",
+      "ru": "звонить / называть",
+      "uz": "qo‘ng‘iroq qilmoq / atamoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><rect x='34' y='14' width='32' height='72' rx='6' fill='#263238'/><rect x='38' y='22' width='24' height='52' fill='#90CAF9'/><circle cx='50' cy='80' r='3' fill='#ECEFF1'/><path d='M70 28 Q84 42 70 56' stroke='#66BB6A' stroke-width='5' fill='none'/></svg>"
+    },
+    {
+      "id": 166,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "body",
+      "ru": "тело",
+      "uz": "tana",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#42A5F5'/><path d='M18 50 H82' stroke='#EF5350' stroke-width='3' stroke-dasharray='5 5'/></svg>"
+    },
+    {
+      "id": 167,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "head",
+      "ru": "голова",
+      "uz": "bosh",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><circle cx='50' cy='50' r='32' fill='#FFCCBC'/><path d='M30 38 Q50 18 70 38' fill='#5D4037'/><circle cx='40' cy='48' r='3'/><circle cx='60' cy='48' r='3'/><path d='M40 64 Q50 72 60 64' stroke='#333' fill='none' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 168,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "face",
+      "ru": "лицо",
+      "uz": "yuz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='50' r='34' fill='#FFCCBC'/><circle cx='38' cy='45' r='4'/><circle cx='62' cy='45' r='4'/><path d='M38 62 Q50 74 62 62' stroke='#333' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 169,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "eye",
+      "ru": "глаз",
+      "uz": "ko‘z",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><path d='M14 50 Q50 20 86 50 Q50 80 14 50 Z' fill='white' stroke='#333' stroke-width='3'/><circle cx='50' cy='50' r='13' fill='#42A5F5'/><circle cx='50' cy='50' r='6' fill='#111'/></svg>"
+    },
+    {
+      "id": 170,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "ear",
+      "ru": "ухо",
+      "uz": "quloq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M42 24 Q68 20 70 50 Q70 78 44 74 Q32 62 42 24 Z' fill='#FFCCBC' stroke='#E64A19' stroke-width='3'/><path d='M48 38 Q58 38 56 50 Q54 60 62 62' stroke='#E64A19' stroke-width='3' fill='none'/></svg>"
+    },
+    {
+      "id": 171,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "nose",
+      "ru": "нос",
+      "uz": "burun",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><path d='M50 24 Q36 56 50 66 Q64 56 50 24 Z' fill='#FFCCBC' stroke='#E64A19' stroke-width='3'/><circle cx='44' cy='60' r='2'/><circle cx='56' cy='60' r='2'/></svg>"
+    },
+    {
+      "id": 172,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "mouth",
+      "ru": "рот",
+      "uz": "og‘iz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><path d='M26 50 Q50 78 74 50' stroke='#E53935' stroke-width='8' fill='none' stroke-linecap='round'/><path d='M32 50 H68' stroke='#FFCDD2' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 173,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "hand",
+      "ru": "рука / кисть",
+      "uz": "qo‘l / kaft",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M28 82 V50 Q28 40 36 42 V30 Q36 22 44 28 V42 H48 V24 Q48 16 56 24 V44 H60 V30 Q60 22 68 30 V50 Q78 54 72 66 L62 82 Z' fill='#FFCCBC' stroke='#E64A19' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 174,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "arm",
+      "ru": "рука",
+      "uz": "qo‘l",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M22 40 Q42 28 52 44 L76 72 Q82 80 72 86 Q64 88 58 80 L36 52 Q28 56 20 52 Z' fill='#FFCCBC' stroke='#E64A19' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 175,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "leg",
+      "ru": "нога",
+      "uz": "oyoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><path d='M42 18 H62 L58 56 L70 84 H56 L46 58 L36 84 H22 L38 56 Z' fill='#FFCCBC' stroke='#E64A19' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 176,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "foot",
+      "ru": "ступня",
+      "uz": "oyoq panjasi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M34 24 H54 V60 Q58 70 76 70 Q86 70 86 82 H36 Q24 82 28 70 Q34 60 34 24 Z' fill='#FFCCBC' stroke='#E64A19' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 177,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "hair",
+      "ru": "волосы",
+      "uz": "soch",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='54' r='28' fill='#FFCCBC'/><path d='M22 52 Q25 18 50 18 Q75 18 78 52 Q66 36 50 38 Q34 36 22 52 Z' fill='#5D4037'/></svg>"
+    },
+    {
+      "id": 178,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "heart",
+      "ru": "сердце",
+      "uz": "yurak",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M50 82 C25 60 18 44 26 32 C34 20 48 27 50 38 C52 27 66 20 74 32 C82 44 75 60 50 82 Z' fill='#E53935'/></svg>"
+    },
+    {
+      "id": 179,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "tired",
+      "ru": "уставший",
+      "uz": "charchagan",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#78909C'/><text x='75' y='32' font-size='22' font-family='Arial' font-weight='700' fill='#5C6BC0'>Z</text></svg>"
+    },
+    {
+      "id": 180,
+      "book": 1,
+      "level": "A1",
+      "subject": "Body",
+      "en": "strong",
+      "ru": "сильный",
+      "uz": "kuchli",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#43A047'/><path d='M24 48 Q10 38 20 28 Q30 32 34 44 M76 48 Q90 38 80 28 Q70 32 66 44' stroke='#43A047' stroke-width='6' fill='none'/></svg>"
+    },
+    {
+      "id": 181,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "clothes",
+      "ru": "одежда",
+      "uz": "kiyim",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M34 20 L18 36 L28 50 L35 44 V84 H65 V44 L72 50 L82 36 L66 20 L58 28 Q50 34 42 28 Z' fill='#4CAF50'/><path d='M39 20 H61 L67 42 L78 86 H22 L33 42 Z' fill='#EC407A'/><path d='M39 20 Q50 32 61 20' fill='white' opacity='.5'/></svg>"
+    },
+    {
+      "id": 182,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "shirt",
+      "ru": "рубашка / футболка",
+      "uz": "ko‘ylak / futbolka",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M34 20 L18 36 L28 50 L35 44 V84 H65 V44 L72 50 L82 36 L66 20 L58 28 Q50 34 42 28 Z' fill='#4CAF50'/></svg>"
+    },
+    {
+      "id": 183,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "T-shirt",
+      "ru": "футболка",
+      "uz": "futbolka",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><path d='M32 22 L14 36 L26 52 L34 46 V84 H66 V46 L74 52 L86 36 L68 22 Z' fill='#42A5F5'/><text x='50' y='62' text-anchor='middle' font-family='Arial' font-size='18' font-weight='700' fill='white'>T</text></svg>"
+    },
+    {
+      "id": 184,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "skirt",
+      "ru": "юбка",
+      "uz": "yubka",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M35 32 H65 L78 82 H22 Z' fill='#EC407A'/><path d='M35 32 H65' stroke='#AD1457' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 185,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "coat",
+      "ru": "пальто / куртка",
+      "uz": "palto / kurtka",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><path d='M34 20 H66 L78 84 H58 L50 48 L42 84 H22 Z' fill='#5C6BC0'/><path d='M50 22 V84' stroke='#283593' stroke-width='3'/><circle cx='54' cy='44' r='3' fill='white'/><circle cx='54' cy='58' r='3' fill='white'/></svg>"
+    },
+    {
+      "id": 186,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "hat",
+      "ru": "шапка / шляпа",
+      "uz": "shapka / shlyapa",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M25 58 Q28 28 50 28 Q72 28 75 58 Z' fill='#7E57C2'/><rect x='16' y='58' width='68' height='10' rx='5' fill='#5E35B1'/></svg>"
+    },
+    {
+      "id": 187,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "shoe",
+      "ru": "обувь / туфля",
+      "uz": "oyoq kiyim / tufli",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><path d='M22 70 Q28 52 45 56 Q55 67 76 67 Q84 67 84 78 H20 Q18 74 22 70 Z' fill='#5D4037'/><path d='M45 56 L58 56' stroke='white' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 188,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "shoes",
+      "ru": "обувь / туфли",
+      "uz": "oyoq kiyim / tuflilar",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><path d='M14 68 Q20 54 36 57 Q46 67 62 67 Q70 67 70 78 H12 Q10 73 14 68 Z' fill='#5D4037'/><path d='M36 45 Q42 34 54 38 Q62 48 80 48 Q88 48 88 59 H34 Q32 52 36 45 Z' fill='#8D6E63'/></svg>"
+    },
+    {
+      "id": 189,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "bag",
+      "ru": "сумка",
+      "uz": "sumka",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><rect x='25' y='38' width='50' height='46' rx='7' fill='#8D6E63'/><path d='M38 40 Q38 22 50 22 Q62 22 62 40' fill='none' stroke='#5D4037' stroke-width='5'/><circle cx='50' cy='60' r='6' fill='#FFCA28'/></svg>"
+    },
+    {
+      "id": 190,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "wear",
+      "ru": "носить",
+      "uz": "kiymoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#42A5F5'/><path d='M34 20 L18 36 L28 50 L35 44 V84 H65 V44 L72 50 L82 36 L66 20 L58 28 Q50 34 42 28 Z' fill='#4CAF50'/></svg>"
+    },
+    {
+      "id": 191,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "put",
+      "ru": "класть / ставить",
+      "uz": "qo‘ymoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='30' y='60' width='42' height='20' fill='#8D6E63'/><path d='M50 20 V54' stroke='#1976D2' stroke-width='7'/><path d='M36 46 L50 58 L64 46 Z' fill='#1976D2'/></svg>"
+    },
+    {
+      "id": 192,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "take",
+      "ru": "брать",
+      "uz": "olmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><rect x='38' y='32' width='28' height='28' fill='#FFCA28'/><path d='M26 70 Q42 48 54 62 Q66 54 78 62' fill='none' stroke='#FFCCBC' stroke-width='10' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 193,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "new",
+      "ru": "новый",
+      "uz": "yangi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='24' y='32' width='52' height='42' rx='6' fill='#42A5F5'/><path d='M72 18 L78 30 L90 34 L78 38 L72 50 L66 38 L54 34 L66 30 Z' fill='#FFEB3B'/></svg>"
+    },
+    {
+      "id": 194,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "old",
+      "ru": "старый",
+      "uz": "eski",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><rect x='24' y='32' width='52' height='42' rx='6' fill='#A1887F'/><path d='M30 38 L70 68 M70 38 L30 68' stroke='#6D4C41' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 195,
+      "book": 1,
+      "level": "A1",
+      "subject": "Clothes",
+      "en": "right",
+      "ru": "правый / правильный",
+      "uz": "o‘ng / to‘g‘ri",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><path d='M22 52 L40 70 L78 30' stroke='#43A047' stroke-width='10' fill='none' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 196,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "city",
+      "ru": "город",
+      "uz": "shahar",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='18' y='42' width='16' height='42' fill='#90A4AE'/><rect x='42' y='24' width='18' height='60' fill='#78909C'/><rect x='68' y='36' width='14' height='48' fill='#B0BEC5'/><path d='M10 84 H90' stroke='#455A64' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 197,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "street",
+      "ru": "улица",
+      "uz": "ko‘cha",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><rect x='34' y='10' width='32' height='86' fill='#757575'/><path d='M50 10 V96' stroke='white' stroke-dasharray='10 8' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 198,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "road",
+      "ru": "дорога",
+      "uz": "yo‘l",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M36 94 L46 10 H54 L64 94 Z' fill='#616161'/><path d='M50 18 V90' stroke='white' stroke-dasharray='10 8' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 199,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "park",
+      "ru": "парк",
+      "uz": "park",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='44' y='55' width='12' height='32' fill='#795548'/><circle cx='50' cy='38' r='25' fill='#43A047'/><circle cx='32' cy='50' r='17' fill='#66BB6A'/><circle cx='68' cy='50' r='17' fill='#66BB6A'/><path d='M16 84 H84' stroke='#43A047' stroke-width='8'/></svg>"
+    },
+    {
+      "id": 200,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "shop",
+      "ru": "магазин",
+      "uz": "do‘kon",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><rect x='22' y='40' width='56' height='40' fill='#CFD8DC'/><path d='M18 40 L28 26 H72 L82 40 Z' fill='#EF5350'/><rect x='42' y='58' width='16' height='22' fill='#90CAF9'/></svg>"
+    },
+    {
+      "id": 201,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "market",
+      "ru": "рынок",
+      "uz": "bozor",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><path d='M18 40 L28 26 H72 L82 40 Z' fill='#FFCA28'/><rect x='22' y='40' width='56' height='38' fill='#FFE0B2'/><circle cx='36' cy='64' r='8' fill='#E53935'/><circle cx='54' cy='64' r='8' fill='#43A047'/></svg>"
+    },
+    {
+      "id": 202,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "restaurant",
+      "ru": "ресторан",
+      "uz": "restoran",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='50' cy='54' r='26' fill='#FFFDE7' stroke='#90A4AE' stroke-width='3'/><path d='M25 22 V78 M20 22 V38 M25 22 V38 M30 22 V38' stroke='#78909C' stroke-width='3' stroke-linecap='round'/><path d='M76 22 V78' stroke='#78909C' stroke-width='5' stroke-linecap='round'/><rect x='12' y='74' width='76' height='10' fill='#8D6E63'/></svg>"
+    },
+    {
+      "id": 203,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "cafe",
+      "ru": "кафе",
+      "uz": "kafe",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><path d='M30 28 H68 V68 Q68 84 50 84 Q32 84 32 68 Z' fill='#A1887F'/><path d='M68 42 Q84 42 84 56 Q84 70 68 70' fill='none' stroke='#A1887F' stroke-width='7'/><path d='M36 35 H62' stroke='white' stroke-width='3' opacity='.5'/><path d='M24 82 H76' stroke='#8D6E63' stroke-width='6'/></svg>"
+    },
+    {
+      "id": 204,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "hospital",
+      "ru": "больница",
+      "uz": "shifoxona",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='18' y='30' width='64' height='54' fill='white' stroke='#90A4AE' stroke-width='3'/><path d='M44 40 H56 V52 H68 V64 H56 V76 H44 V64 H32 V52 H44 Z' fill='#E53935'/></svg>"
+    },
+    {
+      "id": 205,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "bank",
+      "ru": "банк",
+      "uz": "bank",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M16 38 L50 18 L84 38 Z' fill='#90A4AE'/><rect x='22' y='38' width='56' height='42' fill='#ECEFF1'/><path d='M30 42 V78 M50 42 V78 M70 42 V78 M18 80 H82' stroke='#607D8B' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 206,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "hotel",
+      "ru": "отель",
+      "uz": "mehmonxona",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><rect x='24' y='20' width='52' height='64' fill='#90CAF9'/><text x='50' y='36' text-anchor='middle' font-size='12' font-family='Arial' font-weight='700' fill='white'>HOTEL</text><rect x='44' y='64' width='12' height='20' fill='#455A64'/><path d='M32 44 H42 M58 44 H68 M32 56 H42 M58 56 H68' stroke='white' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 207,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "station",
+      "ru": "станция / вокзал",
+      "uz": "bekat / vokzal",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='20' y='24' width='60' height='44' rx='6' fill='#5C6BC0'/><rect x='28' y='34' width='16' height='12' fill='#BBDEFB'/><rect x='56' y='34' width='16' height='12' fill='#BBDEFB'/><circle cx='34' cy='72' r='7' fill='#263238'/><circle cx='66' cy='72' r='7' fill='#263238'/><path d='M16 82 H84' stroke='#455A64' stroke-width='4'/><path d='M18 20 H82' stroke='#455A64' stroke-width='6'/></svg>"
+    },
+    {
+      "id": 208,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "airport",
+      "ru": "аэропорт",
+      "uz": "aeroport",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M10 56 L90 28 L72 55 L90 72 Z' fill='#90CAF9' stroke='#1565C0' stroke-width='2'/><path d='M42 51 L28 34 M42 58 L28 76' stroke='#1565C0' stroke-width='6'/><path d='M14 82 H86' stroke='#455A64' stroke-width='6'/></svg>"
+    },
+    {
+      "id": 209,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "office",
+      "ru": "офис",
+      "uz": "ofis",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='24' y='20' width='52' height='64' fill='#78909C'/><path d='M34 32 H44 M56 32 H66 M34 46 H44 M56 46 H66 M34 60 H44 M56 60 H66' stroke='#E3F2FD' stroke-width='4'/><rect x='44' y='70' width='12' height='14' fill='#455A64'/></svg>"
+    },
+    {
+      "id": 210,
+      "book": 1,
+      "level": "A1",
+      "subject": "Places in Town",
+      "en": "place",
+      "ru": "место",
+      "uz": "joy",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M50 14 C34 14 24 26 24 42 C24 62 50 88 50 88 C50 88 76 62 76 42 C76 26 66 14 50 14 Z' fill='#EF5350'/><circle cx='50' cy='42' r='12' fill='white'/></svg>"
+    },
+    {
+      "id": 211,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "car",
+      "ru": "машина",
+      "uz": "mashina",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='18' y='50' width='64' height='22' rx='7' fill='#2196F3'/><path d='M30 50 L40 34 H60 L72 50 Z' fill='#64B5F6'/><circle cx='34' cy='74' r='8' fill='#263238'/><circle cx='66' cy='74' r='8' fill='#263238'/></svg>"
+    },
+    {
+      "id": 212,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "bus",
+      "ru": "автобус",
+      "uz": "avtobus",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='16' y='28' width='68' height='44' rx='6' fill='#FFD54F'/><rect x='24' y='36' width='14' height='12' fill='#BBDEFB'/><rect x='43' y='36' width='14' height='12' fill='#BBDEFB'/><rect x='62' y='36' width='14' height='12' fill='#BBDEFB'/><circle cx='32' cy='74' r='7' fill='#263238'/><circle cx='68' cy='74' r='7' fill='#263238'/></svg>"
+    },
+    {
+      "id": 213,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "train",
+      "ru": "поезд",
+      "uz": "poyezd",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><rect x='20' y='24' width='60' height='44' rx='6' fill='#5C6BC0'/><rect x='28' y='34' width='16' height='12' fill='#BBDEFB'/><rect x='56' y='34' width='16' height='12' fill='#BBDEFB'/><circle cx='34' cy='72' r='7' fill='#263238'/><circle cx='66' cy='72' r='7' fill='#263238'/><path d='M16 82 H84' stroke='#455A64' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 214,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "plane",
+      "ru": "самолёт",
+      "uz": "samolyot",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M10 56 L90 28 L72 55 L90 72 Z' fill='#90CAF9' stroke='#1565C0' stroke-width='2'/><path d='M42 51 L28 34 M42 58 L28 76' stroke='#1565C0' stroke-width='6'/></svg>"
+    },
+    {
+      "id": 215,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "taxi",
+      "ru": "такси",
+      "uz": "taksi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='18' y='50' width='64' height='22' rx='7' fill='#FFCA28'/><path d='M30 50 L40 34 H60 L72 50 Z' fill='#64B5F6'/><circle cx='34' cy='74' r='8' fill='#263238'/><circle cx='66' cy='74' r='8' fill='#263238'/><rect x='40' y='28' width='20' height='8' fill='#263238'/></svg>"
+    },
+    {
+      "id": 216,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "ticket",
+      "ru": "билет",
+      "uz": "chipta",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M20 34 H80 V50 Q70 50 70 60 Q70 70 80 70 V82 H20 V70 Q30 70 30 60 Q30 50 20 50 Z' fill='#FFCA28' stroke='#F57F17' stroke-width='3'/><path d='M44 42 H68 M44 58 H62 M44 72 H68' stroke='#8D6E63' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 217,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "trip",
+      "ru": "поездка",
+      "uz": "safar / sayohat",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='26' y='36' width='48' height='42' rx='6' fill='#8D6E63'/><path d='M38 36 V28 H62 V36' stroke='#5D4037' stroke-width='5' fill='none'/><path d='M26 52 H74' stroke='#FFCA28' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 218,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "travel",
+      "ru": "путешествовать",
+      "uz": "sayohat qilmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M10 56 L90 28 L72 55 L90 72 Z' fill='#90CAF9' stroke='#1565C0' stroke-width='2'/><path d='M42 51 L28 34 M42 58 L28 76' stroke='#1565C0' stroke-width='6'/><path d='M22 78 Q50 90 78 78' stroke='#43A047' stroke-width='5' fill='none'/></svg>"
+    },
+    {
+      "id": 219,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "leave",
+      "ru": "уходить / уезжать",
+      "uz": "ketmoq / jo‘nab ketmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='25' y='48' width='50' height='38' fill='#FFAB91'/><path d='M18 50 L50 20 L82 50 Z' fill='#D84315'/><rect x='43' y='66' width='14' height='20' fill='#6D4C41'/><rect x='30' y='58' width='12' height='10' fill='#BBDEFB'/><rect x='58' y='58' width='12' height='10' fill='#BBDEFB'/><path d='M18 50 H70' stroke='#EF5350' stroke-width='8' stroke-linecap='round'/><path d='M62 30 L84 50 L62 70 Z' fill='#EF5350'/></svg>"
+    },
+    {
+      "id": 220,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "arrive",
+      "ru": "прибывать",
+      "uz": "yetib kelmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='25' y='48' width='50' height='38' fill='#FFAB91'/><path d='M18 50 L50 20 L82 50 Z' fill='#D84315'/><rect x='43' y='66' width='14' height='20' fill='#6D4C41'/><rect x='30' y='58' width='12' height='10' fill='#BBDEFB'/><rect x='58' y='58' width='12' height='10' fill='#BBDEFB'/><path d='M82 50 H30' stroke='#43A047' stroke-width='8' stroke-linecap='round'/><path d='M38 30 L16 50 L38 70 Z' fill='#43A047'/></svg>"
+    },
+    {
+      "id": 221,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "stop",
+      "ru": "останавливаться / остановка",
+      "uz": "to‘xtamoq / bekat",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M35 15 H65 L85 35 V65 L65 85 H35 L15 65 V35 Z' fill='#E53935'/><text x='50' y='57' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>STOP</text></svg>"
+    },
+    {
+      "id": 222,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "map",
+      "ru": "карта",
+      "uz": "xarita",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M18 26 L40 18 L62 26 L82 18 V76 L60 84 L38 76 L18 84 Z' fill='#FFFDE7' stroke='#8D6E63' stroke-width='3'/><path d='M40 18 V76 M62 26 V84 M28 62 L50 46 L72 58' stroke='#42A5F5' stroke-width='3' fill='none'/></svg>"
+    },
+    {
+      "id": 223,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "near",
+      "ru": "рядом / близко",
+      "uz": "yaqin",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><circle cx='38' cy='50' r='16' fill='#42A5F5'/><circle cx='62' cy='50' r='16' fill='#66BB6A'/><path d='M48 50 H52' stroke='#333' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 224,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "far",
+      "ru": "далеко",
+      "uz": "uzoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='22' cy='50' r='12' fill='#42A5F5'/><circle cx='78' cy='50' r='12' fill='#66BB6A'/><path d='M38 50 H62' stroke='#333' stroke-dasharray='5 5' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 225,
+      "book": 1,
+      "level": "A1",
+      "subject": "Transport & Travel",
+      "en": "left",
+      "ru": "левый / налево",
+      "uz": "chap / chapga",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><path d='M82 50 H30' stroke='#5C6BC0' stroke-width='8' stroke-linecap='round'/><path d='M38 30 L16 50 L38 70 Z' fill='#5C6BC0'/></svg>"
+    },
+    {
+      "id": 226,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "money",
+      "ru": "деньги",
+      "uz": "pul",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><rect x='18' y='34' width='64' height='36' rx='5' fill='#81C784' stroke='#2E7D32' stroke-width='3'/><circle cx='50' cy='52' r='11' fill='#C8E6C9' stroke='#2E7D32'/><text x='50' y='57' text-anchor='middle' font-size='16' font-family='Arial' font-weight='700' fill='#2E7D32'>$</text></svg>"
+    },
+    {
+      "id": 227,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "buy",
+      "ru": "покупать",
+      "uz": "sotib olmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='18' y='34' width='64' height='36' rx='5' fill='#81C784' stroke='#2E7D32' stroke-width='3'/><circle cx='50' cy='52' r='11' fill='#C8E6C9' stroke='#2E7D32'/><text x='50' y='57' text-anchor='middle' font-size='16' font-family='Arial' font-weight='700' fill='#2E7D32'>$</text><path d='M28 80 L72 80' stroke='#43A047' stroke-width='6'/><path d='M60 68 L74 80 L60 92' stroke='#43A047' stroke-width='6' fill='none'/></svg>"
+    },
+    {
+      "id": 228,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "sell",
+      "ru": "продавать",
+      "uz": "sotmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='22' y='36' width='56' height='36' fill='#CFD8DC'/><path d='M18 36 L28 24 H72 L82 36 Z' fill='#EF5350'/><rect x='18' y='34' width='64' height='36' rx='5' fill='#81C784' stroke='#2E7D32' stroke-width='3'/><circle cx='50' cy='52' r='11' fill='#C8E6C9' stroke='#2E7D32'/><text x='50' y='57' text-anchor='middle' font-size='16' font-family='Arial' font-weight='700' fill='#2E7D32'>$</text></svg>"
+    },
+    {
+      "id": 229,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "pay",
+      "ru": "платить",
+      "uz": "to‘lamoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M20 70 Q34 50 50 60 Q62 46 78 54' stroke='#FFCCBC' stroke-width='10' fill='none' stroke-linecap='round'/><rect x='18' y='34' width='64' height='36' rx='5' fill='#81C784' stroke='#2E7D32' stroke-width='3'/><circle cx='50' cy='52' r='11' fill='#C8E6C9' stroke='#2E7D32'/><text x='50' y='57' text-anchor='middle' font-size='16' font-family='Arial' font-weight='700' fill='#2E7D32'>$</text></svg>"
+    },
+    {
+      "id": 230,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "price",
+      "ru": "цена",
+      "uz": "narx",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M28 24 H62 L78 40 V76 H28 Z' fill='#FFCA28' stroke='#F57F17' stroke-width='3'/><circle cx='60' cy='40' r='4' fill='white'/><text x='50' y='62' text-anchor='middle' font-size='22' font-family='Arial' font-weight='700' fill='#5D4037'>$</text></svg>"
+    },
+    {
+      "id": 231,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "cheap",
+      "ru": "дешёвый",
+      "uz": "arzon",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='18' y='34' width='64' height='36' rx='5' fill='#81C784' stroke='#2E7D32' stroke-width='3'/><circle cx='50' cy='52' r='11' fill='#C8E6C9' stroke='#2E7D32'/><text x='50' y='57' text-anchor='middle' font-size='16' font-family='Arial' font-weight='700' fill='#2E7D32'>$</text><path d='M72 22 V58' stroke='#43A047' stroke-width='6'/><path d='M60 48 L72 62 L84 48' fill='none' stroke='#43A047' stroke-width='6'/></svg>"
+    },
+    {
+      "id": 232,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "expensive",
+      "ru": "дорогой",
+      "uz": "qimmat",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><rect x='18' y='34' width='64' height='36' rx='5' fill='#81C784' stroke='#2E7D32' stroke-width='3'/><circle cx='50' cy='52' r='11' fill='#C8E6C9' stroke='#2E7D32'/><text x='50' y='57' text-anchor='middle' font-size='16' font-family='Arial' font-weight='700' fill='#2E7D32'>$</text><path d='M72 62 V26' stroke='#E53935' stroke-width='6'/><path d='M60 38 L72 24 L84 38' fill='none' stroke='#E53935' stroke-width='6'/></svg>"
+    },
+    {
+      "id": 233,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "store",
+      "ru": "магазин",
+      "uz": "do‘kon",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='22' y='40' width='56' height='40' fill='#CFD8DC'/><path d='M18 40 L28 26 H72 L82 40 Z' fill='#42A5F5'/><rect x='42' y='58' width='16' height='22' fill='#90CAF9'/></svg>"
+    },
+    {
+      "id": 234,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "customer",
+      "ru": "покупатель / клиент",
+      "uz": "xaridor / mijoz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#42A5F5'/><rect x='25' y='38' width='50' height='46' rx='7' fill='#8D6E63'/><path d='M38 40 Q38 22 50 22 Q62 22 62 40' fill='none' stroke='#5D4037' stroke-width='5'/><circle cx='50' cy='60' r='6' fill='#FFCA28'/></svg>"
+    },
+    {
+      "id": 235,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "cash",
+      "ru": "наличные",
+      "uz": "naqd pul",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='18' y='34' width='64' height='36' rx='5' fill='#81C784' stroke='#2E7D32' stroke-width='3'/><circle cx='50' cy='52' r='11' fill='#C8E6C9' stroke='#2E7D32'/><text x='50' y='57' text-anchor='middle' font-size='16' font-family='Arial' font-weight='700' fill='#2E7D32'>$</text></svg>"
+    },
+    {
+      "id": 236,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "card",
+      "ru": "карта",
+      "uz": "karta",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='18' y='32' width='64' height='42' rx='6' fill='#3949AB'/><rect x='18' y='42' width='64' height='8' fill='#1A237E'/><rect x='26' y='60' width='22' height='6' fill='#FFCA28'/><rect x='56' y='60' width='16' height='6' fill='#E8EAF6'/></svg>"
+    },
+    {
+      "id": 237,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "bill",
+      "ru": "счёт",
+      "uz": "hisob",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><rect x='26' y='18' width='48' height='66' rx='3' fill='white' stroke='#90A4AE' stroke-width='3'/><path d='M36 34 H64 M36 46 H64 M36 58 H56' stroke='#90A4AE' stroke-width='3'/><text x='50' y='76' text-anchor='middle' font-size='16' font-family='Arial' font-weight='700'>$</text></svg>"
+    },
+    {
+      "id": 238,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "change",
+      "ru": "сдача / менять",
+      "uz": "qaytim / o‘zgartirmoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='38' cy='50' r='16' fill='#FFCA28' stroke='#F57F17' stroke-width='3'/><circle cx='62' cy='58' r='14' fill='#FFCA28' stroke='#F57F17' stroke-width='3'/><path d='M28 26 H68 M68 26 L58 16 M68 26 L58 36' stroke='#43A047' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 239,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "give",
+      "ru": "давать",
+      "uz": "bermoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='42' y='34' width='24' height='24' fill='#FFCA28'/><path d='M18 68 Q36 48 52 62' stroke='#FFCCBC' stroke-width='10' fill='none'/><path d='M58 70 H82' stroke='#43A047' stroke-width='6'/><path d='M74 58 L88 70 L74 82' fill='#43A047'/></svg>"
+    },
+    {
+      "id": 240,
+      "book": 1,
+      "level": "A1",
+      "subject": "Shopping & Money",
+      "en": "get",
+      "ru": "получать / добираться",
+      "uz": "olmoq / yetib bormoq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><rect x='42' y='34' width='24' height='24' fill='#FFCA28'/><path d='M18 70 H42' stroke='#43A047' stroke-width='6'/><path d='M30 58 L44 70 L30 82' fill='#43A047'/><path d='M48 68 Q64 50 82 68' stroke='#FFCCBC' stroke-width='10' fill='none'/></svg>"
+    },
+    {
+      "id": 241,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "happy",
+      "ru": "счастливый",
+      "uz": "baxtli",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='50' r='34' fill='#FFEB3B'/><circle cx='38' cy='44' r='4'/><circle cx='62' cy='44' r='4'/><path d='M34 58 Q50 76 66 58' stroke='#333' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 242,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "sad",
+      "ru": "грустный",
+      "uz": "g‘amgin",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='50' cy='50' r='34' fill='#90CAF9'/><circle cx='38' cy='44' r='4'/><circle cx='62' cy='44' r='4'/><path d='M34 70 Q50 54 66 70' stroke='#333' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 243,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "angry",
+      "ru": "злой / сердитый",
+      "uz": "jahldor",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='50' r='34' fill='#EF5350'/><path d='M32 40 L44 46 M68 40 L56 46' stroke='#333' stroke-width='5'/><circle cx='40' cy='50' r='3'/><circle cx='60' cy='50' r='3'/><path d='M36 68 H64' stroke='#333' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 244,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "good",
+      "ru": "хороший",
+      "uz": "yaxshi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='50' cy='50' r='34' fill='#C8E6C9'/><path d='M28 52 L44 68 L74 32' stroke='#43A047' stroke-width='9' fill='none'/></svg>"
+    },
+    {
+      "id": 245,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "bad",
+      "ru": "плохой",
+      "uz": "yomon",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><circle cx='50' cy='50' r='34' fill='#FFCDD2'/><path d='M32 32 L68 68 M68 32 L32 68' stroke='#E53935' stroke-width='9'/></svg>"
+    },
+    {
+      "id": 246,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "fine",
+      "ru": "нормально / хорошо",
+      "uz": "yaxshi / durust",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='50' cy='50' r='34' fill='#B2DFDB'/><path d='M30 58 Q50 70 70 58' stroke='#00695C' stroke-width='4' fill='none'/><path d='M36 42 H44 M56 42 H64' stroke='#00695C' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 247,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "OK",
+      "ru": "в порядке",
+      "uz": "joyida / yaxshi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><circle cx='50' cy='50' r='34' fill='#C8E6C9'/><text x='50' y='62' text-anchor='middle' font-family='Arial' font-size='28' font-weight='700' fill='#2E7D32'>OK</text></svg>"
+    },
+    {
+      "id": 248,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "ill",
+      "ru": "больной",
+      "uz": "kasal",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#78909C'/><rect x='62' y='20' width='24' height='16' rx='4' fill='white' stroke='#E53935'/><path d='M74 23 V33 M69 28 H79' stroke='#E53935' stroke-width='3'/></svg>"
+    },
+    {
+      "id": 249,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "hot",
+      "ru": "горячий / жарко",
+      "uz": "issiq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><path d='M50 86 C22 68 52 48 44 18 C66 36 80 58 50 86 Z' fill='#FF5722'/><path d='M52 74 C42 62 54 50 52 36 C64 48 68 62 52 74 Z' fill='#FFCA28'/></svg>"
+    },
+    {
+      "id": 250,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "cold",
+      "ru": "холодный / холодно",
+      "uz": "sovuq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M50 20 V80 M24 35 L76 65 M76 35 L24 65' stroke='#90CAF9' stroke-width='5' stroke-linecap='round'/><circle cx='50' cy='50' r='8' fill='#E3F2FD' stroke='#90CAF9'/></svg>"
+    },
+    {
+      "id": 251,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "ready",
+      "ru": "готовый",
+      "uz": "tayyor",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='50' r='34' fill='#C8E6C9'/><path d='M26 52 L42 68 L76 30' stroke='#2E7D32' stroke-width='9' fill='none'/><text x='50' y='88' text-anchor='middle' font-size='11' font-family='Arial'>ready</text></svg>"
+    },
+    {
+      "id": 252,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "busy",
+      "ru": "занятый",
+      "uz": "band",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#FF9800'/><path d='M68 20 H86 V38 H68 Z' fill='#E53935'/><path d='M72 26 H82 M72 32 H82' stroke='white' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 253,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "free",
+      "ru": "свободный / бесплатный",
+      "uz": "bo‘sh / bepul",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M30 42 V30 Q30 16 50 16 Q70 16 70 30 V42' stroke='#43A047' stroke-width='7' fill='none'/><rect x='25' y='42' width='50' height='36' rx='5' fill='#A5D6A7'/></svg>"
+    },
+    {
+      "id": 254,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "easy",
+      "ru": "лёгкий",
+      "uz": "oson",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='50' cy='50' r='34' fill='#C8E6C9'/><path d='M26 52 L42 68 L76 30' stroke='#43A047' stroke-width='8' fill='none'/><path d='M30 78 H70' stroke='#43A047' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 255,
+      "book": 1,
+      "level": "A1",
+      "subject": "Feelings & States",
+      "en": "difficult",
+      "ru": "трудный",
+      "uz": "qiyin",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><path d='M50 16 L86 82 H14 Z' fill='#FFCA28' stroke='#F57F17' stroke-width='3'/><text x='50' y='65' text-anchor='middle' font-size='38' font-family='Arial' font-weight='700'>?</text></svg>"
+    },
+    {
+      "id": 256,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "sun",
+      "ru": "солнце",
+      "uz": "quyosh",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='50' r='18' fill='#FFEB3B'/><path d='M50 8 V24 M50 76 V92 M8 50 H24 M76 50 H92 M20 20 L31 31 M80 20 L69 31 M20 80 L31 69 M80 80 L69 69' stroke='#FFB300' stroke-width='5' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 257,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "sky",
+      "ru": "небо",
+      "uz": "osmon",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='4' y='4' width='92' height='92' rx='20' fill='#81D4FA'/><circle cx='72' cy='26' r='12' fill='#FFEB3B'/><path d='M18 68 Q30 50 46 68 Q60 54 78 68' fill='white'/></svg>"
+    },
+    {
+      "id": 258,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "rain",
+      "ru": "дождь",
+      "uz": "yomg‘ir",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M25 52 Q25 35 42 36 Q50 20 66 34 Q82 35 82 52 Q82 66 66 66 H36 Q25 66 25 52' fill='#B0BEC5'/><path d='M38 72 V84 M52 72 V86 M66 72 V84' stroke='#29B6F6' stroke-width='5' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 259,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "snow",
+      "ru": "снег",
+      "uz": "qor",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><path d='M50 20 V80 M24 35 L76 65 M76 35 L24 65' stroke='#90CAF9' stroke-width='5' stroke-linecap='round'/><circle cx='50' cy='50' r='8' fill='#E3F2FD' stroke='#90CAF9'/></svg>"
+    },
+    {
+      "id": 260,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "wind",
+      "ru": "ветер",
+      "uz": "shamol",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><path d='M14 36 H66 Q80 36 76 24 Q74 18 66 20' stroke='#90CAF9' stroke-width='6' fill='none' stroke-linecap='round'/><path d='M18 54 H78 Q92 54 86 70 Q82 80 70 76' stroke='#42A5F5' stroke-width='6' fill='none' stroke-linecap='round'/><path d='M24 72 H58' stroke='#90CAF9' stroke-width='6' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 261,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "weather",
+      "ru": "погода",
+      "uz": "ob-havo",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><circle cx='50' cy='50' r='18' fill='#FFEB3B'/><path d='M50 8 V24 M50 76 V92 M8 50 H24 M76 50 H92 M20 20 L31 31 M80 20 L69 31 M20 80 L31 69 M80 80 L69 69' stroke='#FFB300' stroke-width='5' stroke-linecap='round'/><path d='M25 52 Q25 35 42 36 Q50 20 66 34 Q82 35 82 52 Q82 66 66 66 H36 Q25 66 25 52' fill='#B0BEC5'/><path d='M38 72 V84 M52 72 V86 M66 72 V84' stroke='#29B6F6' stroke-width='5' stroke-linecap='round'/></svg>"
+    },
+    {
+      "id": 262,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "tree",
+      "ru": "дерево",
+      "uz": "daraxt",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><rect x='44' y='55' width='12' height='32' fill='#795548'/><circle cx='50' cy='38' r='25' fill='#43A047'/><circle cx='32' cy='50' r='17' fill='#66BB6A'/><circle cx='68' cy='50' r='17' fill='#66BB6A'/></svg>"
+    },
+    {
+      "id": 263,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "flower",
+      "ru": "цветок",
+      "uz": "gul",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><path d='M50 56 V88' stroke='#388E3C' stroke-width='5'/><circle cx='50' cy='44' r='9' fill='#FFEB3B'/><circle cx='50' cy='24' r='12' fill='#EC407A'/><circle cx='70' cy='44' r='12' fill='#EC407A'/><circle cx='50' cy='64' r='12' fill='#EC407A'/><circle cx='30' cy='44' r='12' fill='#EC407A'/></svg>"
+    },
+    {
+      "id": 264,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "river",
+      "ru": "река",
+      "uz": "daryo",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M20 20 Q50 36 32 54 Q20 70 62 86' stroke='#29B6F6' stroke-width='18' fill='none' stroke-linecap='round'/><path d='M10 88 H90' stroke='#66BB6A' stroke-width='8'/></svg>"
+    },
+    {
+      "id": 265,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "sea",
+      "ru": "море",
+      "uz": "dengiz",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='4' y='4' width='92' height='92' rx='20' fill='#B3E5FC'/><path d='M10 60 Q25 48 40 60 T70 60 T100 60 V96 H4 V60 Z' fill='#0288D1'/><path d='M12 72 Q25 62 38 72 T64 72 T90 72' stroke='white' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 266,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "mountain",
+      "ru": "гора",
+      "uz": "tog‘",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M10 82 L38 30 L52 58 L66 28 L92 82 Z' fill='#78909C'/><path d='M38 30 L47 48 L30 48 Z M66 28 L76 48 L56 48 Z' fill='white'/></svg>"
+    },
+    {
+      "id": 267,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "animal",
+      "ru": "животное",
+      "uz": "hayvon",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='54' r='24' fill='#8D6E63'/><path d='M28 38 Q18 50 28 64 M72 38 Q82 50 72 64' stroke='#6D4C41' stroke-width='10' fill='none'/><circle cx='42' cy='50' r='3'/><circle cx='58' cy='50' r='3'/><ellipse cx='50' cy='61' rx='7' ry='5' fill='#3E2723'/><circle cx='50' cy='56' r='24' fill='#BDBDBD'/><path d='M30 42 L38 22 L48 42 Z M70 42 L62 22 L52 42 Z' fill='#BDBDBD'/><circle cx='41' cy='52' r='3' fill='#111'/><circle cx='59' cy='52' r='3' fill='#111'/><path d='M46 63 Q50 67 54 63' stroke='#333' fill='none'/></svg>"
+    },
+    {
+      "id": 268,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "dog",
+      "ru": "собака",
+      "uz": "it",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='50' cy='54' r='24' fill='#8D6E63'/><path d='M28 38 Q18 50 28 64 M72 38 Q82 50 72 64' stroke='#6D4C41' stroke-width='10' fill='none'/><circle cx='42' cy='50' r='3'/><circle cx='58' cy='50' r='3'/><ellipse cx='50' cy='61' rx='7' ry='5' fill='#3E2723'/></svg>"
+    },
+    {
+      "id": 269,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "cat",
+      "ru": "кот / кошка",
+      "uz": "mushuk",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><circle cx='50' cy='56' r='24' fill='#BDBDBD'/><path d='M30 42 L38 22 L48 42 Z M70 42 L62 22 L52 42 Z' fill='#BDBDBD'/><circle cx='41' cy='52' r='3' fill='#111'/><circle cx='59' cy='52' r='3' fill='#111'/><path d='M46 63 Q50 67 54 63' stroke='#333' fill='none'/></svg>"
+    },
+    {
+      "id": 270,
+      "book": 1,
+      "level": "A1",
+      "subject": "Nature & Weather",
+      "en": "bird",
+      "ru": "птица",
+      "uz": "qush",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='48' cy='52' r='20' fill='#FFEB3B'/><path d='M62 48 L82 54 L62 60 Z' fill='#FF9800'/><path d='M38 42 Q20 48 34 62' fill='#FBC02D'/><circle cx='54' cy='46' r='3' fill='#111'/></svg>"
+    },
+    {
+      "id": 271,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "big",
+      "ru": "большой",
+      "uz": "katta",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><circle cx='44' cy='52' r='34' fill='#43A047'/><circle cx='78' cy='68' r='10' fill='#C8E6C9'/></svg>"
+    },
+    {
+      "id": 272,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "long",
+      "ru": "длинный",
+      "uz": "uzun",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><rect x='14' y='44' width='72' height='14' rx='7' fill='#42A5F5'/><path d='M18 70 H82' stroke='#1565C0' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 273,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "short",
+      "ru": "короткий / низкий",
+      "uz": "qisqa / past",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='34' y='44' width='32' height='14' rx='7' fill='#FFB300'/><path d='M34 70 H66' stroke='#F57C00' stroke-width='4'/></svg>"
+    },
+    {
+      "id": 274,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "young",
+      "ru": "молодой",
+      "uz": "yosh",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='50' cy='38' r='10' fill='#FFCCBC'/><path d='M38 31 Q50 16 62 31' fill='#5D4037'/><path d='M28 84 Q32 52 50 52 Q68 52 72 84 Z' fill='#FFB300'/><path d='M24 22 L32 18 L40 22' stroke='#43A047' stroke-width='4' fill='none'/></svg>"
+    },
+    {
+      "id": 275,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "same",
+      "ru": "одинаковый / тот же",
+      "uz": "bir xil / o‘sha",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><rect x='20' y='34' width='24' height='24' rx='5' fill='#42A5F5'/><rect x='56' y='34' width='24' height='24' rx='5' fill='#42A5F5'/><text x='50' y='78' text-anchor='middle' font-size='22' font-family='Arial' font-weight='700'>=</text></svg>"
+    },
+    {
+      "id": 276,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "different",
+      "ru": "разный / другой",
+      "uz": "har xil / boshqa",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><rect x='20' y='34' width='24' height='24' rx='5' fill='#42A5F5'/><circle cx='68' cy='46' r='14' fill='#EF5350'/><text x='50' y='78' text-anchor='middle' font-size='22' font-family='Arial' font-weight='700'>≠</text></svg>"
+    },
+    {
+      "id": 277,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "important",
+      "ru": "важный",
+      "uz": "muhim",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M50 12 L61 38 H88 L66 54 L75 84 L50 66 L25 84 L34 54 L12 38 H39 Z' fill='#FFCA28'/><text x='50' y='57' text-anchor='middle' font-size='30' font-family='Arial' font-weight='700' fill='#5D4037'>!</text></svg>"
+    },
+    {
+      "id": 278,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "simple",
+      "ru": "простой",
+      "uz": "oddiy",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><circle cx='50' cy='50' r='30' fill='#C8E6C9'/><path d='M30 50 H70' stroke='#43A047' stroke-width='6'/></svg>"
+    },
+    {
+      "id": 279,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "hard",
+      "ru": "трудный / твёрдый",
+      "uz": "qiyin / qattiq",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><polygon points='50,14 84,34 84,70 50,90 16,70 16,34' fill='#90A4AE' stroke='#455A64' stroke-width='3'/><path d='M30 54 H70' stroke='#455A64' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 280,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "true",
+      "ru": "правда / верный",
+      "uz": "haqiqat / to‘g‘ri",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='50' r='34' fill='#C8E6C9'/><path d='M26 52 L42 68 L76 30' stroke='#43A047' stroke-width='9' fill='none'/></svg>"
+    },
+    {
+      "id": 281,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "wrong",
+      "ru": "неправильный",
+      "uz": "noto‘g‘ri",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='50' r='34' fill='#FFCDD2'/><path d='M30 30 L70 70 M70 30 L30 70' stroke='#E53935' stroke-width='9'/></svg>"
+    },
+    {
+      "id": 282,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "best",
+      "ru": "лучший",
+      "uz": "eng yaxshi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M50 12 L62 38 L90 38 L68 56 L76 84 L50 68 L24 84 L32 56 L10 38 L38 38 Z' fill='#FFD600'/><text x='50' y='57' text-anchor='middle' font-size='16' font-family='Arial' font-weight='700'>#1</text></svg>"
+    },
+    {
+      "id": 283,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "main",
+      "ru": "главный",
+      "uz": "asosiy",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><path d='M50 14 V84' stroke='#1976D2' stroke-width='10' stroke-linecap='round'/><path d='M30 34 L50 14 L70 34' fill='none' stroke='#1976D2' stroke-width='8'/><path d='M20 62 H80' stroke='#90CAF9' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 284,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "last",
+      "ru": "последний",
+      "uz": "oxirgi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><path d='M20 50 H68' stroke='#5C6BC0' stroke-width='8'/><path d='M60 30 L82 50 L60 70 Z' fill='#5C6BC0'/><rect x='82' y='24' width='6' height='52' fill='#263238'/></svg>"
+    },
+    {
+      "id": 285,
+      "book": 1,
+      "level": "A1",
+      "subject": "Basic Adjectives",
+      "en": "next",
+      "ru": "следующий",
+      "uz": "keyingi",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><path d='M18 50 H64' stroke='#43A047' stroke-width='8'/><path d='M56 30 L78 50 L56 70 Z' fill='#43A047'/><path d='M78 30 L92 50 L78 70' fill='#66BB6A'/></svg>"
+    },
+    {
+      "id": 286,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "a",
+      "ru": "артикль a",
+      "uz": "a artikli",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><rect x='22' y='30' width='56' height='38' rx='6' fill='white' stroke='#5C6BC0' stroke-width='3'/><text x='50' y='58' text-anchor='middle' font-family='Arial' font-size='36' font-weight='700' fill='#5C6BC0'>a</text></svg>"
+    },
+    {
+      "id": 287,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "the",
+      "ru": "артикль the",
+      "uz": "the artikli",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='18' y='30' width='64' height='38' rx='6' fill='white' stroke='#5C6BC0' stroke-width='3'/><text x='50' y='58' text-anchor='middle' font-family='Arial' font-size='28' font-weight='700' fill='#5C6BC0'>the</text></svg>"
+    },
+    {
+      "id": 288,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "my",
+      "ru": "мой",
+      "uz": "mening",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#42A5F5'/><text x='50' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>MY</text><path d='M22 22 H50 Q56 22 56 30 V82 Q50 76 42 76 H22 Z' fill='#66BB6A'/><path d='M78 22 H56 Q50 22 50 30 V82 Q56 76 64 76 H78 Z' fill='#81C784'/><path d='M50 28 V82' stroke='#2E7D32' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 289,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "your",
+      "ru": "твой / ваш",
+      "uz": "sening / sizning",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#66BB6A'/><text x='50' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>YOUR</text><path d='M22 22 H50 Q56 22 56 30 V82 Q50 76 42 76 H22 Z' fill='#42A5F5'/><path d='M78 22 H56 Q50 22 50 30 V82 Q56 76 64 76 H78 Z' fill='#81C784'/><path d='M50 28 V82' stroke='#2E7D32' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 290,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "his",
+      "ru": "его",
+      "uz": "uning",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#1976D2'/><text x='50' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>HIS</text><path d='M22 22 H50 Q56 22 56 30 V82 Q50 76 42 76 H22 Z' fill='#FFCA28'/><path d='M78 22 H56 Q50 22 50 30 V82 Q56 76 64 76 H78 Z' fill='#81C784'/><path d='M50 28 V82' stroke='#2E7D32' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 291,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "her",
+      "ru": "её",
+      "uz": "uning",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M50 54 L26 84 H74 Z' fill='#EC407A'/><text x='50' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>HER</text><path d='M22 22 H50 Q56 22 56 30 V82 Q50 76 42 76 H22 Z' fill='#FFCA28'/><path d='M78 22 H56 Q50 22 50 30 V82 Q56 76 64 76 H78 Z' fill='#81C784'/><path d='M50 28 V82' stroke='#2E7D32' stroke-width='2'/></svg>"
+    },
+    {
+      "id": 292,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "our",
+      "ru": "наш",
+      "uz": "bizning",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='28' cy='34' r='12' fill='#FFCCBC'/><path d='M16 27 Q28 12 40 27' fill='#5D4037'/><path d='M6 84 Q10 54 28 54 Q46 54 50 84 Z' fill='#42A5F5'/><text x='28' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>O</text><circle cx='50' cy='34' r='12' fill='#FFCCBC'/><path d='M38 27 Q50 12 62 27' fill='#5D4037'/><path d='M28 84 Q32 54 50 54 Q68 54 72 84 Z' fill='#66BB6A'/><text x='50' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>U</text><circle cx='72' cy='34' r='12' fill='#FFCCBC'/><path d='M60 27 Q72 12 84 27' fill='#5D4037'/><path d='M50 84 Q54 54 72 54 Q90 54 94 84 Z' fill='#FFA726'/><text x='72' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>R</text><rect x='25' y='48' width='50' height='38' fill='#FFAB91'/><path d='M18 50 L50 20 L82 50 Z' fill='#D84315'/><rect x='43' y='66' width='14' height='20' fill='#6D4C41'/><rect x='30' y='58' width='12' height='10' fill='#BBDEFB'/><rect x='58' y='58' width='12' height='10' fill='#BBDEFB'/></svg>"
+    },
+    {
+      "id": 293,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "their",
+      "ru": "их",
+      "uz": "ularning",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E0F2F1'/><circle cx='23' cy='38' r='10' fill='#FFCCBC'/><path d='M11 31 Q23 16 35 31' fill='#5D4037'/><path d='M1 84 Q5 52 23 52 Q41 52 45 84 Z' fill='#42A5F5'/><text x='23' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>T</text><circle cx='41' cy='38' r='10' fill='#FFCCBC'/><path d='M29 31 Q41 16 53 31' fill='#5D4037'/><path d='M19 84 Q23 52 41 52 Q59 52 63 84 Z' fill='#66BB6A'/><text x='41' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>H</text><circle cx='59' cy='38' r='10' fill='#FFCCBC'/><path d='M47 31 Q59 16 71 31' fill='#5D4037'/><path d='M37 84 Q41 52 59 52 Q77 52 81 84 Z' fill='#FFA726'/><text x='59' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>E</text><circle cx='77' cy='38' r='10' fill='#FFCCBC'/><path d='M65 31 Q77 16 89 31' fill='#5D4037'/><path d='M55 84 Q59 52 77 52 Q95 52 99 84 Z' fill='#EF5350'/><text x='77' y='75' text-anchor='middle' font-family='Arial' font-size='16' font-weight='700' fill='white'>Y</text><rect x='25' y='48' width='50' height='38' fill='#FFAB91'/><path d='M18 50 L50 20 L82 50 Z' fill='#D84315'/><rect x='43' y='66' width='14' height='20' fill='#6D4C41'/><rect x='30' y='58' width='12' height='10' fill='#BBDEFB'/><rect x='58' y='58' width='12' height='10' fill='#BBDEFB'/></svg>"
+    },
+    {
+      "id": 294,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "this",
+      "ru": "этот",
+      "uz": "bu",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><rect x='34' y='34' width='32' height='32' rx='6' fill='#FFCA28'/><path d='M50 76 V58' stroke='#EF5350' stroke-width='6'/><path d='M38 68 L50 80 L62 68' fill='#EF5350'/></svg>"
+    },
+    {
+      "id": 295,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "that",
+      "ru": "тот",
+      "uz": "ana u / o‘sha",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#EFEBE9'/><rect x='62' y='30' width='22' height='22' rx='5' fill='#FFCA28'/><path d='M18 74 H58' stroke='#5C6BC0' stroke-width='5'/><path d='M50 64 L62 74 L50 84' fill='#5C6BC0'/></svg>"
+    },
+    {
+      "id": 296,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "and",
+      "ru": "и",
+      "uz": "va",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><circle cx='34' cy='50' r='18' fill='#42A5F5'/><circle cx='66' cy='50' r='18' fill='#66BB6A'/><text x='50' y='59' text-anchor='middle' font-size='28' font-family='Arial' font-weight='700' fill='white'>+</text></svg>"
+    },
+    {
+      "id": 297,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "but",
+      "ru": "но",
+      "uz": "lekin",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><rect x='18' y='36' width='24' height='28' rx='5' fill='#42A5F5'/><rect x='58' y='36' width='24' height='28' rx='5' fill='#EF5350'/><path d='M48 26 V74' stroke='#263238' stroke-width='5'/></svg>"
+    },
+    {
+      "id": 298,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "or",
+      "ru": "или",
+      "uz": "yoki",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M18 50 H48' stroke='#5C6BC0' stroke-width='7'/><path d='M48 50 L78 30 M48 50 L78 70' stroke='#5C6BC0' stroke-width='7' fill='none'/><circle cx='80' cy='30' r='7' fill='#42A5F5'/><circle cx='80' cy='70' r='7' fill='#66BB6A'/></svg>"
+    },
+    {
+      "id": 299,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "because",
+      "ru": "потому что",
+      "uz": "chunki",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FCE4EC'/><circle cx='28' cy='50' r='14' fill='#FFCA28'/><path d='M42 50 H66' stroke='#5C6BC0' stroke-width='6'/><path d='M62 38 L78 50 L62 62 Z' fill='#5C6BC0'/><rect x='72' y='38' width='14' height='24' rx='4' fill='#EF5350'/></svg>"
+    },
+    {
+      "id": 300,
+      "book": 1,
+      "level": "A1",
+      "subject": "Grammar Words & Connectors",
+      "en": "with",
+      "ru": "с / при помощи",
+      "uz": "bilan / yordamida",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><circle cx='34' cy='50' r='16' fill='#42A5F5'/><circle cx='66' cy='50' r='16' fill='#66BB6A'/><path d='M46 50 H54' stroke='#263238' stroke-width='6'/></svg>"
+    }
+  ]
+}

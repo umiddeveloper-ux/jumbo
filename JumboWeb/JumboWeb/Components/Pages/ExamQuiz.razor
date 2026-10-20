@@ -1,0 +1,211 @@
+@page "/exam/quiz/{BookNumber:int}/{WordCount:int}"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject ExamStateService ExamState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@inject UserStateService UserState
+@inject LivesService Lives
+
+<PageTitle>@Loc["SiteHome_ExamCardTitle"]</PageTitle>
+
+<div class="exam-page">
+    <div class="game-topbar">
+        <button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/exam")'>@Loc["Common_BackArrow"]</button>
+        @if (!_isBusy && !_hasNoData)
+        {
+            <span class="exam-counter">@Math.Min(_batchStart + CurrentBatch.Count, _words.Count) / @_words.Count</span>
+        }
+    </div>
+
+    @if (!_isBusy && !_hasNoData)
+    {
+        <div class="listen-progress-wrap">
+            <div class="listen-progress-bar">
+                <div class="listen-progress-fill" style="width:@(_progressPct)%"></div>
+            </div>
+        </div>
+    }
+
+    @if (_isBusy)
+    {
+        <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+    }
+    else if (_hasNoData)
+    {
+        <div class="lp-empty-state">@Loc["ExamQuiz_NoWords"]</div>
+        <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/exam")'>@Loc["Common_Back"]</button>
+    }
+    else
+    {
+        <div class="exam-quiz-list">
+            @for (int i = 0; i < CurrentBatch.Count; i++)
+            {
+                var idx = i;
+                var w = CurrentBatch[idx];
+                <div class="exam-quiz-row">
+                    <div class="exam-quiz-translation"><span class="exam-quiz-n">@(_batchStart + idx + 1)</span>@w.TranslationWord</div>
+                    <input class="exam-quiz-input" type="text" placeholder="@Loc["ExamQuiz_InputPlaceholder"]"
+                           autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"
+                           enterkeyhint="@(idx == CurrentBatch.Count - 1 ? "done" : "next")"
+                           value="@_currentInputs[idx]"
+                           @oninput="e => _currentInputs[idx] = e.Value?.ToString() ?? string.Empty"
+                           @onkeydown="e => OnKey(e, idx)" />
+                </div>
+            }
+        </div>
+
+        <div class="exam-bar">
+            <div class="exam-bar-text">@Math.Min(_batchStart + CurrentBatch.Count, _words.Count) / @_words.Count</div>
+            <button type="button" class="lp-btn exam-go" @onclick="NextBatch">
+                @(IsLastBatch ? Loc["ExamQuiz_Finish"] : Loc["ExamQuiz_Next"])
+            </button>
+        </div>
+    }
+</div>
+
+@code {
+    private const int BatchSize = 5;
+
+    [Parameter] public int BookNumber { get; set; }
+    [Parameter] public int WordCount { get; set; }
+
+    // ?te=... : the exam was started with a teacher's code (checked by the server when the result is sent).
+    [SupplyParameterFromQuery(Name = "te")] public int? TeacherExamId { get; set; }
+
+    private List<ExamWordItem> _words = new();
+    private List<ExamAnswer> _answers = new();
+    private string[] _currentInputs = Array.Empty<string>();
+    private int _batchStart;
+    private bool _isBusy = true;
+    private bool _hasNoData;
+
+    private List<ExamWordItem> CurrentBatch =>
+        _words.Skip(_batchStart).Take(BatchSize).ToList();
+
+    private bool IsLastBatch => _batchStart + BatchSize >= _words.Count;
+
+    private double _progressPct => _words.Count > 0 ? _batchStart * 100.0 / _words.Count : 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Prefs.EnsureLoadedAsync();
+        await UserState.EnsureLoadedAsync();
+
+        // No lives and no LP (the 5-hour block): the exam is closed; the setup page shows the block notice.
+        if (!Lives.Initialized) await Lives.InitAsync();
+        await Lives.CheckRegenAsync();
+        if (Lives.Initialized && Lives.IsBlocked)
+        {
+            Nav.NavigateTo("/exam", replace: true);
+            return;
+        }
+
+        // Direct links to the quiz need the same region + school + team as the setup page.
+        var user = UserState.CurrentUser;
+        if (string.IsNullOrWhiteSpace(user?.Region) || string.IsNullOrWhiteSpace(user?.School) || string.IsNullOrWhiteSpace(user?.Team))
+        {
+            Nav.NavigateTo("/exam", replace: true);
+            return;
+        }
+
+        try
+        {
+            _words = await ApiClient.GetExamWordsAsync(BookNumber, Prefs.StudyLangId, Prefs.TransLangId, WordCount);
+        }
+        catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.Forbidden)
+        {
+            Nav.NavigateTo("/exam", replace: true);
+            return;
+        }
+        if (_words.Count == 0)
+        {
+            _hasNoData = true;
+            _isBusy = false;
+            return;
+        }
+
+        _batchStart = 0;
+        _currentInputs = new string[CurrentBatch.Count];
+        _isBusy = false;
+    }
+
+    private bool _focusFirst = true;
+    private bool _submitting;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // A fresh set of 5 words: put the cursor in the first answer field.
+        if (_focusFirst && !_isBusy && !_hasNoData)
+        {
+            _focusFirst = false;
+            try { await JS.InvokeVoidAsync("lp.focusExamInput", 0); } catch { }
+        }
+    }
+
+    // Enter: next field, or submit the batch from the last field.
+    private async Task OnKey(KeyboardEventArgs e, int index)
+    {
+        if (e.Key != "Enter") return;
+        if (index >= CurrentBatch.Count - 1) await NextBatch();
+        else await JS.InvokeVoidAsync("lp.focusExamInput", index + 1);
+    }
+
+    private async Task NextBatch()
+    {
+        if (_submitting) return;
+        var batch = CurrentBatch;
+        for (int i = 0; i < batch.Count; i++)
+        {
+            var w = batch[i];
+            var entered = (_currentInputs.Length > i ? _currentInputs[i] : string.Empty)?.Trim() ?? string.Empty;
+            var isCorrect = string.Equals(entered, w.StudyWord.Trim(), StringComparison.OrdinalIgnoreCase)
+                            || w.AlternativeWords.Any(a => string.Equals(entered, a.Trim(), StringComparison.OrdinalIgnoreCase));
+
+            _answers.Add(new ExamAnswer
+            {
+                TranslationWord = w.TranslationWord,
+                CorrectWord = w.StudyWord,
+                EnteredWord = entered,
+                IsCorrect = isCorrect
+            });
+        }
+
+        _batchStart += BatchSize;
+
+        if (_batchStart >= _words.Count)
+        {
+            _submitting = true;
+
+            // Only an exam by a teacher's code is stored (for the teacher's reports); a free exam is just shown at the end.
+            // A failure must never block the student's result page.
+            var sent = true;
+            if (TeacherExamId is not null)
+            try
+            {
+                await ApiClient.SubmitExamResultAsync(new SubmitExamResultRequest
+                {
+                    BookNumber = BookNumber,
+                    TeacherExamId = TeacherExamId,
+                    TotalCount = _answers.Count,
+                    CorrectCount = _answers.Count(a => a.IsCorrect),
+                    Mistakes = _answers.Where(a => !a.IsCorrect)
+                        .Select(a => new ExamMistakeDto { Word = a.CorrectWord, Translation = a.TranslationWord })
+                        .ToList()
+                });
+            }
+            catch { sent = false; }
+
+            ExamState.SetResults(_answers, BookNumber, WordCount, TeacherExamId, sent);
+            Nav.NavigateTo("/exam/results", replace: true);
+        }
+        else
+        {
+            _currentInputs = new string[CurrentBatch.Count];
+            _focusFirst = true;
+        }
+    }
+}

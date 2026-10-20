@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns:u="clr-namespace:Jumbo.Utilities"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Jumbo.Pages.FindMeGamePage"
+             x:DataType="pageModels:FindMeGamePageModel"
+             x:Name="FindMeGamePageRoot"
+             Title="{u:Tr Key=Game_FindMeTitle}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference FindMeGamePageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedTo" Command="{Binding NavigatedToCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference FindMeGamePageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom" Command="{Binding NavigatedFromCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference FindMeGamePageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing" Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto, *">
+
+        <!-- ── Верхняя панель: жизни + слово ── -->
+        <!-- The word to find stands right next to Jumbo. While Jumbo cheers or comforts, his phrase takes the place of the word for a moment
+             (the banner turns green or red), then the word comes back. -->
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*" ColumnSpacing="10" Padding="15,8"
+              BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+            <ctl:TigerView Head="True" Size="54" Mood="{Binding Coach.Mood}" VerticalOptions="Center" />
+
+            <Border Grid.Column="1" StrokeShape="RoundRectangle 16" HeightRequest="58"
+                    BackgroundColor="{StaticResource Primary}" StrokeThickness="0" Padding="12,0"
+                    VerticalOptions="Center" IsVisible="{Binding IsPlaying}">
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding Coach.Mood}" Value="cheer">
+                        <Setter Property="BackgroundColor" Value="{StaticResource Success}" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Border" Binding="{Binding Coach.Mood}" Value="sad">
+                        <Setter Property="BackgroundColor" Value="{StaticResource Danger}" />
+                    </DataTrigger>
+                </Border.Triggers>
+                <Label Text="{Binding BannerText}"
+                       FontSize="26"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       MaxLines="1"
+                       LineBreakMode="TailTruncation"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+            </Border>
+        </Grid>
+
+        <!-- ── Сетка карточек 4 столбца ── -->
+        <!-- Six cards, three in a row. Each card has an explicit width (the model computes it from the page width): in a grid collection
+             the translation under the picture was measured for a narrower width and long words were cut ("пожалуйст"). -->
+        <ScrollView Grid.Row="1" Margin="15">
+            <FlexLayout Wrap="Wrap" JustifyContent="Start" AlignItems="Start" AlignContent="Start" BindableLayout.ItemsSource="{Binding Cards}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate x:DataType="pageModels:GameCardViewModel">
+                    <Border StrokeShape="RoundRectangle 12"
+                            StrokeThickness="0"
+                            HeightRequest="150"
+                            Margin="0,0,8,8"
+                            WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type pageModels:FindMeGamePageModel}}, Path=CardWidth}">
+
+                        <!-- Фон карточки: зелёный (matched), красный (wrong), нейтральный -->
+                        <Border.Triggers>
+                            <DataTrigger TargetType="Border" Binding="{Binding IsMatched}" Value="True">
+                                <Setter Property="BackgroundColor" Value="{StaticResource Success}"/>
+                                <Setter Property="Opacity" Value="0.35"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border" Binding="{Binding ShowWrong}" Value="True">
+                                <Setter Property="BackgroundColor" Value="{StaticResource Warning}"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border" Binding="{Binding IsMatched}" Value="False">
+                                <Setter Property="BackgroundColor"
+                                        Value="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"/>
+                            </DataTrigger>
+                        </Border.Triggers>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:FindMeGamePageModel}}, Path=SelectCardCommand}"
+                                CommandParameter="{Binding .}"/>
+                        </Border.GestureRecognizers>
+
+                        <Grid>
+                            <!-- Активная карточка -->
+                            <!-- a Grid, not a stack: in a stack the label got a width a little too small on Android and the last letter was cut -->
+                            <Grid RowDefinitions="76,Auto" RowSpacing="2" Padding="4" VerticalOptions="Start"
+                                  IsVisible="{Binding IsMatched, Converter={StaticResource InvertedBoolConverter}}">
+                                <ctl:SvgPicture HeightRequest="76"
+                                         InputTransparent="True"
+                                         BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+                                <ctl:FitText Grid.Row="1" HeightRequest="54" Text="{Binding TranslationWord}" MaxFontSize="14" MinFontSize="9"
+                                             TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+                            </Grid>
+
+                            <!-- Matched: галочка -->
+                            <Label Text="✓"
+                                   FontSize="40"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   IsVisible="{Binding IsMatched}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </ScrollView>
+
+<ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding HasNoData}" Kind="lose" Title="{u:Tr Key=FindMeGame_NoWords}"
+                          PrimaryText="{u:Tr Key=Common_Back}" PrimaryCommand="{Binding GoBackCommand}" />
+
+        <!-- ── Индикатор загрузки ── -->
+        <ActivityIndicator Grid.Row="0" Grid.RowSpan="2"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Color="{StaticResource Primary}"
+                           HeightRequest="50"
+                           WidthRequest="50"/>
+
+<ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding IsGameWon}" Kind="win" Title="{u:Tr Key=FindMeGame_Great}" Message="{u:Tr Key=Game_AllFound}"
+                          Reward="{Binding RewardText}"
+                          PrimaryText="{u:Tr Key=Common_Again}" PrimaryCommand="{Binding RestartGameCommand}"
+                          SecondaryText="{u:Tr Key=Common_Back}" SecondaryCommand="{Binding GoBackCommand}" />
+
+<ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding IsGameOver}" Kind="lose" Title="{u:Tr Key=FindMeGame_OutOfLives}"
+                          PrimaryText="{u:Tr Key=Common_TryAgainLong}" PrimaryCommand="{Binding RestartGameCommand}"
+                          SecondaryText="{u:Tr Key=Common_Back}" SecondaryCommand="{Binding GoBackCommand}" />
+
+<ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding IsLocked}" Kind="locked" Title="{u:Tr Key=Block_Title}" Message="{Binding LivesService.RegenMessage}"
+                          SecondaryText="{u:Tr Key=Common_Back}" SecondaryCommand="{Binding GoBackCommand}" />
+
+    </Grid>
+</ContentPage>

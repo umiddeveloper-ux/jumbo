@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: jumbo-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: littlepolyglot
+      POSTGRES_PASSWORD: littlepolyglot_dev
+      POSTGRES_DB: littlepolyglot
+    ports:
+      - "5432:5432"
+    volumes:
+      - littlepolyglot-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U littlepolyglot -d littlepolyglot"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  littlepolyglot-pgdata:

@@ -1,0 +1,64 @@
+@using Jumbo.Shared
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+
+@* The learner's place in the weekly rating, at the end of the learning home page (the level is in the strip under the top bar). *@
+<div class="stats-row">
+    <a class="stats-tile rate" href="/rating">
+        <span class="stats-badge">🏆</span>
+        <span class="stats-text">
+            @if (_loaded && _me is { } me)
+            {
+                <span class="stats-label">@Loc.Format("Stats_Place", me.Rank) <small>@Loc.Format("Stats_OutOf", _total)</small></span>
+                <span class="stats-sub">@Loc[ScopeLabel] · @Loc.Format("Stats_Words", me.Words)</span>
+            }
+            else
+            {
+                <span class="stats-label">@Loc["Stats_RatingTitle"]</span>
+                <span class="stats-sub">@(_loaded ? Loc["Stats_NoPlace"] : "…")</span>
+            }
+        </span>
+    </a>
+</div>
+
+@code {
+    private RatingEntryDto? _me;
+    private int _total;
+    private string _scope = "all";
+    private bool _loaded;
+
+    private string ScopeLabel => _scope switch
+    {
+        "team" => "Stats_ScopeTeam", "school" => "Stats_ScopeSchool", "region" => "Stats_ScopeRegion", _ => "Stats_ScopeAll"
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await UserState.EnsureLoadedAsync();
+            var u = UserState.CurrentUser;
+            // The most personal scope the learner has filled in (same order as the rating page).
+            _scope = !string.IsNullOrWhiteSpace(u?.Team) ? "team"
+                   : !string.IsNullOrWhiteSpace(u?.School) ? "school"
+                   : !string.IsNullOrWhiteSpace(u?.Region) ? "region" : "all";
+
+            var data = await ApiClient.GetRatingAsync(_scope, "week", 1);
+            if (data is null || data.Missing || data.Me is null)
+            {
+                // Not ranked in the personal scope yet: fall back to the whole country.
+                if (_scope != "all")
+                {
+                    _scope = "all";
+                    data = await ApiClient.GetRatingAsync("all", "week", 1);
+                }
+            }
+            _me = data?.Me;
+            _total = data?.Total ?? 0;
+        }
+        catch { /* decorative: never break the page */ }
+        _loaded = true;
+    }
+}

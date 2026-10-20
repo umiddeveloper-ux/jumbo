@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.BookZeroGamePage"
+             x:DataType="pageModels:BookZeroGamePageModel"
+             x:Name="ZeroGameRoot"
+             Title="{Binding Title}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference ZeroGameRoot}, x:DataType=ContentPage}"
+            EventName="Appearing" Command="{Binding AppearingCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference ZeroGameRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom" Command="{Binding NavigatedFromCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16,14,16,28" Spacing="12" MaximumWidthRequest="560">
+
+            <!-- ── a round is on ── -->
+            <VerticalStackLayout Spacing="10" IsVisible="{Binding IsPlaying}">
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Text="{Binding Title}" FontFamily="NunitoExtraBold" FontSize="15" VerticalOptions="Center" />
+                    <Label Grid.Column="1" Text="{Binding ProgressText}" FontFamily="NunitoExtraBold" FontSize="15" TextColor="{StaticResource Primary}" VerticalOptions="Center" />
+                </Grid>
+                <ProgressBar Progress="{Binding ProgressValue}" ProgressColor="{StaticResource Primary}" HeightRequest="10" />
+                <ctl:TigerCoach Mood="{Binding Coach.Mood}" Text="{Binding Coach.Text}" />
+
+                <Label Text="{Binding HintText}" FontFamily="NunitoBlack" FontSize="19" HorizontalTextAlignment="Center" Margin="0,4,0,0" />
+
+                <!-- listen: say it again -->
+                <Border IsVisible="{Binding IsListen}" StrokeShape="RoundRectangle 30" StrokeThickness="0" BackgroundColor="{StaticResource Primary}"
+                        Padding="26,10" HorizontalOptions="Center">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SpeakTargetCommand}" />
+                    </Border.GestureRecognizers>
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="🔊" FontSize="28" VerticalOptions="Center" />
+                        <Label Text="{u:Tr Key=ZG_Repeat}" FontFamily="NunitoBlack" FontSize="16" TextColor="White" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                </Border>
+
+                <!-- train -->
+                <ctl:TrainView x:Name="Train" IsVisible="{Binding IsTrain}" HeightRequest="72" Margin="0,6" />
+
+                <!-- the tiles: six to listen for, four for the train -->
+                <FlexLayout Wrap="Wrap" JustifyContent="Center" BindableLayout.ItemsSource="{Binding Options}" Margin="0,8,0,0">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="pageModels:ZeroGameTile">
+                            <Border StrokeShape="RoundRectangle 22" WidthRequest="96" HeightRequest="96" Margin="6" StrokeThickness="2"
+                                    Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border" Binding="{Binding State}" Value="ok">
+                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
+                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Border" Binding="{Binding State}" Value="bad">
+                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource DangerSoftLight}, Dark={StaticResource DangerSoftDark}}" />
+                                        <Setter Property="Stroke" Value="{StaticResource Danger}" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Border" Binding="{Binding State}" Value="used">
+                                        <Setter Property="Opacity" Value="0.35" />
+                                    </DataTrigger>
+                                </Border.Triggers>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:BookZeroGamePageModel}}, Path=TapCommand}"
+                                                          CommandParameter="{Binding .}" />
+                                </Border.GestureRecognizers>
+                                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
+                                    <Label Text="{Binding Big}" FontFamily="NunitoBlack" FontSize="34" HorizontalOptions="Center" />
+                                    <Label Text="{Binding Small}" IsVisible="{Binding HasSmall}" FontFamily="NunitoExtraBold" FontSize="17" HorizontalOptions="Center"
+                                           TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </VerticalStackLayout>
+
+            <!-- ── the result ── -->
+            <VerticalStackLayout Spacing="10" IsVisible="{Binding IsFinished}" HorizontalOptions="Center" Margin="0,18,0,0">
+                <ctl:TigerView Size="150" Mood="cheer" HorizontalOptions="Center" />
+                <Label Text="{u:Tr Key=ZG_Result}" FontFamily="NunitoBlack" FontSize="26" HorizontalOptions="Center" />
+                <Label Text="{Binding StarsText}" FontSize="46" TextColor="#FFC800" HorizontalOptions="Center" />
+                <Label Text="{Binding MistakesText}" FontSize="15" HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                <ctl:ChunkyButton Text="{u:Tr Key=Common_Again}" Kind="success" Command="{Binding StartCommand}" WidthRequest="260" />
+                <ctl:ChunkyButton Text="{u:Tr Key=Common_Exit}" Kind="outline" Command="{Binding BackCommand}" WidthRequest="260" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

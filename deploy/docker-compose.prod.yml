@@ -1,0 +1,61 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: jumbo-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: littlepolyglot
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: littlepolyglot
+    volumes:
+      - littlepolyglot-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U littlepolyglot -d littlepolyglot"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ..
+      dockerfile: Jumbo.Api/Dockerfile
+    container_name: jumbo-api
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      Admin__Usernames: "${ADMIN_USERNAMES:-}"
+      ConnectionStrings__Default: "Host=postgres;Port=5432;Database=littlepolyglot;Username=littlepolyglot;Password=${POSTGRES_PASSWORD}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    build:
+      context: ..
+      dockerfile: JumboWeb/JumboWeb/Dockerfile
+    container_name: jumbo-web
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      Api__BaseUrl: "http://api:8080/"
+      Media__VideosRoot: "/media/videos"
+    volumes:
+      - ../media:/media           # the admin page uploads the topic videos here (nginx serves them read-only)
+    depends_on:
+      - api
+
+  nginx:
+    image: nginx:alpine
+    container_name: jumbo-nginx
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../media:/media:ro
+    depends_on:
+      - api
+      - web
+
+volumes:
+  littlepolyglot-pgdata:

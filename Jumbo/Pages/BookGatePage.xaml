@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             x:Class="Jumbo.Pages.BookGatePage"
+             x:DataType="pageModels:BookGatePageModel"
+             x:Name="GatePage"
+             Title="{Binding Title}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+                BindingContext="{Binding Path=BindingContext, Source={x:Reference GatePage}, x:DataType=ContentPage}"
+                EventName="Appearing"
+                Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16,12,16,28" Spacing="14" MaximumWidthRequest="560" HorizontalOptions="Fill">
+
+            <!-- The check: three steps -->
+            <VerticalStackLayout Spacing="14" IsVisible="{Binding IsOpened, Converter={StaticResource InvertedBoolConverter}}">
+                <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                    <ctl:TigerView Mood="wave" Size="96" />
+                    <Label Text="{Binding Title}" FontFamily="NunitoBlack" FontSize="24" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding Subtitle}" FontSize="14" HorizontalTextAlignment="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="10" BindableLayout.ItemsSource="{Binding Steps}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="pageModels:GateStepRow">
+                            <Border StrokeShape="RoundRectangle 18" Padding="12,10" StrokeThickness="2" Opacity="0.6"
+                                    Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border" Binding="{Binding State}" Value="current">
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Setter Property="Stroke" Value="{StaticResource Primary}" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Border" Binding="{Binding State}" Value="done">
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                    </DataTrigger>
+                                </Border.Triggers>
+                                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                                    <Border WidthRequest="38" HeightRequest="38" StrokeShape="RoundRectangle 19" StrokeThickness="0" Padding="0"
+                                            BackgroundColor="#A9BDCE" VerticalOptions="Center">
+                                        <Border.Triggers>
+                                            <DataTrigger TargetType="Border" Binding="{Binding State}" Value="current">
+                                                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Border" Binding="{Binding State}" Value="done">
+                                                <Setter Property="BackgroundColor" Value="{StaticResource Success}" />
+                                            </DataTrigger>
+                                        </Border.Triggers>
+                                        <Label Text="{Binding Marker}" TextColor="White" FontFamily="NunitoBlack" FontSize="17"
+                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Border>
+                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="0">
+                                        <Label Text="{Binding Label}" FontFamily="NunitoBlack" FontSize="16" />
+                                        <Label Text="{Binding Name}" FontSize="13"
+                                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                                    </VerticalStackLayout>
+                                    <Label Grid.Column="2" Text="{Binding DoneText}" IsVisible="{Binding IsDone}" VerticalOptions="Center"
+                                           FontFamily="NunitoBlack" FontSize="13" TextColor="{StaticResource Success}" />
+                                    <ctl:ChunkyButton Grid.Column="2" Text="{Binding ButtonText}" FontSize="14" WidthRequest="150" VerticalOptions="Center"
+                                                      IsVisible="{Binding IsCurrent}"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:BookGatePageModel}}, Path=StartStepCommand}"
+                                                      CommandParameter="{Binding .}" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+
+                <Label Text="{Binding ErrorText}" TextColor="{StaticResource Danger}" HorizontalTextAlignment="Center" FontSize="14"
+                       IsVisible="{Binding HasError}" />
+            </VerticalStackLayout>
+
+            <!-- Passed: the book is open -->
+            <VerticalStackLayout Spacing="12" HorizontalOptions="Center" Padding="0,40,0,0" IsVisible="{Binding IsOpened}">
+                <ctl:TigerView Mood="cheer" Size="130" />
+                <Label Text="{Binding OpenedText}" FontFamily="NunitoBlack" FontSize="24" HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

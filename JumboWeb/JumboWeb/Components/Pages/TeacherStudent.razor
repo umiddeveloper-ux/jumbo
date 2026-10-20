@@ -1,0 +1,133 @@
+@page "/teacher/class/{Id:int}/student/{UserId:int}"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared.Entities
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+<PageTitle>@(_p?.Name ?? Loc["TC_Nav"])</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_p is null)
+{
+    <div class="tc">
+        <a class="tc-back" href="/teacher/class/@Id">← @Loc["TC_Back"]</a>
+        <div class="lp-empty-state">@Loc["TS_Missing"]</div>
+    </div>
+}
+else
+{
+    <div class="tc ts">
+        <a class="tc-back" href="/teacher/class/@Id">← @_p.ClassName</a>
+
+        <header class="ts-head">
+            <h1 class="tc-title">@_p.Name @if (!string.IsNullOrEmpty(_p.Username)) { <small class="tc-login">@@@_p.Username</small> }</h1>
+            <div class="ts-chips">
+                <span class="ts-chip"><span>@Loc["TS_CurrentBook"]</span><b>@(_p.CurrentBook is { } cb ? cb.ToString() : "—")</b></span>
+                <span class="ts-chip"><span>@Loc["TS_TopicsDone"]</span><b>@_p.Books.Sum(b => b.TopicsDone)/@_p.Books.Sum(b => b.TopicsTotal)</b></span>
+                <span class="ts-chip"><span>@Loc["TS_WordsLearned"]</span><b>@_p.Books.Sum(b => b.WordsLearned)</b></span>
+                <span class="ts-chip"><span>@Loc["TC_ColLp"]</span><b>@PointsFormat.Compact(_p.LpPoints)</b></span>
+                <span class="ts-chip"><span>@Loc["TC_ColStreak"]</span><b>@(_p.Streak > 0 ? $"🔥 {_p.Streak}" : "—")</b></span>
+                <span class="ts-chip"><span>@Loc["TC_ColLast"]</span><b>@LastActive()</b></span>
+            </div>
+        </header>
+
+        <h2 class="tc-sub">@Loc["TS_Title"]</h2>
+        @if (_p.CurrentBook is null)
+        {
+            <p class="tc-hint">@Loc["TS_NoProgress"]</p>
+        }
+
+        <div class="ts-books">
+            @foreach (var b in _p.Books)
+            {
+                var book = b;
+                var started = book.TopicsDone > 0 || book.TopicsStarted > 0;
+                var pct = book.TopicsTotal > 0 ? book.TopicsDone * 100 / book.TopicsTotal : 0;
+                <details class="ts-book @(book.IsCurrent ? "current" : "") @(started ? "" : "empty")" open="@book.IsCurrent">
+                    <summary class="ts-book-sum">
+                        <span class="ts-book-title">📘 @Loc.Format("TS_BookN", book.BookNumber)
+                            @if (book.IsCurrent) { <span class="ts-now">@Loc["TS_Now"]</span> }
+                        </span>
+                        <span class="ts-book-bar" aria-hidden="true"><i style="width:@(pct)%"></i></span>
+                        <span class="ts-book-stats">
+                            <span><b>@book.TopicsDone/@book.TopicsTotal</b> @Loc["TS_Topics"]</span>
+                            <span><b>@book.WordsLearned/@book.WordsTotal</b> @Loc["TS_Words"]</span>
+                            <span>
+                                @if (book.ExamBestPercent is { } best)
+                                {
+                                    <b class="tc-exam @ExamClass(best)">@best%</b> @Loc.Format("TS_ExamBest", book.ExamCount)
+                                }
+                                else
+                                {
+                                    <span class="tc-muted">@Loc["TS_NoExam"]</span>
+                                }
+                            </span>
+                        </span>
+                    </summary>
+
+                    <div class="ts-topics">
+                        <div class="ts-trow ts-trow-head">
+                            <div>@Loc["TS_ColTopic"]</div>
+                            <div>@Loc["TS_GameFindMe"]</div>
+                            <div>@Loc["TS_GameSequence"]</div>
+                            <div>@Loc["TS_GameListen"]</div>
+                            <div>@Loc["TS_GameSteps"]</div>
+                            <div>@Loc["TS_GamePhrase"]</div>
+                            <div>@Loc["TS_Words"]</div>
+                        </div>
+                        @foreach (var t in book.Topics)
+                        {
+                            <div class="ts-trow @(t.Done ? "done" : "")">
+                                <div class="ts-tname">@(t.Done ? "✅" : "▫️") @t.Name</div>
+                                <div class="ts-g @Mark(t.FindMe)" data-label="@Loc["TS_GameFindMe"]">@(t.FindMe ? "✓" : "·")</div>
+                                <div class="ts-g @Mark(t.Sequence)" data-label="@Loc["TS_GameSequence"]">@(t.Sequence ? "✓" : "·")</div>
+                                <div class="ts-g @Mark(t.Listen)" data-label="@Loc["TS_GameListen"]">@(t.Listen ? "✓" : "·")</div>
+                                <div class="ts-g @Mark(t.Steps)" data-label="@Loc["TS_GameSteps"]">@(t.Steps ? "✓" : "·")</div>
+                                <div class="ts-g @Mark(t.Phrase)" data-label="@Loc["TS_GamePhrase"]">@(t.Phrase ? "✓" : "·")</div>
+                                <div class="ts-w" data-label="@Loc["TS_Words"]">@t.WordsLearned/@t.WordsTotal</div>
+                            </div>
+                        }
+                    </div>
+                </details>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    [Parameter] public int UserId { get; set; }
+
+    private bool _loaded;
+    private Jumbo.Shared.Dtos.StudentProgressDto? _p;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        if (UserState.CurrentUser?.Role is not (UserRole.Teacher or UserRole.Director))
+        {
+            Nav.NavigateTo("/for-schools", replace: true);
+            return;
+        }
+
+        _p = await ApiClient.TeacherGetStudentProgressAsync(Id, UserId);
+        _loaded = true;
+    }
+
+    private static string Mark(bool won) => won ? "won" : "";
+
+    private static string ExamClass(int percent) => percent >= 70 ? "good" : percent >= 40 ? "mid" : "low";
+
+    private string LastActive()
+    {
+        if (_p?.LastActiveDate is not { } d) return Loc["TC_NeverActive"];
+        var days = Math.Max(0, DateTime.UtcNow.AddHours(5).Date.Subtract(d.ToDateTime(TimeOnly.MinValue)).Days);
+        return days switch { 0 => Loc["TC_Today"], 1 => Loc["TC_Yesterday"], _ => Loc.Format("TC_DaysAgo", days) };
+    }
+}

@@ -1,0 +1,230 @@
+@page "/login"
+@layout BlankLayout
+@rendermode InteractiveServer
+@implements IDisposable
+@using JumboWeb.Services
+@using Jumbo.Shared.Dtos
+@using QRCoder
+@inject UserStateService UserState
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["Login_PageTitle"]</PageTitle>
+<div class="top-controls"><LanguageSwitcher /><ThemeToggle /></div>
+
+<div class="lp-register-wrap">
+    <div class="lp-register-card">
+        <div class="lp-register-logo"><Tiger Mood="wave" Size="120" /></div>
+        <h1 class="lp-register-title">@Loc["Common_LpBrand"]</h1>
+        <p class="lp-register-subtitle">@Loc["Login_WelcomeBack"]</p>
+
+        <div class="login-tabs">
+            <button type="button" class="login-tab @(_tab == "password" ? "active" : "")" @onclick='() => _tab = "password"'>@Loc["Login_PasswordTab"]</button>
+            <button type="button" class="login-tab @(_tab == "qr" ? "active" : "")" @onclick="ShowQrTab">@Loc["Login_QrTab"]</button>
+        </div>
+
+        @if (_tab == "password")
+        {
+            <EditForm Model="_model" OnValidSubmit="OnLogin">
+                <div class="lp-field-label">@Loc["Login_UsernameLabel"]</div>
+                <InputText id="login-username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false"
+                           class="lp-input" @bind-Value="_model.Username" placeholder="@Loc["Login_UsernamePlaceholder"]" />
+
+                <div class="lp-field-label">@Loc["Login_PasswordLabel"]</div>
+                <div class="pw-wrap">
+                    <InputText id="login-password" name="password" autocomplete="current-password"
+                               class="lp-input" type="password" @bind-Value="_model.Password" placeholder="@Loc["Login_PasswordPlaceholder"]" />
+                    <PasswordEye />
+                </div>
+
+                <label class="login-remember">
+                    <input type="checkbox" @bind="_model.Remember" />
+                    @Loc["Login_RememberMe"]
+                </label>
+
+                @if (!string.IsNullOrEmpty(_error))
+                {
+                    <p class="validation-message">@_error</p>
+                }
+
+                <button type="submit" class="lp-btn-primary" disabled="@_busy">
+                    @(_busy ? Loc["Login_LoggingIn"] : Loc["Common_LoginAction"])
+                </button>
+            </EditForm>
+        }
+        else
+        {
+            <div class="qr-login-wrap">
+                @if (!string.IsNullOrEmpty(_qrImageBase64))
+                {
+                    <img class="qr-login-image" src="data:image/png;base64,@_qrImageBase64" alt="@Loc["Login_QrAlt"]" />
+                    <p class="qr-login-hint">@Loc["Login_QrHint"]</p>
+                }
+                else
+                {
+                    <div class="lp-spinner-wrap">@Loc["Login_QrLoading"]</div>
+                }
+                @if (!string.IsNullOrEmpty(_qrError))
+                {
+                    <p class="validation-message">@_qrError</p>
+                }
+            </div>
+        }
+
+        <p class="lp-register-switch">
+            @Loc["Login_NoAccount"] <a href="/register">@Loc["Login_RegisterLink"]</a>
+        </p>
+    </div>
+</div>
+
+@code {
+    private LoginModel _model = new();
+
+    // /join/CODE sends guests here and wants them back afterwards (validated again by /session/start).
+    [SupplyParameterFromQuery(Name = "returnUrl")] private string? ReturnUrl { get; set; }
+    private string _tab = "password";
+    private string _error = string.Empty;
+    private bool _busy;
+
+    private bool _qrStarted;
+    private string _qrImageBase64 = string.Empty;
+    private string? _qrError;
+    private CancellationTokenSource? _qrCts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        if (UserState.IsRegistered)
+        {
+            Nav.NavigateTo(string.IsNullOrEmpty(ReturnUrl) || !ReturnUrl.StartsWith('/') || ReturnUrl.StartsWith("//") ? "/" : ReturnUrl, replace: true);
+        }
+    }
+
+    private async Task OnLogin()
+    {
+        // Take the fields as the user sees them: autofill / a password manager may have changed them behind Blazor's back.
+        try
+        {
+            var typed = await JS.InvokeAsync<string[]>("lp.readLogin");
+            if (typed.Length == 2) { _model.Username = typed[0]; _model.Password = typed[1]; }
+        }
+        catch { }
+
+        if (string.IsNullOrWhiteSpace(_model.Username) || string.IsNullOrWhiteSpace(_model.Password))
+        {
+            _error = Loc["Common_EnterCredentials"];
+            return;
+        }
+        _busy = true;
+        _error = string.Empty;
+        try
+        {
+            var response = await UserState.LoginAsync(_model.Username.Trim(), _model.Password);
+            if (response is null)
+            {
+                _error = Loc["Login_InvalidCredentials"];
+                _busy = false;
+                return;
+            }
+
+            var url = $"/session/start?token={Uri.EscapeDataString(response.AccessToken)}&remember={_model.Remember}{NextParam()}";
+            await JS.InvokeVoidAsync("window.location.assign", url);
+        }
+        catch (LoginBlockedException ex)
+        {
+            _error = Loc.Format("Login_TooMany", ex.Minutes);
+            _busy = false;
+        }
+        catch (Exception ex)
+        {
+            _error = Loc["Common_ErrorPrefix"] + ex.Message;
+            _busy = false;
+        }
+    }
+
+    private string NextParam() => string.IsNullOrEmpty(ReturnUrl) ? string.Empty : $"&next={Uri.EscapeDataString(ReturnUrl)}";
+
+    private async Task ShowQrTab()
+    {
+        _tab = "qr";
+        if (_qrStarted) return;
+        _qrStarted = true;
+        await GenerateQrAsync();
+    }
+
+    private async Task GenerateQrAsync()
+    {
+        _qrCts?.Cancel();
+        _qrCts = new CancellationTokenSource();
+        _qrError = null;
+
+        var session = await ApiClient.CreateQrLoginSessionAsync();
+        if (session is null)
+        {
+            _qrError = Loc["Login_QrCreateFailed"];
+            StateHasChanged();
+            return;
+        }
+
+        _qrImageBase64 = GenerateQrPng(session.SessionId.ToString());
+        StateHasChanged();
+
+        _ = PollAsync(session.SessionId, _qrCts.Token);
+    }
+
+    private async Task PollAsync(Guid sessionId, CancellationToken token)
+    {
+        while (!token.IsCancellationRequested)
+        {
+            try
+            {
+                await Task.Delay(2000, token);
+            }
+            catch (TaskCanceledException)
+            {
+                return;
+            }
+            if (token.IsCancellationRequested) return;
+
+            var status = await ApiClient.GetQrLoginStatusAsync(sessionId);
+            if (status is null) continue;
+
+            if (status.Status == "Confirmed" && !string.IsNullOrEmpty(status.AccessToken))
+            {
+                var token1 = status.AccessToken;
+                await InvokeAsync(async () =>
+                {
+                    var url = $"/session/start?token={Uri.EscapeDataString(token1)}&remember=true";
+                    await JS.InvokeVoidAsync("window.location.assign", url);
+                });
+                return;
+            }
+
+            if (status.Status == "Expired")
+            {
+                await InvokeAsync(GenerateQrAsync);
+                return;
+            }
+        }
+    }
+
+    private static string GenerateQrPng(string payload)
+    {
+        using var generator = new QRCodeGenerator();
+        using var data = generator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.Q);
+        using var qrCode = new PngByteQRCode(data);
+        var bytes = qrCode.GetGraphic(10);
+        return Convert.ToBase64String(bytes);
+    }
+
+    public void Dispose() => _qrCts?.Cancel();
+
+    private class LoginModel
+    {
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public bool Remember { get; set; } = true;
+    }
+}

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Jumbo.Pages.SubjectWordsPage"
+             x:DataType="pageModels:SubjectWordsPageModel"
+             x:Name="SubjectWordsPageRoot"
+             Title="{Binding SubjectName}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SubjectWordsPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom"
+            Command="{Binding NavigatedFromCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SubjectWordsPageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <Grid>
+        <CollectionView ItemsSource="{Binding Words}"
+                        SelectionMode="None"
+                        Margin="14,10,14,14">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="pageModels:TopicWordItem">
+                    <Border StrokeShape="RoundRectangle 12"
+                            StrokeThickness="0"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                        <Grid ColumnDefinitions="38, *, *, 48"
+                              ColumnSpacing="8"
+                              Padding="12,6">
+
+                            <!-- Нумерация -->
+                            <Label Grid.Column="0"
+                                   Text="{Binding Number}"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Gray500}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+
+                            <!-- Изучаемое слово -->
+                            <Label Grid.Column="1"
+                                   Text="{Binding Word}"
+                                   FontSize="15"
+                                   FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"
+                                   VerticalOptions="Center"/>
+
+                            <!-- Перевод -->
+                            <Label Grid.Column="2"
+                                   Text="{Binding Translate}"
+                                   FontSize="14"
+                                   TextColor="{StaticResource Success}"
+                                   VerticalOptions="Center"/>
+
+                            <!-- Озвучка -->
+                            <Button Grid.Column="3"
+                                    Text="🔊"
+                                    FontSize="20"
+                                    BackgroundColor="Transparent"
+                                    Padding="0"
+                                    WidthRequest="44"
+                                    HeightRequest="44"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:SubjectWordsPageModel}}, Path=SpeakCommand}"
+                                    CommandParameter="{Binding .}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Color="{StaticResource Primary}"
+                           HeightRequest="50"
+                           WidthRequest="50"/>
+    </Grid>
+</ContentPage>

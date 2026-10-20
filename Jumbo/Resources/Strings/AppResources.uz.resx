@@ -1,0 +1,1750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlphabetSection" xml:space="preserve">
+    <value>So'zlarni takrorlash</value>
+  </data>
+  <data name="AwardsSectionTitle" xml:space="preserve">
+    <value>Sizning mukofotlar</value>
+  </data>
+  <data name="AwardsTitle" xml:space="preserve">
+    <value>Mukofotlar</value>
+  </data>
+  <data name="AZ" xml:space="preserve">
+    <value>ABCDEFGHIJKLMNOPQRSTUVWXYZ</value>
+  </data>
+  <data name="BooksSection" xml:space="preserve">
+    <value>Kitoblar</value>
+  </data>
+  <data name="DashboardTitle" xml:space="preserve">
+    <value>Asosy</value>
+  </data>
+  <data name="DictionaryTitle" xml:space="preserve">
+    <value>Tarjimalar</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Ismingiz</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Familiyangiz</value>
+  </data>
+  <data name="NoWordsFound" xml:space="preserve">
+    <value>Ma'lumotlar topilmadi</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Telefon raqamingiz</value>
+  </data>
+  <data name="RegistrationTitle" xml:space="preserve">
+    <value>Ro`yxatdan o`tish</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>So'z yoki raqam bo'yicha qidirish…</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Sozlanmalar</value>
+  </data>
+  <data name="StartTrainingButton" xml:space="preserve">
+    <value>O`rganishni boshlash</value>
+  </data>
+  <data name="StudyLanguage" xml:space="preserve">
+    <value>O`rganiladigan tilni tanlang</value>
+  </data>
+  <data name="TotalProgress" xml:space="preserve">
+    <value>Sizning natijangiz</value>
+  </data>
+  <data name="TranslationLanguage" xml:space="preserve">
+    <value>Tarjima tilini tanlang</value>
+  </data>
+  <data name="SubjectsTitle" xml:space="preserve">
+    <value>Kitob mavzulari</value>
+  </data>
+  <data name="NoSubjectsFound" xml:space="preserve">
+    <value>Bu kitobda mavzular yo'q</value>
+  </data>
+  <data name="GameLessons" xml:space="preserve">
+    <value>O`yin darslari</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Shaxsiy ma'lumotlar</value>
+  </data>
+  <data name="EnterFirstName" xml:space="preserve">
+    <value>Ismingizni kiriting</value>
+  </data>
+  <data name="EnterLastName" xml:space="preserve">
+    <value>Familiyangizni kiriting</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Sozlanmalar</value>
+  </data>
+  <data name="AppLanguage" xml:space="preserve">
+    <value>Ilova tili</value>
+  </data>
+  <data name="AppLanguageDescription" xml:space="preserve">
+    <value>Menyu interfeysi tili</value>
+  </data>
+  <data name="TranslationLanguageTitle" xml:space="preserve">
+    <value>Tarjima tili</value>
+  </data>
+  <data name="TranslationLanguageDescription" xml:space="preserve">
+    <value>So'zlar va maslahatlar tarjima tili</value>
+  </data>
+  <data name="ThemeTitle" xml:space="preserve">
+    <value>Dizayn mavzusi</value>
+  </data>
+  <data name="ThemeDescription" xml:space="preserve">
+    <value>Kunduzgi yoki Tungi rejim</value>
+  </data>
+  <data name="HideTooltipsTitle" xml:space="preserve">
+    <value>Ko'rsatmalarni yashirish</value>
+  </data>
+  <data name="HideTooltipsDescription" xml:space="preserve">
+    <value>O`quv xabarlarini o`chirish</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Sozlanmalarni saqlash</value>
+  </data>
+  <data name="LpMarket" xml:space="preserve">
+    <value>LP Market</value>
+  </data>
+  <data name="AchievementReceived" xml:space="preserve">
+    <value>Yutuq qo'lga kiritildi</value>
+  </data>
+  <data name="BuyButton" xml:space="preserve">
+    <value>Sotib olish</value>
+  </data>
+  <data name="NotEnoughLp" xml:space="preserve">
+    <value>Yetarli LP yo'q</value>
+  </data>
+  <data name="NeedMoreLpMessage" xml:space="preserve">
+    <value>1000 LP to'plab Marketni oching!</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Parol</value>
+  </data>
+  <data name="ScanQrButton" xml:space="preserve">
+    <value>Saytga QR orqali kirish</value>
+  </data>
+  <data name="ScanQrTitle" xml:space="preserve">
+    <value>QR-kodni skanerlash</value>
+  </data>
+  <data name="ScanQrInstructions" xml:space="preserve">
+    <value>Kamerani saytdagi QR-kodga qarating</value>
+  </data>
+  <data name="QrConfirmedMessage" xml:space="preserve">
+    <value>Saytga kirish tasdiqlandi</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Kirish</value>
+  </data>
+  <data name="LoginWelcomeBack" xml:space="preserve">
+    <value>Xush kelibsiz</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Kirish</value>
+  </data>
+  <data name="NoAccountLink" xml:space="preserve">
+    <value>Akkountingiz yo'qmi? Ro'yxatdan o'tish</value>
+  </data>
+  <data name="HaveAccountLink" xml:space="preserve">
+    <value>Akkountingiz bormi? Kirish</value>
+  </data>
+  <data name="InvalidCredentialsError" xml:space="preserve">
+    <value>Login yoki parol noto'g'ri</value>
+  </data>
+  <data name="Common_LogoAlt" xml:space="preserve">
+    <value>Logotip</value>
+  </data>
+  <data name="Common_BrandName" xml:space="preserve">
+    <value>Jumbo.uz</value>
+  </data>
+  <data name="Common_LpBrand" xml:space="preserve">
+    <value>Jumbo</value>
+  </data>
+  <data name="Common_Exit" xml:space="preserve">
+    <value>Chiqish</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>Bekor qilish</value>
+  </data>
+  <data name="Common_Loading" xml:space="preserve">
+    <value>Yuklanmoqda…</value>
+  </data>
+  <data name="LpLayout_MenuTitle" xml:space="preserve">
+    <value>Menyu</value>
+  </data>
+  <data name="LpLayout_HomeTab" xml:space="preserve">
+    <value>Bosh sahifa</value>
+  </data>
+  <data name="LpLayout_ErrorBanner" xml:space="preserve">
+    <value>Xatolik yuz berdi.</value>
+  </data>
+  <data name="LpLayout_ReloadLink" xml:space="preserve">
+    <value>Qayta yuklash</value>
+  </data>
+  <data name="LpHome_PageTitle" xml:space="preserve">
+    <value>Bosh sahifa — Jumbo</value>
+  </data>
+  <data name="Common_BookLabel" xml:space="preserve">
+    <value>{0}-kitob</value>
+  </data>
+  <data name="Dictionary_PageTitle" xml:space="preserve">
+    <value>Tarjimalar — Jumbo</value>
+  </data>
+  <data name="Dictionary_Heading" xml:space="preserve">
+    <value>📖 Tarjimalar</value>
+  </data>
+  <data name="Dictionary_SearchPlaceholder" xml:space="preserve">
+    <value>So'z qidirish…</value>
+  </data>
+  <data name="Common_NoWordsFound" xml:space="preserve">
+    <value>So'zlar topilmadi</value>
+  </data>
+  <data name="Dictionary_PrevPage" xml:space="preserve">
+    <value>‹ Orqaga</value>
+  </data>
+  <data name="Dictionary_PageLabel" xml:space="preserve">
+    <value>{0}-sahifa</value>
+  </data>
+  <data name="Dictionary_NextPage" xml:space="preserve">
+    <value>Keyingi ›</value>
+  </data>
+  <data name="Awards_PageTitle" xml:space="preserve">
+    <value>Mukofotlar — Jumbo</value>
+  </data>
+  <data name="Awards_Heading" xml:space="preserve">
+    <value>🏆 Mening mukofotlarim</value>
+  </data>
+  <data name="Awards_AchievementsSection" xml:space="preserve">
+    <value>Yutuqlar</value>
+  </data>
+  <data name="Awards_NoAwards" xml:space="preserve">
+    <value>Hozircha mukofotlar yo'q</value>
+  </data>
+  <data name="Awards_MarketSection" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="Awards_MarketLocked" xml:space="preserve">
+    <value>Marketga kirish uchun 💰 1000 LP kerak</value>
+  </data>
+  <data name="Awards_CurrentLp" xml:space="preserve">
+    <value>Sizda hozir {0} LP bor</value>
+  </data>
+  <data name="Awards_MarketPrice" xml:space="preserve">
+    <value>💰 {0} LP</value>
+  </data>
+  <data name="Settings_PageTitle" xml:space="preserve">
+    <value>Sozlanmalar — Jumbo</value>
+  </data>
+  <data name="Settings_Heading" xml:space="preserve">
+    <value>⚙️ Sozlanmalar</value>
+  </data>
+  <data name="Settings_ProfileSection" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Settings_FirstNamePlaceholder" xml:space="preserve">
+    <value>Ismingiz</value>
+  </data>
+  <data name="Settings_LastNamePlaceholder" xml:space="preserve">
+    <value>Familiyangiz</value>
+  </data>
+  <data name="Settings_PhoneLabel" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="Common_PhonePlaceholder" xml:space="preserve">
+    <value>+998 90 123 45 67</value>
+  </data>
+  <data name="Settings_LanguagesSection" xml:space="preserve">
+    <value>Tillar</value>
+  </data>
+  <data name="Settings_StudyLangLabel" xml:space="preserve">
+    <value>O'rganish tili</value>
+  </data>
+  <data name="Settings_Saving" xml:space="preserve">
+    <value>Saqlanmoqda…</value>
+  </data>
+  <data name="Settings_SaveButton" xml:space="preserve">
+    <value>O'zgarishlarni saqlash</value>
+  </data>
+  <data name="Settings_SavedMessage" xml:space="preserve">
+    <value>✓ Saqlandi</value>
+  </data>
+  <data name="Common_BackArrow" xml:space="preserve">
+    <value>← Orqaga</value>
+  </data>
+  <data name="Game_FindMeTitle" xml:space="preserve">
+    <value>Meni top</value>
+  </data>
+  <data name="Game_FindMeDesc" xml:space="preserve">
+    <value>Rasm bo'yicha so'zni toping</value>
+  </data>
+  <data name="Game_SequenceTitle" xml:space="preserve">
+    <value>Tartibni eslab qol</value>
+  </data>
+  <data name="Game_SequenceDesc" xml:space="preserve">
+    <value>So'zlarni eslab qoling va rasmlarni shu tartibda tanlang</value>
+  </data>
+  <data name="Game_ListenTitle" xml:space="preserve">
+    <value>Eshit va top</value>
+  </data>
+  <data name="Game_ListenDesc" xml:space="preserve">
+    <value>So'zni eshitib toping</value>
+  </data>
+  <data name="Game_StepsTitle" xml:space="preserve">
+    <value>Zinapoyalar bo'ylab</value>
+  </data>
+  <data name="Game_StepsDesc" xml:space="preserve">
+    <value>Bosqichma-bosqich yodlash</value>
+  </data>
+  <data name="Subjects_PageTitle" xml:space="preserve">
+    <value>{0}-kitob — Jumbo</value>
+  </data>
+  <data name="Subjects_Heading" xml:space="preserve">
+    <value>📚 {0}-kitob</value>
+  </data>
+  <data name="Subjects_NoTopics" xml:space="preserve">
+    <value>Bu kitob uchun mavzular hali yuklanmagan</value>
+  </data>
+  <data name="Subjects_Passed" xml:space="preserve">
+    <value>✓ O'tildi</value>
+  </data>
+  <data name="SubjectDetail_FallbackTitle" xml:space="preserve">
+    <value>Mavzu</value>
+  </data>
+  <data name="SubjectDetail_BackToTopics" xml:space="preserve">
+    <value>← Mavzular</value>
+  </data>
+  <data name="SubjectDetail_NotFound" xml:space="preserve">
+    <value>Mavzu topilmadi</value>
+  </data>
+  <data name="Common_Back" xml:space="preserve">
+    <value>Orqaga</value>
+  </data>
+  <data name="Common_Continue" xml:space="preserve">
+    <value>Davom etish</value>
+  </data>
+  <data name="Common_NoWordsOnLetter" xml:space="preserve">
+    <value>«{0}» uchun hali so'zlar yo'q</value>
+  </data>
+  <data name="LetterSelection_PageTitle" xml:space="preserve">
+    <value>{0} harfi</value>
+  </data>
+  <data name="LetterSelection_BackHome" xml:space="preserve">
+    <value>← Bosh sahifa</value>
+  </data>
+  <data name="LetterSelection_WordsOnLetter" xml:space="preserve">
+    <value>«{0}» uchun so'zlar</value>
+  </data>
+  <data name="LetterSelection_TestTitle" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="LetterSelection_TestDesc" xml:space="preserve">
+    <value>To'g'ri tarjimani tanlang</value>
+  </data>
+  <data name="LetterSelection_RecallTitle" xml:space="preserve">
+    <value>Eslab qol</value>
+  </data>
+  <data name="LetterSelection_RecallDesc" xml:space="preserve">
+    <value>So'zni eslashga harakat qiling</value>
+  </data>
+  <data name="LetterTest_PageTitle" xml:space="preserve">
+    <value>Test: {0}</value>
+  </data>
+  <data name="LetterTest_NotEnoughWords" xml:space="preserve">
+    <value>«{0}» uchun test o'tkazish uchun so'zlar yetarli emas</value>
+  </data>
+  <data name="LetterTest_Completed" xml:space="preserve">
+    <value>Test tugadi!</value>
+  </data>
+  <data name="LetterTest_Summary" xml:space="preserve">
+    <value>Barcha {0} ta so'z tekshirildi</value>
+  </data>
+  <data name="LetterRecall_PageTitle" xml:space="preserve">
+    <value>Eslab qol: {0}</value>
+  </data>
+  <data name="LetterRecall_Done" xml:space="preserve">
+    <value>Tayyor!</value>
+  </data>
+  <data name="LetterRecall_Summary" xml:space="preserve">
+    <value>Siz {1} ta so'zdan {0} tasini eslab qoldingiz</value>
+  </data>
+  <data name="LetterRecall_ShowWord" xml:space="preserve">
+    <value>👁 So'zni ko'rsatish</value>
+  </data>
+  <data name="LetterRecall_Know" xml:space="preserve">
+    <value>✓ Bilaman</value>
+  </data>
+  <data name="LetterRecall_DontKnow" xml:space="preserve">
+    <value>✗ Bilmayman</value>
+  </data>
+  <data name="Common_GameOver" xml:space="preserve">
+    <value>O'yin tugadi</value>
+  </data>
+  <data name="Common_TryAgainLong" xml:space="preserve">
+    <value>Qayta urinish</value>
+  </data>
+  <data name="Common_Again" xml:space="preserve">
+    <value>Yana</value>
+  </data>
+  <data name="Common_LpEarned" xml:space="preserve">
+    <value>+{0} LP qo'lga kiritildi</value>
+  </data>
+  <data name="FindMeGame_NoWords" xml:space="preserve">
+    <value>Bu mavzu uchun so'zlar topilmadi</value>
+  </data>
+  <data name="FindMeGame_OutOfLives" xml:space="preserve">
+    <value>Jonlar tugadi</value>
+  </data>
+  <data name="FindMeGame_Great" xml:space="preserve">
+    <value>Ajoyib!</value>
+  </data>
+  <data name="FindMeGame_FindLabel" xml:space="preserve">
+    <value>Toping:</value>
+  </data>
+  <data name="FindMeGame_FoundCount" xml:space="preserve">
+    <value>{0} / {1} topildi</value>
+  </data>
+  <data name="ListenGame_Won" xml:space="preserve">
+    <value>Ajoyib! Barcha bosqichlar tugadi</value>
+  </data>
+  <data name="ListenGame_SpeakTitle" xml:space="preserve">
+    <value>Ovozda o'qish</value>
+  </data>
+  <data name="SequenceGame_Won" xml:space="preserve">
+    <value>Barcha raundlar tugadi!</value>
+  </data>
+  <data name="SequenceGame_RoundLabel" xml:space="preserve">
+    <value>Raund {0} / {1}</value>
+  </data>
+  <data name="SequenceGame_ChooseOrder" xml:space="preserve">
+    <value>Qanday tartibda?</value>
+  </data>
+  <data name="StepsGame_LostAtStep" xml:space="preserve">
+    <value>Siz {1} tadan {0}-zinapoyaga yetdingiz</value>
+  </data>
+  <data name="StepsGame_Won" xml:space="preserve">
+    <value>Barcha {0} ta zinapoya bosib o'tildi!</value>
+  </data>
+  <data name="StepsGame_Close" xml:space="preserve">
+    <value>Yopish</value>
+  </data>
+  <data name="Common_LoginAction" xml:space="preserve">
+    <value>Kirish</value>
+  </data>
+  <data name="Common_EnterCredentials" xml:space="preserve">
+    <value>Login va parolni kiriting</value>
+  </data>
+  <data name="Common_ErrorPrefix" xml:space="preserve">
+    <value>Xatolik: </value>
+  </data>
+  <data name="Register_PageTitle" xml:space="preserve">
+    <value>Ro'yxatdan o'tish — Jumbo</value>
+  </data>
+  <data name="Register_Subtitle" xml:space="preserve">
+    <value>Til sayohatingizni boshlang</value>
+  </data>
+  <data name="Register_FirstNameLabel" xml:space="preserve">
+    <value>Ism *</value>
+  </data>
+  <data name="Register_UsernameLabel" xml:space="preserve">
+    <value>Login *</value>
+  </data>
+  <data name="Register_UsernamePlaceholder" xml:space="preserve">
+    <value>Login o'ylab toping</value>
+  </data>
+  <data name="Register_PasswordLabel" xml:space="preserve">
+    <value>Parol *</value>
+  </data>
+  <data name="Register_PasswordPlaceholder" xml:space="preserve">
+    <value>Parol o'ylab toping</value>
+  </data>
+  <data name="Register_Registering" xml:space="preserve">
+    <value>Ro'yxatdan o'tilmoqda…</value>
+  </data>
+  <data name="Register_StartButton" xml:space="preserve">
+    <value>O'rganishni boshlash 🚀</value>
+  </data>
+  <data name="Register_HaveAccount" xml:space="preserve">
+    <value>Hisobingiz bormi? </value>
+  </data>
+  <data name="Register_Failed" xml:space="preserve">
+    <value>Ro'yxatdan o'tib bo'lmadi. Server bilan aloqani tekshiring.</value>
+  </data>
+  <data name="Register_AvatarLabel" xml:space="preserve">
+    <value>Avatar tanlang</value>
+  </data>
+  <data name="Register_AvatarUploadLabel" xml:space="preserve">
+    <value>Rasm yuklash</value>
+  </data>
+  <data name="Register_AvatarInvalidType" xml:space="preserve">
+    <value>Rasm faylini tanlang.</value>
+  </data>
+  <data name="Register_AvatarTooLarge" xml:space="preserve">
+    <value>Rasm juda katta (maks. 1 MB).</value>
+  </data>
+  <data name="Login_PageTitle" xml:space="preserve">
+    <value>Kirish — Jumbo</value>
+  </data>
+  <data name="Login_WelcomeBack" xml:space="preserve">
+    <value>Xush kelibsiz!</value>
+  </data>
+  <data name="Login_PasswordTab" xml:space="preserve">
+    <value>Login va parol</value>
+  </data>
+  <data name="Login_QrTab" xml:space="preserve">
+    <value>QR-kod</value>
+  </data>
+  <data name="Login_UsernameLabel" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Login_UsernamePlaceholder" xml:space="preserve">
+    <value>Loginingiz</value>
+  </data>
+  <data name="Login_PasswordLabel" xml:space="preserve">
+    <value>Parol</value>
+  </data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve">
+    <value>Parolingiz</value>
+  </data>
+  <data name="Login_RememberMe" xml:space="preserve">
+    <value>Meni eslab qol</value>
+  </data>
+  <data name="Login_LoggingIn" xml:space="preserve">
+    <value>Kirilmoqda…</value>
+  </data>
+  <data name="Login_QrAlt" xml:space="preserve">
+    <value>Kirish uchun QR-kod</value>
+  </data>
+  <data name="Login_QrHint" xml:space="preserve">
+    <value>Telefoningizda Jumbo → Sozlanmalar → «Saytga QR orqali kirish» ni oching va kamerani kodga qarating</value>
+  </data>
+  <data name="Login_QrLoading" xml:space="preserve">
+    <value>QR-kod yuklanmoqda…</value>
+  </data>
+  <data name="Login_NoAccount" xml:space="preserve">
+    <value>Hisobingiz yo'qmi? </value>
+  </data>
+  <data name="Login_RegisterLink" xml:space="preserve">
+    <value>Ro'yxatdan o'tish</value>
+  </data>
+  <data name="Login_InvalidCredentials" xml:space="preserve">
+    <value>Login yoki parol noto'g'ri</value>
+  </data>
+  <data name="Login_QrCreateFailed" xml:space="preserve">
+    <value>QR-kod yaratib bo'lmadi</value>
+  </data>
+  <data name="LpHome_OverallProgressTitle" xml:space="preserve">
+    <value>Umumiy natija</value>
+  </data>
+  <data name="Game_WordsTitle" xml:space="preserve">
+    <value>Mavzu so'zlari</value>
+  </data>
+  <data name="Game_WordsDesc" xml:space="preserve">
+    <value>Bu mavzuda o'rganiladigan so'zlar</value>
+  </data>
+  <data name="Settings_AccountSection" xml:space="preserve">
+    <value>Login va parol</value>
+  </data>
+  <data name="Settings_UsernameLabel" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Settings_CurrentPasswordLabel" xml:space="preserve">
+    <value>Joriy parol</value>
+  </data>
+  <data name="Settings_NewPasswordLabel" xml:space="preserve">
+    <value>Yangi parol</value>
+  </data>
+  <data name="Settings_NewPasswordHint" xml:space="preserve">
+    <value>O'zgartirmaslik uchun bo'sh qoldiring</value>
+  </data>
+  <data name="Settings_ConfirmPasswordLabel" xml:space="preserve">
+    <value>Yangi parolni takrorlang</value>
+  </data>
+  <data name="Settings_AccountSaveButton" xml:space="preserve">
+    <value>Login / parolni o'zgartirish</value>
+  </data>
+  <data name="Settings_AccountSaved" xml:space="preserve">
+    <value>Login va parol yangilandi</value>
+  </data>
+  <data name="Settings_PasswordsMismatch" xml:space="preserve">
+    <value>Yangi parollar mos kelmadi</value>
+  </data>
+  <data name="Settings_UsernameRequired" xml:space="preserve">
+    <value>Login bo'sh bo'lishi mumkin emas</value>
+  </data>
+  <data name="Settings_AccountNothingToChange" xml:space="preserve">
+    <value>Yangi login yoki yangi parol kiriting</value>
+  </data>
+  <data name="Alphabet_Subtitle" xml:space="preserve">
+    <value>Harfni tanlang va u bilan boshlanadigan so'zlarni o'rganing</value>
+  </data>
+  <data name="Alphabet_CtaHint" xml:space="preserve">
+    <value>Harfni tanlang, so'z o'rganing</value>
+  </data>
+  <data name="Theme_Toggle" xml:space="preserve">
+    <value>Mavzuni almashtirish</value>
+  </data>
+  <data name="Path_Continue" xml:space="preserve">
+    <value>Davom etish</value>
+  </data>
+  <data name="Path_Start" xml:space="preserve">
+    <value>Boshlash</value>
+  </data>
+  <data name="Path_Play" xml:space="preserve">
+    <value>O'ynash</value>
+  </data>
+  <data name="Path_AllDone" xml:space="preserve">
+    <value>Barcha mavzular tugadi! 🎉</value>
+  </data>
+  <data name="Path_HintStartWith" xml:space="preserve">
+    <value>Avval “{0}” mavzusini tugating</value>
+  </data>
+  <data name="Path_OpenAnyway" xml:space="preserve">
+    <value>Baribir ochish</value>
+  </data>
+  <data name="Path_GoCurrent" xml:space="preserve">
+    <value>Joriy mavzuga o'tish</value>
+  </data>
+  <data name="Daily_Title" xml:space="preserve">
+    <value>Kunlik maqsad</value>
+  </data>
+  <data name="Daily_Progress" xml:space="preserve">
+    <value>{1} tadan {0} so'z</value>
+  </data>
+  <data name="Daily_StreakLabel" xml:space="preserve">
+    <value>kun ketma-ket</value>
+  </data>
+  <data name="Daily_GoalDone" xml:space="preserve">
+    <value>Bugungi maqsad bajarildi! 🎉</value>
+  </data>
+  <data name="Daily_AtRisk" xml:space="preserve">
+    <value>Seriyani yo'qotmaslik uchun maqsadni bajaring 🔥</value>
+  </data>
+  <data name="Daily_StartPrompt" xml:space="preserve">
+    <value>Bugun birinchi so'zlarni o'rganing!</value>
+  </data>
+  <data name="Settings_DailyGoalSection" xml:space="preserve">
+    <value>Kunlik maqsad</value>
+  </data>
+  <data name="Settings_DailyGoalLabel" xml:space="preserve">
+    <value>Kuniga so'zlar</value>
+  </data>
+  <data name="Settings_DailyGoalSaved" xml:space="preserve">
+    <value>Kunlik maqsad saqlandi</value>
+  </data>
+  <data name="Day_Monday" xml:space="preserve">
+    <value>Du</value>
+  </data>
+  <data name="Day_Tuesday" xml:space="preserve">
+    <value>Se</value>
+  </data>
+  <data name="Day_Wednesday" xml:space="preserve">
+    <value>Ch</value>
+  </data>
+  <data name="Day_Thursday" xml:space="preserve">
+    <value>Pa</value>
+  </data>
+  <data name="Day_Friday" xml:space="preserve">
+    <value>Ju</value>
+  </data>
+  <data name="Day_Saturday" xml:space="preserve">
+    <value>Sh</value>
+  </data>
+  <data name="Day_Sunday" xml:space="preserve">
+    <value>Ya</value>
+  </data>
+  <data name="Tiger_Cheer1" xml:space="preserve">
+    <value>Barakalla!</value>
+  </data>
+  <data name="Tiger_Cheer2" xml:space="preserve">
+    <value>Ajoyib!</value>
+  </data>
+  <data name="Tiger_Cheer3" xml:space="preserve">
+    <value>Davom eting!</value>
+  </data>
+  <data name="Tiger_Oops1" xml:space="preserve">
+    <value>Deyarli! Yana urining</value>
+  </data>
+  <data name="Tiger_Oops2" xml:space="preserve">
+    <value>Taslim bo'lmang!</value>
+  </data>
+  <data name="Tiger_Oops3" xml:space="preserve">
+    <value>Hechqisi yo'q!</value>
+  </data>
+  <data name="Reg_StepOf" xml:space="preserve">
+    <value>{1} qadamdan {0}-qadam</value>
+  </data>
+  <data name="Reg_Step1" xml:space="preserve">
+    <value>Ma'lumotlar</value>
+  </data>
+  <data name="Reg_Step2" xml:space="preserve">
+    <value>Kirish</value>
+  </data>
+  <data name="Reg_Step3" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Reg_Step1Title" xml:space="preserve">
+    <value>O'zingiz haqingizda</value>
+  </data>
+  <data name="Reg_Step2Title" xml:space="preserve">
+    <value>Login va parol o'ylab toping</value>
+  </data>
+  <data name="Reg_Step3Title" xml:space="preserve">
+    <value>Ta'lim muassasasi va jamoa</value>
+  </data>
+  <data name="Reg_Optional" xml:space="preserve">
+    <value>Majburiy emas — bu qadamni o'tkazib yuborish mumkin</value>
+  </data>
+  <data name="Reg_Next" xml:space="preserve">
+    <value>Keyingi</value>
+  </data>
+  <data name="Reg_Back" xml:space="preserve">
+    <value>Orqaga</value>
+  </data>
+  <data name="Reg_Skip" xml:space="preserve">
+    <value>O'tkazib yuborish</value>
+  </data>
+  <data name="Reg_ConfirmPasswordLabel" xml:space="preserve">
+    <value>Parolni takrorlang</value>
+  </data>
+  <data name="Reg_PasswordsMismatch" xml:space="preserve">
+    <value>Parollar mos kelmadi</value>
+  </data>
+  <data name="Reg_PasswordTooShort" xml:space="preserve">
+    <value>Parol kamida 6 ta belgidan iborat bo'lsin</value>
+  </data>
+  <data name="Reg_UsernameTaken" xml:space="preserve">
+    <value>Bu login band, boshqasini tanlang</value>
+  </data>
+  <data name="Reg_RegionLabel" xml:space="preserve">
+    <value>Viloyat</value>
+  </data>
+  <data name="Reg_RegionPlaceholder" xml:space="preserve">
+    <value>Tanlanmagan</value>
+  </data>
+  <data name="Reg_SchoolLabel" xml:space="preserve">
+    <value>Ta'lim muassasasi</value>
+  </data>
+  <data name="Reg_SchoolPlaceholder" xml:space="preserve">
+    <value>Masalan: 12-maktab yoki «Lingva» markazi</value>
+  </data>
+  <data name="Reg_TeamLabel" xml:space="preserve">
+    <value>Jamoa</value>
+  </data>
+  <data name="Reg_TeamPlaceholder" xml:space="preserve">
+    <value>Jamoa nomi</value>
+  </data>
+  <data name="Reg_StudyLangHelp" xml:space="preserve">
+    <value>Qaysi tilni o'rganasiz va qaysi tilga tarjima qilinadi</value>
+  </data>
+  <data name="Region_tashkent-city" xml:space="preserve">
+    <value>Toshkent shahri</value>
+  </data>
+  <data name="Region_tashkent-region" xml:space="preserve">
+    <value>Toshkent viloyati</value>
+  </data>
+  <data name="Region_samarkand" xml:space="preserve">
+    <value>Samarqand viloyati</value>
+  </data>
+  <data name="Region_bukhara" xml:space="preserve">
+    <value>Buxoro viloyati</value>
+  </data>
+  <data name="Region_fergana" xml:space="preserve">
+    <value>Farg'ona viloyati</value>
+  </data>
+  <data name="Region_andijan" xml:space="preserve">
+    <value>Andijon viloyati</value>
+  </data>
+  <data name="Region_namangan" xml:space="preserve">
+    <value>Namangan viloyati</value>
+  </data>
+  <data name="Region_kashkadarya" xml:space="preserve">
+    <value>Qashqadaryo viloyati</value>
+  </data>
+  <data name="Region_surkhandarya" xml:space="preserve">
+    <value>Surxondaryo viloyati</value>
+  </data>
+  <data name="Region_khorezm" xml:space="preserve">
+    <value>Xorazm viloyati</value>
+  </data>
+  <data name="Region_navoi" xml:space="preserve">
+    <value>Navoiy viloyati</value>
+  </data>
+  <data name="Region_jizzakh" xml:space="preserve">
+    <value>Jizzax viloyati</value>
+  </data>
+  <data name="Region_sirdarya" xml:space="preserve">
+    <value>Sirdaryo viloyati</value>
+  </data>
+  <data name="Region_karakalpakstan" xml:space="preserve">
+    <value>Qoraqalpog'iston Respublikasi</value>
+  </data>
+  <data name="Region_other" xml:space="preserve">
+    <value>Boshqa</value>
+  </data>
+  <data name="Settings_PrivacySection" xml:space="preserve">
+    <value>Maxfiylik</value>
+  </data>
+  <data name="Settings_HideNameLabel" xml:space="preserve">
+    <value>Reytingda ismimni yashirish</value>
+  </data>
+  <data name="Settings_HideNameHint" xml:space="preserve">
+    <value>Ism o'rniga «Yashirin o'yinchi» ko'rsatiladi. O'rningiz va ballaringiz saqlanadi.</value>
+  </data>
+  <data name="Lang_Switch" xml:space="preserve">
+    <value>Til</value>
+  </data>
+  <data name="Pick_SchoolPh" xml:space="preserve">
+    <value>Ta'lim muassasasini tanlang</value>
+  </data>
+  <data name="Pick_TeamPh" xml:space="preserve">
+    <value>Jamoani tanlang</value>
+  </data>
+  <data name="Pick_NoSchools" xml:space="preserve">
+    <value>Bu hududda ro'yxatda hali ta'lim muassasasi yo'q. O'qituvchidan ta'lim muassasasini «O'qituvchilar uchun» sahifasida ro'yxatdan o'tkazishni so'rang.</value>
+  </data>
+  <data name="Pick_NoTeams" xml:space="preserve">
+    <value>Bu ta'lim muassasasida hali jamoalar yo'q. O'qituvchidan jamoangizni yaratishni so'rang.</value>
+  </data>
+  <data name="Pick_Hint" xml:space="preserve">
+    <value>O'qituvchi tanlovingizni tasdiqlaydi. Shu paytgacha ta'lim muassasasi hisobotlarida bo'lmaysiz.</value>
+  </data>
+  <data name="Team_Section" xml:space="preserve">
+    <value>Ta'lim muassasasi va jamoa</value>
+  </data>
+  <data name="Team_Is" xml:space="preserve">
+    <value>«{0}» jamoasi, {1}</value>
+  </data>
+  <data name="Team_Approved" xml:space="preserve">
+    <value>O'qituvchi tasdiqlagan</value>
+  </data>
+  <data name="Team_Pending" xml:space="preserve">
+    <value>O'qituvchi tasdiqlashini kutmoqda</value>
+  </data>
+  <data name="Team_Leave" xml:space="preserve">
+    <value>Jamoadan chiqish</value>
+  </data>
+  <data name="Team_Submit" xml:space="preserve">
+    <value>O'qituvchiga tasdiqlash uchun yuborish</value>
+  </data>
+  <data name="Team_Sent" xml:space="preserve">
+    <value>Yuborildi. O'qituvchi tasdiqlagach, hisobotlarda ko'rinasiz.</value>
+  </data>
+  <data name="Team_Left" xml:space="preserve">
+    <value>Siz jamoadan chiqdingiz.</value>
+  </data>
+  <data name="Team_Legacy" xml:space="preserve">
+    <value>Avval kiritgansiz: {0} · {1}. O'qituvchi tasdiqlashi uchun ta'lim muassasasi va jamoani ro'yxatdan tanlang.</value>
+  </data>
+  <data name="Team_Err_TEAM_NOT_FOUND" xml:space="preserve">
+    <value>Bunday jamoa yo‘q.</value>
+  </data>
+  <data name="Team_Err_TEAM_ARCHIVED" xml:space="preserve">
+    <value>Bu jamoa arxivda.</value>
+  </data>
+  <data name="Team_Err_STAFF_CANNOT_JOIN" xml:space="preserve">
+    <value>O'qituvchi va direktorlar jamoalarga qo'shilmaydi.</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Yorug‘</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Qorong'i</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>Telefondagidek</value>
+  </data>
+  <data name="Settings_Logout" xml:space="preserve">
+    <value>Hisobdan chiqish</value>
+  </data>
+  <data name="Settings_LogoutConfirm" xml:space="preserve">
+    <value>Hisobdan chiqasizmi?</value>
+  </data>
+  <data name="Settings_Appearance" xml:space="preserve">
+    <value>Ko'rinish</value>
+  </data>
+  <data name="Settings_Yes" xml:space="preserve">
+    <value>Ha</value>
+  </data>
+  <data name="Settings_AutoSaved" xml:space="preserve">
+    <value>Avtomatik saqlanadi</value>
+  </data>
+  <data name="Settings_ScanQrHint" xml:space="preserve">
+    <value>Saytga QR-kod orqali kirish</value>
+  </data>
+  <data name="Game_AllFound" xml:space="preserve">
+    <value>Barcha so'zlar topildi!</value>
+  </data>
+  <data name="Game_Locked" xml:space="preserve">
+    <value>Jonlar va LP tugadi!</value>
+  </data>
+  <data name="Game_LockedRegen" xml:space="preserve">
+    <value>Jonlar {0} dan keyin tiklanadi</value>
+  </data>
+  <data name="Game_Correct" xml:space="preserve">
+    <value>To'g'ri!</value>
+  </data>
+  <data name="Game_WrongOrder" xml:space="preserve">
+    <value>Tartib noto'g'ri!</value>
+  </data>
+  <data name="Game_RegenTime" xml:space="preserve">
+    <value>{0}s {1:D2}d</value>
+  </data>
+  <data name="Game_Recovering" xml:space="preserve">
+    <value>Tiklanmoqda...</value>
+  </data>
+  <data name="Letter_Study" xml:space="preserve">
+    <value>«{0}» harfini o'rganamiz</value>
+  </data>
+  <data name="Letter_WordsTitle" xml:space="preserve">
+    <value>Bu harfdagi so'zlar:</value>
+  </data>
+  <data name="Letter_TestTitle" xml:space="preserve">
+    <value>Test varianti</value>
+  </data>
+  <data name="Letter_TestDesc" xml:space="preserve">
+    <value>4 ta javobdan to'g'ri tarjimani tanlang</value>
+  </data>
+  <data name="Letter_RecallTitle" xml:space="preserve">
+    <value>O'zing eslab ko'r</value>
+  </data>
+  <data name="Letter_RecallDesc" xml:space="preserve">
+    <value>Rasmga qarab, so'zni o'zing eslashga harakat qil</value>
+  </data>
+  <data name="Letter_Heading" xml:space="preserve">
+    <value>«{0}» harfi</value>
+  </data>
+  <data name="Letter_ShowWord" xml:space="preserve">
+    <value>👁  So'zni ko'rsatish</value>
+  </data>
+  <data name="Letter_DidRecall" xml:space="preserve">
+    <value>So'zni to'g'ri esladingizmi?</value>
+  </data>
+  <data name="Letter_Recalled" xml:space="preserve">
+    <value>✓  Esladim!</value>
+  </data>
+  <data name="Letter_NotRecalled" xml:space="preserve">
+    <value>✗  Eslay olmadim</value>
+  </data>
+  <data name="Letter_Repeat" xml:space="preserve">
+    <value>Takrorlash</value>
+  </data>
+  <data name="Letter_NoWords" xml:space="preserve">
+    <value>«{0}» harfiga so'zlar hozircha yo'q</value>
+  </data>
+  <data name="Letter_FindTranslation" xml:space="preserve">
+    <value>To'g'ri tarjimani toping:</value>
+  </data>
+  <data name="Letter_Learned" xml:space="preserve">
+    <value>«{0}» harfi o‘rganildi!</value>
+  </data>
+  <data name="Letter_Again" xml:space="preserve">
+    <value>Yana bir bor</value>
+  </data>
+  <data name="Letter_RecalledCount" xml:space="preserve">
+    <value>Siz {1} ta so'zdan {0} tasini esladingiz!</value>
+  </data>
+  <data name="Awards_Balance" xml:space="preserve">
+    <value>Balans: {0} LP</value>
+  </data>
+  <data name="Awards_Bought" xml:space="preserve">
+    <value>Sotib olindi: {0}!</value>
+  </data>
+  <data name="Scan_Close" xml:space="preserve">
+    <value>✕ Yopish</value>
+  </data>
+  <data name="Game_Round" xml:space="preserve">
+    <value>{0}-raund</value>
+  </data>
+  <data name="Game_Audience" xml:space="preserve">
+    <value>Zal</value>
+  </data>
+  <data name="Game_AudienceHelp" xml:space="preserve">
+    <value>👥 Zal yordami</value>
+  </data>
+  <data name="Game_Step" xml:space="preserve">
+    <value>{0}-zina</value>
+  </data>
+  <data name="Subject_Watch" xml:space="preserve">
+    <value>YouTube’da ko‘rish</value>
+  </data>
+  <data name="Subject_NoVideo" xml:space="preserve">
+    <value>Video qo'shilmagan</value>
+  </data>
+  <data name="Stats_Level" xml:space="preserve">
+    <value>Sizning darajangiz</value>
+  </data>
+  <data name="Stats_LevelHint" xml:space="preserve">
+    <value>Qaysi kitobni o'qiyotganingizga bog'liq</value>
+  </data>
+  <data name="Stats_Place" xml:space="preserve">
+    <value>{0}-o'rin</value>
+  </data>
+  <data name="Stats_OutOf" xml:space="preserve">
+    <value>{0} tadan</value>
+  </data>
+  <data name="Stats_ScopeTeam" xml:space="preserve">
+    <value>Jamoam</value>
+  </data>
+  <data name="Stats_ScopeSchool" xml:space="preserve">
+    <value>Muassasam</value>
+  </data>
+  <data name="Stats_ScopeRegion" xml:space="preserve">
+    <value>Viloyatim</value>
+  </data>
+  <data name="Stats_ScopeAll" xml:space="preserve">
+    <value>Hamma</value>
+  </data>
+  <data name="Stats_Words" xml:space="preserve">
+    <value>Haftasiga {0} ta so'z</value>
+  </data>
+  <data name="Stats_NoPlace" xml:space="preserve">
+    <value>Reytingga tushish uchun o'ynang!</value>
+  </data>
+  <data name="Stats_RatingTitle" xml:space="preserve">
+    <value>Reyting</value>
+  </data>
+  <data name="Stats_OpenRating" xml:space="preserve">
+    <value>Reytingni saytda ochish</value>
+  </data>
+  <data name="PupilBot_Title" xml:space="preserve">
+    <value>Telegram-bot</value>
+  </data>
+  <data name="PupilBot_Hint" xml:space="preserve">
+    <value>Botni ulang: u shug'ullanishni eslatadi, natija va reytingni ko'rsatadi hamda sen bilan mini-viktorina o'ynaydi.</value>
+  </data>
+  <data name="PupilBot_Connect" xml:space="preserve">
+    <value>Botni ulash</value>
+  </data>
+  <data name="PupilBot_Open" xml:space="preserve">
+    <value>Botni Telegramda ochish</value>
+  </data>
+  <data name="PupilBot_Waiting" xml:space="preserve">
+    <value>Botda «Start» tugmasini bosing, so'ng qaytib ulanishni tekshiring.</value>
+  </data>
+  <data name="PupilBot_Check" xml:space="preserve">
+    <value>Ulanishni tekshirish</value>
+  </data>
+  <data name="PupilBot_Connected" xml:space="preserve">
+    <value>Bot ulangan ✅</value>
+  </data>
+  <data name="PupilBot_Disconnect" xml:space="preserve">
+    <value>Botni o'chirish</value>
+  </data>
+  <data name="ListenGame_ShowWord" xml:space="preserve">
+    <value>So'zni ko'rsatish</value>
+  </data>
+  <data name="ListenGame_HideWord" xml:space="preserve">
+    <value>So'zni yashirish</value>
+  </data>
+  <data name="Games_Title" xml:space="preserve">
+    <value>O'yinlar</value>
+  </data>
+  <data name="Games_Sub" xml:space="preserve">
+    <value>O'yinni, so'ng mavzuni tanlang</value>
+  </data>
+  <data name="Games_Pick" xml:space="preserve">
+    <value>Mavzuni tanlang</value>
+  </data>
+  <data name="Games_Next" xml:space="preserve">
+    <value>Keyingisi: {0}</value>
+  </data>
+  <data name="Games_MoreName" xml:space="preserve">
+    <value>Mavzu bo'yicha o'yinlar</value>
+  </data>
+  <data name="Games_MoreDesc" xml:space="preserve">
+    <value>Bu mavzu bo'yicha boshqa o'yinlar «O'yinlar» bo'limida</value>
+  </data>
+  <data name="Dictionary_NumberHint" xml:space="preserve">
+    <value>So'zning kitobdagi raqami</value>
+  </data>
+  <data name="Game_PhraseTitle" xml:space="preserve">
+    <value>Iborani tuzing</value>
+  </data>
+  <data name="Game_PhraseDesc" xml:space="preserve">
+    <value>Tarjima bo'yicha inglizcha iborani so'zlardan tuzing</value>
+  </data>
+  <data name="PhraseGame_Won" xml:space="preserve">
+    <value>Barcha iboralar tuzildi!</value>
+  </data>
+  <data name="PhraseGame_Hint" xml:space="preserve">
+    <value>Bu iborani inglizcha tuzing</value>
+  </data>
+  <data name="PhraseGame_NoPhrases" xml:space="preserve">
+    <value>Bu mavzu uchun hozircha iboralar yo'q</value>
+  </data>
+  <data name="PhraseGame_Next" xml:space="preserve">
+    <value>Keyingisi</value>
+  </data>
+  <data name="PhraseGame_Help" xml:space="preserve">
+    <value>So'zlarni bosing yoki katakchalarga sudrab o'tkazing. So'zni band katakchaga qo'ysangiz, qolganlari o'ngga suriladi.</value>
+  </data>
+  <data name="PhraseGame_SlotsLabel" xml:space="preserve">
+    <value>Ibora</value>
+  </data>
+  <data name="BookPage_Passed" xml:space="preserve">
+    <value>O'tilgan: {0} / {1}</value>
+  </data>
+  <data name="Gate_Title" xml:space="preserve">
+    <value>{0}-kitobni ochamiz</value>
+  </data>
+  <data name="Gate_Sub" xml:space="preserve">
+    <value>{1}-kitob bo'yicha 3 qadamni o'ting: so'zlar uning barcha mavzularidan olinadi. Shundan so'ng {0}-kitob ochiladi.</value>
+  </data>
+  <data name="Gate_Step" xml:space="preserve">
+    <value>{0}-qadam</value>
+  </data>
+  <data name="Gate_Start" xml:space="preserve">
+    <value>Boshlash</value>
+  </data>
+  <data name="Gate_Next" xml:space="preserve">
+    <value>Keyingi qadam</value>
+  </data>
+  <data name="Gate_Passed" xml:space="preserve">
+    <value>O'tildi</value>
+  </data>
+  <data name="Gate_Opened" xml:space="preserve">
+    <value>{0}-kitob ochildi!</value>
+  </data>
+  <data name="Gate_LockedTitle" xml:space="preserve">
+    <value>Avval {0}-kitob</value>
+  </data>
+  <data name="Gate_LockedText" xml:space="preserve">
+    <value>Avval {0}-kitobni o'tishingiz kerak.</value>
+  </data>
+  <data name="Gate_Close" xml:space="preserve">
+    <value>Yopish</value>
+  </data>
+  <data name="Gate_Error" xml:space="preserve">
+    <value>Kitobni ochib bo'lmadi. Qayta urinib ko'ring.</value>
+  </data>
+  <data name="Pw_Show" xml:space="preserve">
+    <value>Parolni ko'rsatish</value>
+  </data>
+  <data name="Pw_Hide" xml:space="preserve">
+    <value>Parolni yashirish</value>
+  </data>
+  <data name="Block_Title" xml:space="preserve">
+    <value>5 soatlik blok</value>
+  </data>
+  <data name="Block_SubAll" xml:space="preserve">
+    <value>Jonlar va LP tugadi. Vaqt tugagach {0} ta jon qaytadi, LP esa 0 bo'lib qoladi.</value>
+  </data>
+  <data name="Block_SubLives" xml:space="preserve">
+    <value>Jonlar tugadi. Vaqt tugagach {0} ta jon qaytadi.</value>
+  </data>
+  <data name="Block_GateFailed" xml:space="preserve">
+    <value>Tekshiruv o'tilmadi: jonlar tugadi.</value>
+  </data>
+  <data name="Zero_Title" xml:space="preserve">
+    <value>Alifbo va raqamlar</value>
+  </data>
+  <data name="Zero_Hint" xml:space="preserve">
+    <value>Eshitish uchun harf yoki raqamni bosing.</value>
+  </data>
+  <data name="Zero_Alphabet" xml:space="preserve">
+    <value>Alifbo</value>
+  </data>
+  <data name="Zero_Numbers" xml:space="preserve">
+    <value>Raqamlar 0–20</value>
+  </data>
+  <data name="Zero_PlayAll" xml:space="preserve">
+    <value>Hammasini tinglash</value>
+  </data>
+  <data name="Zero_Stop" xml:space="preserve">
+    <value>To'xtatish</value>
+  </data>
+  <data name="Zero_VowelsHint" xml:space="preserve">
+    <value>Unli harflar rangli</value>
+  </data>
+  <data name="Tq_GoSite" xml:space="preserve">
+    <value>Saytga o'tish</value>
+  </data>
+  <data name="Tq_TopicNo" xml:space="preserve">
+    <value>{0}-mavzu</value>
+  </data>
+  <data name="BookCard_Words" xml:space="preserve">
+    <value>{0} / {1} ta so'z</value>
+  </data>
+  <data name="BookCard_Current" xml:space="preserve">
+    <value>Hozir: {0}</value>
+  </data>
+  <data name="BookCard_Done" xml:space="preserve">
+    <value>Kitob tugatildi</value>
+  </data>
+  <data name="BookCard_Locked" xml:space="preserve">
+    <value>Kitob yopiq</value>
+  </data>
+  <data name="Topic_LockedTitle" xml:space="preserve">
+    <value>Mavzu yopiq</value>
+  </data>
+  <data name="Topic_LockedText" xml:space="preserve">
+    <value>Avval oldingi mavzuni o'ting: «{0}».</value>
+  </data>
+  <data name="Topic_Understood" xml:space="preserve">
+    <value>Tushunarli</value>
+  </data>
+  <data name="Topic_Go" xml:space="preserve">
+    <value>O'tish</value>
+  </data>
+  <data name="ZG_Section" xml:space="preserve">
+    <value>O'yinlar</value>
+  </data>
+  <data name="ZG_ListenTitle" xml:space="preserve">
+    <value>Eshit va bos</value>
+  </data>
+  <data name="ZG_ListenDesc" xml:space="preserve">
+    <value>Ovoz harf yoki raqamni aytadi. To'g'risini bos.</value>
+  </data>
+  <data name="ZG_TrainTitle" xml:space="preserve">
+    <value>Yetishmayotgan vagon</value>
+  </data>
+  <data name="ZG_TrainDesc" xml:space="preserve">
+    <value>Poyezdga yetishmayotgan harf yoki raqamlarni tartib bilan qo'y.</value>
+  </data>
+  <data name="ZG_Letters" xml:space="preserve">
+    <value>Harflar</value>
+  </data>
+  <data name="ZG_Numbers" xml:space="preserve">
+    <value>Raqamlar</value>
+  </data>
+  <data name="ZG_Repeat" xml:space="preserve">
+    <value>Qayta eshitish</value>
+  </data>
+  <data name="ZG_ListenHint" xml:space="preserve">
+    <value>Eshit va top</value>
+  </data>
+  <data name="ZG_TrainHint" xml:space="preserve">
+    <value>Poyezdga qo'y</value>
+  </data>
+  <data name="ZG_Result" xml:space="preserve">
+    <value>Barakalla!</value>
+  </data>
+  <data name="ZG_Mistakes" xml:space="preserve">
+    <value>Xatolar: {0}</value>
+  </data>
+  <data name="Award_New" xml:space="preserve">
+    <value>Yangi mukofot!</value>
+  </data>
+  <data name="Award_Congrats" xml:space="preserve">
+    <value>Barakalla, davom eting!</value>
+  </data>
+  <data name="Award_Open" xml:space="preserve">
+    <value>Mukofotlar</value>
+  </data>
+  <data name="Award_Close" xml:space="preserve">
+    <value>Yopish</value>
+  </data>
+  <data name="Market_Useful" xml:space="preserve">
+    <value>Foydali</value>
+  </data>
+  <data name="Market_Style" xml:space="preserve">
+    <value>Bezak</value>
+  </data>
+  <data name="Market_Buy" xml:space="preserve">
+    <value>Sotib olish</value>
+  </data>
+  <data name="Market_NotEnough" xml:space="preserve">
+    <value>LP yetmaydi</value>
+  </data>
+  <data name="Market_Equip" xml:space="preserve">
+    <value>Kiyish</value>
+  </data>
+  <data name="Market_Unequip" xml:space="preserve">
+    <value>Yechish</value>
+  </data>
+  <data name="Market_Worn" xml:space="preserve">
+    <value>Kiyilgan</value>
+  </data>
+  <data name="Market_Bought" xml:space="preserve">
+    <value>Sotib olindi!</value>
+  </data>
+  <data name="Market_Eff_life" xml:space="preserve">
+    <value>+1 jon darhol</value>
+  </data>
+  <data name="Market_Eff_refill" xml:space="preserve">
+    <value>Barcha 5 jon darhol</value>
+  </data>
+  <data name="Market_Eff_shield" xml:space="preserve">
+    <value>O'yindagi keyingi xato hech narsa olmaydi</value>
+  </data>
+  <data name="Market_Eff_freeze" xml:space="preserve">
+    <value>Seriya bitta o'tkazilgan kunga bardosh beradi</value>
+  </data>
+  <data name="Market_Eff_frame" xml:space="preserve">
+    <value>Avatar atrofidagi ramka</value>
+  </data>
+  <data name="Market_Eff_avatar" xml:space="preserve">
+    <value>Hamma joyda yangi avatar</value>
+  </data>
+  <data name="Market_Eff_badge" xml:space="preserve">
+    <value>Reytingda ismingiz yonida nishon</value>
+  </data>
+  <data name="Market_Eff_theme" xml:space="preserve">
+    <value>Saytning yangi ranglari</value>
+  </data>
+  <data name="Market_Eff_pet" xml:space="preserve">
+    <value>O'yinlarda fil bolasi yonida uy hayvoni</value>
+  </data>
+  <data name="Market_Err_NOT_ENOUGH" xml:space="preserve">
+    <value>LP yetmaydi.</value>
+  </data>
+  <data name="Market_Err_OWNED" xml:space="preserve">
+    <value>Bu sizda allaqachon bor.</value>
+  </data>
+  <data name="Market_Err_NOT_OWNED" xml:space="preserve">
+    <value>Avval sotib oling.</value>
+  </data>
+  <data name="Market_Err_LIVES_FULL" xml:space="preserve">
+    <value>Jonlaringiz allaqachon to'la.</value>
+  </data>
+  <data name="Market_Err_LIMIT" xml:space="preserve">
+    <value>Sizda allaqachon eng ko'pi bor.</value>
+  </data>
+  <data name="Market_Err_WOULD_BLOCK" xml:space="preserve">
+    <value>Hozir bo'lmaydi: jon ham, LP ham qolmaydi va 5 soatlik blokirovka boshlanadi.</value>
+  </data>
+  <data name="Market_WebNote" xml:space="preserve">
+    <value>Saytda ko'rinadi</value>
+  </data>
+  <data name="Error_Title" xml:space="preserve">
+    <value>Xato</value>
+  </data>
+  <data name="Error_Network" xml:space="preserve">
+    <value>Server bilan aloqa yo'q. Internetni tekshirib, qaytadan urinib ko'ring.</value>
+  </data>
+  <data name="Error_Generic" xml:space="preserve">
+    <value>Nimadir xato ketdi. Qaytadan urinib ko'ring.</value>
+  </data>
+  <data name="Session_Expired" xml:space="preserve">
+    <value>Sessiya tugadi. Qaytadan kiring.</value>
+  </data>
+  <data name="Settings_DeleteSection" xml:space="preserve">
+    <value>Hisobni o'chirish</value>
+  </data>
+  <data name="Settings_DeleteHint" xml:space="preserve">
+    <value>Hisobingiz va barcha yutuqlaringiz, so'zlar, mukofotlar va xaridlar butunlay o'chiriladi. Buni bekor qilib bo'lmaydi.</value>
+  </data>
+  <data name="Settings_DeleteButton" xml:space="preserve">
+    <value>Hisobni o'chirish</value>
+  </data>
+  <data name="Settings_DeleteConfirmTitle" xml:space="preserve">
+    <value>Hisob butunlay o'chirilsinmi?</value>
+  </data>
+  <data name="Settings_DeleteConfirmSub" xml:space="preserve">
+    <value>Tasdiqlash uchun parolni kiriting.</value>
+  </data>
+  <data name="Settings_DeleteNeedPassword" xml:space="preserve">
+    <value>Parolni kiriting.</value>
+  </data>
+  <data name="Legal_Privacy_Link" xml:space="preserve">
+    <value>Maxfiylik siyosati</value>
+  </data>
+  <data name="Privacy_Title" xml:space="preserve">
+    <value>Maxfiylik siyosati</value>
+  </data>
+  <data name="Privacy_Updated" xml:space="preserve">
+    <value>Yangilangan: 2026-yil 18-oktabr</value>
+  </data>
+  <data name="Privacy_Contact" xml:space="preserve">
+    <value>Ma'lumotlar bo'yicha aloqa: {0}</value>
+  </data>
+  <data name="Privacy_H1" xml:space="preserve">
+    <value>Biz kimmiz</value>
+  </data>
+  <data name="Privacy_P1" xml:space="preserve">
+    <value>Jumbo (jumbo.uz sayti va Jumbo mobil ilovasi) — ingliz tilini o'rganish platformasi, bolalar uchun ham. Bu hujjat qanday ma'lumotlarni yig'ishimiz va ulardan qanday foydalanishimizni tushuntiradi.</value>
+  </data>
+  <data name="Privacy_H2" xml:space="preserve">
+    <value>Qanday ma'lumotlarni yig'amiz</value>
+  </data>
+  <data name="Privacy_P2" xml:space="preserve">
+    <value>• Hisob: ism, familiya, login, parol (faqat xesh ko'rinishida saqlanadi), xohishga ko'ra telefon va avatar.
+• Hudud, maktab va jamoa (sinf) — ro'yxatdan tanlanadi.
+• O'qish: o'rganilgan so'zlar, tugatilgan mavzular va o'yinlar, LP ballari, mukofotlar, ichki ballar evaziga o'yin do'konidagi xaridlar, kunlik maqsad va ketma-ket kunlar, imtihon natijalari.
+• Sozlamalar: til, mavzu, o'rganiladigan tillar.
+• Xohishga ko'ra Telegram eslatma botini ulash (biz chat identifikatori va Telegramdagi ismni olamiz).
+• Server haqidagi texnik ma'lumotlar (manzil, so'rov vaqti) oddiy jurnallarda — xavfsizlik va xizmat ishlashi uchun.</value>
+  </data>
+  <data name="Privacy_H3" xml:space="preserve">
+    <value>Ma'lumotlar nima uchun kerak</value>
+  </data>
+  <data name="Privacy_P3" xml:space="preserve">
+    <value>• Tizimga kirib, to'xtagan joyingizdan davom etishingiz uchun.
+• Jamoa, maktab yoki hudud haftalik reytingida o'rningizni ko'rsatish uchun.
+• Maktabingizdagi o'qituvchi va direktor jamoaning yutuqlari va imtihon natijalarini ko'rishi uchun.
+• Telegram ulangan bo'lsa, eslatmalar yuborish uchun.
+Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
+  </data>
+  <data name="Privacy_H4" xml:space="preserve">
+    <value>Bolalar</value>
+  </data>
+  <data name="Privacy_P4" xml:space="preserve">
+    <value>Jumbo har qanday yoshga, shu jumladan bolalarga mos. Biz faqat o'qish uchun kerakli narsani so'raymiz: telefon raqami majburiy emas. Reklama ko'rsatmaymiz, reklama va tahlil xizmatlaridan foydalanmaymiz, bolalar ma'lumotlarini marketing uchun uchinchi shaxslarga bermaymiz. Bolaning ota-ona yoki o'qituvchi bilan birga ro'yxatdan o'tgani ma'qul. Ota-ona istalgan vaqtda bola ma'lumotlarini ko'rsatishni yoki o'chirishni so'rashi mumkin: hisobni o'chirish (pastga qarang) yoki bizga yozish kifoya.</value>
+  </data>
+  <data name="Privacy_H5" xml:space="preserve">
+    <value>Ma'lumotlarni kim ko'radi</value>
+  </data>
+  <data name="Privacy_P5" xml:space="preserve">
+    <value>• Boshqa o'quvchilar reytingda ismingiz va o'rningizni ko'radi. Ismingizni yashirish uchun sozlamalarda «Reytingda ismimni yashirish»ni yoqing.
+• Qo'shilgan jamoangizning o'qituvchisi va direktori yutuqlaringiz va imtihon natijalaringizni ko'radi.
+• Ma'lumotlar bizning serverlarimizda saqlanadi. Qonun talab qilgan hollardan tashqari ularni uchinchi shaxslarga bermaymiz. Telegram ulangan bo'lsa, xabarlar Telegram orqali o'tadi.</value>
+  </data>
+  <data name="Privacy_H6" xml:space="preserve">
+    <value>Saqlash va himoya</value>
+  </data>
+  <data name="Privacy_P6" xml:space="preserve">
+    <value>Ma'lumotlar himoyalangan ulanish (HTTPS) orqali uzatiladi. Parollar xesh ko'rinishida saqlanadi. Ma'lumotlar hisob mavjud ekan saqlanadi.</value>
+  </data>
+  <data name="Privacy_H7" xml:space="preserve">
+    <value>Ma'lumotlarni o'chirish</value>
+  </data>
+  <data name="Privacy_P7" xml:space="preserve">
+    <value>Hisobni o'zingiz o'chirishingiz mumkin: «Sozlamalar» → «Hisobni o'chirish» (ilovada va saytda). Profil, yutuqlar, so'zlar, mukofotlar, xaridlar va imtihon natijalari butunlay o'chiriladi. Batafsil: jumbo.uz/delete-account. Ma'lumotlar bazasining zaxira nusxalari bu ma'lumotlarni cheklangan vaqt saqlashi mumkin, keyin o'chiriladi.</value>
+  </data>
+  <data name="Privacy_H8" xml:space="preserve">
+    <value>Aloqa va o'zgarishlar</value>
+  </data>
+  <data name="Privacy_P8" xml:space="preserve">
+    <value>Ma'lumotlar bo'yicha savollarni quyidagi aloqa orqali yuborishingiz mumkin. Hujjatni o'zgartirsak, yangi versiya shu sahifada yangi sana bilan paydo bo'ladi.</value>
+  </data>
+  <data name="Del_Title" xml:space="preserve">
+    <value>Jumbo hisobini o'chirish</value>
+  </data>
+  <data name="Del_Intro" xml:space="preserve">
+    <value>Hisobni va uning barcha ma'lumotlarini istalgan vaqtda o'zingiz o'chirishingiz mumkin. Bu bir daqiqa oladi.</value>
+  </data>
+  <data name="Del_StepsTitle" xml:space="preserve">
+    <value>Buni qanday qilish kerak</value>
+  </data>
+  <data name="Del_Steps" xml:space="preserve">
+    <value>1. Hisobingizga kiring (Jumbo ilovasida yoki jumbo.uz saytida).
+2. «Sozlamalar»ni oching va pastga «Hisobni o'chirish» bo'limigacha aylantiring.
+3. Parolni kiriting va tasdiqlang.</value>
+  </data>
+  <data name="Del_WhatTitle" xml:space="preserve">
+    <value>Nima o'chiriladi</value>
+  </data>
+  <data name="Del_What" xml:space="preserve">
+    <value>Profil (ism, login, parol, telefon, avatar), yutuqlar, o'rganilgan so'zlar, mukofotlar, xaridlar, imtihon natijalari, Telegram bilan bog'lanish. Buni bekor qilib bo'lmaydi. Ma'lumotlar bazasining zaxira nusxalari ma'lumotlarni cheklangan vaqt saqlashi mumkin, keyin o'chiriladi.</value>
+  </data>
+  <data name="Del_Staff" xml:space="preserve">
+    <value>O'qituvchi va direktor hisoblarini administrator o'chiradi: maxfiylik siyosati sahifasidagi aloqa orqali yozing.</value>
+  </data>
+  <data name="Del_Login" xml:space="preserve">
+    <value>Kirish va hisobni o'chirish</value>
+  </data>
+  <data name="Foot_Tagline" xml:space="preserve">
+    <value>O'yinda ingliz tili: so'zlar, o'yinlar va fil Jumbo.</value>
+  </data>
+  <data name="Foot_Get" xml:space="preserve">
+    <value>Ilovani yuklab olish</value>
+  </data>
+  <data name="Foot_Android" xml:space="preserve">
+    <value>Android</value>
+  </data>
+  <data name="Foot_Ios" xml:space="preserve">
+    <value>iOS · App Store</value>
+  </data>
+  <data name="Foot_Windows" xml:space="preserve">
+    <value>Windows</value>
+  </data>
+  <data name="Foot_Mac" xml:space="preserve">
+    <value>macOS</value>
+  </data>
+  <data name="Foot_Site" xml:space="preserve">
+    <value>Sayt</value>
+  </data>
+  <data name="Foot_Subscribe" xml:space="preserve">
+    <value>Aloqa va yangiliklar</value>
+  </data>
+  <data name="Foot_SubscribeHint" xml:space="preserve">
+    <value>Bizga yozing yoki pochtangizni qoldiring: javob beramiz va faqat Jumbo yangiliklarini yuboramiz.</value>
+  </data>
+  <data name="Foot_EmailPlaceholder" xml:space="preserve">
+    <value>Pochtangiz</value>
+  </data>
+  <data name="Foot_SubscribeButton" xml:space="preserve">
+    <value>Yuborish</value>
+  </data>
+  <data name="Foot_Sending" xml:space="preserve">
+    <value>Yuborilmoqda…</value>
+  </data>
+  <data name="Foot_Subscribed" xml:space="preserve">
+    <value>Rahmat! Hammasini oldik.</value>
+  </data>
+  <data name="Foot_BadEmail" xml:space="preserve">
+    <value>Pochta manzilini tekshiring.</value>
+  </data>
+  <data name="Foot_Failed" xml:space="preserve">
+    <value>Hozir obuna bo'lib bo'lmadi. Keyinroq urinib ko'ring.</value>
+  </data>
+  <data name="Foot_Consent" xml:space="preserve">
+    <value>Obuna bo'lib, siz quyidagiga rozilik bildirasiz:</value>
+  </data>
+  <data name="Foot_Privacy" xml:space="preserve">
+    <value>maxfiylik siyosati</value>
+  </data>
+  <data name="Foot_Schools" xml:space="preserve">
+    <value>Maktab va o'qituvchilar uchun</value>
+  </data>
+  <data name="Foot_Delete" xml:space="preserve">
+    <value>Hisobni o'chirish</value>
+  </data>
+  <data name="Foot_MessagePlaceholder" xml:space="preserve">
+    <value>Xabaringiz (majburiy emas)</value>
+  </data>
+  <data name="Foot_NewsCheck" xml:space="preserve">
+    <value>Menga Jumbo yangiliklarini yuboring</value>
+  </data>
+  <data name="Foot_NeedSomething" xml:space="preserve">
+    <value>Xabar yozing yoki yangiliklarni belgilang.</value>
+  </data>
+  <data name="Update_Title" xml:space="preserve">
+    <value>Yangi versiya chiqdi</value>
+  </data>
+  <data name="Update_Text" xml:space="preserve">
+    <value>Yangi mavzular va tuzatishlarni olish uchun Jumbo'ni yangilang.</value>
+  </data>
+  <data name="Update_Now" xml:space="preserve">
+    <value>Yangilash</value>
+  </data>
+  <data name="Update_Later" xml:space="preserve">
+    <value>Keyinroq</value>
+  </data>
+  <data name="Update_Required_Title" xml:space="preserve">
+    <value>Ilovani yangilash kerak</value>
+  </data>
+  <data name="Update_Required_Text" xml:space="preserve">
+    <value>Jumbo'ning bu versiyasi endi qo'llab-quvvatlanmaydi. Davom etish uchun ilovani yangilang.</value>
+  </data>
+  <data name="Ver_Hint" xml:space="preserve">
+    <value>«Oxirgi versiya»ni faqat yangi build do'konda hamma uchun mavjud bo'lganda o'zgartiring. «Minimal» dan past versiyalar yangilashi shart. 0 = o'chirilgan.</value>
+  </data>
+  <data name="Ver_Latest" xml:space="preserve">
+    <value>Oxirgi versiya (son)</value>
+  </data>
+  <data name="Ver_Min" xml:space="preserve">
+    <value>Minimal versiya (son)</value>
+  </data>
+  <data name="Ver_Url" xml:space="preserve">
+    <value>«Yangilash» tugmasi uchun havola</value>
+  </data>
+  <data name="Ver_NotesRu" xml:space="preserve">
+    <value>Yangiliklar (ruscha)</value>
+  </data>
+  <data name="Ver_NotesEn" xml:space="preserve">
+    <value>Yangiliklar (inglizcha)</value>
+  </data>
+  <data name="Ver_NotesUz" xml:space="preserve">
+    <value>Yangiliklar (o'zbekcha)</value>
+  </data>
+  <data name="Ver_Save" xml:space="preserve">
+    <value>Saqlash</value>
+  </data>
+  <data name="Ver_Saved" xml:space="preserve">
+    <value>Saqlandi</value>
+  </data>
+  <data name="Settings_AvatarSaved" xml:space="preserve">
+    <value>Avatar saqlandi</value>
+  </data>
+  <data name="Plan_Bronze" xml:space="preserve">
+    <value>Bronza</value>
+  </data>
+  <data name="Plan_Silver" xml:space="preserve">
+    <value>Kumush</value>
+  </data>
+  <data name="Plan_Gold" xml:space="preserve">
+    <value>Oltin</value>
+  </data>
+  <data name="Plan_Yours" xml:space="preserve">
+    <value>Sizning versiyangiz: {0}</value>
+  </data>
+  <data name="Plan_PaidUntil" xml:space="preserve">
+    <value>{0} gacha to‘langan</value>
+  </data>
+  <data name="Plan_FreeVersion" xml:space="preserve">
+    <value>Bepul versiya</value>
+  </data>
+  <data name="Plan_See" xml:space="preserve">
+    <value>Versiyalar va narxlar</value>
+  </data>
+  <data name="Plan_Nav" xml:space="preserve">
+    <value>Versiyalar va narxlar</value>
+  </data>
+  <data name="Settings_MyId" xml:space="preserve">
+    <value>Sizning ID raqamingiz</value>
+  </data>
+  <data name="Settings_MyIdHint" xml:space="preserve">
+    <value>Bu ID to‘lov uchun kerak: versiya uchun to‘layotganda ayting yoki kiriting.</value>
+  </data>
+  <data name="Settings_CopyId" xml:space="preserve">
+    <value>Nusxalash</value>
+  </data>
+  <data name="Settings_IdCopied" xml:space="preserve">
+    <value>Nusxalandi</value>
+  </data>
+  <data name="Money_Balance" xml:space="preserve">
+    <value>Balans</value>
+  </data>
+  <data name="Money_Currency" xml:space="preserve">
+    <value>so‘m</value>
+  </data>
+  <data name="PR_Hint" xml:space="preserve">
+    <value>Davr uchun narx so‘mda. Bo‘sh yoki 0: bu davrga hozircha sotib bo‘lmaydi.</value>
+  </data>
+  <data name="PR_Save" xml:space="preserve">
+    <value>Narxlarni saqlash</value>
+  </data>
+  <data name="PR_Saved" xml:space="preserve">
+    <value>Narxlar saqlandi</value>
+  </data>
+  <data name="PR_Err_BAD_PRICE" xml:space="preserve">
+    <value>Noto‘g‘ri narx</value>
+  </data>
+  <data name="BA_Hint" xml:space="preserve">
+    <value>To‘lov xizmatlari ulanmaguncha balansni administrator qo‘lda to‘ldiradi (login yoki ID bo‘yicha). Payme, Click va Paynet xuddi shunday, o‘quvchi ID si bo‘yicha to‘ldiradi.</value>
+  </data>
+  <data name="BA_Amount" xml:space="preserve">
+    <value>Summa</value>
+  </data>
+  <data name="BA_Note" xml:space="preserve">
+    <value>Izoh (ixtiyoriy)</value>
+  </data>
+  <data name="BA_Do" xml:space="preserve">
+    <value>To‘ldirish</value>
+  </data>
+  <data name="BA_Done" xml:space="preserve">
+    <value>{0} balansi to‘ldirildi. Hozir: {1} so‘m</value>
+  </data>
+  <data name="BA_Err_NO_USER" xml:space="preserve">
+    <value>Foydalanuvchi topilmadi</value>
+  </data>
+  <data name="BA_Err_BAD_AMOUNT" xml:space="preserve">
+    <value>Noto‘g‘ri summa</value>
+  </data>
+  <data name="BA_History" xml:space="preserve">
+    <value>So‘nggi to‘ldirishlar va xaridlar</value>
+  </data>
+  <data name="Login_TooMany" xml:space="preserve">
+    <value>Juda ko‘p noto‘g‘ri urinish. {0} daqiqa kutib, qayta urinib ko‘ring.</value>
+  </data>
+</root>

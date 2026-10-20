@@ -1,0 +1,84 @@
+/* =====================================================================
+   Leaderboard, dashboard mini-rating and the privacy switch in Settings
+   ===================================================================== */
+.rate-page { width: 100%; margin: 0 auto; padding: 22px 20px 40px; box-sizing: border-box; }
+@media (min-width: 900px) { .rate-page { padding: 28px 40px 48px; } }
+.rate-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.rate-title { margin: 0; font-size: 1.9rem; font-weight: 900; color: var(--lp-text); }
+.rate-sub { margin: 2px 0 0; font-weight: 700; color: var(--lp-muted); }
+.rate-period { display: inline-flex; padding: 4px; gap: 4px; border-radius: 16px; background: var(--lp-surface); border: 2px solid var(--lp-border); }
+.rate-chip { border: none; background: transparent; padding: 8px 16px; border-radius: 12px; font-weight: 900; font-size: 0.92rem; color: var(--lp-muted); cursor: pointer; }
+.rate-chip.on { background: var(--lp-primary); color: #fff; box-shadow: 0 3px 0 var(--lp-primary-shadow); }
+
+.rate-tabs { display: flex; gap: 8px; overflow-x: auto; margin: 16px 0 14px; padding-bottom: 4px; scrollbar-width: none; }
+.rate-tabs::-webkit-scrollbar { display: none; }
+.rate-tab {
+    flex: 0 0 auto; padding: 10px 18px; border-radius: 14px; cursor: pointer; white-space: nowrap;
+    font-weight: 900; font-size: 0.95rem; color: var(--lp-text);
+    background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 4px;
+}
+.rate-tab:hover { border-color: var(--lp-primary-edge); }
+.rate-tab.on { background: var(--lp-primary-soft); border-color: var(--lp-primary); color: var(--lp-primary); }
+
+.rate-me {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; padding: 12px 16px;
+    border-radius: 18px; color: #fff; font-weight: 900; font-size: 1.05rem;
+    background: var(--lp-primary); border-bottom: 5px solid var(--lp-primary-shadow);
+}
+.rate-me.none { justify-content: center; text-align: center; background: var(--lp-surface); color: var(--lp-muted); border: 2px solid var(--lp-border); border-bottom-width: 4px; font-size: 0.95rem; }
+
+.rate-list { display: flex; flex-direction: column; gap: 8px; }
+.rate-row {
+    display: grid; grid-template-columns: 38px 40px minmax(0, 1fr) auto; align-items: center; gap: 12px;
+    padding: 10px 14px; border-radius: 18px; background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 4px;
+}
+.rate-row.me { border-color: var(--lp-primary); background: var(--lp-primary-soft); }
+.rate-row.top1 { border-color: #F2C94C; }
+.rate-row.top2 { border-color: #C5CED8; }
+.rate-row.top3 { border-color: #E0A070; }
+.rate-rank { text-align: center; font-weight: 900; font-size: 1.25rem; color: var(--lp-muted); }
+.rate-avatar { display: flex; width: 40px; height: 40px; }
+.rate-avatar-hidden { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; background: var(--lp-bg); border: 2px dashed var(--lp-border); }
+.rate-text { display: flex; flex-direction: column; min-width: 0; }
+.rate-name { font-weight: 900; font-size: 1.05rem; color: var(--lp-text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rate-you { margin-left: 6px; padding: 1px 8px; border-radius: 999px; font-style: normal; font-size: 0.72rem; font-weight: 900; text-transform: uppercase; color: #fff; background: var(--lp-primary); vertical-align: middle; }
+.rate-team { font-size: 0.85rem; font-weight: 700; color: var(--lp-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rate-points { text-align: right; white-space: nowrap; }
+.rate-points b { font-size: 1.3rem; font-weight: 900; color: var(--lp-primary); }
+.rate-points small { font-size: 0.8rem; font-weight: 800; color: var(--lp-muted); }
+.rate-gap { text-align: center; color: var(--lp-muted); font-weight: 900; line-height: 0.6; }
+
+.rate-empty { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 28px 16px; text-align: center; }
+.rate-empty p { margin: 0; max-width: 420px; font-weight: 800; font-size: 1.05rem; color: var(--lp-muted); }
+.rate-empty .lp-btn { text-decoration: none; display: inline-flex; }
+.rate-privacy { margin: 18px 0 0; text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--lp-muted); }
+
+.rate-mini { margin-top: 6px; }
+.rate-mini-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.rate-mini-link { font-weight: 900; font-size: 0.92rem; color: var(--lp-primary); text-decoration: none; white-space: nowrap; }
+
+@media (max-width: 480px) {
+    .rate-page { padding: 16px 14px 32px; }
+    .rate-title { font-size: 1.6rem; }
+    .rate-row { grid-template-columns: 30px 36px minmax(0, 1fr) auto; gap: 9px; padding: 9px 10px; }
+    .rate-avatar, .rate-avatar-hidden { width: 36px; height: 36px; }
+    .rate-name { font-size: 0.98rem; }
+    .rate-points b { font-size: 1.15rem; }
+}
+
+/* Settings: on/off switch */
+.settings-switch { display: flex; align-items: flex-start; gap: 14px; cursor: pointer; }
+.settings-switch input { position: absolute; opacity: 0; pointer-events: none; }
+.settings-switch-track { flex-shrink: 0; width: 52px; height: 30px; border-radius: 999px; background: var(--lp-border); padding: 3px; transition: background 0.2s; }
+.settings-switch-knob { display: block; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 2px 0 rgba(0,0,0,0.2); transition: transform 0.2s; }
+.settings-switch input:checked + .settings-switch-track { background: var(--lp-success); }
+.settings-switch input:checked + .settings-switch-track .settings-switch-knob { transform: translateX(22px); }
+.settings-switch input:focus-visible + .settings-switch-track { outline: 3px solid var(--lp-primary-edge); outline-offset: 2px; }
+.settings-switch-text { display: flex; flex-direction: column; min-width: 0; }
+.settings-switch-title { font-weight: 900; font-size: 1rem; color: var(--lp-text); }
+.settings-switch-hint { font-size: 0.86rem; font-weight: 600; color: var(--lp-muted); line-height: 1.35; }
+
+/* name + "you" badge: the name truncates, the badge never does */
+.rate-name { display: flex; align-items: center; gap: 6px; }
+.rate-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.rate-you { margin-left: 0; flex-shrink: 0; }

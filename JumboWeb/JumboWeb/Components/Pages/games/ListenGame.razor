@@ -1,0 +1,290 @@
+@page "/little-polyglot/games/listen/{SubjectId:int}"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject LivesService Lives
+@inject IJSRuntime JS
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject BookGateService Gates
+
+<PageTitle>@Loc["Game_ListenTitle"]</PageTitle>
+
+<div class="game-topbar">
+    <button class="lp-back-btn" @onclick="GoBack">@Loc["Common_BackArrow"]</button>
+    @if (!_isGameOver && !_isGameWon)
+    {
+        <TigerCoach @ref="_coach" />
+    }
+    else
+    {
+        <span class="coach"></span>
+    }
+    <span class="game-lives" aria-hidden="true"></span>
+</div>
+
+@if (Blocked)
+{
+    <BlockNotice Failed="@(Gate > 0)" OnBack="GoBack" OnUnlocked="RestartGame" />
+}
+else if (_isBusy)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_hasNoData)
+{
+    <div class="lp-empty-state">@Loc["Common_NoWordsFound"]</div>
+    <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick="GoBack">@Loc["Common_Back"]</button>
+}
+else if (_isGameOver)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="sad" Size="150" /></div>
+        <div class="game-result-title">@Loc["Common_GameOver"]</div>
+        <button class="lp-btn lp-btn-full" @onclick="RestartGame">@Loc["Common_Again"]</button>
+        <button class="lp-btn lp-btn-full lp-btn-outline" @onclick="GoBack">@Loc["Common_Exit"]</button>
+    </div>
+}
+else if (_isGameWon)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="cheer" Size="160" /></div>
+        <div class="game-result-title">@Loc["ListenGame_Won"]</div>
+        @if (Gate == 0)
+        {
+            <div class="game-result-sub">@Loc.Format("Common_LpEarned", LpReward)</div>
+        }
+        <button class="lp-btn lp-btn-full" @onclick="GoBack">@Loc["Common_Continue"]</button>
+    </div>
+}
+else
+{
+    <!-- Progress -->
+    <div class="listen-progress-wrap">
+        <div class="listen-progress-bar">
+            <div class="listen-progress-fill" style="width:@(_progressPct)%"></div>
+        </div>
+        <div class="listen-progress-text">@_step / @TotalSteps</div>
+    </div>
+
+    <!-- The word is not shown: the pupil listens. For deaf pupils a button shows the word (it stays shown until switched off). -->
+    <div class="listen-target-row stack">
+        @if (_showWord)
+        {
+            <div class="listen-target-word" aria-live="polite">@_targetWord</div>
+        }
+        <div class="listen-controls">
+            <button class="listen-speak-btn" @onclick="SpeakWord" title="@Loc["ListenGame_SpeakTitle"]" aria-label="@Loc["ListenGame_SpeakTitle"]">🔊</button>
+            <button class="listen-eye-btn @(_showWord ? "on" : "")" @onclick="ToggleWord" aria-pressed="@(_showWord ? "true" : "false")">
+                <span aria-hidden="true">👁️</span>
+                <span>@Loc[_showWord ? "ListenGame_HideWord" : "ListenGame_ShowWord"]</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 4 cards 2x2 -->
+    <div class="game-cards-grid2">
+        @foreach (var card in _cards)
+        {
+            var c = card;
+            <div class="game-card @GetCardClass(c)"
+                 @onclick="() => SelectCard(c)">
+                <div class="game-card-svg">@((MarkupString)c.SvgHtml)</div>
+                <div class="game-card-label">@c.TranslationWord</div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    // No lives (and no LP): the 5-hour block. In the check that opens a book only the lives count.
+    private bool Blocked => Lives.IsBlocked || (Gate > 0 && Lives.Lives <= 0);
+
+    // A mistake costs a life; in the check only the lives count, and without them the check is failed (its steps start again).
+    private async Task<bool> HitAsync()
+    {
+        var ok = await Lives.TakeDamageAsync(livesOnly: Gate > 0);
+        if (!ok && Gate > 0) Gates.Reset(Gate);
+        return ok;
+    }
+
+    private const int TotalSteps = 15;   // one step for each of the 15 words of a topic
+    private const int LpReward = 7;
+
+    [Parameter] public int SubjectId { get; set; }
+
+    // >0: played as a step of the check that opens this book (words of the previous book, no topic progress)
+    [SupplyParameterFromQuery(Name = "gate")] public int Gate { get; set; }
+    private TigerCoach? _coach;
+
+    private record WordData(int WordId, int SvgImageId, string EnglishWord, string TranslationWord, string SvgHtml);
+    private List<WordData> _allWords = new();
+    private List<WordData> _stepTargets = new();
+    private List<ListenCard> _cards = new();
+    private WordData? _currentTarget;
+    private int _step;
+    private int _stepIndex;
+    private string _targetWord = string.Empty;
+    private bool _isBusy, _hasNoData, _isGameOver, _isGameWon, _isInteractive;
+    private bool _showWord;                 // "show the word" mode (deaf pupils); off at the start of every game
+    private int _userId;
+
+    private double _progressPct => TotalSteps > 0 ? _step * 100.0 / TotalSteps : 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        _userId = UserState.CurrentUser?.UserId ?? 0;
+        await LoadGame();
+    }
+
+    private async Task LoadGame()
+    {
+        _isBusy = true;
+        _isGameOver = _isGameWon = _hasNoData = false;
+        _showWord = false;
+        _allWords.Clear(); _stepTargets.Clear();
+        _step = 0; _stepIndex = -1;
+
+        await Lives.CheckRegenAsync();
+
+        var words = Gate > 0
+            ? await ApiClient.GetWordsByBookAsync(Gate - 1, Prefs.StudyLangId, 15)
+            : await ApiClient.GetWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId, 15);
+        if (words.Count == 0) { _hasNoData = true; _isBusy = false; return; }
+
+        var userWords = await ApiClient.GetUserWordsAsync();
+        var rep = userWords.ToDictionary(uw => uw.WordId, uw => uw.RepeatingCount);
+        var sorted = words
+            .OrderBy(_ => Random.Shared.Next())
+            .OrderBy(w => rep.TryGetValue(w.WordId, out var c) ? c : 0)
+            .Take(15).ToList();
+
+        foreach (var w in sorted)
+        {
+            var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+            var svg   = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
+            _allWords.Add(new WordData(w.WordId, w.SvgImageId, w.WordName,
+                trans?.WordName ?? w.WordName, svg));
+        }
+
+        var pool = _allWords.OrderBy(_ => Random.Shared.Next()).ToList();
+        for (int i = 0; i < TotalSteps; i++)
+            _stepTargets.Add(pool[i % pool.Count]);
+
+        _isBusy = false;
+        await LoadStep(0);
+    }
+
+    private async Task LoadStep(int index)
+    {
+        _stepIndex = index;
+        _currentTarget = _stepTargets[index];
+        _targetWord = _currentTarget.EnglishWord;
+
+        var distractors = _allWords
+            .Where(w => w.SvgImageId != _currentTarget.SvgImageId && !Jumbo.Shared.WordMatch.SameMeaning(w.TranslationWord, _currentTarget.TranslationWord))
+            .OrderBy(_ => Random.Shared.Next())
+            .Take(3).ToList();
+        while (distractors.Count < 3 && _allWords.Count > 1)
+            distractors.Add(_allWords.First(w => w != _currentTarget));
+
+        var pool = new List<ListenCard>
+        {
+            new() { SvgHtml = _currentTarget.SvgHtml, TranslationWord = _currentTarget.TranslationWord, IsTarget = true }
+        };
+        foreach (var d in distractors)
+            pool.Add(new() { SvgHtml = d.SvgHtml, TranslationWord = d.TranslationWord, IsTarget = false });
+
+        _cards = pool.OrderBy(_ => Random.Shared.Next()).ToList();
+        _isInteractive = true;
+        StateHasChanged();
+        await SpeakWord();
+    }
+
+    private async Task SelectCard(ListenCard card)
+    {
+        if (!_isInteractive) return;
+        _isInteractive = false;
+
+        if (card.IsTarget || Jumbo.Shared.WordMatch.SameMeaning(card.TranslationWord, _currentTarget.TranslationWord))
+        {
+            card.Result = ListenResult.Correct;
+            _coach?.Cheer();
+            StateHasChanged();
+            await Task.Delay(800);
+
+            _step++;
+            if (_step >= TotalSteps)
+            {
+                if (Gate > 0) Gates.Pass(Gate, 2);
+                else
+                {
+                    await ApiClient.EnsureWordsExistAsync(_allWords.Select(w => w.WordId));
+                    await ApiClient.MarkGameWonAsync(SubjectId, "ListenAndFind");
+                    await Lives.AddLpAsync(LpReward);
+                }
+                _isGameWon = true;
+            }
+            else
+            {
+                await LoadStep(_stepIndex + 1);
+            }
+        }
+        else
+        {
+            card.Result = ListenResult.Wrong;
+            _coach?.Oops();
+            StateHasChanged();
+            bool canPlay = await HitAsync();
+            await Task.Delay(600);
+            card.Result = ListenResult.None;
+
+            if (!canPlay) _isGameOver = true;
+            else _isInteractive = true;
+        }
+    }
+
+    private void ToggleWord() => _showWord = !_showWord;
+
+    private async Task SpeakWord()
+    {
+        if (!string.IsNullOrEmpty(_targetWord))
+            await JS.InvokeVoidAsync("lp.speak", _targetWord, "en-US");
+    }
+
+    private async Task RestartGame()
+    {
+        await JS.InvokeVoidAsync("lp.stopSpeech");
+        await Lives.CheckRegenAsync();
+        if (Blocked) return;
+        await LoadGame();
+    }
+
+    private void GoBack()
+    {
+        _ = JS.InvokeVoidAsync("lp.stopSpeech");
+        if (Gate > 0) Nav.NavigateTo(BookGateService.GateUrl(Gate), replace: true);
+        else _ = JS.InvokeVoidAsync("lp.goBack", "/little-polyglot");
+    }
+
+    private string GetCardClass(ListenCard c) => c.Result switch
+    {
+        ListenResult.Correct => "correct-answer",
+        ListenResult.Wrong   => "wrong-flash",
+        _                    => ""
+    };
+
+    private enum ListenResult { None, Correct, Wrong }
+    private class ListenCard
+    {
+        public string SvgHtml { get; set; } = string.Empty;
+        public string TranslationWord { get; set; } = string.Empty;
+        public bool IsTarget { get; set; }
+        public ListenResult Result { get; set; }
+    }
+}

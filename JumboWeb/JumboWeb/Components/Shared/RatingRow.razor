@@ -1,0 +1,45 @@
+@using JumboWeb.Services
+@inject AppLocalizer Loc
+
+@* One leaderboard line: place, avatar, "First L." (or "Hidden player"), team, points. *@
+<div class="rate-row @(Entry.IsMe ? "me" : "") @(Entry.Rank is >= 1 and <= 3 ? "top" + Entry.Rank : "")">
+    <span class="rate-rank">@RankText</span>
+    <span class="rate-avatar">
+        @if (Entry.Name is not null && !string.IsNullOrEmpty(Entry.AvatarSvg))
+        {
+            <UserAvatar Svg="@Entry.AvatarSvg" DisplayName="@Entry.Name" Size="40" Frame="@Entry.FrameKey" />
+        }
+        else if (Entry.Name is not null)
+        {
+            <UserAvatar Svg="@null" DisplayName="@Entry.Name" Size="40" />
+        }
+        else
+        {
+            <span class="rate-avatar-hidden">🐘</span>
+        }
+    </span>
+    <span class="rate-text">
+        <span class="rate-name">
+            <span class="rate-name-text">@(Entry.Name ?? Loc["Rating_Hidden"])</span>
+            @if (!string.IsNullOrEmpty(Entry.BadgeSvg))
+            {
+                <span class="rate-badge" aria-hidden="true">@((MarkupString)Entry.BadgeSvg)</span>
+            }
+            @if (Entry.IsMe)
+            {
+                <em class="rate-you">@Loc["Rating_You"]</em>
+            }
+        </span>
+        @if (!string.IsNullOrEmpty(Entry.Team))
+        {
+            <span class="rate-team">👥 @Entry.Team</span>
+        }
+    </span>
+    <span class="rate-points"><b>@Entry.Words</b> <small>@Loc["Rating_Words"]</small></span>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public RatingEntryDto Entry { get; set; } = default!;
+
+    private string RankText => Entry.Rank switch { 0 => "–", 1 => "🥇", 2 => "🥈", 3 => "🥉", _ => Entry.Rank.ToString() };
+}

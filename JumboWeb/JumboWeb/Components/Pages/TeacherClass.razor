@@ -1,0 +1,240 @@
+@page "/teacher/class/{Id:int}"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared.Entities
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+<PageTitle>@(_cls?.Name ?? Loc["TC_Nav"])</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_cls is null)
+{
+    <div class="tc">
+        <a class="tc-back" href="/teacher">← @Loc["TC_Back"]</a>
+        <div class="lp-empty-state">@Loc["TC_ClassMissing"]</div>
+    </div>
+}
+else
+{
+    <div class="tc">
+        <a class="tc-back" href="/teacher">← @Loc["TC_Back"]</a>
+
+        <div class="tc-head">
+            <h1 class="tc-title">@_cls.Name @if (_cls.IsArchived) { <span class="tc-badge">@Loc["TC_Archived"]</span> }</h1>
+            @if (!string.IsNullOrEmpty(_cls.TeacherName) && UserState.CurrentUser?.Role == UserRole.Director)
+            {
+                <p class="tc-school">@Loc.Format("TC_Teacher", _cls.TeacherName)</p>
+            }
+            <a class="lp-btn lp-btn-sm" href="/teacher/class/@Id/report">📊 @Loc["RP_OpenTeamReport"]</a>
+            <button type="button" class="tc-link" disabled="@_busy" @onclick="ToggleArchiveAsync">@(_cls.IsArchived ? Loc["TC_Unarchive"] : Loc["TC_Archive"])</button>
+            <p class="tc-hint">@Loc["TC_ArchiveHint"]</p>
+        </div>
+
+        @if (!string.IsNullOrEmpty(_error))
+        {
+            <p class="validation-message">@_error</p>
+        }
+
+        @if (_pending.Count > 0)
+        {
+            <section class="tc-card tc-pending">
+                <div class="tc-pending-head">
+                    <h2 class="tc-sub">⏳ @Loc["TC_PendingTitle"] (@_pending.Count)</h2>
+                    @if (_pending.Count > 1)
+                    {
+                        <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="ApproveAllAsync">✓ @Loc["TC_ApproveAll"]</button>
+                    }
+                </div>
+                <p class="tc-hint">@Loc["TC_PendingHint"]</p>
+                @foreach (var pe in _pending)
+                {
+                    var pend = pe;
+                    <div class="tc-pending-row">
+                        <div class="tc-pending-name">@pend.Name @if (!string.IsNullOrEmpty(pend.Username)) { <small class="tc-login">@@@pend.Username</small> }</div>
+                        <div class="tc-pending-actions">
+                            <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="() => ApproveAsync(pend)">✓ @Loc["TC_Approve"]</button>
+                            <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" disabled="@_busy" @onclick="() => RemoveAsync(pend.UserId)">✕ @Loc["TC_Reject"]</button>
+                        </div>
+                    </div>
+                }
+            </section>
+        }
+
+        <div class="tc-summary">
+            <div class="tc-stat"><b>@_cls.StudentCount</b><span>@Loc["TC_Students"]</span></div>
+            <div class="tc-stat"><b>@_cls.ActiveWeek</b><span>@Loc["TC_Active"]</span></div>
+            <div class="tc-stat"><b>@(_cls.AvgExamPercent is { } p ? $"{p}%" : "—")</b><span>@Loc["TC_AvgExam"]</span></div>
+        </div>
+
+        <h2 class="tc-sub">@Loc["TC_StudentsTitle"]</h2>
+        @if (_students.Count == 0)
+        {
+            <div class="tc-empty">
+                <Tiger Mood="idle" Size="110" />
+                <p>@Loc["TC_NoStudents"]</p>
+            </div>
+        }
+        else
+        {
+            <div class="tc-table">
+                <div class="tc-row tc-row-head">
+                    <div>@Loc["TC_ColName"]</div>
+                    <div>@Loc["TC_ColBook"]</div>
+                    <div>@Loc["TC_ColLp"]</div>
+                    <div>@Loc["TC_ColStreak"]</div>
+                    <div>@Loc["TC_ColWords"]</div>
+                    <div>@Loc["TC_ColLast"]</div>
+                    <div>@Loc["TC_ColExam"]</div>
+                    <div></div>
+                </div>
+                @foreach (var s in _students)
+                {
+                    var st = s;
+                    <div class="tc-row">
+                        <div class="tc-cell-name">
+                            <span class="tc-dot @ActivityClass(st)"></span>
+                            <a class="tc-name-link" href="/teacher/class/@Id/student/@st.UserId">@st.Name @if (!string.IsNullOrEmpty(st.Username)) { <small class="tc-login">@@@st.Username</small> }</a>
+                        </div>
+                        <div data-label="@Loc["TC_ColBook"]">@(st.CurrentBook is { } cb ? $"📘 {cb}" : "—")</div>
+                        <div data-label="@Loc["TC_ColLp"]">@PointsFormat.Compact(st.LpPoints)</div>
+                        <div data-label="@Loc["TC_ColStreak"]">@(st.Streak > 0 ? $"🔥 {st.Streak}" : "—")</div>
+                        <div data-label="@Loc["TC_ColWords"]">@Loc.Format("TC_WordsDays", st.WordsWeek, st.ActiveDaysWeek)</div>
+                        <div data-label="@Loc["TC_ColLast"]">@LastActive(st)</div>
+                        <div data-label="@Loc["TC_ColExam"]">
+                            @if (st.LastExamPercent is { } last)
+                            {
+                                <span class="tc-exam @ExamClass(last)">@Loc.Format("TC_ExamFmt", last, st.AvgExamPercent ?? last, st.ExamCount)</span>
+                            }
+                            else
+                            {
+                                <span class="tc-muted">@Loc["TC_ExamNone"]</span>
+                            }
+                        </div>
+                        <div class="tc-cell-actions">
+                            @if (_confirmRemove == st.UserId)
+                            {
+                                <span class="tc-confirm">@Loc.Format("TC_RemoveConfirm", st.Name)</span>
+                                <button type="button" class="lp-btn lp-btn-sm adm-danger" disabled="@_busy" @onclick="() => RemoveAsync(st.UserId)">@Loc["TC_Confirm"]</button>
+                                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _confirmRemove = 0">@Loc["TC_Cancel"]</button>
+                            }
+                            else
+                            {
+                                <button type="button" class="tc-icon-btn" title="@Loc["TC_Remove"]" aria-label="@Loc["TC_Remove"]" @onclick="() => _confirmRemove = st.UserId">✕</button>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+
+    private bool _loaded, _busy;
+    private ClassDto? _cls;
+    private List<ClassStudentDto> _students = new();
+    private List<PendingStudentDto> _pending = new();
+    private string _error = string.Empty;
+    private int _confirmRemove;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        if (UserState.CurrentUser?.Role is not (UserRole.Teacher or UserRole.Director))
+        {
+            Nav.NavigateTo("/for-schools", replace: true);
+            return;
+        }
+
+        await LoadAsync();
+        _loaded = true;
+    }
+
+    private async Task LoadAsync()
+    {
+        var detail = await ApiClient.TeacherGetClassAsync(Id);
+        _cls = detail?.Class;
+        _students = detail?.Students ?? new();
+        _pending = detail?.Pending ?? new();
+    }
+
+    private async Task ToggleArchiveAsync()
+    {
+        await RunAsync(async () => _cls = await ApiClient.TeacherSetArchivedAsync(Id, !_cls!.IsArchived) ?? _cls);
+    }
+
+    private async Task ApproveAsync(PendingStudentDto student)
+    {
+        await RunAsync(async () =>
+        {
+            await ApiClient.TeacherApproveStudentAsync(Id, student.UserId);
+            await LoadAsync();
+        });
+    }
+
+    private async Task ApproveAllAsync()
+    {
+        await RunAsync(async () =>
+        {
+            await ApiClient.TeacherApproveAllAsync(Id);
+            await LoadAsync();
+        });
+    }
+
+    // Reject (pending) and remove (approved) are the same call: the learner loses the team and school.
+    private async Task RemoveAsync(int userId)
+    {
+        await RunAsync(async () =>
+        {
+            await ApiClient.TeacherRemoveStudentAsync(Id, userId);
+            _confirmRemove = 0;
+            await LoadAsync();
+        });
+    }
+
+    private async Task RunAsync(Func<Task> action)
+    {
+        if (_busy) return;
+        _busy = true;
+        _error = string.Empty;
+        try { await action(); }
+        catch (Exception ex)
+        {
+            var key = $"TC_Err_{ex.Message}";
+            var text = Loc[key];
+            _error = text == key ? ex.Message : text;
+        }
+        finally { _busy = false; }
+    }
+
+    private int DaysSinceActive(ClassStudentDto s) =>
+        s.LastActiveDate is { } d ? Math.Max(0, DateTime.UtcNow.AddHours(5).Date.Subtract(d.ToDateTime(TimeOnly.MinValue)).Days) : int.MaxValue;
+
+    private string ActivityClass(ClassStudentDto s)
+    {
+        var days = DaysSinceActive(s);
+        return days <= 1 ? "ok" : days <= 4 ? "mid" : "bad";
+    }
+
+    private string LastActive(ClassStudentDto s)
+    {
+        var days = DaysSinceActive(s);
+        if (days == int.MaxValue) return Loc["TC_NeverActive"];
+        return days switch
+        {
+            0 => Loc["TC_Today"],
+            1 => Loc["TC_Yesterday"],
+            _ => Loc.Format("TC_DaysAgo", days)
+        };
+    }
+
+    private static string ExamClass(int percent) => percent >= 70 ? "good" : percent >= 40 ? "mid" : "low";
+}

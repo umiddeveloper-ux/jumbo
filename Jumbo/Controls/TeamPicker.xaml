@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Controls.TeamPicker">
+    <!-- Region -> school -> team, all from lists (nothing is typed). The teacher confirms the choice later. -->
+    <VerticalStackLayout Spacing="12">
+        <ctl:FormPicker x:Name="RegionPicker" DisplayMember="Name" Caption="{u:Tr Key=Reg_RegionLabel}" Title="{u:Tr Key=Reg_RegionPlaceholder}" />
+
+        <VerticalStackLayout x:Name="SchoolBlock" Spacing="6" IsVisible="False">
+            <ctl:FormPicker x:Name="SchoolPicker" DisplayMember="Name" Caption="{u:Tr Key=Reg_SchoolLabel}" Title="{u:Tr Key=Pick_SchoolPh}" />
+            <Border x:Name="NoSchools" IsVisible="False" StrokeShape="RoundRectangle 14" StrokeThickness="2" StrokeDashArray="4,3" Padding="12,10"
+                    Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" BackgroundColor="Transparent">
+                <Label Text="{u:Tr Key=Pick_NoSchools}" FontSize="13" FontFamily="NunitoBold"
+                       TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+            </Border>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="TeamBlock" Spacing="6" IsVisible="False">
+            <ctl:FormPicker x:Name="TeamPickerBox" DisplayMember="Name" Caption="{u:Tr Key=Reg_TeamLabel}" Title="{u:Tr Key=Pick_TeamPh}" />
+            <Border x:Name="NoTeams" IsVisible="False" StrokeShape="RoundRectangle 14" StrokeThickness="2" StrokeDashArray="4,3" Padding="12,10"
+                    Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" BackgroundColor="Transparent">
+                <Label Text="{u:Tr Key=Pick_NoTeams}" FontSize="13" FontFamily="NunitoBold"
+                       TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+            </Border>
+            <Label x:Name="ConfirmHint" Text="{u:Tr Key=Pick_Hint}" FontSize="13" IsVisible="False"
+                   TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentView>

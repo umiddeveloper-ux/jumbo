@@ -1,0 +1,45 @@
+@page "/test-my-level/results"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject TestLevelStateService TestState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+<PageTitle>@Loc["TestLevel_ResultsPageTitle"]</PageTitle>
+
+<div class="exam-page">
+    @if (TestState.TotalCount == 0)
+    {
+        <div class="lp-empty-state">@Loc["TestLevel_ResultsNotFound"]</div>
+        <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick='() => Nav.NavigateTo("/test-my-level")'>@Loc["TestLevel_BackToTest"]</button>
+    }
+    else
+    {
+        <div class="game-result-card">
+            <div class="game-result-icon"><Tiger Mood="@(TestState.Percentage >= 70 ? "cheer" : "wave")" Size="150" /></div>
+            <div class="game-result-title">@TestState.Percentage%</div>
+            <div class="game-result-sub">
+                @Loc.Format("ExamResults_Summary", TestState.CorrectCount, TestState.TotalCount, TestState.IncorrectCount)
+            </div>
+            <button class="lp-btn lp-btn-full" @onclick='() => Nav.NavigateTo("/test-my-level")'>@Loc["ExamResults_Retry"]</button>
+        </div>
+
+        @if (TestState.IncorrectAnswers.Count > 0)
+        {
+            <p class="lp-section-title">@Loc["ExamResults_MistakesTitle"]</p>
+            <div class="exam-mistakes-list">
+                @foreach (var a in TestState.IncorrectAnswers)
+                {
+                    <div class="exam-mistake-row">
+                        <div class="exam-mistake-translation">@a.StudyWord</div>
+                        <div class="exam-mistake-answers">
+                            <span class="exam-mistake-entered">@(string.IsNullOrEmpty(a.SelectedTranslation) ? Loc["ExamResults_EmptyAnswer"] : a.SelectedTranslation)</span>
+                            <span class="exam-mistake-arrow">→</span>
+                            <span class="exam-mistake-correct">@a.CorrectTranslation</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    }
+</div>

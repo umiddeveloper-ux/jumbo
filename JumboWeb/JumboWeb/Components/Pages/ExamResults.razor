@@ -1,0 +1,61 @@
+@page "/exam/results"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject ExamStateService ExamState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+<PageTitle>@Loc["ExamResults_PageTitle"]</PageTitle>
+
+<div class="exam-page">
+    @if (ExamState.TotalCount == 0)
+    {
+        <div class="lp-empty-state">@Loc["ExamResults_NotFound"]</div>
+        <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick='() => Nav.NavigateTo("/exam")'>@Loc["ExamResults_BackToExam"]</button>
+    }
+    else
+    {
+        <div class="game-result-card">
+            <div class="game-result-icon"><Tiger Mood="@(ExamState.Percentage >= 70 ? "cheer" : "wave")" Size="150" /></div>
+            <div class="game-result-title">@ExamState.Percentage%</div>
+            <div class="game-result-sub">
+                @Loc.Format("ExamResults_Summary", ExamState.CorrectCount, ExamState.TotalCount, ExamState.IncorrectCount)
+            </div>
+            <div class="exam-result-actions">
+                @if (ExamState.TeacherExamId is not null)
+                {
+                    <p class="exam-sent @(ExamState.SentToTeacher ? "ok" : "bad")">@Loc[ExamState.SentToTeacher ? "ExamResults_SentToTeacher" : "ExamResults_NotSent"]</p>
+                }
+                else if (ExamState.BookNumber > 0 && ExamState.WordCount > 0)
+                {
+                    <button class="lp-btn lp-btn-full" @onclick="Retry">🔁 @Loc["ExamResults_Retry"]</button>
+                }
+                <button class="lp-btn lp-btn-full lp-btn-outline" @onclick='() => Nav.NavigateTo("/exam")'>📋 @Loc["ExamResults_ChooseAnother"]</button>
+                <button class="lp-btn lp-btn-full lp-btn-outline" @onclick='() => Nav.NavigateTo("/")'>🏠 @Loc["SiteLayout_HomeNav"]</button>
+            </div>
+        </div>
+
+        @if (ExamState.IncorrectAnswers.Count > 0)
+        {
+            <p class="lp-section-title exam-mistakes-title">@Loc["ExamResults_MistakesTitle"]</p>
+            <div class="exam-mistakes-list">
+                @foreach (var a in ExamState.IncorrectAnswers)
+                {
+                    <div class="exam-mistake-row">
+                        <div class="exam-mistake-translation">@a.TranslationWord</div>
+                        <div class="exam-mistake-answers">
+                            <span class="exam-mistake-entered">@(string.IsNullOrEmpty(a.EnteredWord) ? Loc["ExamResults_EmptyAnswer"] : a.EnteredWord)</span>
+                            <span class="exam-mistake-arrow">→</span>
+                            <span class="exam-mistake-correct">@a.CorrectWord</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    }
+</div>
+
+@code {
+    // The same book and number of words again, no setup page in between.
+    private void Retry() => Nav.NavigateTo($"/exam/quiz/{ExamState.BookNumber}/{ExamState.WordCount}");
+}

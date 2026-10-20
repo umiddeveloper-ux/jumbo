@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.BookPage"
+             x:DataType="pageModels:BookPageModel"
+             x:Name="BookPageRoot"
+             Title="{Binding MapBookLabel}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference BookPageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView x:Name="PageScroll">
+            <VerticalStackLayout Padding="16,12,16,28" Spacing="8" MaximumWidthRequest="760" HorizontalOptions="Fill">
+
+                <!-- the same header as the website's book page: Book N, level, how many topics are passed, the bar -->
+                <Grid ColumnDefinitions="Auto,Auto,*" ColumnSpacing="10" Margin="2,2,2,0">
+                    <Label Text="{Binding MapBookLabel}" FontFamily="NunitoExtraBold" FontSize="13" VerticalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                    <Border Grid.Column="1" StrokeShape="RoundRectangle 12" Padding="10,2" VerticalOptions="Center" StrokeThickness="2"
+                            Stroke="{AppThemeBinding Light={StaticResource PrimaryEdgeLight}, Dark={StaticResource PrimaryEdgeDark}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
+                        <Label Text="{Binding LevelText}" FontFamily="NunitoBlack" FontSize="12" TextColor="{StaticResource Primary}" />
+                    </Border>
+                    <Label Grid.Column="2" Text="{Binding TopicsCountText}" FontFamily="NunitoExtraBold" FontSize="14" HorizontalOptions="End" VerticalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                </Grid>
+                <ProgressBar Progress="{Binding PathProgress}" ProgressColor="{StaticResource Success}" HeightRequest="8" />
+
+                <ctl:SnakeView x:Name="Snake" IsVisible="{Binding HasNoTopics, Converter={StaticResource InvertedBoolConverter}}" />
+
+                <Border Style="{StaticResource CardStyle}" Padding="16" IsVisible="{Binding HasNoTopics}">
+                    <Label Text="{u:Tr Key=Subjects_NoTopics}" HorizontalTextAlignment="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" />
+    </Grid>
+</ContentPage>

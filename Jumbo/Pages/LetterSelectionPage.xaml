@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns:u="clr-namespace:Jumbo.Utilities"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             x:Class="Jumbo.Pages.LetterSelectionPage"
+             x:DataType="pageModels:LetterSelectionPageModel"
+             x:Name="LetterSelectionPageRoot"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference LetterSelectionPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedTo" Command="{Binding NavigatedToCommand}"/>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference LetterSelectionPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom" Command="{Binding NavigatedFromCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto, Auto, *">
+
+        <!-- ══ ROW 0: Шапка с буквой ══ -->
+        <Grid Grid.Row="0">
+            <!-- Фон шапки -->
+            <BoxView BackgroundColor="{StaticResource Primary}"
+                     HorizontalOptions="Fill" VerticalOptions="Fill"/>
+
+            <VerticalStackLayout Padding="20,52,20,28" Spacing="12" HorizontalOptions="Center">
+
+                <!-- Круг с буквой -->
+                <Border StrokeShape="RoundRectangle 56"
+                        BackgroundColor="#22FFFFFF"
+                        StrokeThickness="3"
+                        Stroke="White"
+                        WidthRequest="112" HeightRequest="112"
+                        HorizontalOptions="Center">
+                    <Label Text="{Binding Letter}"
+                           FontSize="64"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"/>
+                </Border>
+
+                <Label FontSize="14" Text="{Binding Letter, Converter={StaticResource TrFormat}, ConverterParameter=Letter_Study}"
+                       TextColor="#AAFFFFFF"
+                       HorizontalOptions="Center">
+                </Label>
+            </VerticalStackLayout>
+
+        </Grid>
+
+        <!-- ══ ROW 1: SVG-превью слов ══ -->
+        <VerticalStackLayout Grid.Row="1" Spacing="0" Margin="0,18,0,0"
+                             IsVisible="{Binding HasPreviewWords}">
+
+            <Label Text="{u:Tr Key=Letter_WordsTitle}"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource Gray500}"
+                   Margin="20,0,20,10"/>
+
+            <CollectionView ItemsSource="{Binding PreviewWords}"
+                            SelectionMode="None"
+                            HeightRequest="148">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="pageModels:LetterWordPreview">
+                        <Border StrokeShape="RoundRectangle 16"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                                StrokeThickness="0"
+                                WidthRequest="118"
+                                Margin="8,4,0,8">
+                            <Border.Shadow>
+                                <Shadow Brush="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"
+                                        Offset="0,2" Radius="6" Opacity="0.08"/>
+                            </Border.Shadow>
+                            <Grid RowDefinitions="*, Auto" Padding="6,8,6,6">
+                                <ctl:SvgPicture Grid.Row="0"
+                                         HeightRequest="88"
+                                         InputTransparent="True"
+                                         BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+                                <Label Grid.Row="1"
+                                       Text="{Binding WordName}"
+                                       FontSize="11"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       LineBreakMode="TailTruncation"
+                                       MaxLines="1"
+                                       TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"
+                                       Padding="0,4,0,0"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+        <!-- ══ ROW 2: Карточки выбора режима ══ -->
+        <ScrollView Grid.Row="2">
+            <VerticalStackLayout Spacing="14" Padding="20,18,20,32" VerticalOptions="Center">
+
+                <!-- Карточка: Тестовый вариант -->
+                <Border StrokeShape="RoundRectangle 22"
+                        BackgroundColor="{StaticResource Primary}"
+                        StrokeThickness="0">
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource Primary}" Offset="0,4" Radius="16" Opacity="0.4"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectTestCommand}"/>
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="76, *" Padding="16,20">
+                        <!-- Иконка -->
+                        <Border Grid.Column="0"
+                                StrokeShape="RoundRectangle 18"
+                                BackgroundColor="#22FFFFFF"
+                                StrokeThickness="0"
+                                WidthRequest="56" HeightRequest="56"
+                                HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="🧩" FontSize="28"
+                                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Border>
+                        <!-- Текст -->
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5">
+                            <Label Text="{u:Tr Key=Letter_TestTitle}"
+                                   FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="{u:Tr Key=Letter_TestDesc}"
+                                   FontSize="13" TextColor="#CCFFFFFF"
+                                   LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+                <!-- Карточка: Вспомни сам -->
+                <Border StrokeShape="RoundRectangle 22"
+                        BackgroundColor="{StaticResource Success}"
+                        StrokeThickness="0">
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource Success}" Offset="0,4" Radius="16" Opacity="0.4"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectRecallCommand}"/>
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="76, *" Padding="16,20">
+                        <!-- Иконка -->
+                        <Border Grid.Column="0"
+                                StrokeShape="RoundRectangle 18"
+                                BackgroundColor="#22FFFFFF"
+                                StrokeThickness="0"
+                                WidthRequest="56" HeightRequest="56"
+                                HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="🧠" FontSize="28"
+                                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Border>
+                        <!-- Текст -->
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5">
+                            <Label Text="{u:Tr Key=Letter_RecallTitle}"
+                                   FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="{u:Tr Key=Letter_RecallDesc}"
+                                   FontSize="13" TextColor="#CCFFFFFF"
+                                   LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Загрузка -->
+        <ActivityIndicator Grid.Row="1"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           Color="{StaticResource Primary}"
+                           HeightRequest="40" WidthRequest="40"
+                           VerticalOptions="Center" HorizontalOptions="Center"/>
+
+    </Grid>
+</ContentPage>

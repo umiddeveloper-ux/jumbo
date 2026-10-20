@@ -1,0 +1,49 @@
+@page "/little-polyglot/alphabet"
+@layout LpLayout
+@rendermode InteractiveServer
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject UserPreferencesService Prefs
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@using JumboWeb.Services
+
+<PageTitle>@Loc["AlphabetSection"]</PageTitle>
+
+<button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/little-polyglot")'>@Loc["LetterSelection_BackHome"]</button>
+
+<div class="alphabet-hero">
+    <div class="alphabet-hero-icon">🔤</div>
+    <div>
+        <p class="lp-page-title alphabet-hero-title">@Loc["AlphabetSection"]</p>
+        <div class="alphabet-hero-sub">@Loc["Alphabet_Subtitle"]</div>
+    </div>
+</div>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <AlphabetGrid Letters="_letters" OnLetterClick="OpenLetter" />
+}
+
+@code {
+    private List<LetterItem> _letters = new();
+    private bool _loaded;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        if (UserState.CurrentUser == null) return;
+
+        _letters = await ApiClient.GetAlphabetProgressAsync(Prefs.StudyLangId);
+        _loaded = true;
+    }
+
+    private void OpenLetter(string letter) =>
+        Nav.NavigateTo($"/little-polyglot/letter/{Uri.EscapeDataString(letter)}");
+}

@@ -1,0 +1,171 @@
+/* =====================================================================
+   Exam: setup, quiz and results. Loaded after app.css, so it overrides the old rules.
+   The page no longer scrolls on its own (that nested scroll hid the Start button
+   below the fold): the site's main scroller scrolls, and the action bar sticks to its bottom.
+   ===================================================================== */
+.exam-page {
+    height: auto; overflow: visible;
+    /* the whole width of the screen on desktop (the phone rules below tighten the padding) */
+    width: 100%; max-width: none; margin: 0 auto;
+    padding: 20px 20px 0;
+    box-sizing: border-box;
+}
+
+/* ----- hero ----- */
+.exam-hero { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.exam-hero .tiger { flex-shrink: 0; }
+.exam-title { margin: 0; font-size: 1.8rem; font-weight: 900; color: var(--lp-text); line-height: 1.15; }
+.exam-intro { margin: 4px 0 0; font-weight: 600; font-size: 1rem; line-height: 1.4; color: var(--lp-muted); }
+
+/* ----- cards with numbered steps ----- */
+.exam-card {
+    margin-bottom: 14px; padding: 16px;
+    background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 5px; border-radius: 22px;
+}
+.exam-step { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font-size: 1.1rem; font-weight: 900; color: var(--lp-text); }
+.exam-step-num {
+    width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem; font-weight: 900; color: #fff; background: var(--lp-primary); box-shadow: 0 3px 0 var(--lp-primary-shadow);
+}
+.exam-card:nth-of-type(2) .exam-step-num { background: var(--lp-success); box-shadow: 0 3px 0 var(--lp-success-dark); }
+
+/* books */
+.exam-books { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 10px; }
+.exam-book {
+    display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 6px 9px;
+    background: var(--lp-bg); border: 2px solid var(--lp-border); border-bottom-width: 4px; border-radius: 16px;
+    color: var(--lp-text); cursor: pointer; font-family: inherit;
+    transition: transform 0.08s, background 0.15s, border-color 0.15s;
+    -webkit-tap-highlight-color: transparent;
+}
+.exam-book:hover { border-color: var(--lp-primary-edge); }
+.exam-book:active { transform: translateY(2px); border-bottom-width: 2px; }
+.exam-book-num { font-size: 1.5rem; font-weight: 900; line-height: 1.1; color: var(--lp-primary); }
+.exam-book-label { font-size: 0.8rem; font-weight: 800; color: var(--lp-muted); }
+.exam-book.selected { background: var(--lp-primary); border-color: var(--lp-primary-shadow); }
+.exam-book.selected .exam-book-num, .exam-book.selected .exam-book-label { color: #fff; }
+/* latest exam result under the book: right / wrong / percent */
+.exam-book-stats { display: flex; gap: 6px; margin-top: 4px; white-space: nowrap; font-size: 0.78rem; font-weight: 900; line-height: 1.2; }
+.exam-book-stats .ok { color: var(--lp-success-dark); }
+.exam-book-stats .bad { color: var(--lp-danger, #e5484d); }
+.exam-book-pct { font-size: 0.9rem; font-weight: 900; color: var(--lp-text); line-height: 1.2; }
+.exam-book.selected .exam-book-stats .ok, .exam-book.selected .exam-book-stats .bad, .exam-book.selected .exam-book-pct { color: #fff; }
+
+/* free exam / teacher's exam switch */
+.exam-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.exam-mode {
+    padding: 12px 8px; font-size: 0.95rem; font-weight: 900; font-family: inherit; cursor: pointer; line-height: 1.2;
+    color: var(--lp-muted); background: var(--lp-surface);
+    border: 2px solid var(--lp-border); border-bottom-width: 4px; border-radius: 14px;
+    -webkit-tap-highlight-color: transparent;
+}
+.exam-mode.on { color: #fff; background: var(--lp-primary); border-color: var(--lp-primary-shadow); }
+.exam-note { margin: 10px 0 0; font-size: 0.82rem; font-weight: 600; color: var(--lp-muted); }
+.exam-code-input {
+    width: 100%; box-sizing: border-box; padding: 14px 10px; text-align: center;
+    font-size: 2rem; font-weight: 900; letter-spacing: 0.35em; font-family: inherit;
+    color: var(--lp-text); background: var(--lp-bg);
+    border: 2px solid var(--lp-border); border-bottom-width: 4px; border-radius: 14px; outline: none;
+}
+.exam-code-input:focus { border-color: var(--lp-primary); }
+.exam-sent { margin: 0 0 12px; font-weight: 800; font-size: 0.95rem; }
+.exam-sent.ok { color: var(--lp-success-dark); }
+.exam-sent.bad { color: var(--lp-danger, #e5484d); }
+
+/* word counts */
+.exam-counts { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 10px; }
+.exam-count {
+    padding: 12px 0; font-size: 1.15rem; font-weight: 900; font-family: inherit; cursor: pointer;
+    color: var(--lp-text); background: var(--lp-bg);
+    border: 2px solid var(--lp-border); border-bottom-width: 4px; border-radius: 14px;
+    transition: transform 0.08s, background 0.15s, border-color 0.15s;
+    -webkit-tap-highlight-color: transparent;
+}
+.exam-count:hover { border-color: var(--lp-primary-edge); }
+.exam-count:active { transform: translateY(2px); border-bottom-width: 2px; }
+.exam-count.selected { background: var(--lp-success); border-color: var(--lp-success-dark); color: #fff; }
+
+/* ----- sticky action bar (setup + quiz) ----- */
+.exam-bar {
+    position: sticky; bottom: 0; z-index: 20;
+    display: flex; align-items: center; gap: 14px;
+    margin: 16px -20px 0; padding: 12px 20px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: var(--lp-bg); border-top: 2px solid var(--lp-border);
+    box-shadow: 0 -10px 24px -14px rgba(0,0,0,0.25);
+}
+.exam-bar-text { flex: 1; min-width: 0; font-size: 1rem; font-weight: 800; color: var(--lp-muted); line-height: 1.25; }
+.exam-bar-text.ready { color: var(--lp-text); }
+.lp-btn.exam-go { flex-shrink: 0; min-width: 150px; padding: 14px 22px; font-size: 1.05rem; }
+
+/* buttons under the result */
+.exam-result-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+
+/* ----- quiz ----- */
+.exam-counter { font-size: 0.95rem; font-weight: 800; color: var(--lp-muted); }
+.exam-quiz-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 0; }
+.exam-quiz-row {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 14px; align-items: center;
+    padding: 12px 14px; background: var(--lp-surface);
+    border: 2px solid var(--lp-border); border-bottom-width: 4px; border-radius: 18px; box-shadow: none;
+}
+.exam-quiz-translation { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 800; color: var(--lp-text); overflow-wrap: anywhere; }
+.exam-quiz-n {
+    flex-shrink: 0; min-width: 28px; height: 28px; padding: 0 6px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.82rem; font-weight: 900; color: var(--lp-muted); background: var(--lp-bg);
+}
+.exam-quiz-input {
+    width: 100%; padding: 12px 14px; box-sizing: border-box; outline: none;
+    font-size: 1.05rem; font-weight: 700; font-family: var(--lp-font-learn, inherit); color: var(--lp-text);
+    background: var(--lp-bg); border: 2px solid var(--lp-border); border-radius: 14px;
+}
+.exam-quiz-input::placeholder { color: var(--lp-disabled-text); font-weight: 600; }
+.exam-quiz-input:focus { border-color: var(--lp-primary); background: var(--lp-surface); }
+
+/* ----- results ----- */
+.exam-mistakes-title { margin-top: 18px; }
+.exam-mistakes-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; padding-bottom: 24px; }
+.exam-mistake-row {
+    padding: 12px 14px; background: var(--lp-surface); border-radius: 16px; box-shadow: none;
+    border: 2px solid var(--lp-border); border-bottom-width: 4px;
+}
+.exam-mistake-translation { font-size: 0.9rem; font-weight: 800; color: var(--lp-muted); margin-bottom: 4px; }
+.exam-mistake-answers { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; font-size: 1.05rem; font-weight: 800; font-family: var(--lp-font-learn, inherit); }
+.exam-mistake-correct { color: var(--lp-success-dark); }
+
+/* ----- desktop: use the room ----- */
+@media (min-width: 900px) {
+    .exam-page { padding: 28px 40px 0; }
+    .exam-bar { margin-left: -40px; margin-right: -40px; padding-left: 40px; padding-right: 40px; }
+    .exam-books { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 14px; }
+    .exam-counts { grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 14px; }
+    .exam-quiz-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px; }
+    .exam-modes { max-width: 520px; }
+    .exam-code-input { max-width: 420px; display: block; }
+}
+
+/* ----- phones ----- */
+@media (max-width: 600px) {
+    .exam-page { padding: 14px 14px 0; }
+    .exam-bar { margin-left: -14px; margin-right: -14px; padding-left: 14px; padding-right: 14px; }
+    .exam-title { font-size: 1.5rem; }
+    .exam-intro { font-size: 0.92rem; }
+    .exam-card { padding: 14px; border-radius: 20px; }
+    .exam-books { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .exam-counts { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .exam-quiz-row { grid-template-columns: 1fr; gap: 8px; padding: 12px; }
+    .lp-btn.exam-go { min-width: 0; padding: 14px 18px; }
+}
+@media (max-width: 360px) {
+    .exam-books { grid-template-columns: repeat(3, 1fr); }
+    .exam-bar { gap: 10px; }
+    .exam-bar-text { font-size: 0.9rem; }
+}
+
+/* ----- profile gate (school + team required before the exam) ----- */
+.exam-gate { padding: 20px; max-width: 640px; }
+.exam-gate-title { margin: 0 0 6px; font-size: 1.3rem; font-weight: 900; color: var(--lp-text); }
+.exam-gate-text { margin: 0 0 16px; font-size: 1rem; font-weight: 600; line-height: 1.45; color: var(--lp-muted); }
+.exam-gate .settings-label { margin-top: 2px; }
+.exam-gate .lp-btn-full { margin-top: 6px; padding: 14px; font-size: 1.05rem; }

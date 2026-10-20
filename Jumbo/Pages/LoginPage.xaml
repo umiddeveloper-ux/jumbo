@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.LoginPage"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False"
+             Title="{u:Tr Key=Login_PageTitle}">
+
+    <Grid RowDefinitions="Auto,*">
+        <HorizontalStackLayout Spacing="8" HorizontalOptions="End" Padding="14,10,14,0">
+            <ctl:LanguageSwitcher />
+            <ctl:ThemeToggle />
+        </HorizontalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="18,8,18,28" VerticalOptions="Center" HorizontalOptions="Fill" MaximumWidthRequest="440">
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 26" Padding="22,18,22,22">
+                    <VerticalStackLayout Spacing="14">
+                        <ctl:TigerView Mood="wave" Size="96" />
+                        <Label Text="{u:Tr Key=Login_WelcomeBack}" FontFamily="NunitoBlack" FontSize="26"
+                               TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" />
+
+                        <ctl:FormEntry x:Name="UsernameEntry" Caption="{u:Tr Key=Login_UsernameLabel}" Placeholder="{u:Tr Key=Login_UsernamePlaceholder}" />
+                        <ctl:FormEntry x:Name="PasswordEntry" Caption="{u:Tr Key=Login_PasswordLabel}" Placeholder="{u:Tr Key=Login_PasswordPlaceholder}"
+                                       IsPassword="True" Completed="OnPasswordCompleted" />
+
+                        <Label x:Name="ErrorLabel" IsVisible="False" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14" />
+
+                        <ctl:ChunkyButton x:Name="LoginButton" Text="{u:Tr Key=Common_LoginAction}" Clicked="OnLoginClicked" Margin="0,4,0,0" />
+
+                        <Label HorizontalTextAlignment="Center" Margin="0,4,0,0">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{u:Tr Key=Login_NoAccount}" />
+                                    <Span Text=" " />
+                                    <Span Text="{u:Tr Key=Login_RegisterLink}" TextColor="{StaticResource Primary}" FontFamily="NunitoExtraBold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnGoToRegisterTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

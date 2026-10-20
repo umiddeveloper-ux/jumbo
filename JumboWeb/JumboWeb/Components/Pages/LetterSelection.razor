@@ -1,0 +1,89 @@
+@page "/little-polyglot/letter/{Letter}"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc.Format("LetterSelection_PageTitle", Letter)</PageTitle>
+
+<button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.goBack", "/little-polyglot")'>@Loc["LetterSelection_BackHome"]</button>
+
+<div class="letter-hero">
+    <div class="letter-hero-circle">@Letter</div>
+    <div class="letter-hero-label">@Loc.Format("LetterSelection_WordsOnLetter", Letter)</div>
+</div>
+
+@if (_isBusy)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_previews.Any())
+{
+    <div class="letter-preview-grid">
+        @foreach (var p in _previews)
+        {
+            <div class="letter-preview-card">
+                <div class="letter-preview-svg">@((MarkupString)p.Svg)</div>
+                <div class="letter-preview-name">@p.WordName</div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="lp-empty-state">@Loc.Format("Common_NoWordsOnLetter", Letter)</div>
+}
+
+<div class="letter-mode-grid">
+    <div class="lesson-card" @onclick="GoToTest">
+        <div class="lesson-icon">✏️</div>
+        <div class="lesson-name">@Loc["LetterSelection_TestTitle"]</div>
+        <div class="lesson-desc">@Loc["LetterSelection_TestDesc"]</div>
+    </div>
+    <div class="lesson-card" @onclick="GoToRecall">
+        <div class="lesson-icon">🧠</div>
+        <div class="lesson-name">@Loc["LetterSelection_RecallTitle"]</div>
+        <div class="lesson-desc">@Loc["LetterSelection_RecallDesc"]</div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Letter { get; set; } = string.Empty;
+
+    private List<Preview> _previews = new();
+    private bool _isBusy;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        await LoadPreviews();
+    }
+
+    private async Task LoadPreviews()
+    {
+        _isBusy = true;
+        var words = await ApiClient.GetWordsByLetterAsync(Letter, Prefs.StudyLangId, 6);
+        _previews = new();
+        foreach (var w in words)
+        {
+            var svg = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
+            _previews.Add(new Preview { WordName = w.WordName, Svg = svg });
+        }
+        _isBusy = false;
+    }
+
+    private void GoToTest()   => Nav.NavigateTo($"/little-polyglot/letter/{Uri.EscapeDataString(Letter)}/test");
+    private void GoToRecall() => Nav.NavigateTo($"/little-polyglot/letter/{Uri.EscapeDataString(Letter)}/recall");
+
+    private class Preview
+    {
+        public string WordName { get; set; } = string.Empty;
+        public string Svg { get; set; } = string.Empty;
+    }
+}

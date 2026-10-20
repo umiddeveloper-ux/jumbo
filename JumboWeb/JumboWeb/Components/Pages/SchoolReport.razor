@@ -1,0 +1,126 @@
+@page "/r/{Token}"
+@layout BlankLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+@inject IJSRuntime JS
+
+<PageTitle>@(_r is null ? Loc["RP_SchoolTitle"] : $"{Loc["RP_SchoolTitle"]}: {_r.SchoolName}")</PageTitle>
+<div class="top-controls rp-noprint"><LanguageSwitcher /><ThemeToggle /></div>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_r is null)
+{
+    <div class="rp rp-center">
+        <Tiger Mood="idle" Size="120" />
+        <h1 class="rp-title">@Loc["RP_SchoolTitle"]</h1>
+        <p class="rp-note">@Loc["RP_NotFound"]</p>
+    </div>
+}
+else
+{
+    var t = _r.Totals;
+    <div class="rp">
+        <header class="rp-head">
+            <div>
+                <div class="rp-brand"><img src="favicon.svg" alt="" /> Jumbo.uz</div>
+                <h1 class="rp-title">📊 @_r.SchoolName</h1>
+                <p class="rp-sub">@Loc[$"Region_{_r.Region}"] · @Fmt(_r.Period.From) – @Fmt(_r.Period.To) · @Loc["RP_VsPrev"] @Fmt(_r.Period.PrevFrom) – @Fmt(_r.Period.PrevTo)</p>
+            </div>
+            <div class="rp-tools rp-noprint">
+                <div class="rate-period">
+                    <button type="button" class="rate-chip @(_period == "week" ? "on" : "")" @onclick='() => SetPeriodAsync("week")'>@Loc["RP_Week"]</button>
+                    <button type="button" class="rate-chip @(_period == "month" ? "on" : "")" @onclick='() => SetPeriodAsync("month")'>@Loc["RP_Month"]</button>
+                </div>
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="Print">🖨 @Loc["RP_Print"]</button>
+            </div>
+        </header>
+
+        <div class="rp-kpis">
+            <ReportKpi Label="@Loc["RP_Students"]" Value="@t.Students.ToString()" />
+            <ReportKpi Label="@Loc["RP_Active"]" Value="@($"{t.Active}/{t.Students}")" Delta="@(t.Active - t.ActivePrev)" Hint="@Loc["RP_VsPrev"]" />
+            <ReportKpi Label="@Loc["RP_Words"]" Value="@t.Words.ToString()" Delta="@(t.Words - t.WordsPrev)" Hint="@Loc["RP_VsPrev"]" />
+            <ReportKpi Label="@Loc["RP_Exams"]" Value="@t.ExamCount.ToString()" Delta="@(t.ExamCount - t.ExamCountPrev)" Hint="@Loc["RP_VsPrev"]" />
+            <ReportKpi Label="@Loc["RP_AvgExam"]" Value="@(t.AvgExamPercent is { } a ? $"{a}%" : "—")"
+                       Delta="@(t.AvgExamPercent is { } c && t.AvgExamPercentPrev is { } p ? c - p : null)" Suffix="%" Hint="@Loc["RP_VsPrev"]" />
+        </div>
+
+        <section class="rp-card">
+            <h2 class="rp-h2">@Loc["RP_Teams"]</h2>
+            @if (_r.Teams.Count == 0)
+            {
+                <p class="rp-note">@Loc["RP_NoTeams"]</p>
+            }
+            else
+            {
+                <div class="tc-table rp-table rp-teams">
+                    <div class="tc-row tc-row-head">
+                        <div>@Loc["RP_ColTeam"]</div>
+                        <div>@Loc["RP_Students"]</div>
+                        <div>@Loc["RP_Active"]</div>
+                        <div>@Loc["RP_ColWords"]</div>
+                        <div>@Loc["RP_Exams"]</div>
+                        <div>@Loc["RP_AvgExam"]</div>
+                    </div>
+                    @foreach (var team in _r.Teams)
+                    {
+                        var x = team.Totals;
+                        <div class="tc-row rp-row">
+                            <div class="tc-cell-name"><span>@team.TeamName @if (!string.IsNullOrEmpty(team.TeacherName)) { <small class="tc-login">@team.TeacherName</small> }</span></div>
+                            <div data-label="@Loc["RP_Students"]">@x.Students</div>
+                            <div data-label="@Loc["RP_Active"]">@x.Active/@x.Students @Trend(x.Active - x.ActivePrev)</div>
+                            <div data-label="@Loc["RP_ColWords"]">@x.Words @Trend(x.Words - x.WordsPrev)</div>
+                            <div data-label="@Loc["RP_Exams"]">@x.ExamCount</div>
+                            <div data-label="@Loc["RP_AvgExam"]">
+                                @if (x.AvgExamPercent is { } ap)
+                                {
+                                    <span class="tc-exam @ExamClass(ap)">@ap%</span>
+                                }
+                                else
+                                {
+                                    <span class="tc-muted">—</span>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </section>
+
+        <p class="rp-foot">@Loc["RP_ScopeSchool"] · @Loc.Format("RP_Generated", _r.GeneratedAt.AddHours(5).ToString("dd.MM.yyyy HH:mm")) · Jumbo.uz</p>
+    </div>
+}
+
+@code {
+    [Parameter] public string Token { get; set; } = string.Empty;
+
+    private bool _loaded;
+    private string _period = "week";
+    private SchoolReportDto? _r;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _r = await ApiClient.GetPublicSchoolReportAsync(Token, _period);
+        _loaded = true;
+    }
+
+    private async Task SetPeriodAsync(string period)
+    {
+        _period = period;
+        _r = await ApiClient.GetPublicSchoolReportAsync(Token, _period) ?? _r;
+    }
+
+    private async Task Print() => await JS.InvokeVoidAsync("lp.printPage");
+
+    private static string Fmt(DateOnly d) => d.ToString("dd.MM.yyyy");
+
+    private static MarkupString Trend(int delta) =>
+        delta == 0 ? new MarkupString("") :
+        new MarkupString($"<small class=\"rp-trend {(delta > 0 ? "up" : "down")}\">{(delta > 0 ? "▲" : "▼")}{Math.Abs(delta)}</small>");
+
+    private static string ExamClass(int percent) => percent >= 70 ? "good" : percent >= 40 ? "mid" : "low";
+}

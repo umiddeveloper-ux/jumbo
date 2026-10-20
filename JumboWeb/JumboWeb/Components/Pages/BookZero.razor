@@ -1,0 +1,208 @@
+@page "/little-polyglot/book-zero"
+@layout LpLayout
+@rendermode InteractiveServer
+@implements IAsyncDisposable
+@using JumboWeb.Services
+@using Jumbo.Shared
+@using System.Text.Json
+@inject UserStateService UserState
+@inject UserPreferencesService Prefs
+@inject IJSRuntime JS
+@inject AppLocalizer Loc
+
+<PageTitle>@Loc["Zero_Title"]</PageTitle>
+
+@if (UserState.IsRegistered)
+{
+    <button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/little-polyglot")'>@Loc["Common_BackArrow"]</button>
+}
+else
+{
+    @* A guest (the QR code of Book 0): the page is open to everybody, instead of "Back" there is "Go to the website". *@
+    <a class="lp-back-btn bz-go" href="/">@Loc["Tq_GoSite"] →</a>
+}
+
+@* Book 0: the alphabet and the numbers up to 20, with the sound. A reference that is always open: nothing here is counted. *@
+<div class="bz">
+    <div class="bz-hero">
+        <div class="bz-hero-text">
+            <span class="bz-badge">ABC<small>123</small></span>
+            <h1 class="bz-title">@Loc["Zero_Title"]</h1>
+            <p class="bz-hint">@Loc["Zero_Hint"]</p>
+        </div>
+        <Tiger Mood="wave" Size="124" />
+    </div>
+
+    @* Games: nothing in them is counted (no lives, no LP) *@
+    <section class="bz-section bz-games">
+        <h2 class="bz-h2">🎮 @Loc["ZG_Section"]</h2>
+        <div class="zg-cards">
+            <div class="zg-card">
+                <div class="zg-card-ico">🎧</div>
+                <div class="zg-card-title">@Loc["ZG_ListenTitle"]</div>
+                <p class="zg-card-desc">@Loc["ZG_ListenDesc"]</p>
+                <div class="zg-card-btns">
+                    <a class="lp-btn lp-btn-sm" href="/little-polyglot/book-zero/play/listen/letters">@Loc["ZG_Letters"] <span class="zg-best">@Best("listen", "letters")</span></a>
+                    <a class="lp-btn lp-btn-sm" href="/little-polyglot/book-zero/play/listen/numbers">@Loc["ZG_Numbers"] <span class="zg-best">@Best("listen", "numbers")</span></a>
+                </div>
+            </div>
+            <div class="zg-card">
+                <div class="zg-card-ico">🚂</div>
+                <div class="zg-card-title">@Loc["ZG_TrainTitle"]</div>
+                <p class="zg-card-desc">@Loc["ZG_TrainDesc"]</p>
+                <div class="zg-card-btns">
+                    <a class="lp-btn lp-btn-sm" href="/little-polyglot/book-zero/play/train/letters">@Loc["ZG_Letters"] <span class="zg-best">@Best("train", "letters")</span></a>
+                    <a class="lp-btn lp-btn-sm" href="/little-polyglot/book-zero/play/train/numbers">@Loc["ZG_Numbers"] <span class="zg-best">@Best("train", "numbers")</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bz-section" id="alphabet">
+        <div class="bz-section-head">
+            <h2 class="bz-h2">🔤 @Loc["Zero_Alphabet"]</h2>
+            <button type="button" class="lp-btn lp-btn-sm @(_playing == "letters" ? "lp-btn-outline" : "")" @onclick='() => PlayAllAsync("letters")'>
+                @(_playing == "letters" ? "■ " + Loc["Zero_Stop"] : "▶ " + Loc["Zero_PlayAll"])
+            </button>
+        </div>
+        <p class="bz-legend"><span class="bz-dot"></span> @Loc["Zero_VowelsHint"]</p>
+        <div class="bz-grid">
+            @for (int i = 0; i < BookZeroData.Letters.Length; i++)
+            {
+                var idx = i;
+                var l = BookZeroData.Letters[i];
+                <button type="button" class="bz-tile @(BookZeroData.IsVowel(l.Letter) ? "vowel" : "") @(_active == "L" + idx ? "on" : "")" @onclick="() => SayLetterAsync(idx)" aria-label="@l.Letter">
+                    @if (Known("L" + l.Letter)) { <span class="bz-known" aria-hidden="true"></span> }
+                    <span class="bz-big">@l.Letter<small>@l.Letter.ToLowerInvariant()</small></span>
+                </button>
+            }
+        </div>
+    </section>
+
+    <section class="bz-section" id="numbers">
+        <div class="bz-section-head">
+            <h2 class="bz-h2">🔢 @Loc["Zero_Numbers"]</h2>
+            <button type="button" class="lp-btn lp-btn-sm @(_playing == "numbers" ? "lp-btn-outline" : "")" @onclick='() => PlayAllAsync("numbers")'>
+                @(_playing == "numbers" ? "■ " + Loc["Zero_Stop"] : "▶ " + Loc["Zero_PlayAll"])
+            </button>
+        </div>
+        <div class="bz-grid bz-grid-num">
+            @for (int n = 0; n <= BookZeroData.MaxNumber; n++)
+            {
+                var num = n;
+                var tr = BookZeroData.NumberTranslation(n, _transLangId);
+                <button type="button" class="bz-tile hue-@(num % 5) @(_active == "N" + num ? "on" : "")" @onclick="() => SayNumberAsync(num)" aria-label="@BookZeroData.NumberWord(n)">
+                    @if (Known("N" + n)) { <span class="bz-known" aria-hidden="true"></span> }
+                    <span class="bz-big">@n</span>
+                    <span class="bz-word">@BookZeroData.NumberWord(n)</span>
+                    @if (tr is not null) { <span class="bz-tr">@tr</span> }
+                </button>
+            }
+        </div>
+    </section>
+</div>
+
+@code {
+    // the number's translation: the signed-in learner's language; a guest gets the language of the page
+    private int _transLangId => UserState.IsRegistered ? Prefs.TransLangId : (Prefs.AppLangId == 3 ? 3 : 2);
+    private string _active = string.Empty;       // the tile that is being read: "L3" (a letter) or "N7" (a number)
+    private string _playing = string.Empty;      // "letters" | "numbers" while "listen to all" runs
+    private CancellationTokenSource? _cts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+    }
+
+    // The QR codes of the alphabet and of the numbers open the page at #alphabet / #numbers: scroll to that part once the page is drawn.
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        await LoadMemoryAsync();
+        try { await JS.InvokeVoidAsync("lp.scrollToHash"); } catch { }
+    }
+
+    // What this device remembers about the games (see BookZeroGame): the best result of each and the letters / numbers found without a mistake.
+    private readonly Dictionary<string, int> _best = new();
+    private Dictionary<string, int> _known = new();
+
+    private async Task LoadMemoryAsync()
+    {
+        try
+        {
+            foreach (var mode in new[] { "listen", "train" })
+                foreach (var kind in new[] { "letters", "numbers" })
+                    if (int.TryParse(await JS.InvokeAsync<string?>("lp.store.get", $"bz-best-{mode}-{kind}"), out var stars) && stars > 0)
+                        _best[$"{mode}-{kind}"] = stars;
+            var json = await JS.InvokeAsync<string?>("lp.store.get", "bz-known");
+            if (!string.IsNullOrEmpty(json)) _known = JsonSerializer.Deserialize<Dictionary<string, int>>(json) ?? new();
+        }
+        catch { }
+        StateHasChanged();
+    }
+
+    private string Best(string mode, string kind) =>
+        _best.TryGetValue($"{mode}-{kind}", out var stars) ? string.Concat(Enumerable.Range(1, 3).Select(i => i <= stars ? "★" : "☆")) : string.Empty;
+
+    // Three times found without a mistake: a green dot on the tile.
+    private bool Known(string key) => _known.GetValueOrDefault(key) >= 3;
+
+    private async Task SayLetterAsync(int index)
+    {
+        await StopAllAsync();
+        _active = "L" + index;
+        try { await JS.InvokeVoidAsync("lp.speak", BookZeroData.Letters[index].Spoken, "en-US"); } catch { }
+    }
+
+    private async Task SayNumberAsync(int n)
+    {
+        await StopAllAsync();
+        _active = "N" + n;
+        try { await JS.InvokeVoidAsync("lp.speak", BookZeroData.NumberWord(n), "en-US"); } catch { }
+    }
+
+    // "Listen to all": the letters (or the numbers) one after another; the tile that is being read lights up. The same button stops it.
+    private async Task PlayAllAsync(string what)
+    {
+        if (_playing == what) { await StopAllAsync(); return; }
+        await StopAllAsync();
+
+        _playing = what;
+        _cts = new CancellationTokenSource();
+        var token = _cts.Token;
+        var count = what == "letters" ? BookZeroData.Letters.Length : BookZeroData.MaxNumber + 1;
+        try
+        {
+            for (int i = 0; i < count && !token.IsCancellationRequested; i++)
+            {
+                _active = (what == "letters" ? "L" : "N") + i;
+                StateHasChanged();
+                var text = what == "letters" ? BookZeroData.Letters[i].Spoken : BookZeroData.NumberWord(i);
+                await JS.InvokeVoidAsync("lp.speakWait", text, "en-US");
+                if (!token.IsCancellationRequested) await Task.Delay(250, token);
+            }
+        }
+        catch (OperationCanceledException) { }
+        catch (JSDisconnectedException) { }
+        finally
+        {
+            if (_cts?.Token == token) { _playing = string.Empty; _active = string.Empty; }
+        }
+        StateHasChanged();
+    }
+
+    private async Task StopAllAsync()
+    {
+        _cts?.Cancel();
+        _playing = string.Empty;
+        _active = string.Empty;
+        try { await JS.InvokeVoidAsync("lp.stopSpeech"); } catch { }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        _cts?.Cancel();
+        try { await JS.InvokeVoidAsync("lp.stopSpeech"); } catch { }
+    }
+}

@@ -1,0 +1,141 @@
+@layout SiteLayout
+@inherits LayoutComponentBase
+@using JumboWeb.Services
+@using System.ComponentModel
+@inject UserStateService UserState
+@inject UserPreferencesService Prefs
+@inject LivesService LivesService
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@implements IDisposable
+
+@* CascadingParameter lets the LP hamburger open the site sidebar *@
+
+<div class="lp-app">
+    @if (!_initialized)
+    {
+        <div class="lp-loading">@Loc["Common_Loading"]</div>
+    }
+    else
+    {
+        @if (!_isRegisterPage)
+        {
+            <header class="lp-header">
+                <span class="lp-header-brand">
+                    @if (UserState.IsRegistered)
+                    {
+                        <button class="lp-hamburger" @onclick="() => SiteLayout?.ToggleSidebar()" title="@Loc["LpLayout_MenuTitle"]">☰</button>
+                    }
+                    @Loc["Common_LpBrand"]
+                </span>
+                <div class="lp-header-status">
+                    <LanguageSwitcher />
+                    <ThemeToggle />
+                </div>
+            </header>
+            <StatStrip />
+        }
+
+        <div class="lp-content @(_isRegisterPage ? "full" : "")">
+            @Body
+        </div>
+
+        @if (!_isRegisterPage) { <AwardPopup /> }
+
+        @if (UserState.IsRegistered && !_isRegisterPage && !IsStaff)
+        {
+            <nav class="lp-tabs">
+                <button class="lp-tab @(IsActive("little-polyglot", exact: true) ? "active" : "")"
+                        @onclick='() => Go("/little-polyglot")'>
+                    <span class="tab-icon">🏠</span>
+                    <span class="tab-label">@Loc["LpLayout_HomeTab"]</span>
+                    @if (IsActive("little-polyglot", exact: true)) { <div class="lp-tab-indicator"></div> }
+                </button>
+                <button class="lp-tab @(IsActive("little-polyglot/dictionary") ? "active" : "")"
+                        @onclick='() => Go("/little-polyglot/dictionary")'>
+                    <span class="tab-icon">📖</span>
+                    <span class="tab-label">@Loc["DictionaryTitle"]</span>
+                    @if (IsActive("little-polyglot/dictionary")) { <div class="lp-tab-indicator"></div> }
+                </button>
+                <button class="lp-tab @(IsActive("little-polyglot/awards") ? "active" : "")"
+                        @onclick='() => Go("/little-polyglot/awards")'>
+                    <span class="tab-icon">🏆</span>
+                    <span class="tab-label">@Loc["AwardsTitle"]</span>
+                    @if (IsActive("little-polyglot/awards")) { <div class="lp-tab-indicator"></div> }
+                </button>
+                <button class="lp-tab @(IsActive("little-polyglot/games") ? "active" : "")"
+                        @onclick='() => Go("/little-polyglot/games")'>
+                    <span class="tab-icon">🎮</span>
+                    <span class="tab-label">@Loc["Games_Title"]</span>
+                    @if (IsActive("little-polyglot/games")) { <div class="lp-tab-indicator"></div> }
+                </button>
+                <button class="lp-tab @(IsActive("little-polyglot/settings") ? "active" : "")"
+                        @onclick='() => Go("/little-polyglot/settings")'>
+                    <span class="tab-icon">⚙️</span>
+                    <span class="tab-label">@Loc["SettingsTitle"]</span>
+                    @if (IsActive("little-polyglot/settings")) { <div class="lp-tab-indicator"></div> }
+                </button>
+            </nav>
+        }
+    }
+</div>
+
+<div id="blazor-error-ui" data-nosnippet>
+    @Loc["LpLayout_ErrorBanner"] <a href="." class="reload">@Loc["LpLayout_ReloadLink"]</a>
+    <span class="dismiss">🗙</span>
+</div>
+
+@code {
+    [CascadingParameter] private SiteLayout? SiteLayout { get; set; }
+
+    private bool _initialized;
+    private string _currentPath = string.Empty;
+    private bool _isRegisterPage => _currentPath.Equals("register", StringComparison.OrdinalIgnoreCase);
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        await LivesService.InitAsync();
+        try { await JS.InvokeVoidAsync("lp.setPalette", UserState.CurrentUser?.ThemeKey ?? ""); } catch { }
+
+        _currentPath = GetPath(Nav.Uri);
+
+        Nav.LocationChanged += OnLocationChanged;
+        LivesService.PropertyChanged += OnLivesChanged;
+        _initialized = true;
+        StateHasChanged();
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        _currentPath = GetPath(e.Location);
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void OnLivesChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        => InvokeAsync(StateHasChanged);
+
+    private string GetPath(string uri)
+        => Nav.ToBaseRelativePath(uri).Split('?', '#')[0].Trim('/');
+
+    private bool IsActive(string segment, bool exact = false)
+    {
+        if (exact)
+            return _currentPath.Equals(segment, StringComparison.OrdinalIgnoreCase);
+        return _currentPath.StartsWith(segment, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private bool IsStaff => UserState.HidesLessons;
+
+    private void Go(string path) => Nav.NavigateTo(path);
+
+    public void Dispose()
+    {
+        Nav.LocationChanged -= OnLocationChanged;
+        LivesService.PropertyChanged -= OnLivesChanged;
+    }
+}

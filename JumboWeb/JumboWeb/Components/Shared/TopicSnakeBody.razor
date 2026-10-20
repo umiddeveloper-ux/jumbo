@@ -1,0 +1,136 @@
+@using System.Globalization
+@using System.Text
+@using JumboWeb.Services
+@using Jumbo.Shared.Entities
+@inject NavigationManager Nav
+@inject AppLocalizer Loc
+
+@* The picture of the snake (the header is in TopicSnake). One thick body: it runs to the right along the first row, bends round (a half circle),
+   runs back to the left along the next row, and so on, four topics in a row. The topics are round markers lying on the body (the ring of three
+   parts: one per game). The part of the body that is passed is green; the topic to play next is lit and has a bubble over it.
+   The picture is drawn in a frame of its own units and scaled to the width: a phone gets a narrow frame, a computer a wide one (bigger,
+   spread over the whole width), TopicSnake draws both and CSS shows the one that fits. *@
+@{
+    var g = Layout();
+}
+<div class="snake @(Wide ? "wide" : "narrow")" style="aspect-ratio: @Inv(V.W) / @Inv(g.Height); --u: @Inv(100 / V.W)cqw; --road: @Inv(V.Node); --edge: @Inv(V.Node + V.Edge); --dot: @Inv(V.Dot); --gap: @Inv(V.Gap)">
+    <svg class="snake-svg" viewBox="0 0 @Inv(V.W) @Inv(g.Height)" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
+        <path class="snake-edge" d="@g.Body" />
+        <path class="snake-body" d="@g.Body" />
+        @if (g.GreenLen > 0)
+        {
+            <path class="snake-edge on" d="@g.Body" stroke-dasharray="@Inv(g.GreenLen) @Inv(g.Total + 600)" />
+            <path class="snake-body on" d="@g.Body" stroke-dasharray="@Inv(g.GreenLen) @Inv(g.Total + 600)" />
+        }
+        <path class="snake-scales" d="@g.Body" />
+    </svg>
+
+    @foreach (var p in g.Nodes)
+    {
+        var topic = p.Topic;
+        var st = StateOf(topic);
+        var parts = PartsOf(topic);
+        <button type="button" class="snake-node @st @(IsLocked(topic) ? "locked" : "")" title="@topic.SubjectName"
+                style="left: @Inv(p.X / V.W * 100)%; top: @Inv(p.Y / g.Height * 100)%; width: @Inv(V.Node / V.W * 100)%" @onclick="() => Open(topic)">
+            @if (st == "current")
+            {
+                <span class="snake-bubble">@Loc[parts > 0 ? "Path_Continue" : "Path_Start"]</span>
+            }
+            <span class="snake-disc ring3 parts-@parts">
+                <span class="snake-icon">
+                    @if (Svgs.TryGetValue(topic.SvgImageId, out var svg)) { @((MarkupString)svg) }
+                </span>
+                <span class="snake-num">@(st == "done" ? "✓" : (p.Index + 1).ToString())</span>
+                @if (IsLocked(topic)) { <span class="snake-lock" aria-hidden="true">🔒</span> }
+            </span>
+        </button>
+        <span class="snake-name @st" style="left: @Inv(p.LabelX / V.W * 100)%; top: @Inv((p.Y + V.Node / 2 + 8) / g.Height * 100)%; width: @Inv(p.LabelW / V.W * 100)%">@topic.SubjectName</span>
+    }
+</div>
+
+@code {
+    private const int Cols = 4;
+
+    private record Frame(double W, double X0, double Dx, double R, double Y0, double Node, double LabelMid, double LabelEnd, double Shift, double LabelZone, double Edge, double Dot, double Gap);
+
+    // The phone: 700 units wide. The computer: 1200 units wide, bigger markers, more room between them.
+    private static readonly Frame Narrow = new(700, 145, 410.0 / 3, 90, 92, 96, 134, 124, 30, 84, 12, 7, 22);
+    private static readonly Frame WideFrame = new(1200, 190, 820.0 / 3, 110, 108, 130, 236, 190, 50, 104, 14, 9, 28);
+
+    [Parameter] public bool Wide { get; set; }
+    [Parameter] public List<Subject> Path { get; set; } = new();
+    [Parameter] public Dictionary<int, UserSubjectProgress> Progress { get; set; } = new();
+    [Parameter] public Dictionary<int, string> Svgs { get; set; } = new();
+
+    /// <summary>A locked topic was pressed: the topic that has to be passed first.</summary>
+    [Parameter] public EventCallback<Subject> OnLocked { get; set; }
+
+    private Frame V => Wide ? WideFrame : Narrow;
+
+    private record Place(int Index, Subject Topic, double X, double Y, double S, double LabelX, double LabelW);
+    private record SnakeLayout(List<Place> Nodes, string Body, double Total, double GreenLen, double Height);
+
+    // Razor's default interpolation uses the culture of the user: a comma would break the SVG numbers.
+    private static string Inv(double d) => d.ToString("0.###", CultureInfo.InvariantCulture);
+
+    private SnakeLayout Layout()
+    {
+        var v = V;
+        double row = v.R * 2;
+        int rows = (Path.Count + Cols - 1) / Cols;
+        var nodes = new List<Place>();
+        var d = new StringBuilder($"M {Inv(v.X0)} {Inv(v.Y0)}");
+        double rowLen = (Cols - 1) * v.Dx + Math.PI * v.R;      // one full row and the bend after it
+
+        for (int r = 0; r < rows; r++)
+        {
+            bool back = r % 2 == 1;
+            int n = Math.Min(Cols, Path.Count - r * Cols);
+            double y = v.Y0 + r * row;
+            for (int k = 0; k < n; k++)
+            {
+                int col = back ? Cols - 1 - k : k;
+                double x = v.X0 + col * v.Dx;
+                // a bend under the marker: its name moves away from it, to the inside of the row
+                bool bendBelow = r < rows - 1 && ((!back && col == Cols - 1) || (back && col == 0));
+                double lx = bendBelow ? x + (col == 0 ? v.Shift : -v.Shift) : x;
+                nodes.Add(new Place(r * Cols + k, Path[r * Cols + k], x, y, r * rowLen + k * v.Dx, lx, bendBelow ? v.LabelEnd : v.LabelMid));
+            }
+
+            double endX = back ? v.X0 + (Cols - 1 - (n - 1)) * v.Dx : v.X0 + (n - 1) * v.Dx;
+            d.Append($" H {Inv(endX)}");
+            if (r < rows - 1) d.Append($" A {Inv(v.R)} {Inv(v.R)} 0 0 {(back ? 0 : 1)} {Inv(endX)} {Inv(y + row)}");
+        }
+
+        var first = nodes.FirstOrDefault(p => !IsDone(p.Topic));
+        double total = nodes[^1].S;
+        double green = first is null ? total : first.S;
+        return new SnakeLayout(nodes, d.ToString(), total, green, v.Y0 + (rows - 1) * row + v.Node / 2 + v.LabelZone);
+    }
+
+    private int PartsOf(Subject s) => Progress.TryGetValue(s.SubjectId, out var p) ? p.PartsDone : 0;
+    private bool IsDone(Subject s) => PartsOf(s) >= UserSubjectProgress.Parts;
+    private Subject? Current => Path.FirstOrDefault(s => !IsDone(s));
+
+    // done = all three games won; current = the first topic that is not finished; started = partly played; future = not touched yet.
+    private string StateOf(Subject s)
+    {
+        if (IsDone(s)) return "done";
+        if (Current is { } cur && cur.SubjectId == s.SubjectId) return "current";
+        return PartsOf(s) > 0 ? "started" : "future";
+    }
+
+    // A topic opens when the topic before it is passed: the ones up to the first topic that is not passed (that one included) are open,
+    // the ones after it are locked (a topic that is passed stays open).
+    private bool IsLocked(Subject s) => Current is { } cur && !IsDone(s) && Path.IndexOf(s) > Path.IndexOf(cur);
+
+    private async Task Open(Subject s)
+    {
+        if (IsLocked(s) && Current is { } cur)
+        {
+            await OnLocked.InvokeAsync(cur);
+            return;
+        }
+        Nav.NavigateTo($"/little-polyglot/subjects/{s.BookId}/{s.SubjectId}");
+    }
+}

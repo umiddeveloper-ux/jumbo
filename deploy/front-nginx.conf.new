@@ -1,0 +1,72 @@
+# WebSocket upgrade for jumbo.uz (Blazor Server circuit)
+map $http_upgrade $connection_upgrade_jumbo {
+    default upgrade;
+    ''      close;
+}
+
+server {
+    listen 80;
+    server_name zakovattravel.uz www.zakovattravel.uz;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name zakovattravel.uz www.zakovattravel.uz;
+
+    ssl_certificate     /etc/letsencrypt/live/zakovattravel.uz/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/zakovattravel.uz/privkey.pem;
+
+    client_max_body_size 20m;
+
+    location / {
+        proxy_pass         http://trips:8080;
+        proxy_http_version 1.1;
+        proxy_set_header   Host $host;
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+
+server {
+	listen 80;
+	server_name jumbo.uz www.jumbo.uz;
+	return 301 https://$host$request_uri;
+}
+server {
+	listen 443 ssl;
+	server_name jumbo.uz www.jumbo.uz;
+
+	ssl_certificate /etc/letsencrypt/live/jumbo.uz/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/jumbo.uz/privkey.pem;
+
+	
+	location /_blazor {
+		proxy_pass http://46.8.195.183:8080;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection $connection_upgrade_jumbo;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forward-Proto $scheme;
+		proxy_buffering off;
+		proxy_read_timeout 3600s;
+		proxy_send_timeout 3600s;
+	}
+	location / {
+		proxy_pass http://46.8.195.183:8080;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forward-Proto $scheme;
+	}
+}

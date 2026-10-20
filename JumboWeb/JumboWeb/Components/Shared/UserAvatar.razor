@@ -1,0 +1,47 @@
+@if (Plan is null)
+{
+    @Avatar
+}
+else
+{
+    @* with a version: a coin in the top-left corner (outside the round clip of the picture) *@
+    <span class="ua-wrap">
+        @Avatar
+        <span class="plan-coin plan-@PlanName" style="width:@(CoinSize)px;height:@(CoinSize)px;font-size:@(CoinSize * 0.62)px" title="@Loc[JumboWeb.Components.Pages.PlansPage.PlanKey(PlanName)]">★</span>
+    </span>
+}
+
+@code {
+    [Parameter] public string? Svg { get; set; }
+    [Parameter] public string? DisplayName { get; set; }
+    [Parameter] public int Size { get; set; } = 40;
+
+    /// <summary>The frame bought in the market, e.g. "frame_gold" (CSS draws it round the avatar).</summary>
+    [Parameter] public string? Frame { get; set; }
+
+    /// <summary>The version in force (bronze / silver / gold): a coin is shown in the corner. Null: no coin (other people's avatars).</summary>
+    [Parameter] public string? Plan { get; set; }
+
+    [Inject] private JumboWeb.Services.AppLocalizer Loc { get; set; } = null!;
+
+    private string PlanName => Jumbo.Shared.Plans.Normalize(Plan);
+
+    private int CoinSize => Math.Max(14, (int)(Size * 0.42));
+
+    private string Initial => string.IsNullOrWhiteSpace(DisplayName) ? "?" : DisplayName.Trim()[0].ToString().ToUpperInvariant();
+
+    private RenderFragment Avatar => @<div class="user-avatar @(string.IsNullOrEmpty(Frame) ? "" : "framed " + Frame)" style="width:@(Size)px;height:@(Size)px">
+        @if (!string.IsNullOrWhiteSpace(Svg) && Svg.StartsWith("data:"))
+        {
+            <img src="@Svg" alt="@DisplayName" />
+        }
+        else if (!string.IsNullOrWhiteSpace(Svg))
+        {
+            @((MarkupString)Svg)
+        }
+        else
+        {
+            <span class="user-avatar-fallback">@Initial</span>
+        }
+    </div>;
+}

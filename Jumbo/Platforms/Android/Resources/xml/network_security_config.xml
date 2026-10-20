@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The release app talks to the server only over https (https://jumbo.uz): no plain http at all. The debug build has its own file
+     (Platforms/Android/DebugResources/xml/network_security_config.xml) that also allows the emulator's host machine. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>

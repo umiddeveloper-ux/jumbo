@@ -1,0 +1,183 @@
+@page "/"
+@using Microsoft.AspNetCore.Components.Routing
+@using JumboWeb.Services
+@inject AppLocalizer Loc
+@inject UserStateService UserState
+@inject UserPreferencesService Prefs
+@inject LpApiClient ApiClient
+
+<PageTitle>@Loc["SiteHome_PageTitle"]</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (UserState.IsRegistered)
+{
+    @* ═══════════ Signed in: personal dashboard ═══════════ *@
+    var user = UserState.CurrentUser!;
+    <div class="land-wrap">
+    <div class="land-bg" aria-hidden="true"></div>
+    <div class="dash">
+        <section class="dash-hello">
+            <div class="dash-hello-text">
+                <h1 class="dash-hello-title">@Loc.Format("Dash_Hello", user.FirstName)</h1>
+                <p class="dash-hello-sub">@Loc["Dash_Sub"]</p>
+                <a class="lp-btn dash-continue" href="/little-polyglot">@Loc["Dash_Continue"] →</a>
+            </div>
+            <Tiger Mood="wave" Size="150" />
+        </section>
+
+        <DailyCard />
+
+        <h2 class="land-h2">@Loc["Dash_ResultsTitle"]</h2>
+        <div class="dash-stats">
+            <div class="dash-stat"><span class="dash-stat-ico">📖</span><span class="dash-stat-num">@_wordsLearned</span><span class="dash-stat-label">@Loc["Dash_Words"]</span><span class="dash-stat-sub">/ @_wordsTotal</span></div>
+            <div class="dash-stat"><span class="dash-stat-ico">🗺️</span><span class="dash-stat-num">@_topicsDone</span><span class="dash-stat-label">@Loc["Dash_Topics"]</span></div>
+            <div class="dash-stat"><span class="dash-stat-ico">🎮</span><span class="dash-stat-num">@_gamesWon</span><span class="dash-stat-label">@Loc["Dash_Games"]</span></div>
+            <div class="dash-stat"><span class="dash-stat-ico">💰</span><span class="dash-stat-num" title="@PointsFormat.Exact(user.LpPoints)">@PointsFormat.Compact(user.LpPoints)</span><span class="dash-stat-label">@Loc["Dash_Lp"]</span></div>
+        </div>
+
+        <h2 class="land-h2">@Loc["Dash_QuickTitle"]</h2>
+        <div class="site-home-cards">
+            <a href="/little-polyglot" class="site-home-card">
+                <img src="favicon.svg" class="site-home-card-icon" alt="" />
+                <div class="site-home-card-title">@Loc["SiteHome_LpCardTitle"]</div>
+                <div class="site-home-card-desc">@Loc["SiteHome_LpCardDesc"]</div>
+            </a>
+            <a href="/little-polyglot/alphabet" class="site-home-card">
+                <span class="site-home-card-emoji">🔤</span>
+                <div class="site-home-card-title">@Loc["AlphabetSection"]</div>
+                <div class="site-home-card-desc">@Loc["Alphabet_CtaHint"]</div>
+            </a>
+            <a href="/exam" class="site-home-card">
+                <span class="site-home-card-emoji">📋</span>
+                <div class="site-home-card-title">@Loc["SiteHome_ExamCardTitle"]</div>
+                <div class="site-home-card-desc">@Loc["SiteHome_ExamCardDesc"]</div>
+            </a>
+        </div>
+
+        <AppDownload />
+
+        @* The top players: at the very bottom, and only on a wide screen. *@
+        <div class="dash-top-desktop"><TopTen /></div>
+    </div>
+    </div>
+}
+else
+{
+    @* ═══════════ Guest: landing. Bands, dark and light in turn, from the dark one at the top. ═══════════ *@
+    <div class="land-wrap land-bands">
+        <div class="band dark land-topbar">
+            <div class="land-in">
+                <LandNav Minimal="true" />
+            </div>
+        </div>
+
+        <div class="band dark">
+            <PhoneCarousel />
+        </div>
+
+        <div class="band light">
+            <div class="land-in">
+                <section class="land-hero">
+                    <div class="land-hero-text">
+                        <h1 class="land-hero-title">@Loc["Land_HeroTitle"]</h1>
+                        <p class="land-hero-sub">@Loc["Land_HeroSub"]</p>
+                        <div class="land-hero-actions">
+                            <a class="lp-btn land-big" href="/register">@Loc["Land_Register"]</a>
+                            <a class="lp-btn lp-btn-outline land-big" href="/login">@Loc["Land_Login"]</a>
+                        </div>
+                    </div>
+                    <div class="land-hero-art" aria-hidden="true">
+                        <span class="land-bubble b1">Hello!</span>
+                        <span class="land-bubble b2">Привет!</span>
+                        <span class="land-bubble b3">Salom!</span>
+                        <Tiger Mood="wave" Size="250" />
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="band dark" id="top">
+            <div class="land-in">
+                <section class="land-section">
+                    <TopTen Tiles="true" />
+                </section>
+            </div>
+        </div>
+
+        <div class="band light" id="how">
+            <div class="land-in">
+                <section class="land-section">
+                    <h2 class="land-h2 center">@Loc["Land_HowTitle"]</h2>
+                    <div class="land-steps">
+                        <div class="land-step"><span class="land-step-num">1</span><div class="land-step-title">@Loc["Land_How1Title"]</div><p>@Loc["Land_How1Desc"]</p></div>
+                        <div class="land-step"><span class="land-step-num">2</span><div class="land-step-title">@Loc["Land_How2Title"]</div><p>@Loc["Land_How2Desc"]</p></div>
+                        <div class="land-step"><span class="land-step-num">3</span><div class="land-step-title">@Loc["Land_How3Title"]</div><p>@Loc["Land_How3Desc"]</p></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="band dark" id="features">
+            <div class="land-in">
+                <section class="land-section">
+                    <h2 class="land-h2 center">@Loc["Land_FeatTitle"]</h2>
+                    <div class="land-feats">
+                        <div class="land-feat"><span class="land-feat-ico">📖</span><div class="land-feat-title">@Loc["Land_Feat1Title"]</div><p>@Loc["Land_Feat1Desc"]</p></div>
+                        <div class="land-feat"><span class="land-feat-ico">🎮</span><div class="land-feat-title">@Loc["Land_Feat2Title"]</div><p>@Loc["Land_Feat2Desc"]</p></div>
+                        <div class="land-feat"><span class="land-feat-ico">🔤</span><div class="land-feat-title">@Loc["Land_Feat3Title"]</div><p>@Loc["Land_Feat3Desc"]</p></div>
+                        <div class="land-feat"><span class="land-feat-ico">🔁</span><div class="land-feat-title">@Loc["Land_Feat4Title"]</div><p>@Loc["Land_Feat4Desc"]</p></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="band light">
+            <div class="land-in">
+                <section class="land-cta">
+                    <Tiger Mood="cheer" Size="130" />
+                    <div class="land-cta-text">
+                        <h2>@Loc["Land_CtaTitle"]</h2>
+                        <p>@Loc["Land_CtaSub"]</p>
+                        <a class="lp-btn land-big" href="/register">@Loc["Land_Register"]</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="band dark">
+            <LandFooter />
+        </div>
+    </div>
+}
+
+@code {
+    private bool _loaded;
+    private int _wordsLearned, _wordsTotal, _topicsDone, _gamesWon;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+
+        if (UserState.IsRegistered)
+        {
+            try
+            {
+                var progress = await ApiClient.GetUserSubjectProgressAsync();
+                _topicsDone = progress.Count(p => p.AllWon);
+                _gamesWon = progress.Sum(p => (p.FindMeWon ? 1 : 0) + (p.SequenceWon ? 1 : 0) + (p.ListenWon ? 1 : 0) + (p.StepsWon ? 1 : 0));
+                _wordsLearned = (await ApiClient.GetUserWordsAsync()).Count;
+                _wordsTotal = await ApiClient.GetWordsCountAsync(Prefs.StudyLangId);
+            }
+            catch
+            {
+                // Stats are a bonus: never break the home page over them.
+            }
+        }
+
+        _loaded = true;
+    }
+}

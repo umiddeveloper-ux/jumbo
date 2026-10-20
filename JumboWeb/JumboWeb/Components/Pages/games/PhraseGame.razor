@@ -1,0 +1,337 @@
+@page "/little-polyglot/games/phrase/{SubjectId:int}"
+@layout LpLayout
+@rendermode InteractiveServer
+@implements IAsyncDisposable
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject LivesService Lives
+@inject IJSRuntime JS
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+<PageTitle>@Loc["Game_PhraseTitle"]</PageTitle>
+
+<div class="game-topbar">
+    <button class="lp-back-btn" @onclick="GoBack">@Loc["Common_BackArrow"]</button>
+    @if (!_isGameOver && !_isGameWon)
+    {
+        <TigerCoach @ref="_coach" />
+    }
+    else
+    {
+        <span class="coach"></span>
+    }
+    <span class="game-lives" aria-hidden="true"></span>
+</div>
+
+@if (Blocked)
+{
+    <BlockNotice Failed="@(false)" OnBack="GoBack" OnUnlocked="RestartGame" />
+}
+else if (_isBusy)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_hasNoData)
+{
+    <div class="lp-empty-state">@Loc["PhraseGame_NoPhrases"]</div>
+    <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick="GoBack">@Loc["Common_Back"]</button>
+}
+else if (_isGameOver)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="sad" Size="150" /></div>
+        <div class="game-result-title">@Loc["Common_GameOver"]</div>
+        <button class="lp-btn lp-btn-full" @onclick="RestartGame">@Loc["Common_Again"]</button>
+        <button class="lp-btn lp-btn-full lp-btn-outline" @onclick="GoBack">@Loc["Common_Exit"]</button>
+    </div>
+}
+else if (_isGameWon)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="cheer" Size="160" /></div>
+        <div class="game-result-title">@Loc["PhraseGame_Won"]</div>
+        <div class="game-result-sub">@Loc.Format("Common_LpEarned", LpReward)</div>
+        <button class="lp-btn lp-btn-full" @onclick="GoBack">@Loc["Common_Continue"]</button>
+    </div>
+}
+else if (_round is not null)
+{
+    <div class="listen-progress-wrap">
+        <div class="listen-progress-bar">
+            <div class="listen-progress-fill" style="width:@(_progressPct)%"></div>
+        </div>
+        <div class="listen-progress-text">@_step / @_rounds.Count</div>
+    </div>
+
+    <!-- The picture and its word -->
+    <div class="phr-top">
+        <div class="phr-pic">@((MarkupString)_round.Svg)</div>
+        <div class="phr-word-box">
+            <div class="phr-word">@_round.Word</div>
+            @if (!string.IsNullOrEmpty(_round.WordTranslation))
+            {
+                <div class="phr-word-trans">@_round.WordTranslation</div>
+            }
+            <button type="button" class="listen-speak-btn phr-speak" @onclick="SpeakWord" title="@Loc["ListenGame_SpeakTitle"]" aria-label="@Loc["ListenGame_SpeakTitle"]">🔊</button>
+        </div>
+    </div>
+
+    <!-- The example in the pupil's own language: this is the phrase to build in English -->
+    <div class="phr-prompt">
+        <span class="phr-prompt-text">@_round.Prompt</span>
+    </div>
+
+    <!-- Cells for the words of the phrase: the words fill them from the left; drop a word on a filled cell and the rest move right -->
+    <div class="phr-slots" aria-label="@Loc["PhraseGame_SlotsLabel"]">
+        @for (int i = 0; i < _target.Count; i++)
+        {
+            var idx = i;
+            var tile = idx < _placed.Count ? _placed[idx] : null;
+            <button type="button" class="phr-slot @SlotClass(idx)" data-slot="@idx" data-src="@(tile is null ? null : "s:" + idx)"
+                    disabled="@(tile is null || !_interactive)" @onclick="() => ReturnToBank(idx)">@(tile?.Text ?? "")</button>
+        }
+    </div>
+
+    <!-- The words of the phrase, mixed up -->
+    <div class="phr-bank">
+        @foreach (var t in _bank)
+        {
+            var tile = t;
+            <button type="button" class="phr-tile @(tile.Placed ? "used" : "")" data-src="@("b:" + tile.Id)"
+                    disabled="@(tile.Placed || !_interactive)" @onclick="() => Append(tile)">@tile.Text</button>
+        }
+    </div>
+
+    <!-- The pupil may swap the words around before pressing Next. The bar stays at the bottom of the screen. -->
+    <div class="phr-next-bar">
+        <button type="button" class="lp-btn lp-btn-full phr-next" disabled="@(!AllPlaced || !_interactive)" @onclick="CheckAsync">@Loc["PhraseGame_Next"] →</button>
+    </div>
+}
+
+@code {
+    // No lives and no LP: the 5-hour block.
+    private bool Blocked => Lives.IsBlocked;
+
+    private const int MaxRounds = 15;
+    private const int LpReward = 8;
+
+    [Parameter] public int SubjectId { get; set; }
+    private TigerCoach? _coach;
+    private DotNetObjectReference<PhraseGame>? _self;
+    private bool _dragAttached;
+
+    private record Round(int WordId, string Svg, string Word, string WordTranslation, string Phrase, string Prompt);
+    private class Tile
+    {
+        public int Id { get; init; }
+        public string Text { get; init; } = string.Empty;
+        public bool Placed { get; set; }
+    }
+    private enum Verdict { None, Correct, Wrong }
+
+    private List<Round> _rounds = new();
+    private Round? _round;
+    private List<string> _target = new();
+    private List<Tile> _bank = new();
+    private List<Tile> _placed = new();          // the cells hold these, from the left, without gaps
+    private Verdict _verdict;
+    private int _step;
+    private bool _isBusy, _hasNoData, _isGameOver, _isGameWon, _interactive;
+
+    private double _progressPct => _rounds.Count > 0 ? _step * 100.0 / _rounds.Count : 0;
+    private bool AllPlaced => _target.Count > 0 && _placed.Count == _target.Count;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        await LoadGame();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // Drag and drop (mouse and finger) is handled in the browser; it reports the drops back here.
+        if (!_dragAttached && _round is not null)
+        {
+            _dragAttached = true;
+            _self = DotNetObjectReference.Create(this);
+            try { await JS.InvokeVoidAsync("lp.phraseDrag.attach", _self); } catch { }
+        }
+    }
+
+    private async Task LoadGame()
+    {
+        _isBusy = true;
+        _isGameOver = _isGameWon = _hasNoData = false;
+        _rounds.Clear();
+        _round = null;
+        _step = 0;
+
+        await Lives.CheckRegenAsync();
+
+        // Only words that have an example sentence (in the language being studied) can make a round.
+        var words = await ApiClient.GetAllWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId);
+        var withExample = words.Where(w => !string.IsNullOrWhiteSpace(w.Example) && w.Example!.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length >= 2)
+            .OrderBy(_ => Random.Shared.Next()).Take(MaxRounds).ToList();
+        if (withExample.Count == 0) { _hasNoData = true; _isBusy = false; return; }
+
+        foreach (var w in withExample)
+        {
+            var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+            var svg = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
+            _rounds.Add(new Round(w.WordId, svg, w.WordName, trans?.WordName ?? string.Empty,
+                w.Example!.Trim(), string.IsNullOrWhiteSpace(trans?.Example) ? w.Example.Trim() : trans!.Example!.Trim()));
+        }
+
+        _isBusy = false;
+        await StartRound(0);
+    }
+
+    private async Task StartRound(int index)
+    {
+        _round = _rounds[index];
+        _target = _round.Phrase.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList();
+
+        var tiles = _target.Select((t, i) => new Tile { Id = i, Text = t }).ToList();
+        // Mixed up, and never already in the right order.
+        List<Tile> mixed;
+        var tries = 0;
+        do { mixed = tiles.OrderBy(_ => Random.Shared.Next()).ToList(); tries++; }
+        while (tries < 10 && mixed.Select(t => t.Text).SequenceEqual(_target));
+        _bank = mixed;
+        _placed = new List<Tile>();
+        _verdict = Verdict.None;
+        _interactive = true;
+        StateHasChanged();
+        await SpeakWord();
+    }
+
+    // ── moving words ──────────────────────────────────────────────────────
+
+    // A tap on a word below: it goes to the first free cell.
+    private void Append(Tile tile)
+    {
+        if (!_interactive || tile.Placed) return;
+        tile.Placed = true;
+        _placed.Add(tile);
+        _verdict = Verdict.None;
+    }
+
+    // A tap on a word in a cell: it goes back below, the words after it move one cell to the left.
+    private void ReturnToBank(int index)
+    {
+        if (!_interactive || index >= _placed.Count) return;
+        _placed[index].Placed = false;
+        _placed.RemoveAt(index);
+        _verdict = Verdict.None;
+    }
+
+    // Called by the browser when a word was dropped. source: "b:<tile id>" (a word from below) or "s:<cell>" (a word in a cell);
+    // target: the cell it was dropped on, or -1 for the word bank. Dropping on a filled cell puts the word there and the words
+    // from that cell on move one cell to the right; dropping on an empty cell puts it after the last word.
+    [JSInvokable]
+    public Task DropTile(string source, int target) => InvokeAsync(() =>
+    {
+        if (!_interactive || _round is null) return;
+
+        if (source.StartsWith("b:") && int.TryParse(source.AsSpan(2), out var tileId))
+        {
+            var tile = _bank.FirstOrDefault(t => t.Id == tileId && !t.Placed);
+            if (tile is null || target < 0) return;
+            tile.Placed = true;
+            _placed.Insert(Math.Min(target, _placed.Count), tile);
+        }
+        else if (source.StartsWith("s:") && int.TryParse(source.AsSpan(2), out var from) && from >= 0 && from < _placed.Count)
+        {
+            var tile = _placed[from];
+            _placed.RemoveAt(from);
+            if (target < 0) tile.Placed = false;
+            else _placed.Insert(Math.Min(target, _placed.Count), tile);
+        }
+        else return;
+
+        _verdict = Verdict.None;
+        StateHasChanged();
+    });
+
+    // ── checking ──────────────────────────────────────────────────────────
+
+    // The Next button: right phrase -> next one; wrong -> a life is lost, the words stay so they can be moved around.
+    private async Task CheckAsync()
+    {
+        if (!_interactive || !AllPlaced) return;
+        _interactive = false;
+        var ok = _placed.Select(t => t.Text).SequenceEqual(_target);
+        _verdict = ok ? Verdict.Correct : Verdict.Wrong;
+        StateHasChanged();
+
+        if (ok)
+        {
+            _coach?.Cheer();
+            try { await JS.InvokeVoidAsync("lp.speak", _round!.Phrase, "en-US"); } catch { }
+            await Task.Delay(1800);
+
+            _step++;
+            if (_step >= _rounds.Count)
+            {
+                await ApiClient.EnsureWordsExistAsync(_rounds.Select(r => r.WordId));
+                await ApiClient.MarkGameWonAsync(SubjectId, "Phrase");
+                await Lives.AddLpAsync(LpReward);
+                _isGameWon = true;
+            }
+            else
+            {
+                await StartRound(_step);
+            }
+        }
+        else
+        {
+            _coach?.Oops();
+            bool canPlay = await Lives.TakeDamageAsync();
+            await Task.Delay(500);
+            if (!canPlay) { _isGameOver = true; return; }
+            _interactive = true;           // the red / green marks stay until the next move
+        }
+    }
+
+    // After a check each cell shows whether the word stands where it belongs.
+    private string SlotClass(int i)
+    {
+        if (i >= _placed.Count) return "empty";
+        return _verdict switch
+        {
+            Verdict.Correct => "right",
+            Verdict.Wrong => _placed[i].Text == _target[i] ? "right" : "wrong",
+            _ => "filled"
+        };
+    }
+
+    private async Task SpeakWord()
+    {
+        if (_round is not null)
+            try { await JS.InvokeVoidAsync("lp.speak", _round.Word, "en-US"); } catch { }
+    }
+
+    private async Task RestartGame()
+    {
+        await JS.InvokeVoidAsync("lp.stopSpeech");
+        await Lives.CheckRegenAsync();
+        if (!Lives.CanPlay) return;
+        await LoadGame();
+    }
+
+    private void GoBack()
+    {
+        _ = JS.InvokeVoidAsync("lp.stopSpeech");
+        _ = JS.InvokeVoidAsync("lp.goBack", "/little-polyglot");
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        try { await JS.InvokeVoidAsync("lp.phraseDrag.detach"); } catch { }
+        _self?.Dispose();
+    }
+}

@@ -1,0 +1,133 @@
+@page "/little-polyglot/unlock/{Book:int}"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject BookGateService Gates
+@inject LivesService Lives
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc.Format("Gate_Title", Book)</PageTitle>
+
+<button class="lp-back-btn" @onclick='() => Nav.NavigateTo("/little-polyglot")'>@Loc["Common_BackArrow"]</button>
+
+@if (!_ready)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_opened)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="cheer" Size="160" /></div>
+        <div class="game-result-title">@Loc.Format("Gate_Opened", Book)</div>
+    </div>
+}
+else if (Lives.Lives <= 0)
+{
+    @* The lives are gone: the check cannot be taken (and counts as failed) until they come back. *@
+    <BlockNotice Failed="true" OnBack="@(() => Nav.NavigateTo("/little-polyglot"))" OnUnlocked="@(() => StateHasChanged())" />
+}
+else
+{
+    <div class="gate">
+        <div class="gate-hero">
+            <Tiger Mood="wave" Size="110" />
+            <h1 class="gate-title">@Loc.Format("Gate_Title", Book)</h1>
+            <p class="gate-sub">@Loc.Format("Gate_Sub", Book, Book - 1)</p>
+        </div>
+
+        <ol class="gate-steps">
+            @for (int step = 1; step <= BookGateService.Steps; step++)
+            {
+                var s = step;
+                var passed = Gates.IsPassed(Book, s);
+                var current = !passed && s == NextStep;
+                <li class="gate-step @(passed ? "done" : current ? "current" : "")">
+                    <span class="gate-step-num">@(passed ? "✓" : s.ToString())</span>
+                    <span class="gate-step-text">
+                        <b>@Loc.Format("Gate_Step", s)</b>
+                        <small>@StepName(s)</small>
+                    </span>
+                    @if (passed)
+                    {
+                        <span class="gate-step-state">@Loc["Gate_Passed"]</span>
+                    }
+                    else if (current)
+                    {
+                        <button type="button" class="lp-btn lp-btn-sm" @onclick="() => Go(s)">@Loc[Gates.PassedCount(Book) == 0 ? "Gate_Start" : "Gate_Next"] →</button>
+                    }
+                </li>
+            }
+        </ol>
+
+        @if (!string.IsNullOrEmpty(_error))
+        {
+            <p class="validation-message">@_error</p>
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public int Book { get; set; }
+
+    private bool _ready, _opened;
+    private string _error = string.Empty;
+
+    private int NextStep => Enumerable.Range(1, BookGateService.Steps).FirstOrDefault(s => !Gates.IsPassed(Book, s), BookGateService.Steps + 1);
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        if (UserState.CurrentUser is null) { Nav.NavigateTo("/login", replace: true); return; }
+
+        var open = await ApiClient.GetUnlockedBooksAsync();
+        if (Book < 2 || Book > Course.BookCount || !open.Contains(Book - 1))
+        {
+            // The book before it is still closed (or there is no such book): nothing to check here.
+            Nav.NavigateTo("/little-polyglot", replace: true);
+            return;
+        }
+        if (open.Contains(Book)) { await OpenBookAsync(); return; }
+
+        _ready = true;
+        if (Gates.PassedCount(Book) >= BookGateService.Steps) await FinishAsync();
+    }
+
+    // All three steps passed: the book opens and the learner lands in it.
+    private async Task FinishAsync()
+    {
+        if (await ApiClient.UnlockBookAsync(Book))
+        {
+            Gates.Reset(Book);
+            _opened = true;
+            StateHasChanged();
+            await Task.Delay(1500);
+            await OpenBookAsync();
+        }
+        else
+        {
+            Gates.Reset(Book);
+            _error = Loc["Gate_Error"];
+        }
+    }
+
+    private async Task OpenBookAsync()
+    {
+        // On a phone the book has its own page; on a wide screen it is the map of the home page.
+        if (await JS.InvokeAsync<bool>("lp.isMobile")) Nav.NavigateTo($"/little-polyglot/book/{Book}", replace: true);
+        else Nav.NavigateTo($"/little-polyglot?book={Book}", replace: true);
+    }
+
+    private void Go(int step) => Nav.NavigateTo(BookGateService.StepUrl(step, Book));
+
+    private string StepName(int step) => step switch
+    {
+        1 => Loc["Game_FindMeTitle"],
+        2 => Loc["Game_ListenTitle"],
+        _ => Loc["Game_SequenceTitle"]
+    };
+}

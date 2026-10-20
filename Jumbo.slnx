@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="Jumbo.Api/Jumbo.Api.csproj" />
+  <Project Path="Jumbo.ApiClient/Jumbo.ApiClient.csproj" />
+  <Project Path="Jumbo.Shared/Jumbo.Shared.csproj" />
+  <Project Path="Jumbo/Jumbo.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="JumboWeb/JumboWeb.Client/JumboWeb.Client.csproj" Id="1fe9d4dd-7ba5-41d7-a0aa-ff73e45616ac" />
+  <Project Path="JumboWeb/JumboWeb/JumboWeb.csproj" Id="293f0162-3b47-419c-916c-01b64a358715" />
+</Solution>

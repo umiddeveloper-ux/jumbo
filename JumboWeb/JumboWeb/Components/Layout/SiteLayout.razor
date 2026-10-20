@@ -1,0 +1,296 @@
+@inherits LayoutComponentBase
+@implements IDisposable
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@inject JumboWeb.Services.UserStateService UserState
+@inject JumboWeb.Services.UserPreferencesService Prefs
+@inject JumboWeb.Services.AppLocalizer Loc
+@using Microsoft.AspNetCore.Components.Routing
+
+<CascadingValue Value="this">
+    <div class="site-wrapper">
+        @if (_sidebarOpen)
+        {
+            <div class="site-overlay" @onclick="CloseSidebar"></div>
+        }
+
+        @if (!_hideNav)
+        {
+            <nav class="site-sidebar @(_sidebarOpen ? "open" : "")">
+                <a class="site-sidebar-brand" href="@(IsAdmin ? "/admin/requests" : IsStaff ? "/teacher" : IsApplicant ? "/for-schools" : "/")" @onclick="CloseSidebar">
+                    <img src="favicon.svg" class="site-brand-icon" alt="@Loc["Common_LogoAlt"]" />
+                    <span class="site-brand-name">@Loc["Common_BrandName"]</span>
+                </a>
+                @if (UserState.IsRegistered)
+                {
+                    @* the avatar and the name open the settings (the version, the avatar, the profile) *@
+                    <a class="site-user-card" href="/little-polyglot/settings" @onclick="CloseSidebar">
+                        <UserAvatar Svg="@UserState.CurrentUser?.AvatarSvg" DisplayName="@UserState.CurrentUser?.FirstName" Size="40" Frame="@UserState.CurrentUser?.FrameKey" Plan="@UserState.CurrentPlan" />
+                        <span class="site-user-name">@UserState.CurrentUser?.FirstName @UserState.CurrentUser?.LastName</span>
+                    </a>
+                }
+                <ul class="site-nav-list">
+                    @if (IsAdmin)
+                    {
+                        @* The Admin only manages the platform: the menu is the admin page, nothing of the pupils' or teachers' world. *@
+                        @foreach (var (path, icon, key) in AdminSections)
+                        {
+                            <li>
+                                <NavLink class="site-nav-link" href="@("/admin/" + path)" @onclick="CloseSidebar">
+                                    <span class="site-nav-icon">@icon</span>
+                                    <span>@Loc[key]</span>
+                                </NavLink>
+                            </li>
+                        }
+                    }
+                    else if (IsApplicant)
+                    {
+                        @* A teacher in waiting (registered through "For teachers", not approved yet): no menu, only the request page. *@
+                    }
+                    else if (IsStaff)
+                    {
+                        @* Teachers and directors do not take the lessons: "Home" is their cabinet, the exam menu starts exams. *@
+                        <li>
+                            <a class="site-nav-link @(StaffHomeActive ? "active" : "")" href="/teacher" @onclick="CloseSidebar">
+                                <span class="site-nav-icon">🏠</span>
+                                <span>@Loc["SiteLayout_HomeNav"]</span>
+                            </a>
+                        </li>
+                        <li>
+                            <NavLink class="site-nav-link" href="/little-polyglot/dictionary" @onclick="CloseSidebar">
+                                <span class="site-nav-icon">📖</span>
+                                <span>@Loc["DictionaryTitle"]</span>
+                            </NavLink>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <NavLink class="site-nav-link" href="/" Match="NavLinkMatch.All" @onclick="CloseSidebar">
+                                <span class="site-nav-icon">🏠</span>
+                                <span>@Loc["SiteLayout_HomeNav"]</span>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink class="site-nav-link" href="/little-polyglot" @onclick="CloseSidebar">
+                                <img src="favicon.svg" class="site-nav-logo" alt="" />
+                                <span>@Loc["Common_LpBrand"]</span>
+                            </NavLink>
+                        </li>
+                    }
+                    @if (!IsApplicant && !IsAdmin)
+                    {
+                        <li>
+                            <NavLink class="site-nav-link" href="/rating" @onclick="CloseSidebar">
+                                <span class="site-nav-icon">🏆</span>
+                                <span>@Loc["Nav_Rating"]</span>
+                            </NavLink>
+                        </li>
+                    }
+                    @* "Test my level" temporarily hidden from the menu; pages/routes under /test-my-level are kept for later.
+                    <li>
+                        <NavLink class="site-nav-link" href="/test-my-level" @onclick="CloseSidebar">
+                            <span class="site-nav-icon">📝</span>
+                            <span>@Loc["SiteLayout_TestNav"]</span>
+                        </NavLink>
+                    </li>
+                    *@
+                    @* Only for visitors: a registered user (pupil) has no use for it; teachers and directors get their own cabinet below. *@
+                    @if (!UserState.IsRegistered)
+                    {
+                        <li>
+                            <NavLink class="site-nav-link" href="/for-schools" @onclick="CloseSidebar">
+                                <span class="site-nav-icon">🧑‍🏫</span>
+                                <span>@Loc["FS_Nav"]</span>
+                            </NavLink>
+                        </li>
+                    }
+                    @if (!IsApplicant && !IsAdmin)
+                    {
+                        <li>
+                            <NavLink class="site-nav-link" href="@(IsStaff ? "/teacher/exam" : "/exam")" @onclick="CloseSidebar">
+                                <span class="site-nav-icon">📋</span>
+                                <span>@Loc["SiteHome_ExamCardTitle"]</span>
+                            </NavLink>
+                        </li>
+                    }
+                </ul>
+
+                @if (UserState.IsRegistered)
+                {
+                    @if (!IsApplicant)
+                    {
+                        <NavLink class="site-nav-link" href="/little-polyglot/settings" @onclick="CloseSidebar">
+                            <span class="site-nav-icon">⚙️</span>
+                            <span>@Loc["SettingsTitle"]</span>
+                        </NavLink>
+                    }
+                    <button type="button" class="site-nav-link site-logout-link" @onclick="OpenLogoutConfirm">
+                        <span class="site-nav-icon">🚪</span>
+                        <span>@Loc["Common_Exit"]</span>
+                    </button>
+                }
+            </nav>
+        }
+
+        @if (_showLogoutConfirm)
+        {
+            <div class="confirm-overlay" @onclick="CancelLogout">
+                <div class="confirm-modal" @onclick:stopPropagation="true">
+                    <p class="confirm-modal-title">@Loc["SiteLayout_LogoutConfirmTitle"]</p>
+                    <p class="confirm-modal-sub">@Loc["SiteLayout_LogoutConfirmSub"]</p>
+                    <div class="confirm-modal-actions">
+                        <button type="button" class="lp-btn lp-btn-outline" @onclick="CancelLogout">@Loc["Common_Cancel"]</button>
+                        <button type="button" class="lp-btn" @onclick="Logout">@Loc["Common_Exit"]</button>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <main class="site-main @(_hideNav ? "site-main-full" : "")">
+            @if (!_isLpPage && !_hideNav)
+            {
+                <div class="site-desktop-topbar"><LanguageSwitcher /><ThemeToggle /></div>
+                <header class="site-mobile-header">
+                    <button class="site-hamburger" @onclick="ToggleSidebar">☰</button>
+                    <a class="site-mobile-title" href="/">@Loc["Common_BrandName"]</a>
+                    <LanguageSwitcher />
+                    <ThemeToggle />
+                    @if (UserState.IsRegistered)
+                    {
+                        <span class="site-mobile-user">
+                            <UserAvatar Svg="@UserState.CurrentUser?.AvatarSvg" DisplayName="@UserState.CurrentUser?.FirstName" Size="30" Frame="@UserState.CurrentUser?.FrameKey" Plan="@UserState.CurrentPlan" />
+                        </span>
+                    }
+                </header>
+            }
+            @if (!_isLpPage && !_hideNav)
+            {
+                <StatStrip />
+            }
+            <div class="site-body-scroll">
+                @Body
+            </div>
+        </main>
+    </div>
+</CascadingValue>
+
+@code {
+    private string _currentPath = string.Empty;
+    private bool _sidebarOpen;
+    private bool _showLogoutConfirm;
+
+    // The sections of the admin page, each its own item of the menu.
+    private static readonly (string Path, string Icon, string Key)[] AdminSections =
+    [
+        ("requests", "📨", "Admin_TabRequests"), ("schools", "🏫", "Admin_TabSchools"), ("subscribers", "💬", "Admin_TabSubscribers"),
+        ("versions", "📱", "Admin_TabVersions"), ("plans", "🪙", "Admin_TabPlans"), ("prices", "🏷", "Admin_TabPrices"),
+        ("balance", "💳", "Admin_TabBalance"), ("videos", "🎬", "Admin_TabVideos"),
+    ];
+
+    private static readonly string[] PublicPaths = ["", "register", "login", "for-schools", "plans"];
+
+    private bool _userLoaded;
+
+    // A teacher / director: the cabinet, the rating of their pupils and the exams - no lessons.
+    private bool IsStaff => UserState.IsStaffUser;
+
+    // Applied for a teacher / director role, the Admin has not decided yet.
+    private bool IsApplicant => UserState.IsStaffApplicant;
+
+    // The platform administrator: only the admin page and the settings.
+    private bool IsAdmin => UserState.IsAdminUser;
+
+    private bool StaffHomeActive => _currentPath.Equals("teacher", StringComparison.OrdinalIgnoreCase)
+                                 || _currentPath.StartsWith("teacher/class", StringComparison.OrdinalIgnoreCase)
+                                 || (IsApplicant && _currentPath.Equals("for-schools", StringComparison.OrdinalIgnoreCase));
+
+    // Pages of the pupils' world that a teacher never opens: the learning area, the pupils' exam, the level test, the landing.
+    private string? StaffRedirect()
+    {
+        if (!IsStaff && !IsApplicant && !IsAdmin) return null;
+        if (IsTopicPath || IsBookZeroPath) return null;
+        var p = _currentPath;
+        if (IsAdmin)
+            return p.Equals("admin", StringComparison.OrdinalIgnoreCase) || p.StartsWith("admin/", StringComparison.OrdinalIgnoreCase) || p.StartsWith("little-polyglot/settings", StringComparison.OrdinalIgnoreCase)
+                || p.Equals("login", StringComparison.OrdinalIgnoreCase) || p.Equals("register", StringComparison.OrdinalIgnoreCase) ? null : "/admin/requests";
+        var home = IsStaff ? "/teacher" : "/for-schools";
+        // A teacher in waiting sees the request page and nothing else.
+        if (IsApplicant)
+            return p.Equals("for-schools", StringComparison.OrdinalIgnoreCase) || p.Equals("login", StringComparison.OrdinalIgnoreCase)
+                || p.Equals("register", StringComparison.OrdinalIgnoreCase) ? null : home;
+        if (p.Equals("exam", StringComparison.OrdinalIgnoreCase) || p.StartsWith("exam/", StringComparison.OrdinalIgnoreCase)) return IsStaff ? "/teacher/exam" : home;
+        if (IsApplicant && p.Equals("rating", StringComparison.OrdinalIgnoreCase)) return home;
+        if (p.Length == 0
+            || p.StartsWith("test-my-level", StringComparison.OrdinalIgnoreCase)
+            || (p.StartsWith("little-polyglot", StringComparison.OrdinalIgnoreCase) && !p.StartsWith("little-polyglot/settings", StringComparison.OrdinalIgnoreCase)
+                && !p.StartsWith("little-polyglot/dictionary", StringComparison.OrdinalIgnoreCase)))
+            return home;
+        return null;
+    }
+    // The page a topic's QR code opens: open to everybody, no menu, "Go to the website" instead of "Back".
+    private bool IsTopicPath => _currentPath.StartsWith("topic/", StringComparison.OrdinalIgnoreCase);
+    // Book 0 (the alphabet and the numbers) is a reference open to everybody: a QR code of it works without signing in. The books are not.
+    private bool IsBookZeroPath => _currentPath.Equals("little-polyglot/book-zero", StringComparison.OrdinalIgnoreCase)
+                                || _currentPath.StartsWith("little-polyglot/book-zero/", StringComparison.OrdinalIgnoreCase);
+    private bool _isHome => _currentPath.Length == 0;
+    private bool _isForSchools => _currentPath.Equals("for-schools", StringComparison.OrdinalIgnoreCase);
+    private bool _isPlans => _currentPath.Equals("plans", StringComparison.OrdinalIgnoreCase);
+
+    // Login / register are full-screen; the home page is a public landing for guests (no sidebar).
+    private bool _hideNav  => IsTopicPath
+                            || (IsBookZeroPath && (!_userLoaded || !UserState.IsRegistered))
+                            || _currentPath.Equals("register", StringComparison.OrdinalIgnoreCase)
+                            || _currentPath.Equals("login", StringComparison.OrdinalIgnoreCase)
+                            || ((_isHome || _isForSchools || _isPlans) && (!_userLoaded || !UserState.IsRegistered));
+    private bool _isLpPage => _currentPath.StartsWith("little-polyglot", StringComparison.OrdinalIgnoreCase);
+    private bool _isPublicPath => IsTopicPath || IsBookZeroPath || PublicPaths.Contains(_currentPath, StringComparer.OrdinalIgnoreCase);
+
+    // A guest who opens a page inside (a QR code of a book, a shared link) signs in and then lands on that page.
+    private string LoginUrl() => _currentPath.Length == 0 ? "/login" : "/login?returnUrl=" + Uri.EscapeDataString("/" + _currentPath);
+
+    public void ToggleSidebar() { _sidebarOpen = !_sidebarOpen; StateHasChanged(); }
+    public void CloseSidebar()  { _sidebarOpen = false;          StateHasChanged(); }
+
+    private void OpenLogoutConfirm() { _showLogoutConfirm = true; StateHasChanged(); }
+    private void CancelLogout()      { _showLogoutConfirm = false; StateHasChanged(); }
+
+    // A real browser navigation, never an in-circuit one: the circuit keeps the old user and token in memory,
+    // so only a full page load (which opens a fresh circuit) really signs the user out.
+    private async Task Logout()
+    {
+        UserState.Invalidate();
+        await JS.InvokeVoidAsync("window.location.assign", "/session/logout");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _currentPath = GetPath(Nav.Uri);
+        Nav.LocationChanged += OnLocationChanged;
+
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        _userLoaded = true;
+        try { await JS.InvokeVoidAsync("lp.setPalette", UserState.CurrentUser?.ThemeKey ?? ""); } catch { }   // (prerender: no JS yet, the early script of the page has it)
+        if (!UserState.IsRegistered && !_isPublicPath)
+            Nav.NavigateTo(LoginUrl(), replace: true);
+        else if (StaffRedirect() is { } to)
+            Nav.NavigateTo(to, replace: true);
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        _currentPath = GetPath(e.Location);
+        _sidebarOpen = false;
+        if (!UserState.IsRegistered && !_isPublicPath)
+            Nav.NavigateTo(LoginUrl(), replace: true);
+        else if (StaffRedirect() is { } to)
+            Nav.NavigateTo(to, replace: true);
+        InvokeAsync(StateHasChanged);
+    }
+
+    private string GetPath(string uri)
+        => Nav.ToBaseRelativePath(uri).Split('?', '#')[0].Trim('/');
+
+    public void Dispose() => Nav.LocationChanged -= OnLocationChanged;
+}

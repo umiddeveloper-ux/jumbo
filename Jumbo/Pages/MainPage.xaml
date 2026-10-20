@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:strings="clr-namespace:Jumbo.Resources.Strings"
+             xmlns:pullToRefresh="clr-namespace:Syncfusion.Maui.Toolkit.PullToRefresh;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.MainPage"
+             x:DataType="pageModels:DashboardPageModel"
+             x:Name="OverviewPage"
+             Title="{u:Tr Key=DashboardTitle}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+                BindingContext="{Binding Path=BindingContext, Source={x:Reference OverviewPage}, x:DataType=ContentPage}"
+                EventName="NavigatedTo"
+                Command="{Binding NavigatedToCommand}" />
+        <toolkit:EventToCommandBehavior
+                BindingContext="{Binding Path=BindingContext, Source={x:Reference OverviewPage}, x:DataType=ContentPage}"
+                EventName="NavigatedFrom"
+                Command="{Binding NavigatedFromCommand}" />
+        <toolkit:EventToCommandBehavior
+                BindingContext="{Binding Path=BindingContext, Source={x:Reference OverviewPage}, x:DataType=ContentPage}"
+                EventName="Appearing"
+                Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+            <Style x:Key="SectionTitle" TargetType="Label">
+                <Setter Property="FontFamily" Value="NunitoExtraBold" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Margin" Value="2,6,0,0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <pullToRefresh:SfPullToRefresh
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshCommand="{Binding RefreshCommand}">
+
+            <pullToRefresh:SfPullToRefresh.PullableContent>
+                <ScrollView x:Name="PageScroll">
+                    <VerticalStackLayout Padding="16,12,16,28" Spacing="14" MaximumWidthRequest="760" HorizontalOptions="Fill"
+                                         IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}">
+
+                        <!-- ── Continue: straight to the first unfinished topic ── -->
+                        <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="12,10"
+                                IsVisible="{Binding HasContinue}">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ContinueCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                                <ctl:TigerView Head="True" Size="62" Mood="wave" VerticalOptions="Center" />
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                    <Label Text="{Binding ContinueLabel}" FontFamily="NunitoExtraBold" FontSize="12"
+                                           TextColor="{StaticResource Primary}" />
+                                    <Label Text="{Binding ContinueTopic}" FontFamily="NunitoExtraBold" FontSize="16" MaxLines="2" LineBreakMode="TailTruncation" />
+                                </VerticalStackLayout>
+                                <ctl:ChunkyButton Grid.Column="2" Text="{u:Tr Key=Path_Play}" Kind="success" FontSize="15"
+                                                  WidthRequest="96" VerticalOptions="Center"
+                                                  Command="{Binding ContinueCommand}" />
+                            </Grid>
+                        </Border>
+
+                        <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="12,10"
+                                IsVisible="{Binding IsAllDone}">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                                <ctl:TigerView Head="True" Size="62" Mood="cheer" VerticalOptions="Center" />
+                                <Label Grid.Column="1" Text="{Binding ContinueTopic}" FontFamily="NunitoExtraBold" FontSize="17" VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+
+                        <!-- ── Daily goal + streak ── -->
+                        <ctl:DailyCard Data="{Binding Daily}" />
+
+                        <!-- ── Books ── -->
+                        <Label Text="{u:Tr Key=BooksSection}" Style="{StaticResource SectionTitle}" SemanticProperties.HeadingLevel="Level1" />
+                        <CollectionView ItemsSource="{Binding Books}" SelectionMode="None" HeightRequest="76" Margin="-4,0">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="pageModels:BookChip">
+                                    <Grid WidthRequest="58" Padding="4,4">
+                                        <Grid.Triggers>
+                                            <DataTrigger TargetType="Grid" Binding="{Binding IsLocked}" Value="True">
+                                                <Setter Property="Opacity" Value="0.6" />
+                                            </DataTrigger>
+                                        </Grid.Triggers>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:DashboardPageModel}}, Path=SelectBookCommand}"
+                                                                  CommandParameter="{Binding .}" />
+                                        </Grid.GestureRecognizers>
+                                        <VerticalStackLayout Spacing="6">
+                                            <Border HeightRequest="50" StrokeShape="RoundRectangle 16" Padding="0" StrokeThickness="2"
+                                                    Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                                                <Border.Triggers>
+                                                    <DataTrigger TargetType="Border" Binding="{Binding IsZero}" Value="True">
+                                                        <Setter Property="Stroke" Value="{StaticResource Accent}" />
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Border" Binding="{Binding IsDone}" Value="True">
+                                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
+                                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
+                                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}" />
+                                                        <Setter Property="Stroke" Value="{StaticResource Primary}" />
+                                                    </DataTrigger>
+                                                </Border.Triggers>
+                                                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="-3">
+                                                    <Label Text="{Binding Label}" FontFamily="NunitoBlack" FontSize="20" HorizontalOptions="Center"
+                                                           TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}">
+                                                        <Label.Triggers>
+                                                            <DataTrigger TargetType="Label" Binding="{Binding IsSelected}" Value="True">
+                                                                <Setter Property="TextColor" Value="{StaticResource Primary}" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Label" Binding="{Binding IsZero}" Value="True">
+                                                                <Setter Property="FontSize" Value="17" />
+                                                            </DataTrigger>
+                                                        </Label.Triggers>
+                                                    </Label>
+                                                    <!-- book 0: 123 in small letters under ABC -->
+                                                    <Label Text="123" FontFamily="NunitoExtraBold" FontSize="10" HorizontalOptions="Center" IsVisible="{Binding IsZero}"
+                                                           TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                                                </VerticalStackLayout>
+                                            </Border>
+                                            <ProgressBar Progress="{Binding Progress, Converter={StaticResource PercentToFraction}}"
+                                                         ProgressColor="{StaticResource Success}" HeightRequest="6" />
+                                        </VerticalStackLayout>
+                                        <Label Text="🔒" FontSize="12" HorizontalOptions="End" VerticalOptions="Start" Margin="0,-2,-2,0"
+                                               IsVisible="{Binding IsLocked}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <!-- ── Overall progress ── -->
+                        <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                            <VerticalStackLayout Spacing="10">
+                                <Grid ColumnDefinitions="*, Auto">
+                                    <Label Text="{u:Tr Key=TotalProgress}" FontFamily="NunitoExtraBold" FontSize="16" />
+                                    <Label Grid.Column="1" Text="{Binding TotalProgress, StringFormat='{0:P0}'}" TextColor="{StaticResource Success}" FontFamily="NunitoBlack" FontSize="16" />
+                                </Grid>
+                                <ProgressBar Progress="{Binding TotalProgress}" ProgressColor="{StaticResource Success}" HeightRequest="10" />
+                                <Label Text="{Binding WordsProgressLabel}" HorizontalOptions="Center" FontSize="13"
+                                       TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!-- ── Alphabet: a button whose colour follows the dominant repetition level ── -->
+                        <Border StrokeShape="RoundRectangle 22" Padding="18" BackgroundColor="{Binding AlphabetSummaryColor}" StrokeThickness="0">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenAlphabetCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                <Label Grid.Column="0" Text="🔤" FontSize="30" VerticalOptions="Center" />
+                                <VerticalStackLayout Grid.Column="1" Margin="14,0,0,0" VerticalOptions="Center" Spacing="0">
+                                    <Label Text="{u:Tr Key=AlphabetSection}" FontFamily="NunitoBlack" FontSize="18" TextColor="#1F3A5F" />
+                                    <Label Text="{u:Tr Key=Alphabet_CtaHint}" FontSize="13" TextColor="#1F3A5F" Opacity="0.75" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2" Text="→" FontSize="24" TextColor="#1F3A5F" VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+
+                        <!-- ── Place in the weekly rating, the last thing on the page; the full rating opens on the website ── -->
+                        <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="14,12">
+                            <VerticalStackLayout Spacing="12">
+                                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10" VerticalOptions="Center">
+                                    <Grid WidthRequest="54" HeightRequest="50" VerticalOptions="Center">
+                                        <Border StrokeShape="RoundRectangle 16" StrokeThickness="0"
+                                                BackgroundColor="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
+                                        <Label Text="🏆" FontSize="24" LineBreakMode="NoWrap" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Grid>
+                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="1">
+                                        <HorizontalStackLayout Spacing="4">
+                                            <Label Text="{Binding RatingPlaceText}" FontFamily="NunitoExtraBold" FontSize="16" VerticalOptions="End" />
+                                            <Label Text="{Binding RatingOutOfText}" FontSize="12" VerticalOptions="End"
+                                                   TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                                        </HorizontalStackLayout>
+                                        <Label Text="{Binding RatingSubText}" FontSize="11" MaxLines="2" LineBreakMode="TailTruncation"
+                                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                                <ctl:ChunkyButton Text="{u:Tr Key=Stats_OpenRating}" Kind="outline" FontSize="14"
+                                                  Command="{Binding OpenRatingOnWebCommand}" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                    </VerticalStackLayout>
+                </ScrollView>
+            </pullToRefresh:SfPullToRefresh.PullableContent>
+        </pullToRefresh:SfPullToRefresh>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}"
+                       IsVisible="{Binding IsBusy}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       HeightRequest="50"
+                       WidthRequest="50" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,388 @@
+@page "/register"
+@layout BlankLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject UserStateService UserState
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@inject UserPreferencesService Prefs
+
+<PageTitle>@Loc["Register_PageTitle"]</PageTitle>
+<div class="top-controls"><LanguageSwitcher /><ThemeToggle /></div>
+
+<div class="lp-register-wrap">
+    <div class="lp-register-card reg-card">
+        <div class="lp-register-logo"><Tiger Mood="@(_step == TotalSteps ? "cheer" : "wave")" Size="96" /></div>
+
+        @* ── progress + steps ── *@
+        <div class="reg-progress" role="progressbar" aria-valuemin="1" aria-valuemax="@TotalSteps" aria-valuenow="@_step"
+             aria-label="@Loc.Format("Reg_StepOf", _step, TotalSteps)">
+            <div class="reg-progress-bar"><div class="reg-progress-fill" style="width: @(_step * 100 / TotalSteps)%"></div></div>
+            <ol class="reg-steps">
+                @for (int i = 1; i <= TotalSteps; i++)
+                {
+                    var n = i;
+                    <li class="reg-step @(n < _step ? "done" : n == _step ? "active" : "")">
+                        <span class="reg-step-dot">@(n < _step ? "✓" : n.ToString())</span>
+                        <span class="reg-step-label">@Loc[$"Reg_Step{n}"]</span>
+                    </li>
+                }
+            </ol>
+            <div class="reg-step-of">@Loc.Format("Reg_StepOf", _step, TotalSteps)</div>
+        </div>
+
+        <h1 class="lp-register-title reg-title">@Loc[$"Reg_Step{_step}Title"]</h1>
+        @if (_step == 3 && TotalSteps == 3)
+        {
+            <p class="lp-register-subtitle reg-optional">@Loc["Reg_Optional"]</p>
+        }
+
+        <EditForm Model="_model" OnSubmit="OnEnter">
+            <div class="reg-pane" @key="_step">
+                @if (_step == 1)
+                {
+                    <div class="lp-field-label">@Loc["Register_FirstNameLabel"]</div>
+                    <InputText class="lp-input" @bind-Value="_model.FirstName" placeholder="@Loc["EnterFirstName"]" autocomplete="given-name" />
+
+                    <div class="lp-field-label">@Loc["LastName"]</div>
+                    <InputText class="lp-input" @bind-Value="_model.LastName" placeholder="@Loc["EnterLastName"]" autocomplete="family-name" />
+
+                    <div class="lp-field-label">@Loc["Settings_PhoneLabel"]</div>
+                    <InputText class="lp-input" type="tel" inputmode="tel" maxlength="24" @bind-Value="_model.Phone" placeholder="@_phoneHint" autocomplete="tel" />
+
+                    @* A teacher does not study: the study languages are a pupil's choice *@
+                    @if (!IsTeacherSignup)
+                    {
+                        <div class="lp-field-label">@Loc["Settings_StudyLangLabel"]</div>
+                        <InputSelect class="lp-select" @bind-Value="_model.StudyLangId">
+                            @foreach (var l in _languages)
+                            {
+                                <option value="@l.LanguageId">@l.Name</option>
+                            }
+                        </InputSelect>
+
+                        <div class="lp-field-label">@Loc["TranslationLanguageTitle"]</div>
+                        <InputSelect class="lp-select" @bind-Value="_model.TransLangId">
+                            @foreach (var l in _languages)
+                            {
+                                <option value="@l.LanguageId">@l.Name</option>
+                            }
+                        </InputSelect>
+                        <p class="reg-help">@Loc["Reg_StudyLangHelp"]</p>
+                    }
+                }
+                else if (_step == 2)
+                {
+                    <div class="lp-field-label">@Loc["Register_UsernameLabel"]</div>
+                    <InputText class="lp-input" @bind-Value="_model.Username" placeholder="@Loc["Register_UsernamePlaceholder"]" autocomplete="username" />
+
+                    <div class="lp-field-label">@Loc["Register_PasswordLabel"]</div>
+                    <div class="pw-wrap">
+                        <InputText class="lp-input" type="password" @bind-Value="_model.Password" placeholder="@Loc["Register_PasswordPlaceholder"]" autocomplete="new-password" />
+                        <PasswordEye />
+                    </div>
+
+                    <div class="lp-field-label">@Loc["Reg_ConfirmPasswordLabel"]</div>
+                    <div class="pw-wrap">
+                        <InputText class="lp-input" type="password" @bind-Value="_model.ConfirmPassword" autocomplete="new-password" />
+                        <PasswordEye />
+                    </div>
+
+                    <div class="lp-field-label">@Loc["Register_AvatarLabel"]</div>
+                    <div class="avatar-picker-grid">
+                        @for (int i = 0; i < PresetAvatars.All.Count; i++)
+                        {
+                            var idx = i;
+                            <button type="button" class="avatar-picker-item @(_selectedPresetIndex == idx ? "selected" : "")"
+                                    @onclick="() => SelectPreset(idx)">
+                                @((MarkupString)PresetAvatars.All[idx])
+                            </button>
+                        }
+                    </div>
+
+                    <div class="avatar-upload-row">
+                        <label class="avatar-upload-label">
+                            <InputFile OnChange="OnAvatarFileSelected" accept="image/*" class="avatar-upload-input" />
+                            @Loc["Register_AvatarUploadLabel"]
+                        </label>
+                        @if (_selectedPresetIndex == -1 && !string.IsNullOrEmpty(_model.AvatarSvg))
+                        {
+                            <UserAvatar Svg="@_model.AvatarSvg" DisplayName="@_model.FirstName" Size="44" />
+                        }
+                    </div>
+                    @if (!string.IsNullOrEmpty(_avatarError))
+                    {
+                        <p class="validation-message">@_avatarError</p>
+                    }
+                }
+                else
+                {
+                    <TeamPicker @bind-Region="_model.Region" @bind-ClassId="_classId" />
+                }
+            </div>
+
+            @if (!string.IsNullOrEmpty(_error))
+            {
+                <p class="validation-message reg-error">@_error</p>
+            }
+
+            @* ── navigation ── *@
+            <div class="reg-actions">
+                @if (_step > 1)
+                {
+                    <button type="button" class="lp-btn lp-btn-outline reg-back" @onclick="Back" disabled="@_busy">← @Loc["Reg_Back"]</button>
+                }
+
+                @if (_step < TotalSteps)
+                {
+                    <button type="submit" class="lp-btn reg-next" disabled="@_busy">@Loc["Reg_Next"] →</button>
+                }
+                else
+                {
+                    @if (TotalSteps == 3)
+                    {
+                        <button type="button" class="lp-btn lp-btn-outline reg-skip" @onclick="() => Finish(skipProfile: true)" disabled="@_busy">@Loc["Reg_Skip"]</button>
+                    }
+                    <button type="submit" class="lp-btn reg-next" disabled="@_busy">
+                        @(_busy ? Loc["Register_Registering"] : IsTeacherSignup ? Loc["Login_RegisterLink"] : Loc["Register_StartButton"])
+                    </button>
+                }
+            </div>
+        </EditForm>
+
+        <p class="lp-register-switch">
+            @Loc["Register_HaveAccount"] <a href="/login">@Loc["Common_LoginAction"]</a>
+        </p>
+        <p class="lp-register-switch"><a href="/privacy" target="_blank">@Loc["Legal_Privacy_Link"]</a></p>
+    </div>
+</div>
+
+@code {
+    [SupplyParameterFromQuery(Name = "returnUrl")] private string? ReturnUrl { get; set; }
+
+    // Pupils: data, login + avatar, school / team. A teacher (came through "For teachers") has no school / team step.
+    private bool IsTeacherSignup => ReturnUrl == "/for-schools";
+    private int TotalSteps => IsTeacherSignup ? 2 : 3;
+    private const int MinPasswordLength = 6;
+
+    private RegisterModel _model = new();
+    private List<Language> _languages = new();
+    private int _step = 1;
+    private string _error = string.Empty;
+    private string _avatarError = string.Empty;
+    private int _selectedPresetIndex = 0;
+    private bool _busy;
+
+    // The team picked from the lists (its school comes with it); the teacher confirms it later.
+    private int? _classId;
+
+    // Base64 inflates size by ~33%; keep the raw upload small enough to clear the API's MaxAvatarLength check.
+    private const long MaxAvatarUploadBytes = 1024 * 1024;
+
+    private string _phoneHint = string.Empty;
+
+    // Example number for the visitor's country (browser time zone / language region, no location permission).
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        try { _phoneHint = await JS.InvokeAsync<string>("lp.phoneHint"); StateHasChanged(); } catch { }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        if (UserState.IsRegistered)
+        {
+            Nav.NavigateTo("/", replace: true);
+            return;
+        }
+        _languages = await ApiClient.GetLanguagesAsync();
+        if (_languages.Count >= 2)
+        {
+            _model.StudyLangId = _languages[0].LanguageId;
+            _model.TransLangId = _languages[1].LanguageId;
+        }
+        _model.AvatarSvg = PresetAvatars.All[0];
+    }
+
+    // Enter key / the primary button: go forward, or finish on the last step.
+    private async Task OnEnter()
+    {
+        if (_busy) return;
+        if (_step < TotalSteps) { await Next(); return; }
+
+        // the last step: for a teacher that is the login step, so it is checked here before registering
+        if (IsTeacherSignup && !await ValidateStepAsync()) return;
+        await Finish(skipProfile: IsTeacherSignup);
+    }
+
+    private async Task Next()
+    {
+        if (!await ValidateStepAsync()) return;
+        _step++;
+    }
+
+    // true when the current step is filled in correctly
+    private async Task<bool> ValidateStepAsync()
+    {
+        _error = string.Empty;
+
+        if (_step == 1)
+        {
+            if (string.IsNullOrWhiteSpace(_model.FirstName))
+            {
+                _error = Loc["EnterFirstName"];
+                return false;
+            }
+        }
+        else if (_step == 2)
+        {
+            var login = _model.Username.Trim();
+            if (login.Length == 0 || string.IsNullOrEmpty(_model.Password))
+            {
+                _error = Loc["Common_EnterCredentials"];
+                return false;
+            }
+            if (_model.Password.Length < MinPasswordLength)
+            {
+                _error = Loc["Reg_PasswordTooShort"];
+                return false;
+            }
+            if (_model.Password != _model.ConfirmPassword)
+            {
+                _error = Loc["Reg_PasswordsMismatch"];
+                return false;
+            }
+
+            _busy = true;
+            try
+            {
+                if (!await ApiClient.IsUsernameAvailableAsync(login))
+                {
+                    _error = Loc["Reg_UsernameTaken"];
+                    return false;
+                }
+            }
+            catch
+            {
+                // Offline hiccup: the server checks again on the final step.
+            }
+            finally
+            {
+                _busy = false;
+            }
+        }
+
+        return true;
+    }
+
+    private void Back()
+    {
+        _error = string.Empty;
+        if (_step > 1) _step--;
+    }
+
+    private void SelectPreset(int index)
+    {
+        _selectedPresetIndex = index;
+        _model.AvatarSvg = PresetAvatars.All[index];
+        _avatarError = string.Empty;
+    }
+
+    private async Task OnAvatarFileSelected(InputFileChangeEventArgs e)
+    {
+        _avatarError = string.Empty;
+        var file = e.File;
+
+        if (!file.ContentType.StartsWith("image/"))
+        {
+            _avatarError = Loc["Register_AvatarInvalidType"];
+            return;
+        }
+        if (file.Size > MaxAvatarUploadBytes)
+        {
+            _avatarError = Loc["Register_AvatarTooLarge"];
+            return;
+        }
+
+        await using var stream = file.OpenReadStream(MaxAvatarUploadBytes);
+        using var ms = new MemoryStream();
+        await stream.CopyToAsync(ms);
+
+        _model.AvatarSvg = $"data:{file.ContentType};base64,{Convert.ToBase64String(ms.ToArray())}";
+        _selectedPresetIndex = -1;
+    }
+
+    // skipProfile: step 3 is optional, "Skip" registers without region / school / team.
+    private async Task Finish(bool skipProfile)
+    {
+        if (_busy) return;
+        _busy = true;
+        _error = string.Empty;
+        try
+        {
+            var response = await UserState.RegisterAsync(
+                _model.FirstName.Trim(),
+                _model.LastName.Trim(),
+                _model.Phone.Trim(),
+                _model.StudyLangId,
+                _model.TransLangId,
+                _model.Username.Trim(),
+                _model.Password,
+                _model.AvatarSvg,
+                skipProfile ? null : Blank(_model.Region),
+                skipProfile ? null : _classId,
+                Prefs.AppLangId,
+                asTeacher: ReturnUrl == "/for-schools");     // came through "For teachers": a teacher in waiting
+
+            if (response is null)
+            {
+                _error = Loc["Register_Failed"];
+                _busy = false;
+                return;
+            }
+
+            // Real browser navigation (not circuit code) so the session-start endpoint
+            // can actually set the access-token cookie via a real HTTP response.
+            // NavigationManager's forceLoad doesn't reliably trigger a full reload here
+            // (BlazorDisableThrowNavigationException disables its throw-based mechanism),
+            // so drive it directly via JS instead.
+            // The "For teachers" page sends people here and wants them back afterwards (validated again by /session/start).
+            var next = !string.IsNullOrEmpty(ReturnUrl) && ReturnUrl.StartsWith('/') && !ReturnUrl.StartsWith("//") ? $"&next={Uri.EscapeDataString(ReturnUrl)}" : "";
+            var url = $"/session/start?token={Uri.EscapeDataString(response.AccessToken)}{next}";
+            await JS.InvokeVoidAsync("window.location.assign", url);
+        }
+        catch (Exception ex)
+        {
+            // The login could have been taken between step 2 and now: send the user back to fix it.
+            if (ex.Message.Contains("логин", StringComparison.OrdinalIgnoreCase) && ex.Message.Contains("занят", StringComparison.OrdinalIgnoreCase))
+            {
+                _step = 2;
+                _error = Loc["Reg_UsernameTaken"];
+            }
+            else
+            {
+                _error = Loc["Common_ErrorPrefix"] + ex.Message;
+            }
+            _busy = false;
+        }
+    }
+
+    private static string? Blank(string? value) => string.IsNullOrWhiteSpace(value) ? null : value.Trim();
+
+    private class RegisterModel
+    {
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName  { get; set; } = string.Empty;
+        public string Phone     { get; set; } = string.Empty;
+        public string Username  { get; set; } = string.Empty;
+        public string Password  { get; set; } = string.Empty;
+        public string ConfirmPassword { get; set; } = string.Empty;
+        public int StudyLangId  { get; set; }
+        public int TransLangId  { get; set; }
+        public string? AvatarSvg { get; set; }
+        public string? Region   { get; set; } = string.Empty;
+    }
+}

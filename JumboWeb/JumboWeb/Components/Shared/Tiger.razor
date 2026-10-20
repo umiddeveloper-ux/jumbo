@@ -1,0 +1,28 @@
+@* Jumbo the elephant cub (the class keeps its old name "Tiger" so that every page keeps working). A picture with a CSS animation
+   per mood (wwwroot/tiger.css), no scripts.
+   Mood: idle | wave | cheer | sad.   Head: crop to the face only (for small spots).   Size: width in px. *@
+@{
+    var mood = Mood.ToLowerInvariant();
+}
+<span class="tiger tg-@mood @(Head ? "tg-head-only" : "") @Class"
+      style="width:@(Size)px;aspect-ratio:@(Head ? "10 / 7" : "10 / 13")"
+      role="img" aria-label="Jumbo">
+    <img class="tg-img" src="@Assets[Head ? "jumbo-head.webp" : "jumbo.webp"]" alt="" draggable="false" />
+    @if (mood == "cheer" && !Head)
+    {
+        <i class="tg-sp tg-sp1" aria-hidden="true">✨</i>
+        <i class="tg-sp tg-sp2" aria-hidden="true">⭐</i>
+        <i class="tg-sp tg-sp3" aria-hidden="true">✨</i>
+    }
+    @if (mood == "sad")
+    {
+        <i class="tg-tear" aria-hidden="true">💧</i>
+    }
+</span>
+
+@code {
+    [Parameter] public string Mood { get; set; } = "idle";
+    [Parameter] public bool Head { get; set; }
+    [Parameter] public int Size { get; set; } = 140;
+    [Parameter] public string? Class { get; set; }
+}

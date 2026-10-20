@@ -1,0 +1,19 @@
+@* One headline number of a report, with the change against the previous period (when there is one). *@
+<div class="rp-kpi">
+    <div class="rp-kpi-value">@Value</div>
+    <div class="rp-kpi-label">@Label</div>
+    @if (Delta is { } d)
+    {
+        <div class="rp-delta @(d > 0 ? "up" : d < 0 ? "down" : "flat")" title="@Hint">@(d > 0 ? "▲ +" : d < 0 ? "▼ −" : "＝ ")@(d == 0 ? "0" : Math.Abs(d).ToString())@Suffix</div>
+    }
+</div>
+
+@code {
+    [Parameter] public string Label { get; set; } = string.Empty;
+    [Parameter] public string Value { get; set; } = string.Empty;
+
+    // current − previous period; null hides the arrow (no data to compare).
+    [Parameter] public int? Delta { get; set; }
+    [Parameter] public string Suffix { get; set; } = string.Empty;
+    [Parameter] public string? Hint { get; set; }
+}

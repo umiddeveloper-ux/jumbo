@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.RegistrationPage"
+             x:DataType="pageModels:RegistrationPageModel"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False"
+             Title="{u:Tr Key=Register_PageTitle}">
+
+    <Grid RowDefinitions="Auto,*">
+        <HorizontalStackLayout Spacing="8" HorizontalOptions="End" Padding="14,10,14,0">
+            <ctl:LanguageSwitcher />
+            <ctl:ThemeToggle />
+        </HorizontalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="18,8,18,28" HorizontalOptions="Fill" MaximumWidthRequest="460">
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 26" Padding="20,16,20,20">
+                    <VerticalStackLayout Spacing="14">
+                        <ctl:TigerView Mood="{Binding IsStep3, Converter={StaticResource StepMood}}" Size="88" />
+
+                        <ctl:StepDots Step="{Binding Step}" />
+                        <ProgressBar Progress="{Binding Progress}" ProgressColor="{StaticResource Primary}" HeightRequest="8" />
+                        <Label Text="{Binding StepOfText}" FontSize="12" HorizontalTextAlignment="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+
+                        <Label Text="{Binding StepTitle}" FontFamily="NunitoBlack" FontSize="24" HorizontalTextAlignment="Center"
+                               TextColor="{StaticResource Primary}" />
+                        <Label Text="{u:Tr Key=Reg_Optional}" FontSize="13" HorizontalTextAlignment="Center" IsVisible="{Binding IsStep3}"
+                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+
+                        <!-- 1: about you -->
+                        <VerticalStackLayout Spacing="12" IsVisible="{Binding IsStep1}">
+                            <ctl:FormEntry Caption="{u:Tr Key=Register_FirstNameLabel}" Placeholder="{u:Tr Key=EnterFirstName}" Text="{Binding FirstName, Mode=TwoWay}" />
+                            <ctl:FormEntry Caption="{u:Tr Key=LastName}" Placeholder="{u:Tr Key=EnterLastName}" Text="{Binding LastName, Mode=TwoWay}" />
+                            <ctl:FormEntry Caption="{u:Tr Key=Settings_PhoneLabel}" Placeholder="{Binding PhoneHint}" Keyboard="Telephone" Text="{Binding Phone, Mode=TwoWay}" />
+                            <ctl:FormPicker Caption="{u:Tr Key=Settings_StudyLangLabel}" DisplayMember="Name" ItemsSource="{Binding Languages}" SelectedItem="{Binding StudyLanguage, Mode=TwoWay}" />
+                            <ctl:FormPicker Caption="{u:Tr Key=TranslationLanguageTitle}" DisplayMember="Name" ItemsSource="{Binding Languages}" SelectedItem="{Binding TranslationLanguage, Mode=TwoWay}" />
+                            <Label Text="{u:Tr Key=Reg_StudyLangHelp}" FontSize="13"
+                                   TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                        </VerticalStackLayout>
+
+                        <!-- 2: account -->
+                        <VerticalStackLayout Spacing="12" IsVisible="{Binding IsStep2}">
+                            <ctl:FormEntry Caption="{u:Tr Key=Register_UsernameLabel}" Placeholder="{u:Tr Key=Register_UsernamePlaceholder}" Text="{Binding Username, Mode=TwoWay}" />
+                            <ctl:FormEntry Caption="{u:Tr Key=Register_PasswordLabel}" Placeholder="{u:Tr Key=Register_PasswordPlaceholder}" IsPassword="True" Text="{Binding Password, Mode=TwoWay}" />
+                            <ctl:FormEntry Caption="{u:Tr Key=Reg_ConfirmPasswordLabel}" IsPassword="True" Text="{Binding ConfirmPassword, Mode=TwoWay}" />
+                            <Label Text="{u:Tr Key=Register_AvatarLabel}" FontFamily="NunitoExtraBold" FontSize="14" Margin="0,4,0,0" />
+                            <ctl:AvatarPicker SelectedIndex="{Binding AvatarIndex, Mode=TwoWay}" />
+                        </VerticalStackLayout>
+
+                        <!-- 3: school + team, all from lists -->
+                        <VerticalStackLayout IsVisible="{Binding IsStep3}">
+                            <ctl:TeamPicker Region="{Binding Region, Mode=TwoWay}" ClassId="{Binding ClassId, Mode=TwoWay}" />
+                        </VerticalStackLayout>
+
+                        <Label Text="{Binding Error}" IsVisible="{Binding Error, Converter={StaticResource StringNotEmpty}}"
+                               TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14" HorizontalTextAlignment="Center" />
+
+                        <!-- navigation -->
+                        <!-- steps 1-2: [Back] [Next] -->
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="0" Margin="0,4,0,0"
+                              IsVisible="{Binding IsLastStep, Converter={StaticResource InvertedBoolConverter}}">
+                            <ctl:ChunkyButton Text="{u:Tr Key=Reg_Back}" Kind="outline" WidthRequest="120" Margin="0,0,10,0" Command="{Binding BackCommand}" IsVisible="{Binding CanGoBack}" />
+                            <ctl:ChunkyButton Grid.Column="1" Text="{u:Tr Key=Reg_Next}" Command="{Binding NextCommand}" />
+                        </Grid>
+
+                        <!-- step 3: [Start] then [Back] [Skip] -->
+                        <VerticalStackLayout Spacing="10" Margin="0,4,0,0" IsVisible="{Binding IsLastStep}">
+                            <ctl:ChunkyButton Text="{u:Tr Key=Register_StartButton}" Kind="success" Command="{Binding SubmitCommand}" />
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="0">
+                                <ctl:ChunkyButton Text="{u:Tr Key=Reg_Back}" Kind="outline" WidthRequest="120" Margin="0,0,10,0" Command="{Binding BackCommand}" />
+                                <ctl:ChunkyButton Grid.Column="1" Text="{u:Tr Key=Reg_Skip}" Kind="outline" Command="{Binding SkipCommand}" />
+                            </Grid>
+                        </VerticalStackLayout>
+
+                        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" HeightRequest="28" />
+
+                        <Label HorizontalTextAlignment="Center" Margin="0,2,0,0">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{u:Tr Key=Register_HaveAccount}" />
+                                    <Span Text=" " />
+                                    <Span Text="{u:Tr Key=Common_LoginAction}" TextColor="{StaticResource Primary}" FontFamily="NunitoExtraBold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToLoginCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label Text="{u:Tr Key=Legal_Privacy_Link}" HorizontalTextAlignment="Center" FontSize="13" TextColor="{StaticResource Primary}" Margin="0,2,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenPrivacyCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

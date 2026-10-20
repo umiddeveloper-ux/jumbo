@@ -1,0 +1,96 @@
+/* =====================================================================
+   Reports: team report (teacher), school report (director link), print
+   ===================================================================== */
+.rp { max-width: none; margin: 0 auto; padding: 22px 28px 40px; }
+.rp-center { text-align: center; padding-top: 60px; }
+.rp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+.rp-brand { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 6px; font-weight: 900; color: var(--lp-primary); }
+.rp-brand img { width: 26px; height: 26px; }
+.rp-title { margin: 0 0 4px; font-size: 1.8rem; font-weight: 900; color: var(--lp-text); overflow-wrap: anywhere; }
+.rp-sub { margin: 0 0 2px; font-weight: 700; color: var(--lp-muted); }
+.rp-tools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.rp-note { margin: 0 0 8px; font-size: 0.9rem; font-weight: 600; color: var(--lp-muted); }
+.rp-foot { margin: 20px 0 0; font-size: 0.8rem; font-weight: 700; text-align: center; color: var(--lp-muted); }
+
+.rp-kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 14px; }
+.rp-kpi { padding: 14px 10px; border-radius: 18px; text-align: center; background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 5px; }
+.rp-kpi-value { font-size: 1.7rem; font-weight: 900; line-height: 1.1; color: var(--lp-text); }
+.rp-kpi-label { margin-top: 2px; font-size: 0.74rem; font-weight: 800; line-height: 1.2; color: var(--lp-muted); }
+.rp-delta { display: inline-block; margin-top: 6px; padding: 1px 8px; border-radius: 999px; font-size: 0.78rem; font-weight: 900; background: var(--lp-bg); color: var(--lp-muted); }
+.rp-delta.up { color: var(--lp-success-dark); background: var(--lp-success-soft); }
+.rp-delta.down { color: #C93B3B; background: var(--lp-error-soft); }
+
+.rp-card { margin-bottom: 14px; padding: 16px; border-radius: 20px; background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 5px; }
+.rp-card .rp-h2 { margin: 0 0 8px; font-size: 1.2rem; font-weight: 900; color: var(--lp-text); }
+.rp-attention { border-color: #FFD95E; }
+.rp-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.rp-chip { padding: 4px 12px; border-radius: 999px; font-weight: 800; font-size: 0.9rem; color: var(--lp-text); background: var(--lp-bg); border: 2px solid var(--lp-border); }
+
+.rp-table { border: 0; border-radius: 0; background: transparent; }
+.rp-table .tc-row { grid-template-columns: minmax(0, 2.2fr) 0.6fr 1.1fr 0.9fr 0.9fr 1.2fr 1.6fr; padding-left: 4px; padding-right: 4px; }
+.rp-table.rp-teams .tc-row { grid-template-columns: minmax(0, 2fr) 0.9fr 1.2fr 1.2fr 0.9fr 1fr; }
+.rp-status { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 900; }
+.rp-status.active { color: var(--lp-success-dark); background: var(--lp-success-soft); }
+.rp-status.slow { color: #8A6A00; background: #FFF4C2; }
+.rp-status.absent { color: #C93B3B; background: var(--lp-error-soft); }
+:root[data-theme="dark"] .rp-status.slow { color: #FFD95E; background: #3A3210; }
+.rp-trend { margin-left: 4px; font-weight: 900; }
+.rp-trend.up { color: var(--lp-success-dark); }
+.rp-trend.down { color: #C93B3B; }
+
+.rp-missed { margin: 0; padding-left: 22px; font-weight: 700; color: var(--lp-text); }
+.rp-missed li { margin: 4px 0; }
+.rp-times { margin-left: 6px; padding: 1px 8px; border-radius: 999px; font-size: 0.78rem; font-weight: 900; color: #C93B3B; background: var(--lp-error-soft); }
+
+/* school report link card in the cabinet */
+.tc-school-report .tc-sub { margin-top: 0; }
+.tc-linkbox { margin: 10px 0; padding: 10px 12px; border-radius: 14px; font-family: ui-monospace, Consolas, monospace; font-size: 0.85rem; font-weight: 700; word-break: break-all; color: var(--lp-text); background: var(--lp-bg); border: 2px solid var(--lp-border); }
+.tc-link-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.tc-link-actions .lp-btn { text-decoration: none; display: inline-flex; }
+
+@media (max-width: 820px) {
+    .rp { padding: 16px 14px 32px; }
+    .rp-title { font-size: 1.5rem; }
+    .rp-kpis { grid-template-columns: repeat(2, 1fr); }
+    .rp-kpis .rp-kpi:first-child { grid-column: 1 / -1; }
+    .rp-table .tc-row, .rp-table.rp-teams .tc-row { grid-template-columns: repeat(3, 1fr); gap: 8px 12px; }
+    .rp-table .tc-row .tc-cell-name { grid-column: 1 / -1; }
+    /* the shared teacher.css ordering is for the team table; here every cell keeps its place, only the exam cell is wide */
+    .rp-table .tc-row > div { order: 0; grid-column: auto; }
+    .rp-table .tc-row > div.tc-cell-name { grid-column: 1 / -1; }
+    .rp-table .tc-row > div:nth-of-type(7) { grid-column: 1 / -1; }
+}
+
+/* print / "save as PDF": paper-friendly, no navigation, no buttons */
+@media print {
+    .site-sidebar, .site-desktop-topbar, .site-mobile-header, .site-overlay, .site-hamburger, .top-controls, .rp-noprint, .tc-back { display: none !important; }
+    html, body { background: #fff !important; height: auto !important; overflow: visible !important; }
+    .site-wrapper, .site-body-scroll { display: block !important; height: auto !important; overflow: visible !important; margin: 0 !important; padding: 0 !important; background: #fff !important; }
+    .rp { max-width: none; padding: 0; color: #111; }
+    .rp-title, .rp-kpi-value, .rp-card .rp-h2, .tc-cell-name, .tc-row, .rp-missed { color: #111 !important; }
+    .rp-kpi, .rp-card, .tc-table { background: #fff !important; border: 1px solid #bbb !important; box-shadow: none !important; }
+    .rp-kpi, .tc-row { break-inside: avoid; }
+    /* the tables of the exam reports */
+    .te-table-wrap { overflow: visible !important; background: #fff !important; border: 1px solid #bbb !important; }
+    .te-table th, .te-table td { white-space: normal !important; padding: 4px 6px !important; font-size: 11px !important; color: #111 !important; }
+    .te-table a { color: #111 !important; text-decoration: none; }
+    .te-tools, .te-start, .te-newbtn { display: none !important; }
+    .tc-title, .te-intro, .tc-sub { color: #111 !important; }
+    .rp-foot { color: #555 !important; }
+}
+.te-head { align-items: flex-start; }
+.te-tools { margin: 0 0 10px; }
+.te-total-col { border-left: 2px solid var(--lp-border); }
+.te-table td.te-total-col b { font-weight: 900; color: var(--lp-primary); }
+
+/* Telegram recipients in the teacher cabinet */
+.tc-telegram .tg-row { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; margin: 10px 0 14px; padding-bottom: 12px; border-bottom: 2px dashed var(--lp-border); }
+.tc-telegram .tg-name { font-weight: 800; }
+.tc-telegram .tg-sub { font-size: 0.85rem; color: var(--lp-muted); }
+.tc-telegram .tc-linkbox { align-self: stretch; }
+
+.tc-telegram .tg-subtitle { margin: 18px 0 4px; font-size: 1.05rem; font-weight: 800; }
+.tc-telegram .tg-subtitle:first-of-type { margin-top: 6px; }
+
+/* a link styled as a full-width button (e.g. "Open the bot in Telegram" in the pupil's settings) */
+a.lp-btn.lp-btn-full { display: flex; align-items: center; justify-content: center; width: 100%; text-decoration: none; text-align: center; box-sizing: border-box; }

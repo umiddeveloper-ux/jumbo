@@ -1,0 +1,2856 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlphabetSection" xml:space="preserve">
+    <value>Review words</value>
+  </data>
+  <data name="AwardsSectionTitle" xml:space="preserve">
+    <value>Your awards</value>
+  </data>
+  <data name="AwardsTitle" xml:space="preserve">
+    <value>Awards</value>
+  </data>
+  <data name="AZ" xml:space="preserve">
+    <value>ABCDEFGHIJKLMNOPQRSTUVWXYZ</value>
+  </data>
+  <data name="BooksSection" xml:space="preserve">
+    <value>Books</value>
+  </data>
+  <data name="DashboardTitle" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="DictionaryTitle" xml:space="preserve">
+    <value>Dictionary</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="NoWordsFound" xml:space="preserve">
+    <value>No Words</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="RegistrationTitle" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="StartTrainingButton" xml:space="preserve">
+    <value>Start training</value>
+  </data>
+  <data name="StudyLanguage" xml:space="preserve">
+    <value>Select the language of instruction</value>
+  </data>
+  <data name="TotalProgress" xml:space="preserve">
+    <value>Your progress</value>
+  </data>
+  <data name="TranslationLanguage" xml:space="preserve">
+    <value>Select the translation language</value>
+  </data>
+  <data name="SubjectsTitle" xml:space="preserve">
+    <value>Book topics</value>
+  </data>
+  <data name="NoSubjectsFound" xml:space="preserve">
+    <value>No topics available in this book</value>
+  </data>
+  <data name="GameLessons" xml:space="preserve">
+    <value>Game lessons</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Personal data</value>
+  </data>
+  <data name="EnterFirstName" xml:space="preserve">
+    <value>Enter first name</value>
+  </data>
+  <data name="EnterLastName" xml:space="preserve">
+    <value>Enter last name</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="AppLanguage" xml:space="preserve">
+    <value>App language</value>
+  </data>
+  <data name="AppLanguageDescription" xml:space="preserve">
+    <value>Interface menu language</value>
+  </data>
+  <data name="TranslationLanguageTitle" xml:space="preserve">
+    <value>Translation language</value>
+  </data>
+  <data name="TranslationLanguageDescription" xml:space="preserve">
+    <value>Word and hint translation language</value>
+  </data>
+  <data name="ThemeTitle" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="ThemeDescription" xml:space="preserve">
+    <value>Light or Dark mode</value>
+  </data>
+  <data name="HideTooltipsTitle" xml:space="preserve">
+    <value>Hide tooltips</value>
+  </data>
+  <data name="HideTooltipsDescription" xml:space="preserve">
+    <value>Disable tutorial messages</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Save settings</value>
+  </data>
+  <data name="LpMarket" xml:space="preserve">
+    <value>LP Market</value>
+  </data>
+  <data name="AchievementReceived" xml:space="preserve">
+    <value>Achievement received</value>
+  </data>
+  <data name="BuyButton" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="NotEnoughLp" xml:space="preserve">
+    <value>Not enough LP yet</value>
+  </data>
+  <data name="NeedMoreLpMessage" xml:space="preserve">
+    <value>Earn 1000 LP or more to unlock the Market!</value>
+  </data>
+  <data name="SiteHome_PageTitle" xml:space="preserve">
+    <value>Jumbo.uz — Home</value>
+  </data>
+  <data name="SiteHome_Welcome" xml:space="preserve">
+    <value>Welcome to Jumbo.uz</value>
+  </data>
+  <data name="SiteHome_Subtitle" xml:space="preserve">
+    <value>Your learning platform</value>
+  </data>
+  <data name="SiteHome_LpCardTitle" xml:space="preserve">
+    <value>Jumbo</value>
+  </data>
+  <data name="SiteHome_LpCardDesc" xml:space="preserve">
+    <value>Learn English words with interactive games, alphabet practice, and spaced repetition.</value>
+  </data>
+  <data name="SiteHome_TestCardTitle" xml:space="preserve">
+    <value>Test my level</value>
+  </data>
+  <data name="SiteHome_TestCardDesc" xml:space="preserve">
+    <value>Find out your current English level with a quick placement test.</value>
+  </data>
+  <data name="SiteHome_ExamCardTitle" xml:space="preserve">
+    <value>Exam</value>
+  </data>
+  <data name="SiteHome_ExamCardDesc" xml:space="preserve">
+    <value>Test your vocabulary from a book of your choice.</value>
+  </data>
+  <data name="Common_LogoAlt" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Common_BrandName" xml:space="preserve">
+    <value>Jumbo.uz</value>
+  </data>
+  <data name="Common_LpBrand" xml:space="preserve">
+    <value>Jumbo</value>
+  </data>
+  <data name="Common_Exit" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Common_Loading" xml:space="preserve">
+    <value>Loading…</value>
+  </data>
+  <data name="SiteLayout_HomeNav" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="SiteLayout_TestNav" xml:space="preserve">
+    <value>Test my level</value>
+  </data>
+  <data name="SiteLayout_LogoutConfirmTitle" xml:space="preserve">
+    <value>Log out of your account?</value>
+  </data>
+  <data name="SiteLayout_LogoutConfirmSub" xml:space="preserve">
+    <value>You'll need to sign in again to continue.</value>
+  </data>
+  <data name="LpLayout_MenuTitle" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="LpLayout_HomeTab" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="LpLayout_ErrorBanner" xml:space="preserve">
+    <value>An error occurred.</value>
+  </data>
+  <data name="LpLayout_ReloadLink" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="TestMyLevel_ComingSoon" xml:space="preserve">
+    <value>Coming soon — stay tuned!</value>
+  </data>
+  <data name="LpHome_PageTitle" xml:space="preserve">
+    <value>Home — Jumbo</value>
+  </data>
+  <data name="Common_BookLabel" xml:space="preserve">
+    <value>Book {0}</value>
+  </data>
+  <data name="Dictionary_PageTitle" xml:space="preserve">
+    <value>Dictionary — Jumbo</value>
+  </data>
+  <data name="Dictionary_Heading" xml:space="preserve">
+    <value>📖 Dictionary</value>
+  </data>
+  <data name="Dictionary_SearchPlaceholder" xml:space="preserve">
+    <value>Search by word or number…</value>
+  </data>
+  <data name="Common_NoWordsFound" xml:space="preserve">
+    <value>No words found</value>
+  </data>
+  <data name="Dictionary_PrevPage" xml:space="preserve">
+    <value>‹ Back</value>
+  </data>
+  <data name="Dictionary_PageLabel" xml:space="preserve">
+    <value>Page {0}</value>
+  </data>
+  <data name="Dictionary_NextPage" xml:space="preserve">
+    <value>Next ›</value>
+  </data>
+  <data name="Awards_PageTitle" xml:space="preserve">
+    <value>Awards — Jumbo</value>
+  </data>
+  <data name="Awards_Heading" xml:space="preserve">
+    <value>🏆 My awards</value>
+  </data>
+  <data name="Awards_AchievementsSection" xml:space="preserve">
+    <value>Achievements</value>
+  </data>
+  <data name="Awards_NoAwards" xml:space="preserve">
+    <value>No awards yet</value>
+  </data>
+  <data name="Awards_MarketSection" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="Awards_MarketLocked" xml:space="preserve">
+    <value>You need 💰 1000 LP to unlock the Market</value>
+  </data>
+  <data name="Awards_CurrentLp" xml:space="preserve">
+    <value>You currently have {0} LP</value>
+  </data>
+  <data name="Awards_MarketPrice" xml:space="preserve">
+    <value>💰 {0} LP</value>
+  </data>
+  <data name="Settings_PageTitle" xml:space="preserve">
+    <value>Settings — Jumbo</value>
+  </data>
+  <data name="Settings_Heading" xml:space="preserve">
+    <value>⚙️ Settings</value>
+  </data>
+  <data name="Settings_ProfileSection" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Settings_FirstNamePlaceholder" xml:space="preserve">
+    <value>Your first name</value>
+  </data>
+  <data name="Settings_LastNamePlaceholder" xml:space="preserve">
+    <value>Your last name</value>
+  </data>
+  <data name="Settings_PhoneLabel" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Common_PhonePlaceholder" xml:space="preserve">
+    <value>+7 000 000 00 00</value>
+  </data>
+  <data name="Settings_LanguagesSection" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="Settings_StudyLangLabel" xml:space="preserve">
+    <value>Study language</value>
+  </data>
+  <data name="Settings_Saving" xml:space="preserve">
+    <value>Saving…</value>
+  </data>
+  <data name="Settings_SaveButton" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="Settings_SavedMessage" xml:space="preserve">
+    <value>✓ Saved</value>
+  </data>
+  <data name="Common_BackArrow" xml:space="preserve">
+    <value>← Back</value>
+  </data>
+  <data name="Game_FindMeTitle" xml:space="preserve">
+    <value>Find me</value>
+  </data>
+  <data name="Game_FindMeDesc" xml:space="preserve">
+    <value>Find the word by picture</value>
+  </data>
+  <data name="Game_SequenceTitle" xml:space="preserve">
+    <value>Remember the order</value>
+  </data>
+  <data name="Game_SequenceDesc" xml:space="preserve">
+    <value>Remember the words and pick the pictures in the same order</value>
+  </data>
+  <data name="Game_ListenTitle" xml:space="preserve">
+    <value>Listen and find</value>
+  </data>
+  <data name="Game_ListenDesc" xml:space="preserve">
+    <value>Find the word by ear</value>
+  </data>
+  <data name="Game_StepsTitle" xml:space="preserve">
+    <value>Step by step</value>
+  </data>
+  <data name="Game_StepsDesc" xml:space="preserve">
+    <value>Step-by-step memorization</value>
+  </data>
+  <data name="Subjects_PageTitle" xml:space="preserve">
+    <value>Book {0} — Jumbo</value>
+  </data>
+  <data name="Subjects_Heading" xml:space="preserve">
+    <value>📚 Book {0}</value>
+  </data>
+  <data name="Subjects_NoTopics" xml:space="preserve">
+    <value>Topics for this book haven't loaded yet</value>
+  </data>
+  <data name="Subjects_Passed" xml:space="preserve">
+    <value>✓ Passed</value>
+  </data>
+  <data name="SubjectDetail_FallbackTitle" xml:space="preserve">
+    <value>Topic</value>
+  </data>
+  <data name="SubjectDetail_BackToTopics" xml:space="preserve">
+    <value>← Topics</value>
+  </data>
+  <data name="SubjectDetail_NotFound" xml:space="preserve">
+    <value>Topic not found</value>
+  </data>
+  <data name="Common_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Common_Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Common_NoWordsOnLetter" xml:space="preserve">
+    <value>No words for «{0}» yet</value>
+  </data>
+  <data name="LetterSelection_PageTitle" xml:space="preserve">
+    <value>Letter {0}</value>
+  </data>
+  <data name="LetterSelection_BackHome" xml:space="preserve">
+    <value>← Home</value>
+  </data>
+  <data name="LetterSelection_WordsOnLetter" xml:space="preserve">
+    <value>Words for «{0}»</value>
+  </data>
+  <data name="LetterSelection_TestTitle" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="LetterSelection_TestDesc" xml:space="preserve">
+    <value>Choose the correct translation</value>
+  </data>
+  <data name="LetterSelection_RecallTitle" xml:space="preserve">
+    <value>Recall</value>
+  </data>
+  <data name="LetterSelection_RecallDesc" xml:space="preserve">
+    <value>Try to remember the word</value>
+  </data>
+  <data name="LetterTest_PageTitle" xml:space="preserve">
+    <value>Test: {0}</value>
+  </data>
+  <data name="LetterTest_NotEnoughWords" xml:space="preserve">
+    <value>Not enough words for «{0}» to run a test</value>
+  </data>
+  <data name="LetterTest_Completed" xml:space="preserve">
+    <value>Test complete!</value>
+  </data>
+  <data name="LetterTest_Summary" xml:space="preserve">
+    <value>All {0} words checked</value>
+  </data>
+  <data name="LetterRecall_PageTitle" xml:space="preserve">
+    <value>Recall: {0}</value>
+  </data>
+  <data name="LetterRecall_Done" xml:space="preserve">
+    <value>Done!</value>
+  </data>
+  <data name="LetterRecall_Summary" xml:space="preserve">
+    <value>You recalled {0} of {1} words</value>
+  </data>
+  <data name="LetterRecall_ShowWord" xml:space="preserve">
+    <value>👁 Show word</value>
+  </data>
+  <data name="LetterRecall_Know" xml:space="preserve">
+    <value>✓ I know it</value>
+  </data>
+  <data name="LetterRecall_DontKnow" xml:space="preserve">
+    <value>✗ I don't know</value>
+  </data>
+  <data name="Common_GameOver" xml:space="preserve">
+    <value>Game over</value>
+  </data>
+  <data name="Common_TryAgainLong" xml:space="preserve">
+    <value>Try again</value>
+  </data>
+  <data name="Common_Again" xml:space="preserve">
+    <value>Again</value>
+  </data>
+  <data name="Common_LpEarned" xml:space="preserve">
+    <value>+{0} LP earned</value>
+  </data>
+  <data name="FindMeGame_NoWords" xml:space="preserve">
+    <value>No words found for this topic</value>
+  </data>
+  <data name="FindMeGame_OutOfLives" xml:space="preserve">
+    <value>Out of lives</value>
+  </data>
+  <data name="FindMeGame_Great" xml:space="preserve">
+    <value>Great job!</value>
+  </data>
+  <data name="FindMeGame_FindLabel" xml:space="preserve">
+    <value>Find:</value>
+  </data>
+  <data name="FindMeGame_FoundCount" xml:space="preserve">
+    <value>{0} / {1} found</value>
+  </data>
+  <data name="ListenGame_Won" xml:space="preserve">
+    <value>Great! All steps complete</value>
+  </data>
+  <data name="ListenGame_SpeakTitle" xml:space="preserve">
+    <value>Play sound</value>
+  </data>
+  <data name="SequenceGame_Won" xml:space="preserve">
+    <value>All rounds complete!</value>
+  </data>
+  <data name="SequenceGame_RoundLabel" xml:space="preserve">
+    <value>Round {0} / {1}</value>
+  </data>
+  <data name="SequenceGame_ChooseOrder" xml:space="preserve">
+    <value>What's the order?</value>
+  </data>
+  <data name="StepsGame_LostAtStep" xml:space="preserve">
+    <value>You made it to step {0} of {1}</value>
+  </data>
+  <data name="StepsGame_Won" xml:space="preserve">
+    <value>All {0} steps complete!</value>
+  </data>
+  <data name="StepsGame_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Common_LoginAction" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Common_EnterCredentials" xml:space="preserve">
+    <value>Enter your username and password</value>
+  </data>
+  <data name="Common_ErrorPrefix" xml:space="preserve">
+    <value>Error: </value>
+  </data>
+  <data name="Register_PageTitle" xml:space="preserve">
+    <value>Registration — Jumbo</value>
+  </data>
+  <data name="Register_Subtitle" xml:space="preserve">
+    <value>Start your language journey</value>
+  </data>
+  <data name="Register_FirstNameLabel" xml:space="preserve">
+    <value>First name *</value>
+  </data>
+  <data name="Register_UsernameLabel" xml:space="preserve">
+    <value>Username *</value>
+  </data>
+  <data name="Register_UsernamePlaceholder" xml:space="preserve">
+    <value>Choose a username</value>
+  </data>
+  <data name="Register_PasswordLabel" xml:space="preserve">
+    <value>Password *</value>
+  </data>
+  <data name="Register_PasswordPlaceholder" xml:space="preserve">
+    <value>Choose a password</value>
+  </data>
+  <data name="Register_Registering" xml:space="preserve">
+    <value>Registering…</value>
+  </data>
+  <data name="Register_StartButton" xml:space="preserve">
+    <value>Start learning 🚀</value>
+  </data>
+  <data name="Register_HaveAccount" xml:space="preserve">
+    <value>Already have an account? </value>
+  </data>
+  <data name="Register_Failed" xml:space="preserve">
+    <value>Couldn't register. Check your connection to the server.</value>
+  </data>
+  <data name="Register_AvatarLabel" xml:space="preserve">
+    <value>Choose an avatar</value>
+  </data>
+  <data name="Register_AvatarUploadLabel" xml:space="preserve">
+    <value>Upload a photo</value>
+  </data>
+  <data name="Register_AvatarInvalidType" xml:space="preserve">
+    <value>Please choose an image file.</value>
+  </data>
+  <data name="Register_AvatarTooLarge" xml:space="preserve">
+    <value>Image is too large (max 1 MB).</value>
+  </data>
+  <data name="Login_PageTitle" xml:space="preserve">
+    <value>Login — Jumbo</value>
+  </data>
+  <data name="Login_WelcomeBack" xml:space="preserve">
+    <value>Welcome back!</value>
+  </data>
+  <data name="Login_PasswordTab" xml:space="preserve">
+    <value>Username &amp; password</value>
+  </data>
+  <data name="Login_QrTab" xml:space="preserve">
+    <value>QR code</value>
+  </data>
+  <data name="Login_UsernameLabel" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Login_UsernamePlaceholder" xml:space="preserve">
+    <value>Your username</value>
+  </data>
+  <data name="Login_PasswordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve">
+    <value>Your password</value>
+  </data>
+  <data name="Login_RememberMe" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="Login_LoggingIn" xml:space="preserve">
+    <value>Signing in…</value>
+  </data>
+  <data name="Login_QrAlt" xml:space="preserve">
+    <value>QR code for login</value>
+  </data>
+  <data name="Login_QrHint" xml:space="preserve">
+    <value>Open Jumbo on your phone → Settings → "Sign in on website via QR" and point the camera at the code</value>
+  </data>
+  <data name="Login_QrLoading" xml:space="preserve">
+    <value>Loading QR code…</value>
+  </data>
+  <data name="Login_NoAccount" xml:space="preserve">
+    <value>Don't have an account? </value>
+  </data>
+  <data name="Login_RegisterLink" xml:space="preserve">
+    <value>Sign up</value>
+  </data>
+  <data name="Login_InvalidCredentials" xml:space="preserve">
+    <value>Incorrect username or password</value>
+  </data>
+  <data name="Login_QrCreateFailed" xml:space="preserve">
+    <value>Couldn't create a QR code</value>
+  </data>
+  <data name="Exam_Heading" xml:space="preserve">
+    <value>📋 Exam</value>
+  </data>
+  <data name="Exam_ChooseBook" xml:space="preserve">
+    <value>Choose a book</value>
+  </data>
+  <data name="Exam_WordCount" xml:space="preserve">
+    <value>Number of words</value>
+  </data>
+  <data name="Exam_StartButton" xml:space="preserve">
+    <value>▶ Start</value>
+  </data>
+  <data name="ExamQuiz_NoWords" xml:space="preserve">
+    <value>This book has no words yet</value>
+  </data>
+  <data name="ExamQuiz_InputPlaceholder" xml:space="preserve">
+    <value>Type the word…</value>
+  </data>
+  <data name="ExamQuiz_Finish" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="ExamQuiz_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="ExamResults_PageTitle" xml:space="preserve">
+    <value>Exam results</value>
+  </data>
+  <data name="ExamResults_NotFound" xml:space="preserve">
+    <value>No exam results found</value>
+  </data>
+  <data name="ExamResults_BackToExam" xml:space="preserve">
+    <value>Back to exam</value>
+  </data>
+  <data name="ExamResults_Summary" xml:space="preserve">
+    <value>Correct: {0} of {1} · Incorrect: {2}</value>
+  </data>
+  <data name="ExamResults_Retry" xml:space="preserve">
+    <value>Take it again</value>
+  </data>
+  <data name="ExamResults_MistakesTitle" xml:space="preserve">
+    <value>Mistakes</value>
+  </data>
+  <data name="ExamResults_EmptyAnswer" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="NotFound_Title" xml:space="preserve">
+    <value>Not Found</value>
+  </data>
+  <data name="NotFound_Message" xml:space="preserve">
+    <value>Sorry, the content you are looking for does not exist.</value>
+  </data>
+  <data name="TestLevel_NoWords" xml:space="preserve">
+    <value>No words available for the test yet</value>
+  </data>
+  <data name="TestLevel_ResultsPageTitle" xml:space="preserve">
+    <value>Test results</value>
+  </data>
+  <data name="TestLevel_ResultsNotFound" xml:space="preserve">
+    <value>No test results found</value>
+  </data>
+  <data name="TestLevel_BackToTest" xml:space="preserve">
+    <value>Back to test</value>
+  </data>
+  <data name="LpHome_OverallProgressTitle" xml:space="preserve">
+    <value>Overall progress</value>
+  </data>
+  <data name="Game_WordsTitle" xml:space="preserve">
+    <value>Topic words</value>
+  </data>
+  <data name="Game_WordsDesc" xml:space="preserve">
+    <value>Words you will learn in this topic</value>
+  </data>
+  <data name="Settings_AccountSection" xml:space="preserve">
+    <value>Login and password</value>
+  </data>
+  <data name="Settings_UsernameLabel" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Settings_CurrentPasswordLabel" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="Settings_NewPasswordLabel" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="Settings_NewPasswordHint" xml:space="preserve">
+    <value>Leave empty to keep the current one</value>
+  </data>
+  <data name="Settings_ConfirmPasswordLabel" xml:space="preserve">
+    <value>Repeat new password</value>
+  </data>
+  <data name="Settings_AccountSaveButton" xml:space="preserve">
+    <value>Change login / password</value>
+  </data>
+  <data name="Settings_AccountSaved" xml:space="preserve">
+    <value>Login and password updated</value>
+  </data>
+  <data name="Settings_PasswordsMismatch" xml:space="preserve">
+    <value>New passwords do not match</value>
+  </data>
+  <data name="Settings_UsernameRequired" xml:space="preserve">
+    <value>Login cannot be empty</value>
+  </data>
+  <data name="Settings_AccountNothingToChange" xml:space="preserve">
+    <value>Enter a new login or a new password</value>
+  </data>
+  <data name="Alphabet_Subtitle" xml:space="preserve">
+    <value>Pick a letter and learn the words that start with it</value>
+  </data>
+  <data name="Alphabet_CtaHint" xml:space="preserve">
+    <value>Pick a letter, learn words</value>
+  </data>
+  <data name="Theme_Toggle" xml:space="preserve">
+    <value>Switch theme</value>
+  </data>
+  <data name="Path_Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Path_Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Path_Play" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="Path_AllDone" xml:space="preserve">
+    <value>All topics completed! 🎉</value>
+  </data>
+  <data name="Path_HintStartWith" xml:space="preserve">
+    <value>Finish “{0}” first</value>
+  </data>
+  <data name="Path_OpenAnyway" xml:space="preserve">
+    <value>Open anyway</value>
+  </data>
+  <data name="Path_GoCurrent" xml:space="preserve">
+    <value>Go to current topic</value>
+  </data>
+  <data name="Daily_Title" xml:space="preserve">
+    <value>Daily goal</value>
+  </data>
+  <data name="Daily_Progress" xml:space="preserve">
+    <value>{0} of {1} words</value>
+  </data>
+  <data name="Daily_StreakLabel" xml:space="preserve">
+    <value>day streak</value>
+  </data>
+  <data name="Daily_GoalDone" xml:space="preserve">
+    <value>Today's goal complete! 🎉</value>
+  </data>
+  <data name="Daily_AtRisk" xml:space="preserve">
+    <value>Reach your goal to keep your streak 🔥</value>
+  </data>
+  <data name="Daily_StartPrompt" xml:space="preserve">
+    <value>Learn your first words today!</value>
+  </data>
+  <data name="Settings_DailyGoalSection" xml:space="preserve">
+    <value>Daily goal</value>
+  </data>
+  <data name="Settings_DailyGoalLabel" xml:space="preserve">
+    <value>Words per day</value>
+  </data>
+  <data name="Settings_DailyGoalSaved" xml:space="preserve">
+    <value>Daily goal saved</value>
+  </data>
+  <data name="Day_Monday" xml:space="preserve">
+    <value>Mon</value>
+  </data>
+  <data name="Day_Tuesday" xml:space="preserve">
+    <value>Tue</value>
+  </data>
+  <data name="Day_Wednesday" xml:space="preserve">
+    <value>Wed</value>
+  </data>
+  <data name="Day_Thursday" xml:space="preserve">
+    <value>Thu</value>
+  </data>
+  <data name="Day_Friday" xml:space="preserve">
+    <value>Fri</value>
+  </data>
+  <data name="Day_Saturday" xml:space="preserve">
+    <value>Sat</value>
+  </data>
+  <data name="Day_Sunday" xml:space="preserve">
+    <value>Sun</value>
+  </data>
+  <data name="Tiger_Cheer1" xml:space="preserve">
+    <value>Great job!</value>
+  </data>
+  <data name="Tiger_Cheer2" xml:space="preserve">
+    <value>Awesome!</value>
+  </data>
+  <data name="Tiger_Cheer3" xml:space="preserve">
+    <value>Keep it up!</value>
+  </data>
+  <data name="Tiger_Oops1" xml:space="preserve">
+    <value>Almost! Try again</value>
+  </data>
+  <data name="Tiger_Oops2" xml:space="preserve">
+    <value>Don't give up!</value>
+  </data>
+  <data name="Tiger_Oops3" xml:space="preserve">
+    <value>It's okay, try!</value>
+  </data>
+  <data name="Reg_StepOf" xml:space="preserve">
+    <value>Step {0} of {1}</value>
+  </data>
+  <data name="Reg_Step1" xml:space="preserve">
+    <value>About you</value>
+  </data>
+  <data name="Reg_Step2" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Reg_Step3" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Reg_Step1Title" xml:space="preserve">
+    <value>Tell us about you</value>
+  </data>
+  <data name="Reg_Step2Title" xml:space="preserve">
+    <value>Login, password and avatar</value>
+  </data>
+  <data name="Reg_Step3Title" xml:space="preserve">
+    <value>Institution and team</value>
+  </data>
+  <data name="Reg_Optional" xml:space="preserve">
+    <value>Optional — you can skip this step</value>
+  </data>
+  <data name="Reg_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Reg_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Reg_Skip" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="Reg_ConfirmPasswordLabel" xml:space="preserve">
+    <value>Repeat password</value>
+  </data>
+  <data name="Reg_PasswordsMismatch" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="Reg_PasswordTooShort" xml:space="preserve">
+    <value>Password must be at least 6 characters</value>
+  </data>
+  <data name="Reg_UsernameTaken" xml:space="preserve">
+    <value>This login is already taken, choose another</value>
+  </data>
+  <data name="Reg_RegionLabel" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Reg_RegionPlaceholder" xml:space="preserve">
+    <value>Not selected</value>
+  </data>
+  <data name="Reg_SchoolLabel" xml:space="preserve">
+    <value>Educational institution</value>
+  </data>
+  <data name="Reg_SchoolPlaceholder" xml:space="preserve">
+    <value>For example: School No. 12 or Lingva Centre</value>
+  </data>
+  <data name="Reg_TeamLabel" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="Reg_TeamPlaceholder" xml:space="preserve">
+    <value>Team name</value>
+  </data>
+  <data name="Reg_StudyLangHelp" xml:space="preserve">
+    <value>Which language you study and which language to translate into</value>
+  </data>
+  <data name="Region_tashkent-city" xml:space="preserve">
+    <value>Tashkent city</value>
+  </data>
+  <data name="Region_tashkent-region" xml:space="preserve">
+    <value>Tashkent region</value>
+  </data>
+  <data name="Region_samarkand" xml:space="preserve">
+    <value>Samarkand region</value>
+  </data>
+  <data name="Region_bukhara" xml:space="preserve">
+    <value>Bukhara region</value>
+  </data>
+  <data name="Region_fergana" xml:space="preserve">
+    <value>Fergana region</value>
+  </data>
+  <data name="Region_andijan" xml:space="preserve">
+    <value>Andijan region</value>
+  </data>
+  <data name="Region_namangan" xml:space="preserve">
+    <value>Namangan region</value>
+  </data>
+  <data name="Region_kashkadarya" xml:space="preserve">
+    <value>Kashkadarya region</value>
+  </data>
+  <data name="Region_surkhandarya" xml:space="preserve">
+    <value>Surkhandarya region</value>
+  </data>
+  <data name="Region_khorezm" xml:space="preserve">
+    <value>Khorezm region</value>
+  </data>
+  <data name="Region_navoi" xml:space="preserve">
+    <value>Navoi region</value>
+  </data>
+  <data name="Region_jizzakh" xml:space="preserve">
+    <value>Jizzakh region</value>
+  </data>
+  <data name="Region_sirdarya" xml:space="preserve">
+    <value>Sirdarya region</value>
+  </data>
+  <data name="Region_karakalpakstan" xml:space="preserve">
+    <value>Republic of Karakalpakstan</value>
+  </data>
+  <data name="Region_other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Land_Login" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Land_Register" xml:space="preserve">
+    <value>Start for free</value>
+  </data>
+  <data name="Land_HeroTitle" xml:space="preserve">
+    <value>Learn English by playing</value>
+  </data>
+  <data name="Land_HeroSub" xml:space="preserve">
+    <value>Words by topic, fun games and a trip through 10 countries with Jumbo the elephant cub.</value>
+  </data>
+  <data name="Land_HowTitle" xml:space="preserve">
+    <value>How it works</value>
+  </data>
+  <data name="Land_How1Title" xml:space="preserve">
+    <value>Pick a topic</value>
+  </data>
+  <data name="Land_How1Desc" xml:space="preserve">
+    <value>Every topic lives in a city on a country map.</value>
+  </data>
+  <data name="Land_How2Title" xml:space="preserve">
+    <value>Play and remember</value>
+  </data>
+  <data name="Land_How2Desc" xml:space="preserve">
+    <value>Listen to words, find pictures, build words from letters.</value>
+  </data>
+  <data name="Land_How3Title" xml:space="preserve">
+    <value>Grow every day</value>
+  </data>
+  <data name="Land_How3Desc" xml:space="preserve">
+    <value>Reach your daily goal, keep your 🔥 streak and unlock new countries.</value>
+  </data>
+  <data name="Land_FeatTitle" xml:space="preserve">
+    <value>What's inside</value>
+  </data>
+  <data name="Land_Feat1Title" xml:space="preserve">
+    <value>Words by topic</value>
+  </data>
+  <data name="Land_Feat1Desc" xml:space="preserve">
+    <value>Pictures, translation and audio for every word.</value>
+  </data>
+  <data name="Land_Feat2Title" xml:space="preserve">
+    <value>4 fun games</value>
+  </data>
+  <data name="Land_Feat2Desc" xml:space="preserve">
+    <value>Find me, Remember the order, Listen and find, Step by step.</value>
+  </data>
+  <data name="Land_Feat3Title" xml:space="preserve">
+    <value>Alphabet</value>
+  </data>
+  <data name="Land_Feat3Desc" xml:space="preserve">
+    <value>Pick a letter and learn words that start with it.</value>
+  </data>
+  <data name="Land_Feat4Title" xml:space="preserve">
+    <value>Repetition</value>
+  </data>
+  <data name="Land_Feat4Desc" xml:space="preserve">
+    <value>Words come back until you remember them for good.</value>
+  </data>
+  <data name="Land_AppTitle" xml:space="preserve">
+    <value>Jumbo on your phone</value>
+  </data>
+  <data name="Land_AppSub" xml:space="preserve">
+    <value>Learn anywhere: on the go, at school, at home.</value>
+  </data>
+  <data name="Land_Android" xml:space="preserve">
+    <value>Download for Android</value>
+  </data>
+  <data name="Land_Ios" xml:space="preserve">
+    <value>For iPhone</value>
+  </data>
+  <data name="Land_Soon" xml:space="preserve">
+    <value>Coming soon</value>
+  </data>
+  <data name="Land_ScanQr" xml:space="preserve">
+    <value>Scan to download</value>
+  </data>
+  <data name="Land_CtaTitle" xml:space="preserve">
+    <value>Ready for the first step?</value>
+  </data>
+  <data name="Land_CtaSub" xml:space="preserve">
+    <value>Signing up takes less than a minute.</value>
+  </data>
+  <data name="Dash_Hello" xml:space="preserve">
+    <value>Hi, {0}!</value>
+  </data>
+  <data name="Dash_Sub" xml:space="preserve">
+    <value>Ready to continue the journey?</value>
+  </data>
+  <data name="Dash_Continue" xml:space="preserve">
+    <value>Continue learning</value>
+  </data>
+  <data name="Dash_ResultsTitle" xml:space="preserve">
+    <value>My results</value>
+  </data>
+  <data name="Dash_Words" xml:space="preserve">
+    <value>Words learned</value>
+  </data>
+  <data name="Dash_Topics" xml:space="preserve">
+    <value>Topics completed</value>
+  </data>
+  <data name="Dash_Games" xml:space="preserve">
+    <value>Games won</value>
+  </data>
+  <data name="Dash_Lp" xml:space="preserve">
+    <value>LP points</value>
+  </data>
+  <data name="Dash_QuickTitle" xml:space="preserve">
+    <value>Quick start</value>
+  </data>
+  <data name="Nav_Rating" xml:space="preserve">
+    <value>Leaderboard</value>
+  </data>
+  <data name="Rating_Title" xml:space="preserve">
+    <value>Leaderboard</value>
+  </data>
+  <data name="Rating_Subtitle" xml:space="preserve">
+    <value>Who has learned the most words</value>
+  </data>
+  <data name="Rating_Week" xml:space="preserve">
+    <value>This week</value>
+  </data>
+  <data name="Rating_AllTime" xml:space="preserve">
+    <value>All time</value>
+  </data>
+  <data name="Rating_ScopeTeam" xml:space="preserve">
+    <value>My team</value>
+  </data>
+  <data name="Rating_ScopeSchool" xml:space="preserve">
+    <value>My institution</value>
+  </data>
+  <data name="Rating_ScopeRegion" xml:space="preserve">
+    <value>My region</value>
+  </data>
+  <data name="Rating_ScopeAll" xml:space="preserve">
+    <value>Everyone</value>
+  </data>
+  <data name="Rating_Words" xml:space="preserve">
+    <value>words</value>
+  </data>
+  <data name="Rating_Hidden" xml:space="preserve">
+    <value>Hidden player</value>
+  </data>
+  <data name="Rating_You" xml:space="preserve">
+    <value>you</value>
+  </data>
+  <data name="Rating_MyPlace" xml:space="preserve">
+    <value>Your place: {0}</value>
+  </data>
+  <data name="Rating_Points" xml:space="preserve">
+    <value>{0} words</value>
+  </data>
+  <data name="Rating_NoPlace" xml:space="preserve">
+    <value>No points yet. Play to enter the ranking!</value>
+  </data>
+  <data name="Rating_Empty" xml:space="preserve">
+    <value>Nobody here yet</value>
+  </data>
+  <data name="Rating_MissingTeam" xml:space="preserve">
+    <value>Add your team in the profile to see the team ranking</value>
+  </data>
+  <data name="Rating_MissingSchool" xml:space="preserve">
+    <value>Add your institution in the profile to see its ranking</value>
+  </data>
+  <data name="Rating_MissingRegion" xml:space="preserve">
+    <value>Choose your region in the profile to see the regional ranking</value>
+  </data>
+  <data name="Rating_GoSettings" xml:space="preserve">
+    <value>Open profile</value>
+  </data>
+  <data name="Rating_Privacy" xml:space="preserve">
+    <value>We only show the first name, the first letter of the last name and the team.</value>
+  </data>
+  <data name="Rating_SeeAll" xml:space="preserve">
+    <value>Full leaderboard</value>
+  </data>
+  <data name="Rating_MiniTitle" xml:space="preserve">
+    <value>This week's ranking</value>
+  </data>
+  <data name="Settings_PrivacySection" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="Settings_HideNameLabel" xml:space="preserve">
+    <value>Hide my name in the leaderboard</value>
+  </data>
+  <data name="Settings_HideNameHint" xml:space="preserve">
+    <value>It will show "Hidden player" instead of your name. Your place and points stay.</value>
+  </data>
+  <data name="Top_Title" xml:space="preserve">
+    <value>Top 10 players</value>
+  </data>
+  <data name="Top_Sub" xml:space="preserve">
+    <value>by words learned</value>
+  </data>
+  <data name="Top_GuestCta" xml:space="preserve">
+    <value>Want to be on this list? Sign up and learn words!</value>
+  </data>
+  <data name="Lang_Switch" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Exam_Intro" xml:space="preserve">
+    <value>Check how well you remember: for each translation, type the word in the language you study.</value>
+  </data>
+  <data name="Exam_Hint" xml:space="preserve">
+    <value>Choose a book and the number of words</value>
+  </data>
+  <data name="Exam_Selected" xml:space="preserve">
+    <value>Book {0} · {1} words</value>
+  </data>
+  <data name="Exam_GateTitle" xml:space="preserve">
+    <value>Tell us about yourself first</value>
+  </data>
+  <data name="Exam_GateText" xml:space="preserve">
+    <value>To take the exam, enter your region, institution and team. It takes a few seconds and the exam starts right away.</value>
+  </data>
+  <data name="Exam_GateSave" xml:space="preserve">
+    <value>Save and start</value>
+  </data>
+  <data name="Exam_GateRequired" xml:space="preserve">
+    <value>Please fill in region, institution and team</value>
+  </data>
+  <data name="FS_Nav" xml:space="preserve">
+    <value>For teachers</value>
+  </data>
+  <data name="FS_Title" xml:space="preserve">
+    <value>For teachers and educational institutions</value>
+  </data>
+  <data name="FS_Sub" xml:space="preserve">
+    <value>Follow your students' progress, group them into teams and get clear reports.</value>
+  </data>
+  <data name="FS_B1T" xml:space="preserve">
+    <value>Teams and classes</value>
+  </data>
+  <data name="FS_B1D" xml:space="preserve">
+    <value>Create a team, give students a code and they join on their own.</value>
+  </data>
+  <data name="FS_B2T" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="FS_B2D" xml:space="preserve">
+    <value>Words learned, exam results and daily activity.</value>
+  </data>
+  <data name="FS_B3T" xml:space="preserve">
+    <value>For principals</value>
+  </data>
+  <data name="FS_B3D" xml:space="preserve">
+    <value>Institution-wide overview: teams, teachers, comparison.</value>
+  </data>
+  <data name="FS_NeedLogin" xml:space="preserve">
+    <value>To start as a teacher, sign in or register.</value>
+  </data>
+  <data name="FS_FormTitle" xml:space="preserve">
+    <value>Start as a teacher</value>
+  </data>
+  <data name="FS_RoleLabel" xml:space="preserve">
+    <value>Your role</value>
+  </data>
+  <data name="FS_Teacher" xml:space="preserve">
+    <value>Teacher</value>
+  </data>
+  <data name="FS_Director" xml:space="preserve">
+    <value>Principal</value>
+  </data>
+  <data name="FS_Comment" xml:space="preserve">
+    <value>Comment (optional)</value>
+  </data>
+  <data name="FS_CommentPh" xml:space="preserve">
+    <value>For example: English teacher, grades 5-9</value>
+  </data>
+  <data name="FS_Send" xml:space="preserve">
+    <value>Open the cabinet</value>
+  </data>
+  <data name="FS_Required" xml:space="preserve">
+    <value>Choose a role and a region and enter the institution</value>
+  </data>
+  <data name="FS_Sent" xml:space="preserve">
+    <value>Request sent. We will check the details and let you know.</value>
+  </data>
+  <data name="FS_PendingTitle" xml:space="preserve">
+    <value>Request is being reviewed</value>
+  </data>
+  <data name="FS_PendingText" xml:space="preserve">
+    <value>We will check the details and confirm your role. This can take a few days.</value>
+  </data>
+  <data name="FS_RejectedTitle" xml:space="preserve">
+    <value>Request rejected</value>
+  </data>
+  <data name="FS_Reapply" xml:space="preserve">
+    <value>You can send a new request below.</value>
+  </data>
+  <data name="FS_ApprovedTitle" xml:space="preserve">
+    <value>Role confirmed: {0}</value>
+  </data>
+  <data name="FS_ApprovedSchool" xml:space="preserve">
+    <value>Institution: {0}</value>
+  </data>
+  <data name="FS_CabinetSoon" xml:space="preserve">
+    <value>The cabinet with teams and reports is coming soon.</value>
+  </data>
+  <data name="FS_ErrPending" xml:space="preserve">
+    <value>You already have a request under review</value>
+  </data>
+  <data name="FS_ErrStaff" xml:space="preserve">
+    <value>You already have this role</value>
+  </data>
+  <data name="Role_Teacher" xml:space="preserve">
+    <value>Teacher</value>
+  </data>
+  <data name="Role_Director" xml:space="preserve">
+    <value>Principal</value>
+  </data>
+  <data name="Role_Admin" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="Nav_Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="Admin_Title" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Admin_TabRequests" xml:space="preserve">
+    <value>Requests</value>
+  </data>
+  <data name="Admin_TabSchools" xml:space="preserve">
+    <value>Institutions</value>
+  </data>
+  <data name="Admin_Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="Admin_Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="Admin_Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="Admin_Empty" xml:space="preserve">
+    <value>Nothing here yet</value>
+  </data>
+  <data name="Admin_Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Admin_Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="Admin_ChooseSchool" xml:space="preserve">
+    <value>Institution</value>
+  </data>
+  <data name="Admin_CreateNew" xml:space="preserve">
+    <value>Create a new institution</value>
+  </data>
+  <data name="Admin_NewName" xml:space="preserve">
+    <value>New institution name</value>
+  </data>
+  <data name="Admin_Note" xml:space="preserve">
+    <value>Note for the applicant (optional)</value>
+  </data>
+  <data name="Admin_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Admin_AllRegions" xml:space="preserve">
+    <value>All regions</value>
+  </data>
+  <data name="Admin_AddSchool" xml:space="preserve">
+    <value>Add institution</value>
+  </data>
+  <data name="Admin_Verified" xml:space="preserve">
+    <value>Verified</value>
+  </data>
+  <data name="Admin_Unverified" xml:space="preserve">
+    <value>Unverified</value>
+  </data>
+  <data name="Admin_Staff" xml:space="preserve">
+    <value>Staff: {0}</value>
+  </data>
+  <data name="Admin_Applicant" xml:space="preserve">
+    <value>Applicant</value>
+  </data>
+  <data name="Admin_Typed" xml:space="preserve">
+    <value>Entered by the applicant</value>
+  </data>
+  <data name="Admin_Decision" xml:space="preserve">
+    <value>Decision</value>
+  </data>
+  <data name="Admin_Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="FS_OpenCabinet" xml:space="preserve">
+    <value>Open the teacher cabinet</value>
+  </data>
+  <data name="TC_Nav" xml:space="preserve">
+    <value>Teacher cabinet</value>
+  </data>
+  <data name="TC_Title" xml:space="preserve">
+    <value>My teams</value>
+  </data>
+  <data name="TC_DirectorTitle" xml:space="preserve">
+    <value>Institution teams</value>
+  </data>
+  <data name="TC_NoSchool" xml:space="preserve">
+    <value>Your account is not linked to an institution yet. Please contact the administrator.</value>
+  </data>
+  <data name="TC_NewClass" xml:space="preserve">
+    <value>New team</value>
+  </data>
+  <data name="TC_ClassNamePh" xml:space="preserve">
+    <value>For example, A_2020</value>
+  </data>
+  <data name="TC_NameHint" xml:space="preserve">
+    <value>Name the team with a letter and the year the class started, e.g. A_2020. That way the name stays valid next year.</value>
+  </data>
+  <data name="TC_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="TC_NoClasses" xml:space="preserve">
+    <value>No teams yet. Create the first one and students can pick it from the list.</value>
+  </data>
+  <data name="TC_Students" xml:space="preserve">
+    <value>Students</value>
+  </data>
+  <data name="TC_Active" xml:space="preserve">
+    <value>Active this week</value>
+  </data>
+  <data name="TC_AvgExam" xml:space="preserve">
+    <value>Average exam score</value>
+  </data>
+  <data name="TC_PendingTotal" xml:space="preserve">
+    <value>Waiting for your decision: {0}</value>
+  </data>
+  <data name="TC_PendingTitle" xml:space="preserve">
+    <value>Want to join</value>
+  </data>
+  <data name="TC_PendingHint" xml:space="preserve">
+    <value>These students picked your team. Until you confirm them they are not in the reports. If you reject, their institution and team are removed.</value>
+  </data>
+  <data name="TC_Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="TC_Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="TC_ApproveAll" xml:space="preserve">
+    <value>Approve all</value>
+  </data>
+  <data name="TC_Archive" xml:space="preserve">
+    <value>Archive</value>
+  </data>
+  <data name="TC_Unarchive" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="TC_Archived" xml:space="preserve">
+    <value>Archived</value>
+  </data>
+  <data name="TC_ArchiveHint" xml:space="preserve">
+    <value>An archived team is no longer offered in the pick list; its students stay.</value>
+  </data>
+  <data name="TC_Back" xml:space="preserve">
+    <value>All teams</value>
+  </data>
+  <data name="TC_Teacher" xml:space="preserve">
+    <value>Teacher: {0}</value>
+  </data>
+  <data name="TC_StudentsTitle" xml:space="preserve">
+    <value>Students</value>
+  </data>
+  <data name="TC_NoStudents" xml:space="preserve">
+    <value>No approved students yet.</value>
+  </data>
+  <data name="TC_ColName" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="TC_ColLp" xml:space="preserve">
+    <value>LP</value>
+  </data>
+  <data name="TC_ColStreak" xml:space="preserve">
+    <value>Streak</value>
+  </data>
+  <data name="TC_ColWords" xml:space="preserve">
+    <value>Words this week</value>
+  </data>
+  <data name="TC_ColLast" xml:space="preserve">
+    <value>Last active</value>
+  </data>
+  <data name="TC_ColExam" xml:space="preserve">
+    <value>Exam</value>
+  </data>
+  <data name="TC_Today" xml:space="preserve">
+    <value>today</value>
+  </data>
+  <data name="TC_Yesterday" xml:space="preserve">
+    <value>yesterday</value>
+  </data>
+  <data name="TC_DaysAgo" xml:space="preserve">
+    <value>{0} days ago</value>
+  </data>
+  <data name="TC_NeverActive" xml:space="preserve">
+    <value>never</value>
+  </data>
+  <data name="TC_ExamNone" xml:space="preserve">
+    <value>none yet</value>
+  </data>
+  <data name="TC_ExamFmt" xml:space="preserve">
+    <value>{0}% · avg {1}% · total {2}</value>
+  </data>
+  <data name="TC_WordsDays" xml:space="preserve">
+    <value>{0} words · {1}/7 days</value>
+  </data>
+  <data name="TC_Remove" xml:space="preserve">
+    <value>Remove from the team</value>
+  </data>
+  <data name="TC_RemoveConfirm" xml:space="preserve">
+    <value>Remove “{0}” from the team? Their institution and team are cleared.</value>
+  </data>
+  <data name="TC_Confirm" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="TC_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TC_Err_NAME_EXISTS" xml:space="preserve">
+    <value>Your institution already has a team with this name.</value>
+  </data>
+  <data name="TC_Err_TOO_MANY_CLASSES" xml:space="preserve">
+    <value>Too many teams. Archive the old ones.</value>
+  </data>
+  <data name="TC_Err_NO_SCHOOL" xml:space="preserve">
+    <value>The account is not linked to an institution.</value>
+  </data>
+  <data name="TC_NameRequired" xml:space="preserve">
+    <value>Enter a team name.</value>
+  </data>
+  <data name="TC_ClassMissing" xml:space="preserve">
+    <value>Team not found.</value>
+  </data>
+  <data name="Pick_SchoolPh" xml:space="preserve">
+    <value>Choose an institution</value>
+  </data>
+  <data name="Pick_TeamPh" xml:space="preserve">
+    <value>Choose a team</value>
+  </data>
+  <data name="Pick_NoSchools" xml:space="preserve">
+    <value>No institutions in the list for this region yet. Ask your teacher to register the institution on the “For teachers” page.</value>
+  </data>
+  <data name="Pick_NoTeams" xml:space="preserve">
+    <value>This institution has no teams yet. Ask your teacher to create yours.</value>
+  </data>
+  <data name="Pick_Hint" xml:space="preserve">
+    <value>Your teacher will confirm your choice. Until then you are not in the institution's reports.</value>
+  </data>
+  <data name="Team_Section" xml:space="preserve">
+    <value>Institution and team</value>
+  </data>
+  <data name="Team_Is" xml:space="preserve">
+    <value>Team “{0}”, {1}</value>
+  </data>
+  <data name="Team_Approved" xml:space="preserve">
+    <value>Confirmed by the teacher</value>
+  </data>
+  <data name="Team_Pending" xml:space="preserve">
+    <value>Waiting for the teacher to confirm</value>
+  </data>
+  <data name="Team_Leave" xml:space="preserve">
+    <value>Leave the team</value>
+  </data>
+  <data name="Team_Submit" xml:space="preserve">
+    <value>Send to the teacher for confirmation</value>
+  </data>
+  <data name="Team_Sent" xml:space="preserve">
+    <value>Sent. Once the teacher confirms, you will appear in the reports.</value>
+  </data>
+  <data name="Team_Left" xml:space="preserve">
+    <value>You left the team.</value>
+  </data>
+  <data name="Team_Legacy" xml:space="preserve">
+    <value>You entered before: {0} · {1}. Choose your institution and team from the list so a teacher can confirm them.</value>
+  </data>
+  <data name="Team_Err_TEAM_NOT_FOUND" xml:space="preserve">
+    <value>No such team.</value>
+  </data>
+  <data name="Team_Err_TEAM_ARCHIVED" xml:space="preserve">
+    <value>This team is archived.</value>
+  </data>
+  <data name="Team_Err_STAFF_CANNOT_JOIN" xml:space="preserve">
+    <value>Teachers and directors cannot join teams.</value>
+  </data>
+  <data name="RP_TeamTitle" xml:space="preserve">
+    <value>Team report</value>
+  </data>
+  <data name="RP_SchoolTitle" xml:space="preserve">
+    <value>Institution report</value>
+  </data>
+  <data name="RP_Week" xml:space="preserve">
+    <value>Week</value>
+  </data>
+  <data name="RP_Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="RP_VsPrev" xml:space="preserve">
+    <value>compared with</value>
+  </data>
+  <data name="RP_Print" xml:space="preserve">
+    <value>Download PDF / print</value>
+  </data>
+  <data name="RP_Students" xml:space="preserve">
+    <value>Students</value>
+  </data>
+  <data name="RP_Active" xml:space="preserve">
+    <value>Practised</value>
+  </data>
+  <data name="RP_Words" xml:space="preserve">
+    <value>Words in the period</value>
+  </data>
+  <data name="RP_Exams" xml:space="preserve">
+    <value>Exams</value>
+  </data>
+  <data name="RP_AvgExam" xml:space="preserve">
+    <value>Average score</value>
+  </data>
+  <data name="RP_Attention" xml:space="preserve">
+    <value>Did not practise</value>
+  </data>
+  <data name="RP_AttentionHint" xml:space="preserve">
+    <value>These students did not practise a single word in the selected period.</value>
+  </data>
+  <data name="RP_ColStatus" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="RP_ColWords" xml:space="preserve">
+    <value>Words</value>
+  </data>
+  <data name="RP_ColDays" xml:space="preserve">
+    <value>Days</value>
+  </data>
+  <data name="RP_ColTeam" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="RP_Status_active" xml:space="preserve">
+    <value>active</value>
+  </data>
+  <data name="RP_Status_slow" xml:space="preserve">
+    <value>low</value>
+  </data>
+  <data name="RP_Status_absent" xml:space="preserve">
+    <value>inactive</value>
+  </data>
+  <data name="RP_ExamCell" xml:space="preserve">
+    <value>{0}% ({1})</value>
+  </data>
+  <data name="RP_Missed" xml:space="preserve">
+    <value>Most missed words</value>
+  </data>
+  <data name="RP_NoMissed" xml:space="preserve">
+    <value>No exam mistakes recorded in this period.</value>
+  </data>
+  <data name="RP_Times" xml:space="preserve">
+    <value>{0}×</value>
+  </data>
+  <data name="RP_Teams" xml:space="preserve">
+    <value>Teams</value>
+  </data>
+  <data name="RP_NoTeams" xml:space="preserve">
+    <value>The institution has no teams yet.</value>
+  </data>
+  <data name="RP_Generated" xml:space="preserve">
+    <value>Generated {0}</value>
+  </data>
+  <data name="RP_Scope" xml:space="preserve">
+    <value>Only students confirmed by the teacher. This report contains names: do not pass it on.</value>
+  </data>
+  <data name="RP_ScopeSchool" xml:space="preserve">
+    <value>Only students confirmed by their teachers. The report contains no student names.</value>
+  </data>
+  <data name="RP_NotFound" xml:space="preserve">
+    <value>This link is not valid or has been revoked.</value>
+  </data>
+  <data name="RP_OpenTeamReport" xml:space="preserve">
+    <value>Team report</value>
+  </data>
+  <data name="RP_SchoolLinkTitle" xml:space="preserve">
+    <value>Institution report for the director</value>
+  </data>
+  <data name="RP_LinkHint" xml:space="preserve">
+    <value>Send this link to the director: it opens without signing in, shows figures per team and contains no student names.</value>
+  </data>
+  <data name="RP_LinkCreate" xml:space="preserve">
+    <value>Create the link</value>
+  </data>
+  <data name="RP_LinkOpen" xml:space="preserve">
+    <value>Open the report</value>
+  </data>
+  <data name="RP_LinkCopy" xml:space="preserve">
+    <value>Copy the link</value>
+  </data>
+  <data name="RP_LinkRevoke" xml:space="preserve">
+    <value>Revoke the link</value>
+  </data>
+  <data name="Stats_Level" xml:space="preserve">
+    <value>Your level</value>
+  </data>
+  <data name="Stats_LevelHint" xml:space="preserve">
+    <value>Follows the book you are on</value>
+  </data>
+  <data name="Stats_Place" xml:space="preserve">
+    <value>#{0}</value>
+  </data>
+  <data name="Stats_OutOf" xml:space="preserve">
+    <value>of {0}</value>
+  </data>
+  <data name="Stats_ScopeTeam" xml:space="preserve">
+    <value>My team</value>
+  </data>
+  <data name="Stats_ScopeSchool" xml:space="preserve">
+    <value>My institution</value>
+  </data>
+  <data name="Stats_ScopeRegion" xml:space="preserve">
+    <value>My region</value>
+  </data>
+  <data name="Stats_ScopeAll" xml:space="preserve">
+    <value>Everyone</value>
+  </data>
+  <data name="Stats_Words" xml:space="preserve">
+    <value>{0} words this week</value>
+  </data>
+  <data name="Stats_NoPlace" xml:space="preserve">
+    <value>Play to get on the board!</value>
+  </data>
+  <data name="Stats_RatingTitle" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="Stats_OpenRating" xml:space="preserve">
+    <value>Open the rating on the website</value>
+  </data>
+  <data name="TC_Copied" xml:space="preserve">
+    <value>Copied</value>
+  </data>
+  <data name="TG_Title" xml:space="preserve">
+    <value>Telegram bot for the director</value>
+  </data>
+  <data name="TG_Hint" xml:space="preserve">
+    <value>The director does not need to log in: the institution report arrives in Telegram every Monday. Create a link, send it to the director, and they just open it and press “Start”.</value>
+  </data>
+  <data name="TG_Add" xml:space="preserve">
+    <value>Add a recipient</value>
+  </data>
+  <data name="TG_Waiting" xml:space="preserve">
+    <value>Waiting for the director: send them this link</value>
+  </data>
+  <data name="TG_Open" xml:space="preserve">
+    <value>Open in Telegram</value>
+  </data>
+  <data name="TG_Connected" xml:space="preserve">
+    <value>gets the reports</value>
+  </data>
+  <data name="TG_Someone" xml:space="preserve">
+    <value>Recipient</value>
+  </data>
+  <data name="TG_Disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="TG_Cancel" xml:space="preserve">
+    <value>Cancel the link</value>
+  </data>
+  <data name="TG_Err_TOO_MANY" xml:space="preserve">
+    <value>Too many recipients (10 at most).</value>
+  </data>
+  <data name="TG_Err_TELEGRAM_OFF" xml:space="preserve">
+    <value>The bot is not connected on the server yet.</value>
+  </data>
+  <data name="TG_MineTitle" xml:space="preserve">
+    <value>My Telegram</value>
+  </data>
+  <data name="TG_MineHint" xml:space="preserve">
+    <value>Connect your own Telegram: pupils' requests to join your teams arrive there with Accept / Decline buttons, plus a reminder of who has not practised for a while.</value>
+  </data>
+  <data name="TG_AddMine" xml:space="preserve">
+    <value>Connect my Telegram</value>
+  </data>
+  <data name="TG_MineWaiting" xml:space="preserve">
+    <value>Open the link in Telegram and press “Start”</value>
+  </data>
+  <data name="TG_MineConnected" xml:space="preserve">
+    <value>gets requests and reminders</value>
+  </data>
+  <data name="PupilBot_Title" xml:space="preserve">
+    <value>Telegram bot</value>
+  </data>
+  <data name="PupilBot_Hint" xml:space="preserve">
+    <value>Connect the bot: it reminds you to practise, shows your progress and rating, and plays a mini quiz with you.</value>
+  </data>
+  <data name="PupilBot_Connect" xml:space="preserve">
+    <value>Connect the bot</value>
+  </data>
+  <data name="PupilBot_Open" xml:space="preserve">
+    <value>Open the bot in Telegram</value>
+  </data>
+  <data name="PupilBot_Waiting" xml:space="preserve">
+    <value>Press “Start” in the bot, then come back and check the connection.</value>
+  </data>
+  <data name="PupilBot_Check" xml:space="preserve">
+    <value>Check the connection</value>
+  </data>
+  <data name="PupilBot_Connected" xml:space="preserve">
+    <value>The bot is connected ✅</value>
+  </data>
+  <data name="PupilBot_Disconnect" xml:space="preserve">
+    <value>Disconnect the bot</value>
+  </data>
+  <data name="ListenGame_ShowWord" xml:space="preserve">
+    <value>Show the word</value>
+  </data>
+  <data name="ListenGame_HideWord" xml:space="preserve">
+    <value>Hide the word</value>
+  </data>
+  <data name="Games_Title" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="Games_Sub" xml:space="preserve">
+    <value>Pick a game, then a topic</value>
+  </data>
+  <data name="Games_Pick" xml:space="preserve">
+    <value>Pick a topic</value>
+  </data>
+  <data name="Games_Next" xml:space="preserve">
+    <value>Next: {0}</value>
+  </data>
+  <data name="Games_MoreName" xml:space="preserve">
+    <value>Games for this topic</value>
+  </data>
+  <data name="Games_MoreDesc" xml:space="preserve">
+    <value>More games for this topic are in the Games tab</value>
+  </data>
+  <data name="ExamResults_ChooseAnother" xml:space="preserve">
+    <value>Choose another book</value>
+  </data>
+  <data name="Exam_ModeFree" xml:space="preserve">
+    <value>Free exam</value>
+  </data>
+  <data name="Exam_ModeTeacher" xml:space="preserve">
+    <value>Teacher's exam</value>
+  </data>
+  <data name="Exam_BestNote" xml:space="preserve">
+    <value>Under each book: your best result in a free exam</value>
+  </data>
+  <data name="Exam_CodeStep" xml:space="preserve">
+    <value>Enter the exam code</value>
+  </data>
+  <data name="Exam_CodeHint" xml:space="preserve">
+    <value>The teacher shows the code. It works for 5 minutes.</value>
+  </data>
+  <data name="Exam_HintTeacher" xml:space="preserve">
+    <value>Choose a book and enter the 6-digit code</value>
+  </data>
+  <data name="Exam_TeacherSelected" xml:space="preserve">
+    <value>Book {0} · teacher's exam</value>
+  </data>
+  <data name="Exam_CodeErr_CODE_INVALID" xml:space="preserve">
+    <value>Wrong code</value>
+  </data>
+  <data name="Exam_CodeErr_CODE_EXPIRED" xml:space="preserve">
+    <value>The code has expired. Ask the teacher to start a new exam</value>
+  </data>
+  <data name="Exam_CodeErr_ALREADY_TAKEN" xml:space="preserve">
+    <value>You have already taken this exam</value>
+  </data>
+  <data name="Exam_CodeErr_TOO_MANY" xml:space="preserve">
+    <value>Too many attempts, wait a minute</value>
+  </data>
+  <data name="ExamResults_SentToTeacher" xml:space="preserve">
+    <value>✓ The result was sent to the teacher</value>
+  </data>
+  <data name="ExamResults_NotSent" xml:space="preserve">
+    <value>The result could not be sent to the teacher</value>
+  </data>
+  <data name="TE_CardTitle" xml:space="preserve">
+    <value>Exam for pupils</value>
+  </data>
+  <data name="TE_CardHint" xml:space="preserve">
+    <value>Start an exam: pupils enter a code and take it</value>
+  </data>
+  <data name="TE_Title" xml:space="preserve">
+    <value>Exam for pupils</value>
+  </data>
+  <data name="TE_Intro" xml:space="preserve">
+    <value>Choose the number of questions and start the exam. Show the code to your pupils: they enter it on the Exam tab, pick a book and take the exam.</value>
+  </data>
+  <data name="TE_Count" xml:space="preserve">
+    <value>Number of questions</value>
+  </data>
+  <data name="TE_Start" xml:space="preserve">
+    <value>Start the exam</value>
+  </data>
+  <data name="TE_Code" xml:space="preserve">
+    <value>Exam code</value>
+  </data>
+  <data name="TE_Left" xml:space="preserve">
+    <value>Code works for: {0}</value>
+  </data>
+  <data name="TE_ShowCode" xml:space="preserve">
+    <value>Show the code to the pupils. New results appear below by themselves.</value>
+  </data>
+  <data name="TE_Expired" xml:space="preserve">
+    <value>The code has expired</value>
+  </data>
+  <data name="TE_NewExam" xml:space="preserve">
+    <value>New exam</value>
+  </data>
+  <data name="TE_AllExams" xml:space="preserve">
+    <value>All exams</value>
+  </data>
+  <data name="TE_Questions" xml:space="preserve">
+    <value>{0} questions</value>
+  </data>
+  <data name="TE_Participants" xml:space="preserve">
+    <value>Taken: {0}</value>
+  </data>
+  <data name="TE_Avg" xml:space="preserve">
+    <value>average {0}%</value>
+  </data>
+  <data name="TE_Results" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="TE_NoResults" xml:space="preserve">
+    <value>No one has handed in yet</value>
+  </data>
+  <data name="TE_History" xml:space="preserve">
+    <value>Earlier exams</value>
+  </data>
+  <data name="TE_ColPupil" xml:space="preserve">
+    <value>Pupil</value>
+  </data>
+  <data name="TE_ColTeam" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="TE_ColBook" xml:space="preserve">
+    <value>Book</value>
+  </data>
+  <data name="TE_ColWhen" xml:space="preserve">
+    <value>Taken</value>
+  </data>
+  <data name="TE_Err_INVALID_COUNT" xml:space="preserve">
+    <value>Choose the number of questions</value>
+  </data>
+  <data name="TE_Err_NO_SCHOOL" xml:space="preserve">
+    <value>Your account is not linked to an institution yet</value>
+  </data>
+  <data name="TE_Err_TRY_AGAIN" xml:space="preserve">
+    <value>Could not create a code, try again</value>
+  </data>
+  <data name="Dictionary_NumberHint" xml:space="preserve">
+    <value>Number of the word in the book</value>
+  </data>
+  <data name="Game_PhraseTitle" xml:space="preserve">
+    <value>Build the phrase</value>
+  </data>
+  <data name="Game_PhraseDesc" xml:space="preserve">
+    <value>Build the English example from its words, using the translation</value>
+  </data>
+  <data name="PhraseGame_Won" xml:space="preserve">
+    <value>All phrases built!</value>
+  </data>
+  <data name="PhraseGame_Hint" xml:space="preserve">
+    <value>Build this phrase in English</value>
+  </data>
+  <data name="PhraseGame_NoPhrases" xml:space="preserve">
+    <value>There are no phrases for this topic yet</value>
+  </data>
+  <data name="PhraseGame_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="PhraseGame_Help" xml:space="preserve">
+    <value>Tap or drag the words into the cells. Drop a word on a filled cell and the others move right.</value>
+  </data>
+  <data name="PhraseGame_SlotsLabel" xml:space="preserve">
+    <value>The phrase</value>
+  </data>
+  <data name="BookPage_Passed" xml:space="preserve">
+    <value>Passed: {0} of {1}</value>
+  </data>
+  <data name="Rating_TeacherAll" xml:space="preserve">
+    <value>All my pupils</value>
+  </data>
+  <data name="Rating_TeacherEmpty" xml:space="preserve">
+    <value>There are no pupils in your teams yet</value>
+  </data>
+  <data name="Rating_TeacherCount" xml:space="preserve">
+    <value>Pupils in the list: {0}</value>
+  </data>
+  <data name="FS_PendingNext" xml:space="preserve">
+    <value>Once the request is confirmed, your cabinet opens here: teams and pupils, the report link for the director, the Telegram connection and the exams.</value>
+  </data>
+  <data name="TC_ColBook" xml:space="preserve">
+    <value>Book</value>
+  </data>
+  <data name="TS_Missing" xml:space="preserve">
+    <value>Pupil not found.</value>
+  </data>
+  <data name="TS_Title" xml:space="preserve">
+    <value>Progress by books</value>
+  </data>
+  <data name="TS_CurrentBook" xml:space="preserve">
+    <value>Current book</value>
+  </data>
+  <data name="TS_TopicsDone" xml:space="preserve">
+    <value>Topics done</value>
+  </data>
+  <data name="TS_WordsLearned" xml:space="preserve">
+    <value>Words practised</value>
+  </data>
+  <data name="TS_NoProgress" xml:space="preserve">
+    <value>This pupil has not started learning yet.</value>
+  </data>
+  <data name="TS_BookN" xml:space="preserve">
+    <value>Book {0}</value>
+  </data>
+  <data name="TS_Now" xml:space="preserve">
+    <value>Now</value>
+  </data>
+  <data name="TS_Topics" xml:space="preserve">
+    <value>topics</value>
+  </data>
+  <data name="TS_Words" xml:space="preserve">
+    <value>words</value>
+  </data>
+  <data name="TS_ExamBest" xml:space="preserve">
+    <value>best · taken {0}×</value>
+  </data>
+  <data name="TS_NoExam" xml:space="preserve">
+    <value>No exam yet</value>
+  </data>
+  <data name="TS_ColTopic" xml:space="preserve">
+    <value>Topic</value>
+  </data>
+  <data name="TS_GameFindMe" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="TS_GameSequence" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="TS_GameListen" xml:space="preserve">
+    <value>Listen</value>
+  </data>
+  <data name="TS_GameSteps" xml:space="preserve">
+    <value>Steps</value>
+  </data>
+  <data name="TS_GamePhrase" xml:space="preserve">
+    <value>Phrase</value>
+  </data>
+  <data name="TE_AllTitle" xml:space="preserve">
+    <value>Pupils’ exam results</value>
+  </data>
+  <data name="TE_AllCount" xml:space="preserve">
+    <value>{0} exams · average {1}%</value>
+  </data>
+  <data name="TE_AllTeams" xml:space="preserve">
+    <value>All teams</value>
+  </data>
+  <data name="TE_AllNone" xml:space="preserve">
+    <value>Nobody has taken an exam yet.</value>
+  </data>
+  <data name="TE_ColKind" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TE_KindCode" xml:space="preserve">
+    <value>By code</value>
+  </data>
+  <data name="TE_KindFree" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="Gate_Title" xml:space="preserve">
+    <value>Opening book {0}</value>
+  </data>
+  <data name="Gate_Sub" xml:space="preserve">
+    <value>Pass 3 steps over book {1}: the words come from all its topics. Then book {0} opens.</value>
+  </data>
+  <data name="Gate_Step" xml:space="preserve">
+    <value>Step {0}</value>
+  </data>
+  <data name="Gate_Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Gate_Next" xml:space="preserve">
+    <value>Next step</value>
+  </data>
+  <data name="Gate_Passed" xml:space="preserve">
+    <value>Passed</value>
+  </data>
+  <data name="Gate_Opened" xml:space="preserve">
+    <value>Book {0} is open!</value>
+  </data>
+  <data name="Gate_LockedTitle" xml:space="preserve">
+    <value>Book {0} comes first</value>
+  </data>
+  <data name="Gate_LockedText" xml:space="preserve">
+    <value>You need to pass book {0} first.</value>
+  </data>
+  <data name="Gate_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Gate_Error" xml:space="preserve">
+    <value>Could not open the book. Try again.</value>
+  </data>
+  <data name="Strip_Lives" xml:space="preserve">
+    <value>Lives</value>
+  </data>
+  <data name="Strip_Book" xml:space="preserve">
+    <value>Book</value>
+  </data>
+  <data name="Strip_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Strip_Days" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="Strip_BookHint" xml:space="preserve">
+    <value>You are in book {0}</value>
+  </data>
+  <data name="Strip_StreakHint" xml:space="preserve">
+    <value>{0} days in a row</value>
+  </data>
+  <data name="Pw_Show" xml:space="preserve">
+    <value>Show password</value>
+  </data>
+  <data name="Pw_Hide" xml:space="preserve">
+    <value>Hide password</value>
+  </data>
+  <data name="Block_Title" xml:space="preserve">
+    <value>5-hour block</value>
+  </data>
+  <data name="Block_SubAll" xml:space="preserve">
+    <value>Your lives and LP are over. When the time is up you get {0} lives back; the LP stays 0.</value>
+  </data>
+  <data name="Block_SubLives" xml:space="preserve">
+    <value>Your lives are over. When the time is up you get {0} lives back.</value>
+  </data>
+  <data name="Block_GateFailed" xml:space="preserve">
+    <value>The check is not passed: the lives are over.</value>
+  </data>
+  <data name="Zero_Title" xml:space="preserve">
+    <value>Alphabet and numbers</value>
+  </data>
+  <data name="Zero_Hint" xml:space="preserve">
+    <value>Tap a letter or a number to hear it.</value>
+  </data>
+  <data name="Zero_Alphabet" xml:space="preserve">
+    <value>Alphabet</value>
+  </data>
+  <data name="Zero_Numbers" xml:space="preserve">
+    <value>Numbers 0–20</value>
+  </data>
+  <data name="Zero_PlayAll" xml:space="preserve">
+    <value>Listen to all</value>
+  </data>
+  <data name="Zero_Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Zero_VowelsHint" xml:space="preserve">
+    <value>Vowel letters are in colour</value>
+  </data>
+  <data name="Tq_GoSite" xml:space="preserve">
+    <value>Go to the website</value>
+  </data>
+  <data name="Tq_TopicNo" xml:space="preserve">
+    <value>Topic {0}</value>
+  </data>
+  <data name="TE_TeamsTitle" xml:space="preserve">
+    <value>Teams</value>
+  </data>
+  <data name="TE_TeamsHint" xml:space="preserve">
+    <value>The average of the pupils' best exam results. Only exams by your code count, not free exams.</value>
+  </data>
+  <data name="TE_TeamAvg" xml:space="preserve">
+    <value>Avg best result</value>
+  </data>
+  <data name="TE_TeamExamined" xml:space="preserve">
+    <value>Took an exam</value>
+  </data>
+  <data name="TE_TeamSub" xml:space="preserve">
+    <value>Words learned in each book = {0} words x the pupil's best exam result in that book. Only exams by your code count. Hover a number to see the percent.</value>
+  </data>
+  <data name="TE_TeamNoPupils" xml:space="preserve">
+    <value>No approved pupils in this team yet.</value>
+  </data>
+  <data name="TE_BookCol" xml:space="preserve">
+    <value>Book {0}</value>
+  </data>
+  <data name="BookCard_Words" xml:space="preserve">
+    <value>{0} / {1} words</value>
+  </data>
+  <data name="BookCard_Current" xml:space="preserve">
+    <value>Now: {0}</value>
+  </data>
+  <data name="BookCard_Done" xml:space="preserve">
+    <value>Book completed</value>
+  </data>
+  <data name="BookCard_Locked" xml:space="preserve">
+    <value>Book locked</value>
+  </data>
+  <data name="Topic_LockedTitle" xml:space="preserve">
+    <value>Topic locked</value>
+  </data>
+  <data name="Topic_LockedText" xml:space="preserve">
+    <value>Pass the previous topic first: “{0}”.</value>
+  </data>
+  <data name="Topic_Understood" xml:space="preserve">
+    <value>Got it</value>
+  </data>
+  <data name="Topic_Go" xml:space="preserve">
+    <value>Go</value>
+  </data>
+  <data name="ZG_Section" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="ZG_ListenTitle" xml:space="preserve">
+    <value>Listen and tap</value>
+  </data>
+  <data name="ZG_ListenDesc" xml:space="preserve">
+    <value>The voice says a letter or a number. Tap the right one.</value>
+  </data>
+  <data name="ZG_TrainTitle" xml:space="preserve">
+    <value>The missing wagon</value>
+  </data>
+  <data name="ZG_TrainDesc" xml:space="preserve">
+    <value>Put the missing letters or numbers into the train, in order.</value>
+  </data>
+  <data name="ZG_Letters" xml:space="preserve">
+    <value>Letters</value>
+  </data>
+  <data name="ZG_Numbers" xml:space="preserve">
+    <value>Numbers</value>
+  </data>
+  <data name="ZG_Repeat" xml:space="preserve">
+    <value>Say again</value>
+  </data>
+  <data name="ZG_ListenHint" xml:space="preserve">
+    <value>Listen and find it</value>
+  </data>
+  <data name="ZG_TrainHint" xml:space="preserve">
+    <value>Put it into the train</value>
+  </data>
+  <data name="ZG_Result" xml:space="preserve">
+    <value>Well done!</value>
+  </data>
+  <data name="ZG_Mistakes" xml:space="preserve">
+    <value>Mistakes: {0}</value>
+  </data>
+  <data name="Award_New" xml:space="preserve">
+    <value>New award!</value>
+  </data>
+  <data name="Award_Congrats" xml:space="preserve">
+    <value>Great job, keep going!</value>
+  </data>
+  <data name="Award_Open" xml:space="preserve">
+    <value>Awards</value>
+  </data>
+  <data name="Award_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Strip_Shield" xml:space="preserve">
+    <value>Mistake shields: the next mistake costs nothing</value>
+  </data>
+  <data name="Strip_Freeze" xml:space="preserve">
+    <value>Streak freezes: they keep the streak over a missed day</value>
+  </data>
+  <data name="Market_Useful" xml:space="preserve">
+    <value>Useful</value>
+  </data>
+  <data name="Market_Style" xml:space="preserve">
+    <value>Style</value>
+  </data>
+  <data name="Market_Buy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="Market_NotEnough" xml:space="preserve">
+    <value>Not enough LP</value>
+  </data>
+  <data name="Market_Equip" xml:space="preserve">
+    <value>Put on</value>
+  </data>
+  <data name="Market_Unequip" xml:space="preserve">
+    <value>Take off</value>
+  </data>
+  <data name="Market_Worn" xml:space="preserve">
+    <value>Worn</value>
+  </data>
+  <data name="Market_Bought" xml:space="preserve">
+    <value>Bought!</value>
+  </data>
+  <data name="Market_Eff_life" xml:space="preserve">
+    <value>+1 life at once</value>
+  </data>
+  <data name="Market_Eff_refill" xml:space="preserve">
+    <value>All 5 lives at once</value>
+  </data>
+  <data name="Market_Eff_shield" xml:space="preserve">
+    <value>The next mistake in a game costs nothing</value>
+  </data>
+  <data name="Market_Eff_freeze" xml:space="preserve">
+    <value>The streak survives one missed day</value>
+  </data>
+  <data name="Market_Eff_frame" xml:space="preserve">
+    <value>A frame round your avatar</value>
+  </data>
+  <data name="Market_Eff_avatar" xml:space="preserve">
+    <value>A new avatar everywhere</value>
+  </data>
+  <data name="Market_Eff_badge" xml:space="preserve">
+    <value>A badge by your name in the rating</value>
+  </data>
+  <data name="Market_Eff_theme" xml:space="preserve">
+    <value>New colours of the site</value>
+  </data>
+  <data name="Market_Eff_pet" xml:space="preserve">
+    <value>A pet next to Jumbo in the games</value>
+  </data>
+  <data name="Market_Err_NOT_ENOUGH" xml:space="preserve">
+    <value>Not enough LP.</value>
+  </data>
+  <data name="Market_Err_OWNED" xml:space="preserve">
+    <value>You already have it.</value>
+  </data>
+  <data name="Market_Err_NOT_OWNED" xml:space="preserve">
+    <value>Buy it first.</value>
+  </data>
+  <data name="Market_Err_LIVES_FULL" xml:space="preserve">
+    <value>Your lives are already full.</value>
+  </data>
+  <data name="Market_Err_LIMIT" xml:space="preserve">
+    <value>You already have the most you can keep.</value>
+  </data>
+  <data name="Market_Err_WOULD_BLOCK" xml:space="preserve">
+    <value>Not now: you would be left with no lives and no LP, and the 5-hour block would start.</value>
+  </data>
+  <data name="Market_WebNote" xml:space="preserve">
+    <value>Visible on the website</value>
+  </data>
+  <data name="Error_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Error_Network" xml:space="preserve">
+    <value>No connection to the server. Check the internet and try again.</value>
+  </data>
+  <data name="Error_Generic" xml:space="preserve">
+    <value>Something went wrong. Please try again.</value>
+  </data>
+  <data name="Session_Expired" xml:space="preserve">
+    <value>Your session has ended. Please sign in again.</value>
+  </data>
+  <data name="Settings_DeleteSection" xml:space="preserve">
+    <value>Delete account</value>
+  </data>
+  <data name="Settings_DeleteHint" xml:space="preserve">
+    <value>Your account and all your progress, words, awards and purchases will be deleted for good. This cannot be undone.</value>
+  </data>
+  <data name="Settings_DeleteButton" xml:space="preserve">
+    <value>Delete account</value>
+  </data>
+  <data name="Settings_DeleteConfirmTitle" xml:space="preserve">
+    <value>Delete the account for good?</value>
+  </data>
+  <data name="Settings_DeleteConfirmSub" xml:space="preserve">
+    <value>Enter your password to confirm.</value>
+  </data>
+  <data name="Settings_DeleteNeedPassword" xml:space="preserve">
+    <value>Enter your password.</value>
+  </data>
+  <data name="Legal_Privacy_Link" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
+  <data name="Privacy_Title" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
+  <data name="Privacy_Updated" xml:space="preserve">
+    <value>Last updated: 18 October 2026</value>
+  </data>
+  <data name="Privacy_Contact" xml:space="preserve">
+    <value>Contact for questions about data: {0}</value>
+  </data>
+  <data name="Privacy_H1" xml:space="preserve">
+    <value>Who we are</value>
+  </data>
+  <data name="Privacy_P1" xml:space="preserve">
+    <value>Jumbo (the website jumbo.uz and the Jumbo mobile app) is a platform for learning English, including for children. This document explains what data we collect and how we use it.</value>
+  </data>
+  <data name="Privacy_H2" xml:space="preserve">
+    <value>What data we collect</value>
+  </data>
+  <data name="Privacy_P2" xml:space="preserve">
+    <value>• Account: first name, last name, username, password (stored only as a hash), and optionally a phone number and an avatar.
+• Region, school and team (class), chosen from lists.
+• Learning: learned words, finished topics and games, LP points, awards, purchases in the game market made with in-game points, daily goal and streak, exam results.
+• Settings: language, theme, study languages.
+• Optionally, the connection of the Telegram reminder bot (we receive the chat id and the first name in Telegram).
+• Technical server data (address, time of a request) in ordinary logs, for security and for running the service.
+• Optionally, an e-mail address and a message left in the feedback form in the footer of the website: they are used only to answer you and to send news of Jumbo (if you ticked it), and you can ask us at any time to delete them.</value>
+  </data>
+  <data name="Privacy_H3" xml:space="preserve">
+    <value>Why we need the data</value>
+  </data>
+  <data name="Privacy_P3" xml:space="preserve">
+    <value>• So that you can sign in and continue from where you stopped.
+• To show your place in the weekly rating of the team, school or region.
+• So that the teacher and the director of your school can see the progress of the team and the exam results.
+• To send reminders if you connected Telegram.
+We do not use the data for advertising and we do not sell it.</value>
+  </data>
+  <data name="Privacy_H4" xml:space="preserve">
+    <value>Children</value>
+  </data>
+  <data name="Privacy_P4" xml:space="preserve">
+    <value>Jumbo is suitable for any age, including children. We ask only for what is needed for learning: a phone number is optional. We show no ads, we use no advertising or analytics services, and we do not pass children's data to third parties for marketing. It is best for a child to register together with a parent or a teacher. A parent can ask at any time to see or delete the child's data: it is enough to delete the account (see below) or to write to us.</value>
+  </data>
+  <data name="Privacy_H5" xml:space="preserve">
+    <value>Who sees the data</value>
+  </data>
+  <data name="Privacy_P5" xml:space="preserve">
+    <value>• Other learners see your name and place in the rating. To hide your name, turn on "Hide my name in the rating" in Settings.
+• The teacher and the director of the team you joined see your progress and exam results.
+• The data is kept on our servers. We do not give it to third parties unless the law requires it. If you connected Telegram, messages pass through Telegram.</value>
+  </data>
+  <data name="Privacy_H6" xml:space="preserve">
+    <value>Storage and protection</value>
+  </data>
+  <data name="Privacy_P6" xml:space="preserve">
+    <value>Data travels over a secure connection (HTTPS). Passwords are stored as a hash. The data is kept as long as the account exists.</value>
+  </data>
+  <data name="Privacy_H7" xml:space="preserve">
+    <value>Deleting the data</value>
+  </data>
+  <data name="Privacy_P7" xml:space="preserve">
+    <value>You can delete the account yourself: "Settings" → "Delete account" (in the app and on the website). The profile, progress, words, awards, purchases and exam results are deleted for good. More: jumbo.uz/delete-account. Backup copies of the database may keep the data for a limited time and are deleted afterwards.</value>
+  </data>
+  <data name="Privacy_H8" xml:space="preserve">
+    <value>Contact and changes</value>
+  </data>
+  <data name="Privacy_P8" xml:space="preserve">
+    <value>Questions about data can be sent to the contact below. If we change this document, the new version appears on this page with a new date.</value>
+  </data>
+  <data name="Del_Title" xml:space="preserve">
+    <value>Delete your Jumbo account</value>
+  </data>
+  <data name="Del_Intro" xml:space="preserve">
+    <value>You can delete your account and all the data of it yourself, at any time. It takes a minute.</value>
+  </data>
+  <data name="Del_StepsTitle" xml:space="preserve">
+    <value>How to do it</value>
+  </data>
+  <data name="Del_Steps" xml:space="preserve">
+    <value>1. Sign in to your account (in the Jumbo app or on jumbo.uz).
+2. Open "Settings" and scroll to the bottom to "Delete account".
+3. Enter your password and confirm.</value>
+  </data>
+  <data name="Del_WhatTitle" xml:space="preserve">
+    <value>What is deleted</value>
+  </data>
+  <data name="Del_What" xml:space="preserve">
+    <value>The profile (name, username, password, phone, avatar), the progress, learned words, awards, purchases and exam results, the Telegram link. It cannot be undone. Backup copies of the database may keep the data for a limited time and are deleted afterwards.</value>
+  </data>
+  <data name="Del_Staff" xml:space="preserve">
+    <value>Accounts of teachers and directors are deleted by the administrator: write to the contact on the privacy policy page.</value>
+  </data>
+  <data name="Del_Login" xml:space="preserve">
+    <value>Sign in and delete the account</value>
+  </data>
+  <data name="Land_Shot1" xml:space="preserve">
+    <value>Daily goal and a streak of days</value>
+  </data>
+  <data name="Land_Shot2" xml:space="preserve">
+    <value>A path through the book, topic by topic</value>
+  </data>
+  <data name="Land_Shot3" xml:space="preserve">
+    <value>Words, video and games in every topic</value>
+  </data>
+  <data name="Land_Shot4" xml:space="preserve">
+    <value>Games: find the word by the picture</value>
+  </data>
+  <data name="Land_Shot5" xml:space="preserve">
+    <value>Pick a game and a topic</value>
+  </data>
+  <data name="Land_Shot6" xml:space="preserve">
+    <value>Awards and a market for your points</value>
+  </data>
+  <data name="Land_Shot7" xml:space="preserve">
+    <value>A dictionary with sound</value>
+  </data>
+  <data name="Land_ShotsPrev" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="Land_ShotsNext" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Foot_Tagline" xml:space="preserve">
+    <value>Learn English by playing: words, games and Jumbo the elephant.</value>
+  </data>
+  <data name="Foot_Get" xml:space="preserve">
+    <value>Get the app</value>
+  </data>
+  <data name="Foot_Android" xml:space="preserve">
+    <value>Android</value>
+  </data>
+  <data name="Foot_Ios" xml:space="preserve">
+    <value>iOS · App Store</value>
+  </data>
+  <data name="Foot_Windows" xml:space="preserve">
+    <value>Windows</value>
+  </data>
+  <data name="Foot_Mac" xml:space="preserve">
+    <value>macOS</value>
+  </data>
+  <data name="Foot_Site" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="Foot_Subscribe" xml:space="preserve">
+    <value>Feedback and news</value>
+  </data>
+  <data name="Foot_SubscribeHint" xml:space="preserve">
+    <value>Write to us or leave your e-mail: we answer and send only news of Jumbo.</value>
+  </data>
+  <data name="Foot_EmailPlaceholder" xml:space="preserve">
+    <value>Your e-mail</value>
+  </data>
+  <data name="Foot_SubscribeButton" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="Foot_Sending" xml:space="preserve">
+    <value>Sending…</value>
+  </data>
+  <data name="Foot_Subscribed" xml:space="preserve">
+    <value>Thank you! We got it.</value>
+  </data>
+  <data name="Foot_BadEmail" xml:space="preserve">
+    <value>Please check the e-mail address.</value>
+  </data>
+  <data name="Foot_Failed" xml:space="preserve">
+    <value>Could not subscribe now. Please try again later.</value>
+  </data>
+  <data name="Foot_Consent" xml:space="preserve">
+    <value>By subscribing you agree to the</value>
+  </data>
+  <data name="Foot_Privacy" xml:space="preserve">
+    <value>privacy policy</value>
+  </data>
+  <data name="Foot_Schools" xml:space="preserve">
+    <value>For schools and teachers</value>
+  </data>
+  <data name="Foot_Delete" xml:space="preserve">
+    <value>Delete account</value>
+  </data>
+  <data name="Admin_TabSubscribers" xml:space="preserve">
+    <value>Feedback and subscribers</value>
+  </data>
+  <data name="Admin_SubscribersCount" xml:space="preserve">
+    <value>Total: {0}</value>
+  </data>
+  <data name="Nav_App" xml:space="preserve">
+    <value>App</value>
+  </data>
+  <data name="Nav_Top" xml:space="preserve">
+    <value>Top 10</value>
+  </data>
+  <data name="Nav_How" xml:space="preserve">
+    <value>How it works</value>
+  </data>
+  <data name="Nav_Feat" xml:space="preserve">
+    <value>Features</value>
+  </data>
+  <data name="Nav_Get" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Nav_Contact" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Foot_MessagePlaceholder" xml:space="preserve">
+    <value>Your message (optional)</value>
+  </data>
+  <data name="Foot_NewsCheck" xml:space="preserve">
+    <value>Send me the news of Jumbo</value>
+  </data>
+  <data name="Foot_NeedSomething" xml:space="preserve">
+    <value>Write a message or tick the news.</value>
+  </data>
+  <data name="Admin_FeedbackTitle" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="Update_Title" xml:space="preserve">
+    <value>A new version is out</value>
+  </data>
+  <data name="Update_Text" xml:space="preserve">
+    <value>Update Jumbo to get new topics and fixes.</value>
+  </data>
+  <data name="Update_Now" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Update_Later" xml:space="preserve">
+    <value>Later</value>
+  </data>
+  <data name="Update_Required_Title" xml:space="preserve">
+    <value>Please update the app</value>
+  </data>
+  <data name="Update_Required_Text" xml:space="preserve">
+    <value>This version of Jumbo is no longer supported. Update the app to continue.</value>
+  </data>
+  <data name="Admin_TabVersions" xml:space="preserve">
+    <value>App versions</value>
+  </data>
+  <data name="Ver_Hint" xml:space="preserve">
+    <value>Change "Latest" only when the new build is already available to everybody in the store. Builds below "Minimum" must update and cannot skip it. 0 = off.</value>
+  </data>
+  <data name="Ver_Latest" xml:space="preserve">
+    <value>Latest version (number)</value>
+  </data>
+  <data name="Ver_Min" xml:space="preserve">
+    <value>Minimum version (number)</value>
+  </data>
+  <data name="Ver_Url" xml:space="preserve">
+    <value>Link for "Update"</value>
+  </data>
+  <data name="Ver_NotesRu" xml:space="preserve">
+    <value>What is new (Russian)</value>
+  </data>
+  <data name="Ver_NotesEn" xml:space="preserve">
+    <value>What is new (English)</value>
+  </data>
+  <data name="Ver_NotesUz" xml:space="preserve">
+    <value>What is new (Uzbek)</value>
+  </data>
+  <data name="Ver_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Ver_Saved" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="Plan_Bronze" xml:space="preserve">
+    <value>Bronze</value>
+  </data>
+  <data name="Plan_Silver" xml:space="preserve">
+    <value>Silver</value>
+  </data>
+  <data name="Plan_Gold" xml:space="preserve">
+    <value>Gold</value>
+  </data>
+  <data name="Plan_Yours" xml:space="preserve">
+    <value>Your version: {0}</value>
+  </data>
+  <data name="Plan_PaidUntil" xml:space="preserve">
+    <value>Paid until {0}</value>
+  </data>
+  <data name="Plan_FreeVersion" xml:space="preserve">
+    <value>Free version</value>
+  </data>
+  <data name="Plan_See" xml:space="preserve">
+    <value>Versions and prices</value>
+  </data>
+  <data name="Plan_Nav" xml:space="preserve">
+    <value>Versions and prices</value>
+  </data>
+  <data name="PP_Title" xml:space="preserve">
+    <value>Choose your version</value>
+  </data>
+  <data name="PP_Sub" xml:space="preserve">
+    <value>Bronze is free for good. Silver and Gold can be paid monthly or for a whole year.</value>
+  </data>
+  <data name="PP_Free" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="PP_PriceSoon" xml:space="preserve">
+    <value>Price soon</value>
+  </data>
+  <data name="PP_PerMonth" xml:space="preserve">
+    <value>per month</value>
+  </data>
+  <data name="PP_B1" xml:space="preserve">
+    <value>All the books, topics and games</value>
+  </data>
+  <data name="PP_B2" xml:space="preserve">
+    <value>5 lives: mistakes cost lives, then LP</value>
+  </data>
+  <data name="PP_B3" xml:space="preserve">
+    <value>Rating, awards and the market</value>
+  </data>
+  <data name="PP_S1" xml:space="preserve">
+    <value>Everything in Bronze</value>
+  </data>
+  <data name="PP_S2" xml:space="preserve">
+    <value>No limits: mistakes cost no lives and no LP</value>
+  </data>
+  <data name="PP_S3" xml:space="preserve">
+    <value>Learn and play without breaks</value>
+  </data>
+  <data name="PP_G1" xml:space="preserve">
+    <value>Everything in Silver</value>
+  </data>
+  <data name="PP_G2" xml:space="preserve">
+    <value>The adviser: personal learning tips based on your data (soon)</value>
+  </data>
+  <data name="PP_G3" xml:space="preserve">
+    <value>Your data stays on our server</value>
+  </data>
+  <data name="PP_Current" xml:space="preserve">
+    <value>Your version</value>
+  </data>
+  <data name="PP_Buy" xml:space="preserve">
+    <value>Payment soon</value>
+  </data>
+  <data name="PP_BuyHint" xml:space="preserve">
+    <value>A paid version lasts a month or a year, whichever you bought. If it is not renewed the account goes back to Bronze — the progress and awards stay.</value>
+  </data>
+  <data name="PP_NeedLogin" xml:space="preserve">
+    <value>To get a version, sign in or register.</value>
+  </data>
+  <data name="Admin_TabPlans" xml:space="preserve">
+    <value>User versions</value>
+  </data>
+  <data name="PA_Hint" xml:space="preserve">
+    <value>There is no payment yet — the admin gives a version by hand. When the date passes the user goes back to Bronze by itself.</value>
+  </data>
+  <data name="PA_User" xml:space="preserve">
+    <value>Username or ID</value>
+  </data>
+  <data name="PA_Plan" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="PA_Until" xml:space="preserve">
+    <value>Valid until</value>
+  </data>
+  <data name="PA_Save" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="PA_Saved" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="PA_Err_NO_USER" xml:space="preserve">
+    <value>No user with this username</value>
+  </data>
+  <data name="PA_Err_BAD_DATE" xml:space="preserve">
+    <value>The date must be in the future</value>
+  </data>
+  <data name="PA_List" xml:space="preserve">
+    <value>Paid users: {0}</value>
+  </data>
+  <data name="FS_Instant" xml:space="preserve">
+    <value>Teachers join at once, with no check: enter your school and the cabinet opens.</value>
+  </data>
+  <data name="RP_Excel" xml:space="preserve">
+    <value>Download Excel</value>
+  </data>
+  <data name="TE_ColTotal" xml:space="preserve">
+    <value>Total words</value>
+  </data>
+  <data name="Admin_TabVideos" xml:space="preserve">
+    <value>Topic videos</value>
+  </data>
+  <data name="VD_Hint" xml:space="preserve">
+    <value>A video belongs to a study language, a book and a topic. The learner sees the video of the language they study. The file is mp4 (720p is best, up to 500 MB).</value>
+  </data>
+  <data name="VD_Lang" xml:space="preserve">
+    <value>Study language</value>
+  </data>
+  <data name="VD_Book" xml:space="preserve">
+    <value>Book</value>
+  </data>
+  <data name="VD_Topic" xml:space="preserve">
+    <value>Topic</value>
+  </data>
+  <data name="VD_File" xml:space="preserve">
+    <value>Video file (mp4)</value>
+  </data>
+  <data name="VD_Big" xml:space="preserve">
+    <value>the file is big: better compress it to 720p</value>
+  </data>
+  <data name="VD_WillReplace" xml:space="preserve">
+    <value>will replace the current video</value>
+  </data>
+  <data name="VD_Uploading" xml:space="preserve">
+    <value>Uploading…</value>
+  </data>
+  <data name="VD_Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="VD_Status" xml:space="preserve">
+    <value>{0}, book {1}: {2} of {3} topics have a video</value>
+  </data>
+  <data name="VD_Watch" xml:space="preserve">
+    <value>Watch</value>
+  </data>
+  <data name="VD_Replace" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="VD_None" xml:space="preserve">
+    <value>no video</value>
+  </data>
+  <data name="VD_Err_NOT_MP4" xml:space="preserve">
+    <value>This is not an mp4 video. Choose an mp4 file.</value>
+  </data>
+  <data name="VD_Err_TOO_BIG" xml:space="preserve">
+    <value>The file is over 500 MB. Compress the video to 720p.</value>
+  </data>
+  <data name="VD_Saved" xml:space="preserve">
+    <value>Video saved: {0}, book {1}, topic {2}</value>
+  </data>
+  <data name="VD_ConfirmDelete" xml:space="preserve">
+    <value>Delete the video ({0}, book {1}, topic {2})?</value>
+  </data>
+  <data name="VD_Deleted" xml:space="preserve">
+    <value>Video deleted</value>
+  </data>
+  <data name="Settings_MyId" xml:space="preserve">
+    <value>Your ID</value>
+  </data>
+  <data name="Settings_MyIdHint" xml:space="preserve">
+    <value>This ID is used for payments: give it or enter it when you pay for a version.</value>
+  </data>
+  <data name="Settings_CopyId" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Settings_IdCopied" xml:space="preserve">
+    <value>Copied</value>
+  </data>
+  <data name="Money_Balance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="Money_Currency" xml:space="preserve">
+    <value>UZS</value>
+  </data>
+  <data name="PP_Monthly" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="PP_Yearly" xml:space="preserve">
+    <value>Yearly</value>
+  </data>
+  <data name="PP_PerYear" xml:space="preserve">
+    <value>per year</value>
+  </data>
+  <data name="PP_Period_month" xml:space="preserve">
+    <value>a month</value>
+  </data>
+  <data name="PP_Period_year" xml:space="preserve">
+    <value>a year</value>
+  </data>
+  <data name="PP_TopUpHint" xml:space="preserve">
+    <value>The learner or anybody can top up the balance: just give the ID. Top-up through Payme, Click and Paynet is coming soon; for now the admin tops it up.</value>
+  </data>
+  <data name="PP_BuyFor" xml:space="preserve">
+    <value>Buy for {0} UZS</value>
+  </data>
+  <data name="PP_Extend" xml:space="preserve">
+    <value>Extend for {0} UZS</value>
+  </data>
+  <data name="PP_NotEnough" xml:space="preserve">
+    <value>{0} UZS short</value>
+  </data>
+  <data name="PP_Soon" xml:space="preserve">
+    <value>Soon</value>
+  </data>
+  <data name="PP_HigherActive" xml:space="preserve">
+    <value>A higher version is in force now</value>
+  </data>
+  <data name="PP_Confirm" xml:space="preserve">
+    <value>Buy the {0} version for {1} at {2} UZS? The money is taken from the balance.</value>
+  </data>
+  <data name="PP_ConfirmReplace" xml:space="preserve">
+    <value>«{0}» is in force now: it will be replaced and what is left of it is lost.</value>
+  </data>
+  <data name="PP_Yes" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="PP_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="PP_Bought" xml:space="preserve">
+    <value>Done! {0} is in force until {1}. Balance left: {2} UZS.</value>
+  </data>
+  <data name="PP_Err_NOT_ENOUGH" xml:space="preserve">
+    <value>There is not enough money on the balance.</value>
+  </data>
+  <data name="PP_Err_NO_PRICE" xml:space="preserve">
+    <value>The price of this version is not set yet.</value>
+  </data>
+  <data name="PP_Err_HIGHER_ACTIVE" xml:space="preserve">
+    <value>A higher version is in force now.</value>
+  </data>
+  <data name="PP_Err_BAD_PLAN" xml:space="preserve">
+    <value>Unknown version.</value>
+  </data>
+  <data name="PP_Err_BAD_PERIOD" xml:space="preserve">
+    <value>Unknown period.</value>
+  </data>
+  <data name="PP_History" xml:space="preserve">
+    <value>Latest operations</value>
+  </data>
+  <data name="PP_TxPurchase" xml:space="preserve">
+    <value>Purchase: {0}, {1}</value>
+  </data>
+  <data name="PP_TxTopUp" xml:space="preserve">
+    <value>Top-up ({0})</value>
+  </data>
+  <data name="PP_TxAdmin" xml:space="preserve">
+    <value>admin</value>
+  </data>
+  <data name="Admin_TabPrices" xml:space="preserve">
+    <value>Version prices</value>
+  </data>
+  <data name="Admin_TabBalance" xml:space="preserve">
+    <value>Balance top-up</value>
+  </data>
+  <data name="PR_Hint" xml:space="preserve">
+    <value>The price in UZS for the period. Empty or 0: this version cannot be bought for the period yet.</value>
+  </data>
+  <data name="PR_Save" xml:space="preserve">
+    <value>Save the prices</value>
+  </data>
+  <data name="PR_Saved" xml:space="preserve">
+    <value>Prices saved</value>
+  </data>
+  <data name="PR_Err_BAD_PRICE" xml:space="preserve">
+    <value>Wrong price</value>
+  </data>
+  <data name="BA_Hint" xml:space="preserve">
+    <value>Until the payment services are connected the admin tops the balance up by hand (by login or ID). Payme, Click and Paynet will do it the same way, by the learner’s ID.</value>
+  </data>
+  <data name="BA_Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="BA_Note" xml:space="preserve">
+    <value>Note (optional)</value>
+  </data>
+  <data name="BA_Do" xml:space="preserve">
+    <value>Top up</value>
+  </data>
+  <data name="BA_Done" xml:space="preserve">
+    <value>The balance of {0} is topped up. Now: {1} UZS</value>
+  </data>
+  <data name="BA_Err_NO_USER" xml:space="preserve">
+    <value>No such user</value>
+  </data>
+  <data name="BA_Err_BAD_AMOUNT" xml:space="preserve">
+    <value>Wrong amount</value>
+  </data>
+  <data name="BA_History" xml:space="preserve">
+    <value>Latest top-ups and purchases</value>
+  </data>
+  <data name="Login_TooMany" xml:space="preserve">
+    <value>Too many wrong attempts. Wait {0} min and try again.</value>
+  </data>
+</root>

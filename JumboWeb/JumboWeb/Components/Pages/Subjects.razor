@@ -1,0 +1,111 @@
+@page "/little-polyglot/subjects/{BookNumber:int}"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc.Format("Subjects_PageTitle", BookNumber)</PageTitle>
+
+<button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/little-polyglot")'>@Loc["Common_BackArrow"]</button>
+<p class="lp-page-title">@Loc.Format("Subjects_Heading", BookNumber)</p>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (!_subjects.Any())
+{
+    <div class="lp-empty-state">@Loc["Subjects_NoTopics"]</div>
+}
+else
+{
+    <div class="subject-grid">
+        @foreach (var s in _subjects)
+        {
+            var sid = s.SubjectId;
+            var pct = ProgressPercent(sid);
+            var dashOffset = RingCircumference * (1 - pct / 100.0);
+            <div class="subject-card" @onclick="() => GoToDetail(sid)">
+                <div class="subject-ring">
+                    <svg viewBox="0 0 68 68" class="subject-ring-svg">
+                        <circle class="subject-ring-track" cx="34" cy="34" r="@Inv(RingRadius)" />
+                        @if (pct > 0)
+                        {
+                            <circle class="subject-ring-fill" cx="34" cy="34" r="@Inv(RingRadius)"
+                                    style="stroke-dasharray: @Inv(RingCircumference); stroke-dashoffset: @Inv(dashOffset)" />
+                        }
+                    </svg>
+                    <div class="subject-svg">
+                        @if (_svgMap.TryGetValue(s.SvgImageId, out var svg))
+                        {
+                            @((MarkupString)svg)
+                        }
+                        else
+                        {
+                            <span style="font-size:2rem">📦</span>
+                        }
+                    </div>
+                </div>
+                <div class="subject-name">@s.SubjectName</div>
+                @if (pct >= 100)
+                {
+                    <div class="subject-passed">@Loc["Subjects_Passed"]</div>
+                }
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public int BookNumber { get; set; }
+
+    private List<Subject> _subjects = new();
+    private Dictionary<int, string> _svgMap = new();
+    private Dictionary<int, UserSubjectProgress> _progressMap = new();
+    private bool _loaded;
+
+    private const double RingRadius = 30;
+    private const double RingCircumference = 2 * Math.PI * RingRadius;
+
+    // Razor's default @-interpolation uses the current (localized) culture, where several
+    // of the site's supported languages format decimals with a comma — which breaks the
+    // numeric CSS values below (e.g. "188,49" parses as two dash-array entries, not one).
+    private static string Inv(double d) => d.ToString(System.Globalization.CultureInfo.InvariantCulture);
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!(await ApiClient.GetUnlockedBooksAsync()).Contains(BookNumber))
+        {
+            Nav.NavigateTo("/little-polyglot", replace: true);
+            return;
+        }
+        _subjects = await ApiClient.GetSubjectsByBookAsync(BookNumber);
+        foreach (var s in _subjects)
+        {
+            if (!_svgMap.ContainsKey(s.SvgImageId))
+            {
+                var svg = await ApiClient.GetSvgByIdAsync(s.SvgImageId);
+                if (!string.IsNullOrEmpty(svg)) _svgMap[s.SvgImageId] = svg;
+            }
+        }
+
+        var progress = await ApiClient.GetUserSubjectProgressAsync();
+        _progressMap = progress.ToDictionary(p => p.SubjectId);
+
+        _loaded = true;
+    }
+
+    // Partial credit: each of the 4 tracked games counts for 25%, so completing even
+    // one game already shows progress instead of waiting for every game to be won.
+    private int ProgressPercent(int subjectId)
+    {
+        if (!_progressMap.TryGetValue(subjectId, out var p)) return 0;
+        return p.PartsDone * 100 / UserSubjectProgress.Parts;
+    }
+
+    private void GoToDetail(int subjectId) =>
+        Nav.NavigateTo($"/little-polyglot/subjects/{BookNumber}/{subjectId}");
+}

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns:u="clr-namespace:Jumbo.Utilities"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Jumbo.Pages.StepsGamePage"
+             x:DataType="pageModels:StepsGamePageModel"
+             x:Name="StepsGamePageRoot"
+             Title="{u:Tr Key=Game_StepsTitle}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference StepsGamePageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedTo" Command="{Binding NavigatedToCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference StepsGamePageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom" Command="{Binding NavigatedFromCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference StepsGamePageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing" Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- 3 колонки: подсказки | игра | ступеньки -->
+    <Grid ColumnDefinitions="88, *, 88">
+
+        <!-- ══ ЛЕВАЯ КОЛОНКА: Подсказки ══ -->
+        <VerticalStackLayout Grid.Column="0"
+                             VerticalOptions="Center"
+                             Spacing="16"
+                             Padding="6,0">
+
+            <!-- 50/50 -->
+            <Border StrokeShape="RoundRectangle 14"
+                    StrokeThickness="2"
+                    Stroke="{StaticResource Primary}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                    Padding="6,10">
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding CanUseFiftyFifty}" Value="False">
+                        <Setter Property="Opacity" Value="0.35"/>
+                    </DataTrigger>
+                </Border.Triggers>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding UseFiftyFiftyCommand}"/>
+                </Border.GestureRecognizers>
+                <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                    <Label Text="½½" FontSize="22" FontAttributes="Bold"
+                           TextColor="{StaticResource Primary}"
+                           HorizontalOptions="Center"/>
+                    <Label Text="50/50" FontSize="10" HorizontalOptions="Center"
+                           TextColor="{StaticResource Gray500}"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Помощь зала -->
+            <Border StrokeShape="RoundRectangle 14"
+                    StrokeThickness="2"
+                    Stroke="{StaticResource Warning}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                    Padding="6,10">
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding CanUseAudienceHelp}" Value="False">
+                        <Setter Property="Opacity" Value="0.35"/>
+                    </DataTrigger>
+                </Border.Triggers>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding UseAudienceHelpCommand}"/>
+                </Border.GestureRecognizers>
+                <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                    <Label Text="👥" FontSize="22" HorizontalOptions="Center"/>
+                    <Label Text="{u:Tr Key=Game_Audience}" FontSize="10" HorizontalOptions="Center"
+                           TextColor="{StaticResource Gray500}"/>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+
+        <!-- ══ ЦЕНТРАЛЬНАЯ КОЛОНКА: Игра ══ -->
+        <Grid Grid.Column="1" RowDefinitions="*, Auto, Auto" Padding="8,8,8,12">
+
+            <!-- Рисунок (SVG) -->
+            <ctl:SvgPicture Grid.Row="0"
+                     BackgroundColor="Transparent"
+                     InputTransparent="True" Svg="{Binding CurrentSvgHtml}" />
+
+            <ctl:TigerCoach Mood="{Binding Coach.Mood}" Text="{Binding Coach.Text}" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Start" />
+
+            <!-- Перевод под рисунком -->
+            <Label Grid.Row="1"
+                   Text="{Binding CurrentTranslation}"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,4,0,12"/>
+
+            <!-- 4 кнопки ответов A/B/C/D -->
+            <VerticalStackLayout Grid.Row="2"
+                                 Spacing="8"
+                                 IsEnabled="{Binding IsInteractive}">
+                <BindableLayout.ItemsSource>
+                    <Binding Path="Answers"/>
+                </BindableLayout.ItemsSource>
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="pageModels:StepAnswerViewModel">
+
+                        <Border StrokeShape="RoundRectangle 12"
+                                StrokeThickness="0"
+                                BackgroundColor="{StaticResource AnswerButton}"
+                                IsVisible="{Binding IsVisible}"
+                                MinimumHeightRequest="48">
+
+                            <!-- Цвет меняется при ответе -->
+                            <Border.Triggers>
+                                <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Correct">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Success}"/>
+                                </DataTrigger>
+                                <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Wrong">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Danger}"/>
+                                </DataTrigger>
+                            </Border.Triggers>
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:StepsGamePageModel}}, Path=SelectAnswerCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
+
+                            <Grid ColumnDefinitions="36, *" Padding="8,10">
+                                <!-- Буква -->
+                                <Label Text="{Binding Letter}"
+                                       TextColor="#FFD700"
+                                       FontSize="17"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalTextAlignment="Center"/>
+
+                                <!-- Слово -->
+                                <Label Grid.Column="1"
+                                       Text="{Binding Word}"
+                                       TextColor="White"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       Margin="4,0,0,0"
+                                       LineBreakMode="TailTruncation"/>
+                            </Grid>
+                        </Border>
+
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <!-- ── OVERLAY: Помощь зала ── -->
+            <Grid Grid.Row="0" Grid.RowSpan="3"
+                  IsVisible="{Binding ShowAudienceHelp}"
+                  BackgroundColor="#EE000000">
+                <Border StrokeShape="RoundRectangle 20"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                        StrokeThickness="0"
+                        Margin="16"
+                        Padding="20">
+                    <VerticalStackLayout Spacing="12">
+
+                        <Label Text="{u:Tr Key=Game_AudienceHelp}"
+                               FontSize="18" FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+
+                        <!-- Результаты: бар-чарт -->
+                        <VerticalStackLayout Spacing="10">
+                            <BindableLayout.ItemsSource>
+                                <Binding Path="AudienceResults"/>
+                            </BindableLayout.ItemsSource>
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="pageModels:AudienceResultViewModel">
+                                    <Grid ColumnDefinitions="28, *, 44" RowSpacing="0" ColumnSpacing="8">
+
+                                        <!-- Буква -->
+                                        <Label Text="{Binding Letter}"
+                                               FontAttributes="Bold" FontSize="14"
+                                               VerticalOptions="Center"/>
+
+                                        <!-- ProgressBar -->
+                                        <ProgressBar Grid.Column="1"
+                                                     Progress="{Binding ProgressValue}"
+                                                     HeightRequest="20"
+                                                     VerticalOptions="Center">
+                                            <ProgressBar.Triggers>
+                                                <DataTrigger TargetType="ProgressBar" Binding="{Binding IsTarget}" Value="True">
+                                                    <Setter Property="ProgressColor" Value="{StaticResource Success}"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="ProgressBar" Binding="{Binding IsTarget}" Value="False">
+                                                    <Setter Property="ProgressColor" Value="{StaticResource Primary}"/>
+                                                </DataTrigger>
+                                            </ProgressBar.Triggers>
+                                        </ProgressBar>
+
+                                        <!-- Процент -->
+                                        <Label Grid.Column="2"
+                                               Text="{Binding PercentageText}"
+                                               FontAttributes="Bold" FontSize="14"
+                                               HorizontalOptions="End"
+                                               VerticalOptions="Center"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+
+                        <Button Text="{u:Tr Key=StepsGame_Close}"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:StepsGamePageModel}}, Path=CloseAudienceHelpCommand}"
+                                CornerRadius="20"
+                                HeightRequest="44"
+                                Margin="0,6,0,0"/>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+        </Grid>
+
+        <!-- ══ ПРАВАЯ КОЛОНКА: Ступеньки ══ -->
+        <Grid Grid.Column="2" RowDefinitions="Auto, *" Padding="6,8,6,8">
+
+            <Label Grid.Row="0"
+                   Text="🏆"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,4"/>
+
+            <CollectionView Grid.Row="1"
+                            ItemsSource="{Binding Steps}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="pageModels:StepItemViewModel">
+                        <Label Text="{Binding StepNumberText}"
+                               FontSize="12"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               BackgroundColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray600}}"
+                               HeightRequest="34"
+                               HorizontalOptions="Fill"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               Margin="2,2">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsPassed}" Value="True">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Success}"/>
+                                    <Setter Property="Opacity" Value="0.7"/>
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label" Binding="{Binding IsCurrent}" Value="True">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+                                    <Setter Property="Opacity" Value="1.0"/>
+                                </DataTrigger>
+                                <MultiTrigger TargetType="Label">
+                                    <MultiTrigger.Conditions>
+                                        <BindingCondition Binding="{Binding IsMilestone}" Value="True"/>
+                                        <BindingCondition Binding="{Binding IsCurrent}" Value="False"/>
+                                        <BindingCondition Binding="{Binding IsPassed}" Value="False"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="BackgroundColor" Value="#C9A227"/>
+                                </MultiTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+<ctl:GameOverlay Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsGameWon}" Kind="win" Title="{u:Tr Key=FindMeGame_Great}"
+                          Reward="{Binding RewardText}"
+                          PrimaryText="{u:Tr Key=Common_Again}" PrimaryCommand="{Binding RestartGameCommand}"
+                          SecondaryText="{u:Tr Key=Common_Back}" SecondaryCommand="{Binding GoBackCommand}" />
+
+<ctl:GameOverlay Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsGameOver}" Kind="lose" Title="{u:Tr Key=FindMeGame_OutOfLives}"
+                          PrimaryText="{u:Tr Key=Common_TryAgainLong}" PrimaryCommand="{Binding RestartGameCommand}"
+                          SecondaryText="{u:Tr Key=Common_Back}" SecondaryCommand="{Binding GoBackCommand}" />
+
+<ctl:GameOverlay Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding HasNoData}" Kind="lose" Title="{u:Tr Key=FindMeGame_NoWords}"
+                          PrimaryText="{u:Tr Key=Common_Back}" PrimaryCommand="{Binding GoBackCommand}" />
+
+        <!-- ══ Загрузка ══ -->
+        <ActivityIndicator Grid.Column="0" Grid.ColumnSpan="3"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center" HorizontalOptions="Center"
+                           Color="{StaticResource Primary}"
+                           HeightRequest="50" WidthRequest="50"/>
+
+<ctl:GameOverlay Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsLocked}" Kind="locked" Title="{u:Tr Key=Block_Title}" Message="{Binding LivesService.RegenMessage}"
+                          SecondaryText="{u:Tr Key=Common_Back}" SecondaryCommand="{Binding GoBackCommand}" />
+
+    </Grid>
+</ContentPage>

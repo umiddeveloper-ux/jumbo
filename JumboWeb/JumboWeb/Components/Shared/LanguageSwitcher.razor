@@ -1,0 +1,51 @@
+@using JumboWeb.Services
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject IJSRuntime JS
+@inject AppLocalizer Loc
+
+@* Interface language switch. Shows the current code ("RU"); an invisible native <select> on top opens the
+   system picker with the full names, which is accessible and works well on phones.
+   The choice is remembered in the "jumbo-lang" cookie (guests) and in the profile (signed-in players);
+   the page then reloads so every string is rendered in the new language. *@
+<label class="lang-switch @Class" title="@Loc["Lang_Switch"]">
+    <span class="lang-ico" aria-hidden="true">🌐</span>
+    <span class="lang-code">@Current.Short</span>
+    <select aria-label="@Loc["Lang_Switch"]" @onchange="OnChanged">
+        @foreach (var l in AppLanguages.All)
+        {
+            <option value="@l.Code" selected="@(l.Id == Prefs.AppLangId)">@l.Name</option>
+        }
+    </select>
+</label>
+
+@code {
+    [Parameter] public string? Class { get; set; }
+
+    private (int Id, string Code, string Short, string Name) Current =>
+        AppLanguages.All.FirstOrDefault(l => l.Id == Prefs.AppLangId, AppLanguages.All[0]);
+
+    private async Task OnChanged(ChangeEventArgs e)
+    {
+        var code = e.Value?.ToString();
+        var id = AppLanguages.ToId(code);
+        if (id == Prefs.AppLangId) return;
+
+        await JS.InvokeVoidAsync("lp.setLang", AppLanguages.ToCode(id));
+
+        if (UserState.CurrentUser is { } user)
+        {
+            try
+            {
+                user.AppLanguageId = id;
+                await UserState.UpdateUserAsync(user);
+            }
+            catch
+            {
+                // The cookie is already set; the profile will catch up on the next save.
+            }
+        }
+
+        await JS.InvokeVoidAsync("lp.reload");
+    }
+}

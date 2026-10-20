@@ -1,0 +1,1750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlphabetSection" xml:space="preserve">
+    <value>Повторить слова</value>
+  </data>
+  <data name="AwardsSectionTitle" xml:space="preserve">
+    <value>Твои награды</value>
+  </data>
+  <data name="AwardsTitle" xml:space="preserve">
+    <value>Награды</value>
+  </data>
+  <data name="AZ" xml:space="preserve">
+    <value>ABCDEFGHIJKLMNOPQRSTUVWXYZ</value>
+  </data>
+  <data name="BooksSection" xml:space="preserve">
+    <value>Книги</value>
+  </data>
+  <data name="DashboardTitle" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <data name="DictionaryTitle" xml:space="preserve">
+    <value>Словарь</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="NoWordsFound" xml:space="preserve">
+    <value>Нет данных</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Номер телефона</value>
+  </data>
+  <data name="RegistrationTitle" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Поиск по слову или номеру…</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="StartTrainingButton" xml:space="preserve">
+    <value>Начать обучение</value>
+  </data>
+  <data name="StudyLanguage" xml:space="preserve">
+    <value>Выберите язык обучения</value>
+  </data>
+  <data name="TotalProgress" xml:space="preserve">
+    <value>Твой прогрес</value>
+  </data>
+  <data name="TranslationLanguage" xml:space="preserve">
+    <value>Выберите язык перевода</value>
+  </data>
+  <data name="SubjectsTitle" xml:space="preserve">
+    <value>Темы книги</value>
+  </data>
+  <data name="NoSubjectsFound" xml:space="preserve">
+    <value>В этой книге пока нет тем</value>
+  </data>
+  <data name="GameLessons" xml:space="preserve">
+    <value>Игровые уроки</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Личные данные</value>
+  </data>
+  <data name="EnterFirstName" xml:space="preserve">
+    <value>Введите имя</value>
+  </data>
+  <data name="EnterLastName" xml:space="preserve">
+    <value>Введите фамилию</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Предпочтения</value>
+  </data>
+  <data name="AppLanguage" xml:space="preserve">
+    <value>Язык приложения</value>
+  </data>
+  <data name="AppLanguageDescription" xml:space="preserve">
+    <value>Язык интерфейса меню</value>
+  </data>
+  <data name="TranslationLanguageTitle" xml:space="preserve">
+    <value>Язык перевода</value>
+  </data>
+  <data name="TranslationLanguageDescription" xml:space="preserve">
+    <value>Язык перевода слов и подсказок</value>
+  </data>
+  <data name="ThemeTitle" xml:space="preserve">
+    <value>Тема оформления</value>
+  </data>
+  <data name="ThemeDescription" xml:space="preserve">
+    <value>Дневной или Ночной режим</value>
+  </data>
+  <data name="HideTooltipsTitle" xml:space="preserve">
+    <value>Убрать подсказки</value>
+  </data>
+  <data name="HideTooltipsDescription" xml:space="preserve">
+    <value>Отключает обучающие сообщения</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Сохранить настройки</value>
+  </data>
+  <data name="LpMarket" xml:space="preserve">
+    <value>LP Маркет</value>
+  </data>
+  <data name="AchievementReceived" xml:space="preserve">
+    <value>Достижение получено</value>
+  </data>
+  <data name="BuyButton" xml:space="preserve">
+    <value>Купить</value>
+  </data>
+  <data name="NotEnoughLp" xml:space="preserve">
+    <value>Не хватает LP</value>
+  </data>
+  <data name="NeedMoreLpMessage" xml:space="preserve">
+    <value>Наберите 1000 LP, чтобы открыть Маркет!</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="ScanQrButton" xml:space="preserve">
+    <value>Войти на сайте по QR</value>
+  </data>
+  <data name="ScanQrTitle" xml:space="preserve">
+    <value>Сканировать QR-код</value>
+  </data>
+  <data name="ScanQrInstructions" xml:space="preserve">
+    <value>Наведите камеру на QR-код, показанный на сайте</value>
+  </data>
+  <data name="QrConfirmedMessage" xml:space="preserve">
+    <value>Вход на сайте подтверждён</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="LoginWelcomeBack" xml:space="preserve">
+    <value>С возвращением</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="NoAccountLink" xml:space="preserve">
+    <value>Нет аккаунта? Зарегистрироваться</value>
+  </data>
+  <data name="HaveAccountLink" xml:space="preserve">
+    <value>Уже есть аккаунт? Войти</value>
+  </data>
+  <data name="InvalidCredentialsError" xml:space="preserve">
+    <value>Неверный логин или пароль</value>
+  </data>
+  <data name="Common_LogoAlt" xml:space="preserve">
+    <value>Логотип</value>
+  </data>
+  <data name="Common_BrandName" xml:space="preserve">
+    <value>Jumbo.uz</value>
+  </data>
+  <data name="Common_LpBrand" xml:space="preserve">
+    <value>Jumbo</value>
+  </data>
+  <data name="Common_Exit" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Common_Loading" xml:space="preserve">
+    <value>Загрузка…</value>
+  </data>
+  <data name="LpLayout_MenuTitle" xml:space="preserve">
+    <value>Меню</value>
+  </data>
+  <data name="LpLayout_HomeTab" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <data name="LpLayout_ErrorBanner" xml:space="preserve">
+    <value>Произошла ошибка.</value>
+  </data>
+  <data name="LpLayout_ReloadLink" xml:space="preserve">
+    <value>Перезагрузить</value>
+  </data>
+  <data name="LpHome_PageTitle" xml:space="preserve">
+    <value>Главная — Jumbo</value>
+  </data>
+  <data name="Common_BookLabel" xml:space="preserve">
+    <value>Книга {0}</value>
+  </data>
+  <data name="Dictionary_PageTitle" xml:space="preserve">
+    <value>Словарь — Jumbo</value>
+  </data>
+  <data name="Dictionary_Heading" xml:space="preserve">
+    <value>📖 Словарь</value>
+  </data>
+  <data name="Dictionary_SearchPlaceholder" xml:space="preserve">
+    <value>Поиск слов…</value>
+  </data>
+  <data name="Common_NoWordsFound" xml:space="preserve">
+    <value>Слова не найдены</value>
+  </data>
+  <data name="Dictionary_PrevPage" xml:space="preserve">
+    <value>‹ Назад</value>
+  </data>
+  <data name="Dictionary_PageLabel" xml:space="preserve">
+    <value>Стр. {0}</value>
+  </data>
+  <data name="Dictionary_NextPage" xml:space="preserve">
+    <value>Вперёд ›</value>
+  </data>
+  <data name="Awards_PageTitle" xml:space="preserve">
+    <value>Награды — Jumbo</value>
+  </data>
+  <data name="Awards_Heading" xml:space="preserve">
+    <value>🏆 Мои награды</value>
+  </data>
+  <data name="Awards_AchievementsSection" xml:space="preserve">
+    <value>Достижения</value>
+  </data>
+  <data name="Awards_NoAwards" xml:space="preserve">
+    <value>Награды пока не получены</value>
+  </data>
+  <data name="Awards_MarketSection" xml:space="preserve">
+    <value>Магазин</value>
+  </data>
+  <data name="Awards_MarketLocked" xml:space="preserve">
+    <value>Для доступа к магазину нужно 💰 1000 LP</value>
+  </data>
+  <data name="Awards_CurrentLp" xml:space="preserve">
+    <value>У вас сейчас {0} LP</value>
+  </data>
+  <data name="Awards_MarketPrice" xml:space="preserve">
+    <value>💰 {0} LP</value>
+  </data>
+  <data name="Settings_PageTitle" xml:space="preserve">
+    <value>Настройки — Jumbo</value>
+  </data>
+  <data name="Settings_Heading" xml:space="preserve">
+    <value>⚙️ Настройки</value>
+  </data>
+  <data name="Settings_ProfileSection" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="Settings_FirstNamePlaceholder" xml:space="preserve">
+    <value>Ваше имя</value>
+  </data>
+  <data name="Settings_LastNamePlaceholder" xml:space="preserve">
+    <value>Ваша фамилия</value>
+  </data>
+  <data name="Settings_PhoneLabel" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="Common_PhonePlaceholder" xml:space="preserve">
+    <value>+7 000 000 00 00</value>
+  </data>
+  <data name="Settings_LanguagesSection" xml:space="preserve">
+    <value>Языки</value>
+  </data>
+  <data name="Settings_StudyLangLabel" xml:space="preserve">
+    <value>Язык изучения</value>
+  </data>
+  <data name="Settings_Saving" xml:space="preserve">
+    <value>Сохранение…</value>
+  </data>
+  <data name="Settings_SaveButton" xml:space="preserve">
+    <value>Сохранить изменения</value>
+  </data>
+  <data name="Settings_SavedMessage" xml:space="preserve">
+    <value>✓ Сохранено</value>
+  </data>
+  <data name="Common_BackArrow" xml:space="preserve">
+    <value>← Назад</value>
+  </data>
+  <data name="Game_FindMeTitle" xml:space="preserve">
+    <value>Найди меня</value>
+  </data>
+  <data name="Game_FindMeDesc" xml:space="preserve">
+    <value>Найди слово по картинке</value>
+  </data>
+  <data name="Game_SequenceTitle" xml:space="preserve">
+    <value>Запомни порядок</value>
+  </data>
+  <data name="Game_SequenceDesc" xml:space="preserve">
+    <value>Запомни слова и выбери картинки в том же порядке</value>
+  </data>
+  <data name="Game_ListenTitle" xml:space="preserve">
+    <value>Слушай и найди</value>
+  </data>
+  <data name="Game_ListenDesc" xml:space="preserve">
+    <value>Найди слово на слух</value>
+  </data>
+  <data name="Game_StepsTitle" xml:space="preserve">
+    <value>По ступенькам</value>
+  </data>
+  <data name="Game_StepsDesc" xml:space="preserve">
+    <value>Пошаговое запоминание</value>
+  </data>
+  <data name="Subjects_PageTitle" xml:space="preserve">
+    <value>Книга {0} — Jumbo</value>
+  </data>
+  <data name="Subjects_Heading" xml:space="preserve">
+    <value>📚 Книга {0}</value>
+  </data>
+  <data name="Subjects_NoTopics" xml:space="preserve">
+    <value>Темы для этой книги пока не загружены</value>
+  </data>
+  <data name="Subjects_Passed" xml:space="preserve">
+    <value>✓ Пройдено</value>
+  </data>
+  <data name="SubjectDetail_FallbackTitle" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="SubjectDetail_BackToTopics" xml:space="preserve">
+    <value>← Темы</value>
+  </data>
+  <data name="SubjectDetail_NotFound" xml:space="preserve">
+    <value>Тема не найдена</value>
+  </data>
+  <data name="Common_Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="Common_Continue" xml:space="preserve">
+    <value>Продолжить</value>
+  </data>
+  <data name="Common_NoWordsOnLetter" xml:space="preserve">
+    <value>Слов на «{0}» пока нет</value>
+  </data>
+  <data name="LetterSelection_PageTitle" xml:space="preserve">
+    <value>Буква {0}</value>
+  </data>
+  <data name="LetterSelection_BackHome" xml:space="preserve">
+    <value>← Главная</value>
+  </data>
+  <data name="LetterSelection_WordsOnLetter" xml:space="preserve">
+    <value>Слова на «{0}»</value>
+  </data>
+  <data name="LetterSelection_TestTitle" xml:space="preserve">
+    <value>Тест</value>
+  </data>
+  <data name="LetterSelection_TestDesc" xml:space="preserve">
+    <value>Выбери правильный перевод</value>
+  </data>
+  <data name="LetterSelection_RecallTitle" xml:space="preserve">
+    <value>Вспомни</value>
+  </data>
+  <data name="LetterSelection_RecallDesc" xml:space="preserve">
+    <value>Попробуй вспомнить слово</value>
+  </data>
+  <data name="LetterTest_PageTitle" xml:space="preserve">
+    <value>Тест: {0}</value>
+  </data>
+  <data name="LetterTest_NotEnoughWords" xml:space="preserve">
+    <value>Слов на «{0}» недостаточно для теста</value>
+  </data>
+  <data name="LetterTest_Completed" xml:space="preserve">
+    <value>Тест пройден!</value>
+  </data>
+  <data name="LetterTest_Summary" xml:space="preserve">
+    <value>Все {0} слов проверены</value>
+  </data>
+  <data name="LetterRecall_PageTitle" xml:space="preserve">
+    <value>Вспомни: {0}</value>
+  </data>
+  <data name="LetterRecall_Done" xml:space="preserve">
+    <value>Готово!</value>
+  </data>
+  <data name="LetterRecall_Summary" xml:space="preserve">
+    <value>Вы вспомнили {0} из {1} слов</value>
+  </data>
+  <data name="LetterRecall_ShowWord" xml:space="preserve">
+    <value>👁 Показать слово</value>
+  </data>
+  <data name="LetterRecall_Know" xml:space="preserve">
+    <value>✓ Знаю</value>
+  </data>
+  <data name="LetterRecall_DontKnow" xml:space="preserve">
+    <value>✗ Не знаю</value>
+  </data>
+  <data name="Common_GameOver" xml:space="preserve">
+    <value>Игра окончена</value>
+  </data>
+  <data name="Common_TryAgainLong" xml:space="preserve">
+    <value>Попробовать снова</value>
+  </data>
+  <data name="Common_Again" xml:space="preserve">
+    <value>Снова</value>
+  </data>
+  <data name="Common_LpEarned" xml:space="preserve">
+    <value>+{0} LP заработано</value>
+  </data>
+  <data name="FindMeGame_NoWords" xml:space="preserve">
+    <value>Слова для этой темы не найдены</value>
+  </data>
+  <data name="FindMeGame_OutOfLives" xml:space="preserve">
+    <value>Закончились жизни</value>
+  </data>
+  <data name="FindMeGame_Great" xml:space="preserve">
+    <value>Отлично!</value>
+  </data>
+  <data name="FindMeGame_FindLabel" xml:space="preserve">
+    <value>Найди:</value>
+  </data>
+  <data name="FindMeGame_FoundCount" xml:space="preserve">
+    <value>{0} / {1} найдено</value>
+  </data>
+  <data name="ListenGame_Won" xml:space="preserve">
+    <value>Отлично! Все шаги пройдены</value>
+  </data>
+  <data name="ListenGame_SpeakTitle" xml:space="preserve">
+    <value>Произнести</value>
+  </data>
+  <data name="SequenceGame_Won" xml:space="preserve">
+    <value>Все раунды пройдены!</value>
+  </data>
+  <data name="SequenceGame_RoundLabel" xml:space="preserve">
+    <value>Раунд {0} / {1}</value>
+  </data>
+  <data name="SequenceGame_ChooseOrder" xml:space="preserve">
+    <value>В каком порядке?</value>
+  </data>
+  <data name="StepsGame_LostAtStep" xml:space="preserve">
+    <value>Вы добрались до ступени {0} из {1}</value>
+  </data>
+  <data name="StepsGame_Won" xml:space="preserve">
+    <value>Все {0} ступеней пройдено!</value>
+  </data>
+  <data name="StepsGame_Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="Common_LoginAction" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="Common_EnterCredentials" xml:space="preserve">
+    <value>Введите логин и пароль</value>
+  </data>
+  <data name="Common_ErrorPrefix" xml:space="preserve">
+    <value>Ошибка: </value>
+  </data>
+  <data name="Register_PageTitle" xml:space="preserve">
+    <value>Регистрация — Jumbo</value>
+  </data>
+  <data name="Register_Subtitle" xml:space="preserve">
+    <value>Начните своё языковое путешествие</value>
+  </data>
+  <data name="Register_FirstNameLabel" xml:space="preserve">
+    <value>Имя *</value>
+  </data>
+  <data name="Register_UsernameLabel" xml:space="preserve">
+    <value>Логин *</value>
+  </data>
+  <data name="Register_UsernamePlaceholder" xml:space="preserve">
+    <value>Придумайте логин</value>
+  </data>
+  <data name="Register_PasswordLabel" xml:space="preserve">
+    <value>Пароль *</value>
+  </data>
+  <data name="Register_PasswordPlaceholder" xml:space="preserve">
+    <value>Придумайте пароль</value>
+  </data>
+  <data name="Register_Registering" xml:space="preserve">
+    <value>Регистрация…</value>
+  </data>
+  <data name="Register_StartButton" xml:space="preserve">
+    <value>Начать обучение 🚀</value>
+  </data>
+  <data name="Register_HaveAccount" xml:space="preserve">
+    <value>Уже есть аккаунт? </value>
+  </data>
+  <data name="Register_Failed" xml:space="preserve">
+    <value>Не удалось зарегистрироваться. Проверьте подключение к серверу.</value>
+  </data>
+  <data name="Register_AvatarLabel" xml:space="preserve">
+    <value>Выберите аватар</value>
+  </data>
+  <data name="Register_AvatarUploadLabel" xml:space="preserve">
+    <value>Загрузить фото</value>
+  </data>
+  <data name="Register_AvatarInvalidType" xml:space="preserve">
+    <value>Выберите файл изображения.</value>
+  </data>
+  <data name="Register_AvatarTooLarge" xml:space="preserve">
+    <value>Изображение слишком большое (макс. 1 МБ).</value>
+  </data>
+  <data name="Login_PageTitle" xml:space="preserve">
+    <value>Вход — Jumbo</value>
+  </data>
+  <data name="Login_WelcomeBack" xml:space="preserve">
+    <value>С возвращением!</value>
+  </data>
+  <data name="Login_PasswordTab" xml:space="preserve">
+    <value>Логин и пароль</value>
+  </data>
+  <data name="Login_QrTab" xml:space="preserve">
+    <value>QR-код</value>
+  </data>
+  <data name="Login_UsernameLabel" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="Login_UsernamePlaceholder" xml:space="preserve">
+    <value>Ваш логин</value>
+  </data>
+  <data name="Login_PasswordLabel" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve">
+    <value>Ваш пароль</value>
+  </data>
+  <data name="Login_RememberMe" xml:space="preserve">
+    <value>Запомнить меня</value>
+  </data>
+  <data name="Login_LoggingIn" xml:space="preserve">
+    <value>Вход…</value>
+  </data>
+  <data name="Login_QrAlt" xml:space="preserve">
+    <value>QR-код для входа</value>
+  </data>
+  <data name="Login_QrHint" xml:space="preserve">
+    <value>Откройте Jumbo на телефоне → Настройки → «Войти на сайте по QR» и наведите камеру на код</value>
+  </data>
+  <data name="Login_QrLoading" xml:space="preserve">
+    <value>Загрузка QR-кода…</value>
+  </data>
+  <data name="Login_NoAccount" xml:space="preserve">
+    <value>Нет аккаунта? </value>
+  </data>
+  <data name="Login_RegisterLink" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
+  <data name="Login_InvalidCredentials" xml:space="preserve">
+    <value>Неверный логин или пароль</value>
+  </data>
+  <data name="Login_QrCreateFailed" xml:space="preserve">
+    <value>Не удалось создать QR-код</value>
+  </data>
+  <data name="LpHome_OverallProgressTitle" xml:space="preserve">
+    <value>Общий прогресс</value>
+  </data>
+  <data name="Game_WordsTitle" xml:space="preserve">
+    <value>Слова темы</value>
+  </data>
+  <data name="Game_WordsDesc" xml:space="preserve">
+    <value>Слова, которые вы изучите в этой теме</value>
+  </data>
+  <data name="Settings_AccountSection" xml:space="preserve">
+    <value>Логин и пароль</value>
+  </data>
+  <data name="Settings_UsernameLabel" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="Settings_CurrentPasswordLabel" xml:space="preserve">
+    <value>Текущий пароль</value>
+  </data>
+  <data name="Settings_NewPasswordLabel" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="Settings_NewPasswordHint" xml:space="preserve">
+    <value>Оставьте пустым, чтобы не менять</value>
+  </data>
+  <data name="Settings_ConfirmPasswordLabel" xml:space="preserve">
+    <value>Повторите новый пароль</value>
+  </data>
+  <data name="Settings_AccountSaveButton" xml:space="preserve">
+    <value>Изменить логин / пароль</value>
+  </data>
+  <data name="Settings_AccountSaved" xml:space="preserve">
+    <value>Логин и пароль обновлены</value>
+  </data>
+  <data name="Settings_PasswordsMismatch" xml:space="preserve">
+    <value>Новые пароли не совпадают</value>
+  </data>
+  <data name="Settings_UsernameRequired" xml:space="preserve">
+    <value>Логин не может быть пустым</value>
+  </data>
+  <data name="Settings_AccountNothingToChange" xml:space="preserve">
+    <value>Введите новый логин или новый пароль</value>
+  </data>
+  <data name="Alphabet_Subtitle" xml:space="preserve">
+    <value>Выбери букву и учи слова, которые с неё начинаются</value>
+  </data>
+  <data name="Alphabet_CtaHint" xml:space="preserve">
+    <value>Выбери букву и учи слова</value>
+  </data>
+  <data name="Theme_Toggle" xml:space="preserve">
+    <value>Сменить тему</value>
+  </data>
+  <data name="Path_Continue" xml:space="preserve">
+    <value>Продолжить</value>
+  </data>
+  <data name="Path_Start" xml:space="preserve">
+    <value>Начать</value>
+  </data>
+  <data name="Path_Play" xml:space="preserve">
+    <value>Играть</value>
+  </data>
+  <data name="Path_AllDone" xml:space="preserve">
+    <value>Все темы пройдены! 🎉</value>
+  </data>
+  <data name="Path_HintStartWith" xml:space="preserve">
+    <value>Сначала пройди тему «{0}»</value>
+  </data>
+  <data name="Path_OpenAnyway" xml:space="preserve">
+    <value>Открыть всё равно</value>
+  </data>
+  <data name="Path_GoCurrent" xml:space="preserve">
+    <value>К текущей теме</value>
+  </data>
+  <data name="Daily_Title" xml:space="preserve">
+    <value>Цель дня</value>
+  </data>
+  <data name="Daily_Progress" xml:space="preserve">
+    <value>{0} из {1} слов</value>
+  </data>
+  <data name="Daily_StreakLabel" xml:space="preserve">
+    <value>дней подряд</value>
+  </data>
+  <data name="Daily_GoalDone" xml:space="preserve">
+    <value>Цель на сегодня выполнена! 🎉</value>
+  </data>
+  <data name="Daily_AtRisk" xml:space="preserve">
+    <value>Выполни цель, чтобы не потерять серию 🔥</value>
+  </data>
+  <data name="Daily_StartPrompt" xml:space="preserve">
+    <value>Выучи первые слова сегодня!</value>
+  </data>
+  <data name="Settings_DailyGoalSection" xml:space="preserve">
+    <value>Цель дня</value>
+  </data>
+  <data name="Settings_DailyGoalLabel" xml:space="preserve">
+    <value>Слов в день</value>
+  </data>
+  <data name="Settings_DailyGoalSaved" xml:space="preserve">
+    <value>Цель дня сохранена</value>
+  </data>
+  <data name="Day_Monday" xml:space="preserve">
+    <value>Пн</value>
+  </data>
+  <data name="Day_Tuesday" xml:space="preserve">
+    <value>Вт</value>
+  </data>
+  <data name="Day_Wednesday" xml:space="preserve">
+    <value>Ср</value>
+  </data>
+  <data name="Day_Thursday" xml:space="preserve">
+    <value>Чт</value>
+  </data>
+  <data name="Day_Friday" xml:space="preserve">
+    <value>Пт</value>
+  </data>
+  <data name="Day_Saturday" xml:space="preserve">
+    <value>Сб</value>
+  </data>
+  <data name="Day_Sunday" xml:space="preserve">
+    <value>Вс</value>
+  </data>
+  <data name="Tiger_Cheer1" xml:space="preserve">
+    <value>Молодец!</value>
+  </data>
+  <data name="Tiger_Cheer2" xml:space="preserve">
+    <value>Супер!</value>
+  </data>
+  <data name="Tiger_Cheer3" xml:space="preserve">
+    <value>Так держать!</value>
+  </data>
+  <data name="Tiger_Oops1" xml:space="preserve">
+    <value>Почти! Ещё раз</value>
+  </data>
+  <data name="Tiger_Oops2" xml:space="preserve">
+    <value>Не сдавайся!</value>
+  </data>
+  <data name="Tiger_Oops3" xml:space="preserve">
+    <value>Ничего, попробуй!</value>
+  </data>
+  <data name="Reg_StepOf" xml:space="preserve">
+    <value>Шаг {0} из {1}</value>
+  </data>
+  <data name="Reg_Step1" xml:space="preserve">
+    <value>Данные</value>
+  </data>
+  <data name="Reg_Step2" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="Reg_Step3" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="Reg_Step1Title" xml:space="preserve">
+    <value>Расскажи о себе</value>
+  </data>
+  <data name="Reg_Step2Title" xml:space="preserve">
+    <value>Придумай логин и пароль</value>
+  </data>
+  <data name="Reg_Step3Title" xml:space="preserve">
+    <value>Учебное заведение и команда</value>
+  </data>
+  <data name="Reg_Optional" xml:space="preserve">
+    <value>Необязательно — этот шаг можно пропустить</value>
+  </data>
+  <data name="Reg_Next" xml:space="preserve">
+    <value>Далее</value>
+  </data>
+  <data name="Reg_Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="Reg_Skip" xml:space="preserve">
+    <value>Пропустить</value>
+  </data>
+  <data name="Reg_ConfirmPasswordLabel" xml:space="preserve">
+    <value>Повтори пароль</value>
+  </data>
+  <data name="Reg_PasswordsMismatch" xml:space="preserve">
+    <value>Пароли не совпадают</value>
+  </data>
+  <data name="Reg_PasswordTooShort" xml:space="preserve">
+    <value>Пароль — не менее 6 символов</value>
+  </data>
+  <data name="Reg_UsernameTaken" xml:space="preserve">
+    <value>Этот логин уже занят, выбери другой</value>
+  </data>
+  <data name="Reg_RegionLabel" xml:space="preserve">
+    <value>Область</value>
+  </data>
+  <data name="Reg_RegionPlaceholder" xml:space="preserve">
+    <value>Не выбрано</value>
+  </data>
+  <data name="Reg_SchoolLabel" xml:space="preserve">
+    <value>Учебное заведение</value>
+  </data>
+  <data name="Reg_SchoolPlaceholder" xml:space="preserve">
+    <value>Например: школа № 12 или центр «Лингва»</value>
+  </data>
+  <data name="Reg_TeamLabel" xml:space="preserve">
+    <value>Команда</value>
+  </data>
+  <data name="Reg_TeamPlaceholder" xml:space="preserve">
+    <value>Название команды</value>
+  </data>
+  <data name="Reg_StudyLangHelp" xml:space="preserve">
+    <value>Какой язык учишь и на какой язык переводить</value>
+  </data>
+  <data name="Region_tashkent-city" xml:space="preserve">
+    <value>г. Ташкент</value>
+  </data>
+  <data name="Region_tashkent-region" xml:space="preserve">
+    <value>Ташкентская область</value>
+  </data>
+  <data name="Region_samarkand" xml:space="preserve">
+    <value>Самаркандская область</value>
+  </data>
+  <data name="Region_bukhara" xml:space="preserve">
+    <value>Бухарская область</value>
+  </data>
+  <data name="Region_fergana" xml:space="preserve">
+    <value>Ферганская область</value>
+  </data>
+  <data name="Region_andijan" xml:space="preserve">
+    <value>Андижанская область</value>
+  </data>
+  <data name="Region_namangan" xml:space="preserve">
+    <value>Наманганская область</value>
+  </data>
+  <data name="Region_kashkadarya" xml:space="preserve">
+    <value>Кашкадарьинская область</value>
+  </data>
+  <data name="Region_surkhandarya" xml:space="preserve">
+    <value>Сурхандарьинская область</value>
+  </data>
+  <data name="Region_khorezm" xml:space="preserve">
+    <value>Хорезмская область</value>
+  </data>
+  <data name="Region_navoi" xml:space="preserve">
+    <value>Навоийская область</value>
+  </data>
+  <data name="Region_jizzakh" xml:space="preserve">
+    <value>Джизакская область</value>
+  </data>
+  <data name="Region_sirdarya" xml:space="preserve">
+    <value>Сырдарьинская область</value>
+  </data>
+  <data name="Region_karakalpakstan" xml:space="preserve">
+    <value>Республика Каракалпакстан</value>
+  </data>
+  <data name="Region_other" xml:space="preserve">
+    <value>Другое</value>
+  </data>
+  <data name="Settings_PrivacySection" xml:space="preserve">
+    <value>Приватность</value>
+  </data>
+  <data name="Settings_HideNameLabel" xml:space="preserve">
+    <value>Скрыть моё имя в рейтинге</value>
+  </data>
+  <data name="Settings_HideNameHint" xml:space="preserve">
+    <value>Вместо имени будет «Скрытый игрок». Место и очки останутся.</value>
+  </data>
+  <data name="Lang_Switch" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="Pick_SchoolPh" xml:space="preserve">
+    <value>Выберите учебное заведение</value>
+  </data>
+  <data name="Pick_TeamPh" xml:space="preserve">
+    <value>Выберите команду</value>
+  </data>
+  <data name="Pick_NoSchools" xml:space="preserve">
+    <value>В этом регионе пока нет учебных заведений в списке. Попросите учителя зарегистрировать учебное заведение на странице «Для учителей».</value>
+  </data>
+  <data name="Pick_NoTeams" xml:space="preserve">
+    <value>У этого учебного заведения пока нет команд. Попросите учителя создать вашу команду.</value>
+  </data>
+  <data name="Pick_Hint" xml:space="preserve">
+    <value>Учитель подтвердит ваш выбор. До этого вас не будет в отчётах учебного заведения.</value>
+  </data>
+  <data name="Team_Section" xml:space="preserve">
+    <value>Учебное заведение и команда</value>
+  </data>
+  <data name="Team_Is" xml:space="preserve">
+    <value>Команда «{0}», {1}</value>
+  </data>
+  <data name="Team_Approved" xml:space="preserve">
+    <value>Подтверждено учителем</value>
+  </data>
+  <data name="Team_Pending" xml:space="preserve">
+    <value>Ждёт подтверждения учителя</value>
+  </data>
+  <data name="Team_Leave" xml:space="preserve">
+    <value>Выйти из команды</value>
+  </data>
+  <data name="Team_Submit" xml:space="preserve">
+    <value>Отправить учителю на подтверждение</value>
+  </data>
+  <data name="Team_Sent" xml:space="preserve">
+    <value>Отправлено. Когда учитель подтвердит, вы появитесь в отчётах.</value>
+  </data>
+  <data name="Team_Left" xml:space="preserve">
+    <value>Вы вышли из команды.</value>
+  </data>
+  <data name="Team_Legacy" xml:space="preserve">
+    <value>Раньше вы указали: {0} · {1}. Выберите учебное заведение и команду из списка, чтобы учитель их подтвердил.</value>
+  </data>
+  <data name="Team_Err_TEAM_NOT_FOUND" xml:space="preserve">
+    <value>Такой команды нет.</value>
+  </data>
+  <data name="Team_Err_TEAM_ARCHIVED" xml:space="preserve">
+    <value>Эта команда в архиве.</value>
+  </data>
+  <data name="Team_Err_STAFF_CANNOT_JOIN" xml:space="preserve">
+    <value>Учителя и директора не вступают в команды.</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Светлая</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Тёмная</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>Как в телефоне</value>
+  </data>
+  <data name="Settings_Logout" xml:space="preserve">
+    <value>Выйти из аккаунта</value>
+  </data>
+  <data name="Settings_LogoutConfirm" xml:space="preserve">
+    <value>Выйти из аккаунта?</value>
+  </data>
+  <data name="Settings_Appearance" xml:space="preserve">
+    <value>Оформление</value>
+  </data>
+  <data name="Settings_Yes" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="Settings_AutoSaved" xml:space="preserve">
+    <value>Сохраняется автоматически</value>
+  </data>
+  <data name="Settings_ScanQrHint" xml:space="preserve">
+    <value>Войти на сайте по QR-коду</value>
+  </data>
+  <data name="Game_AllFound" xml:space="preserve">
+    <value>Все слова найдены!</value>
+  </data>
+  <data name="Game_Locked" xml:space="preserve">
+    <value>Жизни и LP закончились!</value>
+  </data>
+  <data name="Game_LockedRegen" xml:space="preserve">
+    <value>Жизни восстановятся через {0}</value>
+  </data>
+  <data name="Game_Correct" xml:space="preserve">
+    <value>Правильно!</value>
+  </data>
+  <data name="Game_WrongOrder" xml:space="preserve">
+    <value>Не тот порядок!</value>
+  </data>
+  <data name="Game_RegenTime" xml:space="preserve">
+    <value>{0}ч {1:D2}м</value>
+  </data>
+  <data name="Game_Recovering" xml:space="preserve">
+    <value>Восстанавливается...</value>
+  </data>
+  <data name="Letter_Study" xml:space="preserve">
+    <value>Изучаем букву «{0}»</value>
+  </data>
+  <data name="Letter_WordsTitle" xml:space="preserve">
+    <value>Слова на эту букву:</value>
+  </data>
+  <data name="Letter_TestTitle" xml:space="preserve">
+    <value>Тестовый вариант</value>
+  </data>
+  <data name="Letter_TestDesc" xml:space="preserve">
+    <value>Выбери правильный перевод из 4 вариантов ответа</value>
+  </data>
+  <data name="Letter_RecallTitle" xml:space="preserve">
+    <value>Вспомни сам</value>
+  </data>
+  <data name="Letter_RecallDesc" xml:space="preserve">
+    <value>Посмотри на картинку и постарайся вспомнить слово самостоятельно</value>
+  </data>
+  <data name="Letter_Heading" xml:space="preserve">
+    <value>Буква «{0}»</value>
+  </data>
+  <data name="Letter_ShowWord" xml:space="preserve">
+    <value>👁  Показать слово</value>
+  </data>
+  <data name="Letter_DidRecall" xml:space="preserve">
+    <value>Вы правильно вспомнили слово?</value>
+  </data>
+  <data name="Letter_Recalled" xml:space="preserve">
+    <value>✓  Вспомнил!</value>
+  </data>
+  <data name="Letter_NotRecalled" xml:space="preserve">
+    <value>✗  Не вспомнил</value>
+  </data>
+  <data name="Letter_Repeat" xml:space="preserve">
+    <value>Повторить</value>
+  </data>
+  <data name="Letter_NoWords" xml:space="preserve">
+    <value>Слов на букву «{0}» пока нет</value>
+  </data>
+  <data name="Letter_FindTranslation" xml:space="preserve">
+    <value>Найди правильный перевод:</value>
+  </data>
+  <data name="Letter_Learned" xml:space="preserve">
+    <value>Буква «{0}» изучена!</value>
+  </data>
+  <data name="Letter_Again" xml:space="preserve">
+    <value>Ещё раз</value>
+  </data>
+  <data name="Letter_RecalledCount" xml:space="preserve">
+    <value>Вы вспомнили {0} из {1} слов!</value>
+  </data>
+  <data name="Awards_Balance" xml:space="preserve">
+    <value>Баланс: {0} LP</value>
+  </data>
+  <data name="Awards_Bought" xml:space="preserve">
+    <value>Успешно куплено: {0}!</value>
+  </data>
+  <data name="Scan_Close" xml:space="preserve">
+    <value>✕ Закрыть</value>
+  </data>
+  <data name="Game_Round" xml:space="preserve">
+    <value>Раунд {0}</value>
+  </data>
+  <data name="Game_Audience" xml:space="preserve">
+    <value>Зал</value>
+  </data>
+  <data name="Game_AudienceHelp" xml:space="preserve">
+    <value>👥 Помощь зала</value>
+  </data>
+  <data name="Game_Step" xml:space="preserve">
+    <value>Ступень {0}</value>
+  </data>
+  <data name="Subject_Watch" xml:space="preserve">
+    <value>Смотреть на YouTube</value>
+  </data>
+  <data name="Subject_NoVideo" xml:space="preserve">
+    <value>Видео не добавлено</value>
+  </data>
+  <data name="Stats_Level" xml:space="preserve">
+    <value>Твой уровень</value>
+  </data>
+  <data name="Stats_LevelHint" xml:space="preserve">
+    <value>Зависит от книги, которую ты проходишь</value>
+  </data>
+  <data name="Stats_Place" xml:space="preserve">
+    <value>№ {0}</value>
+  </data>
+  <data name="Stats_OutOf" xml:space="preserve">
+    <value>из {0}</value>
+  </data>
+  <data name="Stats_ScopeTeam" xml:space="preserve">
+    <value>Моя команда</value>
+  </data>
+  <data name="Stats_ScopeSchool" xml:space="preserve">
+    <value>Моё учебное заведение</value>
+  </data>
+  <data name="Stats_ScopeRegion" xml:space="preserve">
+    <value>Мой регион</value>
+  </data>
+  <data name="Stats_ScopeAll" xml:space="preserve">
+    <value>Вся страна</value>
+  </data>
+  <data name="Stats_Words" xml:space="preserve">
+    <value>{0} слов за неделю</value>
+  </data>
+  <data name="Stats_NoPlace" xml:space="preserve">
+    <value>Поиграй, чтобы попасть в рейтинг!</value>
+  </data>
+  <data name="Stats_RatingTitle" xml:space="preserve">
+    <value>Рейтинг</value>
+  </data>
+  <data name="Stats_OpenRating" xml:space="preserve">
+    <value>Открыть рейтинг на сайте</value>
+  </data>
+  <data name="PupilBot_Title" xml:space="preserve">
+    <value>Telegram-бот</value>
+  </data>
+  <data name="PupilBot_Hint" xml:space="preserve">
+    <value>Подключи бота: он напомнит позаниматься, покажет твой прогресс и рейтинг и сыграет с тобой в мини-викторину.</value>
+  </data>
+  <data name="PupilBot_Connect" xml:space="preserve">
+    <value>Подключить бота</value>
+  </data>
+  <data name="PupilBot_Open" xml:space="preserve">
+    <value>Открыть бота в Telegram</value>
+  </data>
+  <data name="PupilBot_Waiting" xml:space="preserve">
+    <value>Нажми «Start» в боте, потом вернись и проверь подключение.</value>
+  </data>
+  <data name="PupilBot_Check" xml:space="preserve">
+    <value>Проверить подключение</value>
+  </data>
+  <data name="PupilBot_Connected" xml:space="preserve">
+    <value>Бот подключён ✅</value>
+  </data>
+  <data name="PupilBot_Disconnect" xml:space="preserve">
+    <value>Отключить бота</value>
+  </data>
+  <data name="ListenGame_ShowWord" xml:space="preserve">
+    <value>Показать слово</value>
+  </data>
+  <data name="ListenGame_HideWord" xml:space="preserve">
+    <value>Скрыть слово</value>
+  </data>
+  <data name="Games_Title" xml:space="preserve">
+    <value>Игры</value>
+  </data>
+  <data name="Games_Sub" xml:space="preserve">
+    <value>Выбери игру, потом тему</value>
+  </data>
+  <data name="Games_Pick" xml:space="preserve">
+    <value>Выбери тему</value>
+  </data>
+  <data name="Games_Next" xml:space="preserve">
+    <value>Дальше: {0}</value>
+  </data>
+  <data name="Games_MoreName" xml:space="preserve">
+    <value>Игры по теме</value>
+  </data>
+  <data name="Games_MoreDesc" xml:space="preserve">
+    <value>Ещё игры по этой теме во вкладке «Игры»</value>
+  </data>
+  <data name="Dictionary_NumberHint" xml:space="preserve">
+    <value>Номер слова в книге</value>
+  </data>
+  <data name="Game_PhraseTitle" xml:space="preserve">
+    <value>Собери фразу</value>
+  </data>
+  <data name="Game_PhraseDesc" xml:space="preserve">
+    <value>Собери английскую фразу из слов по переводу</value>
+  </data>
+  <data name="PhraseGame_Won" xml:space="preserve">
+    <value>Все фразы собраны!</value>
+  </data>
+  <data name="PhraseGame_Hint" xml:space="preserve">
+    <value>Собери эту фразу по-английски</value>
+  </data>
+  <data name="PhraseGame_NoPhrases" xml:space="preserve">
+    <value>Для этой темы пока нет фраз</value>
+  </data>
+  <data name="PhraseGame_Next" xml:space="preserve">
+    <value>Дальше</value>
+  </data>
+  <data name="PhraseGame_Help" xml:space="preserve">
+    <value>Нажимай на слова или перетаскивай их в ячейки. Если бросить слово на занятую ячейку, остальные сдвинутся вправо.</value>
+  </data>
+  <data name="PhraseGame_SlotsLabel" xml:space="preserve">
+    <value>Фраза</value>
+  </data>
+  <data name="BookPage_Passed" xml:space="preserve">
+    <value>Пройдено: {0} из {1}</value>
+  </data>
+  <data name="Gate_Title" xml:space="preserve">
+    <value>Открываем книгу {0}</value>
+  </data>
+  <data name="Gate_Sub" xml:space="preserve">
+    <value>Пройди 3 шага по книге {1}: слова берутся изо всех её тем. После этого откроется книга {0}.</value>
+  </data>
+  <data name="Gate_Step" xml:space="preserve">
+    <value>Шаг {0}</value>
+  </data>
+  <data name="Gate_Start" xml:space="preserve">
+    <value>Начать</value>
+  </data>
+  <data name="Gate_Next" xml:space="preserve">
+    <value>Следующий шаг</value>
+  </data>
+  <data name="Gate_Passed" xml:space="preserve">
+    <value>Пройден</value>
+  </data>
+  <data name="Gate_Opened" xml:space="preserve">
+    <value>Книга {0} открыта!</value>
+  </data>
+  <data name="Gate_LockedTitle" xml:space="preserve">
+    <value>Сначала книга {0}</value>
+  </data>
+  <data name="Gate_LockedText" xml:space="preserve">
+    <value>Сначала нужно пройти {0}-ю книгу.</value>
+  </data>
+  <data name="Gate_Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="Gate_Error" xml:space="preserve">
+    <value>Не удалось открыть книгу. Попробуй ещё раз.</value>
+  </data>
+  <data name="Pw_Show" xml:space="preserve">
+    <value>Показать пароль</value>
+  </data>
+  <data name="Pw_Hide" xml:space="preserve">
+    <value>Скрыть пароль</value>
+  </data>
+  <data name="Block_Title" xml:space="preserve">
+    <value>Блокировка на 5 часов</value>
+  </data>
+  <data name="Block_SubAll" xml:space="preserve">
+    <value>Жизни и LP закончились. Когда время выйдет, вернутся {0} жизней, а LP останется 0.</value>
+  </data>
+  <data name="Block_SubLives" xml:space="preserve">
+    <value>Жизни закончились. Когда время выйдет, вернутся {0} жизней.</value>
+  </data>
+  <data name="Block_GateFailed" xml:space="preserve">
+    <value>Проверка не пройдена: жизни закончились.</value>
+  </data>
+  <data name="Zero_Title" xml:space="preserve">
+    <value>Алфавит и цифры</value>
+  </data>
+  <data name="Zero_Hint" xml:space="preserve">
+    <value>Нажми на букву или цифру, чтобы услышать.</value>
+  </data>
+  <data name="Zero_Alphabet" xml:space="preserve">
+    <value>Алфавит</value>
+  </data>
+  <data name="Zero_Numbers" xml:space="preserve">
+    <value>Цифры 0–20</value>
+  </data>
+  <data name="Zero_PlayAll" xml:space="preserve">
+    <value>Прослушать всё</value>
+  </data>
+  <data name="Zero_Stop" xml:space="preserve">
+    <value>Стоп</value>
+  </data>
+  <data name="Zero_VowelsHint" xml:space="preserve">
+    <value>Гласные буквы выделены цветом</value>
+  </data>
+  <data name="Tq_GoSite" xml:space="preserve">
+    <value>Перейти на сайт</value>
+  </data>
+  <data name="Tq_TopicNo" xml:space="preserve">
+    <value>Тема {0}</value>
+  </data>
+  <data name="BookCard_Words" xml:space="preserve">
+    <value>{0} / {1} слов</value>
+  </data>
+  <data name="BookCard_Current" xml:space="preserve">
+    <value>Сейчас: {0}</value>
+  </data>
+  <data name="BookCard_Done" xml:space="preserve">
+    <value>Книга пройдена</value>
+  </data>
+  <data name="BookCard_Locked" xml:space="preserve">
+    <value>Книга закрыта</value>
+  </data>
+  <data name="Topic_LockedTitle" xml:space="preserve">
+    <value>Тема закрыта</value>
+  </data>
+  <data name="Topic_LockedText" xml:space="preserve">
+    <value>Сначала пройдите предыдущую тему: «{0}».</value>
+  </data>
+  <data name="Topic_Understood" xml:space="preserve">
+    <value>Понятно</value>
+  </data>
+  <data name="Topic_Go" xml:space="preserve">
+    <value>Перейти</value>
+  </data>
+  <data name="ZG_Section" xml:space="preserve">
+    <value>Игры</value>
+  </data>
+  <data name="ZG_ListenTitle" xml:space="preserve">
+    <value>Слушай и нажми</value>
+  </data>
+  <data name="ZG_ListenDesc" xml:space="preserve">
+    <value>Голос называет букву или цифру. Нажми нужную.</value>
+  </data>
+  <data name="ZG_TrainTitle" xml:space="preserve">
+    <value>Пропущенный вагон</value>
+  </data>
+  <data name="ZG_TrainDesc" xml:space="preserve">
+    <value>Поставь в поезд пропущенные буквы или цифры по порядку.</value>
+  </data>
+  <data name="ZG_Letters" xml:space="preserve">
+    <value>Буквы</value>
+  </data>
+  <data name="ZG_Numbers" xml:space="preserve">
+    <value>Цифры</value>
+  </data>
+  <data name="ZG_Repeat" xml:space="preserve">
+    <value>Повторить</value>
+  </data>
+  <data name="ZG_ListenHint" xml:space="preserve">
+    <value>Послушай и найди</value>
+  </data>
+  <data name="ZG_TrainHint" xml:space="preserve">
+    <value>Поставь в поезд</value>
+  </data>
+  <data name="ZG_Result" xml:space="preserve">
+    <value>Молодец!</value>
+  </data>
+  <data name="ZG_Mistakes" xml:space="preserve">
+    <value>Ошибок: {0}</value>
+  </data>
+  <data name="Award_New" xml:space="preserve">
+    <value>Новая награда!</value>
+  </data>
+  <data name="Award_Congrats" xml:space="preserve">
+    <value>Отличная работа, так держать!</value>
+  </data>
+  <data name="Award_Open" xml:space="preserve">
+    <value>Награды</value>
+  </data>
+  <data name="Award_Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="Market_Useful" xml:space="preserve">
+    <value>Полезное</value>
+  </data>
+  <data name="Market_Style" xml:space="preserve">
+    <value>Оформление</value>
+  </data>
+  <data name="Market_Buy" xml:space="preserve">
+    <value>Купить</value>
+  </data>
+  <data name="Market_NotEnough" xml:space="preserve">
+    <value>Не хватает LP</value>
+  </data>
+  <data name="Market_Equip" xml:space="preserve">
+    <value>Надеть</value>
+  </data>
+  <data name="Market_Unequip" xml:space="preserve">
+    <value>Снять</value>
+  </data>
+  <data name="Market_Worn" xml:space="preserve">
+    <value>Надето</value>
+  </data>
+  <data name="Market_Bought" xml:space="preserve">
+    <value>Куплено!</value>
+  </data>
+  <data name="Market_Eff_life" xml:space="preserve">
+    <value>+1 жизнь сразу</value>
+  </data>
+  <data name="Market_Eff_refill" xml:space="preserve">
+    <value>Все 5 жизней сразу</value>
+  </data>
+  <data name="Market_Eff_shield" xml:space="preserve">
+    <value>Следующая ошибка в игре ничего не отнимет</value>
+  </data>
+  <data name="Market_Eff_freeze" xml:space="preserve">
+    <value>Серия переживёт один пропущенный день</value>
+  </data>
+  <data name="Market_Eff_frame" xml:space="preserve">
+    <value>Рамка вокруг аватарки</value>
+  </data>
+  <data name="Market_Eff_avatar" xml:space="preserve">
+    <value>Новая аватарка везде</value>
+  </data>
+  <data name="Market_Eff_badge" xml:space="preserve">
+    <value>Значок рядом с именем в рейтинге</value>
+  </data>
+  <data name="Market_Eff_theme" xml:space="preserve">
+    <value>Новые цвета сайта</value>
+  </data>
+  <data name="Market_Eff_pet" xml:space="preserve">
+    <value>Питомец рядом со слонёнком в играх</value>
+  </data>
+  <data name="Market_Err_NOT_ENOUGH" xml:space="preserve">
+    <value>Не хватает LP.</value>
+  </data>
+  <data name="Market_Err_OWNED" xml:space="preserve">
+    <value>Это уже у вас есть.</value>
+  </data>
+  <data name="Market_Err_NOT_OWNED" xml:space="preserve">
+    <value>Сначала купите.</value>
+  </data>
+  <data name="Market_Err_LIVES_FULL" xml:space="preserve">
+    <value>Жизни уже полные.</value>
+  </data>
+  <data name="Market_Err_LIMIT" xml:space="preserve">
+    <value>У вас уже максимум.</value>
+  </data>
+  <data name="Market_Err_WOULD_BLOCK" xml:space="preserve">
+    <value>Сейчас нельзя: у вас останется 0 жизней и 0 LP, и начнётся блокировка на 5 часов.</value>
+  </data>
+  <data name="Market_WebNote" xml:space="preserve">
+    <value>Видно на сайте</value>
+  </data>
+  <data name="Error_Title" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="Error_Network" xml:space="preserve">
+    <value>Нет связи с сервером. Проверьте интернет и попробуйте ещё раз.</value>
+  </data>
+  <data name="Error_Generic" xml:space="preserve">
+    <value>Что-то пошло не так. Попробуйте ещё раз.</value>
+  </data>
+  <data name="Session_Expired" xml:space="preserve">
+    <value>Сессия закончилась. Войдите заново.</value>
+  </data>
+  <data name="Settings_DeleteSection" xml:space="preserve">
+    <value>Удаление аккаунта</value>
+  </data>
+  <data name="Settings_DeleteHint" xml:space="preserve">
+    <value>Аккаунт и весь прогресс, слова, награды и покупки будут удалены навсегда. Это нельзя отменить.</value>
+  </data>
+  <data name="Settings_DeleteButton" xml:space="preserve">
+    <value>Удалить аккаунт</value>
+  </data>
+  <data name="Settings_DeleteConfirmTitle" xml:space="preserve">
+    <value>Удалить аккаунт навсегда?</value>
+  </data>
+  <data name="Settings_DeleteConfirmSub" xml:space="preserve">
+    <value>Введите пароль, чтобы подтвердить.</value>
+  </data>
+  <data name="Settings_DeleteNeedPassword" xml:space="preserve">
+    <value>Введите пароль.</value>
+  </data>
+  <data name="Legal_Privacy_Link" xml:space="preserve">
+    <value>Политика конфиденциальности</value>
+  </data>
+  <data name="Privacy_Title" xml:space="preserve">
+    <value>Политика конфиденциальности</value>
+  </data>
+  <data name="Privacy_Updated" xml:space="preserve">
+    <value>Обновлено: 18 октября 2026</value>
+  </data>
+  <data name="Privacy_Contact" xml:space="preserve">
+    <value>Контакт по вопросам о данных: {0}</value>
+  </data>
+  <data name="Privacy_H1" xml:space="preserve">
+    <value>Кто мы</value>
+  </data>
+  <data name="Privacy_P1" xml:space="preserve">
+    <value>Jumbo (сайт jumbo.uz и мобильное приложение Jumbo) — платформа для изучения английского языка, в том числе для детей. Этот документ объясняет, какие данные мы собираем и как их используем.</value>
+  </data>
+  <data name="Privacy_H2" xml:space="preserve">
+    <value>Какие данные мы собираем</value>
+  </data>
+  <data name="Privacy_P2" xml:space="preserve">
+    <value>• Аккаунт: имя, фамилия, логин, пароль (хранится только в виде хеша), по желанию — телефон и аватар.
+• Регион, школа и команда (класс) — выбираются из списка.
+• Обучение: изученные слова, пройденные темы и игры, очки LP, награды, покупки в игровом магазине за внутренние очки, цель дня и серия дней, результаты экзаменов.
+• Настройки: язык, тема оформления, языки обучения.
+• По желанию — подключение Telegram-бота напоминаний (мы получаем идентификатор чата и имя в Telegram).
+• Технические данные сервера (адрес, время запроса) в обычных журналах — для безопасности и работы сервиса.</value>
+  </data>
+  <data name="Privacy_H3" xml:space="preserve">
+    <value>Зачем нужны данные</value>
+  </data>
+  <data name="Privacy_P3" xml:space="preserve">
+    <value>• Чтобы вы могли войти и продолжить обучение с того места, где остановились.
+• Чтобы показывать место в недельном рейтинге команды, школы или региона.
+• Чтобы учитель и директор вашей школы видели прогресс команды и результаты экзаменов.
+• Чтобы присылать напоминания, если вы подключили Telegram.
+Мы не используем данные для рекламы и не продаём их.</value>
+  </data>
+  <data name="Privacy_H4" xml:space="preserve">
+    <value>Дети</value>
+  </data>
+  <data name="Privacy_P4" xml:space="preserve">
+    <value>Jumbo подходит для любого возраста, в том числе для детей. Мы просим только то, что нужно для обучения: телефон указывать не обязательно. Мы не показываем рекламу, не используем рекламные и аналитические сервисы и не передаём данные детей третьим лицам для маркетинга. Детям лучше регистрироваться вместе с родителем или учителем. Родитель может в любой момент попросить показать или удалить данные ребёнка: для этого достаточно удалить аккаунт (см. ниже) или написать нам.</value>
+  </data>
+  <data name="Privacy_H5" xml:space="preserve">
+    <value>Кто видит данные</value>
+  </data>
+  <data name="Privacy_P5" xml:space="preserve">
+    <value>• Другие ученики видят в рейтинге ваше имя и место. Чтобы скрыть имя, включите «Скрыть моё имя в рейтинге» в настройках.
+• Учитель и директор команды, в которую вы вступили, видят ваш прогресс и результаты экзаменов.
+• Данные хранятся на наших серверах. Мы не передаём их третьим лицам, кроме случаев, когда этого требует закон. Если вы подключили Telegram, сообщения проходят через Telegram.</value>
+  </data>
+  <data name="Privacy_H6" xml:space="preserve">
+    <value>Хранение и защита</value>
+  </data>
+  <data name="Privacy_P6" xml:space="preserve">
+    <value>Данные передаются по защищённому соединению (HTTPS). Пароли хранятся в виде хеша. Данные хранятся, пока существует аккаунт.</value>
+  </data>
+  <data name="Privacy_H7" xml:space="preserve">
+    <value>Удаление данных</value>
+  </data>
+  <data name="Privacy_P7" xml:space="preserve">
+    <value>Вы можете удалить аккаунт сами: «Настройки» → «Удалить аккаунт» (в приложении и на сайте). Профиль, прогресс, слова, награды, покупки и результаты экзаменов будут удалены безвозвратно. Подробнее: jumbo.uz/delete-account. Резервные копии базы данных могут хранить эти данные ограниченное время, после чего удаляются.</value>
+  </data>
+  <data name="Privacy_H8" xml:space="preserve">
+    <value>Связь и изменения</value>
+  </data>
+  <data name="Privacy_P8" xml:space="preserve">
+    <value>Вопросы о данных можно задать по контакту ниже. Если мы изменим этот документ, новая версия появится на этой странице с новой датой.</value>
+  </data>
+  <data name="Del_Title" xml:space="preserve">
+    <value>Удаление аккаунта Jumbo</value>
+  </data>
+  <data name="Del_Intro" xml:space="preserve">
+    <value>Вы можете в любой момент сами удалить аккаунт и все его данные. Это занимает минуту.</value>
+  </data>
+  <data name="Del_StepsTitle" xml:space="preserve">
+    <value>Как это сделать</value>
+  </data>
+  <data name="Del_Steps" xml:space="preserve">
+    <value>1. Войдите в свой аккаунт (в приложении Jumbo или на jumbo.uz).
+2. Откройте «Настройки» и прокрутите вниз до блока «Удаление аккаунта».
+3. Введите пароль и подтвердите.</value>
+  </data>
+  <data name="Del_WhatTitle" xml:space="preserve">
+    <value>Что будет удалено</value>
+  </data>
+  <data name="Del_What" xml:space="preserve">
+    <value>Профиль (имя, логин, пароль, телефон, аватар), прогресс, изученные слова, награды, покупки, результаты экзаменов, связь с Telegram. Это нельзя отменить. Резервные копии базы данных могут хранить данные ограниченное время, после чего удаляются.</value>
+  </data>
+  <data name="Del_Staff" xml:space="preserve">
+    <value>Аккаунты учителей и директоров удаляет администратор: напишите по контакту на странице политики конфиденциальности.</value>
+  </data>
+  <data name="Del_Login" xml:space="preserve">
+    <value>Войти и удалить аккаунт</value>
+  </data>
+  <data name="Foot_Tagline" xml:space="preserve">
+    <value>Учим английский играя: слова, игры и слонёнок Jumbo.</value>
+  </data>
+  <data name="Foot_Get" xml:space="preserve">
+    <value>Скачать приложение</value>
+  </data>
+  <data name="Foot_Android" xml:space="preserve">
+    <value>Android</value>
+  </data>
+  <data name="Foot_Ios" xml:space="preserve">
+    <value>iOS · App Store</value>
+  </data>
+  <data name="Foot_Windows" xml:space="preserve">
+    <value>Windows</value>
+  </data>
+  <data name="Foot_Mac" xml:space="preserve">
+    <value>macOS</value>
+  </data>
+  <data name="Foot_Site" xml:space="preserve">
+    <value>Сайт</value>
+  </data>
+  <data name="Foot_Subscribe" xml:space="preserve">
+    <value>Обратная связь и новости</value>
+  </data>
+  <data name="Foot_SubscribeHint" xml:space="preserve">
+    <value>Напишите нам или оставьте почту: мы ответим и будем присылать только новости Jumbo.</value>
+  </data>
+  <data name="Foot_EmailPlaceholder" xml:space="preserve">
+    <value>Ваша почта</value>
+  </data>
+  <data name="Foot_SubscribeButton" xml:space="preserve">
+    <value>Отправить</value>
+  </data>
+  <data name="Foot_Sending" xml:space="preserve">
+    <value>Отправляем…</value>
+  </data>
+  <data name="Foot_Subscribed" xml:space="preserve">
+    <value>Спасибо! Мы всё получили.</value>
+  </data>
+  <data name="Foot_BadEmail" xml:space="preserve">
+    <value>Проверьте адрес почты.</value>
+  </data>
+  <data name="Foot_Failed" xml:space="preserve">
+    <value>Не удалось подписаться. Попробуйте позже.</value>
+  </data>
+  <data name="Foot_Consent" xml:space="preserve">
+    <value>Подписываясь, вы соглашаетесь с</value>
+  </data>
+  <data name="Foot_Privacy" xml:space="preserve">
+    <value>политикой конфиденциальности</value>
+  </data>
+  <data name="Foot_Schools" xml:space="preserve">
+    <value>Для школ и учителей</value>
+  </data>
+  <data name="Foot_Delete" xml:space="preserve">
+    <value>Удаление аккаунта</value>
+  </data>
+  <data name="Foot_MessagePlaceholder" xml:space="preserve">
+    <value>Ваше сообщение (необязательно)</value>
+  </data>
+  <data name="Foot_NewsCheck" xml:space="preserve">
+    <value>Присылайте мне новости Jumbo</value>
+  </data>
+  <data name="Foot_NeedSomething" xml:space="preserve">
+    <value>Напишите сообщение или отметьте новости.</value>
+  </data>
+  <data name="Update_Title" xml:space="preserve">
+    <value>Вышла новая версия</value>
+  </data>
+  <data name="Update_Text" xml:space="preserve">
+    <value>Обновите Jumbo, чтобы получить новые темы и исправления.</value>
+  </data>
+  <data name="Update_Now" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="Update_Later" xml:space="preserve">
+    <value>Позже</value>
+  </data>
+  <data name="Update_Required_Title" xml:space="preserve">
+    <value>Нужно обновить приложение</value>
+  </data>
+  <data name="Update_Required_Text" xml:space="preserve">
+    <value>Эта версия Jumbo больше не поддерживается. Обновите приложение, чтобы продолжить.</value>
+  </data>
+  <data name="Ver_Hint" xml:space="preserve">
+    <value>Меняйте «Последнюю версию» только когда новая сборка уже доступна всем в магазине. Версии ниже «Минимальной» обязаны обновиться и не могут пропустить это. 0 = выключено.</value>
+  </data>
+  <data name="Ver_Latest" xml:space="preserve">
+    <value>Последняя версия (число)</value>
+  </data>
+  <data name="Ver_Min" xml:space="preserve">
+    <value>Минимальная версия (число)</value>
+  </data>
+  <data name="Ver_Url" xml:space="preserve">
+    <value>Ссылка для кнопки «Обновить»</value>
+  </data>
+  <data name="Ver_NotesRu" xml:space="preserve">
+    <value>Что нового (русский)</value>
+  </data>
+  <data name="Ver_NotesEn" xml:space="preserve">
+    <value>Что нового (английский)</value>
+  </data>
+  <data name="Ver_NotesUz" xml:space="preserve">
+    <value>Что нового (узбекский)</value>
+  </data>
+  <data name="Ver_Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Ver_Saved" xml:space="preserve">
+    <value>Сохранено</value>
+  </data>
+  <data name="Settings_AvatarSaved" xml:space="preserve">
+    <value>Аватар сохранён</value>
+  </data>
+  <data name="Plan_Bronze" xml:space="preserve">
+    <value>Бронза</value>
+  </data>
+  <data name="Plan_Silver" xml:space="preserve">
+    <value>Серебро</value>
+  </data>
+  <data name="Plan_Gold" xml:space="preserve">
+    <value>Золото</value>
+  </data>
+  <data name="Plan_Yours" xml:space="preserve">
+    <value>Ваша версия: {0}</value>
+  </data>
+  <data name="Plan_PaidUntil" xml:space="preserve">
+    <value>Оплачено до {0}</value>
+  </data>
+  <data name="Plan_FreeVersion" xml:space="preserve">
+    <value>Бесплатная версия</value>
+  </data>
+  <data name="Plan_See" xml:space="preserve">
+    <value>Версии и цены</value>
+  </data>
+  <data name="Plan_Nav" xml:space="preserve">
+    <value>Версии и цены</value>
+  </data>
+  <data name="Settings_MyId" xml:space="preserve">
+    <value>Ваш ID</value>
+  </data>
+  <data name="Settings_MyIdHint" xml:space="preserve">
+    <value>Этот ID нужен для оплаты: назовите его или введите при оплате версии.</value>
+  </data>
+  <data name="Settings_CopyId" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="Settings_IdCopied" xml:space="preserve">
+    <value>Скопировано</value>
+  </data>
+  <data name="Money_Balance" xml:space="preserve">
+    <value>Баланс</value>
+  </data>
+  <data name="Money_Currency" xml:space="preserve">
+    <value>сум</value>
+  </data>
+  <data name="PR_Hint" xml:space="preserve">
+    <value>Цена в сумах за период. Пусто или 0 — тариф на этот срок пока нельзя купить.</value>
+  </data>
+  <data name="PR_Save" xml:space="preserve">
+    <value>Сохранить цены</value>
+  </data>
+  <data name="PR_Saved" xml:space="preserve">
+    <value>Цены сохранены</value>
+  </data>
+  <data name="PR_Err_BAD_PRICE" xml:space="preserve">
+    <value>Неверная цена</value>
+  </data>
+  <data name="BA_Hint" xml:space="preserve">
+    <value>Пока платёжные сервисы не подключены, баланс пополняет администратор вручную (по логину или ID). Payme, Click и Paynet будут пополнять баланс тем же способом, по ID ученика.</value>
+  </data>
+  <data name="BA_Amount" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="BA_Note" xml:space="preserve">
+    <value>Комментарий (необязательно)</value>
+  </data>
+  <data name="BA_Do" xml:space="preserve">
+    <value>Пополнить</value>
+  </data>
+  <data name="BA_Done" xml:space="preserve">
+    <value>Баланс {0} пополнен. Сейчас: {1} сум</value>
+  </data>
+  <data name="BA_Err_NO_USER" xml:space="preserve">
+    <value>Пользователь не найден</value>
+  </data>
+  <data name="BA_Err_BAD_AMOUNT" xml:space="preserve">
+    <value>Неверная сумма</value>
+  </data>
+  <data name="BA_History" xml:space="preserve">
+    <value>Последние пополнения и покупки</value>
+  </data>
+  <data name="Login_TooMany" xml:space="preserve">
+    <value>Слишком много неверных попыток. Подождите {0} мин и попробуйте снова.</value>
+  </data>
+</root>

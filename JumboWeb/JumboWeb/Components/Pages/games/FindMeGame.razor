@@ -1,0 +1,277 @@
+@page "/little-polyglot/games/findme/{SubjectId:int}"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject LivesService Lives
+@inject IJSRuntime JS
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject BookGateService Gates
+
+<PageTitle>@Loc["Game_FindMeTitle"]</PageTitle>
+
+<div class="game-topbar">
+    <button class="lp-back-btn" @onclick="GoBack">@Loc["Common_BackArrow"]</button>
+    @if (!_isGameOver && !_isGameWon)
+    {
+        <TigerCoach @ref="_coach" />
+    }
+    else
+    {
+        <span class="coach"></span>
+    }
+    <span class="game-lives" aria-hidden="true"></span>
+</div>
+
+@if (Blocked)
+{
+    <BlockNotice Failed="@(Gate > 0)" OnBack="GoBack" OnUnlocked="RestartGame" />
+}
+else if (_isBusy)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_hasNoData)
+{
+    <div class="lp-empty-state">@Loc["FindMeGame_NoWords"]</div>
+    <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick="GoBack">@Loc["Common_Back"]</button>
+}
+else if (_isGameOver)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="sad" Size="150" /></div>
+        <div class="game-result-title">@Loc["Common_GameOver"]</div>
+        <div class="game-result-sub">@Loc["FindMeGame_OutOfLives"]</div>
+        <button class="lp-btn lp-btn-full" @onclick="RestartGame">@Loc["Common_TryAgainLong"]</button>
+        <button class="lp-btn lp-btn-full lp-btn-outline" @onclick="GoBack">@Loc["Common_Exit"]</button>
+    </div>
+}
+else if (_isGameWon)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="cheer" Size="160" /></div>
+        <div class="game-result-title">@Loc["FindMeGame_Great"]</div>
+        @if (Gate == 0)
+        {
+            <div class="game-result-sub">@Loc.Format("Common_LpEarned", LpReward)</div>
+        }
+        <button class="lp-btn lp-btn-full" @onclick="GoBack">@Loc["Common_Continue"]</button>
+    </div>
+}
+else
+{
+    <div class="game-find-target">
+        @Loc["FindMeGame_FindLabel"] <strong>@_currentWord</strong>
+    </div>
+
+    <div class="game-cards-grid4 @(_slotMode ? "slots" : "")">
+        @foreach (var card in _cards)
+        {
+            <div class="game-card @(card.IsMatched ? "matched" : card.ShowWrong ? "wrong-flash" : "") @(card.IsFresh ? "fresh" : "")"
+                 @onclick="() => SelectCard(card)">
+                <div class="game-card-svg">@((MarkupString)card.SvgHtml)</div>
+                <div class="game-card-label">@card.TranslationWord</div>
+            </div>
+        }
+    </div>
+
+    <div style="text-align:center;color:var(--lp-muted);font-size:0.78rem;margin-top:10px">
+        @Loc.Format("FindMeGame_FoundCount", _foundCount, _totalWords)
+    </div>
+}
+
+@code {
+    // No lives (and no LP): the 5-hour block. In the check that opens a book only the lives count.
+    private bool Blocked => Lives.IsBlocked || (Gate > 0 && Lives.Lives <= 0);
+
+    // A mistake costs a life; in the check only the lives count, and without them the check is failed (its steps start again).
+    private async Task<bool> HitAsync()
+    {
+        var ok = await Lives.TakeDamageAsync(livesOnly: Gate > 0);
+        if (!ok && Gate > 0) Gates.Reset(Gate);
+        return ok;
+    }
+
+    private const int LpReward = 5;
+
+    [Parameter] public int SubjectId { get; set; }
+
+    // >0: played as a step of the check that opens this book (words of the previous book, no topic progress)
+    [SupplyParameterFromQuery(Name = "gate")] public int Gate { get; set; }
+    private TigerCoach? _coach;
+
+    // On a phone only SlotCount cards are on the screen: a found word is replaced by the next one until all the words of the topic
+    // have come, and the last cards turn into ticks one by one. On a wide screen all the cards are shown at once.
+    private const int SlotCount = 6;
+
+    private List<GameCard> _cards = new();
+    private List<GameCard> _sequence = new();
+    private Queue<GameCard> _unseen = new();
+    private GameCard? _target;
+    private bool _slotMode;
+    private int _totalWords;
+    private int _currentIndex;
+    private int _foundCount;
+    private string _currentWord = string.Empty;
+    private bool _isBusy = true, _hasNoData, _isGameOver, _isGameWon;
+    private int _userId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        _userId = UserState.CurrentUser?.UserId ?? 0;
+    }
+
+    // The screen size is known only in the browser, so the game starts after the first render.
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        try { _slotMode = await JS.InvokeAsync<bool>("lp.isMobile"); } catch { _slotMode = false; }
+        await LoadGame();
+        StateHasChanged();
+    }
+
+    private async Task LoadGame()
+    {
+        _isBusy = true;
+        _isGameOver = _isGameWon = _hasNoData = false;
+        _cards.Clear(); _sequence.Clear(); _unseen.Clear(); _target = null;
+        _currentIndex = _foundCount = 0;
+
+        await Lives.CheckRegenAsync();
+
+        var words = Gate > 0
+            ? await ApiClient.GetWordsByBookAsync(Gate - 1, Prefs.StudyLangId, 15)
+            : await ApiClient.GetWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId, 15);
+        if (words.Count == 0) { _hasNoData = true; _isBusy = false; return; }
+
+        var userWords = await ApiClient.GetUserWordsAsync();
+        var rep = userWords.ToDictionary(uw => uw.WordId, uw => uw.RepeatingCount);
+
+        var sorted = words
+            .OrderBy(_ => Random.Shared.Next())
+            .OrderBy(w => rep.TryGetValue(w.WordId, out var c) ? c : 0)
+            .Take(15).ToList();
+
+        var allCards = new List<GameCard>();
+        foreach (var w in sorted)
+        {
+            var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+            var svg   = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
+            allCards.Add(new GameCard
+            {
+                WordId = w.WordId, SvgImageId = w.SvgImageId,
+                EnglishWord = w.WordName,
+                TranslationWord = trans?.WordName ?? w.WordName,
+                SvgHtml = svg
+            });
+        }
+
+        _totalWords = allCards.Count;
+        _sequence = allCards.OrderBy(_ => Random.Shared.Next()).ToList();
+        if (_slotMode)
+        {
+            var order = allCards.OrderBy(_ => Random.Shared.Next()).ToList();
+            _cards = order.Take(SlotCount).ToList();
+            _unseen = new Queue<GameCard>(order.Skip(SlotCount));
+            PickTarget();
+        }
+        else
+        {
+            _cards = allCards.OrderBy(_ => Random.Shared.Next()).ToList();
+            _currentWord = _sequence[0].EnglishWord;
+        }
+        _isBusy = false;
+    }
+
+    // The next word to find: any card still on the screen that is not a tick yet.
+    private void PickTarget()
+    {
+        var open = _cards.Where(c => !c.IsMatched).ToList();
+        _target = open[Random.Shared.Next(open.Count)];
+        _currentWord = _target.EnglishWord;
+    }
+
+    private async Task SelectCard(GameCard card)
+    {
+        if (card.IsMatched || _isGameOver || _isGameWon) return;
+
+        var target = _slotMode ? _target! : _sequence[_currentIndex];
+        // right: the word itself, or any card with the same translation ("bye" / "goodbye" are both "до свидания")
+        if (card.SvgImageId == target.SvgImageId || Jumbo.Shared.WordMatch.SameMeaning(card.TranslationWord, target.TranslationWord))
+        {
+            _coach?.Cheer();
+            _foundCount++;
+            if (_slotMode)
+            {
+                // the found card gives its place to the next word; when there is none left, it turns into a tick
+                var at = _cards.IndexOf(card);
+                if (_unseen.Count > 0)
+                {
+                    var next = _unseen.Dequeue();
+                    next.IsFresh = true;
+                    _cards[at] = next;
+                }
+                else card.IsMatched = true;
+            }
+            else
+            {
+                card.IsMatched = true;
+                _currentIndex++;
+            }
+
+            if (_foundCount >= _totalWords)
+            {
+                _isGameWon = true;
+                if (Gate > 0) Gates.Pass(Gate, 1);
+                else
+                {
+                    await ApiClient.EnsureWordsExistAsync(_sequence.Select(c => c.WordId));
+                    await ApiClient.MarkGameWonAsync(SubjectId, "FindMe");
+                    await Lives.AddLpAsync(LpReward);
+                }
+            }
+            else if (_slotMode) PickTarget();
+            else _currentWord = _sequence[_currentIndex].EnglishWord;
+        }
+        else
+        {
+            card.ShowWrong = true;
+            _coach?.Oops();
+            StateHasChanged();
+            await Task.Delay(500);
+            card.ShowWrong = false;
+
+            if (!await HitAsync()) _isGameOver = true;
+        }
+    }
+
+    private async Task RestartGame()
+    {
+        await Lives.CheckRegenAsync();
+        if (Blocked) return;
+        await LoadGame();
+    }
+
+    private void GoBack()
+    {
+        if (Gate > 0) Nav.NavigateTo(BookGateService.GateUrl(Gate), replace: true);
+        else _ = JS.InvokeVoidAsync("lp.goBack", "/little-polyglot");
+    }
+
+    private class GameCard
+    {
+        public int WordId { get; set; }
+        public int SvgImageId { get; set; }
+        public string EnglishWord { get; set; } = string.Empty;
+        public string TranslationWord { get; set; } = string.Empty;
+        public string SvgHtml { get; set; } = string.Empty;
+        public bool IsMatched { get; set; }
+        public bool ShowWrong { get; set; }
+        public bool IsFresh { get; set; }          // it has just taken the place of a found card
+    }
+}

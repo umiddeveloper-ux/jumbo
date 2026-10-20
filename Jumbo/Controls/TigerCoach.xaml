@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             x:Class="Jumbo.Controls.TigerCoach">
+    <!-- Jumbo's head with a speech bubble: the coach of a game (cheers / comforts). -->
+    <Grid x:Name="Root" ColumnDefinitions="Auto,*" ColumnSpacing="8" HeightRequest="58" InputTransparent="True">
+        <ctl:TigerView x:Name="Tiger" Head="True" Size="54" VerticalOptions="Center" />
+        <Border x:Name="Bubble" Grid.Column="1" StrokeShape="RoundRectangle 16" StrokeThickness="2" Padding="12,8"
+                HorizontalOptions="Start" VerticalOptions="Center" IsVisible="False"
+                Stroke="{AppThemeBinding Light={StaticResource PrimaryEdgeLight}, Dark={StaticResource PrimaryEdgeDark}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
+            <Label x:Name="Message" FontFamily="NunitoExtraBold" FontSize="15"
+                   TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+        </Border>
+    </Grid>
+</ContentView>

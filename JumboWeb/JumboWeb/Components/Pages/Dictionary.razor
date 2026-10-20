@@ -1,0 +1,140 @@
+@page "/little-polyglot/dictionary"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["Dictionary_PageTitle"]</PageTitle>
+
+<p class="lp-page-title">@Loc["Dictionary_Heading"]</p>
+
+<input class="lp-search" type="search" placeholder="@Loc["Dictionary_SearchPlaceholder"]"
+       value="@_search" @oninput="OnSearchInput" />
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (!_words.Any())
+{
+    <div class="lp-empty-state">@Loc["Common_NoWordsFound"]</div>
+}
+else
+{
+    <ul class="word-list">
+        @foreach (var word in _words)
+        {
+            <li class="word-item">
+                <div class="word-num" title="@Loc["Dictionary_NumberHint"]">
+                    <small>№</small>@(word.WordNumber > 0 ? word.WordNumber.ToString() : "–")
+                </div>
+                <div class="word-svg">
+                    @if (_svgMap.TryGetValue(word.SvgImageId, out var svg))
+                    {
+                        @((MarkupString)svg)
+                    }
+                </div>
+                <div class="word-body">
+                    <div class="word-name">@word.WordName</div>
+                    @if (_translations.TryGetValue(word.WordId, out var tr) && !string.IsNullOrWhiteSpace(tr))
+                    {
+                        <div class="word-trans">@tr</div>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(word.Example))
+                    {
+                        <div class="word-example">@word.Example</div>
+                    }
+                    @if (!string.IsNullOrEmpty(word.Level))
+                    {
+                        <div class="word-meta">@word.Level</div>
+                    }
+                </div>
+                <button type="button" class="topic-word-speak dict-speak" title="@Loc["ListenGame_SpeakTitle"]" aria-label="@Loc["ListenGame_SpeakTitle"]"
+                        @onclick="() => Speak(word.WordName)">🔊</button>
+            </li>
+        }
+    </ul>
+
+    <div class="lp-pagination">
+        <button class="lp-btn lp-btn-sm" disabled="@(_page == 0)" @onclick="PrevPage">@Loc["Dictionary_PrevPage"]</button>
+        <span style="font-size:0.85rem;color:var(--lp-muted)">@Loc.Format("Dictionary_PageLabel", _page + 1)</span>
+        <button class="lp-btn lp-btn-sm" disabled="@(_words.Count < PageSize)" @onclick="NextPage">@Loc["Dictionary_NextPage"]</button>
+    </div>
+}
+
+@code {
+    private const int PageSize = 15;
+    private List<Word> _words = new();
+    private Dictionary<int, string> _svgMap = new();
+    private Dictionary<int, string> _translations = new();
+    private string _search = string.Empty;
+    private int _page;
+    private bool _loaded;
+
+    // A teacher / director cannot pick study languages (they do not take the lessons): the dictionary is the English word list
+    // of the books, translated into the interface language (Russian for an English interface). Language ids follow
+    // the API's seed order: 1 = English, 2 = Russian, 3 = Uzbek.
+    private bool IsStaff => UserState.HidesLessons;
+    private int StudyLangId => IsStaff ? 1 : Prefs.StudyLangId;
+    private int TransLangId => IsStaff ? (Prefs.AppLangId == 1 ? 2 : Prefs.AppLangId) : Prefs.TransLangId;
+    private string SpeechLang => StudyLangId switch { 2 => "ru-RU", 3 => "uz-UZ", _ => "en-US" };
+
+    private async Task Speak(string word)
+    {
+        if (!string.IsNullOrEmpty(word))
+            await JS.InvokeVoidAsync("lp.speak", word, SpeechLang);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        await LoadWords();
+    }
+
+    private async Task LoadWords()
+    {
+        _words = await ApiClient.GetPagedWordsAsync(_search, _page, PageSize, StudyLangId);
+        _svgMap.Clear();
+        _translations.Clear();
+        foreach (var word in _words)
+        {
+            if (!_svgMap.ContainsKey(word.SvgImageId))
+            {
+                var svg = await ApiClient.GetSvgByIdAsync(word.SvgImageId);
+                if (!string.IsNullOrEmpty(svg)) _svgMap[word.SvgImageId] = svg;
+            }
+
+            // the same word in the translation language (the pictures are shared by the three language rows)
+            try
+            {
+                var trans = await ApiClient.GetWordBySvgAndLanguageAsync(word.SvgImageId, TransLangId);
+                if (trans is not null && trans.WordName != word.WordName) _translations[word.WordId] = trans.WordName;
+            }
+            catch { /* the translation is a bonus */ }
+        }
+        _loaded = true;
+    }
+
+    private async Task OnSearchInput(ChangeEventArgs e)
+    {
+        _search = e.Value?.ToString() ?? string.Empty;
+        _page = 0;
+        await LoadWords();
+    }
+
+    private async Task PrevPage()
+    {
+        if (_page > 0) { _page--; await LoadWords(); }
+    }
+
+    private async Task NextPage()
+    {
+        _page++;
+        await LoadWords();
+    }
+}

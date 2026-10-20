@@ -1,0 +1,156 @@
+@page "/little-polyglot/letter/{Letter}/recall"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc.Format("LetterRecall_PageTitle", Letter)</PageTitle>
+
+<div class="game-topbar">
+    <button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backTo", $"/little-polyglot/letter/{Uri.EscapeDataString(Letter)}")'>@Loc["Common_BackArrow"]</button>
+    <span style="font-size:0.85rem;color:var(--lp-muted)">@_step / @_totalSteps</span>
+</div>
+
+<div class="listen-progress-wrap">
+    <div class="listen-progress-bar">
+        <div class="listen-progress-fill" style="width:@(_progressPct)%"></div>
+    </div>
+</div>
+
+@if (_isBusy)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_hasNoData)
+{
+    <div class="lp-empty-state">@Loc.Format("Common_NoWordsOnLetter", Letter)</div>
+    <button class="lp-btn lp-btn-full" style="margin-top:12px"
+            @onclick='() => JS.InvokeVoidAsync("lp.backTo", $"/little-polyglot/letter/{Uri.EscapeDataString(Letter)}")'>@Loc["Common_Back"]</button>
+}
+else if (_isGameWon)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="cheer" Size="150" /></div>
+        <div class="game-result-title">@Loc["LetterRecall_Done"]</div>
+        <div class="game-result-sub">@Loc.Format("LetterRecall_Summary", _correctCount, _totalSteps)</div>
+        <button class="lp-btn lp-btn-full"
+                @onclick='() => JS.InvokeVoidAsync("lp.backTo", $"/little-polyglot/letter/{Uri.EscapeDataString(Letter)}")'>@Loc["Common_Continue"]</button>
+    </div>
+}
+else
+{
+    <!-- Card -->
+    <div class="recall-card">
+        <div class="recall-svg">@((MarkupString)_currentSvg)</div>
+        <div class="recall-translation">@_currentRuWord</div>
+
+        @if (!_revealed)
+        {
+            <button class="lp-btn lp-btn-full" @onclick="Reveal">
+                @Loc["LetterRecall_ShowWord"]
+            </button>
+        }
+        else
+        {
+            <div class="recall-revealed">@_currentEnWord</div>
+            <div style="display:flex;gap:10px;margin-top:12px">
+                <button class="recall-btn recall-correct" @onclick="AnswerCorrect">
+                    @Loc["LetterRecall_Know"]
+                </button>
+                <button class="recall-btn recall-wrong" @onclick="AnswerWrong">
+                    @Loc["LetterRecall_DontKnow"]
+                </button>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private const int MaxSteps = 10;
+
+    [Parameter] public string Letter { get; set; } = string.Empty;
+
+    private record WordData(int WordId, int SvgImageId, string EnglishWord, string RussianWord, string SvgHtml);
+    private List<WordData> _words = new();
+    private int _stepIndex, _step, _totalSteps, _correctCount;
+    private string _currentSvg = string.Empty;
+    private string _currentEnWord = string.Empty;
+    private string _currentRuWord = string.Empty;
+    private bool _isBusy, _hasNoData, _isGameWon, _revealed;
+    private int _userId;
+
+    private double _progressPct => _totalSteps > 0 ? _step * 100.0 / _totalSteps : 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        _userId = UserState.CurrentUser?.UserId ?? 0;
+        await LoadGame();
+    }
+
+    private async Task LoadGame()
+    {
+        _isBusy = true;
+        _words.Clear(); _stepIndex = -1; _step = 0; _correctCount = 0;
+        _isGameWon = false; _hasNoData = false; _revealed = false;
+
+        var enWords = await ApiClient.GetWordsByLetterAsync(Letter, Prefs.StudyLangId, 500);
+        if (enWords.Count == 0) { _hasNoData = true; _isBusy = false; return; }
+
+        var userWords = await ApiClient.GetUserWordsAsync();
+        var rep = userWords.ToDictionary(uw => uw.WordId, uw => uw.RepeatingCount);
+
+        foreach (var w in enWords)
+        {
+            var ru = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+            var svg = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
+            _words.Add(new WordData(w.WordId, w.SvgImageId, w.WordName,
+                ru?.WordName ?? w.WordName, svg));
+        }
+
+        _words = _words
+            .OrderBy(_ => Random.Shared.Next())
+            .OrderBy(w => rep.TryGetValue(w.WordId, out var c) ? c : 0)
+            .ToList();
+
+        _totalSteps = Math.Min(MaxSteps, _words.Count);
+        _stepIndex = 0; _step = 1;
+        _isBusy = false;
+        LoadCard();
+    }
+
+    private void LoadCard()
+    {
+        var w = _words[_stepIndex];
+        _currentSvg = w.SvgHtml;
+        _currentEnWord = w.EnglishWord;
+        _currentRuWord = w.RussianWord;
+        _revealed = false;
+    }
+
+    private void Reveal() => _revealed = true;
+
+    private async Task AnswerCorrect()
+    {
+        _correctCount++;
+        await ApiClient.IncrementWordRepetitionAsync(_words[_stepIndex].WordId);
+        Next();
+    }
+
+    private void AnswerWrong() => Next();
+
+    private void Next()
+    {
+        _stepIndex++; _step++;
+        if (_step > _totalSteps || _stepIndex >= _words.Count)
+            _isGameWon = true;
+        else
+            LoadCard();
+    }
+}

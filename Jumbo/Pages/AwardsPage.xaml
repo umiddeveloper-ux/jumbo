@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns:u="clr-namespace:Jumbo.Utilities"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"             
+             xmlns:models="clr-namespace:Jumbo.Shared.Dtos;assembly=Jumbo.Shared"
+             xmlns:strings="clr-namespace:Jumbo.Resources.Strings"
+             xmlns:pullToRefresh="clr-namespace:Syncfusion.Maui.Toolkit.PullToRefresh;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Jumbo.Pages.AwardsPage"
+             x:DataType="pageModels:AwardsPageModel"
+             x:Name="AwardsPageRoot"
+             Title="{u:Tr Key=AwardsTitle}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference AwardsPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedTo"
+            Command="{Binding NavigatedToCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference AwardsPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom"
+            Command="{Binding NavigatedFromCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference AwardsPageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <pullToRefresh:SfPullToRefresh
+        IsRefreshing="{Binding IsRefreshing}"
+        RefreshCommand="{Binding RefreshCommand}">
+
+        <pullToRefresh:SfPullToRefresh.PullableContent>
+            <!-- Two panes on one screen, each with its own scroll: the awards above, the market below. -->
+            <Grid RowDefinitions="4*,5*" RowSpacing="8" Padding="15,10,15,0" MaximumWidthRequest="760" HorizontalOptions="Fill"
+                  IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}">
+
+                <!-- awards -->
+                <Grid RowDefinitions="Auto,*" RowSpacing="6">
+                    <Label Text="{u:Tr Key=AwardsSectionTitle}"
+                           Style="{StaticResource Title2}"
+                           SemanticProperties.HeadingLevel="Level1" />
+                    <!-- the awards: three in a row, this list scrolls by itself -->
+                    <CollectionView Grid.Row="1" ItemsSource="{Binding Awards}" SelectionMode="None" Margin="3,3,3,0">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="8" VerticalItemSpacing="8" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.Footer><Grid HeightRequest="8" /></CollectionView.Footer>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:AwardItem">
+                                <Border HeightRequest="128" StrokeShape="RoundRectangle 16" StrokeThickness="2" Padding="6,8" Opacity="0.45"
+                                        Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                        BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                                    <Border.Triggers>
+                                        <DataTrigger TargetType="Border" Binding="{Binding IsAchieved}" Value="True">
+                                            <Setter Property="Opacity" Value="1" />
+                                            <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                        </DataTrigger>
+                                    </Border.Triggers>
+                                    <Grid RowDefinitions="60,Auto" RowSpacing="2" VerticalOptions="Start">
+                                        <ctl:SvgPicture HeightRequest="56" WidthRequest="56" HorizontalOptions="Center" VerticalOptions="Center"
+                                                        InputTransparent="True" BackgroundColor="Transparent" Svg="{Binding SvgImage}" />
+                                        <ctl:FitText Grid.Row="1" HeightRequest="40" Text="{Binding Title}" MaxFontSize="12" MinFontSize="8" FontFamily="NunitoExtraBold"
+                                                     TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+
+                <!-- market -->
+                <Grid Grid.Row="1" RowDefinitions="Auto,*" RowSpacing="6">
+                    <VerticalStackLayout Spacing="2">
+                    <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,0">
+                        <Label Text="{u:Tr Key=LpMarket}" Style="{StaticResource Title2}" SemanticProperties.HeadingLevel="Level1"/>
+                        <Label Grid.Column="1"
+                               Text="{Binding UserLp, Converter={StaticResource TrFormat}, ConverterParameter=Awards_Balance}"
+                               Style="{StaticResource LabelMedium}"
+                               TextColor="{StaticResource Primary}"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                    <Label Text="{Binding InventoryText}" FontFamily="NunitoExtraBold" FontSize="15" Margin="2,0,0,0"
+                           IsVisible="{Binding InventoryText, Converter={StaticResource StringNotEmpty}}" />
+
+                    <!-- the market: two cards in a row; every card has the width of the page / 2 (the model gets it from the page) -->
+                    </VerticalStackLayout>
+                    <!-- the market: two cards in a row, this list scrolls by itself -->
+                    <CollectionView Grid.Row="1" ItemsSource="{Binding MarketCards}" SelectionMode="None" Margin="3,3,3,0">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.Footer><Grid HeightRequest="12" /></CollectionView.Footer>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="pageModels:MarketCard">
+                                <Border StrokeShape="RoundRectangle 18" StrokeThickness="2" Padding="10"
+                                        Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                        BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                                    <Border.Triggers>
+                                        <DataTrigger TargetType="Border" Binding="{Binding IsWorn}" Value="True">
+                                            <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                        </DataTrigger>
+                                    </Border.Triggers>
+                                    <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
+                                        <ctl:SvgPicture HeightRequest="52" WidthRequest="52" HorizontalOptions="Center" InputTransparent="True" BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+                                        <Label Text="{Binding Name}" FontFamily="NunitoBlack" FontSize="14" HorizontalTextAlignment="Center" MinimumHeightRequest="36" />
+                                        <Label Text="{Binding EffectText}" FontSize="11" HorizontalTextAlignment="Center" MinimumHeightRequest="42"
+                                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                                        <Label Text="{Binding NoteText}" IsVisible="{Binding HasNote}" FontSize="10" HorizontalTextAlignment="Center"
+                                               TextColor="{StaticResource Accent}" />
+                                        <Label Text="{Binding PriceText}" FontFamily="NunitoExtraBold" FontSize="13" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" />
+                                        <ctl:ChunkyButton Text="{Binding ButtonText}" FontSize="13"
+                                                          Kind="{Binding ButtonKind}"
+                                                          Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:AwardsPageModel}}, Path=ActCommand}"
+                                                          CommandParameter="{Binding .}" />
+                                    </VerticalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+        </pullToRefresh:SfPullToRefresh.PullableContent>
+    </pullToRefresh:SfPullToRefresh>
+</ContentPage>

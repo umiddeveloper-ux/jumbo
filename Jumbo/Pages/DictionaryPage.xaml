@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns:u="clr-namespace:Jumbo.Utilities"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:models="clr-namespace:Jumbo.Shared.Dtos;assembly=Jumbo.Shared"
+             xmlns:strings="clr-namespace:Jumbo.Resources.Strings"
+             xmlns:pullToRefresh="clr-namespace:Syncfusion.Maui.Toolkit.PullToRefresh;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             x:Class="Jumbo.Pages.DictionaryPage"
+             x:DataType="pageModels:DictionaryPageModel"
+             x:Name="DictionaryPageRoot"
+             Title="{u:Tr Key=DictionaryTitle}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference DictionaryPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedTo"  Command="{Binding NavigatedToCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference DictionaryPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom" Command="{Binding NavigatedFromCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference DictionaryPageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing"    Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto, *">
+
+        <!-- Поиск -->
+        <Border Grid.Row="0"
+                Margin="14,10,14,8"
+                Padding="10,4"
+                StrokeShape="RoundRectangle 12"
+                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                StrokeThickness="1"
+                Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}">
+            <Grid ColumnDefinitions="Auto, *">
+                <Label Text="🔍" VerticalOptions="Center" Margin="4,0,8,0" FontSize="16"/>
+                <Entry Grid.Column="1"
+                       Text="{Binding SearchText}"
+                       Placeholder="{u:Tr Key=SearchPlaceholder}"
+                       VerticalOptions="Center"
+                       ClearButtonVisibility="WhileEditing"/>
+            </Grid>
+        </Border>
+
+        <!-- Список слов — CollectionView напрямую в PullToRefresh, без Border-обёртки -->
+        <pullToRefresh:SfPullToRefresh
+            Grid.Row="1"
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshCommand="{Binding RefreshCommand}">
+
+            <pullToRefresh:SfPullToRefresh.PullableContent>
+                <CollectionView ItemsSource="{Binding Words}"
+                                SelectionMode="None"
+                                Margin="14,0,14,14"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                                RemainingItemsThreshold="3"
+                                RemainingItemsThresholdReachedCommand="{Binding LoadMoreItemsCommand}">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:WordItem">
+                            <VerticalStackLayout>
+
+                                <Grid ColumnDefinitions="52, 64, *, Auto"
+                                      Padding="12,10,16,10"
+                                      MinimumHeightRequest="68">
+
+                                    <!-- Номер слова в книге -->
+                                    <VerticalStackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start">
+                                        <Label Text="№" FontSize="10" FontAttributes="Bold"
+                                               TextColor="{StaticResource Gray500}" />
+                                        <Label Text="{Binding Number}" FontSize="16" FontAttributes="Bold"
+                                               TextColor="{StaticResource Primary}" />
+                                    </VerticalStackLayout>
+
+                                    <!-- SVG картинка слева -->
+                                    <ctl:SvgPicture Grid.Column="1"
+                                             WidthRequest="48"
+                                             HeightRequest="48"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="Center"
+                                             InputTransparent="True"
+                                             BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+
+                                    <!-- Слово, перевод, пример -->
+                                    <VerticalStackLayout Grid.Column="2" Spacing="1" VerticalOptions="Center">
+                                        <Label Text="{Binding Word}"
+                                               FontSize="16"
+                                               FontAttributes="Bold"
+                                               TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"
+                                               LineBreakMode="TailTruncation"/>
+                                        <Label Text="{Binding Translate}"
+                                               FontSize="14"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource Success}"
+                                               LineBreakMode="TailTruncation"/>
+                                        <Label Text="{Binding Example}"
+                                               IsVisible="{Binding HasExample}"
+                                               FontSize="12"
+                                               FontAttributes="Italic"
+                                               MaxLines="3"
+                                               LineBreakMode="TailTruncation"
+                                               TextColor="{StaticResource Gray500}"/>
+                                    </VerticalStackLayout>
+
+                                    <!-- Динамик: слово читается вслух -->
+                                    <Label Grid.Column="3" Text="🔊" FontSize="22" Padding="10,6" VerticalOptions="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:DictionaryPageModel}}, Path=SpeakCommand}"
+                                                                  CommandParameter="{Binding .}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Grid>
+
+                                <!-- Разделитель начинается после SVG -->
+                                <BoxView HeightRequest="0.5"
+                                         Margin="128,0,0,0"
+                                         BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"
+                                         HorizontalOptions="Fill"/>
+
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                             VerticalOptions="Center"
+                                             Padding="0,60"
+                                             Spacing="10">
+                            <Label Text="📭" FontSize="44" HorizontalOptions="Center"/>
+                            <Label Text="{u:Tr Key=NoWordsFound}"
+                                   FontSize="15"
+                                   TextColor="{StaticResource Gray500}"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </CollectionView.EmptyView>
+
+                </CollectionView>
+            </pullToRefresh:SfPullToRefresh.PullableContent>
+        </pullToRefresh:SfPullToRefresh>
+
+        <ActivityIndicator Grid.Row="1"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Color="{StaticResource Primary}"
+                           HeightRequest="50"
+                           WidthRequest="50"/>
+    </Grid>
+</ContentPage>

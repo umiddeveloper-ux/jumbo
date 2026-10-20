@@ -1,0 +1,122 @@
+[
+  {
+    "enName": "You started learning!",
+    "ruName": "Вы начали изучать!",
+    "uzName": "Siz o'rganishni boshladingiz!",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#FFD700' d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/></svg>"
+  },
+  {
+    "enName": "Book 1: Completed",
+    "ruName": "Книга 1: Завершена",
+    "uzName": "1-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='10' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>1</text></svg>"
+  },
+  {
+    "enName": "Book 2: Completed",
+    "ruName": "Книга 2: Завершена",
+    "uzName": "2-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='10' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>2</text></svg>"
+  },
+  {
+    "enName": "Book 3: Completed",
+    "ruName": "Книга 3: Завершена",
+    "uzName": "3-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='10' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>3</text></svg>"
+  },
+  {
+    "enName": "Book 4: Completed",
+    "ruName": "Книга 4: Завершена",
+    "uzName": "4-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='10' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>4</text></svg>"
+  },
+  {
+    "enName": "Book 5: Completed",
+    "ruName": "Книга 5: Завершена",
+    "uzName": "5-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='10' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>5</text></svg>"
+  },
+  {
+    "enName": "Book 6: Completed",
+    "ruName": "Книга 6: Завершена",
+    "uzName": "6-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='10' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>6</text></svg>"
+  },
+  {
+    "enName": "Book 7: Completed",
+    "ruName": "Книга 7: Завершена",
+    "uzName": "7-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='10' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>7</text></svg>"
+  },
+  {
+    "enName": "Book 8: Completed",
+    "ruName": "Книга 8: Завершена",
+    "uzName": "8-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='10' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>8</text></svg>"
+  },
+  {
+    "enName": "Book 9: Completed",
+    "ruName": "Книга 9: Завершена",
+    "uzName": "9-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='10' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>9</text></svg>"
+  },
+  {
+    "enName": "Book 10: Completed",
+    "ruName": "Книга 10: Завершена",
+    "uzName": "10-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='8.5' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>10</text></svg>"
+  },
+  {
+    "enName": "Book 11: Completed",
+    "ruName": "Книга 11: Завершена",
+    "uzName": "11-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='8.5' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>11</text></svg>"
+  },
+  {
+    "enName": "Book 12: Completed",
+    "ruName": "Книга 12: Завершена",
+    "uzName": "12-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='8.5' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>12</text></svg>"
+  },
+  {
+    "enName": "Book 13: Completed",
+    "ruName": "Книга 13: Завершена",
+    "uzName": "13-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='8.5' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>13</text></svg>"
+  },
+  {
+    "enName": "Book 14: Completed",
+    "ruName": "Книга 14: Завершена",
+    "uzName": "14-Kitob: Yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#1976D2' d='M12 11.55C11.2 10.1 9.3 9 7.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55zM21 11.55C20.2 10.1 18.3 9 16.5 9s-3.7 1.1-4.5 2.55V21c.8-1.45 2.7-2.55 4.5-2.55s3.7 1.1 4.5 2.55V11.55z'/><circle cx='12' cy='6' r='2' fill='#FFD700'/><text x='8.5' y='15.5' fill='#FFF' font-family='Arial' font-size='5' font-weight='bold'>14</text></svg>"
+  },
+  {
+    "enName": "Level A1 Mastered",
+    "ruName": "Уровень A1 пройден",
+    "uzName": "A1 darajasi yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#4CAF50' d='M12 2L1 21h22L12 2zm0 4l6.5 11h-13L12 6z'/><text x='8.5' y='15' fill='#333' font-family='Arial' font-size='7' font-weight='bold'>A1</text></svg>"
+  },
+  {
+    "enName": "Level A2 Mastered",
+    "ruName": "Уровень A2 пройден",
+    "uzName": "A2 darajasi yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#00BCD4' d='M12 2L1 21h22L12 2zm0 4l6.5 11h-13L12 6z'/><text x='8.5' y='15' fill='#333' font-family='Arial' font-size='7' font-weight='bold'>A2</text></svg>"
+  },
+  {
+    "enName": "Level B1 Mastered",
+    "ruName": "Уровень B1 пройден",
+    "uzName": "B1 darajasi yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#FF5722' d='M12 2L1 21h22L12 2zm0 4l6.5 11h-13L12 6z'/><text x='8.5' y='15' fill='#333' font-family='Arial' font-size='7' font-weight='bold'>B1</text></svg>"
+  },
+  {
+    "enName": "Level B2 Mastered",
+    "ruName": "Уровень B2 пройден",
+    "uzName": "B2 darajasi yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#E91E63' d='M12 2L1 21h22L12 2zm0 4l6.5 11h-13L12 6z'/><text x='8.5' y='15' fill='#333' font-family='Arial' font-size='7' font-weight='bold'>B2</text></svg>"
+  },
+  {
+    "enName": "Level C1 Mastered",
+    "ruName": "Уровень C1 пройден",
+    "uzName": "C1 darajasi yakunlandi",
+    "svgImage": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path fill='#9C27B0' d='M12 2L1 21h22L12 2zm0 4l6.5 11h-13L12 6z'/><text x='8.5' y='15' fill='#333' font-family='Arial' font-size='7' font-weight='bold'>C1</text></svg>"
+  }
+]

@@ -1,0 +1,240 @@
+@page "/for-schools"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared.Entities
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject IJSRuntime JS
+@inject NavigationManager Nav
+
+<PageTitle>@Loc["FS_Nav"]</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <div class="@(UserState.IsRegistered ? "fs-wrap" : "land-wrap")">
+        @if (!UserState.IsRegistered)
+        {
+            <div class="land-bg" aria-hidden="true"></div>
+        }
+        <div class="fs @(UserState.IsRegistered ? "" : "land")">
+            @if (!UserState.IsRegistered)
+            {
+                <LandNav />
+            }
+
+            <section class="fs-hero">
+                <div>
+                    <h1 class="fs-title">@Loc["FS_Title"]</h1>
+                    <p class="fs-sub">@Loc["FS_Sub"]</p>
+                </div>
+                <Tiger Mood="wave" Size="150" />
+            </section>
+
+            <div class="fs-benefits">
+                <div class="fs-benefit"><span class="fs-benefit-ico">👥</span><div class="fs-benefit-title">@Loc["FS_B1T"]</div><p>@Loc["FS_B1D"]</p></div>
+                <div class="fs-benefit"><span class="fs-benefit-ico">📊</span><div class="fs-benefit-title">@Loc["FS_B2T"]</div><p>@Loc["FS_B2D"]</p></div>
+                <div class="fs-benefit"><span class="fs-benefit-ico">🏫</span><div class="fs-benefit-title">@Loc["FS_B3T"]</div><p>@Loc["FS_B3D"]</p></div>
+            </div>
+
+            @if (!UserState.IsRegistered)
+            {
+                <section class="fs-card fs-login">
+                    <p>@Loc["FS_NeedLogin"]</p>
+                    <div class="fs-login-actions">
+                        <a class="lp-btn" href="/register?returnUrl=%2Ffor-schools">@Loc["Land_Register"]</a>
+                        <a class="lp-btn lp-btn-outline" href="/login?returnUrl=%2Ffor-schools">@Loc["Land_Login"]</a>
+                    </div>
+                </section>
+            }
+            else if (IsStaff)
+            {
+                var me = UserState.CurrentUser!;
+                <section class="fs-card fs-status ok">
+                    <h2>✅ @Loc.Format("FS_ApprovedTitle", Loc[$"Role_{me.Role}"])</h2>
+                    @if (!string.IsNullOrEmpty(me.School))
+                    {
+                        <p>🏫 @Loc.Format("FS_ApprovedSchool", me.School)</p>
+                    }
+                    @if (me.Role is UserRole.Teacher or UserRole.Director)
+                    {
+                        <a class="lp-btn" href="/teacher">🧑‍🏫 @Loc["FS_OpenCabinet"]</a>
+                    }
+                </section>
+            }
+            else
+            {
+                @if (_request is { Status: StaffRequestStatus.Pending })
+                {
+                    <section class="fs-card fs-status wait">
+                        <h2>⏳ @Loc["FS_PendingTitle"]</h2>
+                        <p>@Loc["FS_PendingText"]</p>
+                        <p class="fs-muted">@Loc["FS_PendingNext"]</p>
+                        <p class="fs-muted">@Loc[$"Role_{_request.Role}"] · @Loc[$"Region_{_request.Region}"] · @_request.SchoolName</p>
+                    </section>
+                }
+                else
+                {
+                    @if (_request is { Status: StaffRequestStatus.Rejected })
+                    {
+                        <section class="fs-card fs-status no">
+                            <h2>❌ @Loc["FS_RejectedTitle"]</h2>
+                            @if (!string.IsNullOrEmpty(_request.AdminNote))
+                            {
+                                <p>@_request.AdminNote</p>
+                            }
+                            <p class="fs-muted">@Loc["FS_Reapply"]</p>
+                        </section>
+                    }
+
+                    <section class="fs-card">
+                        <h2 class="fs-form-title">@Loc["FS_FormTitle"]</h2>
+
+                        <p class="reg-help">@Loc["FS_Instant"]</p>
+
+                        <div class="settings-label">@Loc["Reg_RegionLabel"]</div>
+                        <select class="lp-select" value="@_region" @onchange="OnRegionChanged">
+                            <option value="">@Loc["Reg_RegionPlaceholder"]</option>
+                            @foreach (var rc in UzRegions.Codes)
+                            {
+                                <option value="@rc">@Loc[$"Region_{rc}"]</option>
+                            }
+                        </select>
+
+                        <div class="settings-label">@Loc["Reg_SchoolLabel"]</div>
+                        <input class="lp-input" type="text" maxlength="150" list="fs-school-list"
+                               placeholder="@Loc["Reg_SchoolPlaceholder"]" @bind="_school" @bind:event="oninput" />
+                        <datalist id="fs-school-list">
+                            @foreach (var s in _suggestions)
+                            {
+                                <option value="@s.Name"></option>
+                            }
+                        </datalist>
+
+                        <div class="settings-label">@Loc["Settings_PhoneLabel"]</div>
+                        <input class="lp-input" type="tel" maxlength="24" placeholder="@_phoneHint" @bind="_phone" @bind:event="oninput" />
+
+                        <div class="settings-label">@Loc["FS_Comment"]</div>
+                        <textarea class="lp-input fs-textarea" maxlength="500" rows="3" placeholder="@Loc["FS_CommentPh"]" @bind="_comment" @bind:event="oninput"></textarea>
+
+                        @if (!string.IsNullOrEmpty(_error))
+                        {
+                            <p class="validation-message">@_error</p>
+                        }
+                        @if (!string.IsNullOrEmpty(_sent))
+                        {
+                            <div class="lp-success-msg">@_sent</div>
+                        }
+
+                        <button type="button" class="lp-btn lp-btn-full" disabled="@_busy" @onclick="Send">@Loc["FS_Send"]</button>
+                    </section>
+                }
+            }
+        </div>
+    </div>
+}
+
+@code {
+    private bool _loaded;
+    private bool _busy;
+    private StaffRequestDto? _request;
+    private UserRole _role = UserRole.Teacher;
+    private string _region = string.Empty;
+    private string _school = string.Empty;
+    private string _phone = string.Empty;
+    private string _comment = string.Empty;
+    private string _error = string.Empty;
+    private string _sent = string.Empty;
+    private List<SchoolDto> _suggestions = new();
+
+    private bool IsStaff => UserState.CurrentUser?.Role is UserRole.Teacher or UserRole.Director or UserRole.Admin;
+
+    private string _phoneHint = string.Empty;
+
+    // Example number for the visitor's country (browser time zone / language region, no location permission).
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        try { _phoneHint = await JS.InvokeAsync<string>("lp.phoneHint"); StateHasChanged(); } catch { }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+
+        var user = UserState.CurrentUser;
+        if (user is not null)
+        {
+            _region = user.Region ?? string.Empty;
+            _school = user.School ?? string.Empty;
+            _phone = user.Phone ?? string.Empty;
+            if (!IsStaff)
+            {
+                _request = await ApiClient.GetMyStaffRequestAsync();
+                if (!string.IsNullOrEmpty(_region)) await LoadSuggestionsAsync();
+            }
+        }
+        _loaded = true;
+    }
+
+    private async Task OnRegionChanged(ChangeEventArgs e)
+    {
+        _region = e.Value?.ToString() ?? string.Empty;
+        await LoadSuggestionsAsync();
+    }
+
+    private async Task LoadSuggestionsAsync()
+    {
+        try { _suggestions = string.IsNullOrEmpty(_region) ? new() : await ApiClient.GetVerifiedSchoolsAsync(_region); }
+        catch { _suggestions = new(); }
+    }
+
+    private async Task Send()
+    {
+        _error = _sent = string.Empty;
+        if (string.IsNullOrEmpty(_region) || string.IsNullOrWhiteSpace(_school))
+        {
+            _error = Loc["FS_Required"];
+            return;
+        }
+
+        _busy = true;
+        try
+        {
+            _request = await ApiClient.CreateStaffRequestAsync(new CreateStaffRequest
+            {
+                Role = _role,
+                Region = _region,
+                SchoolName = _school.Trim(),
+                Phone = string.IsNullOrWhiteSpace(_phone) ? null : _phone.Trim(),
+                Comment = string.IsNullOrWhiteSpace(_comment) ? null : _comment.Trim()
+            });
+            if (_request?.Status == StaffRequestStatus.Approved)
+            {
+                // connected at once: a fresh load of the site so that the menu and the cabinet know the new role
+                Nav.NavigateTo("/teacher", forceLoad: true);
+                return;
+            }
+            _sent = Loc["FS_Sent"];
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message switch
+            {
+                "PENDING_EXISTS" => Loc["FS_ErrPending"],
+                "ALREADY_STAFF" => Loc["FS_ErrStaff"],
+                _ => ex.Message
+            };
+            // A concurrent request (e.g. a second tab): show its status instead of the form.
+            if (ex.Message == "PENDING_EXISTS") _request = await ApiClient.GetMyStaffRequestAsync();
+        }
+        finally
+        {
+            _busy = false;
+        }
+    }
+}

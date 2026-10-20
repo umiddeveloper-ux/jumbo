@@ -1,0 +1,52 @@
+@using JumboWeb.Services
+@using Jumbo.Shared
+@using Jumbo.Shared.Entities
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+@* The way through a book: a thick snake of topics (see TopicSnakeBody). The picture is drawn twice, a narrow one for a phone and a wide one for a
+   computer; CSS shows the one that fits the screen. *@
+<div class="snake-card">
+    <div class="snake-head">
+        <span class="snake-book">@Loc.Format("Common_BookLabel", Book)</span>
+        <span class="snake-level">@LanguageLevels.ForBook(Book)</span>
+        <span class="snake-passed">@Loc.Format("BookPage_Passed", DoneCount, Path.Count)</span>
+    </div>
+    <div class="snake-bar"><span style="width: @(Path.Count == 0 ? 0 : DoneCount * 100 / Path.Count)%"></span></div>
+
+    @if (Path.Count == 0)
+    {
+        <div class="lp-empty-state">@Loc["Subjects_NoTopics"]</div>
+    }
+    else
+    {
+        <TopicSnakeBody Wide="false" Path="Path" Progress="Progress" Svgs="Svgs" OnLocked="ShowLocked" />
+        <TopicSnakeBody Wide="true" Path="Path" Progress="Progress" Svgs="Svgs" OnLocked="ShowLocked" />
+    }
+</div>
+
+@if (_needToPass is not null)
+{
+    <TopicLockedDialog CurrentName="@_needToPass.SubjectName" OnClose="CloseLocked" OnGo="GoToCurrent" />
+}
+
+@code {
+    [Parameter] public int Book { get; set; }
+    [Parameter] public List<Subject> Path { get; set; } = new();
+    [Parameter] public Dictionary<int, UserSubjectProgress> Progress { get; set; } = new();
+    [Parameter] public Dictionary<int, string> Svgs { get; set; } = new();
+
+    private Subject? _needToPass;       // a locked topic was pressed: the topic to pass first
+
+    private void ShowLocked(Subject current) => _needToPass = current;
+    private void CloseLocked() => _needToPass = null;
+
+    private void GoToCurrent()
+    {
+        var cur = _needToPass;
+        _needToPass = null;
+        if (cur is not null) Nav.NavigateTo($"/little-polyglot/subjects/{cur.BookId}/{cur.SubjectId}");
+    }
+
+    private int DoneCount => Path.Count(s => Progress.TryGetValue(s.SubjectId, out var p) && p.PartsDone >= UserSubjectProgress.Parts);
+}

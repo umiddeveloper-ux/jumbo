@@ -1,0 +1,141 @@
+@page "/teacher/exam/team/{ClassId:int}"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared.Dtos
+@using Jumbo.Shared.Entities
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@(_report?.Name ?? Loc["TE_Title"]) — @Loc["TE_Title"]</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <div class="tc te">
+        <a class="tc-back" href="/teacher/exam">← @Loc["TE_Title"]</a>
+
+        @if (_report is null)
+        {
+            <div class="lp-empty-state">@Loc["TC_ClassMissing"]</div>
+        }
+        else
+        {
+            <div class="rp-head te-head">
+                <div>
+                    <h1 class="tc-title">📝 @_report.Name</h1>
+                    <p class="te-intro">@Loc.Format("TE_TeamSub", _report.WordsPerBook)</p>
+                </div>
+                @if (_report.Pupils.Count > 0)
+                {
+                    <div class="rp-tools rp-noprint">
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="Print">🖨 @Loc["RP_Print"]</button>
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="ExportAsync">📊 @Loc["RP_Excel"]</button>
+                    </div>
+                }
+            </div>
+
+            @if (_report.Pupils.Count == 0)
+            {
+                <div class="tc-empty te-wait"><p>@Loc["TE_TeamNoPupils"]</p></div>
+            }
+            else
+            {
+                <div class="te-table-wrap">
+                    <table class="te-table te-books">
+                        <thead>
+                            <tr>
+                                <th>@Loc["TE_ColPupil"]</th>
+                                @for (var b = 1; b <= Jumbo.Shared.Course.BookCount; b++)
+                                {
+                                    <th class="num">@Loc.Format("TE_BookCol", b)</th>
+                                }
+                                <th class="num te-total-col">@Loc["TE_ColTotal"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in _report.Pupils)
+                            {
+                                <tr>
+                                    <td class="name">@p.Name</td>
+                                    @for (var i = 0; i < p.Words.Count; i++)
+                                    {
+                                        var words = p.Words[i];
+                                        <td class="num">
+                                            @if (words is { } w)
+                                            {
+                                                <b class="te-words @WordsClass(p.Percents[i])" title="@(p.Percents[i])%">@w</b>
+                                            }
+                                            else
+                                            {
+                                                <span class="te-none">—</span>
+                                            }
+                                        </td>
+                                    }
+                                    <td class="num te-total-col"><b>@Total(p)</b></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <p class="rp-foot">@Loc.Format("RP_Generated", DateTime.UtcNow.AddHours(5).ToString("dd.MM.yyyy HH:mm")) · Jumbo.uz</p>
+            }
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public int ClassId { get; set; }
+
+    private ExamTeamReportDto? _report;
+    private bool _loaded;
+
+    // all the books together: the words learned (WordsPerBook x the best result) of every book the pupil has an exam in
+    private static int Total(ExamPupilRowDto p) => p.Words.Sum(w => w ?? 0);
+
+    private async Task Print() => await JS.InvokeVoidAsync("lp.printPage");
+
+    private async Task ExportAsync()
+    {
+        if (_report is null) return;
+        var header = new List<object?> { Loc["TE_ColPupil"] };
+        for (var b = 1; b <= Jumbo.Shared.Course.BookCount; b++) header.Add(Loc.Format("TE_BookCol", b));
+        header.Add(Loc["TE_ColTotal"]);
+
+        var rows = new List<IReadOnlyList<object?>> { header };
+        foreach (var p in _report.Pupils)
+        {
+            var row = new List<object?> { p.Name };
+            for (var i = 0; i < p.Words.Count; i++) row.Add(p.Words[i]);
+            row.Add(Total(p));
+            rows.Add(row);
+        }
+
+        var bytes = XlsxWriter.Build(_report.Name, rows);
+        var file = $"Jumbo-exam-{Safe(_report.Name)}-{DateTime.UtcNow.AddHours(5):yyyy-MM-dd}.xlsx";
+        await JS.InvokeVoidAsync("lp.downloadFile", file, Convert.ToBase64String(bytes), XlsxWriter.MimeType);
+    }
+
+    private static string Safe(string s) => new string(s.Select(ch => char.IsLetterOrDigit(ch) ? ch : '-').ToArray()).Trim('-');
+
+    private static string WordsClass(int? percent) => percent switch { >= 80 => "hi", >= 50 => "mid", _ => "lo" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        if (UserState.CurrentUser?.Role is not (UserRole.Teacher or UserRole.Director))
+        {
+            Nav.NavigateTo("/for-schools", replace: true);
+            return;
+        }
+
+        try { _report = await ApiClient.TeacherGetExamTeamReportAsync(ClassId); }
+        catch (Exception) { /* shown as "not found" */ }
+        _loaded = true;
+    }
+}

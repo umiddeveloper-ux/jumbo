@@ -1,0 +1,173 @@
+@page "/teacher/class/{Id:int}/report"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared.Entities
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["RP_TeamTitle"]</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_r is null)
+{
+    <div class="tc">
+        <a class="tc-back" href="/teacher">← @Loc["TC_Back"]</a>
+        <div class="lp-empty-state">@Loc["TC_ClassMissing"]</div>
+    </div>
+}
+else
+{
+    var t = _r.Totals;
+    var attention = _r.Students.Where(s => s.Status == "absent").ToList();
+    <div class="rp">
+        <a class="tc-back rp-noprint" href="/teacher/class/@Id">← @_r.TeamName</a>
+
+        <header class="rp-head">
+            <div>
+                <h1 class="rp-title">📊 @Loc["RP_TeamTitle"]: @_r.TeamName</h1>
+                <p class="rp-sub">🏫 @_r.SchoolName@(string.IsNullOrEmpty(_r.TeacherName) ? "" : " · 🧑‍🏫 " + _r.TeacherName)</p>
+                <p class="rp-sub">@Fmt(_r.Period.From) – @Fmt(_r.Period.To) · @Loc["RP_VsPrev"] @Fmt(_r.Period.PrevFrom) – @Fmt(_r.Period.PrevTo)</p>
+            </div>
+            <div class="rp-tools rp-noprint">
+                <div class="rate-period">
+                    <button type="button" class="rate-chip @(_period == "week" ? "on" : "")" @onclick='() => SetPeriodAsync("week")'>@Loc["RP_Week"]</button>
+                    <button type="button" class="rate-chip @(_period == "month" ? "on" : "")" @onclick='() => SetPeriodAsync("month")'>@Loc["RP_Month"]</button>
+                </div>
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="Print">🖨 @Loc["RP_Print"]</button>
+            </div>
+        </header>
+
+        <div class="rp-kpis">
+            <ReportKpi Label="@Loc["RP_Students"]" Value="@t.Students.ToString()" />
+            <ReportKpi Label="@Loc["RP_Active"]" Value="@($"{t.Active}/{t.Students}")" Delta="@(t.Active - t.ActivePrev)" Hint="@Loc["RP_VsPrev"]" />
+            <ReportKpi Label="@Loc["RP_Words"]" Value="@t.Words.ToString()" Delta="@(t.Words - t.WordsPrev)" Hint="@Loc["RP_VsPrev"]" />
+            <ReportKpi Label="@Loc["RP_Exams"]" Value="@t.ExamCount.ToString()" Delta="@(t.ExamCount - t.ExamCountPrev)" Hint="@Loc["RP_VsPrev"]" />
+            <ReportKpi Label="@Loc["RP_AvgExam"]" Value="@(t.AvgExamPercent is { } a ? $"{a}%" : "—")"
+                       Delta="@(t.AvgExamPercent is { } c && t.AvgExamPercentPrev is { } p ? c - p : null)" Suffix="%" Hint="@Loc["RP_VsPrev"]" />
+        </div>
+
+        @if (t.Students == 0)
+        {
+            <div class="tc-empty"><Tiger Mood="idle" Size="110" /><p>@Loc["TC_NoStudents"]</p></div>
+        }
+        else
+        {
+            @if (attention.Count > 0)
+            {
+                <section class="rp-card rp-attention">
+                    <h2 class="rp-h2">⚠️ @Loc["RP_Attention"] (@attention.Count)</h2>
+                    <p class="rp-note">@Loc["RP_AttentionHint"]</p>
+                    <div class="rp-chips">
+                        @foreach (var s in attention)
+                        {
+                            <span class="rp-chip">@s.Name</span>
+                        }
+                    </div>
+                </section>
+            }
+
+            <section class="rp-card">
+                <h2 class="rp-h2">@Loc["TC_StudentsTitle"]</h2>
+                <div class="tc-table rp-table">
+                    <div class="tc-row tc-row-head">
+                        <div>@Loc["TC_ColName"]</div>
+                        <div>@Loc["TC_ColBook"]</div>
+                        <div>@Loc["RP_ColStatus"]</div>
+                        <div>@Loc["RP_ColWords"]</div>
+                        <div>@Loc["RP_ColDays"]</div>
+                        <div>@Loc["TC_ColLast"]</div>
+                        <div>@Loc["TC_ColExam"]</div>
+                    </div>
+                    @foreach (var s in _r.Students)
+                    {
+                        <div class="tc-row rp-row">
+                            <div class="tc-cell-name"><span class="tc-dot @StatusDot(s.Status)"></span><a class="tc-name-link" href="/teacher/class/@Id/student/@s.UserId">@s.Name</a></div>
+                            <div data-label="@Loc["TC_ColBook"]">@(s.CurrentBook is { } cb ? $"📘 {cb}" : "—")</div>
+                            <div data-label="@Loc["RP_ColStatus"]"><span class="rp-status @s.Status">@Loc[$"RP_Status_{s.Status}"]</span></div>
+                            <div data-label="@Loc["RP_ColWords"]">@s.Words</div>
+                            <div data-label="@Loc["RP_ColDays"]">@s.ActiveDays/@(_r.Period.Key == "month" ? 30 : 7)</div>
+                            <div data-label="@Loc["TC_ColLast"]">@LastActive(s)</div>
+                            <div data-label="@Loc["TC_ColExam"]">
+                                @if (s.AvgExamPercent is { } ap)
+                                {
+                                    <span class="tc-exam @ExamClass(ap)">@Loc.Format("RP_ExamCell", ap, s.ExamCount)</span>
+                                }
+                                else
+                                {
+                                    <span class="tc-muted">—</span>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+
+            <section class="rp-card">
+                <h2 class="rp-h2">@Loc["RP_Missed"]</h2>
+                @if (_r.MissedWords.Count == 0)
+                {
+                    <p class="rp-note">@Loc["RP_NoMissed"]</p>
+                }
+                else
+                {
+                    <ol class="rp-missed">
+                        @foreach (var w in _r.MissedWords)
+                        {
+                            <li><b>@w.Word</b>@(string.IsNullOrEmpty(w.Translation) ? "" : " — " + w.Translation) <span class="rp-times">@Loc.Format("RP_Times", w.Count)</span></li>
+                        }
+                    </ol>
+                }
+            </section>
+        }
+
+        <p class="rp-foot">@Loc["RP_Scope"] · @Loc.Format("RP_Generated", _r.GeneratedAt.AddHours(5).ToString("dd.MM.yyyy HH:mm")) · Jumbo.uz</p>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+
+    private bool _loaded;
+    private string _period = "week";
+    private TeamReportDto? _r;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        if (UserState.CurrentUser?.Role is not (UserRole.Teacher or UserRole.Director))
+        {
+            Nav.NavigateTo("/for-schools", replace: true);
+            return;
+        }
+
+        _r = await ApiClient.TeacherGetTeamReportAsync(Id, _period);
+        _loaded = true;
+    }
+
+    private async Task SetPeriodAsync(string period)
+    {
+        _period = period;
+        _r = await ApiClient.TeacherGetTeamReportAsync(Id, _period) ?? _r;
+    }
+
+    private async Task Print() => await JS.InvokeVoidAsync("lp.printPage");
+
+    private static string Fmt(DateOnly d) => d.ToString("dd.MM.yyyy");
+
+    private static string StatusDot(string status) => status switch { "active" => "ok", "slow" => "mid", _ => "bad" };
+
+    private static string ExamClass(int percent) => percent >= 70 ? "good" : percent >= 40 ? "mid" : "low";
+
+    private string LastActive(ReportStudentDto s)
+    {
+        if (s.LastActiveDate is not { } d) return Loc["TC_NeverActive"];
+        var days = Math.Max(0, DateTime.UtcNow.AddHours(5).Date.Subtract(d.ToDateTime(TimeOnly.MinValue)).Days);
+        return days switch { 0 => Loc["TC_Today"], 1 => Loc["TC_Yesterday"], _ => Loc.Format("TC_DaysAgo", days) };
+    }
+}

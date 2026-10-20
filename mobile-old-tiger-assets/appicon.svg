@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+<defs>
+    <linearGradient id="jbg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3CC4FF"/>
+      <stop offset="100%" stop-color="#1899D6"/>
+    </linearGradient>
+    <linearGradient id="jface" x1="0" y1="26" x2="0" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFB02E"/>
+      <stop offset="100%" stop-color="#FF9600"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" fill="url(#jbg)"/>
+</svg>

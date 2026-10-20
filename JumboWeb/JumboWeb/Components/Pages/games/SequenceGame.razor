@@ -1,0 +1,336 @@
+@page "/little-polyglot/games/sequence/{SubjectId:int}"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject LivesService Lives
+@inject IJSRuntime JS
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject BookGateService Gates
+
+<PageTitle>@Loc["Game_SequenceTitle"]</PageTitle>
+
+<div class="game-topbar">
+    <button class="lp-back-btn" @onclick="GoBack">@Loc["Common_BackArrow"]</button>
+    @if (!_isGameOver && !_isGameWon)
+    {
+        <div class="game-coach-wrap">
+            <TigerCoach @ref="_coach" />
+            @if (!_isBusy && !_hasNoData)
+            {
+                <span class="seq-round-info">@Loc.Format("SequenceGame_RoundLabel", _currentRound, _totalRounds)</span>
+            }
+        </div>
+    }
+    else
+    {
+        <span class="coach"></span>
+    }
+    <span class="game-lives" aria-hidden="true"></span>
+</div>
+
+@if (Blocked)
+{
+    <BlockNotice Failed="@(Gate > 0)" OnBack="GoBack" OnUnlocked="RestartGame" />
+}
+else if (_isBusy)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_hasNoData)
+{
+    <div class="lp-empty-state">@Loc["Common_NoWordsFound"]</div>
+    <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick="GoBack">@Loc["Common_Back"]</button>
+}
+else if (_isGameOver)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="sad" Size="150" /></div>
+        <div class="game-result-title">@Loc["Common_GameOver"]</div>
+        <button class="lp-btn lp-btn-full" @onclick="RestartGame">@Loc["Common_Again"]</button>
+        <button class="lp-btn lp-btn-full lp-btn-outline" @onclick="GoBack">@Loc["Common_Exit"]</button>
+    </div>
+}
+else if (_isGameWon)
+{
+    <div class="game-result-card">
+        <div class="game-result-icon"><Tiger Mood="cheer" Size="160" /></div>
+        <div class="game-result-title">@Loc["SequenceGame_Won"]</div>
+        @if (Gate == 0)
+        {
+            <div class="game-result-sub">@Loc.Format("Common_LpEarned", LpReward)</div>
+        }
+        <button class="lp-btn lp-btn-full" @onclick="GoBack">@Loc["Common_Continue"]</button>
+    </div>
+}
+else
+{
+    <!-- Fixed-size area (room for two lines): countdown, then the words one by one, then the hint. It never changes height. -->
+    <div class="seq-top-area">
+        @if (_isCountdown)
+        {
+            <div class="seq-countdown">@_topText</div>
+        }
+        else if (!string.IsNullOrEmpty(_topText))
+        {
+            <div class="@(_isWord ? "seq-word" : "seq-top-text")">@_topText</div>
+        }
+    </div>
+
+    <!-- Cards -->
+    @if (_cards.Any())
+    {
+        <div class="game-cards-grid2">
+            @foreach (var card in _cards)
+            {
+                var c = card;
+                <div class="game-card seq-card @GetCardClass(c)"
+                     @onclick="() => SelectCard(c)">
+                    @if (c.SelectedOrder > 0)
+                    {
+                        <div class="seq-badge">@c.SelectedOrder</div>
+                    }
+                    <div class="game-card-svg">@((MarkupString)c.SvgHtml)</div>
+                    <div class="game-card-label">@c.TranslationWord</div>
+                </div>
+            }
+        </div>
+    }
+}
+
+@code {
+    // No lives (and no LP): the 5-hour block. In the check that opens a book only the lives count.
+    private bool Blocked => Lives.IsBlocked || (Gate > 0 && Lives.Lives <= 0);
+
+    // A mistake costs a life; in the check only the lives count, and without them the check is failed (its steps start again).
+    private async Task<bool> HitAsync()
+    {
+        var ok = await Lives.TakeDamageAsync(livesOnly: Gate > 0);
+        if (!ok && Gate > 0) Gates.Reset(Gate);
+        return ok;
+    }
+
+    private const int LpReward = 7;
+
+    [Parameter] public int SubjectId { get; set; }
+
+    // >0: played as a step of the check that opens this book (words of the previous book, no topic progress)
+    [SupplyParameterFromQuery(Name = "gate")] public int Gate { get; set; }
+    private TigerCoach? _coach;
+
+    private List<List<SeqCard>> _rounds = new();
+    private List<SeqCard> _cards = new();
+    private int _currentRoundIndex;
+    private int _selectedCount;
+    private string _topText = string.Empty;
+    private bool _isWord;                  // the area shows one of the words to remember (big text)
+    private bool _isCountdown;
+    private int _currentRound, _totalRounds;
+    private bool _isBusy, _hasNoData, _isGameOver, _isGameWon, _isSelecting;
+    private int _userId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        _userId = UserState.CurrentUser?.UserId ?? 0;
+        await LoadGame();
+    }
+
+    private async Task LoadGame()
+    {
+        _isBusy = true;
+        _isGameOver = _isGameWon = _hasNoData = false;
+        _rounds.Clear(); _cards.Clear();
+
+        var words = Gate > 0
+            ? await ApiClient.GetWordsByBookAsync(Gate - 1, Prefs.StudyLangId, 15)
+            : await ApiClient.GetWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId, 15);
+        if (words.Count == 0) { _hasNoData = true; _isBusy = false; return; }
+
+        var userWords = await ApiClient.GetUserWordsAsync();
+        var rep = userWords.ToDictionary(uw => uw.WordId, uw => uw.RepeatingCount);
+        var sorted = words
+            .OrderBy(_ => Random.Shared.Next())
+            .OrderBy(w => rep.TryGetValue(w.WordId, out var c) ? c : 0)
+            .Take(15).ToList();
+
+        var allCards = new List<SeqCard>();
+        foreach (var w in sorted)
+        {
+            var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+            var svg   = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
+            allCards.Add(new SeqCard
+            {
+                WordId = w.WordId, SvgImageId = w.SvgImageId,
+                TranslationWord = trans?.WordName ?? w.WordName,
+                EnglishWord = w.WordName,
+                SvgHtml = svg
+            });
+        }
+
+        var shuffled = allCards.OrderBy(_ => Random.Shared.Next()).ToList();
+        _rounds.Clear();
+        for (int i = 0; i < shuffled.Count; i += 4)
+        {
+            var chunk = shuffled.Skip(i).Take(4).ToList();
+            if (chunk.Count < 2) break;
+            for (int j = 0; j < chunk.Count; j++) chunk[j].CorrectOrder = j + 1;
+            _rounds.Add(chunk);
+            if (_rounds.Count == 4) break;
+        }
+
+        _totalRounds = _rounds.Count;
+        _currentRoundIndex = 0;
+        _currentRound = 1;
+        _isBusy = false;
+        StateHasChanged();
+        await RunRound();
+    }
+
+    private async Task RunRound()
+    {
+        var round = _rounds[_currentRoundIndex];
+        _isSelecting = false;
+        _cards.Clear();
+
+        // Countdown
+        for (int i = 3; i >= 1; i--)
+        {
+            _isCountdown = true;
+            _topText = i.ToString();
+            StateHasChanged();
+            await Task.Delay(800);
+        }
+        _isCountdown = false;
+
+        // Show words in sequence
+        foreach (var card in round)
+        {
+            _isWord = true;
+            _topText = card.EnglishWord;
+            StateHasChanged();
+            await Task.Delay(700);
+            _isWord = false;
+            _topText = string.Empty;
+            StateHasChanged();
+            await Task.Delay(150);
+        }
+
+        // Show shuffled cards
+        var display = round.OrderBy(_ => Random.Shared.Next()).ToList();
+        foreach (var c in display) c.Reset();
+        _cards = display;
+        _selectedCount = 0;
+        _topText = Loc["SequenceGame_ChooseOrder"];
+        _isSelecting = true;
+        StateHasChanged();
+    }
+
+    private async Task SelectCard(SeqCard card)
+    {
+        if (!_isSelecting) return;
+
+        if (card.SelectedOrder > 0)
+        {
+            // Already picked — tapping it again undoes that pick so a misclick can be corrected.
+            var removedOrder = card.SelectedOrder;
+            card.SelectedOrder = 0;
+            foreach (var c in _cards)
+            {
+                if (c.SelectedOrder > removedOrder)
+                    c.SelectedOrder--;
+            }
+            _selectedCount--;
+            StateHasChanged();
+            return;
+        }
+
+        _selectedCount++;
+        card.SelectedOrder = _selectedCount;
+        StateHasChanged();
+
+        if (_selectedCount == _cards.Count)
+        {
+            _isSelecting = false;
+            bool correct = _cards.All(c => c.SelectedOrder == c.CorrectOrder);
+
+            if (correct)
+            {
+                foreach (var c in _cards) c.State = SeqState.Correct;
+                _coach?.Cheer();
+                StateHasChanged();
+                await Task.Delay(1400);
+
+                _currentRoundIndex++;
+                if (_currentRoundIndex >= _rounds.Count)
+                {
+                    if (Gate > 0) Gates.Pass(Gate, 3);
+                    else
+                    {
+                        await ApiClient.EnsureWordsExistAsync(
+                            _rounds.SelectMany(r => r).Select(c => c.WordId));
+                        await ApiClient.MarkGameWonAsync(SubjectId, "Sequence");
+                        await Lives.AddLpAsync(LpReward);
+                    }
+                    _isGameWon = true;
+                }
+                else
+                {
+                    _currentRound = _currentRoundIndex + 1;
+                    await RunRound();
+                }
+            }
+            else
+            {
+                foreach (var c in _cards)
+                    c.State = c.SelectedOrder == c.CorrectOrder ? SeqState.Correct : SeqState.Wrong;
+                _coach?.Oops();
+                StateHasChanged();
+
+                var alive = await HitAsync();
+                await Task.Delay(2000);
+
+                if (!alive) _isGameOver = true;
+                else await RunRound();
+            }
+        }
+    }
+
+    private string GetCardClass(SeqCard c) => c.State switch
+    {
+        SeqState.Correct => "correct-answer",
+        SeqState.Wrong   => "wrong-answer",
+        _ => c.SelectedOrder > 0 ? "selected" : ""
+    };
+
+    private async Task RestartGame()
+    {
+        await Lives.CheckRegenAsync();
+        if (Blocked) return;
+        await LoadGame();
+    }
+
+    private void GoBack()
+    {
+        if (Gate > 0) Nav.NavigateTo(BookGateService.GateUrl(Gate), replace: true);
+        else _ = JS.InvokeVoidAsync("lp.goBack", "/little-polyglot");
+    }
+
+    private enum SeqState { Idle, Correct, Wrong }
+    private class SeqCard
+    {
+        public int WordId { get; set; }
+        public int SvgImageId { get; set; }
+        public string EnglishWord { get; set; } = string.Empty;
+        public string TranslationWord { get; set; } = string.Empty;
+        public string SvgHtml { get; set; } = string.Empty;
+        public int CorrectOrder { get; set; }
+        public int SelectedOrder { get; set; }
+        public SeqState State { get; set; }
+        public void Reset() { SelectedOrder = 0; State = SeqState.Idle; }
+    }
+}

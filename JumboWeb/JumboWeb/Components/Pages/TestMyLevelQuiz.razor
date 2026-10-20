@@ -1,0 +1,161 @@
+@page "/test-my-level/quiz/{WordCount:int}"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject TestLevelStateService TestState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["SiteLayout_TestNav"]</PageTitle>
+
+<div class="exam-page">
+    <div class="game-topbar">
+        <button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/test-my-level")'>@Loc["Common_BackArrow"]</button>
+        @if (!_isBusy && !_hasNoData)
+        {
+            <span style="font-size:0.85rem;color:var(--lp-muted)">@(_index + 1) / @_words.Count</span>
+        }
+    </div>
+
+    @if (!_isBusy && !_hasNoData)
+    {
+        <div class="listen-progress-wrap">
+            <div class="listen-progress-bar">
+                <div class="listen-progress-fill" style="width:@(_progressPct)%"></div>
+            </div>
+        </div>
+    }
+
+    @if (_isBusy)
+    {
+        <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+    }
+    else if (_hasNoData)
+    {
+        <div class="lp-empty-state">@Loc["TestLevel_NoWords"]</div>
+        <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/test-my-level")'>@Loc["Common_Back"]</button>
+    }
+    else
+    {
+        <div class="letter-test-card">
+            <div class="letter-test-svg">@((MarkupString)_currentSvg)</div>
+            <div class="letter-test-word">@_currentWord</div>
+        </div>
+
+        <div class="letter-options-list">
+            @foreach (var opt in _options)
+            {
+                var o = opt;
+                <button class="answer-option @(_selected == o ? "selected" : "")" @onclick="() => Select(o)">
+                    <span class="answer-letter">@o.Letter</span>
+                    <span class="answer-word">@o.Translation</span>
+                </button>
+            }
+        </div>
+
+        <button class="lp-btn-primary" style="margin-top:14px" disabled="@(_selected is null)" @onclick="NextQuestion">
+            @(IsLastQuestion ? Loc["ExamQuiz_Finish"] : Loc["ExamQuiz_Next"])
+        </button>
+    }
+</div>
+
+@code {
+    [Parameter] public int WordCount { get; set; }
+
+    private List<ExamWordItem> _words = new();
+    private List<TestLevelAnswer> _answers = new();
+    private List<AnswerOpt> _options = new();
+    private AnswerOpt? _selected;
+    private int _index;
+    private string _currentSvg = string.Empty;
+    private string _currentWord = string.Empty;
+    private bool _isBusy = true;
+    private bool _hasNoData;
+
+    private bool IsLastQuestion => _index + 1 >= _words.Count;
+    private double _progressPct => _words.Count > 0 ? _index * 100.0 / _words.Count : 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Prefs.EnsureLoadedAsync();
+
+        _words = await ApiClient.GetTestLevelWordsAsync(Prefs.StudyLangId, Prefs.TransLangId, WordCount);
+        if (_words.Count < 4)
+        {
+            _hasNoData = true;
+            _isBusy = false;
+            return;
+        }
+
+        _index = 0;
+        await LoadQuestion();
+        _isBusy = false;
+    }
+
+    private async Task LoadQuestion()
+    {
+        _selected = null;
+        var target = _words[_index];
+        _currentWord = target.StudyWord;
+        _currentSvg = await ApiClient.GetSvgByIdAsync(target.SvgImageId);
+
+        var distractors = _words
+            .Where(w => w.SvgImageId != target.SvgImageId && !Jumbo.Shared.WordMatch.SameMeaning(w.TranslationWord, target.TranslationWord))
+            .OrderBy(_ => Random.Shared.Next()).Take(3).ToList();
+        while (distractors.Count < 3)
+            distractors.Add(_words.First(w => w != target));
+
+        var raw = new List<(string Translation, bool IsTarget)>
+        {
+            (target.TranslationWord, true),
+            (distractors[0].TranslationWord, false),
+            (distractors[1].TranslationWord, false),
+            (distractors[2].TranslationWord, false),
+        };
+
+        string[] letters = ["A", "B", "C", "D"];
+        var shuffled = raw.OrderBy(_ => Random.Shared.Next()).ToList();
+        _options = shuffled.Select((x, i) => new AnswerOpt
+        {
+            Letter = letters[i],
+            Translation = x.Translation,
+            IsTarget = x.IsTarget
+        }).ToList();
+    }
+
+    private void Select(AnswerOpt opt) => _selected = opt;
+
+    private async Task NextQuestion()
+    {
+        if (_selected is null) return;
+
+        var target = _words[_index];
+        _answers.Add(new TestLevelAnswer
+        {
+            StudyWord = target.StudyWord,
+            CorrectTranslation = target.TranslationWord,
+            SelectedTranslation = _selected.Translation,
+            IsCorrect = _selected.IsTarget
+        });
+
+        _index++;
+        if (_index >= _words.Count)
+        {
+            TestState.SetResults(_answers);
+            Nav.NavigateTo("/test-my-level/results", replace: true);
+        }
+        else
+        {
+            await LoadQuestion();
+        }
+    }
+
+    private class AnswerOpt
+    {
+        public string Letter { get; set; } = string.Empty;
+        public string Translation { get; set; } = string.Empty;
+        public bool IsTarget { get; set; }
+    }
+}

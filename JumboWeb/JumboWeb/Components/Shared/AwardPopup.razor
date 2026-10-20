@@ -1,0 +1,130 @@
+@implements IDisposable
+@using System.ComponentModel
+@using Jumbo.Shared.Dtos
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject UserPreferencesService Prefs
+@inject LivesService Lives
+@inject NavigationManager Nav
+@inject AppLocalizer Loc
+
+@* "You got an award!": a window with confetti, a shining picture of the award and Jumbo cheering, with the buttons "Awards" and "Close".
+   The server says which awards are new (each is told once). It is asked after a page is opened and when the LP of the learner grow (a won
+   game), so the window appears right after the game that earned the award. Several awards are shown one after another. *@
+@if (_current is not null)
+{
+    <div class="award-pop" role="dialog" aria-modal="true" aria-label="@Loc["Award_New"]">
+        <div class="award-pop-confetti" aria-hidden="true">
+            @for (int i = 0; i < 36; i++)
+            {
+                <span style="--x: @Pct(i * 37 % 100)%; --d: @Pct(i * 53 % 90)ms; --t: @(2200 + i * 61 % 1800)ms; --r: @(i * 47 % 360)deg; --c: @Colors[i % Colors.Length]"></span>
+            }
+        </div>
+        <div class="award-pop-card">
+            <div class="award-pop-rays" aria-hidden="true"></div>
+            <div class="award-pop-title">@Loc["Award_New"]</div>
+            <div class="award-pop-medal">
+                <span class="award-pop-glow" aria-hidden="true"></span>
+                <span class="award-pop-svg">@((MarkupString)_current.SvgImage)</span>
+                <span class="award-pop-star s1" aria-hidden="true">✦</span>
+                <span class="award-pop-star s2" aria-hidden="true">✦</span>
+                <span class="award-pop-star s3" aria-hidden="true">✦</span>
+            </div>
+            <div class="award-pop-name">@_current.Title</div>
+            @if (_current.LpBonus > 0)
+            {
+                <div class="award-pop-bonus">+@_current.LpBonus LP</div>
+            }
+            <div class="award-pop-tiger"><Tiger Mood="cheer" Size="96" /></div>
+            <p class="award-pop-sub">@Loc["Award_Congrats"]</p>
+            <div class="award-pop-actions">
+                <button type="button" class="lp-btn lp-btn-outline" @onclick="Close">@Loc["Award_Close"]</button>
+                <button type="button" class="lp-btn" @onclick="OpenAwards">@Loc["Award_Open"]</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private static readonly string[] Colors = ["#FFC800", "#1CB0F6", "#58CC02", "#FF6B9D", "#FF9600", "#A06CF0"];
+
+    private readonly Queue<AwardItem> _queue = new();
+    private AwardItem? _current;
+    private CancellationTokenSource? _debounce;
+    private bool _checking;
+    private int _lastLp = -1;
+
+    private static string Pct(int n) => n.ToString();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        Nav.LocationChanged += OnLocationChanged;
+        Lives.PropertyChanged += OnLivesChanged;
+        _ = CheckLaterAsync(600);
+    }
+
+    private void OnLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e) => _ = CheckLaterAsync(900);
+
+    // the LP grow when a game is won: that is when an award may have been earned
+    private void OnLivesChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName != nameof(LivesService.LpPoints)) return;
+        if (_lastLp >= 0 && Lives.LpPoints > _lastLp) _ = CheckLaterAsync(1800);
+        _lastLp = Lives.LpPoints;
+    }
+
+    private async Task CheckLaterAsync(int delayMs)
+    {
+        _debounce?.Cancel();
+        _debounce = new CancellationTokenSource();
+        var token = _debounce.Token;
+        try
+        {
+            await Task.Delay(delayMs, token);
+            await CheckAsync();
+        }
+        catch (OperationCanceledException) { }
+    }
+
+    private async Task CheckAsync()
+    {
+        // only a learner has awards (a teacher, the administrator and a guest do not)
+        if (_checking || !UserState.IsRegistered || UserState.HidesLessons) return;
+        _checking = true;
+        try
+        {
+            await Prefs.EnsureLoadedAsync();
+            var fresh = await ApiClient.GetNewAwardsAsync(Prefs.TransLangId);
+            foreach (var a in fresh) _queue.Enqueue(a);
+            if (fresh.Count > 0) await Lives.InitAsync();      // the awards paid LP: read the numbers again (a stale copy must not overwrite them)
+            if (_current is null && _queue.Count > 0)
+            {
+                _current = _queue.Dequeue();
+                await InvokeAsync(StateHasChanged);
+            }
+        }
+        catch { /* the window is a bonus: never break a page */ }
+        finally { _checking = false; }
+    }
+
+    private void Close()
+    {
+        _current = _queue.Count > 0 ? _queue.Dequeue() : null;
+    }
+
+    private void OpenAwards()
+    {
+        _queue.Clear();
+        _current = null;
+        Nav.NavigateTo("/little-polyglot/awards");
+    }
+
+    public void Dispose()
+    {
+        _debounce?.Cancel();
+        Nav.LocationChanged -= OnLocationChanged;
+        Lives.PropertyChanged -= OnLivesChanged;
+    }
+}

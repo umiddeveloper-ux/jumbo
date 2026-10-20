@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:strings="clr-namespace:Jumbo.Resources.Strings"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.SettingsPage"
+             x:DataType="pageModels:SettingsPageModel"
+             x:Name="SettingsPageRoot"
+             Title="{u:Tr Key=SettingsTitle}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SettingsPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedTo"
+            Command="{Binding NavigatedToCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SettingsPageRoot}, x:DataType=ContentPage}"
+            EventName="NavigatedFrom"
+            Command="{Binding NavigatedFromCommand}" />
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference SettingsPageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SectionTitle" TargetType="Label">
+                <Setter Property="FontFamily" Value="NunitoExtraBold" />
+                <Setter Property="FontSize" Value="19" />
+            </Style>
+            <Style x:Key="Hint" TargetType="Label">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="16,12,16,32" Spacing="14" MaximumWidthRequest="640" HorizontalOptions="Fill">
+
+                <Label Text="{u:Tr Key=Settings_Heading}" FontFamily="NunitoBlack" FontSize="28" SemanticProperties.HeadingLevel="Level1" />
+
+                <!-- ── profile ── -->
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="{u:Tr Key=Settings_ProfileSection}" Style="{StaticResource SectionTitle}" />
+                        <!-- the ID of the learner (for payments) -->
+                        <Border StrokeShape="RoundRectangle 16" StrokeThickness="0" Padding="12" IsVisible="{Binding PublicId, Converter={StaticResource StringNotEmpty}}"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
+                            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12" RowDefinitions="Auto,Auto,Auto">
+                                <Label Text="{u:Tr Key=Settings_MyId}" Style="{StaticResource Hint}" />
+                                <Label Grid.Row="1" Text="{Binding PublicId}" FontFamily="NunitoBlack" FontSize="24" CharacterSpacing="2" />
+                                <Label Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding BalanceText}" FontFamily="NunitoExtraBold" FontSize="15" />
+                                <ctl:ChunkyButton Grid.Column="1" Grid.RowSpan="2" Text="{u:Tr Key=Settings_CopyId}" Kind="outline" Command="{Binding CopyIdCommand}" VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                        <Label Text="{u:Tr Key=Settings_MyIdHint}" Style="{StaticResource Hint}" IsVisible="{Binding PublicId, Converter={StaticResource StringNotEmpty}}" />
+
+                        <!-- the version of the app: the coin, its name and the link to the page of the site -->
+                        <Border StrokeShape="RoundRectangle 16" StrokeThickness="0" Padding="12"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
+                            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="8">
+                                <ctl:PlanCoin Plan="{Binding PlanKey}" Size="38" VerticalOptions="Center" Grid.RowSpan="2" />
+                                <Label Grid.Column="1" Text="{Binding PlanTitle}" FontFamily="NunitoExtraBold" FontSize="16" />
+                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding PlanSub}" Style="{StaticResource Hint}" />
+                                <ctl:ChunkyButton Grid.Row="2" Grid.ColumnSpan="2" Text="{u:Tr Key=Plan_See}" Kind="outline" Command="{Binding OpenPlansCommand}" />
+                            </Grid>
+                        </Border>
+                        <Label Text="{u:Tr Key=Register_AvatarLabel}" FontFamily="NunitoExtraBold" FontSize="14" />
+                        <ctl:AvatarPicker SelectedIndex="{Binding AvatarIndex, Mode=TwoWay}" />
+                        <Label Text="{Binding AvatarMessage}" Style="{StaticResource Hint}" IsVisible="{Binding AvatarMessage, Converter={StaticResource StringNotEmpty}}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=FirstName}" Placeholder="{u:Tr Key=Settings_FirstNamePlaceholder}" Text="{Binding FirstName, Mode=TwoWay}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=LastName}" Placeholder="{u:Tr Key=Settings_LastNamePlaceholder}" Text="{Binding LastName, Mode=TwoWay}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_PhoneLabel}" Placeholder="{Binding PhoneHint}" Keyboard="Telephone" Text="{Binding Phone, Mode=TwoWay}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ── school + team: picked from lists, confirmed by the teacher ── -->
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16" IsVisible="{Binding IsLearner}">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="{u:Tr Key=Team_Section}" Style="{StaticResource SectionTitle}" />
+
+                        <VerticalStackLayout Spacing="10" IsVisible="{Binding HasTeam}">
+                            <Border StrokeShape="RoundRectangle 14" StrokeThickness="2" Padding="12,10"
+                                    Stroke="{StaticResource Warning}" BackgroundColor="{AppThemeBinding Light={StaticResource WarningAsbestos}, Dark=#3A3210}">
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border" Binding="{Binding TeamApproved}" Value="True">
+                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
+                                    </DataTrigger>
+                                </Border.Triggers>
+                                <VerticalStackLayout Spacing="2">
+                                    <Label Text="{Binding TeamStatusText}" FontFamily="NunitoExtraBold" FontSize="15" TextColor="{AppThemeBinding Light=#1F3A5F, Dark=#E8F0F8}" />
+                                    <Label Text="{Binding TeamStateText}" FontSize="13" TextColor="{AppThemeBinding Light=#1F3A5F, Dark=#E8F0F8}" Opacity="0.8" />
+                                </VerticalStackLayout>
+                            </Border>
+                            <ctl:ChunkyButton Text="{u:Tr Key=Team_Leave}" Kind="outline" Command="{Binding LeaveTeamCommand}" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="12" IsVisible="{Binding HasNoTeam}">
+                            <Label Text="{Binding LegacyText}" Style="{StaticResource Hint}" IsVisible="{Binding HasLegacy}" />
+                            <ctl:TeamPicker Region="{Binding PickedRegion, Mode=TwoWay}" ClassId="{Binding PickedClassId, Mode=TwoWay}" />
+                            <ctl:ChunkyButton Text="{u:Tr Key=Team_Submit}" Kind="success" FontSize="14"
+                                              IsEnabled="{Binding CanSendTeam}" Command="{Binding SendTeamCommand}" />
+                        </VerticalStackLayout>
+
+                        <Label Text="{Binding TeamError}" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding TeamError, Converter={StaticResource StringNotEmpty}}" />
+                        <Label Text="{Binding TeamMessage}" TextColor="{StaticResource Success}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding TeamMessage, Converter={StaticResource StringNotEmpty}}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ── Telegram bot (learners): reminders, progress, quiz ── -->
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16" IsVisible="{Binding BotAvailable}">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="{u:Tr Key=PupilBot_Title}" Style="{StaticResource SectionTitle}" />
+                        <Label Text="{u:Tr Key=PupilBot_Hint}" Style="{StaticResource Hint}" />
+                        <Label Text="{Binding BotStatusText}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding BotStatusText, Converter={StaticResource StringNotEmpty}}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=PupilBot_Open}" Kind="success" FontSize="14"
+                                          IsVisible="{Binding BotConnectVisible}" Command="{Binding ConnectBotCommand}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=PupilBot_Check}" Kind="outline" FontSize="14"
+                                          IsVisible="{Binding BotWaiting}" Command="{Binding CheckBotCommand}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=PupilBot_Disconnect}" Kind="outline" FontSize="14"
+                                          IsVisible="{Binding BotConnected}" Command="{Binding DisconnectBotCommand}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ── account: login and password ── -->
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="{u:Tr Key=Settings_AccountSection}" Style="{StaticResource SectionTitle}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_UsernameLabel}" Text="{Binding Username, Mode=TwoWay}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_CurrentPasswordLabel}" IsPassword="True" Text="{Binding CurrentPassword, Mode=TwoWay}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_NewPasswordLabel}" Placeholder="{u:Tr Key=Settings_NewPasswordHint}" IsPassword="True" Text="{Binding NewPassword, Mode=TwoWay}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_ConfirmPasswordLabel}" IsPassword="True" Text="{Binding ConfirmPassword, Mode=TwoWay}" />
+                        <Label Text="{Binding AccountError}" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding AccountError, Converter={StaticResource StringNotEmpty}}" />
+                        <Label Text="{Binding AccountMessage}" TextColor="{StaticResource Success}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding AccountMessage, Converter={StaticResource StringNotEmpty}}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=Settings_AccountSaveButton}" Kind="success" FontSize="14" Command="{Binding SaveAccountCommand}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ── privacy + behaviour ── -->
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="14">
+                        <Label Text="{u:Tr Key=Settings_PrivacySection}" Style="{StaticResource SectionTitle}" />
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                <Label Text="{u:Tr Key=Settings_HideNameLabel}" FontFamily="NunitoExtraBold" FontSize="15" />
+                                <Label Text="{u:Tr Key=Settings_HideNameHint}" Style="{StaticResource Hint}" />
+                            </VerticalStackLayout>
+                            <Switch Grid.Column="1" IsToggled="{Binding HideName, Mode=TwoWay}" VerticalOptions="Center" />
+                        </Grid>
+                        <BoxView HeightRequest="2" BackgroundColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" />
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                <Label Text="{u:Tr Key=HideTooltipsTitle}" FontFamily="NunitoExtraBold" FontSize="15" />
+                                <Label Text="{u:Tr Key=HideTooltipsDescription}" Style="{StaticResource Hint}" />
+                            </VerticalStackLayout>
+                            <Switch Grid.Column="1" IsToggled="{Binding HideTooltips, Mode=TwoWay}" VerticalOptions="Center" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ── daily goal ── -->
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{u:Tr Key=Settings_DailyGoalSection}" Style="{StaticResource SectionTitle}" />
+                        <Label Text="{u:Tr Key=Settings_DailyGoalLabel}" Style="{StaticResource Hint}" />
+                        <ctl:ChipGroup Items="{Binding GoalChips}" SelectedKey="{Binding DailyGoalKey, Mode=TwoWay}" />
+                        <Label Text="{Binding GoalMessage}" TextColor="{StaticResource Success}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding GoalMessage, Converter={StaticResource StringNotEmpty}}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ── appearance + app language ── -->
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{u:Tr Key=Settings_Appearance}" Style="{StaticResource SectionTitle}" />
+                        <Label Text="{u:Tr Key=ThemeTitle}" FontFamily="NunitoExtraBold" FontSize="14" Margin="0,4,0,0" />
+                        <ctl:ChipGroup Items="{Binding ThemeChips}" SelectedKey="{Binding ThemeKey, Mode=TwoWay}" />
+                        <Label Text="{u:Tr Key=AppLanguage}" FontFamily="NunitoExtraBold" FontSize="14" Margin="0,6,0,0" />
+                        <ctl:ChipGroup Items="{Binding LanguageChips}" SelectedKey="{Binding AppLanguageKey, Mode=TwoWay}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ── learning languages ── -->
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="{u:Tr Key=Settings_LanguagesSection}" Style="{StaticResource SectionTitle}" />
+                        <ctl:FormPicker Caption="{u:Tr Key=Settings_StudyLangLabel}" DisplayMember="Name"
+                                        ItemsSource="{Binding AvailableLanguages}" SelectedItem="{Binding SelectedStudyLanguage, Mode=TwoWay}" />
+                        <ctl:FormPicker Caption="{u:Tr Key=TranslationLanguageTitle}" DisplayMember="Name"
+                                        ItemsSource="{Binding AvailableLanguages}" SelectedItem="{Binding SelectedTargetLanguage, Mode=TwoWay}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <ctl:ChunkyButton Text="{u:Tr Key=Settings_SaveButton}" Command="{Binding SaveSettingsCommand}" Margin="0,4,0,0" />
+                <ctl:ChunkyButton Text="{u:Tr Key=ScanQrButton}" Kind="outline" Command="{Binding ScanQrCommand}" />
+                <ctl:ChunkyButton Text="{u:Tr Key=Settings_Logout}" Kind="danger" Command="{Binding LogoutCommand}" />
+
+                <ctl:ChunkyButton Text="{u:Tr Key=Legal_Privacy_Link}" Kind="outline" Command="{Binding OpenPrivacyCommand}" />
+
+                <!-- ── delete the account for good (learners) ── -->
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16" Margin="0,10,0,0" IsVisible="{Binding IsLearner}">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="{u:Tr Key=Settings_DeleteSection}" Style="{StaticResource SectionTitle}" />
+                        <Label Text="{u:Tr Key=Settings_DeleteHint}" Style="{StaticResource Hint}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_CurrentPasswordLabel}" IsPassword="True" Text="{Binding DeletePassword, Mode=TwoWay}" />
+                        <Label Text="{Binding DeleteError}" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding DeleteError, Converter={StaticResource StringNotEmpty}}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=Settings_DeleteButton}" Kind="danger" FontSize="14" Command="{Binding DeleteAccountCommand}" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" />
+    </Grid>
+</ContentPage>

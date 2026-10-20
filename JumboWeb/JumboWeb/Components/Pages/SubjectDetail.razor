@@ -1,0 +1,117 @@
+@page "/little-polyglot/subjects/{BookNumber:int}/{SubjectId:int}"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@(_subject?.SubjectName ?? Loc["SubjectDetail_FallbackTitle"]) — Jumbo</PageTitle>
+
+<button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backFromTopic", BookNumber)'>@Loc["SubjectDetail_BackToTopics"]</button>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_subject == null)
+{
+    <div class="lp-empty-state">@Loc["SubjectDetail_NotFound"]</div>
+}
+else if (_needToPass is not null)
+{
+    @* the topic before this one is not passed yet *@
+    <TopicLockedDialog CurrentName="@_needToPass.SubjectName" OnClose="BackToBook" OnGo="GoToNeeded" />
+}
+else
+{
+    @if (!string.IsNullOrEmpty(_svgHtml))
+    {
+        <div style="display:flex;justify-content:center;margin-bottom:12px">
+            <div class="topic-ring ring3 parts-@(_progress?.PartsDone ?? 0)">
+                <div class="topic-ring-inner">@((MarkupString)_svgHtml)</div>
+            </div>
+        </div>
+    }
+
+    <p class="lp-page-title" style="text-align:center">@_subject.SubjectName</p>
+
+    <TopicVideo Book="BookNumber" Seq="_subject.SequenceNumber" Lang="@Jumbo.Shared.TopicVideoPaths.LanguageCode(Prefs.StudyLangId)" />
+
+    <div class="lesson-grid">
+        <div class="lesson-card" @onclick="GoToWords">
+            <div class="lesson-icon">📖</div>
+            <div class="lesson-name">@Loc["Game_WordsTitle"]</div>
+            <div class="lesson-desc">@Loc["Game_WordsDesc"]</div>
+        </div>
+        <div class="lesson-card @(_progress?.FindMeWon == true ? "passed" : "")" @onclick="GoToFindMe">
+            @if (_progress?.FindMeWon == true) { <span class="lesson-check" aria-label="✓">✓</span> }
+            <div class="lesson-icon">🔍</div>
+            <div class="lesson-name">@Loc["Game_FindMeTitle"]</div>
+            <div class="lesson-desc">@Loc["Game_FindMeDesc"]</div>
+        </div>
+        <div class="lesson-card @(_progress?.ListenWon == true ? "passed" : "")" @onclick="GoToListen">
+            @if (_progress?.ListenWon == true) { <span class="lesson-check" aria-label="✓">✓</span> }
+            <div class="lesson-icon">🎧</div>
+            <div class="lesson-name">@Loc["Game_ListenTitle"]</div>
+            <div class="lesson-desc">@Loc["Game_ListenDesc"]</div>
+        </div>
+        <div class="lesson-card @(_progress?.PhraseWon == true ? "passed" : "")" @onclick="GoToPhrase">
+            @if (_progress?.PhraseWon == true) { <span class="lesson-check" aria-label="✓">✓</span> }
+            <div class="lesson-icon">🧩</div>
+            <div class="lesson-name">@Loc["Game_PhraseTitle"]</div>
+            <div class="lesson-desc">@Loc["Game_PhraseDesc"]</div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public int BookNumber { get; set; }
+    [Parameter] public int SubjectId { get; set; }
+
+    private Subject? _subject;
+    private Jumbo.Shared.Entities.UserSubjectProgress? _progress;
+    private string _svgHtml = string.Empty;
+    private bool _loaded;
+    private Subject? _needToPass;      // the topic that has to be passed before this one
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Prefs.EnsureLoadedAsync();      // the study language: the video of the topic is the one of that language
+        if (!(await ApiClient.GetUnlockedBooksAsync()).Contains(BookNumber))
+        {
+            Nav.NavigateTo("/little-polyglot", replace: true);
+            return;
+        }
+        _subject = await ApiClient.GetSubjectByIdAsync(SubjectId);
+        var allProgress = new List<Jumbo.Shared.Entities.UserSubjectProgress>();
+        try { allProgress = await ApiClient.GetUserSubjectProgressAsync(); } catch { }
+        _progress = allProgress.FirstOrDefault(p => p.SubjectId == SubjectId);
+        if (_subject != null)
+        {
+            _svgHtml = await ApiClient.GetSvgByIdAsync(_subject.SvgImageId);
+
+            // A topic opens only after the topic before it is passed.
+            bool Done(Subject t) => allProgress.FirstOrDefault(p => p.SubjectId == t.SubjectId)?.PartsDone >= Jumbo.Shared.Entities.UserSubjectProgress.Parts;
+            var book = (await ApiClient.GetSubjectsByBookAsync(BookNumber)).OrderBy(t => t.SequenceNumber).ToList();
+            var cur = book.FirstOrDefault(t => !Done(t));
+            if (cur is not null && !Done(_subject) && book.FindIndex(t => t.SubjectId == SubjectId) > book.FindIndex(t => t.SubjectId == cur.SubjectId))
+                _needToPass = cur;
+        }
+        _loaded = true;
+    }
+
+    private void BackToBook() => Nav.NavigateTo($"/little-polyglot/book/{BookNumber}", replace: true);
+
+    private void GoToNeeded()
+    {
+        if (_needToPass is { } t) Nav.NavigateTo($"/little-polyglot/subjects/{t.BookId}/{t.SubjectId}", replace: true);
+    }
+
+    private void GoToWords()    => Nav.NavigateTo($"/little-polyglot/subjects/{BookNumber}/{SubjectId}/words");
+    private void GoToFindMe()   => Nav.NavigateTo($"/little-polyglot/games/findme/{SubjectId}");
+    private void GoToListen()   => Nav.NavigateTo($"/little-polyglot/games/listen/{SubjectId}");
+    private void GoToPhrase()   => Nav.NavigateTo($"/little-polyglot/games/phrase/{SubjectId}");
+}

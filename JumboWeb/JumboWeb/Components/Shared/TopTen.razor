@@ -1,0 +1,134 @@
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject IJSRuntime JS
+
+@* Top-10 players of the whole site: shown on the home page to everybody (visitors and signed-in players). *@
+<section class="top10 @(Tiles ? "tiles" : "")">
+    <div class="top10-head">
+        <div>
+            <h2 class="land-h2 top10-title">🏆 @Loc["Top_Title"]</h2>
+            <p class="top10-sub">@Loc["Top_Sub"]</p>
+        </div>
+        <div class="rate-period" role="tablist">
+            <button type="button" class="rate-chip @(_period == "week" ? "on" : "")" @onclick='() => SetPeriod("week")'>@Loc["Rating_Week"]</button>
+            <button type="button" class="rate-chip @(_period == "all" ? "on" : "")" @onclick='() => SetPeriod("all")'>@Loc["Rating_AllTime"]</button>
+        </div>
+    </div>
+
+    @if (_loading)
+    {
+        <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+    }
+    else if (_data is null || _data.Entries.Count == 0)
+    {
+        <div class="rate-me none">@Loc["Rating_NoPlace"]</div>
+    }
+    else
+    {
+        @if (Tiles)
+        {
+            @* tiles, five in a row: two rows for ten players *@
+            <div class="top-tiles">
+                @foreach (var e in _data.Entries)
+                {
+                    <article class="top-tile @(e.Rank is >= 1 and <= 3 ? "top" + e.Rank : "")">
+                        <span class="top-tile-rank">@(e.Rank switch { 1 => "🥇", 2 => "🥈", 3 => "🥉", _ => e.Rank.ToString() })</span>
+                        <span class="top-tile-avatar">
+                            @if (e.Name is not null)
+                            {
+                                <UserAvatar Svg="@e.AvatarSvg" DisplayName="@e.Name" Size="64" Frame="@e.FrameKey" />
+                            }
+                            else
+                            {
+                                <span class="rate-avatar-hidden big">🐘</span>
+                            }
+                        </span>
+                        <span class="top-tile-name">@(e.Name ?? Loc["Rating_Hidden"])</span>
+                        @if (!string.IsNullOrEmpty(e.Team)) { <span class="top-tile-team">👥 @e.Team</span> }
+                        <span class="top-tile-words"><b data-count="@e.Words">@e.Words</b> <small>@Loc["Rating_Words"]</small></span>
+                    </article>
+                }
+            </div>
+        }
+        else
+        {
+        <div class="rate-list">
+            @foreach (var e in _data.Entries)
+            {
+                <RatingRow Entry="e" />
+            }
+            @if (_data.Me is { } me && me.Rank > _data.Entries.Count)
+            {
+                <div class="rate-gap">⋯</div>
+                <RatingRow Entry="me" />
+            }
+        </div>
+        }
+    }
+
+    <div class="top10-foot">
+        @if (UserState.IsRegistered)
+        {
+            <a class="rate-mini-link" href="/rating">@Loc["Rating_SeeAll"] →</a>
+        }
+        else
+        {
+            <div class="top10-cta">
+                <Tiger Mood="cheer" Size="84" Head="true" />
+                <span>@Loc["Top_GuestCta"]</span>
+                <a class="lp-btn lp-btn-sm" href="/register">@Loc["Land_Register"]</a>
+            </div>
+        }
+    </div>
+</section>
+
+@code {
+    /// <summary>Show the players as tiles (five in a row) instead of lines.</summary>
+    [Parameter] public bool Tiles { get; set; }
+
+    private string _period = "week";
+    private bool _animate;      // the numbers run from 0 when the tiles come into view (after every load of the list)
+    private bool _loading = true;
+    private RatingDto? _data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await LoadAsync();
+    }
+
+    private async Task SetPeriod(string period)
+    {
+        if (_period == period) return;
+        _period = period;
+        await LoadAsync();
+    }
+
+    private async Task LoadAsync()
+    {
+        _loading = true;
+        try
+        {
+            // Signed-in players also get their own place; visitors get the public list.
+            _data = UserState.IsRegistered
+                ? await ApiClient.GetRatingAsync("all", _period, 10)
+                : await ApiClient.GetTopRatingAsync(_period, 10);
+        }
+        catch
+        {
+            // Decorative block: never break the home page.
+            _data = null;
+        }
+        _loading = false;
+        _animate = Tiles;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!_animate || _loading) return;
+        _animate = false;
+        try { await JS.InvokeVoidAsync("lp.countUp", ".top-tiles"); } catch { /* no script: the numbers simply stand there */ }
+    }
+}

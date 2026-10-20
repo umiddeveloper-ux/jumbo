@@ -1,0 +1,110 @@
+@implements IDisposable
+@using JumboWeb.Services
+@inject UserStateService UserState
+@inject LivesService Lives
+@inject PlayerStatsService Stats
+@inject NavigationManager Nav
+@inject AppLocalizer Loc
+
+@* The learner's strip under the top bar of every page: lives, LP points, the book they are in, the level and the streak. *@
+@if (_ready && UserState.IsRegistered && !UserState.HidesLessons)
+{
+    <div class="stat-strip" role="status">
+        @if (Lives.IsBlocked)
+        {
+            @* Out of lives and LP: the 5-hour block, with the time that is left, in place of the lives and the LP. *@
+            <span class="stat-chip block" title="@Loc["Block_Title"]">
+                <span class="stat-ico">⏳</span><b>@Lives.RegenClock</b>
+            </span>
+        }
+        else
+        {
+            <span class="stat-chip lives @(Lives.Lives <= 0 ? "empty" : "")" title="@Loc["Strip_Lives"]">
+                <span class="stat-ico">@(Lives.Lives > 0 ? "❤️" : "🖤")</span><b>@(Lives.Unlimited ? "∞" : Lives.Lives.ToString())</b>
+            </span>
+            <span class="stat-chip lp" title="@Lives.LpExact LP">
+                <span class="stat-ico">💰</span><b>@PointsFormat.Compact(Lives.LpPoints)</b><span class="stat-unit">LP</span>
+            </span>
+        }
+        <span class="stat-chip book" title="@Loc.Format("Strip_BookHint", Stats.CurrentBook)">
+            <span class="stat-ico">📘</span><span class="stat-label">@Loc["Strip_Book"]</span><b>@Stats.CurrentBook</b>
+        </span>
+        <span class="stat-chip level" title="@Loc["Stats_LevelHint"]">
+            <span class="stat-label">@Loc["Strip_Level"]</span><b class="stat-level">@Stats.Level</b>
+        </span>
+        <span class="stat-chip streak @(Stats.Streak > 0 ? "alive" : "")" title="@Loc.Format("Strip_StreakHint", Stats.Streak)">
+            <span class="stat-ico">🔥</span><b>@Stats.Streak</b><span class="stat-label">@Loc["Strip_Days"]</span>
+        </span>
+        @if (Lives.ShieldCount > 0)
+        {
+            <span class="stat-chip shield" title="@Loc["Strip_Shield"]"><span class="stat-ico">🛡️</span><b>@Lives.ShieldCount</b></span>
+        }
+        @if (Stats.FreezeCount > 0)
+        {
+            <span class="stat-chip freeze" title="@Loc["Strip_Freeze"]"><span class="stat-ico">❄️</span><b>@Stats.FreezeCount</b></span>
+        }
+    </div>
+}
+
+@code {
+    private bool _ready;
+    private bool _subscribed;
+    private CancellationTokenSource? _cts;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        await UserState.EnsureLoadedAsync();
+        if (UserState.IsRegistered && !UserState.HidesLessons)
+        {
+            if (!Lives.Initialized) await Lives.InitAsync();
+            await Stats.RefreshAsync();
+        }
+
+        Lives.PropertyChanged += OnLivesChanged;
+        Nav.LocationChanged += OnLocationChanged;
+        _subscribed = true;
+        _ready = true;
+        StateHasChanged();
+
+        // While the block lasts the clock runs; when it is over the lives come back.
+        _cts = new CancellationTokenSource();
+        _ = TickAsync(_cts.Token);
+    }
+
+    private void OnLivesChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e) => InvokeAsync(StateHasChanged);
+
+    // Progress changes while the learner plays: the book and the streak are read again on every page change.
+    private void OnLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e) =>
+        InvokeAsync(async () =>
+        {
+            if (!UserState.IsRegistered || UserState.HidesLessons) return;
+            await Stats.RefreshAsync();
+            StateHasChanged();
+        });
+
+    private async Task TickAsync(CancellationToken token)
+    {
+        using var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+        try
+        {
+            while (await timer.WaitForNextTickAsync(token))
+            {
+                if (!Lives.IsBlocked) continue;
+                if (Lives.RegenRemaining <= TimeSpan.Zero) await Lives.CheckRegenAsync();
+                await InvokeAsync(StateHasChanged);
+            }
+        }
+        catch (OperationCanceledException) { }
+    }
+
+    public void Dispose()
+    {
+        _cts?.Cancel();
+        _cts?.Dispose();
+        if (!_subscribed) return;
+        Lives.PropertyChanged -= OnLivesChanged;
+        Nav.LocationChanged -= OnLocationChanged;
+    }
+}

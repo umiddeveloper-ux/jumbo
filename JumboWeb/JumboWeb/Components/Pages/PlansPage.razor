@@ -1,0 +1,259 @@
+@page "/plans"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared
+@using Jumbo.Shared.Dtos
+@inject UserStateService UserState
+@inject LivesService Lives
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+
+<PageTitle>@Loc["Plan_Nav"]</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <div class="@(UserState.IsRegistered ? "fs-wrap" : "land-wrap")">
+        @if (!UserState.IsRegistered)
+        {
+            <div class="land-bg" aria-hidden="true"></div>
+        }
+        <div class="fs pp @(UserState.IsRegistered ? "" : "land")">
+            @if (!UserState.IsRegistered)
+            {
+                <LandNav />
+            }
+
+            <section class="fs-hero">
+                <div>
+                    <h1 class="fs-title">@Loc["PP_Title"]</h1>
+                    <p class="fs-sub">@Loc["PP_Sub"]</p>
+                </div>
+                <Tiger Mood="wave" Size="130" />
+            </section>
+
+            @if (UserState.IsRegistered && UserState.CurrentUser is { } me)
+            {
+                @* the money of the learner: the balance is topped up with the ID (by the learner or by anybody), the versions are bought from it *@
+                <section class="pp-wallet">
+                    <div class="pp-wallet-main">
+                        <span class="pp-wallet-label">@Loc["Money_Balance"]</span>
+                        <b class="pp-wallet-sum">@Money.Format(me.Balance) <small>@Loc["Money_Currency"]</small></b>
+                    </div>
+                    <div class="pp-wallet-id">
+                        <span class="pp-wallet-label">@Loc["Settings_MyId"]</span>
+                        <b class="public-id">@me.PublicId</b>
+                    </div>
+                    <p class="pp-wallet-hint">@Loc["PP_TopUpHint"]</p>
+                </section>
+            }
+
+            <div class="pp-periods" role="tablist">
+                <button type="button" class="rate-chip @(_period == Plans.Month ? "on" : "")" @onclick="() => _period = Plans.Month">@Loc["PP_Monthly"]</button>
+                <button type="button" class="rate-chip @(_period == Plans.Year ? "on" : "")" @onclick="() => _period = Plans.Year">@Loc["PP_Yearly"]</button>
+            </div>
+
+            @if (!string.IsNullOrEmpty(_message))
+            {
+                <div class="lp-success-msg">@_message</div>
+            }
+            @if (!string.IsNullOrEmpty(_error))
+            {
+                <p class="validation-message">@_error</p>
+            }
+
+            <div class="pp-grid">
+                @foreach (var p in Cards)
+                {
+                    var plan = p.Plan;
+                    var price = PriceOf(plan);
+                    <section class="pp-card pp-@plan @(Mine == plan ? "mine" : "")">
+                        <div class="pp-head">
+                            <span class="plan-coin plan-@plan pp-coin">★</span>
+                            <h2>@Loc[PlanKey(plan)]</h2>
+                            @if (Mine == plan)
+                            {
+                                <span class="pp-badge">✓ @Loc["PP_Current"]</span>
+                            }
+                        </div>
+                        <div class="pp-price">
+                            @if (plan == Plans.Bronze)
+                            {
+                                <b>@Loc["PP_Free"]</b>
+                            }
+                            else if (price is { } amount)
+                            {
+                                <b>@Money.Format(amount)</b><span> @Loc["Money_Currency"] / @Loc[_period == Plans.Year ? "PP_PerYear" : "PP_PerMonth"]</span>
+                            }
+                            else
+                            {
+                                <b>@Loc["PP_PriceSoon"]</b>
+                            }
+                        </div>
+                        <ul class="pp-list">
+                            @foreach (var key in p.Features)
+                            {
+                                <li>@Loc[key]</li>
+                            }
+                        </ul>
+
+                        @if (plan != Plans.Bronze)
+                        {
+                            @if (_confirm == (plan, _period))
+                            {
+                                <div class="pp-confirm">
+                                    <p>@Loc.Format("PP_Confirm", Loc[PlanKey(plan)], Loc[_period == Plans.Year ? "PP_Period_year" : "PP_Period_month"], Money.Format(price ?? 0))</p>
+                                    @if (Mine != plan && Mine != Plans.Bronze)
+                                    {
+                                        <p class="pp-warn">@Loc.Format("PP_ConfirmReplace", Loc[PlanKey(Mine)])</p>
+                                    }
+                                    <div class="pp-confirm-actions">
+                                        <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="BuyAsync">✓ @Loc["PP_Yes"]</button>
+                                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" disabled="@_busy" @onclick="() => _confirm = null">@Loc["PP_Cancel"]</button>
+                                    </div>
+                                </div>
+                            }
+                            else if (!UserState.IsRegistered)
+                            {
+                                <a class="lp-btn lp-btn-full" href="/login?returnUrl=%2Fplans">@Loc["Land_Login"]</a>
+                            }
+                            else if (price is not { } cost)
+                            {
+                                <button type="button" class="lp-btn lp-btn-full" disabled>@Loc["PP_Soon"]</button>
+                            }
+                            else if (Plans.Rank(Mine) > Plans.Rank(plan))
+                            {
+                                <button type="button" class="lp-btn lp-btn-full" disabled>@Loc["PP_HigherActive"]</button>
+                            }
+                            else if (UserState.CurrentUser!.Balance < cost)
+                            {
+                                <button type="button" class="lp-btn lp-btn-full" disabled>@Loc.Format("PP_NotEnough", Money.Format(cost - UserState.CurrentUser.Balance))</button>
+                            }
+                            else
+                            {
+                                <button type="button" class="lp-btn lp-btn-full" @onclick="() => AskAsync(plan)">
+                                    @Loc.Format(Mine == plan ? "PP_Extend" : "PP_BuyFor", Money.Format(cost))
+                                </button>
+                            }
+                        }
+                    </section>
+                }
+            </div>
+
+            <p class="pp-note">ℹ️ @Loc["PP_BuyHint"]</p>
+
+            @if (!UserState.IsRegistered)
+            {
+                <section class="fs-card fs-login">
+                    <p>@Loc["PP_NeedLogin"]</p>
+                    <div class="fs-login-actions">
+                        <a class="lp-btn" href="/register?returnUrl=%2Fplans">@Loc["Land_Register"]</a>
+                        <a class="lp-btn lp-btn-outline" href="/login?returnUrl=%2Fplans">@Loc["Land_Login"]</a>
+                    </div>
+                </section>
+            }
+            else
+            {
+                @if (Mine != Plans.Bronze && UserState.CurrentUser?.PlanUntil is { } until)
+                {
+                    <p class="pp-note">@Loc.Format("Plan_PaidUntil", until.ToLocalTime().ToString("dd.MM.yyyy"))</p>
+                }
+
+                @if (_history.Count > 0)
+                {
+                    <section class="fs-card pp-history">
+                        <h2 class="fs-form-title">@Loc["PP_History"]</h2>
+                        @foreach (var t in _history)
+                        {
+                            <div class="pp-tx">
+                                <span class="pp-tx-date">@t.CreatedAt.AddHours(5).ToString("dd.MM.yyyy HH:mm")</span>
+                                <span class="pp-tx-what">@TxText(t)</span>
+                                <b class="pp-tx-sum @(t.Amount < 0 ? "minus" : "plus")">@(t.Amount > 0 ? "+" : "")@Money.Format(t.Amount)</b>
+                            </div>
+                        }
+                    </section>
+                }
+            }
+        </div>
+    </div>
+}
+
+@code {
+    private bool _loaded, _busy;
+    private string _period = Plans.Month;
+    private string _message = string.Empty, _error = string.Empty;
+    private (string Plan, string Period)? _confirm;
+    private List<PlanPriceDto> _prices = new();
+    private List<BalanceTransactionDto> _history = new();
+
+    private record PlanCard(string Plan, string[] Features);
+
+    private static readonly PlanCard[] Cards =
+    [
+        new(Plans.Bronze, ["PP_B1", "PP_B2", "PP_B3"]),
+        new(Plans.Silver, ["PP_S1", "PP_S2", "PP_S3"]),
+        new(Plans.Gold, ["PP_G1", "PP_G2", "PP_G3"]),
+    ];
+
+    public static string PlanKey(string plan) => plan switch { Plans.Silver => "Plan_Silver", Plans.Gold => "Plan_Gold", _ => "Plan_Bronze" };
+
+    // the version in force (the API turns an expired one back into bronze)
+    private string Mine => !UserState.IsRegistered ? string.Empty : Plans.Effective(UserState.CurrentUser?.Plan, UserState.CurrentUser?.PlanUntil, DateTime.UtcNow);
+
+    private long? PriceOf(string plan) => _prices.FirstOrDefault(p => p.Plan == plan && p.Period == _period)?.Amount;
+
+    private string TxText(BalanceTransactionDto t)
+    {
+        if (t.Kind == "purchase")
+        {
+            var parts = (t.Note ?? string.Empty).Split('/');
+            var plan = parts.Length > 0 ? Loc[PlanKey(parts[0])] : string.Empty;
+            var period = parts.Length > 1 ? Loc[parts[1] == "year" ? "PP_Period_year" : "PP_Period_month"] : string.Empty;
+            return Loc.Format("PP_TxPurchase", plan, period);
+        }
+        var provider = t.Provider switch { "payme" => "Payme", "click" => "Click", "paynet" => "Paynet", _ => Loc["PP_TxAdmin"] };
+        return Loc.Format("PP_TxTopUp", provider);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        try { _prices = await ApiClient.GetPlanPricesAsync(); } catch { /* shown as "price soon" */ }
+        await LoadHistoryAsync();
+        _loaded = true;
+    }
+
+    private async Task LoadHistoryAsync()
+    {
+        if (!UserState.IsRegistered) return;
+        try { _history = await ApiClient.GetMyBalanceTransactionsAsync(); } catch { _history = new(); }
+    }
+
+    private void AskAsync(string plan)
+    {
+        _message = _error = string.Empty;
+        _confirm = (plan, _period);
+    }
+
+    private async Task BuyAsync()
+    {
+        if (_confirm is not { } c) return;
+        _busy = true;
+        _message = _error = string.Empty;
+        try
+        {
+            var result = await ApiClient.PurchasePlanAsync(c.Plan, c.Period);
+            if (result is not null)
+                _message = Loc.Format("PP_Bought", Loc[PlanKey(result.Plan)], result.PlanUntil.ToLocalTime().ToString("dd.MM.yyyy"), Money.Format(result.Balance));
+            await UserState.RefreshAsync();          // the new version and balance everywhere (the coin, the menu)
+            await Lives.InitAsync();
+            await LoadHistoryAsync();
+        }
+        catch (InvalidOperationException ex) { _error = Loc[$"PP_Err_{ex.Message}"]; }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _busy = false; _confirm = null; }
+    }
+}

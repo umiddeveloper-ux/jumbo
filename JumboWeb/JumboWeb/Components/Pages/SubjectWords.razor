@@ -1,0 +1,103 @@
+@page "/little-polyglot/subjects/{BookNumber:int}/{SubjectId:int}/words"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserPreferencesService Prefs
+@inject UserStateService UserState
+@inject IJSRuntime JS
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+<PageTitle>@Loc["Game_WordsTitle"] — Jumbo</PageTitle>
+
+<button class="lp-back-btn" @onclick="GoBack">@Loc["Common_BackArrow"]</button>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <p class="lp-page-title" style="text-align:center">@(_subject?.SubjectName ?? Loc["Game_WordsTitle"])</p>
+
+    @if (_rows.Count == 0)
+    {
+        <div class="lp-empty-state">@Loc["Common_NoWordsFound"]</div>
+    }
+    else
+    {
+        <ul class="topic-word-list">
+            @foreach (var row in _rows)
+            {
+                var r = row;
+                <li class="topic-word-row">
+                    <span class="topic-word-num">@r.Number</span>
+                    <span class="topic-word-study">@r.Word</span>
+                    <span class="topic-word-trans">@r.Translation</span>
+                    <button type="button" class="topic-word-speak" title="@Loc["ListenGame_SpeakTitle"]"
+                            @onclick="() => Speak(r.Word)">🔊</button>
+                </li>
+            }
+        </ul>
+    }
+}
+
+@code {
+    [Parameter] public int BookNumber { get; set; }
+    [Parameter] public int SubjectId { get; set; }
+
+    private record WordRow(int Number, string Word, string Translation);
+
+    private Subject? _subject;
+    private List<WordRow> _rows = new();
+    private bool _loaded;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+
+        _subject = await ApiClient.GetSubjectByIdAsync(SubjectId);
+
+        var words = await ApiClient.GetAllWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId);
+        var ordered = words.OrderBy(w => w.WordNumber).ThenBy(w => w.WordId).ToList();
+
+        for (int i = 0; i < ordered.Count; i++)
+        {
+            var w = ordered[i];
+            string translation;
+            try
+            {
+                translation = (await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId))?.WordName ?? string.Empty;
+            }
+            catch (HttpRequestException)
+            {
+                translation = string.Empty;
+            }
+            _rows.Add(new WordRow(w.WordNumber > 0 ? w.WordNumber : i + 1, w.WordName, translation));
+        }
+
+        _loaded = true;
+    }
+
+    // Language ids follow the API's seed order: 1 = English, 2 = Russian, 3 = Uzbek.
+    private string SpeechLang => Prefs.StudyLangId switch
+    {
+        2 => "ru-RU",
+        3 => "uz-UZ",
+        _ => "en-US"
+    };
+
+    private async Task Speak(string word)
+    {
+        if (!string.IsNullOrEmpty(word))
+            await JS.InvokeVoidAsync("lp.speak", word, SpeechLang);
+    }
+
+    private void GoBack()
+    {
+        _ = JS.InvokeVoidAsync("lp.stopSpeech");
+        _ = JS.InvokeVoidAsync("lp.backTo", $"/little-polyglot/subjects/{BookNumber}/{SubjectId}");
+    }
+}

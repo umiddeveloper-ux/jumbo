@@ -1,0 +1,142 @@
+[
+  {
+    "enName": "Red Paws Avatar",
+    "ruName": "Аватарка: Рыжая лапка",
+    "uzName": "Avatar: Sariq panja",
+    "price": 1000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='#FF7043'/><circle cx='50' cy='45' r='12' fill='#FFF'/><circle cx='32' cy='32' r='8' fill='#FFF'/><circle cx='68' cy='32' r='8' fill='#FFF'/><circle cx='24' cy='52' r='7' fill='#FFF'/><circle cx='76' cy='52' r='7' fill='#FFF'/></svg>"
+  },
+  {
+    "enName": "Bronze Frame",
+    "ruName": "Бронзовая рамка",
+    "uzName": "Bronza ramka",
+    "price": 1500,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='5' y='5' width='90' height='90' rx='15' fill='none' stroke='#CD7F32' stroke-width='8'/><circle cx='50' cy='50' r='20' fill='#CD7F32' opacity='0.2'/></svg>"
+  },
+  {
+    "enName": "One Extra Heart",
+    "ruName": "+1 Дополнительная жизнь",
+    "uzName": "+1 Qo'shimcha jon",
+    "price": 2000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path fill='#FF1744' d='M50 88.3L43.8 82.7C21.8 62.7 7.3 49.6 7.3 33.5C7.3 20.4 17.6 10 30.7 10C38.1 10 45.2 13.4 50 18.9C54.8 13.4 61.9 10 69.3 10C82.4 10 92.7 20.4 92.7 33.5C92.7 49.6 78.2 62.7 56.2 82.7L50 88.3Z'/></svg>"
+  },
+  {
+    "enName": "Green Mint Theme",
+    "ruName": "Мятная тема приложения",
+    "uzName": "Yalpiz rangli ilova mavzusi",
+    "price": 2500,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='80' height='80' rx='12' fill='#E0F2F1'/><circle cx='30' cy='35' r='10' fill='#4DB6AC'/><rect x='20' y='60' width='60' height='15' rx='5' fill='#009688'/></svg>"
+  },
+  {
+    "enName": "Smart Owl Avatar",
+    "ruName": "Аватарка: Умная сова",
+    "uzName": "Avatar: Aqlli boyo'g'li",
+    "price": 3000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='#3F51B5'/><circle cx='38' cy='45' r='10' fill='#FFF'/><circle cx='62' cy='45' r='10' fill='#FFF'/><circle cx='38' cy='45' r='4' fill='#000'/><circle cx='62' cy='45' r='4' fill='#000'/><polygon points='50,52 45,60 55,60' fill='#FF9800'/></svg>"
+  },
+  {
+    "enName": "Silver Frame",
+    "ruName": "Серебряная рамка",
+    "uzName": "Kumush ramka",
+    "price": 4000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='5' y='5' width='90' height='90' rx='15' fill='none' stroke='#C0C0C0' stroke-width='8'/><polygon points='50,15 53,22 60,22 55,27 57,34 50,30 43,34 45,27 40,22 47,22' fill='#C0C0C0'/></svg>"
+  },
+  {
+    "enName": "Full Hearts Refill",
+    "ruName": "Полное восстановление жизней",
+    "uzName": "Jonlarni to'liq tiklash",
+    "price": 5000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path fill='#00E676' d='M50 15 L85 35 L85 75 L50 95 L15 75 L15 35 Z'/><path fill='#FFF' d='M43 65 L28 50 L33 45 L43 55 L67 31 L72 36 Z'/></svg>"
+  },
+  {
+    "enName": "Space Theme",
+    "ruName": "Космическая тема",
+    "uzName": "Kosmik mavzu",
+    "price": 6000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='80' height='80' rx='12' fill='#1A237E'/><circle cx='65' cy='35' r='8' fill='#FFB74D'/><circle cx='35' cy='65' r='3' fill='#FFF'/><circle cx='45' cy='25' r='2' fill='#FFF'/><circle cx='25' cy='45' r='1' fill='#FFF'/></svg>"
+  },
+  {
+    "enName": "Golden Frame",
+    "ruName": "Золотая рамка",
+    "uzName": "Oltin ramka",
+    "price": 7500,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='5' y='5' width='90' height='90' rx='15' fill='none' stroke='#FFD700' stroke-width='8'/><circle cx='15' cy='15' r='5' fill='#FFD700'/><circle cx='85' cy='15' r='5' fill='#FFD700'/><circle cx='15' cy='85' r='5' fill='#FFD700'/><circle cx='85' cy='85' r='5' fill='#FFD700'/></svg>"
+  },
+  {
+    "enName": "Cute Robot Assistant",
+    "ruName": "Помощник: Робот Погги",
+    "uzName": "Yordamchi: Poggi Roboti",
+    "price": 9000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='25' y='25' width='50' height='45' rx='10' fill='#00BCD4'/><rect x='35' y='37' width='12' height='8' rx='3' fill='#FFF'/><rect x='53' y='37' width='12' height='8' rx='3' fill='#FFF'/><circle cx='41' cy='41' r='2' fill='#000'/><circle cx='59' cy='41' r='2' fill='#000'/><rect x='40' y='55' width='20' height='4' rx='2' fill='#37474F'/><line x1='50' y1='25' x2='50' y2='12' stroke='#00BCD4' stroke-width='4'/><circle cx='50' cy='10' r='4' fill='#FF1744'/></svg>"
+  },
+  {
+    "enName": "Gold Lion Badge",
+    "ruName": "Значок: Золотой Лев",
+    "uzName": "Nishon: Oltin Arslon",
+    "price": 10000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='40' fill='#FFC107'/><path fill='#FFA000' d='M50 15 L60 38 L85 42 L67 60 L72 85 L50 73 L28 85 L33 60 L15 42 L40 38 Z'/><circle cx='50' cy='50' r='12' fill='#FFF'/></svg>"
+  },
+  {
+    "enName": "Candy Shop Theme",
+    "ruName": "Сладкая тема (Конфеты)",
+    "uzName": "Shirinliklar mavzusi",
+    "price": 11000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='80' height='80' rx='12' fill='#FCE4EC'/><circle cx='40' cy='40' r='12' fill='#F48FB1'/><path fill='#CE93D8' d='M60 50 Q70 35 80 50 Z'/><rect x='36' y='52' width='8' height='25' fill='#D7CCC8'/></svg>"
+  },
+  {
+    "enName": "Diamond Frame",
+    "ruName": "Алмазная рамка",
+    "uzName": "Olmos ramka",
+    "price": 12000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='5' y='5' width='90' height='90' rx='15' fill='none' stroke='#00E5FF' stroke-width='8'/><polygon points='15,15 23,7 15,3 7,7' fill='#00E5FF'/><polygon points='85,15 93,7 85,3 77,7' fill='#00E5FF'/><polygon points='15,85 23,93 15,97 7,93' fill='#00E5FF'/><polygon points='85,85 93,93 85,97 77,93' fill='#00E5FF'/></svg>"
+  },
+  {
+    "enName": "Magic Wand Sound FX",
+    "ruName": "Звук волшебной палочки при успехе",
+    "uzName": "To'g'ri javob uchun sehrli ovoz",
+    "price": 13000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path fill='#9C27B0' d='M20 80 L75 25 L80 30 L25 85 Z'/><polygon points='80,15 83,20 88,20 84,24 86,29 80,26 74,29 76,24 72,20 77,20' fill='#FFEB3B'/><circle cx='65' cy='25' r='2' fill='#FFEB3B'/><circle cx='85' cy='40' r='3' fill='#FFEB3B'/></svg>"
+  },
+  {
+    "enName": "Cyberpunk Neon Theme",
+    "ruName": "Киберпанк тема (Неон)",
+    "uzName": "Kiberpank neonli mavzu",
+    "price": 14000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='80' height='80' rx='12' fill='#212121'/><rect x='20' y='25' width='60' height='40' fill='none' stroke='#00E676' stroke-width='4'/><line x1='15' y1='75' x2='85' y2='75' stroke='#FF007F' stroke-width='5'/></svg>"
+  },
+  {
+    "enName": "Super Cat Companion",
+    "ruName": "Питомец: Супер-Кот",
+    "uzName": "Sehrli uy hayvoni: Super-Mushuk",
+    "price": 15000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='55' r='30' fill='#78909C'/><polygon points='25,35 25,15 45,30' fill='#546E7A'/><polygon points='75,35 75,15 55,30' fill='#546E7A'/><circle cx='40' cy='50' r='5' fill='#FFF'/><circle cx='60' cy='50' r='5' fill='#FFF'/><circle cx='40' cy='50' r='2' fill='#000'/><circle cx='60' cy='50' r='2' fill='#000'/><path d='M46 62 Q50 66 54 62' fill='none' stroke='#FF8A80' stroke-width='3'/></svg>"
+  },
+  {
+    "enName": "Fire Dragon Avatar",
+    "ruName": "Аватарка: Огненный Дракон",
+    "uzName": "Avatar: Olovli Ajdarho",
+    "price": 16000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='45' fill='#E53935'/><path fill='#FFB300' d='M30 30 L40 15 L50 30 L60 15 L70 30 L80 45 L20 45 Z'/><circle cx='38' cy='55' r='6' fill='#FFF'/><circle cx='62' cy='55' r='6' fill='#FFF'/><circle cx='38' cy='55' r='3' fill='#000'/><circle cx='62' cy='55' r='3' fill='#000'/><path d='M40 72 L50 85 L60 72 Z' fill='#FFB300'/></svg>"
+  },
+  {
+    "enName": "Unicorn Shield Sound",
+    "ruName": "Звук Единорога (Защита от ошибок)",
+    "uzName": "Xatolardan himoya ovozi (Yagona shox)",
+    "price": 17000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path fill='#E1BEE7' d='M30 75 Q35 35 60 35 Q80 35 75 75 Z'/><polygon points='60,35 75,5 65,32' fill='#FFD700'/><circle cx='48' cy='50' r='4' fill='#000'/><path d='M35 35 Q20 45 30 55' fill='#FF4081'/></svg>"
+  },
+  {
+    "enName": "Cosmic Crown",
+    "ruName": "Космическая Корона профиля",
+    "uzName": "Profil uchun Kosmik Toj",
+    "price": 18500,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path fill='#E91E63' d='M15 75 L25 35 L42 55 L50 25 L58 55 L75 35 L85 75 Z'/><circle cx='25' cy='30' r='4' fill='#00E5FF'/><circle cx='50' cy='20' r='5' fill='#00E5FF'/><circle cx='75' cy='30' r='4' fill='#00E5FF'/><rect x='15' y='75' width='70' height='8' fill='#7B1FA2'/></svg>"
+  },
+  {
+    "enName": "Legendary Rainbow Theme",
+    "ruName": "Легендарная Радужная тема",
+    "uzName": "Afsonaviy Kamalak rangli mavzu",
+    "price": 20000,
+    "svgImage": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='10' width='80' height='80' rx='12' fill='#FFF'/><path d='M15 80 Q50 15 85 80' fill='none' stroke='#FF1744' stroke-width='12'/><path d='M15 80 Q50 25 85 80' fill='none' stroke='#FFEA00' stroke-width='8'/><path d='M15 80 Q50 35 85 80' fill='none' stroke='#00E676' stroke-width='5'/><path d='M15 80 Q50 45 85 80' fill='none' stroke='#2979FF' stroke-width='3'/></svg>"
+  }
+]

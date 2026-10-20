@@ -1,0 +1,549 @@
+@page "/little-polyglot/settings"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject UserStateService UserState
+@inject UserPreferencesService Prefs
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["Settings_PageTitle"]</PageTitle>
+
+<p class="lp-page-title">@Loc["Settings_Heading"]</p>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <div class="lp-card">
+        <p class="lp-section-title">@Loc["Settings_ProfileSection"]</p>
+
+        @if (!IsStaff && UserState.CurrentUser is { PublicId.Length: > 0 } me)
+        {
+            <div class="plan-row public-id-row">
+                <div class="plan-row-text">
+                    <span>@Loc["Settings_MyId"]</span>
+                    <b class="public-id">@me.PublicId</b>
+                    <span>@Loc["Money_Balance"]: <b>@Jumbo.Shared.Money.Format(me.Balance) @Loc["Money_Currency"]</b></span>
+                </div>
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => CopyIdAsync(me.PublicId)">📋 @(_idCopied ? Loc["Settings_IdCopied"] : Loc["Settings_CopyId"])</button>
+            </div>
+            <p class="reg-help">@Loc["Settings_MyIdHint"]</p>
+        }
+
+        @if (!IsStaff)
+        {
+            var plan = UserState.CurrentPlan;
+            <div class="plan-row">
+                <span class="plan-coin plan-@plan pp-coin">★</span>
+                <div class="plan-row-text">
+                    <b>@Loc.Format("Plan_Yours", Loc[JumboWeb.Components.Pages.PlansPage.PlanKey(plan)])</b>
+                    <span>@(plan == Jumbo.Shared.Plans.Bronze || UserState.CurrentUser?.PlanUntil is null
+                        ? Loc["Plan_FreeVersion"]
+                        : Loc.Format("Plan_PaidUntil", UserState.CurrentUser!.PlanUntil!.Value.ToLocalTime().ToString("dd.MM.yyyy")))</span>
+                </div>
+                <a class="lp-btn lp-btn-sm lp-btn-outline" href="/plans">@Loc["Plan_See"]</a>
+            </div>
+        }
+
+        <div class="settings-label">@Loc["FirstName"]</div>
+        <input class="lp-input" type="text" @bind="_firstName" placeholder="@Loc["Settings_FirstNamePlaceholder"]" />
+
+        <div class="settings-label">@Loc["LastName"]</div>
+        <input class="lp-input" type="text" @bind="_lastName" placeholder="@Loc["Settings_LastNamePlaceholder"]" />
+
+        <div class="settings-label">@Loc["Settings_PhoneLabel"]</div>
+        <input class="lp-input" type="tel" @bind="_phone" placeholder="@_phoneHint" />
+    </div>
+
+    @if (UserState.CurrentUser?.Role == UserRole.Learner && !IsStaff)
+    {
+        <div class="lp-card">
+            <p class="lp-section-title">@Loc["Team_Section"]</p>
+            @if (_myTeam is not null)
+            {
+                <p class="team-status @(_myTeam.Approved ? "ok" : "wait")">
+                    @(_myTeam.Approved ? "✅" : "⏳") @Loc.Format("Team_Is", _myTeam.ClassName, _myTeam.SchoolName)
+                    <small>@Loc[_myTeam.Approved ? "Team_Approved" : "Team_Pending"]</small>
+                </p>
+                <button type="button" class="lp-btn lp-btn-outline lp-btn-full" disabled="@_teamBusy" @onclick="LeaveTeamAsync">@Loc["Team_Leave"]</button>
+            }
+            else
+            {
+                @if (!string.IsNullOrWhiteSpace(_school) || !string.IsNullOrWhiteSpace(_team))
+                {
+                    <p class="reg-help">@Loc.Format("Team_Legacy", _school, _team)</p>
+                }
+                <TeamPicker @bind-Region="_region" @bind-ClassId="_pickedClassId" />
+                <button type="button" class="lp-btn lp-btn-full" disabled="@(_pickedClassId is null || _teamBusy)" @onclick="SelectTeamAsync">@Loc["Team_Submit"]</button>
+            }
+            @if (!string.IsNullOrEmpty(_teamError))
+            {
+                <p class="validation-message">@_teamError</p>
+            }
+            @if (!string.IsNullOrEmpty(_teamMsg))
+            {
+                <div class="lp-success-msg">@_teamMsg</div>
+            }
+        </div>
+
+        @if (_pupilTg is { Enabled: true })
+        {
+            var linked = _pupilTg.Connections.Where(c => c.Connected).ToList();
+            var waiting = _pupilTg.Connections.FirstOrDefault(c => !c.Connected);
+            <div class="lp-card">
+                <p class="lp-section-title">✈️ @Loc["PupilBot_Title"]</p>
+                <p class="reg-help">@Loc["PupilBot_Hint"]</p>
+
+                @foreach (var c in linked)
+                {
+                    var conn = c;
+                    <p class="team-status ok">@Loc["PupilBot_Connected"] @(string.IsNullOrWhiteSpace(conn.Name) ? "" : "· " + conn.Name)</p>
+                    <button type="button" class="lp-btn lp-btn-outline lp-btn-full" disabled="@_pupilTgBusy" @onclick="() => RemovePupilBotAsync(conn)">@Loc["PupilBot_Disconnect"]</button>
+                }
+
+                @if (waiting is not null)
+                {
+                    <a class="lp-btn lp-btn-full" href="@waiting.Url" target="_blank" rel="noopener">@Loc["PupilBot_Open"]</a>
+                    <p class="reg-help">@Loc["PupilBot_Waiting"]</p>
+                    <button type="button" class="lp-btn lp-btn-outline lp-btn-full" disabled="@_pupilTgBusy" @onclick="RefreshPupilBotAsync">@Loc["PupilBot_Check"]</button>
+                }
+                else if (linked.Count == 0)
+                {
+                    <button type="button" class="lp-btn lp-btn-full" disabled="@_pupilTgBusy" @onclick="ConnectPupilBotAsync">@Loc["PupilBot_Connect"]</button>
+                }
+            </div>
+        }
+    }
+
+    <div class="lp-card">
+        <p class="lp-section-title">@Loc["Settings_AccountSection"]</p>
+
+        <div class="settings-label">@Loc["Settings_UsernameLabel"]</div>
+        <input class="lp-input" type="text" autocomplete="username" @bind="_newUsername" />
+
+        <div class="settings-label">@Loc["Settings_CurrentPasswordLabel"]</div>
+        <div class="pw-wrap">
+            <input class="lp-input" type="password" autocomplete="current-password" @bind="_currentPassword" />
+            <PasswordEye />
+        </div>
+
+        <div class="settings-label">@Loc["Settings_NewPasswordLabel"]</div>
+        <div class="pw-wrap">
+            <input class="lp-input" type="password" autocomplete="new-password" @bind="_newPassword"
+                   placeholder="@Loc["Settings_NewPasswordHint"]" />
+            <PasswordEye />
+        </div>
+
+        <div class="settings-label">@Loc["Settings_ConfirmPasswordLabel"]</div>
+        <div class="pw-wrap">
+            <input class="lp-input" type="password" autocomplete="new-password" @bind="_confirmPassword" />
+            <PasswordEye />
+        </div>
+
+        @if (!string.IsNullOrEmpty(_accountError))
+        {
+            <p class="validation-message">@_accountError</p>
+        }
+        @if (!string.IsNullOrEmpty(_accountMsg))
+        {
+            <div class="lp-success-msg">@_accountMsg</div>
+        }
+
+        <button class="lp-btn lp-btn-full" @onclick="SaveCredentials" disabled="@_savingAccount">
+            @(_savingAccount ? Loc["Settings_Saving"] : Loc["Settings_AccountSaveButton"])
+        </button>
+    </div>
+
+    @if (!IsStaff)
+    {
+    <div class="lp-card">
+        <p class="lp-section-title">@Loc["Settings_PrivacySection"]</p>
+        <label class="settings-switch">
+            <input type="checkbox" @bind="_hideName" />
+            <span class="settings-switch-track"><span class="settings-switch-knob"></span></span>
+            <span class="settings-switch-text">
+                <span class="settings-switch-title">@Loc["Settings_HideNameLabel"]</span>
+                <span class="settings-switch-hint">@Loc["Settings_HideNameHint"]</span>
+            </span>
+        </label>
+    </div>
+
+    <div class="lp-card">
+        <p class="lp-section-title">@Loc["Settings_DailyGoalSection"]</p>
+        <div class="settings-label">@Loc["Settings_DailyGoalLabel"]</div>
+        <div class="goal-chips">
+            @foreach (var g in GoalOptions)
+            {
+                var goal = g;
+                <button type="button" class="goal-chip @(_dailyGoal == goal ? "selected" : "")" @onclick="() => SetGoal(goal)">@goal</button>
+            }
+        </div>
+        @if (!string.IsNullOrEmpty(_goalMsg))
+        {
+            <div class="lp-success-msg">@_goalMsg</div>
+        }
+    </div>
+
+    }
+
+    <div class="lp-card">
+        <p class="lp-section-title">@Loc["Settings_LanguagesSection"]</p>
+
+        <div class="settings-label">@Loc["AppLanguage"]</div>
+        <select class="lp-select" @bind="_appLangId">
+            @foreach (var l in _languages)
+            {
+                <option value="@l.LanguageId">@l.Name</option>
+            }
+        </select>
+
+        @if (!IsStaff)
+        {
+            <div class="settings-label">@Loc["Settings_StudyLangLabel"]</div>
+            <select class="lp-select" @bind="_studyLangId">
+                @foreach (var l in _languages)
+                {
+                    <option value="@l.LanguageId">@l.Name</option>
+                }
+            </select>
+
+            <div class="settings-label">@Loc["TranslationLanguageTitle"]</div>
+            <select class="lp-select" @bind="_transLangId">
+                @foreach (var l in _languages)
+                {
+                    <option value="@l.LanguageId">@l.Name</option>
+                }
+            </select>
+        }
+    </div>
+
+    @if (!string.IsNullOrEmpty(_savedMsg))
+    {
+        <div class="lp-success-msg">@_savedMsg</div>
+    }
+
+    <button class="lp-btn lp-btn-full" @onclick="SaveSettings" disabled="@_saving">
+        @(_saving ? Loc["Settings_Saving"] : Loc["Settings_SaveButton"])
+    </button>
+
+    @* Deleting the account for good (Google Play and the privacy rules want it): teachers' accounts are deleted by the admin *@
+    @if (!IsStaff)
+    {
+        <div class="lp-card delete-card">
+            <p class="lp-section-title">@Loc["Settings_DeleteSection"]</p>
+            <p class="reg-help">@Loc["Settings_DeleteHint"]</p>
+            <button type="button" class="lp-btn lp-btn-danger lp-btn-full" @onclick="OpenDelete">@Loc["Settings_DeleteButton"]</button>
+        </div>
+    }
+
+    <p class="legal-links"><a href="/privacy" target="_blank">@Loc["Legal_Privacy_Link"]</a></p>
+
+    @if (_showDelete)
+    {
+        <div class="confirm-overlay" @onclick="CloseDelete">
+            <div class="confirm-modal" @onclick:stopPropagation="true">
+                <p class="confirm-modal-title">@Loc["Settings_DeleteConfirmTitle"]</p>
+                <p class="confirm-modal-sub">@Loc["Settings_DeleteConfirmSub"]</p>
+                <div class="pw-wrap">
+                    <input class="lp-input" type="password" autocomplete="current-password" @bind="_deletePassword" @bind:event="oninput" />
+                    <PasswordEye />
+                </div>
+                @if (!string.IsNullOrEmpty(_deleteError))
+                {
+                    <p class="validation-message">@_deleteError</p>
+                }
+                <div class="confirm-modal-actions">
+                    <button type="button" class="lp-btn lp-btn-outline" @onclick="CloseDelete" disabled="@_deleting">@Loc["Common_Cancel"]</button>
+                    <button type="button" class="lp-btn lp-btn-danger" @onclick="DeleteAccountAsync" disabled="@_deleting">@Loc["Settings_DeleteButton"]</button>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+@code {
+    private bool _idCopied;
+
+    private async Task CopyIdAsync(string id)
+    {
+        try { await JS.InvokeVoidAsync("navigator.clipboard.writeText", id); _idCopied = true; }
+        catch { /* no clipboard (an old browser, an insecure page): the ID is on the screen */ }
+    }
+
+    private bool IsStaff => UserState.HidesLessons;
+
+    private bool _showDelete, _deleting;
+    private string _deletePassword = string.Empty;
+    private string _deleteError = string.Empty;
+
+    private void OpenDelete() { _deletePassword = _deleteError = string.Empty; _showDelete = true; }
+    private void CloseDelete() { if (!_deleting) _showDelete = false; }
+
+    private async Task DeleteAccountAsync()
+    {
+        _deleteError = string.Empty;
+        if (string.IsNullOrEmpty(_deletePassword)) { _deleteError = Loc["Settings_DeleteNeedPassword"]; return; }
+        _deleting = true;
+        try
+        {
+            await ApiClient.DeleteAccountAsync(new DeleteAccountRequest { CurrentPassword = _deletePassword });
+            // a real navigation, as for the logout: the circuit still holds the old user and token
+            UserState.Invalidate();
+            await JS.InvokeVoidAsync("window.location.assign", "/session/logout");
+        }
+        catch (Exception ex)
+        {
+            _deleteError = ex.Message;
+            _deleting = false;
+        }
+    }
+
+    private string _firstName = string.Empty;
+    private string _lastName = string.Empty;
+    private string _phone = string.Empty;
+    private string _region = string.Empty;
+    private string _school = string.Empty;
+    private string _team = string.Empty;
+    private bool _hideName;
+    private int _appLangId;
+    private int _studyLangId;
+    private int _transLangId;
+    private List<Language> _languages = new();
+    private string _savedMsg = string.Empty;
+    private bool _loaded;
+    private bool _saving;
+
+    private MyTeamDto? _myTeam;
+    private TelegramStatusDto? _pupilTg;
+    private bool _pupilTgBusy;
+    private int? _pickedClassId;
+    private string _teamError = string.Empty;
+    private string _teamMsg = string.Empty;
+    private bool _teamBusy;
+
+    private string _newUsername = string.Empty;
+    private string _currentPassword = string.Empty;
+    private string _newPassword = string.Empty;
+    private string _confirmPassword = string.Empty;
+    private string _accountError = string.Empty;
+    private string _accountMsg = string.Empty;
+    private bool _savingAccount;
+
+    private string _phoneHint = string.Empty;
+
+    // Example number for the visitor's country (browser time zone / language region, no location permission).
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        try { _phoneHint = await JS.InvokeAsync<string>("lp.phoneHint"); StateHasChanged(); } catch { }
+    }
+
+    private async Task RefreshPupilBotAsync()
+    {
+        try { _pupilTg = await ApiClient.GetMyTelegramAsync(); } catch { _pupilTg = null; }
+    }
+
+    private async Task ConnectPupilBotAsync()
+    {
+        _pupilTgBusy = true;
+        try { await ApiClient.CreateMyTelegramLinkAsync(); await RefreshPupilBotAsync(); }
+        catch { }
+        finally { _pupilTgBusy = false; }
+    }
+
+    private async Task RemovePupilBotAsync(TelegramConnectionDto c)
+    {
+        _pupilTgBusy = true;
+        try { await ApiClient.RemoveMyTelegramAsync(c.Id); await RefreshPupilBotAsync(); }
+        catch { }
+        finally { _pupilTgBusy = false; }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+
+        var user = UserState.CurrentUser;
+        if (user != null)
+        {
+            _firstName = user.FirstName ?? string.Empty;
+            _lastName = user.LastName ?? string.Empty;
+            _phone = !string.IsNullOrEmpty(user.Phone) ? user.Phone : user.PhoneNumber > 0 ? user.PhoneNumber.ToString() : string.Empty;
+            _region = user.Region ?? string.Empty;
+            _school = user.School ?? string.Empty;
+            _team = user.Team ?? string.Empty;
+            _hideName = user.HideName;
+            _newUsername = user.Username ?? string.Empty;
+            _dailyGoal = user.DailyGoalWords > 0 ? user.DailyGoalWords : 10;
+        }
+
+        if (user?.ClassId is not null) _myTeam = await ApiClient.GetMyTeamAsync();
+        if (user?.Role == UserRole.Learner) await RefreshPupilBotAsync();
+
+        _languages = await ApiClient.GetLanguagesAsync();
+        _appLangId = Prefs.AppLangId;
+        _studyLangId = Prefs.StudyLangId;
+        _transLangId = Prefs.TransLangId;
+        _loaded = true;
+    }
+
+    private async Task SelectTeamAsync()
+    {
+        _teamError = _teamMsg = string.Empty;
+        if (_pickedClassId is not { } classId) return;
+
+        _teamBusy = true;
+        try
+        {
+            _myTeam = await ApiClient.SelectTeamAsync(classId);
+            // The server filled in region / school / team: reload the user.
+            UserState.Invalidate();
+            await UserState.EnsureLoadedAsync();
+            var u = UserState.CurrentUser;
+            _region = u?.Region ?? string.Empty;
+            _school = u?.School ?? string.Empty;
+            _team = u?.Team ?? string.Empty;
+            _pickedClassId = null;
+            _teamMsg = Loc["Team_Sent"];
+        }
+        catch (Exception ex)
+        {
+            var key = $"Team_Err_{ex.Message}";
+            var text = Loc[key];
+            _teamError = text == key ? ex.Message : text;
+        }
+        finally
+        {
+            _teamBusy = false;
+        }
+    }
+
+    private async Task LeaveTeamAsync()
+    {
+        _teamError = _teamMsg = string.Empty;
+        _teamBusy = true;
+        try
+        {
+            await ApiClient.LeaveTeamAsync();
+            _myTeam = null;
+            _school = _team = string.Empty;
+            if (UserState.CurrentUser is { } u) { u.ClassId = null; u.ClassApproved = false; u.School = null; u.Team = null; }
+            _teamMsg = Loc["Team_Left"];
+        }
+        catch (Exception ex) { _teamError = ex.Message; }
+        finally { _teamBusy = false; }
+    }
+
+    private static readonly int[] GoalOptions = [5, 10, 20];
+    private int _dailyGoal = 10;
+    private string _goalMsg = string.Empty;
+
+    private async Task SetGoal(int goal)
+    {
+        _goalMsg = string.Empty;
+        try
+        {
+            var result = await ApiClient.SetDailyGoalAsync(goal);
+            _dailyGoal = result?.GoalWords ?? goal;
+            if (UserState.CurrentUser is { } u) u.DailyGoalWords = _dailyGoal;
+            _goalMsg = Loc["Settings_DailyGoalSaved"];
+        }
+        catch (Exception ex)
+        {
+            _goalMsg = ex.Message;
+        }
+    }
+
+    private async Task SaveCredentials()
+    {
+        _accountError = _accountMsg = string.Empty;
+        var user = UserState.CurrentUser;
+        if (user == null) return;
+
+        var newUsername = _newUsername.Trim();
+        bool usernameChanged = newUsername != (user.Username ?? string.Empty);
+        bool passwordChanged = !string.IsNullOrEmpty(_newPassword);
+
+        if (string.IsNullOrEmpty(newUsername))
+        {
+            _accountError = Loc["Settings_UsernameRequired"];
+            return;
+        }
+        if (!usernameChanged && !passwordChanged)
+        {
+            _accountError = Loc["Settings_AccountNothingToChange"];
+            return;
+        }
+        if (passwordChanged && _newPassword != _confirmPassword)
+        {
+            _accountError = Loc["Settings_PasswordsMismatch"];
+            return;
+        }
+
+        _savingAccount = true;
+        try
+        {
+            await ApiClient.ChangeCredentialsAsync(new ChangeCredentialsRequest
+            {
+                CurrentPassword = _currentPassword,
+                NewUsername = usernameChanged ? newUsername : null,
+                NewPassword = passwordChanged ? _newPassword : null
+            });
+
+            user.Username = newUsername;
+            _currentPassword = _newPassword = _confirmPassword = string.Empty;
+            _accountMsg = Loc["Settings_AccountSaved"];
+        }
+        catch (Exception ex)
+        {
+            _accountError = ex.Message;
+        }
+        finally
+        {
+            _savingAccount = false;
+        }
+    }
+
+    private async Task SaveSettings()
+    {
+        var user = UserState.CurrentUser;
+        if (user == null) return;
+        _saving = true;
+
+        user.FirstName = _firstName;
+        user.LastName = _lastName;
+        user.PhoneNumber = int.TryParse(
+            _phone.Replace("+", "").Replace(" ", "").Replace("-", ""),
+            out int ph) ? ph : 0;
+        user.Phone = string.IsNullOrWhiteSpace(_phone) ? null : _phone.Trim();
+        user.Region = string.IsNullOrWhiteSpace(_region) ? null : _region;
+        user.School = string.IsNullOrWhiteSpace(_school) ? null : _school.Trim();
+        user.Team = string.IsNullOrWhiteSpace(_team) ? null : _team.Trim();
+        user.HideName = _hideName;
+        user.AppLanguageId = _appLangId;
+        user.StudyLanguageId = _studyLangId;
+        user.TranslationLanguageId = _transLangId;
+
+        var langChanged = _appLangId != Prefs.AppLangId;
+        await UserState.UpdateUserAsync(user);
+        Prefs.Update(_appLangId, _studyLangId, _transLangId);
+        if (langChanged)
+        {
+            await JS.InvokeVoidAsync("lp.setLang", AppLanguages.ToCode(_appLangId));
+            await JS.InvokeVoidAsync("lp.reload");
+            return;
+        }
+
+        _savedMsg = Loc["Settings_SavedMessage"];
+        _saving = false;
+        StateHasChanged();
+        await Task.Delay(2500);
+        _savedMsg = string.Empty;
+        StateHasChanged();
+    }
+}

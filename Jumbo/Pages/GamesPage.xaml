@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.GamesPage"
+             x:DataType="pageModels:GamesPageModel"
+             x:Name="GamesPageRoot"
+             Title="{u:Tr Key=Games_Title}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference GamesPageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SectionTitle" TargetType="Label">
+                <Setter Property="FontFamily" Value="NunitoExtraBold" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Margin" Value="2,6,0,0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="16,12,16,28" Spacing="12" MaximumWidthRequest="760" HorizontalOptions="Fill">
+
+                <Label Text="{u:Tr Key=Games_Title}" FontFamily="NunitoBlack" FontSize="28" SemanticProperties.HeadingLevel="Level1" />
+                <Label Text="{u:Tr Key=Games_Sub}" Style="{StaticResource SectionTitle}" />
+
+                <!-- the games: tap one to choose it (tap again to put it down) -->
+                <VerticalStackLayout BindableLayout.ItemsSource="{Binding Games}" Spacing="10">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="pageModels:GameKind">
+                            <Border StrokeShape="RoundRectangle 18" StrokeThickness="2" Padding="0"
+                                    Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
+                                        <Setter Property="Stroke" Value="{StaticResource Primary}" />
+                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}" />
+                                    </DataTrigger>
+                                </Border.Triggers>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:GamesPageModel}}, Path=SelectGameCommand}"
+                                                          CommandParameter="{Binding .}" />
+                                </Border.GestureRecognizers>
+                                <Grid ColumnDefinitions="56,*" Padding="14,12" ColumnSpacing="10">
+                                    <Label Text="{Binding Icon}" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                        <Label Text="{Binding Title}" FontFamily="NunitoExtraBold" FontSize="17" />
+                                        <Label Text="{Binding Desc}" FontSize="13"
+                                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="12" IsVisible="{Binding HasGame}">
+                    <!-- the topic to play next -->
+                    <ctl:ChunkyButton Text="{Binding NextText}" Kind="success" FontSize="15"
+                                      IsVisible="{Binding HasNext}" Command="{Binding PlayNextCommand}" />
+
+                    <Label Text="{u:Tr Key=Games_Pick}" Style="{StaticResource SectionTitle}" />
+
+                    <!-- the books -->
+                    <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                        <HorizontalStackLayout BindableLayout.ItemsSource="{Binding BookChips}" Spacing="8">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="pageModels:GameBookChip">
+                                    <Grid WidthRequest="56" Padding="2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:GamesPageModel}}, Path=SelectBookCommand}"
+                                                                  CommandParameter="{Binding .}" />
+                                        </Grid.GestureRecognizers>
+                                        <VerticalStackLayout Spacing="6">
+                                            <Border HeightRequest="48" StrokeShape="RoundRectangle 16" Padding="0" StrokeThickness="2"
+                                                    Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                                    BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                                                <Border.Triggers>
+                                                    <DataTrigger TargetType="Border" Binding="{Binding IsDone}" Value="True">
+                                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
+                                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
+                                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}" />
+                                                        <Setter Property="Stroke" Value="{StaticResource Primary}" />
+                                                    </DataTrigger>
+                                                </Border.Triggers>
+                                                <Label Text="{Binding Label}" FontFamily="NunitoBlack" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"
+                                                       TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+                                            </Border>
+                                            <ProgressBar Progress="{Binding Percent, Converter={StaticResource PercentToFraction}}"
+                                                         ProgressColor="{StaticResource Success}" HeightRequest="6" />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </HorizontalStackLayout>
+                    </ScrollView>
+
+                    <!-- the topics of the book -->
+                    <FlexLayout BindableLayout.ItemsSource="{Binding Topics}" HeightRequest="{Binding TopicsHeight}" Wrap="Wrap" JustifyContent="Start" AlignItems="Start" AlignContent="Start">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="pageModels:GameTopicCard">
+                                <Border WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type pageModels:GamesPageModel}}, Path=CardWidth}" HeightRequest="134" Margin="0,0,8,10" StrokeShape="RoundRectangle 18" StrokeThickness="2" Padding="6,10"
+                                        Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                        BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
+                                    <Border.Triggers>
+                                        <DataTrigger TargetType="Border" Binding="{Binding Won}" Value="True">
+                                            <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                        </DataTrigger>
+                                    </Border.Triggers>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:GamesPageModel}}, Path=PlayCommand}"
+                                                              CommandParameter="{Binding .}" />
+                                    </Border.GestureRecognizers>
+                                    <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                        <ctl:SvgPicture WidthRequest="56" HeightRequest="56" HorizontalOptions="Center" InputTransparent="True" BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+                                        <Label Text="{Binding Name}" FontFamily="NunitoExtraBold" FontSize="12" HorizontalTextAlignment="Center" MaxLines="2" LineBreakMode="TailTruncation" />
+                                        <Label Text="✓" TextColor="{StaticResource Success}" FontFamily="NunitoBlack" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding Won}" />
+                                    </VerticalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </FlexLayout>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" />
+    </Grid>
+</ContentPage>

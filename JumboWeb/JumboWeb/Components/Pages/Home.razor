@@ -1,0 +1,265 @@
+@page "/little-polyglot"
+@layout LpLayout
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject UserPreferencesService Prefs
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["LpHome_PageTitle"]</PageTitle>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    @* ── "Continue" card: jumps straight to the first topic that is not fully won yet ── *@
+    @if (_current is not null)
+    {
+        <a class="continue-card" href="@TopicUrl(_current)">
+            <span class="continue-tiger"><Tiger Head="true" Size="68" /></span>
+            <span class="continue-text">
+                <span class="continue-label">@Loc[ProgressOf(_current) > 0 ? "Path_Continue" : "Path_Start"]</span>
+                <span class="continue-topic">@Loc.Format("Common_BookLabel", _current.BookId) · @_current.SubjectName</span>
+            </span>
+            <span class="continue-play">@Loc["Path_Play"]</span>
+        </a>
+    }
+    else if (_subjectsByBook.Count > 0)
+    {
+        <div class="continue-card continue-done">
+            <span class="continue-tiger"><Tiger Head="true" Size="68" /></span>
+            <span class="continue-text"><span class="continue-topic">@Loc["Path_AllDone"]</span></span>
+        </div>
+    }
+
+    @* ── Book picker: a scrolling row of chips (one per book of the edition) ── *@
+    <DailyCard />
+
+    <p class="lp-section-title">@Loc["BooksSection"]</p>
+    <div class="book-chips">
+        @* Book 0: the alphabet and the numbers to 20 - always open, not a part of the course (no progress, no check). *@
+        <button type="button" class="book-chip zero" title="@Loc["Zero_Title"]" aria-label="@Loc["Zero_Title"]"
+                @onclick='() => Nav.NavigateTo("/little-polyglot/book-zero")'>
+            <span class="book-chip-num zero-label">ABC<small>123</small></span>
+            <span class="book-chip-bar"><span style="width: 0%"></span></span>
+        </button>
+        @for (int i = 1; i <= Jumbo.Shared.Course.BookCount; i++)
+        {
+            var bn = i;
+            var unlocked = _unlockedBooks.Contains(bn);
+            var progress = _bookProgress.TryGetValue(bn, out int p) ? p : 0;
+            <button type="button"
+                    class="book-chip @(bn == _selectedBook ? "selected" : "") @(!unlocked ? "locked" : "") @(progress >= 100 ? "done" : "")"
+                    @onclick="() => SelectBook(bn)">
+                @if (progress > 0)
+                {
+                    @* an open book: the book is under way or passed (done: with a star) *@
+                    <svg class="book-chip-ico @(progress >= 100 ? "done" : "progress")" viewBox="0 0 96 76" aria-hidden="true">
+                        <ellipse cx="48" cy="69" rx="38" ry="4.500" fill="#000" fill-opacity=".16" />
+                        <path d="M4 17C20 11 36 13 48 21 60 13 76 11 92 17V60C76 54 60 56 48 64 36 56 20 54 4 60Z" fill="currentColor" />
+                        <path d="M4 60C20 54 36 56 48 64 60 56 76 54 92 60V63C76 58 60 60 48 68 36 60 20 58 4 63Z" fill="#000" fill-opacity=".22" />
+                        <path d="M9 18C22 14 37 16 48 23V59C37 52 22 50 9 54Z" fill="var(--bk-page)" />
+                        <path d="M87 18C74 14 59 16 48 23V59C59 52 74 50 87 54Z" fill="var(--bk-page)" />
+                        <path d="M9 54C22 50 37 52 48 59M87 54C74 50 59 52 48 59" stroke="currentColor" stroke-opacity=".3" stroke-width="2" fill="none" />
+                        <path d="M16 28C23 26 31 27 41 31M16 35C23 33 31 34 41 38M16 42C23 40 31 41 41 45M80 28C73 26 65 27 55 31M80 35C73 33 65 34 55 38M80 42C73 40 65 41 55 45" stroke="currentColor" stroke-opacity=".38" stroke-width="2.600" stroke-linecap="round" fill="none" />
+                        <path d="M48 23V59" stroke="currentColor" stroke-opacity=".3" stroke-width="2.400" />
+                        <path d="M56 20h8v25l-4-4-4 4z" fill="#FF9600" />
+                        <path class="bk-star" d="M80 4l2.600 5.400 5.900.8-4.300 4.100 1 5.800L80 17.300l-5.200 2.800 1-5.800-4.300-4.100 5.900-.8z" fill="#FFC800" stroke="#E5A800" stroke-width="1" stroke-linejoin="round" />
+                    </svg>
+                }
+                else
+                {
+                    @* a closed book: not started yet *@
+                    <svg class="book-chip-ico closed" viewBox="0 0 96 76" aria-hidden="true">
+                        <ellipse cx="48" cy="69" rx="30" ry="4.500" fill="#000" fill-opacity=".16" />
+                        <rect x="62" y="9" width="8" height="55" rx="2" fill="var(--bk-page)" />
+                        <path d="M64 15h6M64 21h6M64 27h6M64 33h6M64 39h6M64 45h6M64 51h6M64 57h6" stroke="currentColor" stroke-opacity=".28" stroke-width="1.200" />
+                        <rect x="26" y="5" width="40" height="59" rx="6" fill="currentColor" />
+                        <rect x="26" y="5" width="11" height="59" rx="5" fill="#000" fill-opacity=".2" />
+                        <rect x="38" y="9" width="3" height="51" rx="1.500" fill="#fff" fill-opacity=".22" />
+                        <rect x="26" y="52" width="40" height="7" fill="#000" fill-opacity=".14" />
+                        <rect x="43" y="16" width="19" height="16" rx="3.500" fill="var(--bk-page)" fill-opacity=".92" />
+                        <path d="M47 22h11M47 27h7" stroke="currentColor" stroke-opacity=".5" stroke-width="2.400" stroke-linecap="round" />
+                        <path d="M46 40h13M46 45h9" stroke="var(--bk-page)" stroke-opacity=".55" stroke-width="2.400" stroke-linecap="round" />
+                    </svg>
+                }
+                <span class="book-chip-num">@(progress >= 100 ? "✓" : bn.ToString())</span>
+                <span class="book-chip-title">@(progress >= 100 ? "✓ " : "")@Loc.Format("Common_BookLabel", bn)</span>
+                <span class="book-chip-words">@Loc.Format("BookCard_Words", BookWords(bn), BookWordsTotal(bn))</span>
+                <span class="book-chip-cur">@BookNow(bn, unlocked, progress)</span>
+                @if (!unlocked) { <span class="book-chip-lock" aria-hidden="true">🔒</span> }
+                <span class="book-chip-bar"><span style="width: @(progress)%"></span></span>
+            </button>
+        }
+    </div>
+
+    @if (_needBook > 0)
+    {
+        <div class="confirm-overlay" @onclick="() => _needBook = 0">
+            <div class="confirm-modal" @onclick:stopPropagation="true">
+                <p class="confirm-modal-title">🔒 @Loc.Format("Gate_LockedTitle", _needBook)</p>
+                <p class="confirm-modal-sub">@Loc.Format("Gate_LockedText", _needBook)</p>
+                <div class="confirm-modal-actions">
+                    <button type="button" class="lp-btn" @onclick="() => _needBook = 0">@Loc["Gate_Close"]</button>
+                </div>
+            </div>
+        </div>
+    }
+
+    @* Desktop/tablet: full alphabet grid. *@
+    <div class="alphabet-desktop">
+        <p class="lp-section-title">@Loc["AlphabetSection"]</p>
+        <AlphabetGrid Letters="_letters" OnLetterClick="OnLetterClick" />
+    </div>
+
+    <p class="lp-section-title">@Loc["LpHome_OverallProgressTitle"]</p>
+    <div class="overall-progress-bar">
+        <div class="overall-progress-fill" style="width: @(_overallProgressPct)%"></div>
+    </div>
+    <div class="overall-progress-label">@_studiedWordsCount / @_totalWordsCount</div>
+
+    @* Mobile: compact button to the alphabet page; its colour follows the dominant repetition level. *@
+    <a class="alphabet-cta" href="/little-polyglot/alphabet" style="--cta-color: @LetterColors.BgColor(DominantLetterLevel)">
+        <span class="alphabet-cta-icon">🔤</span>
+        <span class="alphabet-cta-text">
+            <span class="alphabet-cta-title">@Loc["AlphabetSection"]</span>
+            <span class="alphabet-cta-hint">@Loc["Alphabet_CtaHint"]</span>
+        </span>
+        <span class="alphabet-cta-arrow">→</span>
+    </a>
+
+    @* ── The place in the weekly rating: the last thing on the page ── *@
+    <MyStats />
+}
+
+@code {
+    private List<LetterItem> _letters = new();
+    private HashSet<int> _unlockedBooks = new();
+    private Dictionary<int, int> _bookProgress = new();
+    private Dictionary<int, List<Subject>> _subjectsByBook = new();
+    private Dictionary<int, UserSubjectProgress> _progressMap = new();
+    private Subject? _current;          // first not-fully-won topic across all unlocked books
+    private int _selectedBook = 1;
+    private int _studiedWordsCount;
+    private int _totalWordsCount;
+    private bool _loaded;
+    private int _needBook;              // >0: the dialog "pass this book first" is open
+
+    // A book the learner is sent to after passing the check (?book=N).
+    [SupplyParameterFromQuery(Name = "book")] public int BookParam { get; set; }
+
+    // Same rule as the mobile app: the most common repetition level among letters that have words.
+    private int DominantLetterLevel
+    {
+        get
+        {
+            var withWords = _letters.Where(l => l.TotalCount > 0).ToList();
+            if (withWords.Count == 0) return -1;
+            return withWords.GroupBy(l => l.RepetitionLevel).OrderByDescending(g => g.Count()).First().Key;
+        }
+    }
+
+    private int _overallProgressPct => _totalWordsCount > 0 ? (int)(_studiedWordsCount * 100.0 / _totalWordsCount) : 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+
+        var user = UserState.CurrentUser;
+        if (user == null) return;
+
+        _letters = await ApiClient.GetAlphabetProgressAsync(Prefs.StudyLangId);
+
+        var bookNums = (await ApiClient.GetBookNumbersAsync()).OrderBy(b => b).ToList();
+        var open = await ApiClient.GetUnlockedBooksAsync();
+        _unlockedBooks = bookNums.Where(open.Contains).ToHashSet();
+
+        var progress = await ApiClient.GetUserSubjectProgressAsync();
+        _progressMap = progress.ToDictionary(p => p.SubjectId);
+
+        foreach (var bn in bookNums)
+        {
+            var subs = (await ApiClient.GetSubjectsByBookAsync(bn)).OrderBy(s => s.SequenceNumber).ToList();
+            _subjectsByBook[bn] = subs;
+            if (subs.Count > 0)
+            {
+                // Partial credit per subject (each of the 4 tracked games = 25%), so a book's
+                // bar already moves once a single game is won, not only once every subject
+                // in it is fully completed.
+                double wonFraction = subs.Sum(s => SubjectWonFraction(s.SubjectId, _progressMap)) / subs.Count;
+                _bookProgress[bn] = (int)(wonFraction * 100);
+            }
+        }
+
+        _current = bookNums
+            .Where(_unlockedBooks.Contains)
+            .SelectMany(bn => _subjectsByBook[bn])
+            .FirstOrDefault(s => ProgressOf(s) < 100);
+        if (BookParam > 0 && _unlockedBooks.Contains(BookParam))
+        {
+            Nav.NavigateTo($"/little-polyglot/book/{BookParam}", replace: true);
+            return;
+        }
+        _selectedBook = _current?.BookId ?? bookNums.FirstOrDefault(1);
+
+        var userWords = await ApiClient.GetUserWordsAsync();
+        _studiedWordsCount = userWords.Count;
+        _totalWordsCount = await ApiClient.GetWordsCountAsync(Prefs.StudyLangId);
+
+        _loaded = true;
+    }
+
+    private void SelectBook(int bookNumber)
+    {
+        if (!_unlockedBooks.Contains(bookNumber))
+        {
+            // The book before it is open: the three-step check over that book opens this one. Otherwise: pass the earlier book first.
+            if (bookNumber >= 2 && _unlockedBooks.Contains(bookNumber - 1)) Nav.NavigateTo(BookGateService.GateUrl(bookNumber));
+            else _needBook = bookNumber - 1;
+            return;
+        }
+        // The book opens on its own page (the snake of its topics), on a phone and on a computer alike.
+        Nav.NavigateTo($"/little-polyglot/book/{bookNumber}");
+    }
+
+    // Words of a book that are learned: a topic has 15 words and each of its three games that is won gives a third of them.
+    private const int WordsPerTopic = 15;
+
+    private int BookWordsTotal(int bn) => _subjectsByBook.TryGetValue(bn, out var subs) ? subs.Count * WordsPerTopic : 0;
+
+    private int BookWords(int bn) =>
+        _subjectsByBook.TryGetValue(bn, out var subs)
+            ? (int)Math.Round(subs.Sum(s => PartsOf(s)) * WordsPerTopic / (double)UserSubjectProgress.Parts)
+            : 0;
+
+    // The line under the words of a book card: the topic that is under way, or that the book is passed / locked.
+    private string BookNow(int bn, bool unlocked, int progress)
+    {
+        if (!unlocked) return Loc["BookCard_Locked"];
+        if (progress >= 100) return Loc["BookCard_Done"];
+        var cur = _subjectsByBook.TryGetValue(bn, out var subs) ? subs.FirstOrDefault(s => ProgressOf(s) < 100) : null;
+        return cur is null ? string.Empty : Loc.Format("BookCard_Current", cur.SubjectName);
+    }
+
+    private static double SubjectWonFraction(int subjectId, Dictionary<int, UserSubjectProgress> progressMap)
+    {
+        if (!progressMap.TryGetValue(subjectId, out var p)) return 0;
+        return p.PartsDone / (double)UserSubjectProgress.Parts;
+    }
+
+    // Three games count (Find, Listen, Phrase): each won game fills one third of the topic's ring.
+    private int PartsOf(Subject s) => _progressMap.TryGetValue(s.SubjectId, out var p) ? p.PartsDone : 0;
+
+    private int ProgressOf(Subject s) => PartsOf(s) * 100 / UserSubjectProgress.Parts;
+
+    private static string TopicUrl(Subject s) => $"/little-polyglot/subjects/{s.BookId}/{s.SubjectId}";
+
+    private void OnLetterClick(string letter) =>
+        Nav.NavigateTo($"/little-polyglot/letter/{Uri.EscapeDataString(letter)}");
+}

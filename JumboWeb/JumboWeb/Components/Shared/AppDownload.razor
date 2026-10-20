@@ -1,0 +1,68 @@
+@using JumboWeb.Services
+@using QRCoder
+@inject AppDownloads Downloads
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+
+@* "Jumbo on your phone": Android / iPhone buttons (or "coming soon") and a QR code for the Android link. *@
+<section class="app-dl">
+    <div class="app-dl-text">
+        <h2 class="app-dl-title">@Loc["Land_AppTitle"]</h2>
+        <p class="app-dl-sub">@Loc["Land_AppSub"]</p>
+        <div class="app-dl-buttons">
+            @if (Downloads.AndroidUrl is { } android)
+            {
+                @if (IsExternal(android))
+                {
+                    <a class="app-dl-btn" href="@android" target="_blank" rel="noopener">
+                        <span class="app-dl-ico">🤖</span><span>@Loc["Land_Android"]</span>
+                    </a>
+                }
+                else
+                {
+                    <a class="app-dl-btn" href="@android" download>
+                        <span class="app-dl-ico">🤖</span><span>@Loc["Land_Android"]</span>
+                    </a>
+                }
+            }
+            else
+            {
+                <span class="app-dl-btn soon"><span class="app-dl-ico">🤖</span><span>Android</span><em>@Loc["Land_Soon"]</em></span>
+            }
+
+            @if (Downloads.IosUrl is { } ios)
+            {
+                <a class="app-dl-btn" href="@ios" target="_blank" rel="noopener"><span class="app-dl-ico">🍎</span><span>@Loc["Land_Ios"]</span></a>
+            }
+            else
+            {
+                <span class="app-dl-btn soon"><span class="app-dl-ico">🍎</span><span>@Loc["Land_Ios"]</span><em>@Loc["Land_Soon"]</em></span>
+            }
+        </div>
+    </div>
+
+    @if (_qr is not null)
+    {
+        <figure class="app-dl-qr">
+            <img src="data:image/png;base64,@_qr" alt="QR" />
+            <figcaption>@Loc["Land_ScanQr"]</figcaption>
+        </figure>
+    }
+</section>
+
+@code {
+    private string? _qr;
+
+    protected override void OnInitialized()
+    {
+        if (Downloads.AndroidUrl is not { } url) return;
+
+        var absolute = IsExternal(url) ? url : Nav.ToAbsoluteUri(url).ToString();
+        using var generator = new QRCodeGenerator();
+        using var data = generator.CreateQrCode(absolute, QRCodeGenerator.ECCLevel.Q);
+        using var code = new PngByteQRCode(data);
+        _qr = Convert.ToBase64String(code.GetGraphic(8));
+    }
+
+    private static bool IsExternal(string url) => url.StartsWith("http", StringComparison.OrdinalIgnoreCase);
+}

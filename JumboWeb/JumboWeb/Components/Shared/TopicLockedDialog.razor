@@ -1,0 +1,22 @@
+@using JumboWeb.Services
+@inject AppLocalizer Loc
+
+@* A topic opens only after the topic before it is passed. This is what the learner is told, with "Got it" and "Go" (to the topic to pass). *@
+<div class="confirm-overlay" @onclick="OnClose">
+    <div class="confirm-modal" @onclick:stopPropagation="true">
+        <p class="confirm-modal-title">🔒 @Loc["Topic_LockedTitle"]</p>
+        <p class="confirm-modal-sub">@Loc.Format("Topic_LockedText", CurrentName)</p>
+        <div class="confirm-modal-actions">
+            <button type="button" class="lp-btn lp-btn-outline" @onclick="OnClose">@Loc["Topic_Understood"]</button>
+            <button type="button" class="lp-btn" @onclick="OnGo">@Loc["Topic_Go"]</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    /// <summary>The name of the topic that has to be passed first.</summary>
+    [Parameter] public string CurrentName { get; set; } = string.Empty;
+
+    [Parameter] public EventCallback OnClose { get; set; }
+    [Parameter] public EventCallback OnGo { get; set; }
+}
