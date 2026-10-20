@@ -48,6 +48,7 @@ public class TelegramBotService(AppDbContext db, TelegramClient telegram, Report
             case "/exams": await ExamsAsync(chatId); break;
             case "/absent": await AbsentAsync(chatId); break;
             case "/month": await ReportAsync(chatId, "month"); break;
+            case "/id": await telegram.SendAsync(chatId, $"Chat ID: {chatId}"); break;      // the owner needs it to get the alerts of the server
             case "/me": await pupils.MeAsync(chatId); break;
             case "/quiz": await pupils.QuizAsync(chatId); break;
             case "/goal": await pupils.GoalAsync(chatId); break;
