@@ -1236,3 +1236,19 @@ span[style*="0.85rem"] { font-size: 0.95rem !important; }
 .adm-ad-html { font-family: ui-monospace, Consolas, monospace; min-height: 140px; }
 .adm-ad-thumb { max-width: 240px; max-height: 140px; border-radius: 12px; display: block; margin: 6px 0; }
 .adm-radio { display: flex; gap: 8px; align-items: center; font-weight: 700; margin: 4px 0; }
+
+/* ===== The visual editor of the ads in the admin (Quill), dressed in the colours of the site ===== */
+.adm-ad-texthead { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 10px 0 6px; }
+.adm-editor-wrap .ql-toolbar.ql-snow { background: var(--lp-surface); border: 2px solid var(--lp-border); border-radius: 14px 14px 0 0; }
+.adm-editor-wrap .ql-container.ql-snow { background: var(--lp-bg, var(--lp-surface)); border: 2px solid var(--lp-border); border-top: 0; border-radius: 0 0 14px 14px; min-height: 180px; font-family: inherit; font-size: 1rem; color: var(--lp-text); }
+.adm-editor-wrap .ql-editor { min-height: 180px; line-height: 1.5; }
+.adm-editor-wrap .ql-editor.ql-blank::before { color: var(--lp-muted); font-style: normal; }
+.adm-editor-wrap .ql-snow .ql-stroke { stroke: var(--lp-text); }
+.adm-editor-wrap .ql-snow .ql-fill { fill: var(--lp-text); }
+.adm-editor-wrap .ql-snow .ql-picker, .adm-editor-wrap .ql-snow .ql-picker-label { color: var(--lp-text); }
+.adm-editor-wrap .ql-snow .ql-picker-options { background: var(--lp-surface); border-color: var(--lp-border); }
+.adm-editor-wrap .ql-snow.ql-toolbar button:hover .ql-stroke, .adm-editor-wrap .ql-snow.ql-toolbar button.ql-active .ql-stroke { stroke: var(--lp-primary); }
+.adm-editor-wrap .ql-snow.ql-toolbar button.ql-active .ql-fill { fill: var(--lp-primary); }
+.adm-editor-wrap .ql-editor a { color: var(--lp-primary); }
+.adm-editor-wrap .ql-tooltip { background: var(--lp-surface); color: var(--lp-text); border-color: var(--lp-border); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
+.adm-editor-wrap .ql-tooltip input[type=text] { background: var(--lp-bg, var(--lp-surface)); color: var(--lp-text); border-color: var(--lp-border); }

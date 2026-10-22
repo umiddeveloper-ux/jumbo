@@ -12,6 +12,7 @@ public class AdDto
     public DateTime StartsAt { get; set; }
     public DateTime? EndsAt { get; set; }
     public int IntervalMinutes { get; set; }
+    public int DailyAtMinutes { get; set; }
     public string? Lang { get; set; }
     public bool IsActive { get; set; }
     public DateTime CreatedAt { get; set; }
@@ -37,6 +38,9 @@ public class SaveAdRequest
     public DateTime StartsAt { get; set; }
     public DateTime? EndsAt { get; set; }
     public int IntervalMinutes { get; set; }
+
+    /// <summary>Daily: minutes from midnight (Tashkent time) from which it is shown.</summary>
+    public int DailyAtMinutes { get; set; }
     public string? Lang { get; set; }
     public bool IsActive { get; set; } = true;
 }

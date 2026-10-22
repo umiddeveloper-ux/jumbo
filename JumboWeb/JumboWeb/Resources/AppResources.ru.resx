@@ -2988,4 +2988,22 @@
   <data name="Admin_Ad_Err_BAD_IMAGE" xml:space="preserve">
     <value>Рисунок не подходит (png, jpeg, webp или gif до 1 МБ)</value>
   </data>
+  <data name="Admin_Ad_ModeDaily" xml:space="preserve">
+    <value>Каждый день: один раз в сутки, начиная с указанного времени</value>
+  </data>
+  <data name="Admin_Ad_DailyAt" xml:space="preserve">
+    <value>Показывать с (время, по Ташкенту)</value>
+  </data>
+  <data name="Admin_Ad_SummaryDaily" xml:space="preserve">
+    <value>каждый день с {0}, начиная с {1}</value>
+  </data>
+  <data name="Admin_Ad_HtmlSource" xml:space="preserve">
+    <value>HTML-код</value>
+  </data>
+  <data name="Admin_Ad_Visual" xml:space="preserve">
+    <value>Редактор</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_TIME" xml:space="preserve">
+    <value>Неверное время дня</value>
+  </data>
 </root>

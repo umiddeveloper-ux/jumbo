@@ -2988,4 +2988,22 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="Admin_Ad_Err_BAD_IMAGE" xml:space="preserve">
     <value>The picture does not fit (png, jpeg, webp or gif up to 1 MB)</value>
   </data>
+  <data name="Admin_Ad_ModeDaily" xml:space="preserve">
+    <value>Every day: once a day, from the time set</value>
+  </data>
+  <data name="Admin_Ad_DailyAt" xml:space="preserve">
+    <value>Show from (time, Tashkent)</value>
+  </data>
+  <data name="Admin_Ad_SummaryDaily" xml:space="preserve">
+    <value>every day from {0}, starting {1}</value>
+  </data>
+  <data name="Admin_Ad_HtmlSource" xml:space="preserve">
+    <value>HTML code</value>
+  </data>
+  <data name="Admin_Ad_Visual" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_TIME" xml:space="preserve">
+    <value>Wrong time of the day</value>
+  </data>
 </root>

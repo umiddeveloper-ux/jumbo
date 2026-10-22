@@ -31,6 +31,9 @@ public class Ad
     /// <summary>Periodic: minutes between two showings to the same learner.</summary>
     public int IntervalMinutes { get; set; }
 
+    /// <summary>Daily: the time of the day (minutes from midnight, Tashkent time UTC+5) from which the ad is shown, once a day to every learner.</summary>
+    public int DailyAtMinutes { get; set; }
+
     /// <summary>Only for learners whose language of the app is this one (ru / en / uz); null = for everybody.</summary>
     public string? Lang { get; set; }
 
@@ -43,6 +46,7 @@ public static class AdModes
 {
     public const string Fixed = "fixed";
     public const string Periodic = "periodic";
+    public const string Daily = "daily";
 }
 
 /// <summary>When a learner saw an ad last and how many times: what "once" and "every N minutes" are counted from.</summary>

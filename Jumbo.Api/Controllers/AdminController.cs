@@ -197,8 +197,10 @@ public class AdminController(AppDbContext db, ICurrentUserService currentUser, S
         var title = r.Title?.Trim();
         if (string.IsNullOrEmpty(title)) return "NO_TITLE";
         var html = SafeHtml.Clean(r.Html);
-        if (html.Length == 0) return "NO_TEXT";
-        if (r.Mode is not (AdModes.Fixed or AdModes.Periodic)) return "BAD_MODE";
+        // an editor leaves "<p><br /></p>" when nothing is written: that is no text
+        if (System.Text.RegularExpressions.Regex.Replace(html, "<[^>]*>|&nbsp;|\\s", string.Empty).Length == 0) return "NO_TEXT";
+        if (r.Mode is not (AdModes.Fixed or AdModes.Periodic or AdModes.Daily)) return "BAD_MODE";
+        if (r.Mode == AdModes.Daily && (r.DailyAtMinutes < 0 || r.DailyAtMinutes > 1439)) return "BAD_TIME";
         if (r.Mode == AdModes.Periodic && (r.IntervalMinutes < 5 || r.IntervalMinutes > 525_600)) return "BAD_INTERVAL";
         if (r.Lang is not null && !TopicVideoPaths.IsLanguage(r.Lang)) return "BAD_LANG";
 
@@ -219,6 +221,7 @@ public class AdminController(AppDbContext db, ICurrentUserService currentUser, S
         ad.StartsAt = starts;
         ad.EndsAt = ends;
         ad.IntervalMinutes = r.Mode == AdModes.Periodic ? r.IntervalMinutes : 0;
+        ad.DailyAtMinutes = r.Mode == AdModes.Daily ? r.DailyAtMinutes : 0;
         ad.Lang = r.Lang;
         ad.IsActive = r.IsActive;
         return null;
@@ -232,7 +235,7 @@ public class AdminController(AppDbContext db, ICurrentUserService currentUser, S
         ImageDataUrl = withImage ? AdImages.ToDataUrl(a) : null,
         Mode = a.Mode, StartsAt = DateTime.SpecifyKind(a.StartsAt, DateTimeKind.Utc),
         EndsAt = a.EndsAt is { } e ? DateTime.SpecifyKind(e, DateTimeKind.Utc) : null,
-        IntervalMinutes = a.IntervalMinutes, Lang = a.Lang, IsActive = a.IsActive, CreatedAt = DateTime.SpecifyKind(a.CreatedAt, DateTimeKind.Utc)
+        IntervalMinutes = a.IntervalMinutes, DailyAtMinutes = a.DailyAtMinutes, Lang = a.Lang, IsActive = a.IsActive, CreatedAt = DateTime.SpecifyKind(a.CreatedAt, DateTimeKind.Utc)
     };
 
     // ── subscribers of the website footer ───

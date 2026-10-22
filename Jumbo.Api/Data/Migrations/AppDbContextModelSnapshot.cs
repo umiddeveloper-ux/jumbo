@@ -35,6 +35,10 @@ namespace Jumbo.Api.Data.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
+                    b.Property<int>("DailyAtMinutes")
+                        .HasColumnType("integer")
+                        .HasColumnName("daily_at_minutes");
+
                     b.Property<DateTime?>("EndsAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("ends_at");

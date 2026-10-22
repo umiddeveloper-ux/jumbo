@@ -2919,4 +2919,22 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Admin_Ad_Err_BAD_IMAGE" xml:space="preserve">
     <value>Rasm mos emas (png, jpeg, webp yoki gif, 1 MB gacha)</value>
   </data>
+  <data name="Admin_Ad_ModeDaily" xml:space="preserve">
+    <value>Har kuni: kuniga bir marta, ko‘rsatilgan vaqtdan boshlab</value>
+  </data>
+  <data name="Admin_Ad_DailyAt" xml:space="preserve">
+    <value>Ko‘rsatish boshlanishi (vaqt, Toshkent)</value>
+  </data>
+  <data name="Admin_Ad_SummaryDaily" xml:space="preserve">
+    <value>har kuni {0} dan, {1} dan boshlab</value>
+  </data>
+  <data name="Admin_Ad_HtmlSource" xml:space="preserve">
+    <value>HTML kod</value>
+  </data>
+  <data name="Admin_Ad_Visual" xml:space="preserve">
+    <value>Muharrir</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_TIME" xml:space="preserve">
+    <value>Kun vaqti noto‘g‘ri</value>
+  </data>
 </root>

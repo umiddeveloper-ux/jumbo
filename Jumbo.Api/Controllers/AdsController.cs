@@ -44,6 +44,12 @@ public class AdsController(AppDbContext db, ICurrentUserService currentUser) : C
         var due = candidates.FirstOrDefault(a =>
         {
             var view = views.FirstOrDefault(v => v.AdId == a.AdId);
+            if (a.Mode == AdModes.Daily)
+            {
+                // once a day (the day of the app is UTC+5), from the time of the day that is set
+                var local = now.AddHours(5);
+                return local.TimeOfDay.TotalMinutes >= a.DailyAtMinutes && (view is null || view.LastShownAt.AddHours(5).Date < local.Date);
+            }
             if (view is null) return true;                                                              // never seen
             return a.Mode == AdModes.Periodic && (now - view.LastShownAt).TotalMinutes >= Math.Max(1, a.IntervalMinutes);
         });

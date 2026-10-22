@@ -211,8 +211,20 @@ else
                 var f = _adForm;
                 <section class="adm-card">
                     <label>@Loc["Admin_Ad_Title"]<input class="lp-input" type="text" maxlength="200" @bind="f.Title" @bind:event="oninput" /></label>
-                    <label>@Loc["Admin_Ad_Text"]<textarea class="lp-input adm-ad-html" rows="7" maxlength="8000" @bind="f.Html" @bind:event="oninput"></textarea></label>
-                    <p class="reg-help">@Loc["Admin_Ad_TextHint"]</p>
+                    <div class="adm-ad-texthead">
+                        <span class="settings-label">@Loc["Admin_Ad_Text"]</span>
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="ToggleAdSource">@(_adSource ? "✏️ " + Loc["Admin_Ad_Visual"] : "</> " + Loc["Admin_Ad_HtmlSource"])</button>
+                    </div>
+                    @if (_adSource)
+                    {
+                        <textarea class="lp-input adm-ad-html" rows="9" maxlength="8000" @bind="f.Html" @bind:event="oninput"></textarea>
+                        <p class="reg-help">@Loc["Admin_Ad_TextHint"]</p>
+                    }
+                    else
+                    {
+                        @* the visual editor (Quill) lives in this block; the page does not draw inside it *@
+                        <div class="adm-editor-wrap"><div id="ad-editor"></div></div>
+                    }
 
                     <div class="settings-label">@Loc["Admin_Ad_Image"]</div>
                     @if (!string.IsNullOrEmpty(f.ImageDataUrl))
@@ -225,11 +237,16 @@ else
                     <div class="settings-label">@Loc["Admin_Ad_Mode"]</div>
                     <label class="adm-radio"><input type="radio" name="admode" checked="@(f.Mode == "fixed")" @onchange='() => f.Mode = "fixed"' /> @Loc["Admin_Ad_ModeFixed"]</label>
                     <label class="adm-radio"><input type="radio" name="admode" checked="@(f.Mode == "periodic")" @onchange='() => f.Mode = "periodic"' /> @Loc["Admin_Ad_ModePeriodic"]</label>
+                    <label class="adm-radio"><input type="radio" name="admode" checked="@(f.Mode == "daily")" @onchange='() => f.Mode = "daily"' /> @Loc["Admin_Ad_ModeDaily"]</label>
 
                     <div class="adm-ver-grid">
                         <label>@Loc["Admin_Ad_Starts"]<input class="lp-input" type="datetime-local" @bind="f.StartsLocal" /></label>
                         <label>@Loc["Admin_Ad_Ends"]<input class="lp-input" type="datetime-local" @bind="f.EndsLocal" /></label>
                     </div>
+                    @if (f.Mode == "daily")
+                    {
+                        <label>@Loc["Admin_Ad_DailyAt"]<input class="lp-input" type="time" @bind="f.DailyTime" /></label>
+                    }
                     @if (f.Mode == "periodic")
                     {
                         <div class="adm-ver-grid">
@@ -469,10 +486,40 @@ else
         public DateTime StartsLocal = DateTime.UtcNow.AddHours(5);
         public DateTime? EndsLocal;
         public int IntervalValue = 1;
+        public TimeOnly DailyTime = new(18, 0);
     }
     private List<AdDto> _ads = new();
     private AdForm? _adForm;
     private bool _adPreview;
+    private bool _adSource;                     // true: the html code is edited as text, not in the visual editor
+    private bool _editorLive;
+    private DotNetObjectReference<Admin>? _self;
+
+    private void ToggleAdSource() => _adSource = !_adSource;
+
+    /// <summary>Called by the visual editor (JS) with the html of the text after every change.</summary>
+    [JSInvokable]
+    public void OnEditorHtml(string html)
+    {
+        if (_adForm is not null) _adForm.Html = html;       // no redraw: the editor must not be disturbed while the person types
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        bool want = _tab == "ads" && _adForm is not null && !_adSource;
+        if (want && !_editorLive)
+        {
+            _editorLive = true;
+            _self ??= DotNetObjectReference.Create(this);
+            try { await JS.InvokeVoidAsync("lp.quillInit", "ad-editor", _self, _adForm!.Html, Loc["Admin_Ad_Text"]); }
+            catch { _editorLive = false; _adSource = true; StateHasChanged(); }          // the editor did not load: the html code is edited as text
+        }
+        else if (!want && _editorLive)
+        {
+            _editorLive = false;
+            try { await JS.InvokeVoidAsync("lp.quillDestroy"); } catch { }
+        }
+    }
 
     // the admin works in the time of Uzbekistan (UTC+5); the server keeps UTC
     private static DateTime ToUtc(DateTime local) => DateTime.SpecifyKind(local.AddHours(-5), DateTimeKind.Utc);
@@ -484,22 +531,26 @@ else
     private string AdSummary(AdDto a)
     {
         var from = a.StartsAt.AddHours(5).ToString("dd.MM.yyyy HH:mm");
-        var text = a.Mode == "periodic" ? Loc.Format("Admin_Ad_SummaryPeriodic", IntervalText(a.IntervalMinutes), from) : Loc.Format("Admin_Ad_SummaryFixed", from);
+        var text = a.Mode == "periodic" ? Loc.Format("Admin_Ad_SummaryPeriodic", IntervalText(a.IntervalMinutes), from)
+                 : a.Mode == "daily" ? Loc.Format("Admin_Ad_SummaryDaily", new TimeOnly(a.DailyAtMinutes / 60, a.DailyAtMinutes % 60).ToString("HH:mm"), from)
+                 : Loc.Format("Admin_Ad_SummaryFixed", from);
         return a.EndsAt is { } e ? text + " → " + e.AddHours(5).ToString("dd.MM.yyyy HH:mm") : text;
     }
 
-    private void NewAd() { _message = _error = string.Empty; _adForm = new AdForm(); }
+    private void NewAd() { _message = _error = string.Empty; _adSource = false; _adForm = new AdForm(); }
 
     private async Task EditAdAsync(int id)
     {
         _message = _error = string.Empty;
         var a = await ApiClient.AdminGetAdAsync(id);
         if (a is null) return;
+        _adSource = false;
         var unit = a.IntervalMinutes % 1440 == 0 && a.IntervalMinutes > 0 ? "day" : a.IntervalMinutes % 60 == 0 && a.IntervalMinutes > 0 ? "hour" : "min";
         _adForm = new AdForm
         {
             Id = a.Id, Title = a.Title, Html = a.Html, ImageDataUrl = a.ImageDataUrl, Mode = a.Mode, Lang = a.Lang, IsActive = a.IsActive,
             StartsLocal = ToLocal(a.StartsAt), EndsLocal = a.EndsAt is { } e ? ToLocal(e) : null,
+            DailyTime = new TimeOnly(Math.Clamp(a.DailyAtMinutes, 0, 1439) / 60, Math.Clamp(a.DailyAtMinutes, 0, 1439) % 60),
             IntervalUnit = unit, IntervalValue = a.IntervalMinutes == 0 ? 1 : unit == "day" ? a.IntervalMinutes / 1440 : unit == "hour" ? a.IntervalMinutes / 60 : a.IntervalMinutes
         };
     }
@@ -528,7 +579,8 @@ else
                 Title = f.Title, Html = f.Html, Mode = f.Mode, IsActive = f.IsActive, Lang = string.IsNullOrEmpty(f.Lang) ? null : f.Lang,
                 // an old picture is kept (null) unless a new one was picked or it was removed
                 ImageDataUrl = f.Id == 0 || f.RemoveImage || f.ImageDataUrl is null ? f.ImageDataUrl : null, RemoveImage = f.RemoveImage,
-                StartsAt = ToUtc(f.StartsLocal), EndsAt = f.EndsLocal is { } e ? ToUtc(e) : null, IntervalMinutes = f.Mode == "periodic" ? minutes : 0
+                StartsAt = ToUtc(f.StartsLocal), EndsAt = f.EndsLocal is { } e ? ToUtc(e) : null, IntervalMinutes = f.Mode == "periodic" ? minutes : 0,
+                DailyAtMinutes = f.Mode == "daily" ? f.DailyTime.Hour * 60 + f.DailyTime.Minute : 0
             });
             _adForm = null;
             _ads = await ApiClient.AdminGetAdsAsync();
