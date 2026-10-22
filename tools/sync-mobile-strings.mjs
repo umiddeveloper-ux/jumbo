@@ -9,7 +9,7 @@ const webDir = path.join(root, 'JumboWeb/JumboWeb/Resources');
 const appDir = path.join(root, 'Jumbo/Resources/Strings');
 
 // Website-only areas stay out of the app.
-const EXCLUDE = /^(VD|PP|PA|TC|RP|Land|FS|Admin|Rating|Top|Exam|ExamResults|ExamQuiz|SiteHome|SiteLayout|NotFound|Nav|Role|Dash|TestLevel|TestMyLevel|TG|TS|TE|Strip)(_|$)/;
+const EXCLUDE = /^(TJ|VD|PP|PA|TC|RP|Land|FS|Admin|Rating|Top|Exam|ExamResults|ExamQuiz|SiteHome|SiteLayout|NotFound|Nav|Role|Dash|TestLevel|TestMyLevel|TG|TS|TE|Strip)(_|$)/;
 
 // Strings that exist only in the app: [key, ru, en, uz]
 const EXTRA = [

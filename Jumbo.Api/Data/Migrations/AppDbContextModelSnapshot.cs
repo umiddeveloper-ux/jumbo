@@ -399,6 +399,37 @@ namespace Jumbo.Api.Data.Migrations
                     b.ToTable("feedback_messages", (string)null);
                 });
 
+            modelBuilder.Entity("Jumbo.Shared.Entities.JournalMark", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("integer")
+                        .HasColumnName("subject_id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<DateOnly>("PassedOn")
+                        .HasColumnType("date")
+                        .HasColumnName("passed_on");
+
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("integer")
+                        .HasColumnName("teacher_id");
+
+                    b.HasKey("UserId", "SubjectId")
+                        .HasName("pk_journal_marks");
+
+                    b.HasIndex("SubjectId")
+                        .HasDatabaseName("ix_journal_marks_subject_id");
+
+                    b.ToTable("journal_marks", (string)null);
+                });
+
             modelBuilder.Entity("Jumbo.Shared.Entities.Language", b =>
                 {
                     b.Property<int>("LanguageId")
@@ -1595,6 +1626,23 @@ namespace Jumbo.Api.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_exam_results_users_user_id");
+                });
+
+            modelBuilder.Entity("Jumbo.Shared.Entities.JournalMark", b =>
+                {
+                    b.HasOne("Jumbo.Shared.Entities.Subject", null)
+                        .WithMany()
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_journal_marks_subjects_subject_id");
+
+                    b.HasOne("Jumbo.Shared.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_journal_marks_users_user_id");
                 });
 
             modelBuilder.Entity("Jumbo.Shared.Entities.Market", b =>

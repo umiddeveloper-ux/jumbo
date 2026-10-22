@@ -2937,4 +2937,73 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Admin_Ad_Err_BAD_TIME" xml:space="preserve">
     <value>Kun vaqti noto‘g‘ri</value>
   </data>
+  <data name="Nav_Journal" xml:space="preserve">
+    <value>Jurnal</value>
+  </data>
+  <data name="TJ_Title" xml:space="preserve">
+    <value>Mavzular topshirish jurnali</value>
+  </data>
+  <data name="TJ_Class" xml:space="preserve">
+    <value>Guruh</value>
+  </data>
+  <data name="TJ_Teacher" xml:space="preserve">
+    <value>O‘qituvchi</value>
+  </data>
+  <data name="TJ_School" xml:space="preserve">
+    <value>Maktab</value>
+  </data>
+  <data name="TJ_Year" xml:space="preserve">
+    <value>O‘quv yili</value>
+  </data>
+  <data name="TJ_Words" xml:space="preserve">
+    <value>so‘zlar {0}–{1}</value>
+  </data>
+  <data name="TJ_Topics" xml:space="preserve">
+    <value>{0} mavzu</value>
+  </data>
+  <data name="TJ_Pupil" xml:space="preserve">
+    <value>O‘quvchining familiyasi, ismi</value>
+  </data>
+  <data name="TJ_Passed" xml:space="preserve">
+    <value>Topshirilgan</value>
+  </data>
+  <data name="TJ_Legend" xml:space="preserve">
+    <value>mavzu topshirilgan (sana). Bo‘sh katakni bosing — mavzu bugungi sana bilan belgilanadi; sanani bossangiz, uni o‘zgartirish yoki belgini olib tashlash mumkin.</value>
+  </data>
+  <data name="TJ_LegendApp" xml:space="preserve">
+    <value>— o‘quvchi mavzuni ilovada o‘tgan (og‘zaki topshirishdan oldin maslahat)</value>
+  </data>
+  <data name="TJ_AppHint" xml:space="preserve">
+    <value>Ilovada o‘tilgan</value>
+  </data>
+  <data name="TJ_NoPupils" xml:space="preserve">
+    <value>Guruhda hali tasdiqlangan o‘quvchilar yo‘q. Jamoaga qo‘shilish so‘rovlarini tasdiqlaganingizda ular shu yerda paydo bo‘ladi.</value>
+  </data>
+  <data name="TJ_Excel" xml:space="preserve">
+    <value>Excel: shu kitob</value>
+  </data>
+  <data name="TJ_ExcelAll" xml:space="preserve">
+    <value>Excel: barcha kitoblar</value>
+  </data>
+  <data name="TJ_Date" xml:space="preserve">
+    <value>Topshirish sanasi</value>
+  </data>
+  <data name="TJ_Save" xml:space="preserve">
+    <value>Saqlash</value>
+  </data>
+  <data name="TJ_Clear" xml:space="preserve">
+    <value>Belgini olib tashlash</value>
+  </data>
+  <data name="TJ_Close" xml:space="preserve">
+    <value>Yopish</value>
+  </data>
+  <data name="TJ_Err_BAD_DATE" xml:space="preserve">
+    <value>Sana noto‘g‘ri</value>
+  </data>
+  <data name="TJ_Err_NO_PUPIL" xml:space="preserve">
+    <value>O‘quvchi bu guruhda topilmadi</value>
+  </data>
+  <data name="TJ_Err_NO_TOPIC" xml:space="preserve">
+    <value>Mavzu topilmadi</value>
+  </data>
 </root>

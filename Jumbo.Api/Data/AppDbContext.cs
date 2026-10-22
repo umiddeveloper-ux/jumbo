@@ -31,6 +31,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Subscriber> Subscribers => Set<Subscriber>();
     public DbSet<AppVersion> AppVersions => Set<AppVersion>();
     public DbSet<BalanceTransaction> BalanceTransactions => Set<BalanceTransaction>();
+    public DbSet<JournalMark> JournalMarks => Set<JournalMark>();
     public DbSet<Ad> Ads => Set<Ad>();
     public DbSet<AdView> AdViews => Set<AdView>();
     public DbSet<PlanPrice> PlanPrices => Set<PlanPrice>();

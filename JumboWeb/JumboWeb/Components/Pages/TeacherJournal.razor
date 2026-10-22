@@ -1,0 +1,290 @@
+@page "/teacher/journal"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared.Dtos
+@using Jumbo.Shared.Entities
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["TJ_Title"]</PageTitle>
+
+@* The journal of topics: a sheet for every book, the pupils of a team in rows, the 20 topics in columns; a mark is the date the pupil said the
+   15 words of the topic to the teacher. Printed on A4 landscape like the paper journal. *@
+<style>@@media print { @@page { size: A4 landscape; margin: 8mm; } }</style>
+
+@if (!_loaded)
+{
+    <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else
+{
+    <div class="tc jr">
+        <a class="tc-back" href="/teacher">← @Loc["TC_Back"]</a>
+        <h1 class="tc-title">📒 @Loc["TJ_Title"]</h1>
+
+        @if (_noSchool)
+        {
+            <div class="lp-empty-state">@Loc["TC_NoSchool"]</div>
+        }
+        else if (_classes.Count == 0)
+        {
+            <div class="tc-empty"><p>@Loc["TC_NoClasses"]</p></div>
+        }
+        else
+        {
+            <div class="jr-tools rp-noprint">
+                <label class="jr-class">@Loc["TJ_Class"]
+                    <select class="lp-select" value="@_classId" @onchange="OnClassChanged">
+                        @foreach (var c in _classes)
+                        {
+                            <option value="@c.ClassId">@c.Name@(string.IsNullOrEmpty(c.TeacherName) ? "" : " · " + c.TeacherName)</option>
+                        }
+                    </select>
+                </label>
+                <div class="jr-actions">
+                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="Print">🖨 @Loc["RP_Print"]</button>
+                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" disabled="@_busy" @onclick="() => ExportAsync(false)">📊 @Loc["TJ_Excel"]</button>
+                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" disabled="@_busy" @onclick="() => ExportAsync(true)">📚 @Loc["TJ_ExcelAll"]</button>
+                </div>
+            </div>
+
+            @if (_j is not null)
+            {
+                <div class="rate-tabs jr-books rp-noprint" role="tablist">
+                    @foreach (var b in _j.Books)
+                    {
+                        var book = b;
+                        <button type="button" class="rate-tab @(_j.Book == book ? "on" : "")" @onclick="() => SelectBookAsync(book)">@Loc.Format("TE_BookCol", book)</button>
+                    }
+                </div>
+
+                <header class="jr-sheet-head">
+                    <div class="jr-sheet-title">📒 @Loc["TJ_Title"] · @Loc.Format("TE_BookCol", _j.Book) · <b>@_j.Level · @LevelName(_j.Level)</b> · @Loc.Format("TJ_Words", _j.WordFrom, _j.WordTo) · @Loc.Format("TJ_Topics", _j.Topics.Count)</div>
+                    <div class="jr-sheet-info">
+                        <span>@Loc["TJ_Class"]: <b>@_j.ClassName</b></span>
+                        @if (!string.IsNullOrEmpty(_j.TeacherName)) { <span>@Loc["TJ_Teacher"]: <b>@_j.TeacherName</b></span> }
+                        @if (!string.IsNullOrEmpty(_j.SchoolName)) { <span>@Loc["TJ_School"]: <b>@_j.SchoolName</b></span> }
+                        <span>@Loc["TJ_Year"]: <b>@_j.SchoolYear</b></span>
+                    </div>
+                </header>
+
+                @if (!string.IsNullOrEmpty(_error)) { <p class="validation-message">@_error</p> }
+
+                @if (_j.Pupils.Count == 0)
+                {
+                    <div class="tc-empty"><p>@Loc["TJ_NoPupils"]</p></div>
+                }
+                else
+                {
+                    <div class="jr-wrap">
+                        <table class="jr-table">
+                            <thead>
+                                <tr>
+                                    <th class="jr-n" rowspan="2">№</th>
+                                    <th class="jr-name" rowspan="2">@Loc["TJ_Pupil"]</th>
+                                    @foreach (var t in _j.Topics)
+                                    {
+                                        <th class="jr-num" title="@t.Name · @Loc.Format("TJ_Words", t.WordFrom, t.WordTo)">@t.Number.ToString("00")</th>
+                                    }
+                                    <th class="jr-total" rowspan="2">@Loc["TJ_Passed"]</th>
+                                </tr>
+                                <tr class="jr-names">
+                                    @foreach (var t in _j.Topics)
+                                    {
+                                        <th title="@t.Name · @Loc.Format("TJ_Words", t.WordFrom, t.WordTo)"><span>@t.Name</span></th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < _j.Pupils.Count; i++)
+                                {
+                                    var p = _j.Pupils[i];
+                                    <tr>
+                                        <td class="jr-n">@(i + 1)</td>
+                                        <td class="jr-name">@p.Name</td>
+                                        @foreach (var t in _j.Topics)
+                                        {
+                                            var mark = MarkOf(p.UserId, t.SubjectId);
+                                            var app = AppPassed(p.UserId, t.SubjectId);
+                                            <td class="jr-cell @(mark is not null ? "done" : "") @(app ? "app" : "")" @onclick="() => CellClickAsync(p, t, mark)"
+                                                title="@(mark is { } m0 ? m0.PassedOn.ToString("dd.MM.yyyy") : app ? Loc["TJ_AppHint"] : "")">
+                                                @if (mark is { } m) { <span class="jr-date">@m.PassedOn.ToString("dd.MM")</span> }
+                                                else if (app) { <span class="jr-dot">●</span> }
+                                            </td>
+                                        }
+                                        <td class="jr-total"><b>@CountOf(p.UserId)</b><span>/@_j.Topics.Count</span></td>
+                                    </tr>
+                                }
+                                <tr class="jr-foot">
+                                    <td class="jr-n"></td>
+                                    <td class="jr-name">@Loc["TJ_Passed"]</td>
+                                    @foreach (var t in _j.Topics)
+                                    {
+                                        <td class="jr-cell-sum">@_j.Marks.Count(x => x.SubjectId == t.SubjectId)</td>
+                                    }
+                                    <td class="jr-total"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="jr-legend">✓ @Loc["TJ_Legend"] <span class="jr-dot">●</span> @Loc["TJ_LegendApp"]</p>
+                }
+            }
+        }
+    </div>
+
+    @if (_editing is { } ed)
+    {
+        <div class="jr-pop rp-noprint" role="dialog" aria-modal="true">
+            <div class="jr-pop-card">
+                <h2 class="jr-pop-title">@ed.Pupil.Name</h2>
+                <p class="jr-pop-sub">@ed.Topic.Number.ToString("00") · @ed.Topic.Name · @Loc.Format("TJ_Words", ed.Topic.WordFrom, ed.Topic.WordTo)</p>
+                <label>@Loc["TJ_Date"]<input class="lp-input" type="date" @bind="_editDate" /></label>
+                <div class="jr-pop-actions">
+                    <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="SaveEditAsync">💾 @Loc["TJ_Save"]</button>
+                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" disabled="@_busy" @onclick="ClearEditAsync">✖ @Loc["TJ_Clear"]</button>
+                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _editing = null">@Loc["TJ_Close"]</button>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+@code {
+    private record Editing(JournalPupilDto Pupil, JournalTopicDto Topic);
+
+    private bool _loaded, _noSchool, _busy;
+    private List<ClassDto> _classes = new();
+    private int _classId, _book = 1;
+    private JournalDto? _j;
+    private Editing? _editing;
+    private DateOnly _editDate;
+    private string _error = string.Empty;
+
+    // the day of the app is UTC+5
+    private static DateOnly Today => DateOnly.FromDateTime(DateTime.UtcNow.AddHours(5));
+
+    private static string LevelName(string level) => level switch
+    {
+        "A1" => "BEGINNER", "A2" => "PRE-INTERMEDIATE", "B1" => "INTERMEDIATE", _ => "UPPER-INTERMEDIATE"
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        if (UserState.CurrentUser?.Role is not (UserRole.Teacher or UserRole.Director))
+        {
+            Nav.NavigateTo("/for-schools", replace: true);
+            return;
+        }
+
+        try
+        {
+            _classes = await ApiClient.TeacherGetClassesAsync();
+            if (_classes.Count > 0) { _classId = _classes[0].ClassId; await LoadAsync(); }
+        }
+        catch (Exception) { _noSchool = true; }
+        _loaded = true;
+    }
+
+    private async Task LoadAsync()
+    {
+        _error = string.Empty;
+        _j = await ApiClient.TeacherGetJournalAsync(_classId, _book);
+        if (_j is not null) _book = _j.Book;
+    }
+
+    private async Task OnClassChanged(ChangeEventArgs e) { _classId = int.TryParse(e.Value?.ToString(), out var id) ? id : _classId; await LoadAsync(); }
+    private async Task SelectBookAsync(int book) { _book = book; await LoadAsync(); }
+
+    private JournalMarkDto? MarkOf(int pupil, int subject) => _j?.Marks.FirstOrDefault(m => m.UserId == pupil && m.SubjectId == subject);
+    private bool AppPassed(int pupil, int subject) => _j?.AppPassed.Any(m => m.UserId == pupil && m.SubjectId == subject) == true;
+    private int CountOf(int pupil) => _j?.Marks.Count(m => m.UserId == pupil) ?? 0;
+
+    // an empty cell: passed today; a marked one: the window to change the date or take the mark away
+    private async Task CellClickAsync(JournalPupilDto pupil, JournalTopicDto topic, JournalMarkDto? mark)
+    {
+        if (mark is null) { await SetAsync(pupil.UserId, topic.SubjectId, Today); return; }
+        _editDate = mark.PassedOn;
+        _editing = new Editing(pupil, topic);
+    }
+
+    private async Task SaveEditAsync()
+    {
+        if (_editing is not { } ed) return;
+        await SetAsync(ed.Pupil.UserId, ed.Topic.SubjectId, _editDate);
+        _editing = null;
+    }
+
+    private async Task ClearEditAsync()
+    {
+        if (_editing is not { } ed) return;
+        await SetAsync(ed.Pupil.UserId, ed.Topic.SubjectId, null);
+        _editing = null;
+    }
+
+    private async Task SetAsync(int pupilId, int subjectId, DateOnly? date)
+    {
+        if (_j is null) return;
+        _busy = true;
+        _error = string.Empty;
+        try
+        {
+            await ApiClient.TeacherSetJournalMarkAsync(new SetJournalMarkRequest { ClassId = _classId, PupilId = pupilId, SubjectId = subjectId, PassedOn = date });
+            _j.Marks.RemoveAll(m => m.UserId == pupilId && m.SubjectId == subjectId);
+            if (date is { } d) _j.Marks.Add(new JournalMarkDto { UserId = pupilId, SubjectId = subjectId, PassedOn = d });
+        }
+        catch (Exception ex) { _error = Loc[$"TJ_Err_{ex.Message}"]; }
+        finally { _busy = false; }
+    }
+
+    private async Task Print() => await JS.InvokeVoidAsync("lp.printPage");
+
+    // the sheet of a book as table rows: the header, then a row for every pupil (the date, or empty), the number of passed topics at the end
+    private List<IReadOnlyList<object?>> SheetRows(JournalDto j)
+    {
+        var header = new List<object?> { "№", Loc["TJ_Pupil"] };
+        header.AddRange(j.Topics.Select(t => (object?)$"{t.Number:00} {t.Name} ({t.WordFrom}–{t.WordTo})"));
+        header.Add(Loc["TJ_Passed"]);
+
+        var rows = new List<IReadOnlyList<object?>> { header };
+        for (var i = 0; i < j.Pupils.Count; i++)
+        {
+            var p = j.Pupils[i];
+            var row = new List<object?> { i + 1, p.Name };
+            foreach (var t in j.Topics)
+                row.Add(j.Marks.FirstOrDefault(m => m.UserId == p.UserId && m.SubjectId == t.SubjectId)?.PassedOn.ToString("dd.MM.yyyy") ?? "");
+            row.Add(j.Marks.Count(m => m.UserId == p.UserId));
+            rows.Add(row);
+        }
+        return rows;
+    }
+
+    private async Task ExportAsync(bool allBooks)
+    {
+        if (_j is null) return;
+        _busy = true;
+        try
+        {
+            var sheets = new List<(string, IReadOnlyList<IReadOnlyList<object?>>)>();
+            if (allBooks)
+            {
+                foreach (var b in _j.Books)
+                {
+                    var j = b == _j.Book ? _j : await ApiClient.TeacherGetJournalAsync(_classId, b);
+                    if (j is not null) sheets.Add((Loc.Format("TE_BookCol", b), SheetRows(j)));
+                }
+            }
+            else sheets.Add((Loc.Format("TE_BookCol", _j.Book), SheetRows(_j)));
+
+            var bytes = XlsxWriter.BuildWorkbook(sheets);
+            var name = new string(_j.ClassName.Select(ch => char.IsLetterOrDigit(ch) ? ch : '-').ToArray()).Trim('-');
+            var file = $"Jumbo-journal-{name}-{(allBooks ? "all" : "book" + _j.Book)}-{DateTime.UtcNow.AddHours(5):yyyy-MM-dd}.xlsx";
+            await JS.InvokeVoidAsync("lp.downloadFile", file, Convert.ToBase64String(bytes), XlsxWriter.MimeType);
+        }
+        finally { _busy = false; }
+    }
+}

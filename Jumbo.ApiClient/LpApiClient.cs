@@ -239,6 +239,23 @@ public class LpApiClient(HttpClient http)
     public async Task<List<FeedbackDto>> AdminGetFeedbackAsync() =>
         await http.GetFromJsonAsync<List<FeedbackDto>>("api/admin/feedback") ?? [];
 
+    // The teacher's journal of topics
+    public async Task<JournalDto?> TeacherGetJournalAsync(int classId, int book)
+    {
+        var response = await http.GetAsync($"api/teacher/journal/{classId}?book={book}");
+        if (!response.IsSuccessStatusCode) return null;
+        return await response.Content.ReadFromJsonAsync<JournalDto>();
+    }
+
+    /// <summary>Puts a mark (PassedOn set) or takes it away (null); returns the mark or null.</summary>
+    public async Task<JournalMarkDto?> TeacherSetJournalMarkAsync(SetJournalMarkRequest request)
+    {
+        var response = await http.PutAsJsonAsync("api/teacher/journal/mark", request);
+        if (!response.IsSuccessStatusCode)
+            throw new InvalidOperationException((await response.Content.ReadFromJsonAsync<ErrorResponse>())?.Error ?? response.StatusCode.ToString());
+        try { return await response.Content.ReadFromJsonAsync<JournalMarkDto>(); } catch { return null; }
+    }
+
     // Ads
     /// <summary>The ad to show to the signed-in learner now, or null (not a learner of the free version, nothing is due).</summary>
     public async Task<AdForUserDto?> GetNextAdAsync()
