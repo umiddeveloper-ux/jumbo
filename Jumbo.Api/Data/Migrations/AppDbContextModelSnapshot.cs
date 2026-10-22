@@ -22,6 +22,103 @@ namespace Jumbo.Api.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Jumbo.Shared.Entities.Ad", b =>
+                {
+                    b.Property<int>("AdId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("ad_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("AdId"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<DateTime?>("EndsAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("ends_at");
+
+                    b.Property<string>("Html")
+                        .IsRequired()
+                        .HasMaxLength(8000)
+                        .HasColumnType("character varying(8000)")
+                        .HasColumnName("html");
+
+                    b.Property<byte[]>("ImageData")
+                        .HasColumnType("bytea")
+                        .HasColumnName("image_data");
+
+                    b.Property<string>("ImageType")
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)")
+                        .HasColumnName("image_type");
+
+                    b.Property<int>("IntervalMinutes")
+                        .HasColumnType("integer")
+                        .HasColumnName("interval_minutes");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_active");
+
+                    b.Property<string>("Lang")
+                        .HasMaxLength(2)
+                        .HasColumnType("character varying(2)")
+                        .HasColumnName("lang");
+
+                    b.Property<string>("Mode")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)")
+                        .HasColumnName("mode");
+
+                    b.Property<DateTime>("StartsAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("starts_at");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)")
+                        .HasColumnName("title");
+
+                    b.HasKey("AdId")
+                        .HasName("pk_ads");
+
+                    b.HasIndex("IsActive", "StartsAt")
+                        .HasDatabaseName("ix_ads_is_active_starts_at");
+
+                    b.ToTable("ads", (string)null);
+                });
+
+            modelBuilder.Entity("Jumbo.Shared.Entities.AdView", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.Property<int>("AdId")
+                        .HasColumnType("integer")
+                        .HasColumnName("ad_id");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("integer")
+                        .HasColumnName("count");
+
+                    b.Property<DateTime>("LastShownAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_shown_at");
+
+                    b.HasKey("UserId", "AdId")
+                        .HasName("pk_ad_views");
+
+                    b.HasIndex("AdId")
+                        .HasDatabaseName("ix_ad_views_ad_id");
+
+                    b.ToTable("ad_views", (string)null);
+                });
+
             modelBuilder.Entity("Jumbo.Shared.Entities.AppVersion", b =>
                 {
                     b.Property<int>("AppVersionId")
@@ -1418,6 +1515,23 @@ namespace Jumbo.Api.Data.Migrations
                         .HasDatabaseName("ix_words_svg_image_id");
 
                     b.ToTable("words", (string)null);
+                });
+
+            modelBuilder.Entity("Jumbo.Shared.Entities.AdView", b =>
+                {
+                    b.HasOne("Jumbo.Shared.Entities.Ad", null)
+                        .WithMany()
+                        .HasForeignKey("AdId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_ad_views_ads_ad_id");
+
+                    b.HasOne("Jumbo.Shared.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_ad_views_users_user_id");
                 });
 
             modelBuilder.Entity("Jumbo.Shared.Entities.Award", b =>

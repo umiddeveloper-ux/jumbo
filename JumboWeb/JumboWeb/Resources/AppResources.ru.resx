@@ -2853,4 +2853,139 @@
   <data name="Login_TooMany" xml:space="preserve">
     <value>Слишком много неверных попыток. Подождите {0} мин и попробуйте снова.</value>
   </data>
+  <data name="Ad_Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="Admin_TabAds" xml:space="preserve">
+    <value>Реклама</value>
+  </data>
+  <data name="Admin_Ad_Hint" xml:space="preserve">
+    <value>Окно с рекламой видят зарегистрированные ученики с бесплатной версией (Бронза) на сайте и в приложениях, когда подходит время. Между любыми двумя рекламами у ученика пауза 10 минут; в игре и на экзамене реклама не появляется. Время указывается по Ташкенту (UTC+5).</value>
+  </data>
+  <data name="Admin_Ad_New" xml:space="preserve">
+    <value>Новая реклама</value>
+  </data>
+  <data name="Admin_Ad_Empty" xml:space="preserve">
+    <value>Реклам пока нет</value>
+  </data>
+  <data name="Admin_Ad_Title" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+  <data name="Admin_Ad_Text" xml:space="preserve">
+    <value>Текст рекламы (HTML)</value>
+  </data>
+  <data name="Admin_Ad_TextHint" xml:space="preserve">
+    <value>Можно: &lt;p&gt;, &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;br&gt;, &lt;ul&gt;/&lt;ol&gt;/&lt;li&gt;, &lt;h3&gt;, &lt;a href="https://…"&gt;. Остальное будет удалено.</value>
+  </data>
+  <data name="Admin_Ad_Image" xml:space="preserve">
+    <value>Рисунок (необязательно, до 1 МБ)</value>
+  </data>
+  <data name="Admin_Ad_ImageRemove" xml:space="preserve">
+    <value>Убрать рисунок</value>
+  </data>
+  <data name="Admin_Ad_Mode" xml:space="preserve">
+    <value>Время показа</value>
+  </data>
+  <data name="Admin_Ad_ModeFixed" xml:space="preserve">
+    <value>Жёстко: один раз, начиная с указанного момента</value>
+  </data>
+  <data name="Admin_Ad_ModePeriodic" xml:space="preserve">
+    <value>Периодически: снова и снова через интервал</value>
+  </data>
+  <data name="Admin_Ad_Starts" xml:space="preserve">
+    <value>Начать показ</value>
+  </data>
+  <data name="Admin_Ad_Ends" xml:space="preserve">
+    <value>Закончить (необязательно)</value>
+  </data>
+  <data name="Admin_Ad_Every" xml:space="preserve">
+    <value>Повторять каждые</value>
+  </data>
+  <data name="Admin_Ad_Minutes" xml:space="preserve">
+    <value>мин</value>
+  </data>
+  <data name="Admin_Ad_Hours" xml:space="preserve">
+    <value>ч</value>
+  </data>
+  <data name="Admin_Ad_Days" xml:space="preserve">
+    <value>дн</value>
+  </data>
+  <data name="Admin_Ad_Lang" xml:space="preserve">
+    <value>Для языка</value>
+  </data>
+  <data name="Admin_Ad_LangAll" xml:space="preserve">
+    <value>для всех</value>
+  </data>
+  <data name="Admin_Ad_Active" xml:space="preserve">
+    <value>Показывать (включена)</value>
+  </data>
+  <data name="Admin_Ad_On" xml:space="preserve">
+    <value>включена</value>
+  </data>
+  <data name="Admin_Ad_Off" xml:space="preserve">
+    <value>выключена</value>
+  </data>
+  <data name="Admin_Ad_Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Admin_Ad_Preview" xml:space="preserve">
+    <value>Предпросмотр</value>
+  </data>
+  <data name="Admin_Ad_Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Admin_Ad_Edit" xml:space="preserve">
+    <value>Изменить</value>
+  </data>
+  <data name="Admin_Ad_Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Admin_Ad_Reset" xml:space="preserve">
+    <value>Показать всем заново</value>
+  </data>
+  <data name="Admin_Ad_Saved" xml:space="preserve">
+    <value>Сохранено</value>
+  </data>
+  <data name="Admin_Ad_Deleted" xml:space="preserve">
+    <value>Удалено</value>
+  </data>
+  <data name="Admin_Ad_ResetDone" xml:space="preserve">
+    <value>Показы сброшены: реклама снова будет показана всем</value>
+  </data>
+  <data name="Admin_Ad_Stats" xml:space="preserve">
+    <value>Видели: {0} · показов: {1}</value>
+  </data>
+  <data name="Admin_Ad_Never" xml:space="preserve">
+    <value>ещё не показывалась</value>
+  </data>
+  <data name="Admin_Ad_ConfirmDelete" xml:space="preserve">
+    <value>Удалить рекламу «{0}»?</value>
+  </data>
+  <data name="Admin_Ad_SummaryFixed" xml:space="preserve">
+    <value>один раз, с {0}</value>
+  </data>
+  <data name="Admin_Ad_SummaryPeriodic" xml:space="preserve">
+    <value>каждые {0}, с {1}</value>
+  </data>
+  <data name="Admin_Ad_Err_NO_TITLE" xml:space="preserve">
+    <value>Введите заголовок</value>
+  </data>
+  <data name="Admin_Ad_Err_NO_TEXT" xml:space="preserve">
+    <value>Введите текст рекламы</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_MODE" xml:space="preserve">
+    <value>Неверное время показа</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_INTERVAL" xml:space="preserve">
+    <value>Интервал не меньше 5 минут</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_LANG" xml:space="preserve">
+    <value>Неверный язык</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_DATES" xml:space="preserve">
+    <value>Конец должен быть позже начала</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_IMAGE" xml:space="preserve">
+    <value>Рисунок не подходит (png, jpeg, webp или gif до 1 МБ)</value>
+  </data>
 </root>

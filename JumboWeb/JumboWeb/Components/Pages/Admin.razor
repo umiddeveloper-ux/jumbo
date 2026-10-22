@@ -175,6 +175,98 @@ else
                 }
             </section>
         }
+        else if (_tab == "ads")
+        {
+            <p class="reg-help">@Loc["Admin_Ad_Hint"]</p>
+
+            @if (_adForm is null)
+            {
+                <button type="button" class="lp-btn lp-btn-sm" @onclick="() => NewAd()">➕ @Loc["Admin_Ad_New"]</button>
+                @if (_ads.Count == 0)
+                {
+                    <p class="reg-help">@Loc["Admin_Ad_Empty"]</p>
+                }
+                @foreach (var ad in _ads)
+                {
+                    var a = ad;
+                    <section class="adm-card adm-ad @(a.IsActive ? "" : "off")">
+                        <div class="adm-ad-head">
+                            <b>@a.Title</b>
+                            <span class="adm-badge">@(a.IsActive ? Loc["Admin_Ad_On"] : Loc["Admin_Ad_Off"])</span>
+                            @if (a.Lang is not null) { <span class="adm-badge">@a.Lang.ToUpperInvariant()</span> }
+                            @if (a.HasImage) { <span class="adm-badge">🖼</span> }
+                        </div>
+                        <div class="reg-help">@AdSummary(a)</div>
+                        <div class="reg-help">@Loc.Format("Admin_Ad_Stats", a.Viewers, a.Showings)@(a.LastShownAt is { } last ? " · " + last.AddHours(5).ToString("dd.MM.yyyy HH:mm") : " · " + Loc["Admin_Ad_Never"])</div>
+                        <div class="adm-ad-actions">
+                            <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => EditAdAsync(a.Id)">✏️ @Loc["Admin_Ad_Edit"]</button>
+                            <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => ResetAdAsync(a.Id)">🔁 @Loc["Admin_Ad_Reset"]</button>
+                            <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => DeleteAdAsync(a)">🗑 @Loc["Admin_Ad_Delete"]</button>
+                        </div>
+                    </section>
+                }
+            }
+            else
+            {
+                var f = _adForm;
+                <section class="adm-card">
+                    <label>@Loc["Admin_Ad_Title"]<input class="lp-input" type="text" maxlength="200" @bind="f.Title" @bind:event="oninput" /></label>
+                    <label>@Loc["Admin_Ad_Text"]<textarea class="lp-input adm-ad-html" rows="7" maxlength="8000" @bind="f.Html" @bind:event="oninput"></textarea></label>
+                    <p class="reg-help">@Loc["Admin_Ad_TextHint"]</p>
+
+                    <div class="settings-label">@Loc["Admin_Ad_Image"]</div>
+                    @if (!string.IsNullOrEmpty(f.ImageDataUrl))
+                    {
+                        <img class="adm-ad-thumb" src="@f.ImageDataUrl" alt="" />
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => { f.ImageDataUrl = null; f.RemoveImage = true; }">✖ @Loc["Admin_Ad_ImageRemove"]</button>
+                    }
+                    <InputFile class="lp-input" accept="image/png,image/jpeg,image/webp,image/gif" OnChange="OnAdImagePicked" />
+
+                    <div class="settings-label">@Loc["Admin_Ad_Mode"]</div>
+                    <label class="adm-radio"><input type="radio" name="admode" checked="@(f.Mode == "fixed")" @onchange='() => f.Mode = "fixed"' /> @Loc["Admin_Ad_ModeFixed"]</label>
+                    <label class="adm-radio"><input type="radio" name="admode" checked="@(f.Mode == "periodic")" @onchange='() => f.Mode = "periodic"' /> @Loc["Admin_Ad_ModePeriodic"]</label>
+
+                    <div class="adm-ver-grid">
+                        <label>@Loc["Admin_Ad_Starts"]<input class="lp-input" type="datetime-local" @bind="f.StartsLocal" /></label>
+                        <label>@Loc["Admin_Ad_Ends"]<input class="lp-input" type="datetime-local" @bind="f.EndsLocal" /></label>
+                    </div>
+                    @if (f.Mode == "periodic")
+                    {
+                        <div class="adm-ver-grid">
+                            <label>@Loc["Admin_Ad_Every"]<input class="lp-input" type="number" min="1" @bind="f.IntervalValue" /></label>
+                            <label>&nbsp;
+                                <select class="lp-select" @bind="f.IntervalUnit">
+                                    <option value="min">@Loc["Admin_Ad_Minutes"]</option>
+                                    <option value="hour">@Loc["Admin_Ad_Hours"]</option>
+                                    <option value="day">@Loc["Admin_Ad_Days"]</option>
+                                </select>
+                            </label>
+                        </div>
+                    }
+                    <label>@Loc["Admin_Ad_Lang"]
+                        <select class="lp-select" @bind="f.Lang">
+                            <option value="">@Loc["Admin_Ad_LangAll"]</option>
+                            <option value="ru">Русский</option>
+                            <option value="en">English</option>
+                            <option value="uz">O'zbekcha</option>
+                        </select>
+                    </label>
+                    <label class="adm-radio"><input type="checkbox" @bind="f.IsActive" /> @Loc["Admin_Ad_Active"]</label>
+
+                    <div class="adm-ad-actions">
+                        <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="SaveAdAsync">💾 @Loc["Admin_Ad_Save"]</button>
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _adPreview = true">👁 @Loc["Admin_Ad_Preview"]</button>
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _adForm = null">@Loc["Admin_Ad_Cancel"]</button>
+                    </div>
+                    @if (!string.IsNullOrEmpty(_message)) { <div class="lp-success-msg">@_message</div> }
+                    @if (!string.IsNullOrEmpty(_error)) { <p class="validation-message">@_error</p> }
+                </section>
+                @if (_adPreview)
+                {
+                    <AdDialog Title="@f.Title" Html="@f.Html" ImageDataUrl="@f.ImageDataUrl" OnClose="() => _adPreview = false" />
+                }
+            }
+        }
         else if (_tab == "prices")
         {
             <p class="reg-help">@Loc["PR_Hint"]</p>
@@ -367,6 +459,98 @@ else
     private List<AppVersionDto> _versions = new();
     private List<PlanUserDto> _planUsers = new();
 
+    // ── ads ──
+    private sealed class AdForm
+    {
+        public int Id;
+        public string Title = string.Empty, Html = string.Empty, Mode = "fixed", IntervalUnit = "day";
+        public string? ImageDataUrl, Lang;
+        public bool RemoveImage, IsActive = true;
+        public DateTime StartsLocal = DateTime.UtcNow.AddHours(5);
+        public DateTime? EndsLocal;
+        public int IntervalValue = 1;
+    }
+    private List<AdDto> _ads = new();
+    private AdForm? _adForm;
+    private bool _adPreview;
+
+    // the admin works in the time of Uzbekistan (UTC+5); the server keeps UTC
+    private static DateTime ToUtc(DateTime local) => DateTime.SpecifyKind(local.AddHours(-5), DateTimeKind.Utc);
+    private static DateTime ToLocal(DateTime utc) => DateTime.SpecifyKind(utc.AddHours(5), DateTimeKind.Unspecified);
+
+    private string IntervalText(int minutes) =>
+        minutes % 1440 == 0 ? $"{minutes / 1440} {Loc["Admin_Ad_Days"]}" : minutes % 60 == 0 ? $"{minutes / 60} {Loc["Admin_Ad_Hours"]}" : $"{minutes} {Loc["Admin_Ad_Minutes"]}";
+
+    private string AdSummary(AdDto a)
+    {
+        var from = a.StartsAt.AddHours(5).ToString("dd.MM.yyyy HH:mm");
+        var text = a.Mode == "periodic" ? Loc.Format("Admin_Ad_SummaryPeriodic", IntervalText(a.IntervalMinutes), from) : Loc.Format("Admin_Ad_SummaryFixed", from);
+        return a.EndsAt is { } e ? text + " → " + e.AddHours(5).ToString("dd.MM.yyyy HH:mm") : text;
+    }
+
+    private void NewAd() { _message = _error = string.Empty; _adForm = new AdForm(); }
+
+    private async Task EditAdAsync(int id)
+    {
+        _message = _error = string.Empty;
+        var a = await ApiClient.AdminGetAdAsync(id);
+        if (a is null) return;
+        var unit = a.IntervalMinutes % 1440 == 0 && a.IntervalMinutes > 0 ? "day" : a.IntervalMinutes % 60 == 0 && a.IntervalMinutes > 0 ? "hour" : "min";
+        _adForm = new AdForm
+        {
+            Id = a.Id, Title = a.Title, Html = a.Html, ImageDataUrl = a.ImageDataUrl, Mode = a.Mode, Lang = a.Lang, IsActive = a.IsActive,
+            StartsLocal = ToLocal(a.StartsAt), EndsLocal = a.EndsAt is { } e ? ToLocal(e) : null,
+            IntervalUnit = unit, IntervalValue = a.IntervalMinutes == 0 ? 1 : unit == "day" ? a.IntervalMinutes / 1440 : unit == "hour" ? a.IntervalMinutes / 60 : a.IntervalMinutes
+        };
+    }
+
+    private async Task OnAdImagePicked(InputFileChangeEventArgs e)
+    {
+        if (_adForm is null) return;
+        _error = string.Empty;
+        if (e.File.Size > 1024 * 1024) { _error = Loc["Admin_Ad_Err_BAD_IMAGE"]; return; }
+        using var ms = new MemoryStream();
+        await e.File.OpenReadStream(1024 * 1024 + 1).CopyToAsync(ms);
+        _adForm.ImageDataUrl = $"data:{e.File.ContentType};base64,{Convert.ToBase64String(ms.ToArray())}";
+        _adForm.RemoveImage = false;
+    }
+
+    private async Task SaveAdAsync()
+    {
+        if (_adForm is not { } f) return;
+        _message = _error = string.Empty;
+        _busy = true;
+        try
+        {
+            int minutes = f.IntervalUnit == "day" ? f.IntervalValue * 1440 : f.IntervalUnit == "hour" ? f.IntervalValue * 60 : f.IntervalValue;
+            await ApiClient.AdminSaveAdAsync(f.Id, new SaveAdRequest
+            {
+                Title = f.Title, Html = f.Html, Mode = f.Mode, IsActive = f.IsActive, Lang = string.IsNullOrEmpty(f.Lang) ? null : f.Lang,
+                // an old picture is kept (null) unless a new one was picked or it was removed
+                ImageDataUrl = f.Id == 0 || f.RemoveImage || f.ImageDataUrl is null ? f.ImageDataUrl : null, RemoveImage = f.RemoveImage,
+                StartsAt = ToUtc(f.StartsLocal), EndsAt = f.EndsLocal is { } e ? ToUtc(e) : null, IntervalMinutes = f.Mode == "periodic" ? minutes : 0
+            });
+            _adForm = null;
+            _ads = await ApiClient.AdminGetAdsAsync();
+            _message = Loc["Admin_Ad_Saved"];
+        }
+        catch (Exception ex) { _error = Loc[$"Admin_Ad_Err_{ex.Message}"]; }
+        finally { _busy = false; }
+    }
+
+    private async Task DeleteAdAsync(AdDto a)
+    {
+        if (!await JS.InvokeAsync<bool>("confirm", Loc.Format("Admin_Ad_ConfirmDelete", a.Title))) return;
+        try { await ApiClient.AdminDeleteAdAsync(a.Id); _ads = await ApiClient.AdminGetAdsAsync(); _message = Loc["Admin_Ad_Deleted"]; }
+        catch (Exception ex) { _error = ex.Message; }
+    }
+
+    private async Task ResetAdAsync(int id)
+    {
+        try { await ApiClient.AdminResetAdViewsAsync(id); _ads = await ApiClient.AdminGetAdsAsync(); _message = Loc["Admin_Ad_ResetDone"]; }
+        catch (Exception ex) { _error = ex.Message; }
+    }
+
     // ── prices of the versions and the balance ──
     private List<PlanPriceDto> _priceRows = new();
     private string _topUser = string.Empty, _topNote = string.Empty;
@@ -427,17 +611,17 @@ else
     /// <summary>The section of the page (the left menu of the admin): requests, schools, subscribers, versions, plans, videos.</summary>
     [Parameter] public string? Section { get; set; }
 
-    private static readonly string[] Sections = ["requests", "schools", "subscribers", "versions", "plans", "prices", "balance", "videos"];
+    private static readonly string[] Sections = ["requests", "schools", "subscribers", "versions", "plans", "prices", "balance", "ads", "videos"];
 
     private string SectionLabel => _tab switch
     {
         "schools" => "Admin_TabSchools", "subscribers" => "Admin_TabSubscribers", "versions" => "Admin_TabVersions",
-        "plans" => "Admin_TabPlans", "videos" => "Admin_TabVideos", "prices" => "Admin_TabPrices", "balance" => "Admin_TabBalance", _ => "Admin_TabRequests"
+        "plans" => "Admin_TabPlans", "videos" => "Admin_TabVideos", "prices" => "Admin_TabPrices", "balance" => "Admin_TabBalance", "ads" => "Admin_TabAds", _ => "Admin_TabRequests"
     };
 
     private string SectionIcon => _tab switch
     {
-        "schools" => "🏫", "subscribers" => "💬", "versions" => "📱", "plans" => "🪙", "videos" => "🎬", "prices" => "🏷", "balance" => "💳", _ => "📨"
+        "schools" => "🏫", "subscribers" => "💬", "versions" => "📱", "plans" => "🪙", "videos" => "🎬", "prices" => "🏷", "balance" => "💳", "ads" => "📣", _ => "📨"
     };
 
     protected override async Task OnParametersSetAsync()
@@ -465,6 +649,7 @@ else
         _message = _error = string.Empty;
         if (tab == "requests") await LoadRequestsAsync();
         else if (tab == "videos") await LoadVideosAsync();
+        else if (tab == "ads") { _adForm = null; _adPreview = false; try { _ads = await ApiClient.AdminGetAdsAsync(); } catch (Exception ex) { _error = ex.Message; } }
         else if (tab == "prices") { try { _priceRows = await ApiClient.GetPlanPricesAsync(); } catch (Exception ex) { _error = ex.Message; } }
         else if (tab == "balance") { try { _balanceTx = await ApiClient.AdminGetBalanceTransactionsAsync(); } catch (Exception ex) { _error = ex.Message; } }
         else if (tab == "plans") { try { _planUsers = await ApiClient.AdminGetPlansAsync(); } catch (Exception ex) { _error = ex.Message; } }

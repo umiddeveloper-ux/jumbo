@@ -18,7 +18,8 @@ namespace Jumbo
         {
             var livesService = IPlatformApplication.Current!.Services.GetRequiredService<LivesService>();
             var awardWatcher = IPlatformApplication.Current.Services.GetRequiredService<AwardWatcher>();
-            var window = new Window(new AppShell(livesService, awardWatcher));
+            var adService = IPlatformApplication.Current.Services.GetRequiredService<AdService>();
+            var window = new Window(new AppShell(livesService, awardWatcher, adService));
 #if WINDOWS
             // Handy for checking the phone layout on a PC: set JUMBO_PHONE=1 to open a phone-sized window.
             if (Environment.GetEnvironmentVariable("JUMBO_PHONE") == "1")

@@ -147,6 +147,8 @@
             </div>
         }
 
+        <AdHost />
+
         <main class="site-main @(_hideNav ? "site-main-full" : "")">
             @if (!_isLpPage && !_hideNav)
             {
@@ -185,7 +187,7 @@
     [
         ("requests", "📨", "Admin_TabRequests"), ("schools", "🏫", "Admin_TabSchools"), ("subscribers", "💬", "Admin_TabSubscribers"),
         ("versions", "📱", "Admin_TabVersions"), ("plans", "🪙", "Admin_TabPlans"), ("prices", "🏷", "Admin_TabPrices"),
-        ("balance", "💳", "Admin_TabBalance"), ("videos", "🎬", "Admin_TabVideos"),
+        ("balance", "💳", "Admin_TabBalance"), ("ads", "📣", "Admin_TabAds"), ("videos", "🎬", "Admin_TabVideos"),
     ];
 
     private static readonly string[] PublicPaths = ["", "register", "login", "for-schools", "plans"];

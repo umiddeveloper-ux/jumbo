@@ -1,0 +1,24 @@
+@using Jumbo.Shared
+@using JumboWeb.Services
+@inject AppLocalizer Loc
+
+@* The window of an ad: the picture (if there is one), the title, the text (cleaned html) and the button "Close". Shown by AdHost to learners of the
+   free version and by the admin page as a preview. *@
+<div class="ad-pop" role="dialog" aria-modal="true" aria-label="@Title">
+    <div class="ad-pop-card">
+        @if (!string.IsNullOrEmpty(ImageDataUrl))
+        {
+            <img class="ad-pop-img" src="@ImageDataUrl" alt="" />
+        }
+        <h2 class="ad-pop-title">@Title</h2>
+        <div class="ad-pop-text">@((MarkupString)SafeHtml.Clean(Html))</div>
+        <button type="button" class="lp-btn lp-btn-full" @onclick="() => OnClose.InvokeAsync()">@Loc["Ad_Close"]</button>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; } = string.Empty;
+    [Parameter] public string Html { get; set; } = string.Empty;
+    [Parameter] public string? ImageDataUrl { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+}

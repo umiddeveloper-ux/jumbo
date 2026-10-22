@@ -2853,4 +2853,139 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="Login_TooMany" xml:space="preserve">
     <value>Too many wrong attempts. Wait {0} min and try again.</value>
   </data>
+  <data name="Ad_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Admin_TabAds" xml:space="preserve">
+    <value>Ads</value>
+  </data>
+  <data name="Admin_Ad_Hint" xml:space="preserve">
+    <value>Registered learners of the free version (Bronze) see the ad window on the site and in the apps when the time comes. A learner has a 10-minute rest between any two ads; nothing is shown in a game or an exam. Times are Tashkent time (UTC+5).</value>
+  </data>
+  <data name="Admin_Ad_New" xml:space="preserve">
+    <value>New ad</value>
+  </data>
+  <data name="Admin_Ad_Empty" xml:space="preserve">
+    <value>No ads yet</value>
+  </data>
+  <data name="Admin_Ad_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Admin_Ad_Text" xml:space="preserve">
+    <value>Text of the ad (HTML)</value>
+  </data>
+  <data name="Admin_Ad_TextHint" xml:space="preserve">
+    <value>Allowed: &lt;p&gt;, &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;br&gt;, &lt;ul&gt;/&lt;ol&gt;/&lt;li&gt;, &lt;h3&gt;, &lt;a href="https://…"&gt;. Everything else is removed.</value>
+  </data>
+  <data name="Admin_Ad_Image" xml:space="preserve">
+    <value>Picture (optional, up to 1 MB)</value>
+  </data>
+  <data name="Admin_Ad_ImageRemove" xml:space="preserve">
+    <value>Remove the picture</value>
+  </data>
+  <data name="Admin_Ad_Mode" xml:space="preserve">
+    <value>When it is shown</value>
+  </data>
+  <data name="Admin_Ad_ModeFixed" xml:space="preserve">
+    <value>Fixed: once, from the moment set</value>
+  </data>
+  <data name="Admin_Ad_ModePeriodic" xml:space="preserve">
+    <value>Periodic: again and again after an interval</value>
+  </data>
+  <data name="Admin_Ad_Starts" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Admin_Ad_Ends" xml:space="preserve">
+    <value>End (optional)</value>
+  </data>
+  <data name="Admin_Ad_Every" xml:space="preserve">
+    <value>Repeat every</value>
+  </data>
+  <data name="Admin_Ad_Minutes" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="Admin_Ad_Hours" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="Admin_Ad_Days" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="Admin_Ad_Lang" xml:space="preserve">
+    <value>For the language</value>
+  </data>
+  <data name="Admin_Ad_LangAll" xml:space="preserve">
+    <value>for everybody</value>
+  </data>
+  <data name="Admin_Ad_Active" xml:space="preserve">
+    <value>Show it (on)</value>
+  </data>
+  <data name="Admin_Ad_On" xml:space="preserve">
+    <value>on</value>
+  </data>
+  <data name="Admin_Ad_Off" xml:space="preserve">
+    <value>off</value>
+  </data>
+  <data name="Admin_Ad_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Admin_Ad_Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Admin_Ad_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Admin_Ad_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Admin_Ad_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Admin_Ad_Reset" xml:space="preserve">
+    <value>Show to everybody again</value>
+  </data>
+  <data name="Admin_Ad_Saved" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="Admin_Ad_Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="Admin_Ad_ResetDone" xml:space="preserve">
+    <value>The showings are reset: the ad will be shown to everybody again</value>
+  </data>
+  <data name="Admin_Ad_Stats" xml:space="preserve">
+    <value>Seen by: {0} · showings: {1}</value>
+  </data>
+  <data name="Admin_Ad_Never" xml:space="preserve">
+    <value>not shown yet</value>
+  </data>
+  <data name="Admin_Ad_ConfirmDelete" xml:space="preserve">
+    <value>Delete the ad “{0}”?</value>
+  </data>
+  <data name="Admin_Ad_SummaryFixed" xml:space="preserve">
+    <value>once, from {0}</value>
+  </data>
+  <data name="Admin_Ad_SummaryPeriodic" xml:space="preserve">
+    <value>every {0}, from {1}</value>
+  </data>
+  <data name="Admin_Ad_Err_NO_TITLE" xml:space="preserve">
+    <value>Enter a title</value>
+  </data>
+  <data name="Admin_Ad_Err_NO_TEXT" xml:space="preserve">
+    <value>Enter the text of the ad</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_MODE" xml:space="preserve">
+    <value>Wrong time of showing</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_INTERVAL" xml:space="preserve">
+    <value>The interval is at least 5 minutes</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_LANG" xml:space="preserve">
+    <value>Wrong language</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_DATES" xml:space="preserve">
+    <value>The end must be later than the start</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_IMAGE" xml:space="preserve">
+    <value>The picture does not fit (png, jpeg, webp or gif up to 1 MB)</value>
+  </data>
 </root>

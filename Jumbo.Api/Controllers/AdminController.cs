@@ -133,6 +133,108 @@ public class AdminController(AppDbContext db, ICurrentUserService currentUser, S
                    PublicId = u.PublicId, UserName = (u.FirstName + " " + u.LastName).Trim()
                }).Take(100).ToListAsync();
 
+    // ── ads: the windows shown to learners of the free version ───
+    [HttpGet("ads")]
+    public async Task<List<AdDto>> GetAds()
+    {
+        var ads = await db.Ads.AsNoTracking().OrderByDescending(a => a.AdId).ToListAsync();
+        var stats = await db.AdViews.AsNoTracking().GroupBy(v => v.AdId)
+            .Select(g => new { AdId = g.Key, Viewers = g.Count(), Showings = g.Sum(v => v.Count), Last = g.Max(v => v.LastShownAt) }).ToListAsync();
+        return ads.Select(a =>
+        {
+            var s = stats.FirstOrDefault(x => x.AdId == a.AdId);
+            var dto = ToAdDto(a, withImage: false);
+            dto.Viewers = s?.Viewers ?? 0; dto.Showings = s?.Showings ?? 0; dto.LastShownAt = s?.Last;
+            return dto;
+        }).ToList();
+    }
+
+    [HttpGet("ads/{id:int}")]
+    public async Task<ActionResult<AdDto>> GetAd(int id)
+    {
+        var ad = await db.Ads.AsNoTracking().SingleOrDefaultAsync(a => a.AdId == id);
+        return ad is null ? NotFound() : ToAdDto(ad, withImage: true);
+    }
+
+    [HttpPost("ads")]
+    public async Task<ActionResult<AdDto>> CreateAd(SaveAdRequest request)
+    {
+        var ad = new Ad();
+        if (Fill(ad, request) is { } error) return BadRequest(new { error });
+        db.Ads.Add(ad);
+        await db.SaveChangesAsync();
+        return ToAdDto(ad, withImage: false);
+    }
+
+    [HttpPut("ads/{id:int}")]
+    public async Task<ActionResult<AdDto>> UpdateAd(int id, SaveAdRequest request)
+    {
+        var ad = await db.Ads.SingleOrDefaultAsync(a => a.AdId == id);
+        if (ad is null) return NotFound();
+        if (Fill(ad, request) is { } error) return BadRequest(new { error });
+        await db.SaveChangesAsync();
+        return ToAdDto(ad, withImage: false);
+    }
+
+    [HttpDelete("ads/{id:int}")]
+    public async Task<IActionResult> DeleteAd(int id)
+    {
+        var n = await db.Ads.Where(a => a.AdId == id).ExecuteDeleteAsync();      // the views go with it (cascade)
+        return n == 0 ? NotFound() : NoContent();
+    }
+
+    /// <summary>Forget who has seen the ad: it is shown to everybody again (for a new date, or to try it).</summary>
+    [HttpPost("ads/{id:int}/reset-views")]
+    public async Task<IActionResult> ResetAdViews(int id)
+    {
+        await db.AdViews.Where(v => v.AdId == id).ExecuteDeleteAsync();
+        return NoContent();
+    }
+
+    // Checks the request and puts it into the ad. Returns the error code, or null.
+    private static string? Fill(Ad ad, SaveAdRequest r)
+    {
+        var title = r.Title?.Trim();
+        if (string.IsNullOrEmpty(title)) return "NO_TITLE";
+        var html = SafeHtml.Clean(r.Html);
+        if (html.Length == 0) return "NO_TEXT";
+        if (r.Mode is not (AdModes.Fixed or AdModes.Periodic)) return "BAD_MODE";
+        if (r.Mode == AdModes.Periodic && (r.IntervalMinutes < 5 || r.IntervalMinutes > 525_600)) return "BAD_INTERVAL";
+        if (r.Lang is not null && !TopicVideoPaths.IsLanguage(r.Lang)) return "BAD_LANG";
+
+        var starts = Utc(r.StartsAt);
+        var ends = r.EndsAt is { } e ? Utc(e) : (DateTime?)null;
+        if (ends is not null && ends <= starts) return "BAD_DATES";
+
+        if (!string.IsNullOrEmpty(r.ImageDataUrl))
+        {
+            if (AdImages.Parse(r.ImageDataUrl) is not { } image) return "BAD_IMAGE";
+            ad.ImageData = image.Data; ad.ImageType = image.Type;
+        }
+        else if (r.RemoveImage) { ad.ImageData = null; ad.ImageType = null; }
+
+        ad.Title = title.Length > 200 ? title[..200] : title;
+        ad.Html = html;
+        ad.Mode = r.Mode;
+        ad.StartsAt = starts;
+        ad.EndsAt = ends;
+        ad.IntervalMinutes = r.Mode == AdModes.Periodic ? r.IntervalMinutes : 0;
+        ad.Lang = r.Lang;
+        ad.IsActive = r.IsActive;
+        return null;
+    }
+
+    private static DateTime Utc(DateTime d) => d.Kind == DateTimeKind.Unspecified ? DateTime.SpecifyKind(d, DateTimeKind.Utc) : d.ToUniversalTime();
+
+    private static AdDto ToAdDto(Ad a, bool withImage) => new()
+    {
+        Id = a.AdId, Title = a.Title, Html = a.Html, HasImage = a.ImageData is { Length: > 0 },
+        ImageDataUrl = withImage ? AdImages.ToDataUrl(a) : null,
+        Mode = a.Mode, StartsAt = DateTime.SpecifyKind(a.StartsAt, DateTimeKind.Utc),
+        EndsAt = a.EndsAt is { } e ? DateTime.SpecifyKind(e, DateTimeKind.Utc) : null,
+        IntervalMinutes = a.IntervalMinutes, Lang = a.Lang, IsActive = a.IsActive, CreatedAt = DateTime.SpecifyKind(a.CreatedAt, DateTimeKind.Utc)
+    };
+
     // ── subscribers of the website footer ───
     [HttpGet("subscribers")]
     public async Task<List<SubscriberDto>> GetSubscribers() =>

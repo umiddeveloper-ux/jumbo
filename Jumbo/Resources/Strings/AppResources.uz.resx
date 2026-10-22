@@ -1747,4 +1747,7 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Login_TooMany" xml:space="preserve">
     <value>Juda ko‘p noto‘g‘ri urinish. {0} daqiqa kutib, qayta urinib ko‘ring.</value>
   </data>
+  <data name="Ad_Close" xml:space="preserve">
+    <value>Yopish</value>
+  </data>
 </root>

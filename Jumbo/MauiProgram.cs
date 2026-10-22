@@ -135,6 +135,7 @@ namespace Jumbo
             builder.Services.AddTransient<PhraseGamePageModel>();
             builder.Services.AddTransient<BookZeroPageModel>();
             builder.Services.AddSingleton<AwardWatcher>();
+            builder.Services.AddSingleton<AdService>();
             builder.Services.AddTransient<BookZeroGamePageModel>();
 
             #endregion PageModels

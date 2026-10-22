@@ -9,13 +9,13 @@ namespace Jumbo
     {
         private readonly LivesService _livesService;
 
-        public AppShell(LivesService livesService, AwardWatcher awardWatcher)
+        public AppShell(LivesService livesService, AwardWatcher awardWatcher, AdService adService)
         {
             InitializeComponent();
             _livesService = livesService;
 
             // "You got an award!": ask for new awards after a page is opened, and when the LP grow (a won game)
-            Navigated += (_, _) => { awardWatcher.CheckSoon(900); UpdateBrand(); Dispatcher.DispatchDelayed(TimeSpan.FromMilliseconds(250), UpdateBrand); };       // CurrentPage changes a moment after the event
+            Navigated += (_, _) => { awardWatcher.CheckSoon(900); adService.CheckSoon(); UpdateBrand(); Dispatcher.DispatchDelayed(TimeSpan.FromMilliseconds(250), UpdateBrand); };       // CurrentPage changes a moment after the event
             SizeChanged += (_, _) => UpdateBrand();
             int lastLp = -1;
             _livesService.PropertyChanged += (_, e) =>

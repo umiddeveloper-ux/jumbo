@@ -239,6 +239,32 @@ public class LpApiClient(HttpClient http)
     public async Task<List<FeedbackDto>> AdminGetFeedbackAsync() =>
         await http.GetFromJsonAsync<List<FeedbackDto>>("api/admin/feedback") ?? [];
 
+    // Ads
+    /// <summary>The ad to show to the signed-in learner now, or null (not a learner of the free version, nothing is due).</summary>
+    public async Task<AdForUserDto?> GetNextAdAsync()
+    {
+        var response = await http.GetAsync("api/ads/next");
+        if (response.StatusCode == System.Net.HttpStatusCode.NoContent || !response.IsSuccessStatusCode) return null;
+        return await response.Content.ReadFromJsonAsync<AdForUserDto>();
+    }
+
+    public async Task<List<AdDto>> AdminGetAdsAsync() => await http.GetFromJsonAsync<List<AdDto>>("api/admin/ads") ?? [];
+
+    public async Task<AdDto?> AdminGetAdAsync(int id) => await http.GetFromJsonAsync<AdDto>($"api/admin/ads/{id}");
+
+    /// <summary>Creates (id 0) or changes an ad; the API answers with an error code (NO_TITLE, NO_TEXT, BAD_IMAGE ...) thrown as the message.</summary>
+    public async Task<AdDto?> AdminSaveAdAsync(int id, SaveAdRequest request)
+    {
+        var response = id == 0 ? await http.PostAsJsonAsync("api/admin/ads", request) : await http.PutAsJsonAsync($"api/admin/ads/{id}", request);
+        if (!response.IsSuccessStatusCode)
+            throw new InvalidOperationException((await response.Content.ReadFromJsonAsync<ErrorResponse>())?.Error ?? response.StatusCode.ToString());
+        return await response.Content.ReadFromJsonAsync<AdDto>();
+    }
+
+    public async Task AdminDeleteAdAsync(int id) => (await http.DeleteAsync($"api/admin/ads/{id}")).EnsureSuccessStatusCode();
+
+    public async Task AdminResetAdViewsAsync(int id) => (await http.PostAsync($"api/admin/ads/{id}/reset-views", null)).EnsureSuccessStatusCode();
+
     // Prices of the versions, balance
     public async Task<List<PlanPriceDto>> GetPlanPricesAsync() =>
         await http.GetFromJsonAsync<List<PlanPriceDto>>("api/plans/prices") ?? [];

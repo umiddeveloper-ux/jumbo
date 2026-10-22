@@ -1219,3 +1219,20 @@ span[style*="0.85rem"] { font-size: 0.95rem !important; }
 .subject-num { font-size: 1.9rem; font-weight: 900; color: var(--lp-primary); line-height: 1; }
 .topic-ring-num { font-size: 2.6rem; font-weight: 900; color: var(--lp-primary); line-height: 1; }
 .tq-num { font-size: 2.4rem; font-weight: 900; color: var(--lp-primary); background: var(--lp-primary-soft); border-radius: 50%; }
+
+/* ===== Ads: the window shown to learners of the free version (and its preview in the admin) ===== */
+.ad-pop { position: fixed; inset: 0; z-index: 3500; display: grid; place-items: center; padding: 16px; background: rgba(8, 16, 30, 0.72); animation: ap-fade .25s ease both; }
+.ad-pop-card { width: min(440px, 100%); max-height: 90vh; overflow-y: auto; display: grid; gap: 12px; padding: 20px; border-radius: 26px; text-align: center;
+    background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 6px; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5); }
+.ad-pop-img { width: 100%; max-height: 220px; object-fit: cover; border-radius: 18px; }
+.ad-pop-title { margin: 0; font-size: 1.45rem; font-weight: 900; color: var(--lp-text); }
+.ad-pop-text { text-align: left; font-weight: 600; line-height: 1.5; color: var(--lp-text); overflow-wrap: anywhere; }
+.ad-pop-text p { margin: 0 0 8px; }
+.ad-pop-text a { color: var(--lp-primary); font-weight: 800; }
+.ad-pop-text ul, .ad-pop-text ol { margin: 0 0 8px; padding-left: 22px; }
+.adm-ad .adm-ad-head { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.adm-ad.off { opacity: .6; }
+.adm-ad-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.adm-ad-html { font-family: ui-monospace, Consolas, monospace; min-height: 140px; }
+.adm-ad-thumb { max-width: 240px; max-height: 140px; border-radius: 12px; display: block; margin: 6px 0; }
+.adm-radio { display: flex; gap: 8px; align-items: center; font-weight: 700; margin: 4px 0; }

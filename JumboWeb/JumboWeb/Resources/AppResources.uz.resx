@@ -2784,4 +2784,139 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Login_TooMany" xml:space="preserve">
     <value>Juda ko‘p noto‘g‘ri urinish. {0} daqiqa kutib, qayta urinib ko‘ring.</value>
   </data>
+  <data name="Ad_Close" xml:space="preserve">
+    <value>Yopish</value>
+  </data>
+  <data name="Admin_TabAds" xml:space="preserve">
+    <value>Reklama</value>
+  </data>
+  <data name="Admin_Ad_Hint" xml:space="preserve">
+    <value>Bepul versiyadagi (Bronza) ro‘yxatdan o‘tgan o‘quvchilar vaqti kelganda sayt va ilovalarda reklama oynasini ko‘radi. Ikki reklama orasida 10 daqiqa tanaffus bor; o‘yin va imtihonda reklama chiqmaydi. Vaqt Toshkent bo‘yicha (UTC+5).</value>
+  </data>
+  <data name="Admin_Ad_New" xml:space="preserve">
+    <value>Yangi reklama</value>
+  </data>
+  <data name="Admin_Ad_Empty" xml:space="preserve">
+    <value>Hozircha reklama yo‘q</value>
+  </data>
+  <data name="Admin_Ad_Title" xml:space="preserve">
+    <value>Sarlavha</value>
+  </data>
+  <data name="Admin_Ad_Text" xml:space="preserve">
+    <value>Reklama matni (HTML)</value>
+  </data>
+  <data name="Admin_Ad_TextHint" xml:space="preserve">
+    <value>Mumkin: &lt;p&gt;, &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;br&gt;, &lt;ul&gt;/&lt;ol&gt;/&lt;li&gt;, &lt;h3&gt;, &lt;a href="https://…"&gt;. Qolgani o‘chiriladi.</value>
+  </data>
+  <data name="Admin_Ad_Image" xml:space="preserve">
+    <value>Rasm (ixtiyoriy, 1 MB gacha)</value>
+  </data>
+  <data name="Admin_Ad_ImageRemove" xml:space="preserve">
+    <value>Rasmni olib tashlash</value>
+  </data>
+  <data name="Admin_Ad_Mode" xml:space="preserve">
+    <value>Ko‘rsatish vaqti</value>
+  </data>
+  <data name="Admin_Ad_ModeFixed" xml:space="preserve">
+    <value>Qat’iy: ko‘rsatilgan paytdan boshlab bir marta</value>
+  </data>
+  <data name="Admin_Ad_ModePeriodic" xml:space="preserve">
+    <value>Davriy: har intervaldan keyin qayta-qayta</value>
+  </data>
+  <data name="Admin_Ad_Starts" xml:space="preserve">
+    <value>Boshlanishi</value>
+  </data>
+  <data name="Admin_Ad_Ends" xml:space="preserve">
+    <value>Tugashi (ixtiyoriy)</value>
+  </data>
+  <data name="Admin_Ad_Every" xml:space="preserve">
+    <value>Har</value>
+  </data>
+  <data name="Admin_Ad_Minutes" xml:space="preserve">
+    <value>daq</value>
+  </data>
+  <data name="Admin_Ad_Hours" xml:space="preserve">
+    <value>soat</value>
+  </data>
+  <data name="Admin_Ad_Days" xml:space="preserve">
+    <value>kun</value>
+  </data>
+  <data name="Admin_Ad_Lang" xml:space="preserve">
+    <value>Til uchun</value>
+  </data>
+  <data name="Admin_Ad_LangAll" xml:space="preserve">
+    <value>hamma uchun</value>
+  </data>
+  <data name="Admin_Ad_Active" xml:space="preserve">
+    <value>Ko‘rsatish (yoqilgan)</value>
+  </data>
+  <data name="Admin_Ad_On" xml:space="preserve">
+    <value>yoqilgan</value>
+  </data>
+  <data name="Admin_Ad_Off" xml:space="preserve">
+    <value>o‘chirilgan</value>
+  </data>
+  <data name="Admin_Ad_Save" xml:space="preserve">
+    <value>Saqlash</value>
+  </data>
+  <data name="Admin_Ad_Preview" xml:space="preserve">
+    <value>Ko‘rib chiqish</value>
+  </data>
+  <data name="Admin_Ad_Cancel" xml:space="preserve">
+    <value>Bekor qilish</value>
+  </data>
+  <data name="Admin_Ad_Edit" xml:space="preserve">
+    <value>Tahrirlash</value>
+  </data>
+  <data name="Admin_Ad_Delete" xml:space="preserve">
+    <value>O‘chirish</value>
+  </data>
+  <data name="Admin_Ad_Reset" xml:space="preserve">
+    <value>Hammaga qaytadan ko‘rsatish</value>
+  </data>
+  <data name="Admin_Ad_Saved" xml:space="preserve">
+    <value>Saqlandi</value>
+  </data>
+  <data name="Admin_Ad_Deleted" xml:space="preserve">
+    <value>O‘chirildi</value>
+  </data>
+  <data name="Admin_Ad_ResetDone" xml:space="preserve">
+    <value>Ko‘rsatishlar tozalandi: reklama hammaga qayta ko‘rsatiladi</value>
+  </data>
+  <data name="Admin_Ad_Stats" xml:space="preserve">
+    <value>Ko‘rganlar: {0} · ko‘rsatishlar: {1}</value>
+  </data>
+  <data name="Admin_Ad_Never" xml:space="preserve">
+    <value>hali ko‘rsatilmagan</value>
+  </data>
+  <data name="Admin_Ad_ConfirmDelete" xml:space="preserve">
+    <value>«{0}» reklamasini o‘chirasizmi?</value>
+  </data>
+  <data name="Admin_Ad_SummaryFixed" xml:space="preserve">
+    <value>bir marta, {0} dan</value>
+  </data>
+  <data name="Admin_Ad_SummaryPeriodic" xml:space="preserve">
+    <value>har {0}, {1} dan</value>
+  </data>
+  <data name="Admin_Ad_Err_NO_TITLE" xml:space="preserve">
+    <value>Sarlavhani kiriting</value>
+  </data>
+  <data name="Admin_Ad_Err_NO_TEXT" xml:space="preserve">
+    <value>Reklama matnini kiriting</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_MODE" xml:space="preserve">
+    <value>Ko‘rsatish vaqti noto‘g‘ri</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_INTERVAL" xml:space="preserve">
+    <value>Interval kamida 5 daqiqa</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_LANG" xml:space="preserve">
+    <value>Til noto‘g‘ri</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_DATES" xml:space="preserve">
+    <value>Tugash boshlanishdan keyin bo‘lishi kerak</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_IMAGE" xml:space="preserve">
+    <value>Rasm mos emas (png, jpeg, webp yoki gif, 1 MB gacha)</value>
+  </data>
 </root>

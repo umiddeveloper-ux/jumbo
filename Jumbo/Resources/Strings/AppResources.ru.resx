@@ -1747,4 +1747,7 @@
   <data name="Login_TooMany" xml:space="preserve">
     <value>Слишком много неверных попыток. Подождите {0} мин и попробуйте снова.</value>
   </data>
+  <data name="Ad_Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
 </root>
