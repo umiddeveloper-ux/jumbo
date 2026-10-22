@@ -231,8 +231,7 @@ public partial class FindMeGamePageModel : ObservableObject
                 else
                 {
                     await _apiClient.EnsureWordsExistAsync(_wordSequence.Select(c => c.WordId).ToList());
-                    await _apiClient.MarkGameWonAsync(SubjectId, "FindMe");
-                    await LivesService.AddLpAsync(LpReward);
+                    LivesService.Apply(await _apiClient.MarkGameWonAsync(SubjectId, "FindMe"));      // the server gives the LP (LpReward is only what is shown)
                 }
             }
             else

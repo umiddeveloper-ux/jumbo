@@ -231,8 +231,7 @@ else
                 else
                 {
                     await ApiClient.EnsureWordsExistAsync(_sequence.Select(c => c.WordId));
-                    await ApiClient.MarkGameWonAsync(SubjectId, "FindMe");
-                    await Lives.AddLpAsync(LpReward);
+                    Lives.Apply(await ApiClient.MarkGameWonAsync(SubjectId, "FindMe"));      // the server gives the LP (LpReward is only what is shown)
                 }
             }
             else if (_slotMode) PickTarget();

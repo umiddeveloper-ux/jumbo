@@ -235,8 +235,7 @@ public partial class PhraseGamePageModel : ObservableObject
                 IsGameWon = true;
                 IsPlaying = false;
                 await _apiClient.EnsureWordsExistAsync(_rounds.Select(r => r.WordId).ToList());
-                await _apiClient.MarkGameWonAsync(SubjectId, "Phrase");
-                await LivesService.AddLpAsync(LpReward);
+                LivesService.Apply(await _apiClient.MarkGameWonAsync(SubjectId, "Phrase"));      // the server gives the LP (LpReward is only what is shown)
             }
             else
             {

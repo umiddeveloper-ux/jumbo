@@ -91,77 +91,41 @@ public partial class LivesService : ObservableObject
         await CheckRegenAsync();
     }
 
+    /// <summary>Takes the numbers the server answered with (a mistake, a won game, a look at the state). The only way they change on this side.</summary>
+    public void Apply(LivesStateDto? state)
+    {
+        if (state is null) return;
+        Lives = state.Lives;
+        LpPoints = state.LpPoints;
+        LifeRegenAt = state.LifeRegenAt ?? default;
+        ShieldCount = state.ShieldCount;
+    }
+
+    /// <summary>Asks the server for the numbers when the lives are due to come back (the block is over) - otherwise there is nothing to ask.</summary>
     public async Task CheckRegenAsync()
     {
-        // No lives and no timer (old data): the 5 hours start now, otherwise the lives would never come back.
-        if (Lives <= 0 && LifeRegenAt == default)
-        {
-            LifeRegenAt = DateTime.UtcNow.AddHours(RegenHours);
-            await PersistAsync();
-            return;
-        }
-
-        if (Lives >= MaxLives || LifeRegenAt == default || DateTime.UtcNow < LifeRegenAt) return;
-        // The block is over: the lives come back, the LP stays as it is (0 when it was spent).
-        Lives       = MaxLives;
-        LifeRegenAt = default;
-        await PersistAsync();
+        if (!Initialized) return;
+        bool due = (Lives <= 0 && LifeRegenAt == default)                                              // no lives and no timer: the server starts it
+                || (Lives < MaxLives && LifeRegenAt != default && DateTime.UtcNow >= LifeRegenAt);       // the block is over
+        if (!due) return;
+        try { Apply(await _apiClient.GetLivesAsync()); }
+        catch { /* no connection: asked again at the next look */ }
     }
 
     /// <summary>
-    /// A mistake. Returns true when the learner can go on. livesOnly: the check that opens a book - only the lives count there (the LP
-    /// does not stand in for them) and without lives the check is failed. Otherwise the LP are spent when the lives are gone.
+    /// A mistake. The server counts it (a shield, a life, the LP, the block of 5 hours) and answers with the numbers; returns true when the learner
+    /// can go on. livesOnly: the check that opens a book - only the lives count there. Without a connection the mistake is not counted.
     /// </summary>
     public async Task<bool> TakeDamageAsync(bool livesOnly = false)
     {
         if (Unlimited) return true;           // silver / gold: nothing is lost
-        await CheckRegenAsync();
-        var wasEmpty = Lives <= 0 && LpPoints <= 0;
-
-        // A shield takes the mistake (when there would be something to lose).
-        if (ShieldCount > 0 && (Lives > 0 || (!livesOnly && LpPoints > 0)))
+        try
         {
-            ShieldCount--;
-            await PersistAsync();
-            return livesOnly ? Lives > 0 : CanPlay;
+            var state = await _apiClient.ReportMistakeAsync(livesOnly);
+            if (state is null) return CanPlay;
+            Apply(state);
+            return state.CanPlay;
         }
-
-        if (Lives > 0)
-        {
-            Lives--;
-            if (Lives == 0 && LifeRegenAt == default)
-                LifeRegenAt = DateTime.UtcNow.AddHours(RegenHours);
-        }
-        else if (!livesOnly && LpPoints > 0)
-        {
-            LpPoints = Math.Max(0, LpPoints - 2);
-        }
-
-        // Both are gone: the 5-hour block starts now (a full 5 hours from this moment).
-        if (!wasEmpty && Lives <= 0 && LpPoints <= 0)
-            LifeRegenAt = DateTime.UtcNow.AddHours(RegenHours);
-
-        await PersistAsync();
-        return livesOnly ? Lives > 0 : CanPlay;
-    }
-
-    public async Task AddLpAsync(int amount)
-    {
-        LpPoints += amount;
-        await PersistAsync();
-    }
-
-    private async Task PersistAsync()
-    {
-        var user = await _apiClient.GetCurrentUserAsync();
-        if (user is null) return;
-
-        var request = UpdateUserRequest.FromUser(user);
-        request.LifeCount = Lives;
-        request.LpPoints = LpPoints;
-        request.LifeExpirationDate = LifeRegenAt;
-        request.ShieldCount = ShieldCount;
-
-        await _apiClient.UpdateCurrentUserAsync(request);
+        catch { return CanPlay; }
     }
 }

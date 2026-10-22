@@ -668,10 +668,23 @@ public class LpApiClient(HttpClient http)
         return await response.Content.ReadFromJsonAsync<UserSubjectProgress>();
     }
 
-    public async Task MarkGameWonAsync(int subjectId, string gameType)
+    /// <summary>A won game. The server gives the LP for it and answers with the learner's numbers (give them to LivesService.Apply).</summary>
+    public async Task<LivesStateDto?> MarkGameWonAsync(int subjectId, string gameType)
     {
         var response = await http.PostAsJsonAsync($"api/progress/subjects/{subjectId}/win", new MarkGameWonRequest { GameType = gameType });
         response.EnsureSuccessStatusCode();
+        try { return await response.Content.ReadFromJsonAsync<LivesStateDto>(); }
+        catch { return null; }          // an older server answers with nothing
+    }
+
+    // Lives and LP: the server counts them
+    public async Task<LivesStateDto?> GetLivesAsync() => await http.GetFromJsonAsync<LivesStateDto>("api/lives");
+
+    public async Task<LivesStateDto?> ReportMistakeAsync(bool livesOnly)
+    {
+        var response = await http.PostAsJsonAsync("api/lives/mistake", new MistakeRequest { LivesOnly = livesOnly });
+        response.EnsureSuccessStatusCode();
+        return await response.Content.ReadFromJsonAsync<LivesStateDto>();
     }
 
     // QR login

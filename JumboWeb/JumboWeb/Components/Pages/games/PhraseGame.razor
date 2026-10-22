@@ -278,8 +278,7 @@ else if (_round is not null)
             if (_step >= _rounds.Count)
             {
                 await ApiClient.EnsureWordsExistAsync(_rounds.Select(r => r.WordId));
-                await ApiClient.MarkGameWonAsync(SubjectId, "Phrase");
-                await Lives.AddLpAsync(LpReward);
+                Lives.Apply(await ApiClient.MarkGameWonAsync(SubjectId, "Phrase"));      // the server gives the LP (LpReward is only what is shown)
                 _isGameWon = true;
             }
             else

@@ -273,8 +273,7 @@ else
                     {
                         await ApiClient.EnsureWordsExistAsync(
                             _rounds.SelectMany(r => r).Select(c => c.WordId));
-                        await ApiClient.MarkGameWonAsync(SubjectId, "Sequence");
-                        await Lives.AddLpAsync(LpReward);
+                        Lives.Apply(await ApiClient.MarkGameWonAsync(SubjectId, "Sequence"));      // the server gives the LP (LpReward is only what is shown)
                     }
                     _isGameWon = true;
                 }

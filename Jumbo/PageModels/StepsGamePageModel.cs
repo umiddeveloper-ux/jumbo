@@ -235,8 +235,7 @@ public partial class StepsGamePageModel : ObservableObject
                 UpdateStepHighlighting();
                 IsGameWon = true;
                 await _apiClient.EnsureWordsExistAsync(_gameWords.Select(w => w.WordId).ToList());
-                await _apiClient.MarkGameWonAsync(SubjectId, "Steps");
-                await LivesService.AddLpAsync(LpReward);
+                LivesService.Apply(await _apiClient.MarkGameWonAsync(SubjectId, "Steps"));      // the server gives the LP (LpReward is only what is shown)
                 return;
             }
 

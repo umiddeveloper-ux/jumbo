@@ -279,8 +279,7 @@ public partial class SequenceGamePageModel : ObservableObject
                 else
                 {
                     await _apiClient.EnsureWordsExistAsync(_rounds.SelectMany(r => r).Select(c => c.WordId).ToList());
-                    await _apiClient.MarkGameWonAsync(SubjectId, "Sequence");
-                    await LivesService.AddLpAsync(LpReward);
+                    LivesService.Apply(await _apiClient.MarkGameWonAsync(SubjectId, "Sequence"));      // the server gives the LP (LpReward is only what is shown)
                 }
             }
             else

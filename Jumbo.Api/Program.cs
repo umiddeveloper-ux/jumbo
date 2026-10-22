@@ -19,6 +19,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddScoped<SeedDataService>();
 builder.Services.AddScoped<DailyProgressService>();
+builder.Services.AddScoped<Jumbo.Api.Services.LivesService>();      // lives and LP: counted here, not in the clients
 builder.Services.AddScoped<RatingService>();
 builder.Services.AddScoped<AwardService>();
 builder.Services.AddScoped<ClassStatsService>();

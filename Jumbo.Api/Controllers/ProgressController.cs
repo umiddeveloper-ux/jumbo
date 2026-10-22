@@ -11,7 +11,7 @@ namespace Jumbo.Api.Controllers;
 [ApiController]
 [Route("api/progress")]
 [RequireAccessToken]
-public class ProgressController(AppDbContext db, ICurrentUserService currentUser, DailyProgressService daily) : ControllerBase
+public class ProgressController(AppDbContext db, ICurrentUserService currentUser, DailyProgressService daily, Jumbo.Api.Services.LivesService lives) : ControllerBase
 {
     [HttpGet("words")]
     public async Task<ActionResult<List<UsersWord>>> GetWords()
@@ -142,7 +142,7 @@ public class ProgressController(AppDbContext db, ICurrentUserService currentUser
     }
 
     [HttpPost("subjects/{subjectId:int}/win")]
-    public async Task<IActionResult> MarkWon(int subjectId, MarkGameWonRequest request)
+    public async Task<ActionResult<LivesStateDto>> MarkWon(int subjectId, MarkGameWonRequest request)
     {
         var userId = (await currentUser.GetUserIdAsync())!.Value;
 
@@ -163,6 +163,9 @@ public class ProgressController(AppDbContext db, ICurrentUserService currentUser
         }
 
         await db.SaveChangesAsync();
-        return NoContent();
+
+        // The LP for the win are given here (by the game, with the limits of LivesService): the clients do not send a number of LP.
+        // The answer is the learner's numbers now.
+        return await lives.AwardGameWinAsync(userId, request.GameType);
     }
 }

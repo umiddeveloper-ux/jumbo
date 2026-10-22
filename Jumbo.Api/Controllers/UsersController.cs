@@ -225,6 +225,7 @@ public class UsersController(AppDbContext db, ICurrentUserService currentUser, D
         var userId = (await currentUser.GetUserIdAsync())!.Value;
         var user = await db.Users.AsNoTracking().SingleAsync(u => u.UserId == userId);
         await ExpirePlanAsync(user);
+        await RegenLivesAsync(user);
         if (user.Role == UserRole.Learner)
             user.PendingStaffRole = await db.StaffRequests.AsNoTracking()
                 .Where(r => r.UserId == userId && r.Status == StaffRequestStatus.Pending)
@@ -242,6 +243,16 @@ public class UsersController(AppDbContext db, ICurrentUserService currentUser, D
             user.BadgeSvg = user.BadgeKey is { } bk ? pics.GetValueOrDefault(bk) : null;
         }
         return user;
+    }
+
+    /// <summary>The lives come back when the block is over, and are full on a paid version (the learner is read here, so what he sees is up to date).</summary>
+    private async Task RegenLivesAsync(User user)
+    {
+        if (!LivesRules.Regen(user, DateTime.UtcNow)) return;
+        var lives = user.LifeCount;
+        var until = user.LifeExpirationDate;
+        await db.Users.Where(u => u.UserId == user.UserId)
+            .ExecuteUpdateAsync(s => s.SetProperty(u => u.LifeCount, lives).SetProperty(u => u.LifeExpirationDate, until));
     }
 
     /// <summary>A paid version whose month is over becomes bronze again (the row is changed once, the next read finds bronze).</summary>
@@ -289,10 +300,9 @@ public class UsersController(AppDbContext db, ICurrentUserService currentUser, D
         user.StudyLanguageId = request.StudyLanguageId;
         user.TranslationLanguageId = request.TranslationLanguageId;
         user.TranslationLanguageId2 = request.TranslationLanguageId2;
-        user.LifeCount = request.LifeCount;
+        // LifeCount, LifeExpirationDate, LpPoints and ShieldCount of the request are NOT taken: lives and LP are counted by the server
+        // (LivesController / ProgressController / the market); an older client may still send them, they are ignored.
         user.CurrentBookId = request.CurrentBookId;
-        user.LifeExpirationDate = request.LifeExpirationDate;
-        user.LpPoints = request.LpPoints;
         user.CurrentLanguageLevel = request.CurrentLanguageLevel;
         user.HideTooltips = request.HideTooltips;
         user.AppTheme = request.AppTheme;
@@ -302,8 +312,6 @@ public class UsersController(AppDbContext db, ICurrentUserService currentUser, D
         if (user.ClassId is null)
             user.Region = Clean(request.Region, 40);
         user.HideName = request.HideName;
-        // A shield can be used up here, never bought (the market does that): a stale client must not bring back a spent one or lose a new one.
-        if (request.ShieldCount is { } shields) user.ShieldCount = Math.Clamp(shields, 0, user.ShieldCount);
 
         await db.SaveChangesAsync();
         await ExpirePlanAsync(user);

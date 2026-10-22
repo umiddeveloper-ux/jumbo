@@ -248,8 +248,7 @@ else
                 _currentStep = _totalSteps;
                 UpdateStepHighlights();
                 await ApiClient.EnsureWordsExistAsync(_gameWords.Select(w => w.WordId));
-                await ApiClient.MarkGameWonAsync(SubjectId, "Steps");
-                await Lives.AddLpAsync(LpReward);
+                Lives.Apply(await ApiClient.MarkGameWonAsync(SubjectId, "Steps"));      // the server gives the LP (LpReward is only what is shown)
                 _isGameWon = true;
             }
             else

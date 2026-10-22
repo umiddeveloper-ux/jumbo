@@ -260,8 +260,7 @@ public partial class ListenAndFindGamePageModel : ObservableObject
                 else
                 {
                     await _apiClient.EnsureWordsExistAsync(_allWords.Select(w => w.WordId).ToList());
-                    await _apiClient.MarkGameWonAsync(SubjectId, "ListenAndFind");
-                    await LivesService.AddLpAsync(LpReward);
+                    LivesService.Apply(await _apiClient.MarkGameWonAsync(SubjectId, "ListenAndFind"));      // the server gives the LP (LpReward is only what is shown)
                 }
             }
             else

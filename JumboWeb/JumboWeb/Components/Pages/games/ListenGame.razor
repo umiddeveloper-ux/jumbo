@@ -225,8 +225,7 @@ else
                 else
                 {
                     await ApiClient.EnsureWordsExistAsync(_allWords.Select(w => w.WordId));
-                    await ApiClient.MarkGameWonAsync(SubjectId, "ListenAndFind");
-                    await Lives.AddLpAsync(LpReward);
+                    Lives.Apply(await ApiClient.MarkGameWonAsync(SubjectId, "ListenAndFind"));      // the server gives the LP (LpReward is only what is shown)
                 }
                 _isGameWon = true;
             }
