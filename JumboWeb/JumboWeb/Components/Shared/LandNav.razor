@@ -22,12 +22,12 @@
             <a class="land-nav-link" href="/plans">@Loc["Plan_Nav"]</a>
             <a class="land-nav-link" href="/for-schools">@Loc["FS_Nav"]</a>
         }
-        <LanguageSwitcher />
         @if (Minimal)
         {
-            @* the landing: "Log in" next to the language (the top bar is shown on phones too) *@
+            @* the landing: "Log in" before the language (the top bar is shown on phones too) *@
             <a class="lp-btn lp-btn-outline lp-btn-sm land-nav-login" href="/login">@Loc["Land_Login"]</a>
         }
+        <LanguageSwitcher />
         @if (!Minimal)
         {
             <ThemeToggle />
