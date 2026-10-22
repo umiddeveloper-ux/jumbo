@@ -161,7 +161,7 @@ public partial class BookZeroGamePageModel : ObservableObject
     [RelayCommand]
     private async Task SpeakTarget()
     {
-        if (_target is not null) await Say(_target.Spoken);
+        if (_target is not null) await Say(_target);
     }
 
     private async Task Pick(ZeroGameTile? tile)
@@ -182,7 +182,7 @@ public partial class BookZeroGamePageModel : ObservableObject
             _mistakes++;
             _roundClean = false;
             Coach.Oops();
-            await Say(tile.Spoken);        // what was tapped, so the learner hears the difference
+            await Say(tile);        // what was tapped, so the learner hears the difference
         }
     }
 
@@ -197,7 +197,7 @@ public partial class BookZeroGamePageModel : ObservableObject
             SetWagon(gap, _line[gap].Big, "put");
             _filled++;
             if (_filled < _gaps.Count) SetWagon(_gaps[_filled], "?", "next");
-            _ = Say(tile.Spoken);
+            _ = Say(tile);
             if (_filled >= _gaps.Count)
             {
                 _locked = true;
@@ -267,13 +267,15 @@ public partial class BookZeroGamePageModel : ObservableObject
         _speech = null;
     }
 
-    private async Task Say(string text)
+    private async Task Say(ZeroGameTile tile)
     {
         StopSpeech();
         _speech = new CancellationTokenSource();
         var token = _speech.Token;
+        var text = tile.Spoken;
         try
         {
+            if (await LetterAudio.PlayAsync(tile.Key, token)) return;      // a letter has a recording
             var locales = await TextToSpeech.Default.GetLocalesAsync();
             var locale = locales.FirstOrDefault(l => l.Language.StartsWith("en", StringComparison.OrdinalIgnoreCase));
             await TextToSpeech.Default.SpeakAsync(text, new SpeechOptions { Locale = locale, Pitch = 1.0f, Volume = 1.0f }, token);

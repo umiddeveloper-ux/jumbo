@@ -180,10 +180,13 @@ else if (_started)
         StateHasChanged();
     }
 
+    // a letter has a recording (the voice only when there is none), a number is said by the voice
+    private static string? LetterOf(Item item) => item.Key.StartsWith('L') ? item.Big : null;
+
     private async Task SpeakTargetAsync()
     {
         if (_target is null) return;
-        try { await JS.InvokeVoidAsync("lp.speak", _target.Spoken, "en-US"); } catch { }
+        try { await JS.InvokeVoidAsync("lp.speak", _target.Spoken, "en-US", LetterOf(_target)); } catch { }
     }
 
     // "Listen and tap"
@@ -205,7 +208,7 @@ else if (_started)
             _mistakes++;
             _roundClean = false;
             _coach?.Oops();
-            try { await JS.InvokeVoidAsync("lp.speak", item.Spoken, "en-US"); } catch { }      // what was tapped, so the learner hears the difference
+            try { await JS.InvokeVoidAsync("lp.speak", item.Spoken, "en-US", LetterOf(item)); } catch { }      // what was tapped, so the learner hears the difference
         }
     }
 
@@ -218,7 +221,7 @@ else if (_started)
         {
             _filled.Add(gap);
             _used.Add(item.Key);
-            try { await JS.InvokeVoidAsync("lp.speak", item.Spoken, "en-US"); } catch { }
+            try { await JS.InvokeVoidAsync("lp.speak", item.Spoken, "en-US", LetterOf(item)); } catch { }
             if (NextGap < 0)
             {
                 _locked = true;

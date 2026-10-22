@@ -77,6 +77,7 @@ else
                 </button>
             }
         </div>
+        <p class="bz-credits">Recordings of the letters: <a href="https://commons.wikimedia.org/wiki/Category:Lingua_Libre_pronunciation-eng" target="_blank" rel="noopener">Wikimedia Commons / Lingua Libre</a>, CC0 (speaker “Flame, not lame”); letter W: “Liyah26”, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.</p>
     </section>
 
     <section class="bz-section" id="numbers">
@@ -152,7 +153,7 @@ else
     {
         await StopAllAsync();
         _active = "L" + index;
-        try { await JS.InvokeVoidAsync("lp.speak", BookZeroData.Letters[index].Spoken, "en-US"); } catch { }
+        try { await JS.InvokeVoidAsync("lp.speak", BookZeroData.Letters[index].Spoken, "en-US", BookZeroData.Letters[index].Letter); } catch { }
     }
 
     private async Task SayNumberAsync(int n)
@@ -179,7 +180,7 @@ else
                 _active = (what == "letters" ? "L" : "N") + i;
                 StateHasChanged();
                 var text = what == "letters" ? BookZeroData.Letters[i].Spoken : BookZeroData.NumberWord(i);
-                await JS.InvokeVoidAsync("lp.speakWait", text, "en-US");
+                await JS.InvokeVoidAsync("lp.speakWait", text, "en-US", what == "letters" ? BookZeroData.Letters[i].Letter : null);
                 if (!token.IsCancellationRequested) await Task.Delay(250, token);
             }
         }

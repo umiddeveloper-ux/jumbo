@@ -118,7 +118,7 @@ public partial class BookZeroPageModel : ObservableObject
         if (tile is null) return;
         Stop();
         Light(tile);
-        await SpeakAsync(tile.Spoken, CancellationToken.None);
+        await SpeakAsync(tile, CancellationToken.None);
         tile.IsActive = false;
     }
 
@@ -144,7 +144,7 @@ public partial class BookZeroPageModel : ObservableObject
             {
                 if (token.IsCancellationRequested) break;
                 Light(tile);
-                await SpeakAsync(tile.Spoken, token);
+                await SpeakAsync(tile, token);
                 tile.IsActive = false;
                 if (!token.IsCancellationRequested) await Task.Delay(250, token);
             }
@@ -179,8 +179,11 @@ public partial class BookZeroPageModel : ObservableObject
     [RelayCommand]
     private void NavigatedFrom() => Stop();
 
-    private static async Task SpeakAsync(string text, CancellationToken token)
+    // a letter is played from its recording; the voice says it only when there is none (and always says a number)
+    private static async Task SpeakAsync(ZeroTile tile, CancellationToken token)
     {
+        if (await LetterAudio.PlayAsync(tile.Key, token)) return;
+        var text = tile.Spoken;
         try
         {
             var locales = await TextToSpeech.Default.GetLocalesAsync();

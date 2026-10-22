@@ -1252,3 +1252,6 @@ span[style*="0.85rem"] { font-size: 0.95rem !important; }
 .adm-editor-wrap .ql-editor a { color: var(--lp-primary); }
 .adm-editor-wrap .ql-tooltip { background: var(--lp-surface); color: var(--lp-text); border-color: var(--lp-border); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
 .adm-editor-wrap .ql-tooltip input[type=text] { background: var(--lp-bg, var(--lp-surface)); color: var(--lp-text); border-color: var(--lp-border); }
+
+.bz-credits { margin: 10px 2px 0; font-size: .75rem; color: var(--lp-muted); line-height: 1.5; }
+.bz-credits a { color: inherit; text-decoration: underline; }

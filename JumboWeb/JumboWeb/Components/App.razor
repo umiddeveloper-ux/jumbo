@@ -221,7 +221,28 @@
                 if (label) { btn.title = label; btn.setAttribute('aria-label', label); }
                 try { if (pos) input.setSelectionRange(pos[0], pos[1]); } catch (e) { }
             },
-            speak: function (word, lang) {
+            // The recording of a letter of the alphabet (A-Z, a short mp3 of the site): done(true) after it has been played, done(false) when
+            // there is no such file or the browser cannot play it (the caller then lets the voice say the letter, as before).
+            letterAudio: null,
+            playLetter: function (letter, done) {
+                try {
+                    var a = new Audio('/audio/alphabet/' + String(letter).toLowerCase() + '.mp3');
+                    var settled = false;
+                    var end = function (ok) { if (!settled) { settled = true; done(ok); } };
+                    a.onended = function () { end(true); };
+                    a.onerror = function () { end(false); };
+                    lp.letterAudio = a;
+                    var p = a.play();
+                    if (p && p.catch) p.catch(function () { end(false); });
+                } catch (e) { done(false); }
+            },
+            // "letter" (optional, A-Z): the recording is played; the voice says "word" only when there is no recording
+            speak: function (word, lang, letter) {
+                lp.stopSpeech();
+                if (letter) { lp.playLetter(letter, function (ok) { if (!ok) lp.speakVoice(word, lang); }); return; }
+                lp.speakVoice(word, lang);
+            },
+            speakVoice: function (word, lang) {
                 if (!('speechSynthesis' in window)) return;
                 window.speechSynthesis.cancel();
                 var u = new SpeechSynthesisUtterance(word);
@@ -230,7 +251,15 @@
                 window.speechSynthesis.speak(u);
             },
             // Like speak, but the promise is kept until the word has been said ("listen to all" reads one after another).
-            speakWait: function (word, lang) {
+            speakWait: function (word, lang, letter) {
+                if (!letter) return lp.speakWaitVoice(word, lang);
+                return new Promise(function (resolve) {
+                    lp.stopSpeech();
+                    lp.playLetter(letter, function (ok) { if (ok) resolve(); else lp.speakWaitVoice(word, lang).then(resolve); });
+                    setTimeout(resolve, 7000);              // never wait for ever
+                });
+            },
+            speakWaitVoice: function (word, lang) {
                 return new Promise(function (resolve) {
                     if (!('speechSynthesis' in window)) { resolve(); return; }
                     window.speechSynthesis.cancel();
@@ -346,6 +375,7 @@
             },
             stopSpeech: function () {
                 if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+                try { if (lp.letterAudio) { lp.letterAudio.onended = null; lp.letterAudio.onerror = null; lp.letterAudio.pause(); lp.letterAudio = null; } } catch (e) { }
             },
             // Input mask of every phone field (<input type="tel">): only a leading "+" and digits can be typed, at most 15 digits
             // (the international limit), grouped with spaces like "+998 90 123 45 67". Pasted text is cleaned the same way.
