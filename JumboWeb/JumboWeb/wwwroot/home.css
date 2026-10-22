@@ -357,3 +357,6 @@ a.foot-app:hover { border-color: var(--lp-primary); }
 /* the admin: versions of the apps */
 .adm-card label { display: block; margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: var(--lp-muted); }
 .adm-ver-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* "Log in" in the top bar of the landing: stays on phones too (the general rule above hides the outline buttons there) */
+.land-nav-actions .lp-btn-outline.land-nav-login { display: inline-flex; white-space: nowrap; }
