@@ -23,7 +23,7 @@ else if (_path.Count == 0)
 }
 else
 {
-    <TopicSnake Book="BookNumber" Path="_path" Progress="_progress" Svgs="_svgMap" />
+    <TopicSnake Book="BookNumber" Path="_path" Progress="_progress" />
 }
 
 @code {
@@ -31,7 +31,6 @@ else
 
     private List<Subject> _path = new();
     private Dictionary<int, UserSubjectProgress> _progress = new();
-    private Dictionary<int, string> _svgMap = new();
     private bool _loaded;
     private int _loadedBook = -1;
 
@@ -49,12 +48,6 @@ else
 
         _path = (await ApiClient.GetSubjectsByBookAsync(BookNumber)).OrderBy(s => s.SequenceNumber).ToList();
         _progress = (await ApiClient.GetUserSubjectProgressAsync()).ToDictionary(p => p.SubjectId);
-        foreach (var s in _path)
-        {
-            if (_svgMap.ContainsKey(s.SvgImageId)) continue;
-            var svg = await ApiClient.GetSvgByIdAsync(s.SvgImageId);
-            if (!string.IsNullOrEmpty(svg)) _svgMap[s.SvgImageId] = svg;
-        }
         _loaded = true;
     }
 }

@@ -37,9 +37,6 @@
                 <span class="snake-bubble">@Loc[parts > 0 ? "Path_Continue" : "Path_Start"]</span>
             }
             <span class="snake-disc ring3 parts-@parts">
-                <span class="snake-icon">
-                    @if (Svgs.TryGetValue(topic.SvgImageId, out var svg)) { @((MarkupString)svg) }
-                </span>
                 <span class="snake-num">@(st == "done" ? "✓" : (p.Index + 1).ToString())</span>
                 @if (IsLocked(topic)) { <span class="snake-lock" aria-hidden="true">🔒</span> }
             </span>
@@ -60,7 +57,6 @@
     [Parameter] public bool Wide { get; set; }
     [Parameter] public List<Subject> Path { get; set; } = new();
     [Parameter] public Dictionary<int, UserSubjectProgress> Progress { get; set; } = new();
-    [Parameter] public Dictionary<int, string> Svgs { get; set; } = new();
 
     /// <summary>A locked topic was pressed: the topic that has to be passed first.</summary>
     [Parameter] public EventCallback<Subject> OnLocked { get; set; }

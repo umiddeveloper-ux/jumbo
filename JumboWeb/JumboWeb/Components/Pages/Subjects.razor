@@ -38,16 +38,7 @@ else
                                     style="stroke-dasharray: @Inv(RingCircumference); stroke-dashoffset: @Inv(dashOffset)" />
                         }
                     </svg>
-                    <div class="subject-svg">
-                        @if (_svgMap.TryGetValue(s.SvgImageId, out var svg))
-                        {
-                            @((MarkupString)svg)
-                        }
-                        else
-                        {
-                            <span style="font-size:2rem">📦</span>
-                        }
-                    </div>
+                    <div class="subject-svg"><span class="subject-num">@s.SequenceNumber</span></div>
                 </div>
                 <div class="subject-name">@s.SubjectName</div>
                 @if (pct >= 100)
@@ -63,7 +54,6 @@ else
     [Parameter] public int BookNumber { get; set; }
 
     private List<Subject> _subjects = new();
-    private Dictionary<int, string> _svgMap = new();
     private Dictionary<int, UserSubjectProgress> _progressMap = new();
     private bool _loaded;
 
@@ -83,14 +73,6 @@ else
             return;
         }
         _subjects = await ApiClient.GetSubjectsByBookAsync(BookNumber);
-        foreach (var s in _subjects)
-        {
-            if (!_svgMap.ContainsKey(s.SvgImageId))
-            {
-                var svg = await ApiClient.GetSvgByIdAsync(s.SvgImageId);
-                if (!string.IsNullOrEmpty(svg)) _svgMap[s.SvgImageId] = svg;
-            }
-        }
 
         var progress = await ApiClient.GetUserSubjectProgressAsync();
         _progressMap = progress.ToDictionary(p => p.SubjectId);

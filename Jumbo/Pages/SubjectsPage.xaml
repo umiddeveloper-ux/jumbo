@@ -61,12 +61,8 @@
                                             CommandParameter="{Binding .}"/>
                                     </Grid.GestureRecognizers>
 
-                                    <ctl:SvgPicture Grid.Column="0" 
-                                             HeightRequest="45" 
-                                             WidthRequest="45" 
-                                             VerticalOptions="Center"
-                                             InputTransparent="True"
-                                             BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+                                    <Label Grid.Column="0" Text="{Binding Number}" FontFamily="NunitoBlack" FontSize="28" TextColor="{StaticResource Primary}"
+                                           HorizontalOptions="Center" VerticalOptions="Center" />
 
                                     <Label Grid.Column="1" 
                                            Text="{Binding Name}" 

@@ -51,29 +51,13 @@ public partial class SubjectsPageModel : ObservableObject
             Subjects.Clear();
             foreach (var subject in dbSubjects)
             {
-                string rawSvg = string.Empty;
-
-                if (subject.SvgImageId > 0)
-                {
-                    // Нормальный путь: у субъекта есть своя иконка
-                    rawSvg = await _apiClient.GetSvgByIdAsync(subject.SvgImageId);
-                }
-
-                // Fallback для старых данных (SvgImageId == 0): берём SVG первого слова
-                if (string.IsNullOrEmpty(rawSvg))
-                {
-                    var firstWord = await _apiClient.GetWordsBySubjectAndLanguageAsync(subject.SubjectId, enId, 1);
-                    if (firstWord.Count > 0)
-                        rawSvg = await _apiClient.GetSvgByIdAsync(firstWord[0].SvgImageId);
-                }
-
                 bool allWon = progressLookup.TryGetValue(subject.SubjectId, out var prog) && prog.AllWon;
 
                 Subjects.Add(new SubjectItemViewModel
                 {
                     Id = subject.SubjectId,
                     Name = subject.SubjectName,
-                    SvgHtml = SvgHtmlWrapper.Wrap(rawSvg),
+                    Number = subject.SequenceNumber,
                     IsPassed = allWon
                 });
             }
@@ -151,7 +135,7 @@ public partial class SubjectItemViewModel : ObservableObject
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
-    public string SvgHtml { get; set; } = string.Empty;
+    public int Number { get; set; }
 
     [ObservableProperty]
     private bool _isPassed;

@@ -20,8 +20,8 @@
     }
     else
     {
-        <TopicSnakeBody Wide="false" Path="Path" Progress="Progress" Svgs="Svgs" OnLocked="ShowLocked" />
-        <TopicSnakeBody Wide="true" Path="Path" Progress="Progress" Svgs="Svgs" OnLocked="ShowLocked" />
+        <TopicSnakeBody Wide="false" Path="Path" Progress="Progress" OnLocked="ShowLocked" />
+        <TopicSnakeBody Wide="true" Path="Path" Progress="Progress" OnLocked="ShowLocked" />
     }
 </div>
 
@@ -34,7 +34,6 @@
     [Parameter] public int Book { get; set; }
     [Parameter] public List<Subject> Path { get; set; } = new();
     [Parameter] public Dictionary<int, UserSubjectProgress> Progress { get; set; } = new();
-    [Parameter] public Dictionary<int, string> Svgs { get; set; } = new();
 
     private Subject? _needToPass;       // a locked topic was pressed: the topic to pass first
 

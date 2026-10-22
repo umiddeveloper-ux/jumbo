@@ -30,9 +30,8 @@ public partial class GameBookChip : ObservableObject
 public partial class GameTopicCard : ObservableObject
 {
     public int Id { get; init; }
-    public int SvgImageId { get; init; }
+    public int Number { get; init; }          // the number of the topic in its book (shown in the tile instead of a picture)
     public string Name { get; init; } = string.Empty;
-    [ObservableProperty] private string _svgHtml = string.Empty;
     [ObservableProperty] private bool _won;
 }
 
@@ -46,7 +45,6 @@ public partial class GamesPageModel : ObservableObject
 
     private readonly Dictionary<int, List<Subject>> _subjectsByBook = new();
     private Dictionary<int, UserSubjectProgress> _progress = new();
-    private readonly Dictionary<int, string> _svgByImage = new();
     private List<int> _books = [];
     private int _book = 1;
     private bool _loaded;
@@ -143,24 +141,8 @@ public partial class GamesPageModel : ObservableObject
         TopicsHeight = Math.Max(1, (int)Math.Ceiling(subs.Count / 3.0)) * 144;
         Topics = new ObservableCollection<GameTopicCard>(subs.Select(s => new GameTopicCard
         {
-            Id = s.SubjectId, SvgImageId = s.SvgImageId, Name = s.SubjectName, Won = Won(_game?.Key, s.SubjectId),
-            SvgHtml = _svgByImage.TryGetValue(s.SvgImageId, out var svg) ? svg : string.Empty,
+            Id = s.SubjectId, Number = s.SequenceNumber, Name = s.SubjectName, Won = Won(_game?.Key, s.SubjectId),
         }));
-
-        // the pictures come after the list (each is a separate request)
-        foreach (var card in Topics.ToList())
-        {
-            if (card.SvgHtml.Length > 0 || card.SvgImageId <= 0) continue;
-            try
-            {
-                var raw = await _apiClient.GetSvgByIdAsync(card.SvgImageId);
-                if (string.IsNullOrEmpty(raw)) continue;
-                var html = SvgHtmlWrapper.Wrap(raw);
-                _svgByImage[card.SvgImageId] = html;
-                card.SvgHtml = html;
-            }
-            catch { /* a picture is decoration */ }
-        }
     }
 
     [RelayCommand]

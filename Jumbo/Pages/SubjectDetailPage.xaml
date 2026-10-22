@@ -38,12 +38,13 @@
             <VerticalStackLayout Padding="16,12,16,28" Spacing="12" MaximumWidthRequest="760" HorizontalOptions="Fill"
                                  IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}">
 
-                <!-- the picture of the topic in the three-part ring -->
-                <Grid WidthRequest="112" HeightRequest="112" HorizontalOptions="Center" IsVisible="{Binding HasSvg}">
+                <!-- the number of the topic in the three-part ring (no picture) -->
+                <Grid WidthRequest="112" HeightRequest="112" HorizontalOptions="Center">
                     <ctl:IconRing Parts="{Binding Parts}" />
                     <Border Margin="12" StrokeShape="RoundRectangle 40" StrokeThickness="0" Padding="0"
                             BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
-                        <ctl:SvgPicture InputTransparent="True" BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+                        <Label Text="{Binding TopicNumber}" FontFamily="NunitoBlack" FontSize="40" TextColor="{StaticResource Primary}"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
                     </Border>
                 </Grid>
 

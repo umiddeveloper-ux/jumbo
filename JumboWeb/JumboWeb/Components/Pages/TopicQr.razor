@@ -29,10 +29,7 @@
     else
     {
         <div class="tq-hero">
-            @if (!string.IsNullOrEmpty(_svg))
-            {
-                <div class="tq-icon">@((MarkupString)_svg)</div>
-            }
+            <div class="tq-icon tq-num">@Seq</div>
             <div class="tq-hero-text">
                 <div class="tq-book">@Loc.Format("Common_BookLabel", BookNumber) · @Loc.Format("Tq_TopicNo", Seq)</div>
                 <h1 class="tq-title">@_subject.SubjectName</h1>
@@ -80,7 +77,6 @@
     private record WordRow(int Number, string Word, string Translation);
 
     private Jumbo.Shared.Entities.Subject? _subject;
-    private string _svg = string.Empty;
     private List<WordRow> _rows = new();
     private bool _loaded, _playing;
     private int _active = -1;
@@ -96,8 +92,6 @@
             _subject = (await ApiClient.GetSubjectsByBookAsync(BookNumber)).FirstOrDefault(s => s.SequenceNumber == Seq);
             if (_subject is not null)
             {
-                _svg = await ApiClient.GetSvgByIdAsync(_subject.SvgImageId);
-
                 // The words are English. The translation: the signed-in learner's own language; a guest gets the language of the page
                 // (Uzbek for Uzbek, Russian otherwise).
                 var transId = UserState.IsRegistered ? Prefs.TransLangId : (Prefs.AppLangId == 3 ? 3 : 2);

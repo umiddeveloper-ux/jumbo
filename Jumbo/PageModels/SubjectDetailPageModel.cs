@@ -23,12 +23,9 @@ public partial class SubjectDetailPageModel : ObservableObject
     [ObservableProperty]
     private string _subjectName = string.Empty;
 
-    // The round picture of the topic with the three-part ring (one part per won game), as on the website's topic page.
+    // The number of the topic in the three-part ring (one part per won game), as on the website's topic page.
     [ObservableProperty]
-    private string _svgHtml = string.Empty;
-
-    [ObservableProperty]
-    private bool _hasSvg;
+    private int _topicNumber;
 
     [ObservableProperty]
     private int _parts;
@@ -68,7 +65,7 @@ public partial class SubjectDetailPageModel : ObservableObject
             if (subject != null)
             {
                 SubjectName = subject.SubjectName;
-                _ = LoadPictureAsync(subject.SvgImageId);
+                TopicNumber = subject.SequenceNumber;
                 _ = PrepareVideoAsync(subject.BookId, subject.SequenceNumber);     // does not hold the page back
             }
             if (seenBefore) { ShowLessons(last); IsBusy = false; }
@@ -128,17 +125,6 @@ public partial class SubjectDetailPageModel : ObservableObject
             return true;
         }
         catch (Exception) { return false; }      // the check is a guard: never break the page
-    }
-
-    private async Task LoadPictureAsync(int svgImageId)
-    {
-        try
-        {
-            var raw = svgImageId > 0 ? await _apiClient.GetSvgByIdAsync(svgImageId) : string.Empty;
-            SvgHtml = string.IsNullOrEmpty(raw) ? string.Empty : Utilities.SvgHtmlWrapper.Wrap(raw);
-            HasSvg = SvgHtml.Length > 0;
-        }
-        catch { HasSvg = false; }           // the picture is decoration
     }
 
     // The file is /videos/{lang}/book-NN/MM.mp4 on the server: the player is shown only if the file is there.

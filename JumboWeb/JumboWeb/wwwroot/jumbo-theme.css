@@ -1207,3 +1207,15 @@ span[style*="0.85rem"] { font-size: 0.95rem !important; }
 /* the red button of a step that cannot be undone (delete the account) */
 .lp-btn.lp-btn-danger { background: var(--lp-error); border-bottom-color: #C23030; color: #fff; }
 .delete-card { margin-top: 18px; }
+
+/* ===== The topics show their NUMBER, no pictures (snake of a book, topic page, lists of topics, the QR page) ===== */
+.snake-icon { display: none; }
+.snake-num { left: 50%; top: 50%; transform: translate(-50%, -50%); min-width: 0; height: auto; padding: 0; border: 0; background: none !important;
+    color: var(--lp-text); font-size: clamp(20px, calc(var(--u) * 44), 40px); line-height: 1; }
+.snake-node.future .snake-num { color: var(--lp-muted); }
+.snake-node.started .snake-num { color: #E08A00; }
+.snake-node.current .snake-num { color: var(--lp-primary); }
+.snake-node.done .snake-num { color: var(--lp-success); }
+.subject-num { font-size: 1.9rem; font-weight: 900; color: var(--lp-primary); line-height: 1; }
+.topic-ring-num { font-size: 2.6rem; font-weight: 900; color: var(--lp-primary); line-height: 1; }
+.tq-num { font-size: 2.4rem; font-weight: 900; color: var(--lp-primary); background: var(--lp-primary-soft); border-radius: 50%; }

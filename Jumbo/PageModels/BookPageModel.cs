@@ -120,7 +120,6 @@ public partial class BookPageModel : ObservableObject
         HasNoTopics = subs.Count == 0;
         PathProgress = _topicRows.Count == 0 ? 0 : _topicRows.Count(r => r.Pct >= 100) / (double)_topicRows.Count;
         RebuildTexts();
-        _ = LoadIconsAsync();
     }
 
     /// <summary>Texts that depend on the app language (rebuilt on load and on a language switch).</summary>
@@ -132,30 +131,11 @@ public partial class BookPageModel : ObservableObject
         PublishPath();
     }
 
-    // The pictures of the topics that are not passed: asked after the road is shown (from the cache of the client when they were asked before).
-    private readonly Dictionary<int, string> _svgs = new();
-
-    private async Task LoadIconsAsync()
-    {
-        var todo = _topicRows.Where(r => r.Pct < 100 && r.Subject.SvgImageId > 0 && !_svgs.ContainsKey(r.Subject.SvgImageId)).Select(r => r.Subject.SvgImageId).Distinct().ToList();
-        if (todo.Count == 0) return;
-        using var gate = new SemaphoreSlim(6);
-        await Task.WhenAll(todo.Select(async id =>
-        {
-            await gate.WaitAsync();
-            try { var svg = await _apiClient.GetSvgByIdAsync(id); if (!string.IsNullOrEmpty(svg)) lock (_svgs) _svgs[id] = svg; }
-            catch { /* the number stays in the circle */ }
-            finally { gate.Release(); }
-        }));
-        MainThread.BeginInvokeOnMainThread(PublishPath);
-    }
-
     private void PublishPath()
     {
         // a topic opens when the topic before it is passed: the ones after the first topic that is not passed are locked
         int open = _topicRows.FindIndex(r => r.Pct < 100);
-        var nodes = _topicRows.Select(r => new SnakeNode(r.Name, r.State, r.Index + 1, r.Parts, open >= 0 && r.Pct < 100 && r.Index > open,
-            _svgs.GetValueOrDefault(r.Subject.SvgImageId))).ToList();
+        var nodes = _topicRows.Select(r => new SnakeNode(r.Name, r.State, r.Index + 1, r.Parts, open >= 0 && r.Pct < 100 && r.Index > open)).ToList();     // the circle shows the number, no picture
         var current = _topicRows.FirstOrDefault(r => r.State == "current");
         var bubble = current is null ? string.Empty : LocalizationManager.Get(current.Pct > 0 ? "Path_Continue" : "Path_Start");
         PathChanged?.Invoke(nodes, bubble);

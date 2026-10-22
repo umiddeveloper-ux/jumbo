@@ -27,14 +27,12 @@ else if (_needToPass is not null)
 }
 else
 {
-    @if (!string.IsNullOrEmpty(_svgHtml))
-    {
-        <div style="display:flex;justify-content:center;margin-bottom:12px">
-            <div class="topic-ring ring3 parts-@(_progress?.PartsDone ?? 0)">
-                <div class="topic-ring-inner">@((MarkupString)_svgHtml)</div>
-            </div>
+    @* the number of the topic in the three-part ring (no picture) *@
+    <div style="display:flex;justify-content:center;margin-bottom:12px">
+        <div class="topic-ring ring3 parts-@(_progress?.PartsDone ?? 0)">
+            <div class="topic-ring-inner topic-ring-num">@_subject.SequenceNumber</div>
         </div>
-    }
+    </div>
 
     <p class="lp-page-title" style="text-align:center">@_subject.SubjectName</p>
 
@@ -73,7 +71,6 @@ else
 
     private Subject? _subject;
     private Jumbo.Shared.Entities.UserSubjectProgress? _progress;
-    private string _svgHtml = string.Empty;
     private bool _loaded;
     private Subject? _needToPass;      // the topic that has to be passed before this one
 
@@ -91,8 +88,6 @@ else
         _progress = allProgress.FirstOrDefault(p => p.SubjectId == SubjectId);
         if (_subject != null)
         {
-            _svgHtml = await ApiClient.GetSvgByIdAsync(_subject.SvgImageId);
-
             // A topic opens only after the topic before it is passed.
             bool Done(Subject t) => allProgress.FirstOrDefault(p => p.SubjectId == t.SubjectId)?.PartsDone >= Jumbo.Shared.Entities.UserSubjectProgress.Parts;
             var book = (await ApiClient.GetSubjectsByBookAsync(BookNumber)).OrderBy(t => t.SequenceNumber).ToList();

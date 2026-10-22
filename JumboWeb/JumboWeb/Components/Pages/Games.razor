@@ -67,16 +67,7 @@ else
                                         style="stroke-dasharray: @Inv(RingCircumference); stroke-dashoffset: @Inv(dashOffset)" />
                             }
                         </svg>
-                        <div class="subject-svg">
-                            @if (_svgMap.TryGetValue(s.SvgImageId, out var svg))
-                            {
-                                @((MarkupString)svg)
-                            }
-                            else
-                            {
-                                <span style="font-size:2rem">📦</span>
-                            }
-                        </div>
+                        <div class="subject-svg"><span class="subject-num">@s.SequenceNumber</span></div>
                     </div>
                     <div class="subject-name">@s.SubjectName</div>
                     @if (won)
@@ -108,7 +99,6 @@ else
     private List<int> _books = new();
     private readonly Dictionary<int, List<Subject>> _subjectsByBook = new();
     private Dictionary<int, UserSubjectProgress> _progress = new();
-    private readonly Dictionary<int, string> _svgMap = new();
     private string? _game;
     private int _book = 1;
     private bool _loaded;
@@ -125,30 +115,19 @@ else
         var firstOpen = _books.SelectMany(b => _subjectsByBook[b]).FirstOrDefault(s => !(_progress.TryGetValue(s.SubjectId, out var p) && p.AllWon));
         _book = requested?.BookId ?? firstOpen?.BookId ?? _books.LastOrDefault(1);
 
-        await EnsureSvgsAsync(_book);
         _loaded = true;
     }
 
-    private async Task SelectGame(string key)
+    private Task SelectGame(string key)
     {
         _game = _game == key ? null : key;
-        await EnsureSvgsAsync(_book);
+        return Task.CompletedTask;
     }
 
-    private async Task SelectBookAsync(int book)
+    private Task SelectBookAsync(int book)
     {
         _book = book;
-        await EnsureSvgsAsync(book);
-    }
-
-    private async Task EnsureSvgsAsync(int book)
-    {
-        foreach (var s in TopicsOf(book))
-        {
-            if (_svgMap.ContainsKey(s.SvgImageId)) continue;
-            var svg = await ApiClient.GetSvgByIdAsync(s.SvgImageId);
-            if (!string.IsNullOrEmpty(svg)) _svgMap[s.SvgImageId] = svg;
-        }
+        return Task.CompletedTask;
     }
 
     private List<Subject> TopicsOf(int book) => _subjectsByBook.TryGetValue(book, out var l) ? l : new();

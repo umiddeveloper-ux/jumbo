@@ -124,7 +124,7 @@
                                                               CommandParameter="{Binding .}" />
                                     </Border.GestureRecognizers>
                                     <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
-                                        <ctl:SvgPicture WidthRequest="56" HeightRequest="56" HorizontalOptions="Center" InputTransparent="True" BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+                                        <Label Text="{Binding Number}" HeightRequest="56" WidthRequest="56" FontFamily="NunitoBlack" FontSize="34" TextColor="{StaticResource Primary}" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                                         <Label Text="{Binding Name}" FontFamily="NunitoExtraBold" FontSize="12" HorizontalTextAlignment="Center" MaxLines="2" LineBreakMode="TailTruncation" />
                                         <Label Text="✓" TextColor="{StaticResource Success}" FontFamily="NunitoBlack" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding Won}" />
                                     </VerticalStackLayout>
