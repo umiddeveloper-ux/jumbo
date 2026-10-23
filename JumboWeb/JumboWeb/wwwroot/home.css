@@ -407,3 +407,12 @@ a.dl-btn:active { transform: translateY(2px); border-bottom-width: 2px; }
 .s-tg { --dot: #2AABEE; } .s-wa { --dot: #25D366; } .s-fb { --dot: #1877F2; } .s-ig { --dot: #E4405F; } .s-x { --dot: #8A96A3; } .s-vk { --dot: #0077FF; } .s-ok { --dot: #EE8208; }
 .foot-share-note { flex-basis: 100%; text-align: center; font-weight: 800; font-size: .88rem; color: var(--lp-primary); }
 .foot-share + .foot-bottom { margin-top: 8px; border-top: 0; }
+
+/* share row: round buttons with the logos (Simple Icons, CC0), no captions */
+.foot-share { gap: 12px; }
+.share-btn { width: 46px; height: 46px; padding: 0; justify-content: center; border-radius: 50%; color: var(--dot, var(--lp-text)); }
+.share-btn::before { display: none; }
+.share-btn svg { width: 22px; height: 22px; }
+.share-btn:hover { background: var(--dot); border-color: var(--dot); }
+.foot a.share-btn { color: var(--dot); }
+.foot a.share-btn:hover { color: #fff; }
