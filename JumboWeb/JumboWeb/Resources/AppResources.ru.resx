@@ -2446,7 +2446,7 @@
     <value>Не удалось подписаться. Попробуйте позже.</value>
   </data>
   <data name="Foot_Consent" xml:space="preserve">
-    <value>Подписываясь, вы соглашаетесь с</value>
+    <value>Отправляя форму, вы соглашаетесь с</value>
   </data>
   <data name="Foot_Privacy" xml:space="preserve">
     <value>политикой конфиденциальности</value>

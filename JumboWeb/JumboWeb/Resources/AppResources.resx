@@ -2446,7 +2446,7 @@ We do not use the data for advertising and we do not sell it.</value>
     <value>Could not subscribe now. Please try again later.</value>
   </data>
   <data name="Foot_Consent" xml:space="preserve">
-    <value>By subscribing you agree to the</value>
+    <value>By sending the form you agree to the</value>
   </data>
   <data name="Foot_Privacy" xml:space="preserve">
     <value>privacy policy</value>

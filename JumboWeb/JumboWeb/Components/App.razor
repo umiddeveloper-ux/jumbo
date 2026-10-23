@@ -1,10 +1,18 @@
 ﻿<!DOCTYPE html>
 @using JumboWeb.Services
+@inject SiteCss Css
 <html lang="@_lang">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Meta.Title</title>
+    <meta name="description" content="@Meta.Description" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jumbo.uz" />
+    <meta property="og:title" content="@Meta.Title" />
+    <meta property="og:description" content="@Meta.Description" />
+    <meta property="og:image" content="https://jumbo.uz/jumbo-icon-512.png" />
     <base href="/" />
     <script>
         // Apply the saved (or system) theme before first paint to avoid a light flash.
@@ -56,22 +64,12 @@
         })();
     </script>
     <ResourcePreloader />
-    <link rel="stylesheet" href="@Assets["lib/bootstrap/dist/css/bootstrap.min.css"]" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Andika:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="@Assets["app.css"]" />
-    <link rel="stylesheet" href="@Assets["jumbo-theme.css"]" />
-    <link rel="stylesheet" href="@Assets["tiger.css"]" />
-    <link rel="stylesheet" href="@Assets["home.css"]" />
-    <link rel="stylesheet" href="@Assets["rating.css"]" />
-    <link rel="stylesheet" href="@Assets["top10.css"]" />
-    <link rel="stylesheet" href="@Assets["lang.css"]" />
-    <link rel="stylesheet" href="@Assets["exam.css"]" />
-    <link rel="stylesheet" href="@Assets["schools.css"]" />
-    <link rel="stylesheet" href="@Assets["teacher.css"]" />
-    <link rel="stylesheet" href="@Assets["report.css"]" />
-    <link rel="stylesheet" href="@Assets["JumboWeb.styles.css"]" />
+    @* the fonts are ours (wwwroot/fonts, fonts.css): the main ones are asked for at once *@
+    <link rel="preload" href="fonts/nunito-400-900-latin.woff2" as="font" type="font/woff2" crossorigin />
+    @if (_lang == "ru") { <link rel="preload" href="fonts/nunito-400-900-cyrillic.woff2" as="font" type="font/woff2" crossorigin /> }
+    @* ONE style sheet made of all the css files (see SiteCss): one request instead of a dozen that block the first paint *@
+    <link rel="stylesheet" href="site.css?v=@Css.Version" />
+    <link rel="stylesheet" href="@Assets["JumboWeb.styles.css"]" media="print" onload="this.media='all'" />
     <ImportMap />
     <link rel="icon" type="image/svg+xml" href="@Assets["favicon.svg"]" />
     <link rel="alternate icon" type="image/png" href="@Assets["favicon.png"]" />
@@ -592,4 +590,12 @@
     [CascadingParameter] private HttpContext? HttpContext { get; set; }
 
     private string _lang => AppLanguages.Resolve(HttpContext);
+
+    // the title and the description of the site for search engines and for the cards of the social networks (a page sets its own title later)
+    private (string Title, string Description) Meta => _lang switch
+    {
+        "uz" => ("Jumbo — o‘ynab inglizcha o‘rganamiz", "Jumbo — bolalar uchun bepul sayt va ilova: ingliz tilidagi so‘zlar, o‘yinlar, alifbo va fil Jumbo. Maktabda, uyda va yo‘lda o‘qing."),
+        "ru" => ("Jumbo — учим английский играя", "Jumbo — бесплатный сайт и приложение для детей: английские слова, игры, алфавит и слонёнок Jumbo. Занимайтесь в школе, дома и в дороге."),
+        _ => ("Jumbo — learn English by playing", "Jumbo is a free site and app for kids: English words, games, the alphabet and Jumbo the elephant. Study at school, at home or on the go.")
+    };
 }

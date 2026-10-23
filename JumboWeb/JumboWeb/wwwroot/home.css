@@ -218,9 +218,12 @@ a.stats-tile:hover { border-color: var(--lp-primary); color: var(--lp-text); }
 .shots-arrow:active { transform: translateY(2px); }
 .shots-arrow.prev { left: clamp(10px, 3vw, 48px); }
 .shots-arrow.next { right: clamp(10px, 3vw, 48px); }
-.shots-dots { position: relative; z-index: 2; display: flex; justify-content: center; gap: 8px; margin: 2px 0 6px; }
-.shots-dot { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 99px; cursor: pointer; background: var(--lp-border); transition: width 0.3s, background 0.3s; }
-.shots-dot.on { width: 26px; background: var(--lp-primary); }
+.shots-dots { position: relative; z-index: 2; display: flex; justify-content: center; gap: 0; margin: 2px 0 6px; }
+/* the button is a 24px touch target, the visible dot is drawn inside it */
+.shots-dot { position: relative; width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; transition: width 0.3s; }
+.shots-dot::before { content: ""; position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; border-radius: 99px; transform: translate(-50%, -50%); background: var(--lp-border); transition: width 0.3s, background 0.3s; }
+.shots-dot.on { width: 42px; }
+.shots-dot.on::before { width: 26px; background: var(--lp-primary); }
 @media (max-width: 767px) {
     .shots-track { --shot-w: min(58vw, 236px); gap: 3vw; }
     .shots-arrow { display: none; }
@@ -416,3 +419,8 @@ a.dl-btn:active { transform: translateY(2px); border-bottom-width: 2px; }
 .share-btn:hover { background: var(--dot); border-color: var(--dot); }
 .foot a.share-btn { color: var(--dot); }
 .foot a.share-btn:hover { color: #fff; }
+
+/* the speech bubbles of the hero on a light band: darker text so that it is readable (contrast 4.5:1) */
+.band.light .land-bubble.b1 { color: #0B6FA8; }
+.band.light .land-bubble.b2 { color: #2E7D00; }
+.band.light .land-bubble.b3 { color: #A85A00; }

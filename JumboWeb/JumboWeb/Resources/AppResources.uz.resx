@@ -2377,7 +2377,7 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
     <value>Hozir obuna bo'lib bo'lmadi. Keyinroq urinib ko'ring.</value>
   </data>
   <data name="Foot_Consent" xml:space="preserve">
-    <value>Obuna bo'lib, siz quyidagiga rozilik bildirasiz:</value>
+    <value>Shaklni yuborib, siz quyidagiga rozilik bildirasiz:</value>
   </data>
   <data name="Foot_Privacy" xml:space="preserve">
     <value>maxfiylik siyosati</value>

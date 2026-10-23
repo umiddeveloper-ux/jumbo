@@ -13,7 +13,7 @@
             var n = i;
             <figure class="shot" aria-roledescription="slide" aria-label="@Loc[$"Land_Shot{n}"]">
                 <div class="shot-phone">
-                    <img src="landing/shot-@(n).webp" alt="@Loc[$"Land_Shot{n}"]" width="560" height="1250" loading="eager" draggable="false" />
+                    <img src="landing/shot-@(n).webp" alt="@Loc[$"Land_Shot{n}"]" width="440" height="982" loading="eager" draggable="false" />
                 </div>
                 <figcaption>@Loc[$"Land_Shot{n}"]</figcaption>
             </figure>
@@ -23,7 +23,7 @@
     <div class="shots-dots" role="tablist">
         @for (int i = 1; i <= Count; i++)
         {
-            <button type="button" class="shots-dot" aria-label="@i"></button>
+            <button type="button" class="shots-dot" role="tab" aria-selected="false" aria-label="@i"></button>
         }
     </div>
 </section>

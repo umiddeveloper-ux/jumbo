@@ -25,6 +25,7 @@ builder.Services.AddLocalization(options => options.ResourcesPath = "Resources")
 // ── API client (all data access now goes through the Jumbo.Api backend) ──
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<AppDownloads>();
+builder.Services.AddSingleton<SiteCss>();
 builder.Services.AddSingleton<TopicVideoStore>();
 builder.Services.AddScoped<SessionTokenAccessor>();
 builder.Services.AddScoped<CircuitHandler, CookieCircuitHandler>();
@@ -95,6 +96,13 @@ app.MapGet("/go/{code:guid}", async (HttpContext context, Guid code, string? nex
     });
     var safeNext = next is { Length: > 1 } && next[0] == '/' && next[1] != '/' && next[1] != '\\' ? next : "/";
     return Results.Redirect(safeNext);
+});
+
+// all the style sheets in one file; the address carries the hash of the content, so the browser may keep it for a year
+app.MapGet("/site.css", (HttpContext context, SiteCss css) =>
+{
+    context.Response.Headers.CacheControl = context.Request.Query["v"] == css.Version ? "public, max-age=31536000, immutable" : "no-cache";
+    return Results.Text(css.Content, "text/css; charset=utf-8");
 });
 
 app.MapLegalPages();     // /privacy and /delete-account: plain HTML, open to everybody
