@@ -3060,4 +3060,19 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Settings_AutoSaved" xml:space="preserve">
     <value>Avtomatik saqlanadi</value>
   </data>
+  <data name="Dl_Title" xml:space="preserve">
+    <value>Jumbo bilan istalgan joyda va istalgan vaqtda o‘qing</value>
+  </data>
+  <data name="Dl_Text" xml:space="preserve">
+    <value>Telefon va kompyuterdagi ilova: maktabda, uyda va yo‘lda o‘qing — natijangiz doim siz bilan.</value>
+  </data>
+  <data name="Dl_Get" xml:space="preserve">
+    <value>Yuklab olish:</value>
+  </data>
+  <data name="Dl_Avail" xml:space="preserve">
+    <value>Mavjud:</value>
+  </data>
+  <data name="Dl_For" xml:space="preserve">
+    <value>Yuklab olish:</value>
+  </data>
 </root>

@@ -1,25 +1,14 @@
 @using JumboWeb.Services
-@inject AppDownloads Downloads
 @inject AppLocalizer Loc
 @inject LpApiClient ApiClient
 @inject UserPreferencesService Prefs
 
-@* The footer of the landing: the apps (Android, iPhone, Windows, macOS: "soon" until there is a link), the site and "subscribe". *@
+@* The footer of the landing: the site links and the feedback / news form (the apps are in DownloadBand above it). *@
 <footer class="foot">
     <div class="foot-in">
         <div class="foot-col foot-brand">
             <a class="land-brand" href="/"><img src="favicon.svg" alt="" /><span>@Loc["Common_BrandName"]</span></a>
             <p>@Loc["Foot_Tagline"]</p>
-        </div>
-
-        <div class="foot-col" id="download">
-            <h3>@Loc["Foot_Get"]</h3>
-            <ul class="foot-apps">
-                <li>@Store("🤖", Loc["Foot_Android"], Downloads.AndroidUrl)</li>
-                <li>@Store("🍎", Loc["Foot_Ios"], Downloads.IosUrl)</li>
-                <li>@Store("🪟", Loc["Foot_Windows"], Downloads.WindowsUrl)</li>
-                <li>@Store("💻", Loc["Foot_Mac"], Downloads.MacUrl)</li>
-            </ul>
         </div>
 
         <div class="foot-col">
@@ -66,21 +55,6 @@
 @code {
     private string _email = string.Empty, _message = string.Empty, _trap = string.Empty, _state = "idle";
     private bool _news = true;
-
-    private RenderFragment Store(string icon, string label, string? url) => @<text>
-        @if (url is null)
-        {
-            <span class="foot-app soon"><span class="foot-app-ico">@icon</span><span>@label</span><em>@Loc["Land_Soon"]</em></span>
-        }
-        else if (url.StartsWith("http", StringComparison.OrdinalIgnoreCase))
-        {
-            <a class="foot-app" href="@url" target="_blank" rel="noopener"><span class="foot-app-ico">@icon</span><span>@label</span></a>
-        }
-        else
-        {
-            <a class="foot-app" href="@url" download><span class="foot-app-ico">@icon</span><span>@label</span></a>
-        }
-    </text>;
 
     private async Task SubscribeAsync()
     {

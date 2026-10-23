@@ -1,0 +1,48 @@
+@using JumboWeb.Services
+@inject AppDownloads Downloads
+@inject AppLocalizer Loc
+
+@* The block "download the app" above the footer of the landing: App Store, Google Play (or the apk), Windows, macOS. A store without a link is grey with "Soon". *@
+<section class="dl" id="download">
+    <div class="dl-text">
+        <h2 class="dl-title">@Loc["Dl_Title"]</h2>
+        <p class="dl-sub">@Loc["Dl_Text"]</p>
+        <div class="dl-btns">
+            @Store(Apple, Loc["Dl_Get"], "App Store", Downloads.IosUrl)
+            @Store(Play, Loc["Dl_Avail"], AndroidName, Downloads.AndroidUrl)
+            @Store(Win, Loc["Dl_For"], "Windows", Downloads.WindowsUrl)
+            @Store(Mac, Loc["Dl_For"], "macOS", Downloads.MacUrl)
+        </div>
+    </div>
+    <div class="dl-art" aria-hidden="true">
+        <span class="dl-phone"><img src="landing/shot-1.webp" alt="" loading="lazy" /></span>
+        <img class="dl-jumbo" src="jumbo.webp" alt="" loading="lazy" />
+        <span class="dl-floor"></span>
+    </div>
+</section>
+
+@code {
+    // "Google Play" when the link goes to the store, "Android" when it is the apk of the site
+    private string AndroidName => Downloads.AndroidUrl is { } u && u.Contains("play.google.com", StringComparison.OrdinalIgnoreCase) ? "Google Play"
+        : Downloads.AndroidUrl is null ? "Google Play" : "Android (APK)";
+
+    private const string Apple = "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M16.37 12.64c-.03-2.67 2.18-3.95 2.28-4.01-1.24-1.82-3.18-2.07-3.87-2.1-1.65-.17-3.22.97-4.06.97-.84 0-2.13-.95-3.5-.92-1.8.03-3.46 1.05-4.39 2.66-1.87 3.25-.48 8.05 1.35 10.68.89 1.29 1.95 2.74 3.35 2.69 1.34-.05 1.85-.87 3.48-.87 1.62 0 2.08.87 3.5.84 1.45-.02 2.37-1.3 3.25-2.6 1.02-1.49 1.44-2.94 1.47-3.01-.03-.01-2.82-1.08-2.86-4.29zM13.7 4.63c.74-.9 1.24-2.14 1.1-3.38-1.07.04-2.35.71-3.12 1.6-.69.79-1.29 2.06-1.13 3.27 1.19.09 2.4-.6 3.15-1.49z\"/></svg>";
+    private const string Play = "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M4.6 2.4c-.3.3-.5.8-.5 1.4v16.4c0 .6.2 1.1.5 1.4l.1.1L13.9 12.5v-.2L4.7 2.3l-.1.1zm12.3 7.2-3-3.1v-.1L5.2 1.9c.5-.3 1.2-.3 1.9.1l9.8 5.6zm0 4.8-3 3 .1.1 3.3-1.9 3.4-1.9c1-.6 1-1.5 0-2.1l-3.4-1.9-.4 2.7zm-3.1 3.1L4.6 21.8c.7.4 1.4.4 2 .1l10.3-6.1-3.1-1.4z\"/></svg>";
+    private const string Win = "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M3 5.4 10.5 4.4v7.1H3V5.4zm8.5-1.1L21 3v8.5h-9.5V4.3zM3 12.5h7.5v7.1L3 18.6v-6.1zm8.5 0H21V21l-9.5-1.3v-7.2z\"/></svg>";
+    private const string Mac = "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5V15H4V5.5zM6 6v7h12V6H6zM2 16.5h20v1A1.5 1.5 0 0 1 20.5 19h-17A1.5 1.5 0 0 1 2 17.5v-1z\"/></svg>";
+
+    private RenderFragment Store(string svg, string small, string big, string? url) => @<text>
+        @if (url is null)
+        {
+            <span class="dl-btn soon"><span class="dl-ico">@((MarkupString)svg)</span><span class="dl-lbl"><small>@small</small><b>@big</b></span><em>@Loc["Land_Soon"]</em></span>
+        }
+        else if (url.StartsWith("http", StringComparison.OrdinalIgnoreCase))
+        {
+            <a class="dl-btn" href="@url" target="_blank" rel="noopener"><span class="dl-ico">@((MarkupString)svg)</span><span class="dl-lbl"><small>@small</small><b>@big</b></span></a>
+        }
+        else
+        {
+            <a class="dl-btn" href="@url" download><span class="dl-ico">@((MarkupString)svg)</span><span class="dl-lbl"><small>@small</small><b>@big</b></span></a>
+        }
+    </text>;
+}
