@@ -424,3 +424,6 @@ a.dl-btn:active { transform: translateY(2px); border-bottom-width: 2px; }
 .band.light .land-bubble.b1 { color: #0B6FA8; }
 .band.light .land-bubble.b2 { color: #2E7D00; }
 .band.light .land-bubble.b3 { color: #A85A00; }
+
+/* on a phone the row of the logos has no caption "Share:" */
+@media (max-width: 560px) { .foot-share-label { display: none; } }
