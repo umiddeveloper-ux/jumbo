@@ -13,7 +13,7 @@
             var n = i;
             <figure class="shot" aria-roledescription="slide" aria-label="@Loc[$"Land_Shot{n}"]">
                 <div class="shot-phone">
-                    <img src="landing/shot-@(n).webp" alt="@Loc[$"Land_Shot{n}"]" width="440" height="982" loading="eager" draggable="false" />
+                    <img src="landing/shot-@(n).webp" alt="@Loc[$"Land_Shot{n}"]" width="440" height="982" loading="eager" fetchpriority="@(n == 1 ? "high" : null)" decoding="async" draggable="false" />
                 </div>
                 <figcaption>@Loc[$"Land_Shot{n}"]</figcaption>
             </figure>

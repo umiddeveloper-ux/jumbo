@@ -14,8 +14,8 @@
             <p class="rate-sub">@Loc["Rating_Subtitle"]</p>
         </div>
         <div class="rate-period" role="tablist">
-            <button type="button" class="rate-chip @(_period == "week" ? "on" : "")" @onclick='() => SetPeriod("week")'>@Loc["Rating_Week"]</button>
-            <button type="button" class="rate-chip @(_period == "all" ? "on" : "")" @onclick='() => SetPeriod("all")'>@Loc["Rating_AllTime"]</button>
+            <button type="button" role="tab" aria-selected="@(_period == "week" ? "true" : "false")" class="rate-chip @(_period == "week" ? "on" : "")" @onclick='() => SetPeriod("week")'>@Loc["Rating_Week"]</button>
+            <button type="button" role="tab" aria-selected="@(_period == "all" ? "true" : "false")" class="rate-chip @(_period == "all" ? "on" : "")" @onclick='() => SetPeriod("all")'>@Loc["Rating_AllTime"]</button>
         </div>
     </div>
 
