@@ -427,3 +427,7 @@ a.dl-btn:active { transform: translateY(2px); border-bottom-width: 2px; }
 
 /* on a phone the row of the logos has no caption "Share:" */
 @media (max-width: 560px) { .foot-share-label { display: none; } }
+
+/* the download block sits on a light band: no line under it, the footer band follows */
+.band.light .dl { border-bottom: 0; }
+.band.light .dl-phone { border-color: #223041; }

@@ -176,7 +176,7 @@
     <value>1000 LP to'plab Marketni oching!</value>
   </data>
   <data name="SiteHome_PageTitle" xml:space="preserve">
-    <value>Jumbo.uz — Bosh sahifa</value>
+    <value>Jumbo — o‘ynab inglizcha o‘rganamiz</value>
   </data>
   <data name="SiteHome_Welcome" xml:space="preserve">
     <value>Jumbo.uzga xush kelibsiz</value>
@@ -3064,7 +3064,7 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
     <value>Jumbo bilan istalgan joyda va istalgan vaqtda o‘qing</value>
   </data>
   <data name="Dl_Text" xml:space="preserve">
-    <value>Telefon va kompyuterdagi ilova: maktabda, uyda va yo‘lda o‘qing — natijangiz doim siz bilan.</value>
+    <value>Telefondagi ilova: maktabda, uyda va yo‘lda o‘qing — natijangiz doim siz bilan.</value>
   </data>
   <data name="Dl_Get" xml:space="preserve">
     <value>Yuklab olish:</value>

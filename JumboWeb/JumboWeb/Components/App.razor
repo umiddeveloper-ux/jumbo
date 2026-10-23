@@ -6,7 +6,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@Meta.Title</title>
+    @* a prerendered page brings its own <title> (PageTitle); the others get this one until their component sets its own *@
+    @if (!Prerender) { <title>@Meta.Title</title> }
     <meta name="description" content="@Meta.Description" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Jumbo.uz" />
@@ -79,7 +80,7 @@
 </head>
 
 <body>
-    <Routes AccessToken="@HttpContext?.Request.Cookies["access_token"]" Lang="@_lang" @rendermode="new InteractiveServerRenderMode(prerender: false)" />
+    <Routes AccessToken="@HttpContext?.Request.Cookies["access_token"]" Lang="@_lang" @rendermode="RouteMode" />
     <script src="@Assets["_framework/blazor.web.js"]"></script>
     <script>
         // The "Rejoining the server..." overlay of Blazor blocks the whole page while the connection is down. If it stays up
@@ -590,6 +591,13 @@
     [CascadingParameter] private HttpContext? HttpContext { get; set; }
 
     private string _lang => AppLanguages.Resolve(HttpContext);
+
+    // The landing page of a visitor who is not signed in ("/" without the access_token cookie) is prerendered: the real page is in the first answer of
+    // the server (fast first paint, search engines see the text) and the circuit takes it over a moment later. Every other page is drawn by the
+    // circuit only (prerender: false), as before: they need the signed-in learner and a few of them call the browser at once.
+    private bool Prerender => HttpContext is { } c && c.Request.Path.Value == "/" && !c.Request.Cookies.ContainsKey("access_token");
+
+    private IComponentRenderMode RouteMode => new InteractiveServerRenderMode(prerender: Prerender);
 
     // the title and the description of the site for search engines and for the cards of the social networks (a page sets its own title later)
     private (string Title, string Description) Meta => _lang switch
