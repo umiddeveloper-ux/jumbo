@@ -3144,4 +3144,22 @@
   <data name="Dl_For" xml:space="preserve">
     <value>Скачать для</value>
   </data>
+  <data name="Foot_Bot" xml:space="preserve">
+    <value>Наш Telegram-бот</value>
+  </data>
+  <data name="Foot_Share" xml:space="preserve">
+    <value>Поделиться:</value>
+  </data>
+  <data name="Foot_Copy" xml:space="preserve">
+    <value>Копировать ссылку</value>
+  </data>
+  <data name="Foot_Copied" xml:space="preserve">
+    <value>Ссылка скопирована</value>
+  </data>
+  <data name="Foot_IgHint" xml:space="preserve">
+    <value>Instagram не даёт кнопку «поделиться»: ссылка скопирована, вставьте её в историю или сообщение.</value>
+  </data>
+  <data name="Foot_ShareText" xml:space="preserve">
+    <value>Jumbo — учим английский играя</value>
+  </data>
 </root>

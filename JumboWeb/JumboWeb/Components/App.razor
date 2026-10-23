@@ -223,6 +223,18 @@
             },
             // The recording of a letter of the alphabet (A-Z, a short mp3 of the site): done(true) after it has been played, done(false) when
             // there is no such file or the browser cannot play it (the caller then lets the voice say the letter, as before).
+            // Copies text to the clipboard: the modern way, else (an insecure page, a strict browser) the old textarea + execCommand. True when done.
+            copyTextSafe: async function (text) {
+                try { await navigator.clipboard.writeText(text); return true; } catch (e) { }
+                try {
+                    var t = document.createElement('textarea');
+                    t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+                    document.body.appendChild(t); t.select();
+                    var ok = document.execCommand('copy');
+                    document.body.removeChild(t);
+                    return ok;
+                } catch (e) { return false; }
+            },
             letterAudio: null,
             playLetter: function (letter, done) {
                 try {

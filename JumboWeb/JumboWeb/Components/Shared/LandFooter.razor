@@ -2,6 +2,8 @@
 @inject AppLocalizer Loc
 @inject LpApiClient ApiClient
 @inject UserPreferencesService Prefs
+@inject NavigationManager Nav
+@inject IJSRuntime JS
 
 @* The footer of the landing: the site links and the feedback / news form (the apps are in DownloadBand above it). *@
 <footer class="foot">
@@ -9,6 +11,10 @@
         <div class="foot-col foot-brand">
             <a class="land-brand" href="/"><img src="favicon.svg" alt="" /><span>@Loc["Common_BrandName"]</span></a>
             <p>@Loc["Foot_Tagline"]</p>
+            <a class="foot-bot" href="https://t.me/JumboUzBot" target="_blank" rel="noopener">
+                <span class="foot-bot-ico" aria-hidden="true">✈️</span>
+                <span class="foot-bot-text"><small>@Loc["Foot_Bot"]</small><b>@@JumboUzBot</b></span>
+            </a>
         </div>
 
         <div class="foot-col">
@@ -49,12 +55,45 @@
             }
         </div>
     </div>
+    <div class="foot-share">
+        <span class="foot-share-label">@Loc["Foot_Share"]</span>
+        <a class="share-btn s-tg" href="https://t.me/share/url?url=@Url&text=@Text" target="_blank" rel="noopener">Telegram</a>
+        <a class="share-btn s-wa" href="@WaHref" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="share-btn s-fb" href="https://www.facebook.com/sharer/sharer.php?u=@Url" target="_blank" rel="noopener">Facebook</a>
+        @* Instagram has no web "share" address: the link is copied and Instagram opens *@
+        <a class="share-btn s-ig" href="https://www.instagram.com/" target="_blank" rel="noopener" @onclick='() => CopyAsync("Foot_IgHint")'>Instagram</a>
+        <a class="share-btn s-x" href="https://twitter.com/intent/tweet?url=@Url&text=@Text" target="_blank" rel="noopener">X</a>
+        <a class="share-btn s-vk" href="https://vk.com/share.php?url=@Url&title=@Text" target="_blank" rel="noopener">VK</a>
+        <a class="share-btn s-ok" href="https://connect.ok.ru/offer?url=@Url&title=@Text" target="_blank" rel="noopener">OK</a>
+        <button type="button" class="share-btn s-copy" @onclick='() => CopyAsync("Foot_Copied")'>🔗 @Loc["Foot_Copy"]</button>
+        @if (!string.IsNullOrEmpty(_note)) { <span class="foot-share-note" role="status">@_note</span> }
+    </div>
     <div class="foot-bottom">© @DateTime.UtcNow.Year @Loc["Common_BrandName"]</div>
 </footer>
 
 @code {
     private string _email = string.Empty, _message = string.Empty, _trap = string.Empty, _state = "idle";
     private bool _news = true;
+    private string _note = string.Empty;
+
+    // what is shared: the address of the site and a short text
+    private string Url => Uri.EscapeDataString(Nav.ToAbsoluteUri("/").ToString());
+    private string Text => Uri.EscapeDataString(Loc["Foot_ShareText"]);
+    private string WaHref => $"https://wa.me/?text={Text}%20{Url}";
+
+    private async Task CopyAsync(string noteKey)
+    {
+        try
+        {
+            var done = await JS.InvokeAsync<bool>("lp.copyTextSafe", Nav.ToAbsoluteUri("/").ToString());
+            _note = done ? Loc[noteKey] : Nav.ToAbsoluteUri("/").ToString();       // no clipboard at all: the address itself is shown
+        }
+        catch { _note = Nav.ToAbsoluteUri("/").ToString(); }
+        StateHasChanged();
+        await Task.Delay(4500);
+        _note = string.Empty;
+        StateHasChanged();
+    }
 
     private async Task SubscribeAsync()
     {

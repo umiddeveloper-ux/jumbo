@@ -3144,4 +3144,22 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="Dl_For" xml:space="preserve">
     <value>Download for</value>
   </data>
+  <data name="Foot_Bot" xml:space="preserve">
+    <value>Our Telegram bot</value>
+  </data>
+  <data name="Foot_Share" xml:space="preserve">
+    <value>Share:</value>
+  </data>
+  <data name="Foot_Copy" xml:space="preserve">
+    <value>Copy the link</value>
+  </data>
+  <data name="Foot_Copied" xml:space="preserve">
+    <value>The link is copied</value>
+  </data>
+  <data name="Foot_IgHint" xml:space="preserve">
+    <value>Instagram has no share button: the link is copied, paste it into a story or a message.</value>
+  </data>
+  <data name="Foot_ShareText" xml:space="preserve">
+    <value>Jumbo — learn English by playing</value>
+  </data>
 </root>

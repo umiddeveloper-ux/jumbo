@@ -388,3 +388,22 @@ a.dl-btn:active { transform: translateY(2px); border-bottom-width: 2px; }
     .dl-jumbo { height: 240px; }
 }
 @media (max-width: 480px) { .dl-btns { grid-template-columns: 1fr 1fr; gap: 10px; } .dl-btn { padding: 10px 12px; gap: 8px; } .dl-lbl b { font-size: 1rem; } }
+
+/* ----- footer: the bot link in the first column, the "share" row at the bottom ----- */
+.foot-bot { display: inline-flex; align-items: center; gap: 12px; margin-top: 6px; padding: 10px 16px; border-radius: 16px; border: 2px solid var(--lp-border); border-bottom-width: 4px; background: var(--lp-surface); text-decoration: none; }
+.foot a.foot-bot:hover { border-color: #2AABEE; color: var(--lp-text); }
+.foot-bot-ico { width: 34px; height: 34px; display: grid; place-items: center; font-size: 1.1rem; border-radius: 50%; background: #2AABEE; }
+.foot-bot-text { display: grid; line-height: 1.15; }
+.foot-bot-text small { font-size: .74rem; font-weight: 700; color: var(--lp-muted); }
+.foot-bot-text b { font-size: 1.05rem; font-weight: 900; color: var(--lp-text); }
+.foot-share { max-width: 1120px; margin: 22px auto 0; padding: 18px 20px 0; border-top: 2px solid var(--lp-border); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; }
+.foot-share-label { font-weight: 900; color: var(--lp-muted); margin-right: 4px; }
+.share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 2px solid var(--lp-border); background: transparent; color: var(--lp-text); font: inherit; font-weight: 800; font-size: .9rem; text-decoration: none; cursor: pointer; transition: border-color .12s, transform .08s; }
+.foot a.share-btn { color: var(--lp-text); }
+.share-btn::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--dot, var(--lp-muted)); }
+.share-btn.s-copy::before { display: none; }
+.share-btn:hover { border-color: var(--dot, var(--lp-primary)); }
+.share-btn:active { transform: translateY(1px); }
+.s-tg { --dot: #2AABEE; } .s-wa { --dot: #25D366; } .s-fb { --dot: #1877F2; } .s-ig { --dot: #E4405F; } .s-x { --dot: #8A96A3; } .s-vk { --dot: #0077FF; } .s-ok { --dot: #EE8208; }
+.foot-share-note { flex-basis: 100%; text-align: center; font-weight: 800; font-size: .88rem; color: var(--lp-primary); }
+.foot-share + .foot-bottom { margin-top: 8px; border-top: 0; }

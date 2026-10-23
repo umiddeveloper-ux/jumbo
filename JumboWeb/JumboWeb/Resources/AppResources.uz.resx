@@ -3075,4 +3075,22 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Dl_For" xml:space="preserve">
     <value>Yuklab olish:</value>
   </data>
+  <data name="Foot_Bot" xml:space="preserve">
+    <value>Telegram-botimiz</value>
+  </data>
+  <data name="Foot_Share" xml:space="preserve">
+    <value>Ulashish:</value>
+  </data>
+  <data name="Foot_Copy" xml:space="preserve">
+    <value>Havolani nusxalash</value>
+  </data>
+  <data name="Foot_Copied" xml:space="preserve">
+    <value>Havola nusxalandi</value>
+  </data>
+  <data name="Foot_IgHint" xml:space="preserve">
+    <value>Instagram’da «ulashish» tugmasi yo‘q: havola nusxalandi, uni hikoya yoki xabarga qo‘ying.</value>
+  </data>
+  <data name="Foot_ShareText" xml:space="preserve">
+    <value>Jumbo — o‘ynab inglizcha o‘rganamiz</value>
+  </data>
 </root>
