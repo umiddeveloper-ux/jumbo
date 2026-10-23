@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.SettingsSecurityPage"
+             x:DataType="pageModels:SettingsPageModel"
+             x:Name="PageRoot"
+             Title="{u:Tr Key=Settings_SecSecurity}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SectionTitle" TargetType="Label">
+                <Setter Property="FontFamily" Value="NunitoExtraBold" />
+                <Setter Property="FontSize" Value="19" />
+            </Style>
+            <Style x:Key="Hint" TargetType="Label">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="16,12,16,32" Spacing="14" MaximumWidthRequest="640" HorizontalOptions="Fill">
+
+                <Label Text="{u:Tr Key=Settings_SecSecurity}" FontFamily="NunitoBlack" FontSize="26" SemanticProperties.HeadingLevel="Level1" />
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="{u:Tr Key=Settings_AccountSection}" Style="{StaticResource SectionTitle}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_UsernameLabel}" Text="{Binding Username, Mode=TwoWay}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_CurrentPasswordLabel}" IsPassword="True" Text="{Binding CurrentPassword, Mode=TwoWay}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_NewPasswordLabel}" Placeholder="{u:Tr Key=Settings_NewPasswordHint}" IsPassword="True" Text="{Binding NewPassword, Mode=TwoWay}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_ConfirmPasswordLabel}" IsPassword="True" Text="{Binding ConfirmPassword, Mode=TwoWay}" />
+                        <Label Text="{Binding AccountError}" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding AccountError, Converter={StaticResource StringNotEmpty}}" />
+                        <Label Text="{Binding AccountMessage}" TextColor="{StaticResource Success}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding AccountMessage, Converter={StaticResource StringNotEmpty}}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=Settings_AccountSaveButton}" Kind="success" FontSize="14" Command="{Binding SaveAccountCommand}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="{u:Tr Key=Settings_PrivacySection}" Style="{StaticResource SectionTitle}" />
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                <Label Text="{u:Tr Key=Settings_HideNameLabel}" FontFamily="NunitoExtraBold" FontSize="15" />
+                                <Label Text="{u:Tr Key=Settings_HideNameHint}" Style="{StaticResource Hint}" />
+                            </VerticalStackLayout>
+                            <Switch Grid.Column="1" IsToggled="{Binding HideName, Mode=TwoWay}" VerticalOptions="Center" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" />
+    </Grid>
+</ContentPage>

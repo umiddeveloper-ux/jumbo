@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.SettingsDeletePage"
+             x:DataType="pageModels:SettingsPageModel"
+             x:Name="PageRoot"
+             Title="{u:Tr Key=Settings_DeleteSection}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SectionTitle" TargetType="Label">
+                <Setter Property="FontFamily" Value="NunitoExtraBold" />
+                <Setter Property="FontSize" Value="19" />
+            </Style>
+            <Style x:Key="Hint" TargetType="Label">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="16,12,16,32" Spacing="14" MaximumWidthRequest="640" HorizontalOptions="Fill">
+
+                <Label Text="{u:Tr Key=Settings_DeleteSection}" FontFamily="NunitoBlack" FontSize="26" SemanticProperties.HeadingLevel="Level1" />
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="{u:Tr Key=Settings_DeleteHint}" Style="{StaticResource Hint}" />
+                        <ctl:FormEntry Caption="{u:Tr Key=Settings_CurrentPasswordLabel}" IsPassword="True" Text="{Binding DeletePassword, Mode=TwoWay}" />
+                        <Label Text="{Binding DeleteError}" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding DeleteError, Converter={StaticResource StringNotEmpty}}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=Settings_DeleteButton}" Kind="danger" FontSize="14" Command="{Binding DeleteAccountCommand}" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" />
+    </Grid>
+</ContentPage>

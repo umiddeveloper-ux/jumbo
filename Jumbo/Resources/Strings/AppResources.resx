@@ -1754,4 +1754,55 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="Ad_Close" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="Settings_Back" xml:space="preserve">
+    <value>← Settings</value>
+  </data>
+  <data name="Settings_Saved" xml:space="preserve">
+    <value>Saved ✓</value>
+  </data>
+  <data name="Settings_SecProfile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Settings_SecProfileSub" xml:space="preserve">
+    <value>Name, surname, phone</value>
+  </data>
+  <data name="Settings_SecTeam" xml:space="preserve">
+    <value>School and team</value>
+  </data>
+  <data name="Settings_SecTeamSub" xml:space="preserve">
+    <value>The group your teacher confirms</value>
+  </data>
+  <data name="Settings_SecLearning" xml:space="preserve">
+    <value>Learning</value>
+  </data>
+  <data name="Settings_SecLearningSub" xml:space="preserve">
+    <value>Study and translation languages, daily goal</value>
+  </data>
+  <data name="Settings_SecLook" xml:space="preserve">
+    <value>Look and language</value>
+  </data>
+  <data name="Settings_SecLookSub" xml:space="preserve">
+    <value>Theme, app language</value>
+  </data>
+  <data name="Settings_SecBotSub" xml:space="preserve">
+    <value>Reminders and progress in Telegram</value>
+  </data>
+  <data name="Settings_SecSecurity" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="Settings_SecSecuritySub" xml:space="preserve">
+    <value>Login, password, hide my name</value>
+  </data>
+  <data name="Settings_SecAbout" xml:space="preserve">
+    <value>About the app</value>
+  </data>
+  <data name="Settings_SecAboutSub" xml:space="preserve">
+    <value>Privacy policy, QR sign-in</value>
+  </data>
+  <data name="Settings_Version" xml:space="preserve">
+    <value>App version {0}</value>
+  </data>
+  <data name="Settings_SecDeleteSub" xml:space="preserve">
+    <value>Delete the account and data for good</value>
+  </data>
 </root>

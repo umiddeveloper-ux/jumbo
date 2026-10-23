@@ -53,6 +53,14 @@ namespace Jumbo
             Routing.RegisterRoute("PhraseGamePage", typeof(Pages.PhraseGamePage));
             Routing.RegisterRoute("BookZeroPage", typeof(Pages.BookZeroPage));
             Routing.RegisterRoute("BookZeroGamePage", typeof(Pages.BookZeroGamePage));
+            Routing.RegisterRoute("SettingsProfilePage", typeof(Pages.SettingsProfilePage));
+            Routing.RegisterRoute("SettingsTeamPage", typeof(Pages.SettingsTeamPage));
+            Routing.RegisterRoute("SettingsLearningPage", typeof(Pages.SettingsLearningPage));
+            Routing.RegisterRoute("SettingsLookPage", typeof(Pages.SettingsLookPage));
+            Routing.RegisterRoute("SettingsBotPage", typeof(Pages.SettingsBotPage));
+            Routing.RegisterRoute("SettingsSecurityPage", typeof(Pages.SettingsSecurityPage));
+            Routing.RegisterRoute("SettingsAboutPage", typeof(Pages.SettingsAboutPage));
+            Routing.RegisterRoute("SettingsDeletePage", typeof(Pages.SettingsDeletePage));
 
             LocalizationService.RestoreLanguage();
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.SettingsAboutPage"
+             x:DataType="pageModels:SettingsPageModel"
+             x:Name="PageRoot"
+             Title="{u:Tr Key=Settings_SecAbout}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SectionTitle" TargetType="Label">
+                <Setter Property="FontFamily" Value="NunitoExtraBold" />
+                <Setter Property="FontSize" Value="19" />
+            </Style>
+            <Style x:Key="Hint" TargetType="Label">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="16,12,16,32" Spacing="14" MaximumWidthRequest="640" HorizontalOptions="Fill">
+
+                <Label Text="{u:Tr Key=Settings_SecAbout}" FontFamily="NunitoBlack" FontSize="26" SemanticProperties.HeadingLevel="Level1" />
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <ctl:ChunkyButton Text="{u:Tr Key=Legal_Privacy_Link}" Kind="outline" Command="{Binding OpenPrivacyCommand}" />
+                        <Label Text="{u:Tr Key=Settings_ScanQrHint}" Style="{StaticResource Hint}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=ScanQrButton}" Kind="outline" Command="{Binding ScanQrCommand}" />
+                        <Label Text="{Binding VersionText}" Style="{StaticResource Hint}" HorizontalOptions="Center" Margin="0,6,0,0" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" />
+    </Grid>
+</ContentPage>

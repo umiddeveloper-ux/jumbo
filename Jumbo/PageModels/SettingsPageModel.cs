@@ -21,6 +21,43 @@ public partial class SettingsPageModel : ObservableObject
 
     public string PhoneHint { get; } = PhoneHints.Current;
 
+    // ── the main screen: who I am, and the list of the sections ──
+    [ObservableProperty]
+    private string _headerName = string.Empty;
+
+    [ObservableProperty]
+    private string? _headerAvatar;
+
+    public string VersionText => LocalizationManager.Format("Settings_Version", AppInfo.Current.VersionString);
+
+    private void ShowHeader()
+    {
+        HeaderName = (FirstName + " " + LastName).Trim();
+        HeaderAvatar = _livesService.AvatarSvg ?? _currentUser?.AvatarSvg;
+    }
+
+    /// <summary>Opens a screen of a section (the route is the parameter).</summary>
+    [RelayCommand]
+    private async Task OpenSection(string? route)
+    {
+        if (!string.IsNullOrEmpty(route)) await Shell.Current.GoToAsync(route);
+    }
+
+    // a short "Saved" label after a switch or a list was changed (it is saved at once)
+    private async Task AutoSaveAsync()
+    {
+        if (_loading) return;
+        if (await SaveSettings(silent: true)) await AppShell.DisplayToastAsync(LocalizationManager.Get("Settings_Saved"));
+    }
+
+    partial void OnHideNameChanged(bool value) => _ = AutoSaveAsync();
+
+    partial void OnHideTooltipsChanged(bool value) => _ = AutoSaveAsync();
+
+    partial void OnSelectedStudyLanguageChanged(LanguageModel? value) => _ = AutoSaveAsync();
+
+    partial void OnSelectedTargetLanguageChanged(LanguageModel? value) => _ = AutoSaveAsync();
+
     // ── profile ──
     [ObservableProperty]
     private string _firstName = string.Empty;
@@ -110,6 +147,7 @@ public partial class SettingsPageModel : ObservableObject
             if (user is null) return;
             if (_currentUser is not null) { _currentUser.AvatarSvg = user.AvatarSvg; _currentUser.AvatarDefaultSvg = user.AvatarDefaultSvg; }
             _livesService.AvatarSvg = user.AvatarSvg;                // the title bar shows it at once
+            HeaderAvatar = user.AvatarSvg;
             AvatarMessage = LocalizationManager.Get("Settings_AvatarSaved");
         }
         catch (Exception ex) { _errorHandler.HandleError(ex); }
@@ -440,6 +478,7 @@ public partial class SettingsPageModel : ObservableObject
             }
 
             ThemeKey = ThemeService.Mode;
+            ShowHeader();
             PublicId = _currentUser?.PublicId ?? string.Empty;
             BalanceText = _currentUser is null ? string.Empty
                 : LocalizationManager.Get("Money_Balance") + ": " + Jumbo.Shared.Money.Format(_currentUser.Balance) + " " + LocalizationManager.Get("Money_Currency");
@@ -485,10 +524,9 @@ public partial class SettingsPageModel : ObservableObject
     {
         try
         {
-            GoalMessage = string.Empty;
             await _apiClient.SetDailyGoalAsync(goal);
             if (_currentUser is not null) _currentUser.DailyGoalWords = goal;
-            GoalMessage = LocalizationManager.Get("Settings_DailyGoalSaved");
+            await AppShell.DisplayToastAsync(LocalizationManager.Get("Settings_Saved"));
         }
         catch (Exception ex)
         {
@@ -549,9 +587,9 @@ public partial class SettingsPageModel : ObservableObject
     [RelayCommand]
     private async Task SaveSettings() => await SaveSettings(silent: false);
 
-    private async Task SaveSettings(bool silent)
+    private async Task<bool> SaveSettings(bool silent)
     {
-        if (_currentUser == null || _loading) return;
+        if (_currentUser == null || _loading) return false;
 
         try
         {
@@ -578,11 +616,14 @@ public partial class SettingsPageModel : ObservableObject
 
             UserLanguagePrefs.Save(_currentUser.AppLanguageId, _currentUser.StudyLanguageId, _currentUser.TranslationLanguageId);
 
-            if (!silent) await AppShell.DisplayToastAsync(LocalizationManager.Get("Settings_SavedMessage"));
+            ShowHeader();
+            if (!silent) await AppShell.DisplayToastAsync(LocalizationManager.Get("Settings_Saved"));
+            return true;
         }
         catch (Exception ex)
         {
             _errorHandler.HandleError(ex);
+            return false;
         }
     }
 
@@ -610,10 +651,11 @@ public partial class SettingsPageModel : ObservableObject
     [RelayCommand]
     private void NavigatedTo() { }
 
+    // what was typed in the profile is not lost when the screen is left without the button
     [RelayCommand]
-    private async Task NavigatedFrom()
+    private async Task LeaveProfile()
     {
-        await SaveSettings(silent: true);        // autosave when the tab is left
+        await SaveSettings(silent: true);
     }
 
     [RelayCommand]

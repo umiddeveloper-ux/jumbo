@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.SettingsTeamPage"
+             x:DataType="pageModels:SettingsPageModel"
+             x:Name="PageRoot"
+             Title="{u:Tr Key=Settings_SecTeam}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SectionTitle" TargetType="Label">
+                <Setter Property="FontFamily" Value="NunitoExtraBold" />
+                <Setter Property="FontSize" Value="19" />
+            </Style>
+            <Style x:Key="Hint" TargetType="Label">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="16,12,16,32" Spacing="14" MaximumWidthRequest="640" HorizontalOptions="Fill">
+
+                <Label Text="{u:Tr Key=Settings_SecTeam}" FontFamily="NunitoBlack" FontSize="26" SemanticProperties.HeadingLevel="Level1" />
+                <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <VerticalStackLayout Spacing="10" IsVisible="{Binding HasTeam}">
+                            <Border StrokeShape="RoundRectangle 14" StrokeThickness="2" Padding="12,10"
+                                    Stroke="{StaticResource Warning}" BackgroundColor="{AppThemeBinding Light={StaticResource WarningAsbestos}, Dark=#3A3210}">
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border" Binding="{Binding TeamApproved}" Value="True">
+                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
+                                    </DataTrigger>
+                                </Border.Triggers>
+                                <VerticalStackLayout Spacing="2">
+                                    <Label Text="{Binding TeamStatusText}" FontFamily="NunitoExtraBold" FontSize="15" TextColor="{AppThemeBinding Light=#1F3A5F, Dark=#E8F0F8}" />
+                                    <Label Text="{Binding TeamStateText}" FontSize="13" TextColor="{AppThemeBinding Light=#1F3A5F, Dark=#E8F0F8}" Opacity="0.8" />
+                                </VerticalStackLayout>
+                            </Border>
+                            <ctl:ChunkyButton Text="{u:Tr Key=Team_Leave}" Kind="outline" Command="{Binding LeaveTeamCommand}" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="12" IsVisible="{Binding HasNoTeam}">
+                            <Label Text="{Binding LegacyText}" Style="{StaticResource Hint}" IsVisible="{Binding HasLegacy}" />
+                            <ctl:TeamPicker Region="{Binding PickedRegion, Mode=TwoWay}" ClassId="{Binding PickedClassId, Mode=TwoWay}" />
+                            <ctl:ChunkyButton Text="{u:Tr Key=Team_Submit}" Kind="success" FontSize="14"
+                                              IsEnabled="{Binding CanSendTeam}" Command="{Binding SendTeamCommand}" />
+                        </VerticalStackLayout>
+
+                        <Label Text="{Binding TeamError}" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding TeamError, Converter={StaticResource StringNotEmpty}}" />
+                        <Label Text="{Binding TeamMessage}" TextColor="{StaticResource Success}" FontFamily="NunitoBold" FontSize="14"
+                               IsVisible="{Binding TeamMessage, Converter={StaticResource StringNotEmpty}}" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" />
+    </Grid>
+</ContentPage>

@@ -1750,4 +1750,55 @@
   <data name="Ad_Close" xml:space="preserve">
     <value>Закрыть</value>
   </data>
+  <data name="Settings_Back" xml:space="preserve">
+    <value>← Настройки</value>
+  </data>
+  <data name="Settings_Saved" xml:space="preserve">
+    <value>Сохранено ✓</value>
+  </data>
+  <data name="Settings_SecProfile" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="Settings_SecProfileSub" xml:space="preserve">
+    <value>Имя, фамилия, телефон</value>
+  </data>
+  <data name="Settings_SecTeam" xml:space="preserve">
+    <value>Школа и команда</value>
+  </data>
+  <data name="Settings_SecTeamSub" xml:space="preserve">
+    <value>Группа, которую подтверждает учитель</value>
+  </data>
+  <data name="Settings_SecLearning" xml:space="preserve">
+    <value>Обучение</value>
+  </data>
+  <data name="Settings_SecLearningSub" xml:space="preserve">
+    <value>Языки обучения и перевода, цель дня</value>
+  </data>
+  <data name="Settings_SecLook" xml:space="preserve">
+    <value>Вид и язык</value>
+  </data>
+  <data name="Settings_SecLookSub" xml:space="preserve">
+    <value>Тема, язык приложения</value>
+  </data>
+  <data name="Settings_SecBotSub" xml:space="preserve">
+    <value>Напоминания и успехи в Telegram</value>
+  </data>
+  <data name="Settings_SecSecurity" xml:space="preserve">
+    <value>Безопасность</value>
+  </data>
+  <data name="Settings_SecSecuritySub" xml:space="preserve">
+    <value>Логин, пароль, скрыть моё имя</value>
+  </data>
+  <data name="Settings_SecAbout" xml:space="preserve">
+    <value>О приложении</value>
+  </data>
+  <data name="Settings_SecAboutSub" xml:space="preserve">
+    <value>Политика конфиденциальности, вход по QR</value>
+  </data>
+  <data name="Settings_Version" xml:space="preserve">
+    <value>Версия приложения {0}</value>
+  </data>
+  <data name="Settings_SecDeleteSub" xml:space="preserve">
+    <value>Навсегда удалить аккаунт и данные</value>
+  </data>
 </root>

@@ -3006,4 +3006,58 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="TJ_Err_NO_TOPIC" xml:space="preserve">
     <value>Mavzu topilmadi</value>
   </data>
+  <data name="Settings_Back" xml:space="preserve">
+    <value>← Sozlamalar</value>
+  </data>
+  <data name="Settings_Saved" xml:space="preserve">
+    <value>Saqlandi ✓</value>
+  </data>
+  <data name="Settings_SecProfile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Settings_SecProfileSub" xml:space="preserve">
+    <value>Ism, familiya, telefon</value>
+  </data>
+  <data name="Settings_SecTeam" xml:space="preserve">
+    <value>Maktab va jamoa</value>
+  </data>
+  <data name="Settings_SecTeamSub" xml:space="preserve">
+    <value>O‘qituvchi tasdiqlaydigan guruh</value>
+  </data>
+  <data name="Settings_SecLearning" xml:space="preserve">
+    <value>O‘qish</value>
+  </data>
+  <data name="Settings_SecLearningSub" xml:space="preserve">
+    <value>O‘rganish va tarjima tillari, kunlik maqsad</value>
+  </data>
+  <data name="Settings_SecLook" xml:space="preserve">
+    <value>Ko‘rinish va til</value>
+  </data>
+  <data name="Settings_SecLookSub" xml:space="preserve">
+    <value>Mavzu, ilova tili</value>
+  </data>
+  <data name="Settings_SecBotSub" xml:space="preserve">
+    <value>Telegramda eslatmalar va natijalar</value>
+  </data>
+  <data name="Settings_SecSecurity" xml:space="preserve">
+    <value>Xavfsizlik</value>
+  </data>
+  <data name="Settings_SecSecuritySub" xml:space="preserve">
+    <value>Login, parol, ismimni yashirish</value>
+  </data>
+  <data name="Settings_SecAbout" xml:space="preserve">
+    <value>Ilova haqida</value>
+  </data>
+  <data name="Settings_SecAboutSub" xml:space="preserve">
+    <value>Maxfiylik siyosati, QR orqali kirish</value>
+  </data>
+  <data name="Settings_Version" xml:space="preserve">
+    <value>Ilova versiyasi {0}</value>
+  </data>
+  <data name="Settings_SecDeleteSub" xml:space="preserve">
+    <value>Hisob va ma‘lumotlarni butunlay o‘chirish</value>
+  </data>
+  <data name="Settings_AutoSaved" xml:space="preserve">
+    <value>Avtomatik saqlanadi</value>
+  </data>
 </root>

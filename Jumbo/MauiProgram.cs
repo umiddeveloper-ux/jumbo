@@ -148,6 +148,14 @@ namespace Jumbo
             builder.Services.AddSingleton<Pages.DictionaryPage>();
             builder.Services.AddSingleton<Pages.AwardsPage>();
             builder.Services.AddSingleton<Pages.SettingsPage>();
+            builder.Services.AddTransient<Pages.SettingsProfilePage>();
+            builder.Services.AddTransient<Pages.SettingsTeamPage>();
+            builder.Services.AddTransient<Pages.SettingsLearningPage>();
+            builder.Services.AddTransient<Pages.SettingsLookPage>();
+            builder.Services.AddTransient<Pages.SettingsBotPage>();
+            builder.Services.AddTransient<Pages.SettingsSecurityPage>();
+            builder.Services.AddTransient<Pages.SettingsAboutPage>();
+            builder.Services.AddTransient<Pages.SettingsDeletePage>();
             builder.Services.AddTransient<Pages.SubjectsPage>();
             builder.Services.AddTransient<Pages.SubjectDetailPage>();
             builder.Services.AddTransient<Pages.FindMeGamePage>();

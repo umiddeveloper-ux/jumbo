@@ -1255,3 +1255,24 @@ span[style*="0.85rem"] { font-size: 0.95rem !important; }
 
 .bz-credits { margin: 10px 2px 0; font-size: .75rem; color: var(--lp-muted); line-height: 1.5; }
 .bz-credits a { color: inherit; text-decoration: underline; }
+
+/* ===== Settings: the main screen is a list of sections, each one opens its own screen ===== */
+.set-head { display: grid; gap: 12px; }
+.set-head-who { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.set-head-name { flex: 1; min-width: 160px; display: grid; gap: 2px; color: var(--lp-text); }
+.set-head-name b { font-size: 1.15rem; font-weight: 900; }
+.set-head-name span { font-size: .86rem; font-weight: 700; color: var(--lp-muted); }
+.set-list { display: grid; gap: 10px; margin: 14px 0; }
+.set-row { display: flex; align-items: center; gap: 14px; width: 100%; padding: 14px 16px; border-radius: 18px; border: 2px solid var(--lp-border); border-bottom-width: 4px; background: var(--lp-surface); color: var(--lp-text); text-decoration: none; text-align: left; font: inherit; cursor: pointer; transition: transform .08s, border-color .12s; }
+.set-row:hover { border-color: var(--lp-primary); }
+.set-row:active { transform: translateY(2px); border-bottom-width: 2px; }
+.set-row-icon { flex-shrink: 0; width: 42px; height: 42px; display: grid; place-items: center; font-size: 1.35rem; border-radius: 14px; background: var(--lp-primary-soft); }
+.set-row-text { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.set-row-text b { font-size: 1.02rem; font-weight: 900; }
+.set-row-text small { font-size: .84rem; font-weight: 600; color: var(--lp-muted); }
+.set-row-chev { flex-shrink: 0; font-size: 1.6rem; font-weight: 900; color: var(--lp-muted); }
+.set-row-danger { margin-top: 18px; border-color: var(--lp-danger, #FF4B4B); }
+.set-row-danger .set-row-text b { color: var(--lp-danger, #FF4B4B); }
+.set-row-danger .set-row-icon { background: rgba(255, 75, 75, .12); }
+.set-back { margin: 0 0 8px; padding: 6px 2px; border: 0; background: none; color: var(--lp-primary); font: inherit; font-weight: 800; cursor: pointer; }
+.set-toast { position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%); z-index: 3800; padding: 10px 20px; border-radius: 999px; background: var(--lp-success); color: #fff; font-weight: 900; box-shadow: 0 8px 24px rgba(0,0,0,.3); }
