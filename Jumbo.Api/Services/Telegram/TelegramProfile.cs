@@ -11,19 +11,19 @@ public static class TelegramProfile
     [
         ("", "Jumbo",
             "Отчёты учебного заведения Jumbo.uz для директора: сводка и ссылка каждый понедельник.",
-            "Я бот Jumbo — платформы для изучения английского. 🐯\n\nДиректорам учебных заведений: каждый понедельник я присылаю отчёт об успехах учеников. Учителям: заявки учеников в команду с кнопками «Принять» и «Отклонить» и напоминание, кто давно не занимался.\n\nКак подключиться: откройте кабинет на jumbo.uz, нажмите «Подключить мой Telegram» (для себя) или «Добавить получателя» (для директора) и откройте полученную ссылку.",
+            "Я бот Jumbo — платформы для изучения английского. 🐘\n\nДиректорам учебных заведений: каждый понедельник я присылаю отчёт об успехах учеников. Учителям: заявки учеников в команду с кнопками «Принять» и «Отклонить» и напоминание, кто давно не занимался.\n\nКак подключиться: откройте кабинет на jumbo.uz, нажмите «Подключить мой Telegram» (для себя) или «Добавить получателя» (для директора) и откройте полученную ссылку.",
             [("start", "Как подключиться"), ("lang", "Язык сообщений")]),
         ("ru", "Jumbo",
             "Отчёты учебного заведения Jumbo.uz для директора: сводка и ссылка каждый понедельник.",
-            "Я бот Jumbo — платформы для изучения английского. 🐯\n\nДиректорам учебных заведений: каждый понедельник я присылаю отчёт об успехах учеников. Учителям: заявки учеников в команду с кнопками «Принять» и «Отклонить» и напоминание, кто давно не занимался.\n\nКак подключиться: откройте кабинет на jumbo.uz, нажмите «Подключить мой Telegram» (для себя) или «Добавить получателя» (для директора) и откройте полученную ссылку.",
+            "Я бот Jumbo — платформы для изучения английского. 🐘\n\nДиректорам учебных заведений: каждый понедельник я присылаю отчёт об успехах учеников. Учителям: заявки учеников в команду с кнопками «Принять» и «Отклонить» и напоминание, кто давно не занимался.\n\nКак подключиться: откройте кабинет на jumbo.uz, нажмите «Подключить мой Telegram» (для себя) или «Добавить получателя» (для директора) и откройте полученную ссылку.",
             [("start", "Как подключиться"), ("lang", "Язык сообщений")]),
         ("uz", "Jumbo",
             "Jumbo.uz ta'lim muassasasi hisobotlari direktor uchun: har dushanba qisqa hisobot va havola.",
-            "Men Jumbo botiman — ingliz tilini o'rganish platformasi. 🐯\n\nTa'lim muassasalari direktorlariga: har dushanba kuni o'quvchilarning natijalari haqida hisobot yuboraman — nechta o'quvchi shug'ullangan va nechta so'z o'rganilgan. Saytga kirish shart emas.\n\nQanday ulanish: o'qituvchi jumbo.uz kabinetida «Qabul qiluvchi qo'shish» tugmasini bosadi va sizga havola yuboradi. Uni oching va Start tugmasini bosing.",
+            "Men Jumbo botiman — ingliz tilini o'rganish platformasi. 🐘\n\nTa'lim muassasalari direktorlariga: har dushanba kuni o'quvchilarning natijalari haqida hisobot yuboraman — nechta o'quvchi shug'ullangan va nechta so'z o'rganilgan. Saytga kirish shart emas.\n\nQanday ulanish: o'qituvchi jumbo.uz kabinetida «Qabul qiluvchi qo'shish» tugmasini bosadi va sizga havola yuboradi. Uni oching va Start tugmasini bosing.",
             [("start", "Qanday ulanish"), ("lang", "Xabarlar tili")]),
         ("en", "Jumbo",
             "Jumbo.uz institution reports for directors: a summary and link every Monday.",
-            "I am the Jumbo bot — a platform for learning English. 🐯\n\nFor directors of institutions: every Monday I send a report on the pupils' progress — how many were active and how many words they learned. No need to log in to the site.\n\nHow to connect: the teacher opens the cabinet on jumbo.uz, presses “Add a recipient” and sends you a link. Open it and press Start.",
+            "I am the Jumbo bot — a platform for learning English. 🐘\n\nFor directors of institutions: every Monday I send a report on the pupils' progress — how many were active and how many words they learned. No need to log in to the site.\n\nHow to connect: the teacher opens the cabinet on jumbo.uz, presses “Add a recipient” and sends you a link. Open it and press Start.",
             [("start", "How to connect"), ("lang", "Language")]),
     ];
 
