@@ -16,7 +16,7 @@ public partial class ZeroTile : ObservableObject
     public bool HasTranslation => !string.IsNullOrEmpty(Translation);
     public bool IsVowel { get; init; }                      // a vowel letter is shown in colour
     public string Key { get; init; } = string.Empty;        // "LA" / "N7": the key under which the games remember it
-    public string DigitColor { get; init; } = "#1CB0F6";    // the colour of a number's digit
+    public string DigitColor { get; init; } = "#E5393B";    // the colour of a number's digit
 
     [ObservableProperty] private bool _isActive;
 
@@ -30,7 +30,7 @@ public partial class ZeroTile : ObservableObject
 /// </summary>
 public partial class BookZeroPageModel : ObservableObject
 {
-    private static readonly string[] Hues = ["#1CB0F6", "#58CC02", "#FF9600", "#FF6B9D", "#A06CF0"];
+    private static readonly string[] Hues = ["#E5393B", "#58CC02", "#FF9600", "#FF6B9D", "#A06CF0"];
 
     private CancellationTokenSource? _cts;
 

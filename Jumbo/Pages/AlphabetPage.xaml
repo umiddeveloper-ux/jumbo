@@ -66,15 +66,15 @@
                                                 <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:AlphabetPageModel}}, Path=LetterSelectedCommand}"
                                                                       CommandParameter="{Binding .}" />
                                             </Border.GestureRecognizers>
-                                            <Label Text="{Binding Letter}" FontFamily="NunitoBlack" FontSize="24" TextColor="#1F3A5F"
+                                            <Label Text="{Binding Letter}" FontFamily="NunitoBlack" FontSize="24" TextColor="#1B1B1F"
                                                    HorizontalOptions="Center" VerticalOptions="Center" />
                                         </Border>
 
                                         <!-- how many words of the letter were met in games -->
-                                        <Border BackgroundColor="{StaticResource Primary}" StrokeThickness="2" StrokeShape="RoundRectangle 9" Padding="5,0"
+                                        <Border BackgroundColor="{DynamicResource Primary}" StrokeThickness="2" StrokeShape="RoundRectangle 9" Padding="5,0"
                                                 Stroke="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
                                                 HorizontalOptions="End" VerticalOptions="Start" Margin="0,-6,-6,0" MinimumWidthRequest="20" HeightRequest="20">
-                                            <Label Text="{Binding LearnedCount}" TextColor="White" FontFamily="NunitoBlack" FontSize="11"
+                                            <Label Text="{Binding LearnedCount}" TextColor="{DynamicResource OnPrimary}" FontFamily="NunitoBlack" FontSize="11"
                                                    HorizontalOptions="Center" VerticalOptions="Center" />
                                         </Border>
                                     </Grid>

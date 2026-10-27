@@ -23,12 +23,12 @@
                         <ctl:TigerView Mood="{Binding IsStep3, Converter={StaticResource StepMood}}" Size="88" />
 
                         <ctl:StepDots Step="{Binding Step}" />
-                        <ProgressBar Progress="{Binding Progress}" ProgressColor="{StaticResource Primary}" HeightRequest="8" />
+                        <ProgressBar Progress="{Binding Progress}" ProgressColor="{DynamicResource Primary}" HeightRequest="8" />
                         <Label Text="{Binding StepOfText}" FontSize="12" HorizontalTextAlignment="Center"
                                TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
 
                         <Label Text="{Binding StepTitle}" FontFamily="NunitoBlack" FontSize="24" HorizontalTextAlignment="Center"
-                               TextColor="{StaticResource Primary}" />
+                               TextColor="{DynamicResource PrimaryText}" />
                         <Label Text="{u:Tr Key=Reg_Optional}" FontSize="13" HorizontalTextAlignment="Center" IsVisible="{Binding IsStep3}"
                                TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
 
@@ -70,7 +70,7 @@
 
                         <!-- step 3: [Start] then [Back] [Skip] -->
                         <VerticalStackLayout Spacing="10" Margin="0,4,0,0" IsVisible="{Binding IsLastStep}">
-                            <ctl:ChunkyButton Text="{u:Tr Key=Register_StartButton}" Kind="success" Command="{Binding SubmitCommand}" />
+                            <ctl:ChunkyButton Text="{u:Tr Key=Register_StartButton}" Command="{Binding SubmitCommand}" />
                             <Grid ColumnDefinitions="Auto,*" ColumnSpacing="0">
                                 <ctl:ChunkyButton Text="{u:Tr Key=Reg_Back}" Kind="outline" WidthRequest="120" Margin="0,0,10,0" Command="{Binding BackCommand}" />
                                 <ctl:ChunkyButton Grid.Column="1" Text="{u:Tr Key=Reg_Skip}" Kind="outline" Command="{Binding SkipCommand}" />
@@ -84,7 +84,7 @@
                                 <FormattedString>
                                     <Span Text="{u:Tr Key=Register_HaveAccount}" />
                                     <Span Text=" " />
-                                    <Span Text="{u:Tr Key=Common_LoginAction}" TextColor="{StaticResource Primary}" FontFamily="NunitoExtraBold" />
+                                    <Span Text="{u:Tr Key=Common_LoginAction}" TextColor="{DynamicResource PrimaryText}" FontFamily="NunitoExtraBold" />
                                 </FormattedString>
                             </Label.FormattedText>
                             <Label.GestureRecognizers>
@@ -92,7 +92,7 @@
                             </Label.GestureRecognizers>
                         </Label>
 
-                        <Label Text="{u:Tr Key=Legal_Privacy_Link}" HorizontalTextAlignment="Center" FontSize="13" TextColor="{StaticResource Primary}" Margin="0,2,0,0">
+                        <Label Text="{u:Tr Key=Legal_Privacy_Link}" HorizontalTextAlignment="Center" FontSize="13" TextColor="{DynamicResource PrimaryText}" Margin="0,2,0,0">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding OpenPrivacyCommand}" />
                             </Label.GestureRecognizers>

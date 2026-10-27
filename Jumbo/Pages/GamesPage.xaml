@@ -43,8 +43,8 @@
                                     BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
                                 <Border.Triggers>
                                     <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
-                                        <Setter Property="Stroke" Value="{StaticResource Primary}" />
-                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}" />
+                                        <Setter Property="Stroke" Value="{DynamicResource Primary}" />
+                                        <Setter Property="BackgroundColor" Value="{DynamicResource PrimarySoft}" />
                                     </DataTrigger>
                                 </Border.Triggers>
                                 <Border.GestureRecognizers>
@@ -66,7 +66,7 @@
 
                 <VerticalStackLayout Spacing="12" IsVisible="{Binding HasGame}">
                     <!-- the topic to play next -->
-                    <ctl:ChunkyButton Text="{Binding NextText}" Kind="success" FontSize="15"
+                    <ctl:ChunkyButton Text="{Binding NextText}" FontSize="15"
                                       IsVisible="{Binding HasNext}" Command="{Binding PlayNextCommand}" />
 
                     <Label Text="{u:Tr Key=Games_Pick}" Style="{StaticResource SectionTitle}" />
@@ -91,8 +91,8 @@
                                                         <Setter Property="Stroke" Value="{StaticResource Success}" />
                                                     </DataTrigger>
                                                     <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
-                                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}" />
-                                                        <Setter Property="Stroke" Value="{StaticResource Primary}" />
+                                                        <Setter Property="BackgroundColor" Value="{DynamicResource PrimarySoft}" />
+                                                        <Setter Property="Stroke" Value="{DynamicResource Primary}" />
                                                     </DataTrigger>
                                                 </Border.Triggers>
                                                 <Label Text="{Binding Label}" FontFamily="NunitoBlack" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"
@@ -124,7 +124,7 @@
                                                               CommandParameter="{Binding .}" />
                                     </Border.GestureRecognizers>
                                     <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
-                                        <Label Text="{Binding Number}" HeightRequest="56" WidthRequest="56" FontFamily="NunitoBlack" FontSize="34" TextColor="{StaticResource Primary}" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                        <Label Text="{Binding Number}" HeightRequest="56" WidthRequest="56" FontFamily="NunitoBlack" FontSize="34" TextColor="{DynamicResource PrimaryText}" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                                         <Label Text="{Binding Name}" FontFamily="NunitoExtraBold" FontSize="12" HorizontalTextAlignment="Center" MaxLines="2" LineBreakMode="TailTruncation" />
                                         <Label Text="✓" TextColor="{StaticResource Success}" FontFamily="NunitoBlack" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding Won}" />
                                     </VerticalStackLayout>

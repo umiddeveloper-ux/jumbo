@@ -12,39 +12,39 @@
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="Auto,*,Auto" Padding="6,0,6,0" ColumnSpacing="8">
-            <Label x:Name="BrandLabel" Text="Jumbo" FontFamily="NunitoBlack" FontSize="19" TextColor="{StaticResource Primary}" VerticalOptions="Center" />
+            <Label x:Name="BrandLabel" Text="Jumbo" FontFamily="NunitoBlack" FontSize="19" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center" />
 
             <HorizontalStackLayout Grid.Column="2" Spacing="8" HorizontalOptions="End" VerticalOptions="Center">
                 <HorizontalStackLayout Spacing="2" VerticalOptions="Center">
                     <Label Text="📘" FontSize="15" VerticalOptions="Center"/>
-                    <Label x:Name="BookCountLabel" Text="1" FontFamily="NunitoBlack" FontSize="15" TextColor="{StaticResource Primary}" VerticalOptions="Center"/>
+                    <Label x:Name="BookCountLabel" Text="1" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
-                <Border StrokeShape="RoundRectangle 8" StrokeThickness="0" Padding="6,1" BackgroundColor="{StaticResource Primary}" VerticalOptions="Center">
-                    <Label x:Name="LevelLabel" Text="A1" FontFamily="NunitoBlack" FontSize="13" TextColor="White" VerticalOptions="Center"/>
+                <Border StrokeShape="RoundRectangle 8" StrokeThickness="0" Padding="6,1" BackgroundColor="{DynamicResource OnBrand}" VerticalOptions="Center">
+                    <Label x:Name="LevelLabel" Text="A1" FontFamily="NunitoBlack" FontSize="13" TextColor="{DynamicResource Brand}" VerticalOptions="Center"/>
                 </Border>
                 <HorizontalStackLayout Spacing="2" VerticalOptions="Center">
                     <Label Text="🔥" FontSize="16" VerticalOptions="Center"/>
-                    <Label x:Name="StreakCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="15" TextColor="{StaticResource Accent}" VerticalOptions="Center"/>
+                    <Label x:Name="StreakCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="FreezeBox" Spacing="2" VerticalOptions="Center" IsVisible="False">
                     <Label Text="❄️" FontSize="14" VerticalOptions="Center"/>
-                    <Label x:Name="FreezeCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="14" TextColor="{StaticResource Primary}" VerticalOptions="Center"/>
+                    <Label x:Name="FreezeCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="14" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="ShieldBox" Spacing="2" VerticalOptions="Center" IsVisible="False">
                     <Label Text="🛡️" FontSize="14" VerticalOptions="Center"/>
-                    <Label x:Name="ShieldCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="14" TextColor="{StaticResource Primary}" VerticalOptions="Center"/>
+                    <Label x:Name="ShieldCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="14" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="BlockBox" Spacing="3" VerticalOptions="Center" IsVisible="False">
                     <Label Text="⏳" FontSize="15" VerticalOptions="Center"/>
-                    <Label x:Name="BlockClockLabel" Text="5:00:00" FontFamily="NunitoBlack" FontSize="15" TextColor="{StaticResource Danger}" VerticalOptions="Center"/>
+                    <Label x:Name="BlockClockLabel" Text="5:00:00" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="LivesBox" Spacing="2" VerticalOptions="Center">
                     <Label Text="❤️" FontSize="15" VerticalOptions="Center"/>
-                    <Label x:Name="LivesCountLabel" Text="5" FontFamily="NunitoBlack" FontSize="15" TextColor="{StaticResource Danger}" VerticalOptions="Center"/>
+                    <Label x:Name="LivesCountLabel" Text="5" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="LpBox" Spacing="2" VerticalOptions="Center">
                     <Label Text="💎" FontSize="15" VerticalOptions="Center"/>
-                    <Label x:Name="LpCountLabel" Text="100" FontFamily="NunitoBlack" FontSize="15" TextColor="{StaticResource Primary}" VerticalOptions="Center"/>
+                    <Label x:Name="LpCountLabel" Text="100" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <Border x:Name="ThemeButton" WidthRequest="34" HeightRequest="34" StrokeShape="RoundRectangle 12" Padding="0" StrokeThickness="2"
                         Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"

@@ -16,6 +16,7 @@ namespace Jumbo
 
             // "You got an award!": ask for new awards after a page is opened, and when the LP grow (a won game)
             Navigated += (_, _) => { awardWatcher.CheckSoon(900); adService.CheckSoon(); UpdateBrand(); Dispatcher.DispatchDelayed(TimeSpan.FromMilliseconds(250), UpdateBrand); };       // CurrentPage changes a moment after the event
+            Navigated += (_, _) => { ApplyLevelForPage(); Dispatcher.DispatchDelayed(TimeSpan.FromMilliseconds(250), ApplyLevelForPage); };
             SizeChanged += (_, _) => UpdateBrand();
             int lastLp = -1;
             _livesService.PropertyChanged += (_, e) =>
@@ -118,6 +119,19 @@ namespace Jumbo
         private async void OnAvatarTapped(object? sender, TappedEventArgs e)
         {
             try { await GoToAsync("//settings"); } catch { /* already there */ }
+        }
+
+        // The colour of the level of the book on the pages of a book, a topic and its games; all the other pages keep the orange of the brand.
+        private static readonly HashSet<string> LevelPages =
+        [
+            "BookPage", "SubjectsPage", "SubjectDetailPage", "SubjectWordsPage", "FindMeGamePage", "SequenceGamePage", "ListenGamePage", "StepsGamePage", "PhraseGamePage", "BookGatePage"
+        ];
+
+        private void ApplyLevelForPage()
+        {
+            var name = CurrentPage?.GetType().Name ?? string.Empty;
+            var book = string.IsNullOrEmpty(ThemePalette.BookLevel) ? ThemePalette.LevelOfBook(_livesService.CurrentBook) : ThemePalette.BookLevel;
+            ThemePalette.SetLevel(LevelPages.Contains(name) ? book : string.Empty);
         }
 
         private void UpdateThemeIcon() => ThemeIcon.Text = ThemeService.IsDark ? "☀️" : "🌙";

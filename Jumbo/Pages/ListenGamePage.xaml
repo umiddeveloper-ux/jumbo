@@ -44,10 +44,10 @@
                        FontAttributes="Bold"
                        FontSize="15"
                        HorizontalOptions="End"
-                       TextColor="{StaticResource Primary}"/>
+                       TextColor="{DynamicResource PrimaryText}"/>
             </Grid>
             <ProgressBar Progress="{Binding ProgressValue}"
-                         ProgressColor="{StaticResource Primary}"
+                         ProgressColor="{DynamicResource Primary}"
                          HeightRequest="10"/>
             <ctl:TigerCoach Mood="{Binding Coach.Mood}" Text="{Binding Coach.Text}" />
         </VerticalStackLayout>
@@ -59,7 +59,7 @@
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="16"
                                    IsVisible="{Binding IsDeafMode, Converter={StaticResource InvertedBoolConverter}}">
                 <Border StrokeShape="RoundRectangle 34"
-                        BackgroundColor="{StaticResource Primary}"
+                        BackgroundColor="{DynamicResource Primary}"
                         StrokeThickness="0"
                         WidthRequest="68" HeightRequest="68">
                     <Border.GestureRecognizers>
@@ -83,17 +83,17 @@
             <VerticalStackLayout HorizontalOptions="Center" Spacing="8"
                                  IsVisible="{Binding IsDeafMode}">
                 <Border StrokeShape="RoundRectangle 12"
-                        BackgroundColor="{StaticResource Primary}"
+                        BackgroundColor="{DynamicResource Primary}"
                         StrokeThickness="0"
                         Padding="24,10"
                         HorizontalOptions="Center">
                     <Label Text="{Binding TargetWordText}"
-                           FontSize="32" FontAttributes="Bold" TextColor="White"
+                           FontSize="32" FontAttributes="Bold" TextColor="{DynamicResource OnPrimary}"
                            HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
                 </Border>
                 <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
                     <Border StrokeShape="RoundRectangle 28"
-                            BackgroundColor="{StaticResource Primary}"
+                            BackgroundColor="{DynamicResource Primary}"
                             StrokeThickness="0"
                             WidthRequest="56" HeightRequest="56">
                         <Border.GestureRecognizers>
@@ -188,7 +188,7 @@
                            IsVisible="{Binding IsBusy}"
                            VerticalOptions="Center"
                            HorizontalOptions="Center"
-                           Color="{StaticResource Primary}"
+                           Color="{DynamicResource Primary}"
                            HeightRequest="50" WidthRequest="50"/>
 
 <ctl:GameOverlay Grid.Row="0" Grid.RowSpan="3" IsVisible="{Binding IsLocked}" Kind="locked" Title="{u:Tr Key=Block_Title}" Message="{Binding LivesService.RegenMessage}"

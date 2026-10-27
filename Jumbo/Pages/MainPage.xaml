@@ -58,10 +58,10 @@
                                 <ctl:TigerView Head="True" Size="62" Mood="wave" VerticalOptions="Center" />
                                 <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
                                     <Label Text="{Binding ContinueLabel}" FontFamily="NunitoExtraBold" FontSize="12"
-                                           TextColor="{StaticResource Primary}" />
+                                           TextColor="{DynamicResource PrimaryText}" />
                                     <Label Text="{Binding ContinueTopic}" FontFamily="NunitoExtraBold" FontSize="16" MaxLines="2" LineBreakMode="TailTruncation" />
                                 </VerticalStackLayout>
-                                <ctl:ChunkyButton Grid.Column="2" Text="{u:Tr Key=Path_Play}" Kind="success" FontSize="15"
+                                <ctl:ChunkyButton Grid.Column="2" Text="{u:Tr Key=Path_Play}" FontSize="15"
                                                   WidthRequest="96" VerticalOptions="Center"
                                                   Command="{Binding ContinueCommand}" />
                             </Grid>
@@ -109,8 +109,8 @@
                                                         <Setter Property="Stroke" Value="{StaticResource Success}" />
                                                     </DataTrigger>
                                                     <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
-                                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}" />
-                                                        <Setter Property="Stroke" Value="{StaticResource Primary}" />
+                                                        <Setter Property="BackgroundColor" Value="{DynamicResource PrimarySoft}" />
+                                                        <Setter Property="Stroke" Value="{DynamicResource Primary}" />
                                                     </DataTrigger>
                                                 </Border.Triggers>
                                                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="-3">
@@ -118,7 +118,7 @@
                                                            TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}">
                                                         <Label.Triggers>
                                                             <DataTrigger TargetType="Label" Binding="{Binding IsSelected}" Value="True">
-                                                                <Setter Property="TextColor" Value="{StaticResource Primary}" />
+                                                                <Setter Property="TextColor" Value="{DynamicResource Primary}" />
                                                             </DataTrigger>
                                                             <DataTrigger TargetType="Label" Binding="{Binding IsZero}" Value="True">
                                                                 <Setter Property="FontSize" Value="17" />
@@ -161,10 +161,10 @@
                             <Grid ColumnDefinitions="Auto, *, Auto">
                                 <Label Grid.Column="0" Text="🔤" FontSize="30" VerticalOptions="Center" />
                                 <VerticalStackLayout Grid.Column="1" Margin="14,0,0,0" VerticalOptions="Center" Spacing="0">
-                                    <Label Text="{u:Tr Key=AlphabetSection}" FontFamily="NunitoBlack" FontSize="18" TextColor="#1F3A5F" />
-                                    <Label Text="{u:Tr Key=Alphabet_CtaHint}" FontSize="13" TextColor="#1F3A5F" Opacity="0.75" />
+                                    <Label Text="{u:Tr Key=AlphabetSection}" FontFamily="NunitoBlack" FontSize="18" TextColor="#1B1B1F" />
+                                    <Label Text="{u:Tr Key=Alphabet_CtaHint}" FontSize="13" TextColor="#1B1B1F" Opacity="0.75" />
                                 </VerticalStackLayout>
-                                <Label Grid.Column="2" Text="→" FontSize="24" TextColor="#1F3A5F" VerticalOptions="Center" />
+                                <Label Grid.Column="2" Text="→" FontSize="24" TextColor="#1B1B1F" VerticalOptions="Center" />
                             </Grid>
                         </Border>
 

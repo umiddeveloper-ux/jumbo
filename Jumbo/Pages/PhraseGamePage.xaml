@@ -47,8 +47,8 @@
 
                 <!-- The example in the learner's own language: this is the phrase to build in English -->
                 <Border StrokeShape="RoundRectangle 16" Padding="14,12" StrokeThickness="2"
-                        Stroke="{AppThemeBinding Light={StaticResource PrimaryEdgeLight}, Dark={StaticResource PrimaryEdgeDark}}"
-                        BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
+                        Stroke="{DynamicResource PrimaryEdgeSoft}"
+                        BackgroundColor="{DynamicResource PrimarySoft}">
                     <Label Text="{Binding Prompt}" FontFamily="NunitoExtraBold" FontSize="18" HorizontalTextAlignment="Center" />
                 </Border>
 
@@ -62,7 +62,7 @@
                                 <Border.Triggers>
                                     <DataTrigger TargetType="Border" Binding="{Binding State}" Value="filled">
                                         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}" />
-                                        <Setter Property="Stroke" Value="{StaticResource Primary}" />
+                                        <Setter Property="Stroke" Value="{DynamicResource Primary}" />
                                     </DataTrigger>
                                     <DataTrigger TargetType="Border" Binding="{Binding State}" Value="right">
                                         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
@@ -89,8 +89,8 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="pageModels:PhraseTile">
                             <Border StrokeShape="RoundRectangle 12" StrokeThickness="2" Padding="14,10" Margin="4,4"
-                                    Stroke="{StaticResource Primary}"
-                                    BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
+                                    Stroke="{DynamicResource Primary}"
+                                    BackgroundColor="{DynamicResource PrimarySoft}">
                                 <Border.Triggers>
                                     <DataTrigger TargetType="Border" Binding="{Binding IsPlaced}" Value="True">
                                         <Setter Property="Opacity" Value="0.25" />
@@ -112,14 +112,14 @@
         <!-- The Next button stays at the bottom of the screen -->
         <Border Grid.Row="1" IsVisible="{Binding IsPlaying}" StrokeThickness="0" Padding="16,8,16,12"
                 BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
-            <ctl:ChunkyButton Text="{u:Tr Key=PhraseGame_Next}" Kind="success" IsEnabled="{Binding CanCheck}" Command="{Binding CheckCommand}" />
+            <ctl:ChunkyButton Text="{u:Tr Key=PhraseGame_Next}" IsEnabled="{Binding CanCheck}" Command="{Binding CheckCommand}" />
         </Border>
 
         <ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding HasNoData}" Kind="lose" Title="{u:Tr Key=PhraseGame_NoPhrases}"
                          PrimaryText="{u:Tr Key=Common_Back}" PrimaryCommand="{Binding GoBackCommand}" />
 
         <ActivityIndicator Grid.Row="0" Grid.RowSpan="2" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
-                           VerticalOptions="Center" HorizontalOptions="Center" Color="{StaticResource Primary}" HeightRequest="50" WidthRequest="50" />
+                           VerticalOptions="Center" HorizontalOptions="Center" Color="{DynamicResource Primary}" HeightRequest="50" WidthRequest="50" />
 
         <ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding IsGameWon}" Kind="win" Title="{u:Tr Key=PhraseGame_Won}"
                          Reward="{Binding RewardText}"

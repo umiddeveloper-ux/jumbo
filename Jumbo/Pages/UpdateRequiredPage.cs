@@ -7,7 +7,7 @@ public class UpdateRequiredPage : ContentPage
 {
     public UpdateRequiredPage(string title, string text, string button, Func<Task> update)
     {
-        this.SetAppThemeColor(BackgroundColorProperty, Color.FromArgb("#DDEAF3"), Color.FromArgb("#0E1A2B"));
+        this.SetAppThemeColor(BackgroundColorProperty, Color.FromArgb("#F3F5F8"), Color.FromArgb("#0C0C0E"));
         Shell.SetNavBarIsVisible(this, false);
 
         var titleLabel = new Label { Text = title, FontFamily = "NunitoBlack", FontSize = 26, HorizontalTextAlignment = TextAlignment.Center };

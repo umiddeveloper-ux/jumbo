@@ -61,7 +61,7 @@
                                             CommandParameter="{Binding .}"/>
                                     </Grid.GestureRecognizers>
 
-                                    <Label Grid.Column="0" Text="{Binding Number}" FontFamily="NunitoBlack" FontSize="28" TextColor="{StaticResource Primary}"
+                                    <Label Grid.Column="0" Text="{Binding Number}" FontFamily="NunitoBlack" FontSize="28" TextColor="{DynamicResource PrimaryText}"
                                            HorizontalOptions="Center" VerticalOptions="Center" />
 
                                     <Label Grid.Column="1" 
@@ -101,7 +101,7 @@
                            IsVisible="{Binding IsBusy}"
                            VerticalOptions="Center"
                            HorizontalOptions="Center"
-                           Color="{StaticResource Primary}"
+                           Color="{DynamicResource Primary}"
                            HeightRequest="50"
                            WidthRequest="50" />
     </Grid>

@@ -8,8 +8,8 @@
         <ctl:TigerView x:Name="Tiger" Head="True" Size="54" VerticalOptions="Center" />
         <Border x:Name="Bubble" Grid.Column="1" StrokeShape="RoundRectangle 16" StrokeThickness="2" Padding="12,8"
                 HorizontalOptions="Start" VerticalOptions="Center" IsVisible="False"
-                Stroke="{AppThemeBinding Light={StaticResource PrimaryEdgeLight}, Dark={StaticResource PrimaryEdgeDark}}"
-                BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
+                Stroke="{DynamicResource PrimaryEdgeSoft}"
+                BackgroundColor="{DynamicResource PrimarySoft}">
             <Label x:Name="Message" FontFamily="NunitoExtraBold" FontSize="15"
                    TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
         </Border>

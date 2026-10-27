@@ -1,3 +1,4 @@
+using Jumbo.Services;
 using Microsoft.Maui.Graphics;
 
 namespace Jumbo.Controls;
@@ -17,6 +18,7 @@ public class IconRing : GraphicsView
     {
         Drawable = new RingDrawable(this);
         InputTransparent = true;
+        ThemePalette.Changed += (_, _) => MainThread.BeginInvokeOnMainThread(Invalidate);
     }
 
     private sealed class RingDrawable(IconRing owner) : IDrawable
@@ -27,12 +29,12 @@ public class IconRing : GraphicsView
             float ring = Math.Max(4f, Math.Min(rect.Width, rect.Height) * 0.075f);
             float ar = Math.Min(rect.Width, rect.Height) / 2f - ring / 2f - 1f;
             bool dark = Application.Current?.RequestedTheme == AppTheme.Dark;
-            var pale = dark ? Color.FromArgb("#3A4A5C") : Color.FromArgb("#D5E0EA");
+            var pale = dark ? Color.FromArgb("#3A3A44") : Color.FromArgb("#DDE1E8");
             canvas.StrokeSize = ring;
             canvas.StrokeLineCap = LineCap.Butt;
             for (int k = 0; k < 3; k++)
             {
-                canvas.StrokeColor = k < owner.Parts ? Color.FromArgb("#58CC02") : pale;
+                canvas.StrokeColor = k < owner.Parts ? ThemePalette.Primary : pale;
                 float start = 90f - k * 120f - 4f;       // from the top, clockwise
                 canvas.DrawArc(c.X - ar, c.Y - ar, ar * 2, ar * 2, start, start - 112f, true, false);
             }

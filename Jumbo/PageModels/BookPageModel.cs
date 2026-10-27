@@ -1,3 +1,4 @@
+using Jumbo.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Jumbo.ApiClient;
@@ -127,6 +128,8 @@ public partial class BookPageModel : ObservableObject
     {
         MapBookLabel = LocalizationManager.Format("Common_BookLabel", BookNumber);
         LevelText = LanguageLevels.ForBook(BookNumber);
+        ThemePalette.BookLevel = ThemePalette.LevelOfBook(BookNumber);
+        ThemePalette.SetLevel(ThemePalette.BookLevel);       // this page is on the screen: its colour is the colour of the level
         TopicsCountText = LocalizationManager.Format("BookPage_Passed", _topicRows.Count(r => r.Pct >= 100), _topicRows.Count);
         PublishPath();
     }

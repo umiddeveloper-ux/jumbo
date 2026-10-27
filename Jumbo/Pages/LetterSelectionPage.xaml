@@ -30,7 +30,7 @@
         <!-- ══ ROW 0: Шапка с буквой ══ -->
         <Grid Grid.Row="0">
             <!-- Фон шапки -->
-            <BoxView BackgroundColor="{StaticResource Primary}"
+            <BoxView BackgroundColor="{DynamicResource Primary}"
                      HorizontalOptions="Fill" VerticalOptions="Fill"/>
 
             <VerticalStackLayout Padding="20,52,20,28" Spacing="12" HorizontalOptions="Center">
@@ -115,10 +115,10 @@
 
                 <!-- Карточка: Тестовый вариант -->
                 <Border StrokeShape="RoundRectangle 22"
-                        BackgroundColor="{StaticResource Primary}"
+                        BackgroundColor="{DynamicResource Primary}"
                         StrokeThickness="0">
                     <Border.Shadow>
-                        <Shadow Brush="{StaticResource Primary}" Offset="0,4" Radius="16" Opacity="0.4"/>
+                        <Shadow Brush="{DynamicResource Primary}" Offset="0,4" Radius="16" Opacity="0.4"/>
                     </Border.Shadow>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding SelectTestCommand}"/>
@@ -184,7 +184,7 @@
         <ActivityIndicator Grid.Row="1"
                            IsRunning="{Binding IsBusy}"
                            IsVisible="{Binding IsBusy}"
-                           Color="{StaticResource Primary}"
+                           Color="{DynamicResource Primary}"
                            HeightRequest="40" WidthRequest="40"
                            VerticalOptions="Center" HorizontalOptions="Center"/>
 

@@ -43,7 +43,7 @@
                     <ctl:IconRing Parts="{Binding Parts}" />
                     <Border Margin="12" StrokeShape="RoundRectangle 40" StrokeThickness="0" Padding="0"
                             BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
-                        <Label Text="{Binding TopicNumber}" FontFamily="NunitoBlack" FontSize="40" TextColor="{StaticResource Primary}"
+                        <Label Text="{Binding TopicNumber}" FontFamily="NunitoBlack" FontSize="40" TextColor="{DynamicResource PrimaryText}"
                                HorizontalOptions="Center" VerticalOptions="Center" />
                     </Border>
                 </Grid>
@@ -94,7 +94,7 @@
         </ScrollView>
 
         <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
-                           VerticalOptions="Center" HorizontalOptions="Center" Color="{StaticResource Primary}"
+                           VerticalOptions="Center" HorizontalOptions="Center" Color="{DynamicResource Primary}"
                            HeightRequest="50" WidthRequest="50" />
     </Grid>
 </ContentPage>

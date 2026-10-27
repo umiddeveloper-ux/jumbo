@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1CB0F6</color>
-    <color name="colorPrimaryDark">#1899D6</color>
-    <color name="colorAccent">#1CB0F6</color>
+    <color name="colorPrimary">#F28C0F</color>
+    <color name="colorPrimaryDark">#DB7A00</color>
+    <color name="colorAccent">#F28C0F</color>
 
     <!-- Material 3 colour roles in the Jumbo palette (light); the dark ones are in values-night/colors.xml -->
-    <color name="m3_primary_container">#DDF4FF</color>
-    <color name="m3_on_primary_container">#0B5E8A</color>
-    <color name="m3_secondary_container">#DDF4FF</color>
-    <color name="m3_on_secondary_container">#0B5E8A</color>
-    <color name="m3_surface">#F5FAFD</color>
-    <color name="m3_surface_container">#EEF6FB</color>
-    <color name="m3_surface_container_high">#F5FAFD</color>
-    <color name="m3_surface_container_highest">#E3F0F8</color>
-    <color name="m3_outline">#6B849C</color>
+    <color name="m3_primary_container">#FFF0DC</color>
+    <color name="m3_on_primary_container">#7A4C00</color>
+    <color name="m3_secondary_container">#FFF0DC</color>
+    <color name="m3_on_secondary_container">#7A4C00</color>
+    <color name="m3_surface">#FFFFFF</color>
+    <color name="m3_surface_container">#F3F5F8</color>
+    <color name="m3_surface_container_high">#FFFFFF</color>
+    <color name="m3_surface_container_highest">#EEF0F4</color>
+    <color name="m3_outline">#6B7280</color>
 </resources>

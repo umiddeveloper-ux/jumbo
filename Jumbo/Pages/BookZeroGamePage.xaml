@@ -33,22 +33,22 @@
             <VerticalStackLayout Spacing="10" IsVisible="{Binding IsPlaying}">
                 <Grid ColumnDefinitions="*,Auto">
                     <Label Text="{Binding Title}" FontFamily="NunitoExtraBold" FontSize="15" VerticalOptions="Center" />
-                    <Label Grid.Column="1" Text="{Binding ProgressText}" FontFamily="NunitoExtraBold" FontSize="15" TextColor="{StaticResource Primary}" VerticalOptions="Center" />
+                    <Label Grid.Column="1" Text="{Binding ProgressText}" FontFamily="NunitoExtraBold" FontSize="15" TextColor="{DynamicResource PrimaryText}" VerticalOptions="Center" />
                 </Grid>
-                <ProgressBar Progress="{Binding ProgressValue}" ProgressColor="{StaticResource Primary}" HeightRequest="10" />
+                <ProgressBar Progress="{Binding ProgressValue}" ProgressColor="{DynamicResource Primary}" HeightRequest="10" />
                 <ctl:TigerCoach Mood="{Binding Coach.Mood}" Text="{Binding Coach.Text}" />
 
                 <Label Text="{Binding HintText}" FontFamily="NunitoBlack" FontSize="19" HorizontalTextAlignment="Center" Margin="0,4,0,0" />
 
                 <!-- listen: say it again -->
-                <Border IsVisible="{Binding IsListen}" StrokeShape="RoundRectangle 30" StrokeThickness="0" BackgroundColor="{StaticResource Primary}"
+                <Border IsVisible="{Binding IsListen}" StrokeShape="RoundRectangle 30" StrokeThickness="0" BackgroundColor="{DynamicResource Primary}"
                         Padding="26,10" HorizontalOptions="Center">
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding SpeakTargetCommand}" />
                     </Border.GestureRecognizers>
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="🔊" FontSize="28" VerticalOptions="Center" />
-                        <Label Text="{u:Tr Key=ZG_Repeat}" FontFamily="NunitoBlack" FontSize="16" TextColor="White" VerticalOptions="Center" />
+                        <Label Text="{u:Tr Key=ZG_Repeat}" FontFamily="NunitoBlack" FontSize="16" TextColor="{DynamicResource OnPrimary}" VerticalOptions="Center" />
                     </HorizontalStackLayout>
                 </Border>
 
@@ -97,7 +97,7 @@
                 <Label Text="{Binding StarsText}" FontSize="46" TextColor="#FFC800" HorizontalOptions="Center" />
                 <Label Text="{Binding MistakesText}" FontSize="15" HorizontalOptions="Center"
                        TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
-                <ctl:ChunkyButton Text="{u:Tr Key=Common_Again}" Kind="success" Command="{Binding StartCommand}" WidthRequest="260" />
+                <ctl:ChunkyButton Text="{u:Tr Key=Common_Again}" Command="{Binding StartCommand}" WidthRequest="260" />
                 <ctl:ChunkyButton Text="{u:Tr Key=Common_Exit}" Kind="outline" Command="{Binding BackCommand}" WidthRequest="260" />
             </VerticalStackLayout>
 

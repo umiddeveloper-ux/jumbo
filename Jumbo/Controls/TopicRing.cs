@@ -1,3 +1,4 @@
+using Jumbo.Services;
 using Microsoft.Maui.Graphics;
 
 namespace Jumbo.Controls;
@@ -22,6 +23,7 @@ public class TopicRing : GraphicsView
     {
         Drawable = new RingDrawable(this);
         InputTransparent = true;
+        ThemePalette.Changed += (_, _) => MainThread.BeginInvokeOnMainThread(Invalidate);
     }
 
     private sealed class RingDrawable(TopicRing owner) : IDrawable
@@ -33,10 +35,10 @@ public class TopicRing : GraphicsView
             var state = owner.State;
             var fill = state switch
             {
-                "done" => Color.FromArgb("#58CC02"),
-                "current" => Color.FromArgb("#1CB0F6"),
-                "started" => Color.FromArgb("#7A8EA3"),
-                _ => Color.FromArgb("#A9BDCE")
+                "done" => ThemePalette.Primary,
+                "current" => ThemePalette.Primary,
+                "started" => Color.FromArgb("#8A8F98"),
+                _ => Color.FromArgb("#C3C8D0")
             };
 
             canvas.FillColor = fill;
@@ -51,7 +53,7 @@ public class TopicRing : GraphicsView
                 canvas.StrokeLineCap = LineCap.Butt;
                 for (int k = 0; k < 3; k++)
                 {
-                    canvas.StrokeColor = k < owner.Parts ? Color.FromArgb("#58CC02") : Colors.White.WithAlpha(0.55f);
+                    canvas.StrokeColor = k < owner.Parts ? ThemePalette.OnPrimary : ThemePalette.OnPrimary.WithAlpha(0.28f);
                     float start = 90f - k * 120f - 4f;       // from the top, clockwise
                     canvas.DrawArc(c.X - ar, c.Y - ar, ar * 2, ar * 2, start, start - 112f, true, false);
                 }

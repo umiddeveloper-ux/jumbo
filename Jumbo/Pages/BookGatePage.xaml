@@ -43,7 +43,7 @@
                                 <Border.Triggers>
                                     <DataTrigger TargetType="Border" Binding="{Binding State}" Value="current">
                                         <Setter Property="Opacity" Value="1" />
-                                        <Setter Property="Stroke" Value="{StaticResource Primary}" />
+                                        <Setter Property="Stroke" Value="{DynamicResource Primary}" />
                                     </DataTrigger>
                                     <DataTrigger TargetType="Border" Binding="{Binding State}" Value="done">
                                         <Setter Property="Opacity" Value="1" />
@@ -55,7 +55,7 @@
                                             BackgroundColor="#A9BDCE" VerticalOptions="Center">
                                         <Border.Triggers>
                                             <DataTrigger TargetType="Border" Binding="{Binding State}" Value="current">
-                                                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                                <Setter Property="BackgroundColor" Value="{DynamicResource Primary}" />
                                             </DataTrigger>
                                             <DataTrigger TargetType="Border" Binding="{Binding State}" Value="done">
                                                 <Setter Property="BackgroundColor" Value="{StaticResource Success}" />

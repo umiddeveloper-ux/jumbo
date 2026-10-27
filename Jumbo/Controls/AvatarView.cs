@@ -54,6 +54,10 @@ public class AvatarView : Border
         _letter.IsVisible = !svg && !photo;
         _letter.Text = string.IsNullOrWhiteSpace(Initial) ? "?" : Initial.Trim()[..1].ToUpperInvariant();
         BackgroundColor = _letter.IsVisible ? (Color)Application.Current!.Resources["Primary"] : Colors.Transparent;
+        _letter.TextColor = (Color)Application.Current!.Resources["OnPrimary"];
+        // a letter avatar has a thin white ring: on the orange bar of the app it would otherwise melt into it
+        Stroke = _letter.IsVisible ? Colors.White : null;
+        StrokeThickness = _letter.IsVisible ? 2 : 0;
     }
 
     private static ImageSource? FromDataUrl(string url)

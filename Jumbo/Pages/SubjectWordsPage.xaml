@@ -83,7 +83,7 @@
                            IsVisible="{Binding IsBusy}"
                            VerticalOptions="Center"
                            HorizontalOptions="Center"
-                           Color="{StaticResource Primary}"
+                           Color="{DynamicResource Primary}"
                            HeightRequest="50"
                            WidthRequest="50"/>
     </Grid>

@@ -33,7 +33,7 @@
                         <Label Text="{u:Tr Key=PupilBot_Hint}" Style="{StaticResource Hint}" />
                         <Label Text="{Binding BotStatusText}" FontFamily="NunitoBold" FontSize="14"
                                IsVisible="{Binding BotStatusText, Converter={StaticResource StringNotEmpty}}" />
-                        <ctl:ChunkyButton Text="{u:Tr Key=PupilBot_Open}" Kind="success" FontSize="14"
+                        <ctl:ChunkyButton Text="{u:Tr Key=PupilBot_Open}" FontSize="14"
                                           IsVisible="{Binding BotConnectVisible}" Command="{Binding ConnectBotCommand}" />
                         <ctl:ChunkyButton Text="{u:Tr Key=PupilBot_Check}" Kind="outline" FontSize="14"
                                           IsVisible="{Binding BotWaiting}" Command="{Binding CheckBotCommand}" />

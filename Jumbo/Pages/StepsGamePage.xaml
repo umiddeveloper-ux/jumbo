@@ -41,7 +41,7 @@
             <!-- 50/50 -->
             <Border StrokeShape="RoundRectangle 14"
                     StrokeThickness="2"
-                    Stroke="{StaticResource Primary}"
+                    Stroke="{DynamicResource Primary}"
                     BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
                     Padding="6,10">
                 <Border.Triggers>
@@ -54,7 +54,7 @@
                 </Border.GestureRecognizers>
                 <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                     <Label Text="½½" FontSize="22" FontAttributes="Bold"
-                           TextColor="{StaticResource Primary}"
+                           TextColor="{DynamicResource PrimaryText}"
                            HorizontalOptions="Center"/>
                     <Label Text="50/50" FontSize="10" HorizontalOptions="Center"
                            TextColor="{StaticResource Gray500}"/>
@@ -200,7 +200,7 @@
                                                     <Setter Property="ProgressColor" Value="{StaticResource Success}"/>
                                                 </DataTrigger>
                                                 <DataTrigger TargetType="ProgressBar" Binding="{Binding IsTarget}" Value="False">
-                                                    <Setter Property="ProgressColor" Value="{StaticResource Primary}"/>
+                                                    <Setter Property="ProgressColor" Value="{DynamicResource Primary}"/>
                                                 </DataTrigger>
                                             </ProgressBar.Triggers>
                                         </ProgressBar>
@@ -257,7 +257,7 @@
                                     <Setter Property="Opacity" Value="0.7"/>
                                 </DataTrigger>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsCurrent}" Value="True">
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+                                    <Setter Property="BackgroundColor" Value="{DynamicResource Primary}"/>
                                     <Setter Property="Opacity" Value="1.0"/>
                                 </DataTrigger>
                                 <MultiTrigger TargetType="Label">
@@ -292,7 +292,7 @@
                            IsRunning="{Binding IsBusy}"
                            IsVisible="{Binding IsBusy}"
                            VerticalOptions="Center" HorizontalOptions="Center"
-                           Color="{StaticResource Primary}"
+                           Color="{DynamicResource Primary}"
                            HeightRequest="50" WidthRequest="50"/>
 
 <ctl:GameOverlay Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsLocked}" Kind="locked" Title="{u:Tr Key=Block_Title}" Message="{Binding LivesService.RegenMessage}"

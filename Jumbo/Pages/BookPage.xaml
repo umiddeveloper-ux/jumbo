@@ -32,9 +32,9 @@
                     <Label Text="{Binding MapBookLabel}" FontFamily="NunitoExtraBold" FontSize="13" VerticalOptions="Center"
                            TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
                     <Border Grid.Column="1" StrokeShape="RoundRectangle 12" Padding="10,2" VerticalOptions="Center" StrokeThickness="2"
-                            Stroke="{AppThemeBinding Light={StaticResource PrimaryEdgeLight}, Dark={StaticResource PrimaryEdgeDark}}"
-                            BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
-                        <Label Text="{Binding LevelText}" FontFamily="NunitoBlack" FontSize="12" TextColor="{StaticResource Primary}" />
+                            Stroke="{DynamicResource PrimaryEdgeSoft}"
+                            BackgroundColor="{DynamicResource PrimarySoft}">
+                        <Label Text="{Binding LevelText}" FontFamily="NunitoBlack" FontSize="12" TextColor="{DynamicResource PrimaryText}" />
                     </Border>
                     <Label Grid.Column="2" Text="{Binding TopicsCountText}" FontFamily="NunitoExtraBold" FontSize="14" HorizontalOptions="End" VerticalOptions="Center"
                            TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />

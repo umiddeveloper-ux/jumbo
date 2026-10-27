@@ -1,3 +1,4 @@
+using Jumbo.Services;
 using System.Windows.Input;
 
 namespace Jumbo.Controls;
@@ -32,8 +33,8 @@ public partial class ChunkyButton : ContentView
     {
         InitializeComponent();
         ApplyColors();
-        Loaded += (_, _) => { if (Application.Current is { } app) app.RequestedThemeChanged += OnThemeChanged; };
-        Unloaded += (_, _) => { if (Application.Current is { } app) app.RequestedThemeChanged -= OnThemeChanged; };
+        Loaded += (_, _) => { if (Application.Current is { } app) app.RequestedThemeChanged += OnThemeChanged; ThemePalette.Changed += OnPaletteChanged; ApplyColors(); };
+        Unloaded += (_, _) => { if (Application.Current is { } app) app.RequestedThemeChanged -= OnThemeChanged; ThemePalette.Changed -= OnPaletteChanged; };
     }
 
     protected override void OnPropertyChanged(string? propertyName = null)
@@ -44,6 +45,8 @@ public partial class ChunkyButton : ContentView
     }
 
     private void OnThemeChanged(object? sender, AppThemeChangedEventArgs e) => ApplyColors();
+
+    private void OnPaletteChanged(object? sender, EventArgs e) => MainThread.BeginInvokeOnMainThread(ApplyColors);
 
     private static Color Res(string key) => (Color)Application.Current!.Resources[key];
 
@@ -65,8 +68,8 @@ public partial class ChunkyButton : ContentView
                 "success" => (Res("Success"), Res("SuccessEdge"), Colors.White),
                 "accent" => (Res("Accent"), Res("AccentEdge"), Colors.White),
                 "danger" => (Res("Danger"), Res("DangerEdge"), Colors.White),
-                "outline" => (Res(dark ? "SurfaceDark" : "SurfaceLight"), Res(dark ? "BorderDark" : "BorderLight"), Res("Primary")),
-                _ => (Res("Primary"), Res("PrimaryEdge"), dark ? Res("PrimaryDarkText") : Colors.White)
+                "outline" => (Res(dark ? "SurfaceDark" : "SurfaceLight"), Res(dark ? "BorderDark" : "BorderLight"), Res("PrimaryText")),
+                _ => (Res("Primary"), Res("PrimaryEdge"), Res("OnPrimary"))
             };
         }
 

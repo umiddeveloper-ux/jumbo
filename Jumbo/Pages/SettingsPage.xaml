@@ -54,7 +54,7 @@
 
                         <!-- the ID of the learner (for payments) -->
                         <Border StrokeShape="RoundRectangle 16" StrokeThickness="0" Padding="12" IsVisible="{Binding PublicId, Converter={StaticResource StringNotEmpty}}"
-                                BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
+                                BackgroundColor="{DynamicResource PrimarySoft}">
                             <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12" RowDefinitions="Auto,Auto,Auto">
                                 <Label Text="{u:Tr Key=Settings_MyId}" Style="{StaticResource Hint}" />
                                 <Label Grid.Row="1" Text="{Binding PublicId}" FontFamily="NunitoBlack" FontSize="24" CharacterSpacing="2" />

@@ -1,3 +1,4 @@
+using Jumbo.Services;
 using Microsoft.Maui.Graphics;
 
 namespace Jumbo.Controls;
@@ -38,13 +39,13 @@ public class TrainView : GraphicsView
             float x = rect.X + (rect.Width - (n * w + (n - 1) * gap)) / 2f;
             float y = rect.Y + (rect.Height - h) / 2f - 2f;
 
-            var primary = Color.FromArgb("#1CB0F6");
-            var primaryEdge = Color.FromArgb("#1480B8");
+            var primary = ThemePalette.Primary;
+            var primaryEdge = ThemePalette.PrimaryEdge;
             var success = Color.FromArgb("#58CC02");
             var successEdge = Color.FromArgb("#46A302");
-            var muted = Color.FromArgb(Dark ? "#93A9BF" : "#6B849C");
-            var emptyLine = Color.FromArgb(Dark ? "#2A3E57" : "#C2D5E3");
-            var soft = Color.FromArgb(Dark ? "#17384F" : "#DDF4FF");
+            var muted = Color.FromArgb(Dark ? "#A1A1AA" : "#6B7280");
+            var emptyLine = Color.FromArgb(Dark ? "#34343C" : "#D9DEE6");
+            var soft = ThemePalette.PrimarySoft;
 
             for (int i = 0; i < n; i++, x += w + gap)
             {
@@ -63,7 +64,7 @@ public class TrainView : GraphicsView
                 // a coupling to the next wagon
                 if (i < n - 1)
                 {
-                    canvas.FillColor = Color.FromArgb("#7A8EA3");
+                    canvas.FillColor = Color.FromArgb("#8A8F98");
                     canvas.FillRectangle(x + w, y + h * 0.62f, gap, 4f);
                 }
 
@@ -90,7 +91,7 @@ public class TrainView : GraphicsView
                     canvas.FillRoundedRectangle(box.X, box.Y + 4f, box.Width, box.Height, r);
                     canvas.FillColor = put ? success : primary;
                     canvas.FillRoundedRectangle(box.X, box.Y, box.Width, box.Height, r);
-                    canvas.FontColor = Colors.White;
+                    canvas.FontColor = put ? Colors.White : ThemePalette.OnPrimary;
                 }
 
                 canvas.Font = new Microsoft.Maui.Graphics.Font("NunitoBlack");

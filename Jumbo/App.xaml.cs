@@ -9,6 +9,7 @@ namespace Jumbo
         {
             InitializeComponent();
             ThemeService.Apply();
+            ThemePalette.Init();        // the brand orange / the colour of the level of the book (light and dark) into the resources
 #if DEBUG
             ResetAppData();
 #endif

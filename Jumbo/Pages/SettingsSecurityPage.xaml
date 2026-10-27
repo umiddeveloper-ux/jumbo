@@ -39,7 +39,7 @@
                                IsVisible="{Binding AccountError, Converter={StaticResource StringNotEmpty}}" />
                         <Label Text="{Binding AccountMessage}" TextColor="{StaticResource Success}" FontFamily="NunitoBold" FontSize="14"
                                IsVisible="{Binding AccountMessage, Converter={StaticResource StringNotEmpty}}" />
-                        <ctl:ChunkyButton Text="{u:Tr Key=Settings_AccountSaveButton}" Kind="success" FontSize="14" Command="{Binding SaveAccountCommand}" />
+                        <ctl:ChunkyButton Text="{u:Tr Key=Settings_AccountSaveButton}" FontSize="14" Command="{Binding SaveAccountCommand}" />
                     </VerticalStackLayout>
                 </Border>
                 <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">

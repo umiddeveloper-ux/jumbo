@@ -15,7 +15,7 @@ public class AdPage : ContentPage
 
     public AdPage(AdForUserDto ad)
     {
-        this.SetAppThemeColor(BackgroundColorProperty, Color.FromArgb("#DDEAF3"), Color.FromArgb("#0E1A2B"));
+        this.SetAppThemeColor(BackgroundColorProperty, Color.FromArgb("#F3F5F8"), Color.FromArgb("#0C0C0E"));
         Shell.SetNavBarIsVisible(this, false);
 
         var card = new VerticalStackLayout { Spacing = 14, Padding = new Thickness(20), MaximumWidthRequest = 520, VerticalOptions = LayoutOptions.Center };
@@ -35,7 +35,7 @@ public class AdPage : ContentPage
         });
 
         var text = new Label { Text = ad.Html, TextType = TextType.Html, FontSize = 16, LineBreakMode = LineBreakMode.WordWrap };
-        text.SetAppThemeColor(Label.TextColorProperty, Color.FromArgb("#1F3A5F"), Color.FromArgb("#E8F0F8"));
+        text.SetAppThemeColor(Label.TextColorProperty, Color.FromArgb("#1B1B1F"), Color.FromArgb("#F2F2F4"));
         card.Children.Add(text);
 
         var close = new ChunkyButton { Text = LocalizationManager.Get("Ad_Close"), Kind = "success" };

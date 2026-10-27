@@ -24,17 +24,17 @@
         <VerticalStackLayout Padding="16,12,16,28" Spacing="14" MaximumWidthRequest="760" HorizontalOptions="Fill">
 
             <!-- Hero: ABC 123 -->
-            <Border StrokeShape="RoundRectangle 26" StrokeThickness="0" Padding="18,14" BackgroundColor="{StaticResource Primary}">
+            <Border StrokeShape="RoundRectangle 26" StrokeThickness="0" Padding="18,14" BackgroundColor="{DynamicResource Primary}">
                 <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
                     <VerticalStackLayout VerticalOptions="Center" Spacing="6">
                         <Border StrokeShape="RoundRectangle 14" StrokeThickness="0" Padding="14,5" BackgroundColor="White" HorizontalOptions="Start">
                             <VerticalStackLayout Spacing="-2">
-                                <Label Text="ABC" FontFamily="NunitoBlack" FontSize="24" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                                <Label Text="ABC" FontFamily="NunitoBlack" FontSize="24" TextColor="{DynamicResource PrimaryText}" HorizontalOptions="Center" />
                                 <Label Text="123" FontFamily="NunitoBlack" FontSize="12" TextColor="#FF9600" HorizontalOptions="Center" CharacterSpacing="3" />
                             </VerticalStackLayout>
                         </Border>
-                        <Label Text="{u:Tr Key=Zero_Title}" FontFamily="NunitoBlack" FontSize="22" TextColor="White" />
-                        <Label Text="{u:Tr Key=Zero_Hint}" FontSize="13" TextColor="White" Opacity="0.92" />
+                        <Label Text="{u:Tr Key=Zero_Title}" FontFamily="NunitoBlack" FontSize="22" TextColor="{DynamicResource OnPrimary}" />
+                        <Label Text="{u:Tr Key=Zero_Hint}" FontSize="13" TextColor="{DynamicResource OnPrimary}" Opacity="0.92" />
                     </VerticalStackLayout>
                     <ctl:TigerView Grid.Column="1" Size="88" Mood="wave" VerticalOptions="Center" />
                 </Grid>
@@ -90,8 +90,8 @@
                                     <Setter Property="Stroke" Value="#FFB84D" />
                                 </DataTrigger>
                                 <DataTrigger TargetType="Border" Binding="{Binding IsActive}" Value="True">
-                                    <Setter Property="Stroke" Value="{StaticResource Primary}" />
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}" />
+                                    <Setter Property="Stroke" Value="{DynamicResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{DynamicResource PrimarySoft}" />
                                 </DataTrigger>
                             </Border.Triggers>
                             <Border.GestureRecognizers>
@@ -131,8 +131,8 @@
                                 BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
                             <Border.Triggers>
                                 <DataTrigger TargetType="Border" Binding="{Binding IsActive}" Value="True">
-                                    <Setter Property="Stroke" Value="{StaticResource Primary}" />
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}" />
+                                    <Setter Property="Stroke" Value="{DynamicResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{DynamicResource PrimarySoft}" />
                                 </DataTrigger>
                             </Border.Triggers>
                             <Border.GestureRecognizers>
@@ -144,7 +144,7 @@
                                      HorizontalOptions="End" VerticalOptions="Start" Margin="0,3,3,0" />
                             <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
                                 <Label Text="{Binding Big}" FontFamily="NunitoBlack" FontSize="30" HorizontalOptions="Center" TextColor="{Binding DigitColor}" />
-                                <Label Text="{Binding Small}" FontFamily="NunitoExtraBold" FontSize="14" HorizontalOptions="Center" TextColor="{StaticResource Primary}" />
+                                <Label Text="{Binding Small}" FontFamily="NunitoExtraBold" FontSize="14" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryText}" />
                                 <Label Text="{Binding Translation}" IsVisible="{Binding HasTranslation}" FontSize="12" HorizontalOptions="Center"
                                        TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
                             </VerticalStackLayout>

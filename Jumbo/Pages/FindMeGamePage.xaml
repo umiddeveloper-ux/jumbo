@@ -39,7 +39,7 @@
             <ctl:TigerView Head="True" Size="54" Mood="{Binding Coach.Mood}" VerticalOptions="Center" />
 
             <Border Grid.Column="1" StrokeShape="RoundRectangle 16" HeightRequest="58"
-                    BackgroundColor="{StaticResource Primary}" StrokeThickness="0" Padding="12,0"
+                    BackgroundColor="{DynamicResource Primary}" StrokeThickness="0" Padding="12,0"
                     VerticalOptions="Center" IsVisible="{Binding IsPlaying}">
                 <Border.Triggers>
                     <DataTrigger TargetType="Border" Binding="{Binding Coach.Mood}" Value="cheer">
@@ -52,7 +52,7 @@
                 <Label Text="{Binding BannerText}"
                        FontSize="26"
                        FontAttributes="Bold"
-                       TextColor="White"
+                       TextColor="{DynamicResource OnPrimary}"
                        MaxLines="1"
                        LineBreakMode="TailTruncation"
                        VerticalOptions="Center"
@@ -131,7 +131,7 @@
                            IsVisible="{Binding IsBusy}"
                            VerticalOptions="Center"
                            HorizontalOptions="Center"
-                           Color="{StaticResource Primary}"
+                           Color="{DynamicResource Primary}"
                            HeightRequest="50"
                            WidthRequest="50"/>
 

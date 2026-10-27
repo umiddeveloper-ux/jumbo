@@ -37,7 +37,7 @@ public class LanguageSwitcher : Border
     {
         bool dark = Application.Current?.RequestedTheme == AppTheme.Dark;
         Stroke = new SolidColorBrush((Color)Application.Current!.Resources[dark ? "BorderDark" : "BorderLight"]);
-        _label.TextColor = (Color)Application.Current!.Resources["Primary"];
+        _label.TextColor = (Color)Application.Current!.Resources["PrimaryText"];
     }
 
     private void Update() => _label.Text = "🌐 " + LocalizationService.CurrentCode.ToUpperInvariant();

@@ -39,11 +39,11 @@
                 <Label Grid.Column="1"
                        Text="{Binding ProgressText}"
                        FontAttributes="Bold" FontSize="15"
-                       TextColor="{StaticResource Primary}"
+                       TextColor="{DynamicResource PrimaryText}"
                        HorizontalOptions="End"/>
             </Grid>
             <ProgressBar Progress="{Binding ProgressValue}"
-                         ProgressColor="{StaticResource Primary}"
+                         ProgressColor="{DynamicResource Primary}"
                          HeightRequest="10"/>
         </VerticalStackLayout>
 
@@ -143,7 +143,7 @@
                 <Button Text="{u:Tr Key=Letter_Again}"
                         Command="{Binding RestartGameCommand}"
                         CornerRadius="24" HeightRequest="50" Padding="32,0"
-                        BackgroundColor="White" TextColor="{StaticResource Primary}"
+                        BackgroundColor="White" TextColor="{DynamicResource PrimaryText}"
                         FontAttributes="Bold"/>
                 <Button Text="{u:Tr Key=Common_Back}"
                         Command="{Binding GoBackCommand}"
@@ -171,7 +171,7 @@
                            IsRunning="{Binding IsBusy}"
                            IsVisible="{Binding IsBusy}"
                            VerticalOptions="Center" HorizontalOptions="Center"
-                           Color="{StaticResource Primary}"
+                           Color="{DynamicResource Primary}"
                            HeightRequest="50" WidthRequest="50"/>
     </Grid>
 </ContentPage>

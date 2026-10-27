@@ -1,3 +1,4 @@
+using Jumbo.Services;
 using Microsoft.Maui.Graphics;
 
 namespace Jumbo.Controls;
@@ -28,6 +29,7 @@ public class SnakeView : GraphicsView
         Drawable = _drawable;
         StartInteraction += OnTouch;
         SizeChanged += (_, _) => FitHeight();
+        ThemePalette.Changed += (_, _) => MainThread.BeginInvokeOnMainThread(Invalidate);      // the level of the book changed the colour
     }
 
     // The pictures of the topics (drawn from their SVG once, kept): a topic that is not passed shows its picture in the circle.
@@ -130,12 +132,14 @@ public class SnakeView : GraphicsView
             var g = Geometry.Compute(rect.Width, Nodes.Count);
             float k = g.K;
 
-            var surface = Color.FromArgb(Dark ? "#17263A" : "#F5FAFD");
-            var muted = Color.FromArgb(Dark ? "#93A9BF" : "#6B849C");
-            var text = Color.FromArgb(Dark ? "#E8F0F8" : "#1F3A5F");
-            var ringOff = Color.FromArgb(Dark ? "#4A5B70" : "#B9C6D2");
-            var green = Color.FromArgb("#58CC02");
-            var blue = Color.FromArgb("#1CB0F6");
+            var surface = Color.FromArgb(Dark ? "#1C1C21" : "#FFFFFF");
+            var muted = Color.FromArgb(Dark ? "#A1A1AA" : "#6B7280");
+            var text = Color.FromArgb(Dark ? "#F2F2F4" : "#1B1B1F");
+            var ringOff = Color.FromArgb(Dark ? "#4A4A55" : "#CBD0D8");
+            var green = ThemePalette.Primary;          // the colour of the level of the book (it was green / blue)
+            var blue = ThemePalette.Primary;
+            var accentText = ThemePalette.PrimaryText;
+            var onAccent = ThemePalette.OnPrimary;
 
             DrawBody(canvas, g);
 
@@ -164,15 +168,15 @@ public class SnakeView : GraphicsView
                 }
                 canvas.FillColor = n.State switch
                 {
-                    "done" => Color.FromArgb(Dark ? "#2F7D00" : "#3E9E00"),
-                    "current" => Color.FromArgb("#1480B8"),
-                    _ => Color.FromArgb(Dark ? "#0A131F" : "#97ACC0")
+                    "done" => ThemePalette.PrimaryEdge,
+                    "current" => ThemePalette.PrimaryEdge,
+                    _ => Color.FromArgb(Dark ? "#0B0B0D" : "#AEB4BE")
                 };
                 canvas.FillCircle(c.X, c.Y + depth, outer);              // the thickness: the part of the disc that is seen from below
                 // the face: the lower part a little darker, the upper one lighter (a bevel made of two plain circles: a gradient paint stays set for the next marker)
-                canvas.FillColor = Color.FromArgb(Dark ? "#122033" : "#D2E0EC");
+                canvas.FillColor = Color.FromArgb(Dark ? "#101013" : "#DDE1E8");
                 canvas.FillCircle(c, outer);
-                canvas.FillColor = Color.FromArgb(Dark ? "#21354D" : "#FFFFFF");
+                canvas.FillColor = Color.FromArgb(Dark ? "#2A2A31" : "#FFFFFF");
                 canvas.FillCircle(c.X - 1.2f * k, c.Y - 2.6f * k, outer - 1.8f * k);
                 canvas.FillColor = Colors.White.WithAlpha(Dark ? 0.10f : 0.55f);      // the gloss on the upper rim
                 canvas.FillEllipse(c.X - outer * 0.62f, c.Y - outer * 0.96f, outer * 1.0f, outer * 0.36f);
@@ -191,8 +195,8 @@ public class SnakeView : GraphicsView
 
                 canvas.FillColor = n.State switch
                 {
-                    "done" => Color.FromArgb(Dark ? "#1F3B18" : "#E5F8D2"),
-                    "current" => Color.FromArgb(Dark ? "#17384F" : "#DDF4FF"),
+                    "done" => ThemePalette.PrimarySoft,
+                    "current" => ThemePalette.PrimarySoft,
                     _ => surface
                 };
                 canvas.FillCircle(c, r - ring);
@@ -216,10 +220,10 @@ public class SnakeView : GraphicsView
                     var bc = new PointF(c.X - r * 0.74f, c.Y - r * 0.74f);
                     canvas.FillColor = Colors.White.WithAlpha(0.95f);
                     canvas.FillCircle(bc, br + 2f * k);
-                    canvas.FillColor = n.State == "current" ? blue : Color.FromArgb(Dark ? "#4A5B70" : "#6B849C");
+                    canvas.FillColor = n.State == "current" ? blue : Color.FromArgb(Dark ? "#6B6B75" : "#8A8F98");
                     canvas.FillCircle(bc, br);
                     canvas.Font = new Microsoft.Maui.Graphics.Font("NunitoBlack");
-                    canvas.FontColor = Colors.White;
+                    canvas.FontColor = n.State == "current" ? onAccent : Colors.White;
                     canvas.FontSize = br * (n.Number > 9 ? 1.05f : 1.3f);
                     canvas.DrawString(n.Number.ToString(), bc.X - br, bc.Y - br, br * 2, br * 2, HorizontalAlignment.Center, VerticalAlignment.Center);
                 }
@@ -227,7 +231,7 @@ public class SnakeView : GraphicsView
                 {
                     string marker = n.State == "done" ? "✓" : n.Number.ToString();
                     canvas.Font = new Microsoft.Maui.Graphics.Font("NunitoBlack");
-                    canvas.FontColor = n.State switch { "done" => green, "current" => blue, _ => n.State == "started" ? text : muted };
+                    canvas.FontColor = n.State switch { "done" => accentText, "current" => accentText, _ => n.State == "started" ? text : muted };
                     canvas.FontSize = marker.Length > 1 ? r * 0.62f : r * 0.74f;
                     canvas.DrawString(marker, c.X - r, c.Y - r, r * 2, r * 2, HorizontalAlignment.Center, VerticalAlignment.Center);
                 }
@@ -247,7 +251,7 @@ public class SnakeView : GraphicsView
                 float boxX = leftLane ? 6f * k : c.X + r + edge + gap;
                 var nameFont = new Microsoft.Maui.Graphics.Font(n.State == "current" ? "NunitoBlack" : "NunitoExtraBold");
                 canvas.Font = nameFont;
-                canvas.FontColor = n.State == "current" ? blue : n.State == "future" ? muted : text;
+                canvas.FontColor = n.State == "current" ? accentText : n.State == "future" ? muted : text;
                 // the longest word has to fit the box (the measure is of a plain font, the drawing is Nunito: 15 % in reserve)
                 float fs = nameSize;
                 float widest = n.Name.Split(' ', StringSplitOptions.RemoveEmptyEntries).Max(w => canvas.GetStringSize(w, nameFont, nameSize).Width * 1.15f);
@@ -288,10 +292,10 @@ public class SnakeView : GraphicsView
             }
             if (pts.Count < 2) return;
 
-            var road = Color.FromArgb(Dark ? "#35485F" : "#C3D3E2");
-            var roadEdge = Color.FromArgb(Dark ? "#24364C" : "#A9BDCF");
-            var on = Color.FromArgb(Dark ? "#4FB800" : "#58CC02");
-            var onEdge = Color.FromArgb(Dark ? "#2F7D00" : "#3E9E00");
+            var road = Color.FromArgb(Dark ? "#34343C" : "#D9DEE6");
+            var roadEdge = Color.FromArgb(Dark ? "#26262C" : "#B8BFCA");
+            var on = ThemePalette.Primary;                  // the finished part of the road has the colour of the level
+            var onEdge = ThemePalette.PrimaryEdge;
 
             int firstOpen = -1;
             for (int i = 0; i < Nodes.Count; i++) if (Nodes[i].State != "done") { firstOpen = i; break; }
@@ -345,7 +349,7 @@ public class SnakeView : GraphicsView
             tip.LineTo(c.X, y + h + 6f);
             tip.Close();
             canvas.FillPath(tip);
-            canvas.FontColor = Colors.White;
+            canvas.FontColor = ThemePalette.OnPrimary;
             canvas.DrawString(Bubble, x, y, w, h, HorizontalAlignment.Center, VerticalAlignment.Center);
         }
     }

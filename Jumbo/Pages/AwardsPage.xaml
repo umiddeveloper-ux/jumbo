@@ -86,7 +86,7 @@
                         <Label Grid.Column="1"
                                Text="{Binding UserLp, Converter={StaticResource TrFormat}, ConverterParameter=Awards_Balance}"
                                Style="{StaticResource LabelMedium}"
-                               TextColor="{StaticResource Primary}"
+                               TextColor="{DynamicResource PrimaryText}"
                                FontAttributes="Bold"
                                VerticalOptions="Center"/>
                     </Grid>
@@ -118,7 +118,7 @@
                                                TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
                                         <Label Text="{Binding NoteText}" IsVisible="{Binding HasNote}" FontSize="10" HorizontalTextAlignment="Center"
                                                TextColor="{StaticResource Accent}" />
-                                        <Label Text="{Binding PriceText}" FontFamily="NunitoExtraBold" FontSize="13" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" />
+                                        <Label Text="{Binding PriceText}" FontFamily="NunitoExtraBold" FontSize="13" HorizontalTextAlignment="Center" TextColor="{DynamicResource PrimaryText}" />
                                         <ctl:ChunkyButton Text="{Binding ButtonText}" FontSize="13"
                                                           Kind="{Binding ButtonKind}"
                                                           Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:AwardsPageModel}}, Path=ActCommand}"

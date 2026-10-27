@@ -20,7 +20,7 @@
                     <VerticalStackLayout Spacing="14">
                         <ctl:TigerView Mood="wave" Size="96" />
                         <Label Text="{u:Tr Key=Login_WelcomeBack}" FontFamily="NunitoBlack" FontSize="26"
-                               TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" />
+                               TextColor="{DynamicResource PrimaryText}" HorizontalTextAlignment="Center" />
 
                         <ctl:FormEntry x:Name="UsernameEntry" Caption="{u:Tr Key=Login_UsernameLabel}" Placeholder="{u:Tr Key=Login_UsernamePlaceholder}" />
                         <ctl:FormEntry x:Name="PasswordEntry" Caption="{u:Tr Key=Login_PasswordLabel}" Placeholder="{u:Tr Key=Login_PasswordPlaceholder}"
@@ -35,7 +35,7 @@
                                 <FormattedString>
                                     <Span Text="{u:Tr Key=Login_NoAccount}" />
                                     <Span Text=" " />
-                                    <Span Text="{u:Tr Key=Login_RegisterLink}" TextColor="{StaticResource Primary}" FontFamily="NunitoExtraBold" />
+                                    <Span Text="{u:Tr Key=Login_RegisterLink}" TextColor="{DynamicResource PrimaryText}" FontFamily="NunitoExtraBold" />
                                 </FormattedString>
                             </Label.FormattedText>
                             <Label.GestureRecognizers>

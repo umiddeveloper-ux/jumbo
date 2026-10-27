@@ -40,8 +40,8 @@
                                     </DataTrigger>
                                 </Border.Triggers>
                                 <VerticalStackLayout Spacing="2">
-                                    <Label Text="{Binding TeamStatusText}" FontFamily="NunitoExtraBold" FontSize="15" TextColor="{AppThemeBinding Light=#1F3A5F, Dark=#E8F0F8}" />
-                                    <Label Text="{Binding TeamStateText}" FontSize="13" TextColor="{AppThemeBinding Light=#1F3A5F, Dark=#E8F0F8}" Opacity="0.8" />
+                                    <Label Text="{Binding TeamStatusText}" FontFamily="NunitoExtraBold" FontSize="15" TextColor="{AppThemeBinding Light=#1B1B1F, Dark=#F2F2F4}" />
+                                    <Label Text="{Binding TeamStateText}" FontSize="13" TextColor="{AppThemeBinding Light=#1B1B1F, Dark=#F2F2F4}" Opacity="0.8" />
                                 </VerticalStackLayout>
                             </Border>
                             <ctl:ChunkyButton Text="{u:Tr Key=Team_Leave}" Kind="outline" Command="{Binding LeaveTeamCommand}" />
@@ -50,7 +50,7 @@
                         <VerticalStackLayout Spacing="12" IsVisible="{Binding HasNoTeam}">
                             <Label Text="{Binding LegacyText}" Style="{StaticResource Hint}" IsVisible="{Binding HasLegacy}" />
                             <ctl:TeamPicker Region="{Binding PickedRegion, Mode=TwoWay}" ClassId="{Binding PickedClassId, Mode=TwoWay}" />
-                            <ctl:ChunkyButton Text="{u:Tr Key=Team_Submit}" Kind="success" FontSize="14"
+                            <ctl:ChunkyButton Text="{u:Tr Key=Team_Submit}" FontSize="14"
                                               IsEnabled="{Binding CanSendTeam}" Command="{Binding SendTeamCommand}" />
                         </VerticalStackLayout>
 
