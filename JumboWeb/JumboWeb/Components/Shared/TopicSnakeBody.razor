@@ -5,16 +5,16 @@
 @inject NavigationManager Nav
 @inject AppLocalizer Loc
 
-@* The picture of the snake (the header is in TopicSnake). One thick body: it runs to the right along the first row, bends round (a half circle),
-   runs back to the left along the next row, and so on, four topics in a row. The topics are round markers lying on the body (the ring of three
-   parts: one per game). The part of the body that is passed is green; the topic to play next is lit and has a bubble over it.
-   The picture is drawn in a frame of its own units and scaled to the width: a phone gets a narrow frame, a computer a wide one (bigger,
-   spread over the whole width), TopicSnake draws both and CSS shows the one that fits. *@
+@* The picture of the snake (the header is in TopicSnake): the SAME road as in the mobile app. One thick body winds down: the first topic is on the
+   left, the second lower on the right, the third on the left again, and so on; the road is an S-shaped bend between two neighbours. The topics
+   are round markers lying on the road (the ring of three parts: one per game); the name stands beside the marker, on the free side. The part of
+   the road that is passed has the colour of the level; the topic to play next is lit and has a bubble over it.
+   The picture is drawn in a frame of its own units (700 wide, like the app) and scaled to the width; markers and names are placed in percent. *@
 @{
     var g = Layout();
 }
-<div class="snake @(Wide ? "wide" : "narrow")" style="aspect-ratio: @Inv(V.W) / @Inv(g.Height); --u: @Inv(100 / V.W)cqw; --road: @Inv(V.Node); --edge: @Inv(V.Node + V.Edge); --dot: @Inv(V.Dot); --gap: @Inv(V.Gap)">
-    <svg class="snake-svg" viewBox="0 0 @Inv(V.W) @Inv(g.Height)" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
+<div class="snake narrow" style="aspect-ratio: @Inv(W) / @Inv(g.Height); --u: @Inv(100 / W)cqw; --road: @Inv(Node); --edge: @Inv(Node + Edge); --dot: @Inv(Dot); --gap: @Inv(Gap)">
+    <svg class="snake-svg" viewBox="0 0 @Inv(W) @Inv(g.Height)" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
         <path class="snake-edge" d="@g.Body" />
         <path class="snake-body" d="@g.Body" />
         @if (g.GreenLen > 0)
@@ -30,8 +30,9 @@
         var topic = p.Topic;
         var st = StateOf(topic);
         var parts = PartsOf(topic);
+        bool leftLane = p.Index % 2 == 0;
         <button type="button" class="snake-node @st @(IsLocked(topic) ? "locked" : "")" title="@topic.SubjectName"
-                style="left: @Inv(p.X / V.W * 100)%; top: @Inv(p.Y / g.Height * 100)%; width: @Inv(V.Node / V.W * 100)%" @onclick="() => Open(topic)">
+                style="left: @Inv(p.X / W * 100)%; top: @Inv(p.Y / g.Height * 100)%; width: @Inv(Node / W * 100)%" @onclick="() => Open(topic)">
             @if (st == "current")
             {
                 <span class="snake-bubble">@Loc[parts > 0 ? "Path_Continue" : "Path_Start"]</span>
@@ -41,27 +42,20 @@
                 @if (IsLocked(topic)) { <span class="snake-lock" aria-hidden="true">🔒</span> }
             </span>
         </button>
-        <span class="snake-name @st" style="left: @Inv(p.LabelX / V.W * 100)%; top: @Inv((p.Y + V.Node / 2 + 8) / g.Height * 100)%; width: @Inv(p.LabelW / V.W * 100)%">@topic.SubjectName</span>
+        <span class="snake-name side @(leftLane ? "l" : "r") @st" style="left: @Inv(p.LabelX / W * 100)%; top: @Inv(p.Y / g.Height * 100)%; width: @Inv(p.LabelW / W * 100)%">@topic.SubjectName</span>
     }
 </div>
 
 @code {
-    private const int Cols = 4;
+    // the units of the app (SnakeView.cs): a 700-wide frame, two lanes, a marker of 100, a row of 262
+    private const double W = 700, XL = 200, XR = 500, Y0 = 110, Row = 262, Node = 100, Edge = 12, Dot = 7, Gap = 22, Under = 36;
 
-    private record Frame(double W, double X0, double Dx, double R, double Y0, double Node, double LabelMid, double LabelEnd, double Shift, double LabelZone, double Edge, double Dot, double Gap);
-
-    // The phone: 700 units wide. The computer: 1200 units wide, bigger markers, more room between them.
-    private static readonly Frame Narrow = new(700, 145, 410.0 / 3, 90, 92, 96, 134, 124, 30, 84, 12, 7, 22);
-    private static readonly Frame WideFrame = new(1200, 190, 820.0 / 3, 110, 108, 130, 236, 190, 50, 104, 14, 9, 28);
-
-    [Parameter] public bool Wide { get; set; }
+    [Parameter] public bool Wide { get; set; }          // (not used any more: one picture for every screen, like the app)
     [Parameter] public List<Subject> Path { get; set; } = new();
     [Parameter] public Dictionary<int, UserSubjectProgress> Progress { get; set; } = new();
 
     /// <summary>A locked topic was pressed: the topic that has to be passed first.</summary>
     [Parameter] public EventCallback<Subject> OnLocked { get; set; }
-
-    private Frame V => Wide ? WideFrame : Narrow;
 
     private record Place(int Index, Subject Topic, double X, double Y, double S, double LabelX, double LabelW);
     private record SnakeLayout(List<Place> Nodes, string Body, double Total, double GreenLen, double Height);
@@ -71,37 +65,46 @@
 
     private SnakeLayout Layout()
     {
-        var v = V;
-        double row = v.R * 2;
-        int rows = (Path.Count + Cols - 1) / Cols;
         var nodes = new List<Place>();
-        var d = new StringBuilder($"M {Inv(v.X0)} {Inv(v.Y0)}");
-        double rowLen = (Cols - 1) * v.Dx + Math.PI * v.R;      // one full row and the bend after it
-
-        for (int r = 0; r < rows; r++)
+        var d = new StringBuilder();
+        double total = 0;
+        double edge = Edge / 2 + 6 + 10;                              // the ring edge and the gap between the marker and its name
+        for (int i = 0; i < Path.Count; i++)
         {
-            bool back = r % 2 == 1;
-            int n = Math.Min(Cols, Path.Count - r * Cols);
-            double y = v.Y0 + r * row;
-            for (int k = 0; k < n; k++)
-            {
-                int col = back ? Cols - 1 - k : k;
-                double x = v.X0 + col * v.Dx;
-                // a bend under the marker: its name moves away from it, to the inside of the row
-                bool bendBelow = r < rows - 1 && ((!back && col == Cols - 1) || (back && col == 0));
-                double lx = bendBelow ? x + (col == 0 ? v.Shift : -v.Shift) : x;
-                nodes.Add(new Place(r * Cols + k, Path[r * Cols + k], x, y, r * rowLen + k * v.Dx, lx, bendBelow ? v.LabelEnd : v.LabelMid));
-            }
+            double x = i % 2 == 0 ? XL : XR, y = Y0 + i * Row;
+            // the name beside the marker, on the free side: left of a left marker, right of a right one
+            double lx, lw;
+            if (i % 2 == 0) { lw = x - Node / 2 - edge - 6; lx = 6; }
+            else { double start = x + Node / 2 + edge; lw = W - start - 6; lx = start; }
+            nodes.Add(new Place(i, Path[i], x, y, total, lx, lw));
 
-            double endX = back ? v.X0 + (Cols - 1 - (n - 1)) * v.Dx : v.X0 + (n - 1) * v.Dx;
-            d.Append($" H {Inv(endX)}");
-            if (r < rows - 1) d.Append($" A {Inv(v.R)} {Inv(v.R)} 0 0 {(back ? 0 : 1)} {Inv(endX)} {Inv(y + row)}");
+            if (i == 0) d.Append($"M {Inv(x)} {Inv(y)}");
+            if (i < Path.Count - 1)
+            {
+                double bx = (i + 1) % 2 == 0 ? XL : XR, by = Y0 + (i + 1) * Row, dy = by - y;
+                d.Append($" C {Inv(x)} {Inv(y + dy * 0.62)} {Inv(bx)} {Inv(by - dy * 0.62)} {Inv(bx)} {Inv(by)}");
+                total += BezierLength(x, y, x, y + dy * 0.62, bx, by - dy * 0.62, bx, by);
+            }
         }
 
         var first = nodes.FirstOrDefault(p => !IsDone(p.Topic));
-        double total = nodes[^1].S;
         double green = first is null ? total : first.S;
-        return new SnakeLayout(nodes, d.ToString(), total, green, v.Y0 + (rows - 1) * row + v.Node / 2 + v.LabelZone);
+        double height = Y0 + Math.Max(Path.Count - 1, 0) * Row + Node / 2 + Under;
+        return new SnakeLayout(nodes, d.ToString(), total, green, height);
+    }
+
+    private static double BezierLength(double x0, double y0, double x1, double y1, double x2, double y2, double x3, double y3)
+    {
+        double len = 0, px = x0, py = y0;
+        for (int t = 1; t <= 40; t++)
+        {
+            double u = t / 40.0, v = 1 - u;
+            double x = v * v * v * x0 + 3 * v * v * u * x1 + 3 * v * u * u * x2 + u * u * u * x3;
+            double y = v * v * v * y0 + 3 * v * v * u * y1 + 3 * v * u * u * y2 + u * u * u * y3;
+            len += Math.Sqrt((x - px) * (x - px) + (y - py) * (y - py));
+            px = x; py = y;
+        }
+        return len;
     }
 
     private int PartsOf(Subject s) => Progress.TryGetValue(s.SubjectId, out var p) ? p.PartsDone : 0;

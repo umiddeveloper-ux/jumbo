@@ -145,3 +145,12 @@
 .game-cards-grid4 .game-card.matched { background: var(--lp-success); opacity: 0.45; border: 0; }
 .game-cards-grid4 .game-card.wrong-flash { background: var(--lp-error); border: 0; }
 @media (min-width: 560px) { .game-cards-grid4 { grid-template-columns: repeat(3, 1fr); max-width: 560px; margin-inline: auto; } }
+
+/* ----- the way through a book: the road of the app (a zigzag down the page, the name beside the marker) ----- */
+.snake-card { max-width: 560px; margin: 6px auto 18px; }
+@media (min-width: 768px) { .snake-card { max-width: 560px; } }
+.snake.narrow { display: block; }
+.snake-name.side { transform: translateY(-50%); font-size: clamp(11px, calc(var(--u) * 20), 17px); font-weight: 800; overflow-wrap: normal; -webkit-line-clamp: 3; }
+.snake-name.side.l { text-align: right; }
+.snake-name.side.r { text-align: left; }
+.snake-name.side.current { font-weight: 900; }
