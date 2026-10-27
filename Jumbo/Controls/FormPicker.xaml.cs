@@ -7,7 +7,7 @@ namespace Jumbo.Controls;
 public partial class FormPicker : ContentView
 {
     public static readonly BindableProperty CaptionProperty = BindableProperty.Create(
-        nameof(Caption), typeof(string), typeof(FormPicker), string.Empty, propertyChanged: (b, _, n) => ((FormPicker)b).CaptionLabel.Text = (string?)n);
+        nameof(Caption), typeof(string), typeof(FormPicker), string.Empty, propertyChanged: (b, _, n) => { var p = (FormPicker)b; p.CaptionLabel.Text = (string?)n; p.CaptionLabel.IsVisible = !string.IsNullOrEmpty((string?)n); });
 
     public static readonly BindableProperty TitleProperty = BindableProperty.Create(
         nameof(Title), typeof(string), typeof(FormPicker), string.Empty, propertyChanged: (b, _, n) => ((FormPicker)b).Input.Title = (string?)n);

@@ -2,9 +2,9 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Jumbo.Controls.FormEntry">
-    <VerticalStackLayout Spacing="5">
-        <Label x:Name="CaptionLabel" FontFamily="NunitoExtraBold" FontSize="13"
-               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+    <!-- An outlined field like Material 3: the caption sits ON the top line of the frame (the line is cut under it by the background of the caption).
+         The top padding is the room for the half of the caption that is above the line. -->
+    <Grid Padding="0,9,0,0">
         <Border x:Name="Frame" StrokeShape="RoundRectangle 16" StrokeThickness="2" Padding="14,0" HeightRequest="52"
                 Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
                 BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
@@ -20,5 +20,9 @@
                 </Image>
             </Grid>
         </Border>
-    </VerticalStackLayout>
+        <Label x:Name="CaptionLabel" FontFamily="NunitoExtraBold" FontSize="12" Padding="6,0" Margin="14,-8,0,0"
+               HorizontalOptions="Start" VerticalOptions="Start" InputTransparent="True" LineBreakMode="TailTruncation"
+               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}"
+               BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}" />
+    </Grid>
 </ContentView>

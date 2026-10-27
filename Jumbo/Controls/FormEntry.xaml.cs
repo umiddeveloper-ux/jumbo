@@ -1,10 +1,10 @@
 namespace Jumbo.Controls;
 
-/// <summary>A labelled, rounded text field (the website's input look): caption above, outlined box, brand-coloured focus ring.</summary>
+/// <summary>A labelled, rounded text field (outlined like Material 3): the caption sits on the top line of the frame, the focus ring and the caption take the colour of the page.</summary>
 public partial class FormEntry : ContentView
 {
     public static readonly BindableProperty CaptionProperty = BindableProperty.Create(
-        nameof(Caption), typeof(string), typeof(FormEntry), string.Empty, propertyChanged: (b, _, n) => ((FormEntry)b).CaptionLabel.Text = (string?)n);
+        nameof(Caption), typeof(string), typeof(FormEntry), string.Empty, propertyChanged: (b, _, n) => { var e = (FormEntry)b; e.CaptionLabel.Text = (string?)n; e.CaptionLabel.IsVisible = !string.IsNullOrEmpty((string?)n); });
 
     public static readonly BindableProperty TextProperty = BindableProperty.Create(
         nameof(Text), typeof(string), typeof(FormEntry), string.Empty, BindingMode.TwoWay,
@@ -58,13 +58,17 @@ public partial class FormEntry : ContentView
         Input.CursorPosition = Input.Text?.Length ?? 0;
     }
 
-    private void OnFocused(object? sender, FocusEventArgs e) =>
+    private void OnFocused(object? sender, FocusEventArgs e)
+    {
         Frame.Stroke = new SolidColorBrush((Color)Application.Current!.Resources["Primary"]);
+        CaptionLabel.TextColor = (Color)Application.Current!.Resources["PrimaryText"];
+    }
 
     private void OnUnfocused(object? sender, FocusEventArgs e)
     {
         bool dark = Application.Current?.RequestedTheme == AppTheme.Dark;
         Frame.Stroke = new SolidColorBrush((Color)Application.Current!.Resources[dark ? "BorderDark" : "BorderLight"]);
+        CaptionLabel.TextColor = (Color)Application.Current!.Resources[dark ? "MutedDark" : "MutedLight"];
     }
 
     private void OnCompleted(object? sender, EventArgs e) => Completed?.Invoke(this, EventArgs.Empty);
