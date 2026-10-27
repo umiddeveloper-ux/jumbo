@@ -26,7 +26,7 @@
                         <ctl:FormEntry x:Name="PasswordEntry" Caption="{u:Tr Key=Login_PasswordLabel}" Placeholder="{u:Tr Key=Login_PasswordPlaceholder}"
                                        IsPassword="True" Completed="OnPasswordCompleted" />
 
-                        <Label x:Name="ErrorLabel" IsVisible="False" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14" />
+                        <Label x:Name="ErrorLabel" IsVisible="False" TextColor="{DynamicResource DangerText}" FontFamily="NunitoBold" FontSize="14" />
 
                         <ctl:ChunkyButton x:Name="LoginButton" Text="{u:Tr Key=Common_LoginAction}" Clicked="OnLoginClicked" Margin="0,4,0,0" />
 

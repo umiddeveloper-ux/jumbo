@@ -63,7 +63,7 @@
                                     <Border.Triggers>
                                         <DataTrigger TargetType="Border" Binding="{Binding IsAchieved}" Value="True">
                                             <Setter Property="Opacity" Value="1" />
-                                            <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                            <Setter Property="Stroke" Value="{DynamicResource Success}" />
                                         </DataTrigger>
                                     </Border.Triggers>
                                     <Grid RowDefinitions="60,Auto" RowSpacing="2" VerticalOptions="Start">
@@ -108,7 +108,7 @@
                                         BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
                                     <Border.Triggers>
                                         <DataTrigger TargetType="Border" Binding="{Binding IsWorn}" Value="True">
-                                            <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                            <Setter Property="Stroke" Value="{DynamicResource Success}" />
                                         </DataTrigger>
                                     </Border.Triggers>
                                     <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">

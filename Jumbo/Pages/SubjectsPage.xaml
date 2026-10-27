@@ -75,7 +75,7 @@
                                             WidthRequest="28" 
                                             HeightRequest="28" 
                                             StrokeShape="RoundRectangle 14" 
-                                            BackgroundColor="{StaticResource Success}" 
+                                            BackgroundColor="{DynamicResource Success}" 
                                             StrokeThickness="0"
                                             HorizontalOptions="End" 
                                             VerticalOptions="Center"

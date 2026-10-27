@@ -28,7 +28,7 @@
                 </Grid>
 
                 <Label x:Name="NameLabel" FontFamily="NunitoBlack" FontSize="21" HorizontalTextAlignment="Center" />
-                <Label x:Name="BonusLabel" FontFamily="NunitoBlack" FontSize="19" TextColor="{StaticResource Success}" HorizontalTextAlignment="Center" IsVisible="False" />
+                <Label x:Name="BonusLabel" FontFamily="NunitoBlack" FontSize="19" TextColor="{DynamicResource SuccessText}" HorizontalTextAlignment="Center" IsVisible="False" />
                 <ctl:TigerView Size="92" Mood="cheer" HorizontalOptions="Center" />
                 <Label Text="{u:Tr Key=Award_Congrats}" FontSize="14" HorizontalTextAlignment="Center"
                        TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />

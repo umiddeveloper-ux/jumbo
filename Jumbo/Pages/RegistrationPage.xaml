@@ -58,7 +58,7 @@
                         </VerticalStackLayout>
 
                         <Label Text="{Binding Error}" IsVisible="{Binding Error, Converter={StaticResource StringNotEmpty}}"
-                               TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14" HorizontalTextAlignment="Center" />
+                               TextColor="{DynamicResource DangerText}" FontFamily="NunitoBold" FontSize="14" HorizontalTextAlignment="Center" />
 
                         <!-- navigation -->
                         <!-- steps 1-2: [Back] [Next] -->

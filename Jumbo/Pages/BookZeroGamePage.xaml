@@ -66,11 +66,11 @@
                                 <Border.Triggers>
                                     <DataTrigger TargetType="Border" Binding="{Binding State}" Value="ok">
                                         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
-                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                        <Setter Property="Stroke" Value="{DynamicResource Success}" />
                                     </DataTrigger>
                                     <DataTrigger TargetType="Border" Binding="{Binding State}" Value="bad">
                                         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource DangerSoftLight}, Dark={StaticResource DangerSoftDark}}" />
-                                        <Setter Property="Stroke" Value="{StaticResource Danger}" />
+                                        <Setter Property="Stroke" Value="{DynamicResource Danger}" />
                                     </DataTrigger>
                                     <DataTrigger TargetType="Border" Binding="{Binding State}" Value="used">
                                         <Setter Property="Opacity" Value="0.35" />

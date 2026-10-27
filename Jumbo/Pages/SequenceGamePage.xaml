@@ -100,7 +100,7 @@
                                         Value="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"/>
                             </DataTrigger>
                             <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Correct">
-                                <Setter Property="BackgroundColor" Value="{StaticResource Success}"/>
+                                <Setter Property="BackgroundColor" Value="{DynamicResource Success}"/>
                             </DataTrigger>
                             <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Wrong">
                                 <Setter Property="BackgroundColor" Value="{StaticResource Warning}"/>

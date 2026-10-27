@@ -39,7 +39,7 @@
                     <Label Grid.Column="2" Text="{Binding TopicsCountText}" FontFamily="NunitoExtraBold" FontSize="14" HorizontalOptions="End" VerticalOptions="Center"
                            TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
                 </Grid>
-                <ProgressBar Progress="{Binding PathProgress}" ProgressColor="{StaticResource Success}" HeightRequest="8" />
+                <ProgressBar Progress="{Binding PathProgress}" ProgressColor="{DynamicResource Success}" HeightRequest="8" />
 
                 <ctl:SnakeView x:Name="Snake" IsVisible="{Binding HasNoTopics, Converter={StaticResource InvertedBoolConverter}}" />
 

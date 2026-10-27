@@ -107,7 +107,7 @@
                                                     </DataTrigger>
                                                     <DataTrigger TargetType="Border" Binding="{Binding IsDone}" Value="True">
                                                         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
-                                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                                        <Setter Property="Stroke" Value="{DynamicResource Success}" />
                                                     </DataTrigger>
                                                     <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
                                                         <Setter Property="BackgroundColor" Value="{DynamicResource PrimarySoft}" />
@@ -132,7 +132,7 @@
                                                 </VerticalStackLayout>
                                             </Border>
                                             <ProgressBar Progress="{Binding Progress, Converter={StaticResource PercentToFraction}}"
-                                                         ProgressColor="{StaticResource Success}" HeightRequest="6" />
+                                                         ProgressColor="{DynamicResource Success}" HeightRequest="6" />
                                         </VerticalStackLayout>
                                         <Label Text="🔒" FontSize="12" HorizontalOptions="End" VerticalOptions="Start" Margin="0,-2,-2,0"
                                                IsVisible="{Binding IsLocked}" />
@@ -140,11 +140,11 @@
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
-                        <ProgressBar Progress="{Binding TotalProgress}" ProgressColor="{StaticResource Success}" HeightRequest="10" Margin="2,0" />
+                        <ProgressBar Progress="{Binding TotalProgress}" ProgressColor="{DynamicResource Success}" HeightRequest="10" Margin="2,0" />
                         <Grid ColumnDefinitions="*, Auto" Margin="2,0">
                             <Label Text="{Binding WordsProgressLabel}" FontSize="13"
                                    TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
-                            <Label Grid.Column="1" Text="{Binding TotalProgress, StringFormat='{0:P0}'}" TextColor="{StaticResource Success}" FontFamily="NunitoBlack" FontSize="15" />
+                            <Label Grid.Column="1" Text="{Binding TotalProgress, StringFormat='{0:P0}'}" TextColor="{DynamicResource SuccessText}" FontFamily="NunitoBlack" FontSize="15" />
                         </Grid>
                         </VerticalStackLayout>
 

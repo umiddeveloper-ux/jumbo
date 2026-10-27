@@ -32,7 +32,7 @@
                     <VerticalStackLayout Spacing="12">
                         <Label Text="{u:Tr Key=Settings_DeleteHint}" Style="{StaticResource Hint}" />
                         <ctl:FormEntry Caption="{u:Tr Key=Settings_CurrentPasswordLabel}" IsPassword="True" Text="{Binding DeletePassword, Mode=TwoWay}" />
-                        <Label Text="{Binding DeleteError}" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14"
+                        <Label Text="{Binding DeleteError}" TextColor="{DynamicResource DangerText}" FontFamily="NunitoBold" FontSize="14"
                                IsVisible="{Binding DeleteError, Converter={StaticResource StringNotEmpty}}" />
                         <ctl:ChunkyButton Text="{u:Tr Key=Settings_DeleteButton}" Kind="danger" FontSize="14" Command="{Binding DeleteAccountCommand}" />
                     </VerticalStackLayout>

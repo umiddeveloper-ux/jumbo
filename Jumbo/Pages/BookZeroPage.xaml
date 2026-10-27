@@ -99,7 +99,7 @@
                                                       CommandParameter="{Binding .}" />
                             </Border.GestureRecognizers>
                             <Grid>
-                            <BoxView IsVisible="{Binding IsKnown}" WidthRequest="10" HeightRequest="10" CornerRadius="5" Color="{StaticResource Success}"
+                            <BoxView IsVisible="{Binding IsKnown}" WidthRequest="10" HeightRequest="10" CornerRadius="5" Color="{DynamicResource Success}"
                                      HorizontalOptions="End" VerticalOptions="Start" Margin="0,5,5,0" />
                             <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="2">
                                 <Label Text="{Binding Big}" FontFamily="NunitoBlack" FontSize="30" VerticalOptions="Center">
@@ -140,7 +140,7 @@
                                                       CommandParameter="{Binding .}" />
                             </Border.GestureRecognizers>
                             <Grid>
-                            <BoxView IsVisible="{Binding IsKnown}" WidthRequest="10" HeightRequest="10" CornerRadius="5" Color="{StaticResource Success}"
+                            <BoxView IsVisible="{Binding IsKnown}" WidthRequest="10" HeightRequest="10" CornerRadius="5" Color="{DynamicResource Success}"
                                      HorizontalOptions="End" VerticalOptions="Start" Margin="0,3,3,0" />
                             <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
                                 <Label Text="{Binding Big}" FontFamily="NunitoBlack" FontSize="30" HorizontalOptions="Center" TextColor="{Binding DigitColor}" />

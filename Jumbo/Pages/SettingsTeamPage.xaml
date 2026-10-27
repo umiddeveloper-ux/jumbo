@@ -35,7 +35,7 @@
                                     Stroke="{StaticResource Warning}" BackgroundColor="{AppThemeBinding Light={StaticResource WarningAsbestos}, Dark=#3A3210}">
                                 <Border.Triggers>
                                     <DataTrigger TargetType="Border" Binding="{Binding TeamApproved}" Value="True">
-                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                        <Setter Property="Stroke" Value="{DynamicResource Success}" />
                                         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
                                     </DataTrigger>
                                 </Border.Triggers>
@@ -54,9 +54,9 @@
                                               IsEnabled="{Binding CanSendTeam}" Command="{Binding SendTeamCommand}" />
                         </VerticalStackLayout>
 
-                        <Label Text="{Binding TeamError}" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14"
+                        <Label Text="{Binding TeamError}" TextColor="{DynamicResource DangerText}" FontFamily="NunitoBold" FontSize="14"
                                IsVisible="{Binding TeamError, Converter={StaticResource StringNotEmpty}}" />
-                        <Label Text="{Binding TeamMessage}" TextColor="{StaticResource Success}" FontFamily="NunitoBold" FontSize="14"
+                        <Label Text="{Binding TeamMessage}" TextColor="{DynamicResource SuccessText}" FontFamily="NunitoBold" FontSize="14"
                                IsVisible="{Binding TeamMessage, Converter={StaticResource StringNotEmpty}}" />
                     </VerticalStackLayout>
                 </Border>

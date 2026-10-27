@@ -47,7 +47,7 @@
                                     </DataTrigger>
                                     <DataTrigger TargetType="Border" Binding="{Binding State}" Value="done">
                                         <Setter Property="Opacity" Value="1" />
-                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                        <Setter Property="Stroke" Value="{DynamicResource Success}" />
                                     </DataTrigger>
                                 </Border.Triggers>
                                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
@@ -58,7 +58,7 @@
                                                 <Setter Property="BackgroundColor" Value="{DynamicResource Primary}" />
                                             </DataTrigger>
                                             <DataTrigger TargetType="Border" Binding="{Binding State}" Value="done">
-                                                <Setter Property="BackgroundColor" Value="{StaticResource Success}" />
+                                                <Setter Property="BackgroundColor" Value="{DynamicResource Success}" />
                                             </DataTrigger>
                                         </Border.Triggers>
                                         <Label Text="{Binding Marker}" TextColor="White" FontFamily="NunitoBlack" FontSize="17"
@@ -70,7 +70,7 @@
                                                TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
                                     </VerticalStackLayout>
                                     <Label Grid.Column="2" Text="{Binding DoneText}" IsVisible="{Binding IsDone}" VerticalOptions="Center"
-                                           FontFamily="NunitoBlack" FontSize="13" TextColor="{StaticResource Success}" />
+                                           FontFamily="NunitoBlack" FontSize="13" TextColor="{DynamicResource SuccessText}" />
                                     <ctl:ChunkyButton Grid.Column="2" Text="{Binding ButtonText}" FontSize="14" WidthRequest="150" VerticalOptions="Center"
                                                       IsVisible="{Binding IsCurrent}"
                                                       Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:BookGatePageModel}}, Path=StartStepCommand}"
@@ -81,7 +81,7 @@
                     </BindableLayout.ItemTemplate>
                 </VerticalStackLayout>
 
-                <Label Text="{Binding ErrorText}" TextColor="{StaticResource Danger}" HorizontalTextAlignment="Center" FontSize="14"
+                <Label Text="{Binding ErrorText}" TextColor="{DynamicResource DangerText}" HorizontalTextAlignment="Center" FontSize="14"
                        IsVisible="{Binding HasError}" />
             </VerticalStackLayout>
 

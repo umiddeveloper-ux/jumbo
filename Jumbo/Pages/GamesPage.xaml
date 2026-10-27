@@ -88,7 +88,7 @@
                                                 <Border.Triggers>
                                                     <DataTrigger TargetType="Border" Binding="{Binding IsDone}" Value="True">
                                                         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
-                                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                                        <Setter Property="Stroke" Value="{DynamicResource Success}" />
                                                     </DataTrigger>
                                                     <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
                                                         <Setter Property="BackgroundColor" Value="{DynamicResource PrimarySoft}" />
@@ -99,7 +99,7 @@
                                                        TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
                                             </Border>
                                             <ProgressBar Progress="{Binding Percent, Converter={StaticResource PercentToFraction}}"
-                                                         ProgressColor="{StaticResource Success}" HeightRequest="6" />
+                                                         ProgressColor="{DynamicResource Success}" HeightRequest="6" />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </DataTemplate>
@@ -116,7 +116,7 @@
                                         BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
                                     <Border.Triggers>
                                         <DataTrigger TargetType="Border" Binding="{Binding Won}" Value="True">
-                                            <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                            <Setter Property="Stroke" Value="{DynamicResource Success}" />
                                         </DataTrigger>
                                     </Border.Triggers>
                                     <Border.GestureRecognizers>
@@ -126,7 +126,7 @@
                                     <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                                         <Label Text="{Binding Number}" HeightRequest="56" WidthRequest="56" FontFamily="NunitoBlack" FontSize="34" TextColor="{DynamicResource PrimaryText}" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                                         <Label Text="{Binding Name}" FontFamily="NunitoExtraBold" FontSize="12" HorizontalTextAlignment="Center" MaxLines="2" LineBreakMode="TailTruncation" />
-                                        <Label Text="✓" TextColor="{StaticResource Success}" FontFamily="NunitoBlack" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding Won}" />
+                                        <Label Text="✓" TextColor="{DynamicResource SuccessText}" FontFamily="NunitoBlack" FontSize="14" HorizontalOptions="Center" IsVisible="{Binding Won}" />
                                     </VerticalStackLayout>
                                 </Border>
                             </DataTemplate>

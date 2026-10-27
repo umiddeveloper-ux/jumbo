@@ -35,9 +35,9 @@
                         <ctl:FormEntry Caption="{u:Tr Key=Settings_CurrentPasswordLabel}" IsPassword="True" Text="{Binding CurrentPassword, Mode=TwoWay}" />
                         <ctl:FormEntry Caption="{u:Tr Key=Settings_NewPasswordLabel}" Placeholder="{u:Tr Key=Settings_NewPasswordHint}" IsPassword="True" Text="{Binding NewPassword, Mode=TwoWay}" />
                         <ctl:FormEntry Caption="{u:Tr Key=Settings_ConfirmPasswordLabel}" IsPassword="True" Text="{Binding ConfirmPassword, Mode=TwoWay}" />
-                        <Label Text="{Binding AccountError}" TextColor="{StaticResource Danger}" FontFamily="NunitoBold" FontSize="14"
+                        <Label Text="{Binding AccountError}" TextColor="{DynamicResource DangerText}" FontFamily="NunitoBold" FontSize="14"
                                IsVisible="{Binding AccountError, Converter={StaticResource StringNotEmpty}}" />
-                        <Label Text="{Binding AccountMessage}" TextColor="{StaticResource Success}" FontFamily="NunitoBold" FontSize="14"
+                        <Label Text="{Binding AccountMessage}" TextColor="{DynamicResource SuccessText}" FontFamily="NunitoBold" FontSize="14"
                                IsVisible="{Binding AccountMessage, Converter={StaticResource StringNotEmpty}}" />
                         <ctl:ChunkyButton Text="{u:Tr Key=Settings_AccountSaveButton}" FontSize="14" Command="{Binding SaveAccountCommand}" />
                     </VerticalStackLayout>

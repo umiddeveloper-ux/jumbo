@@ -80,8 +80,8 @@ public partial class GameOverlay : ContentView
         Tiger.Mood = Kind == "win" ? "cheer" : "sad";
         TitleLabel.TextColor = Kind switch
         {
-            "win" => (Color)Application.Current!.Resources["Success"],
-            "lose" => (Color)Application.Current!.Resources["Danger"],
+            "win" => (Color)Application.Current!.Resources["SuccessText"],
+            "lose" => (Color)Application.Current!.Resources["DangerText"],
             _ => (Color)Application.Current!.Resources["Accent"]
         };
         PrimaryButton.Kind = Kind == "win" ? "success" : "primary";

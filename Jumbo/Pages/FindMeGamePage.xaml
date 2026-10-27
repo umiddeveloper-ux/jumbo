@@ -43,10 +43,10 @@
                     VerticalOptions="Center" IsVisible="{Binding IsPlaying}">
                 <Border.Triggers>
                     <DataTrigger TargetType="Border" Binding="{Binding Coach.Mood}" Value="cheer">
-                        <Setter Property="BackgroundColor" Value="{StaticResource Success}" />
+                        <Setter Property="BackgroundColor" Value="{DynamicResource Success}" />
                     </DataTrigger>
                     <DataTrigger TargetType="Border" Binding="{Binding Coach.Mood}" Value="sad">
-                        <Setter Property="BackgroundColor" Value="{StaticResource Danger}" />
+                        <Setter Property="BackgroundColor" Value="{DynamicResource Danger}" />
                     </DataTrigger>
                 </Border.Triggers>
                 <Label Text="{Binding BannerText}"
@@ -77,7 +77,7 @@
                         <!-- Фон карточки: зелёный (matched), красный (wrong), нейтральный -->
                         <Border.Triggers>
                             <DataTrigger TargetType="Border" Binding="{Binding IsMatched}" Value="True">
-                                <Setter Property="BackgroundColor" Value="{StaticResource Success}"/>
+                                <Setter Property="BackgroundColor" Value="{DynamicResource Success}"/>
                                 <Setter Property="Opacity" Value="0.35"/>
                             </DataTrigger>
                             <DataTrigger TargetType="Border" Binding="{Binding ShowWrong}" Value="True">

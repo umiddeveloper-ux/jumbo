@@ -71,7 +71,7 @@ public class SettingsRow : Border
         _chevron.TextColor = muted;
         if (IsDanger)
         {
-            _title.TextColor = Res("Danger");
+            _title.TextColor = Res("DangerText");
             _iconBox.BackgroundColor = Res("Danger").WithAlpha(0.14f);
             Stroke = Res("Danger");
         }

@@ -147,10 +147,10 @@
 
                 <!-- Карточка: Вспомни сам -->
                 <Border StrokeShape="RoundRectangle 22"
-                        BackgroundColor="{StaticResource Success}"
+                        BackgroundColor="{DynamicResource Success}"
                         StrokeThickness="0">
                     <Border.Shadow>
-                        <Shadow Brush="{StaticResource Success}" Offset="0,4" Radius="16" Opacity="0.4"/>
+                        <Shadow Brush="{DynamicResource Success}" Offset="0,4" Radius="16" Opacity="0.4"/>
                     </Border.Shadow>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding SelectRecallCommand}"/>

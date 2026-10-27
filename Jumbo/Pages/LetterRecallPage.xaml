@@ -114,7 +114,7 @@
                     <Grid ColumnDefinitions="*, *" ColumnSpacing="12">
 
                         <Border StrokeShape="RoundRectangle 28"
-                                BackgroundColor="{StaticResource Success}"
+                                BackgroundColor="{DynamicResource Success}"
                                 StrokeThickness="0"
                                 HeightRequest="52">
                             <Border.GestureRecognizers>

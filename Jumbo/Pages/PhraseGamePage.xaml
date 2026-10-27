@@ -27,7 +27,7 @@
                 <ctl:TigerCoach Mood="{Binding Coach.Mood}" Text="{Binding Coach.Text}" />
 
                 <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
-                    <ProgressBar Progress="{Binding Progress}" ProgressColor="{StaticResource Success}" HeightRequest="8" VerticalOptions="Center" />
+                    <ProgressBar Progress="{Binding Progress}" ProgressColor="{DynamicResource Success}" HeightRequest="8" VerticalOptions="Center" />
                     <Label Grid.Column="1" Text="{Binding StepText}" FontFamily="NunitoExtraBold" FontSize="13"
                            TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
                 </Grid>
@@ -67,11 +67,11 @@
                                     </DataTrigger>
                                     <DataTrigger TargetType="Border" Binding="{Binding State}" Value="right">
                                         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
-                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                        <Setter Property="Stroke" Value="{DynamicResource Success}" />
                                     </DataTrigger>
                                     <DataTrigger TargetType="Border" Binding="{Binding State}" Value="wrong">
                                         <Setter Property="BackgroundColor" Value="#FFE3E3" />
-                                        <Setter Property="Stroke" Value="{StaticResource Danger}" />
+                                        <Setter Property="Stroke" Value="{DynamicResource Danger}" />
                                     </DataTrigger>
                                 </Border.Triggers>
                                 <Border.GestureRecognizers>

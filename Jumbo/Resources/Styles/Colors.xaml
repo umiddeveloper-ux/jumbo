@@ -10,15 +10,15 @@
          light / dark): use them with {DynamicResource}. The values here are only the start. -->
     <!-- changing colours -->
     <Color x:Key="PrimarySoft">#FFF0DC</Color>
-    <Color x:Key="PrimaryEdgeSoft">#FFD08A</Color>
+    <Color x:Key="PrimaryEdgeSoft">#FFDEAD</Color>
     <Color x:Key="OnPrimary">#1B1B1F</Color>
     <Color x:Key="PrimaryText">#B45F00</Color>
-    <Color x:Key="Brand">#F28C0F</Color>
-    <Color x:Key="BrandDark">#DB7A00</Color>
+    <Color x:Key="Brand">#F6AF57</Color>
+    <Color x:Key="BrandDark">#E6A24D</Color>
     <Color x:Key="OnBrand">#1B1B1F</Color>
-    <Color x:Key="Primary">#F28C0F</Color>
-    <Color x:Key="PrimaryDark">#DB7A00</Color>
-    <Color x:Key="PrimaryEdge">#C46F00</Color>
+    <Color x:Key="Primary">#F6AF57</Color>
+    <Color x:Key="PrimaryDark">#E6A24D</Color>
+    <Color x:Key="PrimaryEdge">#D69A4D</Color>
     <Color x:Key="PrimaryDarkText">#1B1B1F</Color>
     <Color x:Key="PrimarySoftLight">#FFF0DC</Color>
     <Color x:Key="PrimarySoftDark">#3A2A12</Color>
@@ -30,15 +30,16 @@
     <Color x:Key="Accent">#FF9600</Color>
     <Color x:Key="AccentEdge">#CC7800</Color>
 
-    <Color x:Key="Success">#58CC02</Color>
+    <Color x:Key="Success">#8ADB4E</Color>
     <Color x:Key="SuccessEdge">#46A302</Color>
-    <Color x:Key="SuccessText">#46A302</Color>
+    <Color x:Key="SuccessText">#3E9202</Color>
     <Color x:Key="SuccessTextDark">#7BE02B</Color>
     <Color x:Key="SuccessSoftLight">#E5F8D2</Color>
     <Color x:Key="SuccessSoftDark">#1F3B18</Color>
     <Color x:Key="Warning">#FF9600</Color>
     <Color x:Key="WarningAsbestos">#FFF4C2</Color>
-    <Color x:Key="Danger">#FF4B4B</Color>
+    <Color x:Key="Danger">#FF8181</Color>
+    <Color x:Key="DangerText">#D93636</Color>
     <Color x:Key="DangerEdge">#C93B3B</Color>
     <Color x:Key="DangerSoftLight">#FFE3E3</Color>
     <Color x:Key="DangerSoftDark">#4A2327</Color>

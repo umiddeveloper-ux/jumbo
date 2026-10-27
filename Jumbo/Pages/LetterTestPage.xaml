@@ -91,7 +91,7 @@
                                     </DataTrigger>
                                     <DataTrigger TargetType="Border"
                                                  Binding="{Binding State}" Value="Correct">
-                                        <Setter Property="BackgroundColor" Value="{StaticResource Success}"/>
+                                        <Setter Property="BackgroundColor" Value="{DynamicResource Success}"/>
                                     </DataTrigger>
                                     <DataTrigger TargetType="Border"
                                                  Binding="{Binding State}" Value="Wrong">

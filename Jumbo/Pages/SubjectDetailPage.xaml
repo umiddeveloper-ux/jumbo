@@ -64,7 +64,7 @@
                                     StrokeThickness="2" Padding="0">
                                 <Border.Triggers>
                                     <DataTrigger TargetType="Border" Binding="{Binding IsPassed}" Value="True">
-                                        <Setter Property="Stroke" Value="{StaticResource Success}" />
+                                        <Setter Property="Stroke" Value="{DynamicResource Success}" />
                                     </DataTrigger>
                                 </Border.Triggers>
                                 <Border.GestureRecognizers>
@@ -81,7 +81,7 @@
                                                TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
                                     </VerticalStackLayout>
                                     <Border Grid.Column="2" WidthRequest="26" HeightRequest="26" StrokeShape="RoundRectangle 13"
-                                            BackgroundColor="{StaticResource Success}" StrokeThickness="0"
+                                            BackgroundColor="{DynamicResource Success}" StrokeThickness="0"
                                             HorizontalOptions="End" VerticalOptions="Center" IsVisible="{Binding IsPassed}">
                                         <Label Text="✓" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" FontSize="13" />
                                     </Border>

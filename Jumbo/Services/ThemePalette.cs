@@ -14,15 +14,15 @@ public static class ThemePalette
 
     private static readonly Dictionary<string, (Set Light, Set Dark)> Sets = new()
     {
-        [""] = (new("#F28C0F", "#DB7A00", "#C46F00", "#FFF0DC", "#FFD08A", "#1B1B1F", "#B45F00"),
+        [""] = (new("#F6AF57", "#E6A24D", "#D69A4D", "#FFF0DC", "#FFDEAD", "#1B1B1F", "#B45F00"),
                 new("#FFA733", "#FFA733", "#C46F00", "#3A2A12", "#7A4C0A", "#17171A", "#FFA733")),
-        ["a1"] = (new("#E5393B", "#C92A2D", "#B02A2C", "#FDE8E8", "#F5A5A6", "#FFFFFF", "#C92A2D"),
+        ["a1"] = (new("#ED7476", "#D96A6C", "#C86A6B", "#FDE8E8", "#F8C0C1", "#3A1011", "#C92A2D"),
                   new("#FF6B6D", "#FF6B6D", "#B02A2C", "#3D1D1E", "#8A3A3C", "#17171A", "#FF6B6D")),
-        ["a2"] = (new("#FFC21A", "#F0B000", "#C99400", "#FFF5D1", "#FFE28A", "#3B2A00", "#8A6200"),
+        ["a2"] = (new("#FFD45F", "#F5C84D", "#D9B44D", "#FFF5D1", "#FFEBAD", "#3B2A00", "#8A6200"),
                   new("#FFD54A", "#FFD54A", "#C99400", "#3A3213", "#8A7020", "#17171A", "#FFD54A")),
-        ["b1"] = (new("#2F9E44", "#2A8C3D", "#237A33", "#E4F6E5", "#9AD9A3", "#FFFFFF", "#237A33"),
+        ["b1"] = (new("#6DBB7C", "#6AAF77", "#65A270", "#E4F6E5", "#B8E4BF", "#12351A", "#237A33"),
                   new("#5CD16A", "#5CD16A", "#2F9E44", "#183322", "#2F6B3A", "#17171A", "#5CD16A")),
-        ["b2"] = (new("#7C4DFF", "#6A3DE8", "#5B34C7", "#EDE7FF", "#C8B6FF", "#FFFFFF", "#5B34C7"),
+        ["b2"] = (new("#A382FF", "#9777EF", "#8C71D8", "#EDE7FF", "#D9CCFF", "#2A1566", "#5B34C7"),
                   new("#A98BFF", "#A98BFF", "#7A5AD8", "#2A2245", "#5B47A0", "#17171A", "#A98BFF")),
     };
 
@@ -46,7 +46,7 @@ public static class ThemePalette
     public static Color PrimarySoft => Color.FromArgb(Current.Soft);
     public static Color OnPrimary => Color.FromArgb(Current.On);
     public static Color PrimaryText => Color.FromArgb(Current.Text);
-    public static Color Brand => Color.FromArgb(Dark ? "#E8890C" : "#F28C0F");
+    public static Color Brand => Color.FromArgb(Dark ? "#E8890C" : "#F6AF57");
     public static Color OnBrand => Color.FromArgb(Dark ? "#17171A" : "#1B1B1F");
 
     /// <summary>Starts to follow the theme of the system / the choice of the learner.</summary>
@@ -84,6 +84,11 @@ public static class ThemePalette
             r["Brand"] = Color.FromArgb(Dark ? "#E8890C" : b.P);
             r["BrandDark"] = Color.FromArgb(Dark ? "#C46F00" : b.Dark);
             r["OnBrand"] = Color.FromArgb(b.On);
+            // the colours of success and of a mistake: 30 % lighter in the light theme (as on the website), the text versions stay readable
+            r["Success"] = Color.FromArgb(Dark ? "#58CC02" : "#8ADB4E");
+            r["Danger"] = Color.FromArgb(Dark ? "#FF4B4B" : "#FF8181");
+            r["SuccessText"] = Color.FromArgb(Dark ? "#7BE02B" : "#3E9202");
+            r["DangerText"] = Color.FromArgb(Dark ? "#FF6B6B" : "#D93636");
 #if ANDROID
             // the bar of the phone above the title bar has the same orange (it took a fixed colour from the Android theme before)
             try

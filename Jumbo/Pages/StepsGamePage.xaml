@@ -122,10 +122,10 @@
                             <!-- Цвет меняется при ответе -->
                             <Border.Triggers>
                                 <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Correct">
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Success}"/>
+                                    <Setter Property="BackgroundColor" Value="{DynamicResource Success}"/>
                                 </DataTrigger>
                                 <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Wrong">
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Danger}"/>
+                                    <Setter Property="BackgroundColor" Value="{DynamicResource Danger}"/>
                                 </DataTrigger>
                             </Border.Triggers>
 
@@ -197,7 +197,7 @@
                                                      VerticalOptions="Center">
                                             <ProgressBar.Triggers>
                                                 <DataTrigger TargetType="ProgressBar" Binding="{Binding IsTarget}" Value="True">
-                                                    <Setter Property="ProgressColor" Value="{StaticResource Success}"/>
+                                                    <Setter Property="ProgressColor" Value="{DynamicResource Success}"/>
                                                 </DataTrigger>
                                                 <DataTrigger TargetType="ProgressBar" Binding="{Binding IsTarget}" Value="False">
                                                     <Setter Property="ProgressColor" Value="{DynamicResource Primary}"/>
@@ -253,7 +253,7 @@
                                Margin="2,2">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsPassed}" Value="True">
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Success}"/>
+                                    <Setter Property="BackgroundColor" Value="{DynamicResource Success}"/>
                                     <Setter Property="Opacity" Value="0.7"/>
                                 </DataTrigger>
                                 <DataTrigger TargetType="Label" Binding="{Binding IsCurrent}" Value="True">
