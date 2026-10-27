@@ -1,0 +1,147 @@
+/* =====================================================================
+   The Jumbo section of the website looks like the mobile app: the title bar with the small icons, the bottom menu with a pill under the
+   active tab, cards pressed INTO the page on the home page, one section "books + progress", a coloured Rating button, lessons as rows,
+   the cards of the game in the colour of the level. (Loaded last: it wins over app.css / jumbo-theme.css / home.css.)
+   ===================================================================== */
+:root {
+    --inset-bg: linear-gradient(to bottom, #D3D9E1 0%, #E3E8EE 7%, #E9EDF2 93%, #F8F9FB 100%);
+    --inset-border: #D2D8E0;
+    --inset-shade: linear-gradient(to bottom, rgba(0,0,0,0.23) 0%, transparent 12%, transparent 90%, rgba(255,255,255,0.44) 100%);
+    --lp-tabs-h: 72px;
+}
+:root[data-theme="dark"] {
+    --inset-bg: linear-gradient(to bottom, #020203 0%, #070709 7%, #0A0A0C 93%, #1B1B20 100%);
+    --inset-border: #000;
+    --inset-shade: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 12%, transparent 90%, rgba(255,255,255,0.28) 100%);
+}
+
+/* ----- title bar: Jumbo, the small icons with their numbers, the language, the theme, the avatar ----- */
+.lp-header { gap: 8px; padding: 0 12px; }
+.lp-header-brand { flex: 0 0 auto; min-width: 0; gap: 6px; font-size: 1.15rem; }
+.lp-header-title { font-size: 1.2rem; font-weight: 900; letter-spacing: -0.2px; color: var(--lp-on-brand); }
+.lp-hamburger { font-size: 1.3rem; padding: 4px 6px; }
+.lp-header .stat-strip {
+    flex: 1 1 auto; min-width: 0; justify-content: flex-end; gap: 2px 7px; padding: 0; margin: 0 4px 0 auto; overflow: visible;
+    background: none; border: 0;
+}
+.lp-header .stat-chip {
+    position: relative; display: inline-flex; align-items: flex-end; gap: 0; padding: 0; border: 0; background: none; border-radius: 0;
+    color: var(--lp-on-brand); font-size: 0.8rem; opacity: 1;
+}
+.lp-header .stat-ico { width: 22px; height: 22px; display: block; }
+.lp-header .stat-chip b { font-size: 0.74rem; font-weight: 900; margin: 0 0 -2px -2px; color: var(--lp-on-brand); line-height: 1; }
+.lp-header .stat-chip.streak:not(.alive) .stat-ico { opacity: 0.6; }
+.lp-header .stat-chip.lives.empty .stat-ico { filter: grayscale(1); opacity: 0.7; }
+.lp-header .stat-chip.block b { font-variant-numeric: tabular-nums; color: var(--lp-on-brand); }
+.lp-header .stat-chip.level { align-items: center; }
+.lp-header .stat-chip .stat-level {
+    margin: 0; padding: 2px 7px; border-radius: 8px; font-size: 0.78rem; line-height: 1.2;
+    background: var(--lp-on-brand); color: var(--lp-brand);
+}
+.lp-header-status { gap: 6px; }
+.lp-header .theme-toggle img { width: 22px; height: 22px; margin: auto; }
+.lp-header .theme-toggle .tt-sun { display: none; }
+:root[data-theme="dark"] .lp-header .theme-toggle .tt-sun { display: block; }
+:root[data-theme="dark"] .lp-header .theme-toggle .tt-moon { display: none; }
+.lp-header .theme-toggle .tt-moon { display: block; }
+.lp-header .theme-toggle { width: 34px; height: 34px; display: grid; place-items: center; padding: 0; }
+.lp-header-avatar { display: flex; text-decoration: none; position: relative; }
+.lp-header-avatar .user-avatar { border-radius: 24%; margin: 0; }
+.lp-header-avatar.letter .user-avatar { background: var(--lp-on-brand); }
+.lp-header-avatar.letter .user-avatar-fallback { background: transparent; color: var(--lp-brand); font-weight: 900; }
+@media (max-width: 560px) {
+    .lp-header .lang-switch { display: none; }          /* the language is in the settings; the bar keeps the room for the numbers */
+    .lp-header { padding: 0 8px; gap: 4px; }
+    .lp-header .stat-chip .stat-ico { width: 20px; height: 20px; }
+    .lp-header .stat-strip { gap: 2px 5px; }
+}
+@media (max-width: 400px) {
+    .lp-header-title { font-size: 1rem; }
+    .lp-hamburger { font-size: 1.15rem; padding: 2px 3px; }
+}
+
+/* ----- the bottom menu: the picture, a pill under the active one, the caption in the usual letters ----- */
+.lp-tabs { border-top: 0; box-shadow: 0 -1px 0 var(--lp-border); background: var(--lp-surface); }
+.lp-tab { gap: 3px; padding: 8px 0 6px; }
+.tab-icon { width: 64px; height: 32px; display: grid; place-items: center; border-radius: 16px; font-size: 0; transition: background 0.15s; }
+.tab-icon img { width: 26px; height: 26px; display: block; }
+.lp-tab.active .tab-icon { background: var(--lp-primary-soft); }
+.tab-label { text-transform: none; font-size: 0.76rem; font-weight: 700; letter-spacing: 0; color: var(--lp-muted); }
+.lp-tab.active .tab-label { color: var(--lp-primary-text); font-weight: 900; }
+@media (max-width: 400px) { .tab-icon { width: 54px; } .tab-label { font-size: 0.7rem; } }
+
+/* ----- section titles ----- */
+.lp-section-title { text-transform: none; letter-spacing: 0; font-size: 1.3rem; font-weight: 900; color: var(--lp-text); margin: 14px 2px 8px; }
+
+/* ----- home: cards pressed into the page ----- */
+.continue-card, .daily-card {
+    background: var(--inset-bg); border: 1.5px solid var(--inset-border); border-radius: 22px; color: var(--lp-text); box-shadow: none;
+}
+.continue-card { padding: 12px 14px; }
+.continue-card:hover { filter: none; color: var(--lp-text); }
+.continue-card:active { transform: none; border-bottom-width: 1.5px; }
+.continue-done { background: var(--inset-bg); border-bottom-color: var(--inset-border); }
+.continue-tiger { box-shadow: none; }
+.continue-label { font-size: 0.78rem; letter-spacing: 0.4px; color: var(--lp-primary-text); opacity: 1; }
+.continue-topic { font-size: 1.1rem; }
+.continue-play {
+    background: var(--lp-primary); color: var(--lp-on-primary); border-bottom: 4px solid var(--lp-primary-shadow);
+    text-transform: none; font-size: 1.05rem; letter-spacing: 0; padding: 10px 22px;
+}
+.daily-card { padding: 14px; }
+.daily-card.met { border-color: var(--inset-border); }
+
+/* books and the progress under them are ONE section: no title, the bar, "15 / 3000" on the left, the percent on the right */
+.book-chips + .overall-progress-bar, .confirm-overlay + .overall-progress-bar { margin-top: 2px; }
+.overall-progress-bar { height: 10px; background: var(--lp-border); border-radius: 6px; margin: 0 2px; }
+.overall-progress-fill { border-radius: 6px; }
+.overall-progress-label { display: flex; justify-content: space-between; align-items: baseline; text-align: left; margin: 8px 2px 14px; font-size: 0.85rem; font-weight: 700; }
+.overall-progress-label b { color: var(--lp-success); font-size: 0.98rem; font-weight: 900; }
+
+/* "Repeat the words": neutral card (the colour of the dominant level of the letters), pressed in, dark letters */
+.alphabet-cta, .stats-tile.rate { position: relative; overflow: hidden; border-radius: 22px; border: 0; box-shadow: none; }
+.alphabet-cta::after, .stats-tile.rate::after { content: ""; position: absolute; inset: 0; background: var(--inset-shade); pointer-events: none; }
+.alphabet-cta { color: #1B1B1F; margin-top: 14px; padding: 16px 18px; }
+:root[data-theme="dark"] .alphabet-cta { filter: none; color: #F2F2F4; background: color-mix(in srgb, var(--cta-color, #9E9E9E) 28%, #0C0C0E); }
+.alphabet-cta:active { transform: none; box-shadow: none; }
+.alphabet-cta-icon { background: none; width: auto; height: auto; font-size: 1.9rem; }
+.alphabet-cta-title { text-shadow: none; }
+.alphabet-cta-hint { font-weight: 600; opacity: 0.75; }
+
+/* "Rating": the whole card in the colour of the level, with an arrow */
+.stats-row { grid-template-columns: 1fr; margin: 14px 0 6px; }
+.stats-tile.rate { background: var(--lp-primary); color: var(--lp-on-primary); padding: 16px 18px; gap: 14px; }
+.stats-tile.rate:hover { color: var(--lp-on-primary); }
+.stats-tile.rate .stats-badge { background: none; min-width: 0; height: auto; padding: 0; font-size: 1.9rem; }
+.stats-tile.rate .stats-label { font-size: 1.15rem; font-weight: 900; }
+.stats-tile.rate .stats-label small, .stats-tile.rate .stats-sub { color: var(--lp-on-primary); opacity: 0.75; font-weight: 600; font-size: 0.85rem; }
+.stats-tile.rate .stats-text { flex: 1; }
+.stats-arrow { position: relative; z-index: 1; font-size: 1.5rem; font-weight: 900; }
+
+/* ----- a topic: the four lessons as rows (the picture on the left, the name and the hint) ----- */
+.lesson-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.lesson-card {
+    display: grid; grid-template-columns: auto 1fr; column-gap: 14px; align-items: center; text-align: left; padding: 12px 16px;
+    border-bottom-width: 2px; grid-column: auto;
+}
+.lesson-grid .lesson-card:last-child:nth-child(odd) { grid-column: auto; }
+.lesson-icon { grid-row: 1 / 3; margin: 0; font-size: 2rem; width: 44px; text-align: center; }
+.lesson-name { font-size: 1.1rem; font-weight: 900; }
+.lesson-desc { margin-top: 0; }
+.lesson-card:hover { transform: none; }
+.lesson-card:active { transform: none; border-bottom-width: 2px; }
+.lesson-check { top: 50%; transform: translateY(-50%); }
+
+/* ----- the game "Find me": the card is in the colour of the level, the word in dark / white ----- */
+.game-cards-grid4 .game-card {
+    background: var(--lp-primary); border: 0; border-radius: 16px; padding: 6px 6px 10px; color: var(--lp-on-primary);
+    box-shadow: none; overflow: hidden;
+}
+.game-cards-grid4 .game-card:hover { background: var(--lp-primary); border: 0; transform: none; filter: brightness(1.05); }
+.game-cards-grid4 .game-card:active { transform: scale(0.97); border: 0; }
+.game-cards-grid4 .game-card-svg { width: 100%; }
+.game-cards-grid4 .game-card-svg, .game-cards-grid4 .game-card-svg svg { width: 100%; max-width: 160px; height: auto; aspect-ratio: 1; border-radius: 12px; }
+.game-cards-grid4 .game-card-label { color: var(--lp-on-primary); font-weight: 800; }
+.game-cards-grid4 .game-card.matched { background: var(--lp-success); opacity: 0.45; border: 0; }
+.game-cards-grid4 .game-card.wrong-flash { background: var(--lp-error); border: 0; }
+@media (min-width: 560px) { .game-cards-grid4 { grid-template-columns: repeat(3, 1fr); max-width: 560px; margin-inline: auto; } }

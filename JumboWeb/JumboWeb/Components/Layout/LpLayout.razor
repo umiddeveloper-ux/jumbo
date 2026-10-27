@@ -29,12 +29,18 @@
                     }
                     <span class="lp-header-title">@Loc["Common_LpBrand"]</span>
                 </span>
+                <StatStrip />
                 <div class="lp-header-status">
                     <LanguageSwitcher />
                     <ThemeToggle />
+                    @if (UserState.IsRegistered)
+                    {
+                        <a class="lp-header-avatar @(string.IsNullOrWhiteSpace(UserState.CurrentUser?.AvatarSvg) ? "letter" : "")" href="/little-polyglot/settings" title="@Loc["SettingsTitle"]">
+                            <UserAvatar Svg="@UserState.CurrentUser?.AvatarSvg" DisplayName="@UserState.CurrentUser?.FirstName" Size="34" Frame="@UserState.CurrentUser?.FrameKey" Plan="@UserState.CurrentPlan" />
+                        </a>
+                    }
                 </div>
             </header>
-            <StatStrip />
         }
 
         <div class="lp-content @(_isRegisterPage ? "full" : "")">
@@ -48,33 +54,28 @@
             <nav class="lp-tabs">
                 <button class="lp-tab @(IsActive("little-polyglot", exact: true) ? "active" : "")"
                         @onclick='() => Go("/little-polyglot")'>
-                    <span class="tab-icon">🏠</span>
+                    <span class="tab-icon"><img src="icons/tab_home.svg" alt="" /></span>
                     <span class="tab-label">@Loc["LpLayout_HomeTab"]</span>
-                    @if (IsActive("little-polyglot", exact: true)) { <div class="lp-tab-indicator"></div> }
                 </button>
                 <button class="lp-tab @(IsActive("little-polyglot/dictionary") ? "active" : "")"
                         @onclick='() => Go("/little-polyglot/dictionary")'>
-                    <span class="tab-icon">📖</span>
+                    <span class="tab-icon"><img src="icons/tab_dict.svg" alt="" /></span>
                     <span class="tab-label">@Loc["DictionaryTitle"]</span>
-                    @if (IsActive("little-polyglot/dictionary")) { <div class="lp-tab-indicator"></div> }
                 </button>
                 <button class="lp-tab @(IsActive("little-polyglot/awards") ? "active" : "")"
                         @onclick='() => Go("/little-polyglot/awards")'>
-                    <span class="tab-icon">🏆</span>
+                    <span class="tab-icon"><img src="icons/tab_awards.svg" alt="" /></span>
                     <span class="tab-label">@Loc["AwardsTitle"]</span>
-                    @if (IsActive("little-polyglot/awards")) { <div class="lp-tab-indicator"></div> }
                 </button>
                 <button class="lp-tab @(IsActive("little-polyglot/games") ? "active" : "")"
                         @onclick='() => Go("/little-polyglot/games")'>
-                    <span class="tab-icon">🎮</span>
+                    <span class="tab-icon"><img src="icons/tab_games.svg" alt="" /></span>
                     <span class="tab-label">@Loc["Games_Title"]</span>
-                    @if (IsActive("little-polyglot/games")) { <div class="lp-tab-indicator"></div> }
                 </button>
                 <button class="lp-tab @(IsActive("little-polyglot/settings") ? "active" : "")"
                         @onclick='() => Go("/little-polyglot/settings")'>
-                    <span class="tab-icon">⚙️</span>
+                    <span class="tab-icon"><img src="icons/tab_settings.svg" alt="" /></span>
                     <span class="tab-label">@Loc["SettingsTitle"]</span>
-                    @if (IsActive("little-polyglot/settings")) { <div class="lp-tab-indicator"></div> }
                 </button>
             </nav>
         }

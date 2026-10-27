@@ -9,39 +9,34 @@
 @* The learner's strip under the top bar of every page: lives, LP points, the book they are in, the level and the streak. *@
 @if (_ready && UserState.IsRegistered && !UserState.HidesLessons)
 {
+    @* the same line as the title bar of the app: a picture with a small number at its lower right corner; the level is a dark plate *@
     <div class="stat-strip" role="status">
+        <span class="stat-chip book" title="@Loc.Format("Strip_BookHint", Stats.CurrentBook)">
+            <img class="stat-ico" src="icons/ic_book.svg" alt="" /><b>@Stats.CurrentBook</b>
+        </span>
+        <span class="stat-chip level" title="@Loc["Stats_LevelHint"]"><b class="stat-level">@Stats.Level</b></span>
+        <span class="stat-chip streak @(Stats.Streak > 0 ? "alive" : "")" title="@Loc.Format("Strip_StreakHint", Stats.Streak)">
+            <img class="stat-ico" src="icons/ic_fire.svg" alt="" /><b>@Stats.Streak</b>
+        </span>
+        @if (Stats.FreezeCount > 0)
+        {
+            <span class="stat-chip freeze" title="@Loc["Strip_Freeze"]"><img class="stat-ico" src="icons/ic_snow.svg" alt="" /><b>@Stats.FreezeCount</b></span>
+        }
+        @if (Lives.ShieldCount > 0)
+        {
+            <span class="stat-chip shield" title="@Loc["Strip_Shield"]"><img class="stat-ico" src="icons/ic_shield.svg" alt="" /><b>@Lives.ShieldCount</b></span>
+        }
         @if (Lives.IsBlocked)
         {
             @* Out of lives and LP: the 5-hour block, with the time that is left, in place of the lives and the LP. *@
-            <span class="stat-chip block" title="@Loc["Block_Title"]">
-                <span class="stat-ico">⏳</span><b>@Lives.RegenClock</b>
-            </span>
+            <span class="stat-chip block" title="@Loc["Block_Title"]"><img class="stat-ico" src="icons/ic_hourglass.svg" alt="" /><b>@Lives.RegenClock</b></span>
         }
         else
         {
             <span class="stat-chip lives @(Lives.Lives <= 0 ? "empty" : "")" title="@Loc["Strip_Lives"]">
-                <span class="stat-ico">@(Lives.Lives > 0 ? "❤️" : "🖤")</span><b>@(Lives.Unlimited ? "∞" : Lives.Lives.ToString())</b>
+                <img class="stat-ico" src="icons/ic_heart.svg" alt="" /><b>@(Lives.Unlimited ? "∞" : Lives.Lives.ToString())</b>
             </span>
-            <span class="stat-chip lp" title="@Lives.LpExact LP">
-                <span class="stat-ico">💰</span><b>@PointsFormat.Compact(Lives.LpPoints)</b><span class="stat-unit">LP</span>
-            </span>
-        }
-        <span class="stat-chip book" title="@Loc.Format("Strip_BookHint", Stats.CurrentBook)">
-            <span class="stat-ico">📘</span><span class="stat-label">@Loc["Strip_Book"]</span><b>@Stats.CurrentBook</b>
-        </span>
-        <span class="stat-chip level" title="@Loc["Stats_LevelHint"]">
-            <span class="stat-label">@Loc["Strip_Level"]</span><b class="stat-level">@Stats.Level</b>
-        </span>
-        <span class="stat-chip streak @(Stats.Streak > 0 ? "alive" : "")" title="@Loc.Format("Strip_StreakHint", Stats.Streak)">
-            <span class="stat-ico">🔥</span><b>@Stats.Streak</b><span class="stat-label">@Loc["Strip_Days"]</span>
-        </span>
-        @if (Lives.ShieldCount > 0)
-        {
-            <span class="stat-chip shield" title="@Loc["Strip_Shield"]"><span class="stat-ico">🛡️</span><b>@Lives.ShieldCount</b></span>
-        }
-        @if (Stats.FreezeCount > 0)
-        {
-            <span class="stat-chip freeze" title="@Loc["Strip_Freeze"]"><span class="stat-ico">❄️</span><b>@Stats.FreezeCount</b></span>
+            <span class="stat-chip lp" title="@Lives.LpExact LP"><img class="stat-ico" src="icons/ic_gem.svg" alt="" /><b>@PointsFormat.Compact(Lives.LpPoints)</b></span>
         }
     </div>
 }

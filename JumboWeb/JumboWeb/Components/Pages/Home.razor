@@ -98,6 +98,12 @@ else
         }
     </div>
 
+    @* the overall progress is the end of the same section as the books: no title, "15 / 3000" on the left, the percent on the right *@
+    <div class="overall-progress-bar">
+        <div class="overall-progress-fill" style="width: @(_overallProgressPct)%"></div>
+    </div>
+    <div class="overall-progress-label"><span>@_studiedWordsCount / @_totalWordsCount</span><b>@(Math.Round(_totalWordsCount > 0 ? _studiedWordsCount * 100.0 / _totalWordsCount : 0, MidpointRounding.AwayFromZero))%</b></div>
+
     @if (_needBook > 0)
     {
         <div class="confirm-overlay" @onclick="() => _needBook = 0">
@@ -116,12 +122,6 @@ else
         <p class="lp-section-title">@Loc["AlphabetSection"]</p>
         <AlphabetGrid Letters="_letters" OnLetterClick="OnLetterClick" />
     </div>
-
-    <p class="lp-section-title">@Loc["LpHome_OverallProgressTitle"]</p>
-    <div class="overall-progress-bar">
-        <div class="overall-progress-fill" style="width: @(_overallProgressPct)%"></div>
-    </div>
-    <div class="overall-progress-label">@_studiedWordsCount / @_totalWordsCount</div>
 
     @* Mobile: compact button to the alphabet page; its colour follows the dominant repetition level. *@
     <a class="alphabet-cta" href="/little-polyglot/alphabet" style="--cta-color: @LetterColors.BgColor(DominantLetterLevel)">
