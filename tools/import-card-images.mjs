@@ -19,9 +19,19 @@ const outSql = path.resolve(process.argv[2] ?? path.join(root, '.local-test/card
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'jumbo-cards-'));
 
 // the picture inside the card (pixels of the 1323x1843 card): the card has a margin of 45, the level mark and the number are above y=270,
-// the orange wave starts at y=1250
-const CROP = { w: 1233, h: 960, x: 45, y: 270 };
+// the orange wave starts at y=1250. Two layouts exist: the picture on the red card itself (Pronouns, Numbers...), or inside a white rounded
+// frame (Colours...): the second one is found by two white pixels inside the frame, and then only the white frame is cut out.
+const LAYOUTS = {
+  red:   { w: 1233, h: 850, x: 45,  y: 270 },
+  white: { w: 1020, h: 800, x: 150, y: 320 },
+};
 const OUT_W = 420;
+function pixel(png, x, y) {
+  const b = execFileSync('ffmpeg', ['-loglevel', 'error', '-i', png, '-vf', `crop=1:1:${x}:${y}`, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-']);
+  return [b[0], b[1], b[2]];
+}
+const isWhite = p => p.every(v => v > 240);
+function layoutOf(png) { return isWhite(pixel(png, 150, 400)) && isWhite(pixel(png, 150, 700)) ? 'white' : 'red'; }
 
 const zips = fs.readdirSync(imagesDir).filter(f => f.toLowerCase().endsWith('.zip')).sort((a, b) => parseInt(a) - parseInt(b));
 const cards = new Map();      // word id -> png path
@@ -39,6 +49,7 @@ for (const z of zips) {
 console.log(zips.length + ' zips, ' + cards.size + ' cards');
 
 function pictureSvg(png) {
+  const CROP = LAYOUTS[layoutOf(png)];
   const jpg = png + '.jpg';
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', png, '-vf', `crop=${CROP.w}:${CROP.h}:${CROP.x}:${CROP.y},scale=${OUT_W}:-1:flags=lanczos`, '-q:v', '5', jpg]);
   // the colour of the background: the corner of the picture
@@ -50,6 +61,7 @@ function pictureSvg(png) {
 }
 
 const svgById = new Map();
+
 for (const [id, png] of [...cards].sort((a, b) => a[0] - b[0])) svgById.set(id, pictureSvg(png));
 
 // 3. the books
