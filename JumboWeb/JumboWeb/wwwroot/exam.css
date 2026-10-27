@@ -26,7 +26,7 @@
 .exam-step-num {
     width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.95rem; font-weight: 900; color: #fff; background: var(--lp-primary); box-shadow: 0 3px 0 var(--lp-primary-shadow);
+    font-size: 0.95rem; font-weight: 900; color: var(--lp-on-primary); background: var(--lp-primary); box-shadow: 0 3px 0 var(--lp-primary-shadow);
 }
 .exam-card:nth-of-type(2) .exam-step-num { background: var(--lp-success); box-shadow: 0 3px 0 var(--lp-success-dark); }
 
@@ -41,7 +41,7 @@
 }
 .exam-book:hover { border-color: var(--lp-primary-edge); }
 .exam-book:active { transform: translateY(2px); border-bottom-width: 2px; }
-.exam-book-num { font-size: 1.5rem; font-weight: 900; line-height: 1.1; color: var(--lp-primary); }
+.exam-book-num { font-size: 1.5rem; font-weight: 900; line-height: 1.1; color: var(--lp-primary-text); }
 .exam-book-label { font-size: 0.8rem; font-weight: 800; color: var(--lp-muted); }
 .exam-book.selected { background: var(--lp-primary); border-color: var(--lp-primary-shadow); }
 .exam-book.selected .exam-book-num, .exam-book.selected .exam-book-label { color: #fff; }
@@ -60,7 +60,7 @@
     border: 2px solid var(--lp-border); border-bottom-width: 4px; border-radius: 14px;
     -webkit-tap-highlight-color: transparent;
 }
-.exam-mode.on { color: #fff; background: var(--lp-primary); border-color: var(--lp-primary-shadow); }
+.exam-mode.on { color: var(--lp-on-primary); background: var(--lp-primary); border-color: var(--lp-primary-shadow); }
 .exam-note { margin: 10px 0 0; font-size: 0.82rem; font-weight: 600; color: var(--lp-muted); }
 .exam-code-input {
     width: 100%; box-sizing: border-box; padding: 14px 10px; text-align: center;

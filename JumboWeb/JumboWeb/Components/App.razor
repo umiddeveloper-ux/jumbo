@@ -26,6 +26,19 @@
             // the colour theme bought in the market (the page sets the right one of the learner once it knows who it is)
             try { var p = localStorage.getItem('lp-palette'); if (p) document.documentElement.setAttribute('data-palette', p); } catch (e) { }
         })();
+        // The colour of the level of a book (A1 red, A2 yellow, B1 green, B2 violet): pages of a book, a topic and its games.
+        // The games know only the topic: they take the level of the last book page of this tab. The themes of the market win (data-palette).
+        window.lpLevelOfPath = function (path) {
+            var m = /^\/little-polyglot\/(?:book|subjects|unlock)\/(\d+)/.exec(path) || /^\/topic\/(\d+)\//.exec(path) || /^\/exam\/quiz\/(\d+)\//.exec(path);
+            var level = '';
+            if (m) { var n = +m[1]; level = n <= 3 ? 'a1' : n <= 6 ? 'a2' : n <= 10 ? 'b1' : 'b2'; try { sessionStorage.setItem('lp-level', level); } catch (e) { } }
+            else if (/^\/little-polyglot\/games\/[a-z]+\/\d+/.test(path)) { try { level = sessionStorage.getItem('lp-level') || ''; } catch (e) { } }
+            return level;
+        };
+        (function () {
+            var root = document.documentElement, level = window.lpLevelOfPath(location.pathname);
+            if (level && !root.hasAttribute('data-palette')) root.setAttribute('data-level', level);
+        })();
     </script>
     <script>
         // First visit, nobody has picked a language yet: guess it from the country. The browser's time zone tells the country without
@@ -75,7 +88,7 @@
     <link rel="icon" type="image/svg+xml" href="@Assets["favicon.svg"]" />
     <link rel="alternate icon" type="image/png" href="@Assets["favicon.png"]" />
     <link rel="apple-touch-icon" href="@Assets["apple-touch-icon.png"]" />
-    <meta name="theme-color" content="#1CB0F6" />
+    <meta name="theme-color" content="#F28C0F" />
     <HeadOutlet />
 </head>
 
@@ -522,9 +535,14 @@
                 document.body.removeChild(ta);
             },
             // The colour theme of the market ('' = the usual colours).
+            // The colour of the level of the book for the page that is open now (called by the layout when the address changes).
+            setLevelFromPath: function (path) {
+                var root = document.documentElement, level = window.lpLevelOfPath(path);
+                if (level && !root.hasAttribute('data-palette')) root.setAttribute('data-level', level); else root.removeAttribute('data-level');
+            },
             setPalette: function (key) {
                 var root = document.documentElement;
-                if (key) root.setAttribute('data-palette', key); else root.removeAttribute('data-palette');
+                if (key) { root.setAttribute('data-palette', key); root.removeAttribute('data-level'); } else root.removeAttribute('data-palette');
                 try { if (key) localStorage.setItem('lp-palette', key); else localStorage.removeItem('lp-palette'); } catch (e) { }
             },
             // A small memory of the browser (the results of the games of Book 0): a failure (private mode) is never an error.

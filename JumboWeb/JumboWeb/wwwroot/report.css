@@ -4,7 +4,7 @@
 .rp { max-width: none; margin: 0 auto; padding: 22px 28px 40px; }
 .rp-center { text-align: center; padding-top: 60px; }
 .rp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
-.rp-brand { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 6px; font-weight: 900; color: var(--lp-primary); }
+.rp-brand { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 6px; font-weight: 900; color: var(--lp-primary-text); }
 .rp-brand img { width: 26px; height: 26px; }
 .rp-title { margin: 0 0 4px; font-size: 1.8rem; font-weight: 900; color: var(--lp-text); overflow-wrap: anywhere; }
 .rp-sub { margin: 0 0 2px; font-weight: 700; color: var(--lp-muted); }
@@ -81,7 +81,7 @@
 .te-head { align-items: flex-start; }
 .te-tools { margin: 0 0 10px; }
 .te-total-col { border-left: 2px solid var(--lp-border); }
-.te-table td.te-total-col b { font-weight: 900; color: var(--lp-primary); }
+.te-table td.te-total-col b { font-weight: 900; color: var(--lp-primary-text); }
 
 /* Telegram recipients in the teacher cabinet */
 .tc-telegram .tg-row { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; margin: 10px 0 14px; padding-bottom: 12px; border-bottom: 2px dashed var(--lp-border); }

@@ -290,6 +290,7 @@
     {
         _currentPath = GetPath(e.Location);
         _sidebarOpen = false;
+        InvokeAsync(async () => { try { await JS.InvokeVoidAsync("lp.setLevelFromPath", "/" + _currentPath); } catch { } });   // the colour of the level of the book
         if (!UserState.IsRegistered && !_isPublicPath)
             Nav.NavigateTo(LoginUrl(), replace: true);
         else if (StaffRedirect() is { } to)

@@ -5,7 +5,7 @@
 .tc-title { margin: 0 0 6px; font-size: 1.8rem; font-weight: 900; color: var(--lp-text); display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
 .tc-school { margin: 0 0 16px; font-weight: 800; color: var(--lp-muted); }
 .tc-sub { margin: 22px 0 10px; font-size: 1.3rem; font-weight: 900; color: var(--lp-text); }
-.tc-back { display: inline-block; margin-bottom: 10px; font-weight: 800; color: var(--lp-primary); text-decoration: none; }
+.tc-back { display: inline-block; margin-bottom: 10px; font-weight: 800; color: var(--lp-primary-text); text-decoration: none; }
 .tc-back:hover { text-decoration: underline; }
 .tc-head { margin-bottom: 6px; }
 .tc-badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 900; background: var(--lp-bg); color: var(--lp-muted); border: 2px solid var(--lp-border); }
@@ -25,7 +25,7 @@
 .tc-class-name { font-size: 1.3rem; font-weight: 900; overflow-wrap: anywhere; }
 .tc-class-teacher { font-size: 0.88rem; font-weight: 700; color: var(--lp-muted); margin-bottom: 4px; }
 .tc-class-code { margin-top: 10px; font-size: 0.88rem; font-weight: 700; color: var(--lp-muted); }
-.tc-class-code b { letter-spacing: 0.12em; color: var(--lp-primary); }
+.tc-class-code b { letter-spacing: 0.12em; color: var(--lp-primary-text); }
 
 .tc-stats, .tc-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
 .tc-summary { margin: 0 0 6px; }
@@ -35,7 +35,7 @@
 
 /* pending requests */
 .tc-link { padding: 0; font-family: inherit; font-weight: 800; font-size: 0.9rem; color: var(--lp-muted); background: none; border: 0; cursor: pointer; }
-.tc-link:hover:not(:disabled) { color: var(--lp-primary); text-decoration: underline; }
+.tc-link:hover:not(:disabled) { color: var(--lp-primary-text); text-decoration: underline; }
 /* ----- teacher's exam (6-digit code) ----- */
 .te-entry { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--lp-text); cursor: pointer; }
 .te-entry:hover { border-color: var(--lp-primary-edge); }
@@ -43,12 +43,12 @@
 .te-entry-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .te-entry-text b { font-size: 1.1rem; font-weight: 900; }
 .te-entry-text small { font-size: 0.85rem; font-weight: 600; color: var(--lp-muted); }
-.te-entry-go { font-size: 1.5rem; font-weight: 900; color: var(--lp-primary); }
+.te-entry-go { font-size: 1.5rem; font-weight: 900; color: var(--lp-primary-text); }
 .te-intro { margin: 0 0 14px; font-weight: 600; color: var(--lp-muted); line-height: 1.4; }
 .te-counts { margin: 8px 0 16px; }
 .te-start { margin-top: 4px; }
 .te-codecard { text-align: center; }
-.te-code { font-size: clamp(2.6rem, 14vw, 4.6rem); font-weight: 900; letter-spacing: 0.12em; line-height: 1.1; color: var(--lp-primary); margin: 6px 0; font-variant-numeric: tabular-nums; }
+.te-code { font-size: clamp(2.6rem, 14vw, 4.6rem); font-weight: 900; letter-spacing: 0.12em; line-height: 1.1; color: var(--lp-primary-text); margin: 6px 0; font-variant-numeric: tabular-nums; }
 .te-codecard.over .te-code { color: var(--lp-muted); text-decoration: line-through; }
 .te-timer { font-size: 1.25rem; font-weight: 900; color: var(--lp-success-dark); }
 .te-timer.over { color: var(--lp-danger, #e5484d); }
@@ -75,7 +75,7 @@
 .te-hist-row:hover { border-color: var(--lp-primary-edge); }
 .te-hist-date { font-weight: 900; white-space: nowrap; }
 .te-hist-main { flex: 1; min-width: 0; font-weight: 700; color: var(--lp-muted); font-size: 0.9rem; }
-.te-hist-avg { font-weight: 900; color: var(--lp-primary); }
+.te-hist-avg { font-weight: 900; color: var(--lp-primary-text); }
 
 .tc-hint { margin: 4px 0 0; font-size: 0.82rem; font-weight: 600; color: var(--lp-muted); }
 .tc-alert { margin: 0 0 14px; padding: 11px 14px; border-radius: 16px; font-weight: 900; color: #8A6A00; background: #FFF4C2; border: 2px solid #FFD95E; }
@@ -137,7 +137,7 @@
 
 /* pupil name -> the pupil's page */
 .tc-name-link { color: inherit; text-decoration: none; font-weight: 800; }
-.tc-name-link:hover { color: var(--lp-primary); text-decoration: underline; }
+.tc-name-link:hover { color: var(--lp-primary-text); text-decoration: underline; }
 
 /* ----- one pupil, book by book ----- */
 .ts-head { margin-bottom: 4px; }
@@ -153,7 +153,7 @@
 .ts-book-sum { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(120px, 1.2fr) minmax(0, 3fr); gap: 8px 18px; align-items: center; padding: 14px 18px; cursor: pointer; list-style: none; }
 .ts-book-sum::-webkit-details-marker { display: none; }
 .ts-book-title { font-size: 1.15rem; font-weight: 900; color: var(--lp-text); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.ts-now { padding: 2px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 900; color: #fff; background: var(--lp-primary); }
+.ts-now { padding: 2px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 900; color: var(--lp-on-primary); background: var(--lp-primary); }
 .ts-book-bar { height: 10px; border-radius: 999px; background: var(--lp-bg); border: 2px solid var(--lp-border); overflow: hidden; }
 .ts-book-bar i { display: block; height: 100%; background: var(--lp-success); border-radius: 999px; }
 .ts-book-stats { display: flex; flex-wrap: wrap; gap: 6px 22px; font-weight: 700; font-size: 0.92rem; color: var(--lp-muted); }
@@ -183,7 +183,7 @@
 .te-team-stats { grid-template-columns: repeat(2, 1fr); }
 .te-books th.num, .te-books td.num { text-align: center; }
 .te-books .name a { color: var(--lp-text); text-decoration: none; }
-.te-books .name a:hover { color: var(--lp-primary); text-decoration: underline; }
+.te-books .name a:hover { color: var(--lp-primary-text); text-decoration: underline; }
 .te-books th:first-child, .te-books td.name { position: sticky; left: 0; z-index: 1; background: var(--lp-surface); }
 .te-words { font-size: 1.05rem; font-weight: 900; font-variant-numeric: tabular-nums; }
 .te-words.hi { color: var(--lp-success-dark); }
@@ -217,7 +217,7 @@
 .jr-cell.done { background: rgba(88, 204, 2, 0.18); }
 .jr-cell.done:hover { background: rgba(88, 204, 2, 0.30); }
 .jr-date { font-weight: 900; font-size: .78rem; color: var(--lp-success-dark, #3f9e00); }
-.jr-dot { color: var(--lp-primary); font-size: .7rem; opacity: .8; }
+.jr-dot { color: var(--lp-primary-text); font-size: .7rem; opacity: .8; }
 .jr-foot td { background: var(--lp-primary-soft); font-weight: 900; color: var(--lp-text); height: 32px; }
 .jr-legend { margin: 10px 2px 0; font-size: .85rem; color: var(--lp-muted); line-height: 1.5; }
 .jr-pop { position: fixed; inset: 0; z-index: 3600; display: grid; place-items: center; padding: 16px; background: rgba(8, 16, 30, 0.6); }

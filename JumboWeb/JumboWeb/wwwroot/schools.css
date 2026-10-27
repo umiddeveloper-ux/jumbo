@@ -2,8 +2,8 @@
    "For schools" page and the admin panel
    ===================================================================== */
 .land-nav-link { font-weight: 900; font-size: 0.92rem; color: var(--lp-text); text-decoration: none; padding: 8px 10px; border-radius: 10px; white-space: nowrap; }
-.land-nav-link:hover { background: var(--lp-primary-soft); color: var(--lp-primary); }
-.land-footer a { color: var(--lp-primary); font-weight: 800; text-decoration: none; }
+.land-nav-link:hover { background: var(--lp-primary-soft); color: var(--lp-primary-text); }
+.land-footer a { color: var(--lp-primary-text); font-weight: 800; text-decoration: none; }
 @media (max-width: 767px) { .land-nav-link { display: none; } }   /* reachable from the footer on phones */
 
 .fs-wrap .fs, .fs.land { max-width: 860px; margin: 0 auto; padding: 0 20px 40px; }
@@ -38,7 +38,7 @@
     background: var(--lp-bg); border: 2px solid var(--lp-border); border-bottom-width: 4px; border-radius: 16px;
 }
 .fs-role span { font-size: 1.4rem; }
-.fs-role.on { background: var(--lp-primary-soft); border-color: var(--lp-primary); color: var(--lp-primary); }
+.fs-role.on { background: var(--lp-primary-soft); border-color: var(--lp-primary); color: var(--lp-primary-text); }
 .fs-textarea { resize: vertical; min-height: 80px; font-family: inherit; }
 
 @media (max-width: 700px) {
@@ -87,7 +87,7 @@
 .pp-card.mine { border-color: var(--lp-primary); }
 .pp-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .pp-head h2 { margin: 0; font-size: 1.35rem; font-weight: 900; color: var(--lp-text); }
-.pp-badge { margin-left: auto; padding: 3px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 900; color: #fff; background: var(--lp-primary); }
+.pp-badge { margin-left: auto; padding: 3px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 900; color: var(--lp-on-primary); background: var(--lp-primary); }
 .pp-price { font-size: 1.05rem; color: var(--lp-text); }
 .pp-price b { font-size: 1.5rem; font-weight: 900; }
 .pp-price span { color: var(--lp-muted); font-weight: 700; }

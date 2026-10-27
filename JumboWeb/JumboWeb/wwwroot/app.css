@@ -123,7 +123,7 @@ html, body {
     -webkit-tap-highlight-color: transparent;
     font-family: inherit;
 }
-.lp-tab.active { color: var(--lp-primary); }
+.lp-tab.active { color: var(--lp-primary-text); }
 .tab-icon  { font-size: 1.3rem; line-height: 1; }
 .tab-label { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; }
 .lp-tab-indicator { width: 20px; height: 3px; background: var(--lp-primary); border-radius: 2px; margin-top: 2px; }
@@ -131,7 +131,7 @@ html, body {
 /* ===== Loading / Spinner ===== */
 .lp-loading {
     display: flex; align-items: center; justify-content: center;
-    height: 100vh; color: var(--lp-primary);
+    height: 100vh; color: var(--lp-primary-text);
     font-size: 1rem; background: var(--lp-bg);
 }
 .lp-spinner-wrap { text-align: center; padding: 40px 20px; color: var(--lp-muted); font-size: 0.9rem; }
@@ -159,7 +159,7 @@ html, body {
 
 /* ===== Back Button ===== */
 .lp-back-btn {
-    background: none; border: none; color: var(--lp-primary);
+    background: none; border: none; color: var(--lp-primary-text);
     font-size: 0.88rem; font-weight: 600; cursor: pointer;
     padding: 0; margin-bottom: 10px; display: flex; align-items: center; gap: 4px;
     font-family: inherit;
@@ -199,7 +199,7 @@ html, body {
 .book-card:not(.locked):active { transform: scale(0.96); }
 .book-card.locked { opacity: 0.4; cursor: not-allowed; }
 .book-card.selected { border: 2.5px solid var(--lp-primary); background: var(--lp-primary-soft); }
-.book-number { font-size: 2rem; font-weight: 800; color: var(--lp-primary); line-height: 1; }
+.book-number { font-size: 2rem; font-weight: 800; color: var(--lp-primary-text); line-height: 1; }
 .book-title  { font-size: 0.85rem; color: var(--lp-muted); margin-top: 3px; }
 .book-lock   { font-size: 1.1rem; margin-top: 8px; }
 .book-progress-bar { height: 3px; background: var(--lp-border); border-radius: 2px; margin-top: 10px; overflow: hidden; }
@@ -226,7 +226,7 @@ html, body {
 /* The number of the word in the printed book */
 .word-num {
     min-width: 46px; flex-shrink: 0; text-align: center; line-height: 1.1;
-    font-size: 1.15rem; font-weight: 900; color: var(--lp-primary);
+    font-size: 1.15rem; font-weight: 900; color: var(--lp-primary-text);
 }
 .word-num small { display: block; font-size: 0.65rem; font-weight: 800; color: var(--lp-muted); }
 .word-svg { width: 44px; height: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
@@ -245,7 +245,7 @@ html, body {
 .lp-btn {
     padding: 9px 20px; border-radius: 9px; border: none;
     font-size: 0.85rem; font-weight: 700; cursor: pointer;
-    background: var(--lp-primary); color: white;
+    background: var(--lp-primary); color: var(--lp-on-primary);
     transition: opacity 0.15s; font-family: inherit;
 }
 .lp-btn:disabled { background: var(--lp-border); color: var(--lp-muted); cursor: not-allowed; }
@@ -254,7 +254,7 @@ html, body {
 .lp-btn-primary {
     display: block; width: 100%; padding: 14px;
     background: linear-gradient(135deg, var(--lp-primary), var(--lp-primary-dark));
-    color: white; border: none; border-radius: 12px;
+    color: var(--lp-on-primary); border: none; border-radius: 12px;
     font-size: 1rem; font-weight: 700; cursor: pointer;
     margin-top: 10px; transition: opacity 0.15s; font-family: inherit;
 }
@@ -279,7 +279,7 @@ html, body {
 .lp-badge {
     display: inline-block; padding: 2px 9px; border-radius: 20px;
     font-size: 0.85rem; font-weight: 700;
-    background: rgba(123,92,245,0.1); color: var(--lp-primary);
+    background: rgba(123,92,245,0.1); color: var(--lp-primary-text);
 }
 
 /* ===== Subjects ===== */
@@ -337,7 +337,7 @@ html, body {
 .topic-word-trans { font-size: 0.88rem; color: var(--lp-muted); overflow-wrap: anywhere; }
 .topic-word-speak {
     width: 36px; height: 36px; border-radius: 50%; border: none;
-    background: var(--lp-primary); color: white; font-size: 1rem; cursor: pointer;
+    background: var(--lp-primary); color: var(--lp-on-primary); font-size: 1rem; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 2px 6px rgba(123,92,245,0.3); -webkit-tap-highlight-color: transparent;
 }
@@ -381,7 +381,7 @@ html, body {
 .lp-register-subtitle { font-size: 0.85rem; color: var(--lp-muted); text-align: center; margin: 0 0 22px; }
 .lp-field-label { font-size: 0.85rem; color: var(--lp-muted); font-weight: 600; margin-bottom: 4px; }
 .lp-register-switch { text-align: center; font-size: 0.85rem; color: var(--lp-muted); margin: 16px 0 0; }
-.lp-register-switch a { color: var(--lp-primary); font-weight: 700; text-decoration: none; }
+.lp-register-switch a { color: var(--lp-primary-text); font-weight: 700; text-decoration: none; }
 
 /* ===== Login ===== */
 .login-tabs { display: flex; gap: 6px; background: var(--lp-bg); border-radius: 10px; padding: 4px; margin-bottom: 18px; }
@@ -467,7 +467,7 @@ html, body {
     height: 6.8rem; display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
 .seq-countdown {
-    font-size: 3rem; font-weight: 800; color: var(--lp-primary);
+    font-size: 3rem; font-weight: 800; color: var(--lp-primary-text);
     animation: seq-pop 0.25s ease-out;
 }
 @keyframes seq-pop {
@@ -481,7 +481,7 @@ html, body {
     display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
     animation: seq-pop 0.2s ease-out;
 }
-.seq-round-info { font-size: 0.8rem; color: var(--lp-primary); font-weight: 800; white-space: nowrap; }
+.seq-round-info { font-size: 0.8rem; color: var(--lp-primary-text); font-weight: 800; white-space: nowrap; }
 /* tiger + round label, side by side in the top bar */
 .game-coach-wrap { display: flex; align-items: center; gap: 8px; margin: 0 auto; }
 .game-coach-wrap .coach { margin: 0; }
@@ -501,7 +501,7 @@ html, body {
 .seq-badge {
     position: absolute; top: 6px; right: 6px;
     width: 20px; height: 20px; border-radius: 50%;
-    background: var(--lp-primary); color: white;
+    background: var(--lp-primary); color: var(--lp-on-primary);
     font-size: 0.85rem; font-weight: 800;
     display: flex; align-items: center; justify-content: center;
 }
@@ -519,7 +519,7 @@ html, body {
 }
 .listen-speak-btn {
     width: 44px; height: 44px; border-radius: 50%;
-    background: var(--lp-primary); border: none; color: white;
+    background: var(--lp-primary); border: none; color: var(--lp-on-primary);
     font-size: 1.2rem; cursor: pointer; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 2px 8px rgba(123,92,245,0.3);
@@ -597,7 +597,7 @@ html, body {
     font: inherit; font-weight: 800; font-size: 0.95rem;
     -webkit-tap-highlight-color: transparent;
 }
-.listen-eye-btn.on { border-color: var(--lp-primary); background: var(--lp-primary-soft); color: var(--lp-primary); }
+.listen-eye-btn.on { border-color: var(--lp-primary); background: var(--lp-primary-soft); color: var(--lp-primary-text); }
 
 /* ===== Steps Game – 3-col layout ===== */
 .steps-layout {
@@ -612,7 +612,7 @@ html, body {
 .lifeline-btn {
     width: 44px; height: 44px; border-radius: 10px;
     border: 2px solid var(--lp-primary); background: var(--lp-surface);
-    color: var(--lp-primary); font-size: 0.85rem; font-weight: 700;
+    color: var(--lp-primary-text); font-size: 0.85rem; font-weight: 700;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
     -webkit-tap-highlight-color: transparent; flex-shrink: 0;
     transition: opacity 0.15s;
@@ -654,7 +654,7 @@ html, body {
 .answer-option.correct-answer { border-color: var(--lp-success); background: var(--lp-success-soft); }
 .answer-option.wrong-answer   { border-color: var(--lp-error);   background: var(--lp-error-soft); }
 .answer-option.selected       { border-color: var(--lp-primary); background: var(--lp-primary-soft); }
-.answer-letter { font-weight: 700; color: var(--lp-primary); min-width: 16px; }
+.answer-letter { font-weight: 700; color: var(--lp-primary-text); min-width: 16px; }
 .answer-word   { flex: 1; }
 
 /* ===== Steps Ladder ===== */
@@ -668,7 +668,7 @@ html, body {
     border: 1px solid transparent;
 }
 .step-item.passed    { background: var(--lp-success-soft); color: var(--lp-success); }
-.step-item.current   { background: var(--lp-primary); color: white; border-color: var(--lp-primary-dark); }
+.step-item.current   { background: var(--lp-primary); color: var(--lp-on-primary); border-color: var(--lp-primary-dark); }
 .step-item.milestone { border: 1px solid var(--lp-accent); }
 .step-item.milestone.passed { background: #fff3e0; color: var(--lp-accent); border-color: var(--lp-accent); }
 .step-num { display: block; }
@@ -678,7 +678,7 @@ html, body {
 .letter-hero-circle {
     width: 90px; height: 90px; border-radius: 50%;
     background: linear-gradient(135deg, var(--lp-primary), var(--lp-primary-dark));
-    color: white; font-size: 2.8rem; font-weight: 800;
+    color: var(--lp-on-primary); font-size: 2.8rem; font-weight: 800;
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 8px; box-shadow: 0 4px 18px rgba(123,92,245,0.35);
 }
@@ -717,7 +717,7 @@ html, body {
 .recall-svg  { width: 120px; height: 120px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; }
 .recall-svg svg { width: 120px; height: 120px; }
 .recall-translation { font-size: 1.1rem; color: var(--lp-muted); margin-bottom: 16px; }
-.recall-revealed    { font-size: 1.4rem; font-weight: 800; color: var(--lp-primary); margin-bottom: 4px; }
+.recall-revealed    { font-size: 1.4rem; font-weight: 800; color: var(--lp-primary-text); margin-bottom: 4px; }
 .recall-btn {
     flex: 1; padding: 12px; border-radius: 10px; border: none;
     font-size: 0.9rem; font-weight: 700; cursor: pointer;
@@ -728,7 +728,7 @@ html, body {
 
 /* ===== Outline button variant ===== */
 .lp-btn-outline {
-    background: transparent; color: var(--lp-primary);
+    background: transparent; color: var(--lp-primary-text);
     border: 2px solid var(--lp-primary);
 }
 .lp-btn-outline:disabled { border-color: var(--lp-border); color: var(--lp-muted); }
@@ -1159,7 +1159,7 @@ html, body {
     gap: 6px;
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--lp-primary);
+    color: var(--lp-primary-text);
     border: 1.5px dashed var(--lp-primary);
     border-radius: 10px;
     padding: 8px 12px;
