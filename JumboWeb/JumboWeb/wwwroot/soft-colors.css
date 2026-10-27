@@ -1,24 +1,24 @@
 /* =====================================================================
-   SOFT COLOURS (light theme): every bright colour of the brand and of the levels is mixed 50 % with white - the eyes get less tired.
+   SOFT COLOURS (light theme): every bright colour of the brand and of the levels is mixed 30 % with white (the first try was 50 %, too pale) - the eyes get less tired.
    The dark theme and the themes bought in the market are not touched. To go back to the bright colours: remove "soft-colors.css"
    from the list in Services/SiteCss.cs (nothing else depends on this file).
    ===================================================================== */
 /* the frame (side menu, top bar) on every light page */
 :root:not([data-theme="dark"]):not([data-palette]) {
-    --lp-brand: #F8C687; --lp-brand-dark: #EDBC80;
-    --lp-accent: #FFCA80; --lp-secondary: #BDA6FF;
-    --lp-success: #8FD95C; --lp-success-dark: #8FD95C; --lp-success-soft: #EEF9E2;
-    --lp-error: #FFA5A5; --lp-error-soft: #FFF0F0;
+    --lp-brand: #F6AF57; --lp-brand-dark: #E6A24D;
+    --lp-accent: #FFB64D; --lp-secondary: #A382FF;
+    --lp-success: #8ADB4E; --lp-success-dark: #7EBF4E; --lp-success-soft: #EEF9E2;
+    --lp-error: #FF8181; --lp-error-soft: #FFF0F0;
 }
 /* the brand (no level): the orange */
 :root:not([data-level]):not([data-theme="dark"]):not([data-palette]) {
-    --lp-primary: #F8C687; --lp-primary-dark: #EDBC80; --lp-primary-shadow: #E1B780; --lp-primary-edge: #FFE8C4;
+    --lp-primary: #F6AF57; --lp-primary-dark: #E6A24D; --lp-primary-shadow: #D69A4D; --lp-primary-edge: #FFDEAD;
 }
 /* the level colours */
-:root[data-level="a1"]:not([data-theme="dark"]):not([data-palette]) { --lp-primary: #F29C9D; --lp-primary-dark: #E49496; --lp-primary-shadow: #D79495; --lp-primary-edge: #FACFD0; --lp-on-primary: #3A1011; }
-:root[data-level="a2"]:not([data-theme="dark"]):not([data-palette]) { --lp-primary: #FFE08C; --lp-primary-dark: #F7D780; --lp-primary-shadow: #E4CA80; --lp-primary-edge: #FFF0C4; }
-:root[data-level="b1"]:not([data-theme="dark"]):not([data-palette]) { --lp-primary: #97CE9F; --lp-primary-dark: #94C89E; --lp-primary-shadow: #91BD99; --lp-primary-edge: #CCECD1; --lp-on-primary: #12351A; }
-:root[data-level="b2"]:not([data-theme="dark"]):not([data-palette]) { --lp-primary: #BDA6FF; --lp-primary-dark: #B49EF3; --lp-primary-shadow: #AD99E3; --lp-primary-edge: #E3DBFF; --lp-on-primary: #2A1566; }
+:root[data-level="a1"]:not([data-theme="dark"]):not([data-palette]) { --lp-primary: #ED7476; --lp-primary-dark: #D96A6C; --lp-primary-shadow: #C86A6B; --lp-primary-edge: #F8C0C1; --lp-on-primary: #3A1011; }
+:root[data-level="a2"]:not([data-theme="dark"]):not([data-palette]) { --lp-primary: #FFD45F; --lp-primary-dark: #F5C84D; --lp-primary-shadow: #D9B44D; --lp-primary-edge: #FFEBAD; }
+:root[data-level="b1"]:not([data-theme="dark"]):not([data-palette]) { --lp-primary: #6DBB7C; --lp-primary-dark: #6AAF77; --lp-primary-shadow: #65A270; --lp-primary-edge: #B8E4BF; --lp-on-primary: #12351A; }
+:root[data-level="b2"]:not([data-theme="dark"]):not([data-palette]) { --lp-primary: #A382FF; --lp-primary-dark: #9777EF; --lp-primary-shadow: #8C71D8; --lp-primary-edge: #D9CCFF; --lp-on-primary: #2A1566; }
 
 /* the text that was drawn in a bright colour stays readable: darker shades for the letters */
 .overall-progress-label b, .daily-msg, .lp-success-msg, .daily-card.met .daily-msg, .daily-card.met .daily-ring-inner { color: #3E9202; }
