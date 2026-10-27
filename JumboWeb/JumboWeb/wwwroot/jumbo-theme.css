@@ -404,7 +404,7 @@ button, input, select, textarea { font-family: inherit; }
 :root[data-theme="dark"] .book-number,
 :root[data-theme="dark"] .lp-register-title,
 :root[data-theme="dark"] .site-mobile-title,
-:root[data-theme="dark"] .lp-header-brand { color: var(--lp-primary-text); }
+:root[data-theme="dark"] .lp-header-brand { color: var(--lp-on-brand); }
 :root[data-theme="dark"] .lp-input,
 :root[data-theme="dark"] .lp-select,
 :root[data-theme="dark"] .lp-search { color: var(--lp-text); }
@@ -440,9 +440,11 @@ button, input, select, textarea { font-family: inherit; }
 
 /* Desktop top bar for non-LP pages (LP pages have their own header; mobile has the mobile header) */
 .site-desktop-topbar {
-    display: flex; justify-content: flex-end; align-items: center;
-    padding: 10px 16px 0; flex-shrink: 0;
+    display: flex; justify-content: flex-end; align-items: center; gap: 10px;
+    height: var(--lp-header-h); padding: 0 16px; flex-shrink: 0;
+    background: var(--lp-brand);        /* the same orange bar as the header of the Jumbo section */
 }
+.site-desktop-topbar .theme-toggle { width: 34px; height: 34px; font-size: 1rem; }
 @media (max-width: 767px) { .site-desktop-topbar { display: none; } }
 
 /* Login / register have no header: float the toggle in the top-right corner */
