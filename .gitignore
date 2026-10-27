@@ -44,3 +44,6 @@ media-dev/
 
 # node tooling (Tailwind build)
 node_modules/
+
+# the archives of the printed cards (big): tools/import-card-images.mjs reads them
+Jumbo.Api/SeedData/Images/*.zip
