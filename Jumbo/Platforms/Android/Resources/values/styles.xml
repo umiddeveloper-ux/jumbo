@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- EXPERIMENT: Material 3 instead of Material Components (Material 2) for the native parts of the app (dialogs, pickers, switches,
+         the bottom tabs). The rest of the interface is drawn by our own controls and is not affected.
+         This replaces the base theme of .NET MAUI (Maui.MainTheme.Base); the items are the same as in MAUI, only the parent differs. -->
+    <style name="Maui.MainTheme.Base" parent="Theme.Material3.DayNight">
+        <item name="maui_edgetoedge_optout">true</item>
+        <item name="maui_splash">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionMenuTextColor">@color/colorActionMenuTextColor</item>
+        <item name="appBarLayoutStyle">@style/MauiAppBarLayout</item>
+        <item name="bottomNavigationViewStyle">@style/Widget.Material3.BottomNavigationView</item>
+        <item name="materialButtonStyle">@style/MauiMaterialButton</item>
+        <item name="checkboxStyle">@style/MauiCheckBox</item>
+        <item name="android:textAllCaps">false</item>
+        <!-- the colour roles of Material 3 in the palette of Jumbo (otherwise M3 paints its own purple tint) -->
+        <item name="colorPrimaryContainer">@color/m3_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/m3_on_primary_container</item>
+        <item name="colorSecondaryContainer">@color/m3_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/m3_on_secondary_container</item>
+        <item name="colorSurface">@color/m3_surface</item>
+        <item name="colorSurfaceContainer">@color/m3_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/m3_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/m3_surface_container_highest</item>
+        <item name="colorOutline">@color/m3_outline</item>
+        <item name="alertDialogTheme">@style/MauiAlertDialogTheme</item>
+        <item name="materialAlertDialogTheme">@style/MauiAlertDialogTheme</item>
+    </style>
+
+    <style name="MauiAlertDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog" />
+</resources>

@@ -3,4 +3,15 @@
     <color name="colorPrimary">#1CB0F6</color>
     <color name="colorPrimaryDark">#1899D6</color>
     <color name="colorAccent">#1CB0F6</color>
+
+    <!-- Material 3 colour roles in the Jumbo palette (light); the dark ones are in values-night/colors.xml -->
+    <color name="m3_primary_container">#DDF4FF</color>
+    <color name="m3_on_primary_container">#0B5E8A</color>
+    <color name="m3_secondary_container">#DDF4FF</color>
+    <color name="m3_on_secondary_container">#0B5E8A</color>
+    <color name="m3_surface">#F5FAFD</color>
+    <color name="m3_surface_container">#EEF6FB</color>
+    <color name="m3_surface_container_high">#F5FAFD</color>
+    <color name="m3_surface_container_highest">#E3F0F8</color>
+    <color name="m3_outline">#6B849C</color>
 </resources>

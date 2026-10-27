@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="m3_primary_container">#17384F</color>
+    <color name="m3_on_primary_container">#BFE8FF</color>
+    <color name="m3_secondary_container">#17384F</color>
+    <color name="m3_on_secondary_container">#BFE8FF</color>
+    <color name="m3_surface">#0E1A29</color>
+    <color name="m3_surface_container">#132033</color>
+    <color name="m3_surface_container_high">#17263A</color>
+    <color name="m3_surface_container_highest">#1E3048</color>
+    <color name="m3_outline">#93A9BF</color>
+</resources>
