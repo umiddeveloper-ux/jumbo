@@ -18,6 +18,8 @@ namespace Jumbo
             Navigated += (_, _) => { awardWatcher.CheckSoon(900); adService.CheckSoon(); UpdateBrand(); Dispatcher.DispatchDelayed(TimeSpan.FromMilliseconds(250), UpdateBrand); };       // CurrentPage changes a moment after the event
             Navigated += (_, _) => { ApplyLevelForPage(); Dispatcher.DispatchDelayed(TimeSpan.FromMilliseconds(250), ApplyLevelForPage); };
             SizeChanged += (_, _) => UpdateBrand();
+            TitleGrid.SizeChanged += (_, _) => UpdateBrand();
+            RightBox.SizeChanged += (_, _) => UpdateBrand();
             int lastLp = -1;
             _livesService.PropertyChanged += (_, e) =>
             {
@@ -83,12 +85,25 @@ namespace Jumbo
 #endif
             });
         }
-        // On a narrow phone (360 dp) the word Jumbo, the numbers and the avatar do not fit in one line: the word goes away, the numbers keep the room.
+        // The word Jumbo is always in the title bar; on a narrow phone (360 dp) or with the back arrow it gets a smaller font, down to 11, so that the numbers and the avatar keep their room.
         private void UpdateBrand()
         {
-            var display = DeviceDisplay.Current.MainDisplayInfo;
-            double widthDp = display.Density > 0 ? display.Width / display.Density : 1000;      // (the width of the shell itself is -1)
-            BrandLabel.IsVisible = widthDp >= 480;      // the avatar took the corner: on a narrow phone the word goes away on every page
+            double total = TitleGrid.Width;
+            if (total <= 0)
+            {
+                var display = DeviceDisplay.Current.MainDisplayInfo;
+                total = display.Density > 0 ? display.Width / display.Density : 360;      // (the grid is not laid out yet)
+            }
+            double right = ((IView)RightBox).Measure(double.PositiveInfinity, double.PositiveInfinity).Width;
+            double room = total - TitleGrid.Padding.HorizontalThickness - right - TitleGrid.ColumnSpacing;
+            double size = 19;
+            for (; size > 11; size--)
+            {
+                BrandLabel.FontSize = size;
+                if (((IView)BrandLabel).Measure(double.PositiveInfinity, double.PositiveInfinity).Width <= room) break;
+            }
+            BrandLabel.FontSize = size;
+            BrandLabel.IsVisible = true;
         }
 
         private void UpdateLivesDisplay()

@@ -11,10 +11,10 @@
     Title="Jumbo">
 
     <Shell.TitleView>
-        <Grid ColumnDefinitions="Auto,*,Auto" Padding="6,0,6,0" ColumnSpacing="8">
-            <Label x:Name="BrandLabel" Text="Jumbo" FontFamily="NunitoBlack" FontSize="19" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center" />
+        <Grid x:Name="TitleGrid" ColumnDefinitions="Auto,*,Auto" Padding="6,0,6,0" ColumnSpacing="8">
+            <Label x:Name="BrandLabel" Text="Jumbo" FontFamily="NunitoBlack" FontSize="19" LineBreakMode="NoWrap" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center" />
 
-            <HorizontalStackLayout Grid.Column="2" Spacing="8" HorizontalOptions="End" VerticalOptions="Center">
+            <HorizontalStackLayout x:Name="RightBox" Grid.Column="2" Spacing="8" HorizontalOptions="End" VerticalOptions="Center">
                 <HorizontalStackLayout Spacing="2" VerticalOptions="Center">
                     <Label Text="📘" FontSize="15" VerticalOptions="Center"/>
                     <Label x:Name="BookCountLabel" Text="1" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
