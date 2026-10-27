@@ -1,3 +1,4 @@
+using Jumbo.Services;
 using Microsoft.Maui.Controls.Shapes;
 
 namespace Jumbo.Controls;
@@ -15,6 +16,11 @@ public class AvatarView : Border
     public static readonly BindableProperty SizeProperty = BindableProperty.Create(
         nameof(Size), typeof(double), typeof(AvatarView), 34d, propertyChanged: (b, _, n) => ((AvatarView)b).Resize((double)n));
 
+    // OnBar: the avatar sits on the orange title bar - a letter avatar is then a dark plate with the orange letter (like the level chip)
+    public static readonly BindableProperty OnBarProperty = BindableProperty.Create(
+        nameof(OnBar), typeof(bool), typeof(AvatarView), false, propertyChanged: (b, _, _) => ((AvatarView)b).Refresh());
+
+    public bool OnBar { get => (bool)GetValue(OnBarProperty); set => SetValue(OnBarProperty, value); }
     public string? Avatar { get => (string?)GetValue(AvatarProperty); set => SetValue(AvatarProperty, value); }
     public string Initial { get => (string)GetValue(InitialProperty); set => SetValue(InitialProperty, value); }
     public double Size { get => (double)GetValue(SizeProperty); set => SetValue(SizeProperty, value); }
@@ -31,6 +37,7 @@ public class AvatarView : Border
         Content = new Grid { Children = { _svg, _photo, _letter } };
         Resize(Size);
         Refresh();
+        ThemePalette.Changed += (_, _) => { if (OnBar) MainThread.BeginInvokeOnMainThread(Refresh); };
     }
 
     private void Resize(double size)
@@ -53,9 +60,18 @@ public class AvatarView : Border
 
         _letter.IsVisible = !svg && !photo;
         _letter.Text = string.IsNullOrWhiteSpace(Initial) ? "?" : Initial.Trim()[..1].ToUpperInvariant();
-        BackgroundColor = _letter.IsVisible ? (Color)Application.Current!.Resources["Primary"] : Colors.Transparent;
-        _letter.TextColor = (Color)Application.Current!.Resources["OnPrimary"];
-        // a letter avatar has a thin white ring: on the orange bar of the app it would otherwise melt into it
+        var res = Application.Current!.Resources;
+        if (OnBar)
+        {
+            BackgroundColor = _letter.IsVisible ? (Color)res["OnBrand"] : Colors.Transparent;
+            _letter.TextColor = (Color)res["Brand"];
+            Stroke = null;
+            StrokeThickness = 0;
+            return;
+        }
+        BackgroundColor = _letter.IsVisible ? (Color)res["Primary"] : Colors.Transparent;
+        _letter.TextColor = (Color)res["OnPrimary"];
+        // a letter avatar has a thin white ring where it could melt into its background (the orange of the brand)
         Stroke = _letter.IsVisible ? Colors.White : null;
         StrokeThickness = _letter.IsVisible ? 2 : 0;
     }

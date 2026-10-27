@@ -56,7 +56,7 @@
                     <Image x:Name="ThemeIcon" Source="ic_moon.svg" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" VerticalOptions="Center" />
                 </Border>
                 <Grid x:Name="AvatarBox" WidthRequest="40" HeightRequest="40" VerticalOptions="Center">
-                    <ctl:AvatarView x:Name="AvatarButton" Size="34" HorizontalOptions="End" VerticalOptions="End" />
+                    <ctl:AvatarView x:Name="AvatarButton" OnBar="True" Size="34" HorizontalOptions="End" VerticalOptions="End" />
                     <ctl:PlanCoin x:Name="PlanCoinView" Size="18" HorizontalOptions="Start" VerticalOptions="Start" />
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnAvatarTapped" />
