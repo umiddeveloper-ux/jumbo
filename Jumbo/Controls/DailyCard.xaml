@@ -4,7 +4,7 @@
              xmlns:u="clr-namespace:Jumbo.Utilities"
              x:Class="Jumbo.Controls.DailyCard">
     <!-- Daily goal ring + streak + the last 7 days (same card as the website's home page). -->
-    <Border x:Name="Card" Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="14">
+    <Border x:Name="Card" Style="{StaticResource InsetCardStyle}" StrokeShape="RoundRectangle 22" Padding="14">
         <VerticalStackLayout Spacing="12">
             <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
                 <Grid WidthRequest="64" HeightRequest="64" VerticalOptions="Center">

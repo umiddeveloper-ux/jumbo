@@ -254,6 +254,27 @@
         <Setter Property="Padding" Value="{OnIdiom 15, Desktop=20}"/>
     </Style>
 
+    <!-- A card that is pressed INTO the page (the home page): the top edge is in shadow, the bottom edge catches the light. -->
+    <LinearGradientBrush x:Key="InsetBrushLight" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#D3D9E1" Offset="0.0"/>
+        <GradientStop Color="#E3E8EE" Offset="0.07"/>
+        <GradientStop Color="#E9EDF2" Offset="0.93"/>
+        <GradientStop Color="#F8F9FB" Offset="1.0"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="InsetBrushDark" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#020203" Offset="0.0"/>
+        <GradientStop Color="#070709" Offset="0.07"/>
+        <GradientStop Color="#0A0A0C" Offset="0.93"/>
+        <GradientStop Color="#1B1B20" Offset="1.0"/>
+    </LinearGradientBrush>
+    <Style TargetType="Border" x:Key="InsetCardStyle">
+        <Setter Property="StrokeShape" Value="RoundRectangle 20"/>
+        <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource InsetBrushLight},Dark={StaticResource InsetBrushDark}}"/>
+        <Setter Property="Stroke" Value="{AppThemeBinding Light=#D2D8E0,Dark=#000000}"/>
+        <Setter Property="StrokeThickness" Value="1.5"/>
+        <Setter Property="Padding" Value="{OnIdiom 15, Desktop=20}"/>
+    </Style>
+
     <Style TargetType="Border" x:Key="CardStyle">
         <Setter Property="StrokeShape" Value="RoundRectangle 20"/>
         <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource SurfaceLight},Dark={StaticResource SurfaceDark}}"/>

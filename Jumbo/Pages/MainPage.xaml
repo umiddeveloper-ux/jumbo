@@ -49,7 +49,7 @@
                                          IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}">
 
                         <!-- ── Continue: straight to the first unfinished topic ── -->
-                        <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="12,10"
+                        <Border Style="{StaticResource InsetCardStyle}" StrokeShape="RoundRectangle 22" Padding="12,10"
                                 IsVisible="{Binding HasContinue}">
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding ContinueCommand}" />
@@ -67,7 +67,7 @@
                             </Grid>
                         </Border>
 
-                        <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="12,10"
+                        <Border Style="{StaticResource InsetCardStyle}" StrokeShape="RoundRectangle 22" Padding="12,10"
                                 IsVisible="{Binding IsAllDone}">
                             <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
                                 <ctl:TigerView Head="True" Size="62" Mood="cheer" VerticalOptions="Center" />
@@ -141,7 +141,7 @@
                         </CollectionView>
 
                         <!-- ── Overall progress ── -->
-                        <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
+                        <Border Style="{StaticResource InsetCardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
                             <VerticalStackLayout Spacing="10">
                                 <Grid ColumnDefinitions="*, Auto">
                                     <Label Text="{u:Tr Key=TotalProgress}" FontFamily="NunitoExtraBold" FontSize="16" />
