@@ -8,3 +8,6 @@ label { display: inline-block; }
 small { font-size: .875em; }
 img, svg { display: inline; vertical-align: middle; }
 [hidden] { display: none !important; }
+
+/* Blazor moves the focus to the h1 after every navigation (FocusOnNavigate): no frame round the heading. */
+h1:focus, [tabindex="-1"]:focus { outline: none; }

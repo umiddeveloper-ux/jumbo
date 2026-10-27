@@ -1313,3 +1313,19 @@ input[type="checkbox"], input[type="radio"], input[type="range"], progress { acc
 
 /* the frame (side menu, top bar) follows the theme bought in the market, otherwise it is the orange of the brand */
 :root[data-palette] { --lp-brand: var(--lp-primary); --lp-brand-dark: var(--lp-primary-dark); --lp-on-brand: #FFFFFF; }
+
+/* ===== Outlined fields (Material 3): the caption sits on the top line of the frame =====
+   Only a caption that is directly followed by its field is lifted onto the frame. The field has no fill of its own, so the line
+   behind the caption is cut by the caption's own background (the colour of the card). */
+.lp-field-label:has(+ .lp-input), .lp-field-label:has(+ .lp-select), .lp-field-label:has(+ .pw-wrap),
+.settings-label:has(+ .lp-input), .settings-label:has(+ .lp-select), .settings-label:has(+ .pw-wrap) {
+    position: relative; z-index: 1; width: fit-content; max-width: calc(100% - 28px);
+    margin: 0 0 -9px 14px; padding: 0 6px;
+    font-size: 0.75rem; line-height: 1.2; font-weight: 800; letter-spacing: 0; text-transform: none;
+    background: var(--lp-field-bg, var(--lp-surface)); color: var(--lp-muted);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none;
+}
+.lp-field-label + .lp-input, .lp-field-label + .lp-select, .lp-field-label + .pw-wrap .lp-input,
+.settings-label + .lp-input, .settings-label + .lp-select, .settings-label + .pw-wrap .lp-input { background-color: transparent; }
+.lp-field-label:has(+ .lp-input:focus), .lp-field-label:has(+ .lp-select:focus), .lp-field-label:has(+ .pw-wrap .lp-input:focus),
+.settings-label:has(+ .lp-input:focus), .settings-label:has(+ .lp-select:focus) { color: var(--lp-primary-text); }
