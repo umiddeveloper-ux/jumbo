@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:f="clr-namespace:Fonts"
              xmlns:pageModels="clr-namespace:Jumbo.PageModels"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:ctl="clr-namespace:Jumbo.Controls"
@@ -47,7 +48,7 @@
                         <TapGestureRecognizer Command="{Binding SpeakTargetCommand}" />
                     </Border.GestureRecognizers>
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="🔊" FontSize="28" VerticalOptions="Center" />
+                        <Label Text="{x:Static f:FluentUI.speaker_2_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" TextColor="{DynamicResource OnPrimary}" FontSize="28" VerticalOptions="Center" />
                         <Label Text="{u:Tr Key=ZG_Repeat}" FontFamily="NunitoBlack" FontSize="16" TextColor="{DynamicResource OnPrimary}" VerticalOptions="Center" />
                     </HorizontalStackLayout>
                 </Border>

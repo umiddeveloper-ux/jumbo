@@ -41,6 +41,9 @@ namespace Jumbo
                 .UseBarcodeReader()
                 .ConfigureMauiHandlers(handlers =>
                 {
+#if ANDROID
+                    handlers.AddHandler(typeof(Shell), typeof(Jumbo.Platforms.Android.JumboShellRenderer));      // the pill of the active tab follows the level colour
+#endif
 #if WINDOWS
                     Microsoft.Maui.Controls.Handlers.Items.CollectionViewHandler.Mapper.AppendToMapping("KeyboardAccessibleCollectionView", (handler, view) =>
                     {

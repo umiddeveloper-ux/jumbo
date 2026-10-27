@@ -7,6 +7,7 @@
     xmlns:pages="clr-namespace:Jumbo.Pages"
     xmlns:ctl="clr-namespace:Jumbo.Controls"
     xmlns:u="clr-namespace:Jumbo.Utilities"
+    xmlns:f="clr-namespace:Fonts"
     Shell.FlyoutBehavior="Disabled"
     Title="Jumbo">
 
@@ -16,34 +17,34 @@
 
             <HorizontalStackLayout x:Name="RightBox" Grid.Column="2" Spacing="8" HorizontalOptions="End" VerticalOptions="Center">
                 <HorizontalStackLayout Spacing="2" VerticalOptions="Center">
-                    <Label Text="📘" FontSize="15" VerticalOptions="Center"/>
+                    <Label Text="{x:Static f:FluentUI.book_open_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                     <Label x:Name="BookCountLabel" Text="1" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <Border StrokeShape="RoundRectangle 8" StrokeThickness="0" Padding="6,1" BackgroundColor="{DynamicResource OnBrand}" VerticalOptions="Center">
                     <Label x:Name="LevelLabel" Text="A1" FontFamily="NunitoBlack" FontSize="13" TextColor="{DynamicResource Brand}" VerticalOptions="Center"/>
                 </Border>
                 <HorizontalStackLayout Spacing="2" VerticalOptions="Center">
-                    <Label Text="🔥" FontSize="16" VerticalOptions="Center"/>
+                    <Label Text="{x:Static f:FluentUI.fire_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                     <Label x:Name="StreakCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="FreezeBox" Spacing="2" VerticalOptions="Center" IsVisible="False">
-                    <Label Text="❄️" FontSize="14" VerticalOptions="Center"/>
+                    <Label Text="{x:Static f:FluentUI.weather_snow_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                     <Label x:Name="FreezeCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="14" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="ShieldBox" Spacing="2" VerticalOptions="Center" IsVisible="False">
-                    <Label Text="🛡️" FontSize="14" VerticalOptions="Center"/>
+                    <Label Text="{x:Static f:FluentUI.shield_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                     <Label x:Name="ShieldCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="14" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="BlockBox" Spacing="3" VerticalOptions="Center" IsVisible="False">
-                    <Label Text="⏳" FontSize="15" VerticalOptions="Center"/>
+                    <Label Text="{x:Static f:FluentUI.hourglass_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                     <Label x:Name="BlockClockLabel" Text="5:00:00" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="LivesBox" Spacing="2" VerticalOptions="Center">
-                    <Label Text="❤️" FontSize="15" VerticalOptions="Center"/>
+                    <Label Text="{x:Static f:FluentUI.heart_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                     <Label x:Name="LivesCountLabel" Text="5" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="LpBox" Spacing="2" VerticalOptions="Center">
-                    <Label Text="💎" FontSize="15" VerticalOptions="Center"/>
+                    <Label Text="{x:Static f:FluentUI.diamond_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                     <Label x:Name="LpCountLabel" Text="100" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <Border x:Name="ThemeButton" WidthRequest="34" HeightRequest="34" StrokeShape="RoundRectangle 12" Padding="0" StrokeThickness="2"
@@ -52,7 +53,7 @@
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnThemeTapped" />
                     </Border.GestureRecognizers>
-                    <Label x:Name="ThemeIcon" Text="🌙" FontSize="17" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="ThemeIcon" Text="{x:Static f:FluentUI.weather_moon_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" />
                 </Border>
                 <Grid x:Name="AvatarBox" WidthRequest="40" HeightRequest="40" VerticalOptions="Center">
                     <ctl:AvatarView x:Name="AvatarButton" Size="34" HorizontalOptions="End" VerticalOptions="End" />

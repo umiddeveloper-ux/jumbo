@@ -9,7 +9,7 @@
 
     <!-- "You got an award!": confetti, a medal that spins in, Jumbo cheering, and the buttons "Awards" and "Close" -->
     <Grid>
-        <GraphicsView x:Name="Confetti" InputTransparent="True" />
+        <ctl:ConfettiView x:Name="Confetti" />
 
         <Border x:Name="Card" StrokeShape="RoundRectangle 28" StrokeThickness="2" Padding="20,22,20,18" WidthRequest="330" MaximumWidthRequest="360"
                 VerticalOptions="Center" HorizontalOptions="Center" Opacity="0"

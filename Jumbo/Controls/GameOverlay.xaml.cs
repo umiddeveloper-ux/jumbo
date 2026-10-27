@@ -62,6 +62,17 @@ public partial class GameOverlay : ContentView
     {
         InitializeComponent();
         Apply();
+        PropertyChanged += (_, e) => { if (e.PropertyName == nameof(IsVisible)) OnShownChanged(); };
+    }
+
+    // The panel pops up with a spring; a won game also throws confetti (stopped as soon as the panel goes away).
+    private async void OnShownChanged()
+    {
+        if (!IsVisible) { Confetti.Stop(); return; }
+        if (Kind == "win") Confetti.Start(); else Confetti.Stop();
+        Panel.Scale = 0.8;
+        Panel.Opacity = 0;
+        await Task.WhenAll(Panel.FadeToAsync(1, 200), Panel.ScaleToAsync(1, 450, Easing.SpringOut));
     }
 
     private void Apply()

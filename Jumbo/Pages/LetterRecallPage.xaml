@@ -177,7 +177,7 @@
               IsVisible="{Binding HasNoData}"
               BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
             <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="16">
-                <Label Text="📭" FontSize="56" HorizontalOptions="Center"/>
+                <ctl:TigerView Head="True" Size="96" Mood="sad" HorizontalOptions="Center" />
                 <Label Text="{Binding Letter, Converter={StaticResource TrFormat}, ConverterParameter=Letter_NoWords}"
                        FontSize="16" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
                 <Button Text="{u:Tr Key=Common_Back}" Command="{Binding GoBackCommand}"

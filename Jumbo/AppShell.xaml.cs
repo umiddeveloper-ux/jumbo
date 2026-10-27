@@ -107,11 +107,22 @@ namespace Jumbo
             BrandLabel.IsVisible = true;
         }
 
+        // A number of the title bar that changes jumps for a moment (not on the first fill).
+        private static async void SetCount(Label label, string text)
+        {
+            if (label.Text == text) return;
+            bool wasEmpty = string.IsNullOrEmpty(label.Text);
+            label.Text = text;
+            if (wasEmpty || !label.IsLoaded) return;
+            await label.ScaleToAsync(1.4, 120, Easing.CubicOut);
+            await label.ScaleToAsync(1, 260, Easing.SpringOut);
+        }
+
         private void UpdateLivesDisplay()
         {
-            LivesCountLabel.Text = _livesService.Unlimited ? "∞" : _livesService.Lives.ToString();
-            LpCountLabel.Text    = PointsFormat.Compact(_livesService.LpPoints);
-            StreakCountLabel.Text = _livesService.Streak.ToString();
+            SetCount(LivesCountLabel, _livesService.Unlimited ? "∞" : _livesService.Lives.ToString());
+            SetCount(LpCountLabel, PointsFormat.Compact(_livesService.LpPoints));
+            SetCount(StreakCountLabel, _livesService.Streak.ToString());
             StreakCountLabel.Opacity = _livesService.Streak > 0 ? 1 : 0.5;
             BookCountLabel.Text  = _livesService.CurrentBook.ToString();
             ShieldBox.IsVisible = _livesService.ShieldCount > 0;
@@ -150,7 +161,7 @@ namespace Jumbo
             ThemePalette.SetLevel(LevelPages.Contains(name) ? book : string.Empty);
         }
 
-        private void UpdateThemeIcon() => ThemeIcon.Text = ThemeService.IsDark ? "☀️" : "🌙";
+        private void UpdateThemeIcon() => ThemeIcon.Text = ThemeService.IsDark ? Fonts.FluentUI.weather_sunny_high_24_regular : Fonts.FluentUI.weather_moon_24_regular;
 
         private void OnThemeTapped(object? sender, TappedEventArgs e) => ThemeService.Toggle();
 

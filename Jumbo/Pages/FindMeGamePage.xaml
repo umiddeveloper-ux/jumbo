@@ -64,11 +64,11 @@
         <!-- ── Сетка карточек 4 столбца ── -->
         <!-- Six cards, three in a row. Each card has an explicit width (the model computes it from the page width): in a grid collection
              the translation under the picture was measured for a narrower width and long words were cut ("пожалуйст"). -->
-        <ScrollView Grid.Row="1" Margin="15">
-            <FlexLayout Wrap="Wrap" JustifyContent="Start" AlignItems="Start" AlignContent="Start" BindableLayout.ItemsSource="{Binding Cards}">
+        <ScrollView Grid.Row="1">
+            <FlexLayout Margin="15" Wrap="Wrap" JustifyContent="Start" AlignItems="Start" AlignContent="Start" BindableLayout.ItemsSource="{Binding Cards}">
             <BindableLayout.ItemTemplate>
                 <DataTemplate x:DataType="pageModels:GameCardViewModel">
-                    <Border StrokeShape="RoundRectangle 12"
+                    <Border StrokeShape="RoundRectangle 12" Padding="0"
                             StrokeThickness="0"
                             HeightRequest="150"
                             Margin="0,0,8,8"
@@ -85,7 +85,7 @@
                             </DataTrigger>
                             <DataTrigger TargetType="Border" Binding="{Binding IsMatched}" Value="False">
                                 <Setter Property="BackgroundColor"
-                                        Value="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"/>
+                                        Value="{DynamicResource Primary}"/>
                             </DataTrigger>
                         </Border.Triggers>
 
@@ -98,13 +98,14 @@
                         <Grid>
                             <!-- Активная карточка -->
                             <!-- a Grid, not a stack: in a stack the label got a width a little too small on Android and the last letter was cut -->
+                            <!-- like the front of the printed card: the whole card is in the colour of the level, the picture on top, the word under it in white (dark on yellow) -->
                             <Grid RowDefinitions="76,Auto" RowSpacing="2" Padding="4" VerticalOptions="Start"
                                   IsVisible="{Binding IsMatched, Converter={StaticResource InvertedBoolConverter}}">
                                 <ctl:SvgPicture HeightRequest="76"
                                          InputTransparent="True"
                                          BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
                                 <ctl:FitText Grid.Row="1" HeightRequest="54" Text="{Binding TranslationWord}" MaxFontSize="14" MinFontSize="9"
-                                             TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" />
+                                             FontFamily="NunitoExtraBold" TextColor="{DynamicResource OnPrimary}" />
                             </Grid>
 
                             <!-- Matched: галочка -->

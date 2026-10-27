@@ -5,8 +5,9 @@
              x:Class="Jumbo.Controls.GameOverlay">
     <!-- End-of-game panel (win / lose / locked) with Jumbo reacting. Put it over the game and bind IsVisible. -->
     <Grid BackgroundColor="#B30C0C0E">
+        <ctl:ConfettiView x:Name="Confetti" />
         <ScrollView VerticalOptions="Center">
-            <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 28" Padding="22,18,22,22"
+            <Border x:Name="Panel" Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 28" Padding="22,18,22,22"
                     HorizontalOptions="Fill" MaximumWidthRequest="380" Margin="22,18">
                 <VerticalStackLayout Spacing="12">
                     <ctl:TigerView x:Name="Tiger" Size="130" />

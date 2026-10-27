@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pageModels="clr-namespace:Jumbo.PageModels"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:f="clr-namespace:Fonts"
              x:Class="Jumbo.Pages.SubjectWordsPage"
              x:DataType="pageModels:SubjectWordsPageModel"
              x:Name="SubjectWordsPageRoot"
@@ -30,49 +31,48 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="pageModels:TopicWordItem">
-                    <Border StrokeShape="RoundRectangle 12"
-                            StrokeThickness="0"
+                    <!-- a word is a small printed card: the front stripe in the colour of the level with the number, the word and its translation -->
+                    <Border StrokeShape="RoundRectangle 14" Padding="0"
+                            StrokeThickness="2"
+                            Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
                             BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
-                        <Grid ColumnDefinitions="38, *, *, 48"
-                              ColumnSpacing="8"
-                              Padding="12,6">
+                        <Grid ColumnDefinitions="48, *, Auto" ColumnSpacing="12">
 
                             <!-- Нумерация -->
-                            <Label Grid.Column="0"
-                                   Text="{Binding Number}"
-                                   FontSize="13"
-                                   FontAttributes="Bold"
-                                   TextColor="{StaticResource Gray500}"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"/>
+                            <Grid Grid.Column="0" BackgroundColor="{DynamicResource Primary}">
+                                <Label Text="{Binding Number}"
+                                       FontFamily="NunitoBlack"
+                                       FontSize="15"
+                                       TextColor="{DynamicResource OnPrimary}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Grid>
 
-                            <!-- Изучаемое слово -->
-                            <Label Grid.Column="1"
-                                   Text="{Binding Word}"
-                                   FontSize="15"
-                                   FontAttributes="Bold"
-                                   TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"
-                                   VerticalOptions="Center"/>
-
-                            <!-- Перевод -->
-                            <Label Grid.Column="2"
-                                   Text="{Binding Translate}"
-                                   FontSize="14"
-                                   TextColor="{StaticResource Success}"
-                                   VerticalOptions="Center"/>
+                            <VerticalStackLayout Grid.Column="1" Padding="0,8" Spacing="0" VerticalOptions="Center">
+                                <!-- Изучаемое слово -->
+                                <Label Text="{Binding Word}"
+                                       FontFamily="NunitoExtraBold"
+                                       FontSize="18"
+                                       LineBreakMode="TailTruncation"/>
+                                <!-- Перевод -->
+                                <Label Text="{Binding Translate}"
+                                       FontFamily="NunitoBold"
+                                       FontSize="14"
+                                       TextColor="{DynamicResource PrimaryText}"
+                                       LineBreakMode="TailTruncation"/>
+                            </VerticalStackLayout>
 
                             <!-- Озвучка -->
-                            <Button Grid.Column="3"
-                                    Text="🔊"
-                                    FontSize="20"
-                                    BackgroundColor="Transparent"
-                                    Padding="0"
-                                    WidthRequest="44"
-                                    HeightRequest="44"
-                                    HorizontalOptions="Center"
-                                    VerticalOptions="Center"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:SubjectWordsPageModel}}, Path=SpeakCommand}"
-                                    CommandParameter="{Binding .}"/>
+                            <Border Grid.Column="2" StrokeShape="RoundRectangle 20" StrokeThickness="0" Padding="0" Margin="0,0,10,0"
+                                    WidthRequest="40" HeightRequest="40" VerticalOptions="Center"
+                                    BackgroundColor="{DynamicResource PrimarySoft}">
+                                <Label Text="{x:Static f:FluentUI.speaker_2_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="22"
+                                       TextColor="{DynamicResource PrimaryText}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type pageModels:SubjectWordsPageModel}}, Path=SpeakCommand}"
+                                                          CommandParameter="{Binding .}"/>
+                                </Border.GestureRecognizers>
+                            </Border>
                         </Grid>
                     </Border>
                 </DataTemplate>
