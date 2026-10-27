@@ -84,6 +84,15 @@ public static class ThemePalette
             r["Brand"] = Color.FromArgb(Dark ? "#E8890C" : b.P);
             r["BrandDark"] = Color.FromArgb(Dark ? "#C46F00" : b.Dark);
             r["OnBrand"] = Color.FromArgb(b.On);
+#if ANDROID
+            // the bar of the phone above the title bar has the same orange (it took a fixed colour from the Android theme before)
+            try
+            {
+                CommunityToolkit.Maui.Core.Platform.StatusBar.SetColor(Brand);
+                CommunityToolkit.Maui.Core.Platform.StatusBar.SetStyle(CommunityToolkit.Maui.Core.StatusBarStyle.DarkContent);
+            }
+            catch { /* no window yet: the next change of the palette sets it */ }
+#endif
             Changed?.Invoke(null, EventArgs.Empty);
         }
         if (MainThread.IsMainThread) Write(); else MainThread.BeginInvokeOnMainThread(Write);

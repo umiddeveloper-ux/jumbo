@@ -70,8 +70,8 @@
                 <DataTemplate x:DataType="pageModels:GameCardViewModel">
                     <Border StrokeShape="RoundRectangle 12" Padding="0"
                             StrokeThickness="0"
-                            HeightRequest="150"
-                            Margin="0,0,8,8"
+                            HeightRequest="190"
+                            Margin="0,0,8,12"
                             WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type pageModels:FindMeGamePageModel}}, Path=CardWidth}">
 
                         <!-- Фон карточки: зелёный (matched), красный (wrong), нейтральный -->
@@ -99,12 +99,12 @@
                             <!-- Активная карточка -->
                             <!-- a Grid, not a stack: in a stack the label got a width a little too small on Android and the last letter was cut -->
                             <!-- like the front of the printed card: the whole card is in the colour of the level, the picture on top, the word under it in white (dark on yellow) -->
-                            <Grid RowDefinitions="76,Auto" RowSpacing="2" Padding="4" VerticalOptions="Start"
+                            <Grid RowDefinitions="112,Auto" RowSpacing="6" Padding="6" VerticalOptions="Start"
                                   IsVisible="{Binding IsMatched, Converter={StaticResource InvertedBoolConverter}}">
-                                <ctl:SvgPicture HeightRequest="76"
+                                <ctl:SvgPicture HeightRequest="112"
                                          InputTransparent="True"
                                          BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
-                                <ctl:FitText Grid.Row="1" HeightRequest="54" Text="{Binding TranslationWord}" MaxFontSize="14" MinFontSize="9"
+                                <ctl:FitText Grid.Row="1" HeightRequest="64" Text="{Binding TranslationWord}" MaxFontSize="17" MinFontSize="9"
                                              FontFamily="NunitoExtraBold" TextColor="{DynamicResource OnPrimary}" />
                             </Grid>
 

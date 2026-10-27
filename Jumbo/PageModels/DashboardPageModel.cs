@@ -104,16 +104,21 @@ public partial class DashboardPageModel : ObservableObject
         get
         {
             var withWords = Alphabet.Where(l => l.HasWords).ToList();
-            if (withWords.Count == 0) return RepetitionLevelToColorConverter.GetColor(-1);
+            if (withWords.Count == 0) return Tint(RepetitionLevelToColorConverter.GetColor(-1));
 
             int dominantLevel = withWords
                 .GroupBy(l => l.RepetitionLevel)
                 .OrderByDescending(g => g.Count())
                 .First().Key;
 
-            return RepetitionLevelToColorConverter.GetColor(dominantLevel);
+            return Tint(RepetitionLevelToColorConverter.GetColor(dominantLevel));
         }
     }
+
+    // The pastel colours are made for the light theme; in the dark theme the card takes the same hue, but dark.
+    private static Color Tint(Color c) => Application.Current?.RequestedTheme == AppTheme.Dark
+        ? new Color(c.Red * 0.28f + 0.06f, c.Green * 0.28f + 0.06f, c.Blue * 0.28f + 0.06f)
+        : c;
 
     public DashboardPageModel(
         LpApiClient apiClient,
@@ -123,6 +128,7 @@ public partial class DashboardPageModel : ObservableObject
         AppUpdateService update)
     {
         _gate = gate;
+        if (Application.Current is { } app) app.RequestedThemeChanged += (_, _) => OnPropertyChanged(nameof(AlphabetSummaryColor));
         _update = update;
         _apiClient = apiClient;
         _livesService = livesService;

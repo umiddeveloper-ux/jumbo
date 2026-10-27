@@ -161,10 +161,10 @@
                             <Grid ColumnDefinitions="Auto, *, Auto">
                                 <Label Grid.Column="0" Text="🔤" FontSize="30" VerticalOptions="Center" />
                                 <VerticalStackLayout Grid.Column="1" Margin="14,0,0,0" VerticalOptions="Center" Spacing="0">
-                                    <Label Text="{u:Tr Key=AlphabetSection}" FontFamily="NunitoBlack" FontSize="18" TextColor="#1B1B1F" />
-                                    <Label Text="{u:Tr Key=Alphabet_CtaHint}" FontSize="13" TextColor="#1B1B1F" Opacity="0.75" />
+                                    <Label Text="{u:Tr Key=AlphabetSection}" FontFamily="NunitoBlack" FontSize="18" TextColor="{AppThemeBinding Light=#1B1B1F, Dark=#F2F2F4}" />
+                                    <Label Text="{u:Tr Key=Alphabet_CtaHint}" FontSize="13" TextColor="{AppThemeBinding Light=#1B1B1F, Dark=#F2F2F4}" Opacity="0.75" />
                                 </VerticalStackLayout>
-                                <Label Grid.Column="2" Text="→" FontSize="24" TextColor="#1B1B1F" VerticalOptions="Center" />
+                                <Label Grid.Column="2" Text="→" FontSize="24" TextColor="{AppThemeBinding Light=#1B1B1F, Dark=#F2F2F4}" VerticalOptions="Center" />
                             </Grid>
                         </Border>
 
