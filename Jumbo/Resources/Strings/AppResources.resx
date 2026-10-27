@@ -1805,4 +1805,64 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="Settings_SecDeleteSub" xml:space="preserve">
     <value>Delete the account and data for good</value>
   </data>
+  <data name="Rating_Title" xml:space="preserve">
+    <value>Leaderboard</value>
+  </data>
+  <data name="Rating_Subtitle" xml:space="preserve">
+    <value>Who has learned the most words</value>
+  </data>
+  <data name="Rating_Week" xml:space="preserve">
+    <value>This week</value>
+  </data>
+  <data name="Rating_AllTime" xml:space="preserve">
+    <value>All time</value>
+  </data>
+  <data name="Rating_ScopeTeam" xml:space="preserve">
+    <value>My team</value>
+  </data>
+  <data name="Rating_ScopeSchool" xml:space="preserve">
+    <value>My institution</value>
+  </data>
+  <data name="Rating_ScopeRegion" xml:space="preserve">
+    <value>My region</value>
+  </data>
+  <data name="Rating_ScopeAll" xml:space="preserve">
+    <value>Everyone</value>
+  </data>
+  <data name="Rating_Words" xml:space="preserve">
+    <value>words</value>
+  </data>
+  <data name="Rating_Hidden" xml:space="preserve">
+    <value>Hidden player</value>
+  </data>
+  <data name="Rating_You" xml:space="preserve">
+    <value>you</value>
+  </data>
+  <data name="Rating_MyPlace" xml:space="preserve">
+    <value>Your place: {0}</value>
+  </data>
+  <data name="Rating_Points" xml:space="preserve">
+    <value>{0} words</value>
+  </data>
+  <data name="Rating_NoPlace" xml:space="preserve">
+    <value>No points yet. Play to enter the ranking!</value>
+  </data>
+  <data name="Rating_Empty" xml:space="preserve">
+    <value>Nobody here yet</value>
+  </data>
+  <data name="Rating_MissingTeam" xml:space="preserve">
+    <value>Add your team in the profile to see the team ranking</value>
+  </data>
+  <data name="Rating_MissingSchool" xml:space="preserve">
+    <value>Add your institution in the profile to see its ranking</value>
+  </data>
+  <data name="Rating_MissingRegion" xml:space="preserve">
+    <value>Choose your region in the profile to see the regional ranking</value>
+  </data>
+  <data name="Rating_GoSettings" xml:space="preserve">
+    <value>Open profile</value>
+  </data>
+  <data name="Rating_Privacy" xml:space="preserve">
+    <value>We only show the first name, the first letter of the last name and the team.</value>
+  </data>
 </root>

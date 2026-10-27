@@ -9,7 +9,10 @@ const webDir = path.join(root, 'JumboWeb/JumboWeb/Resources');
 const appDir = path.join(root, 'Jumbo/Resources/Strings');
 
 // Website-only areas stay out of the app.
-const EXCLUDE = /^(TJ|VD|PP|PA|TC|RP|Land|FS|Admin|Rating|Top|Exam|ExamResults|ExamQuiz|SiteHome|SiteLayout|NotFound|Nav|Role|Dash|TestLevel|TestMyLevel|TG|TS|TE|Strip)(_|$)/;
+const EXCLUDE = /^(TJ|VD|PP|PA|TC|RP|Land|FS|Admin|Dl|Foot|Top|Exam|ExamResults|ExamQuiz|SiteHome|SiteLayout|NotFound|Nav|Role|Dash|TestLevel|TestMyLevel|TG|TS|TE|Strip)(_|$)/;
+
+// ...but the rating page of the app uses the rating strings, except the teacher's and the landing ones.
+const RATING_SKIP = /^Rating_(Teacher|SeeAll|MiniTitle)/;
 
 // Strings that exist only in the app: [key, ru, en, uz]
 const EXTRA = [
@@ -73,7 +76,7 @@ for (const f of ['AppResources.resx', 'AppResources.ru.resx', 'AppResources.uz.r
   const have = new Set(blocks(app).keys());
   let add = '', n = 0;
   for (const [key, block] of web) {
-    if (have.has(key) || EXCLUDE.test(key)) continue;
+    if (have.has(key) || RATING_SKIP.test(key) || EXCLUDE.test(key)) continue;
     add += block; n++;
   }
   const col = f === 'AppResources.resx' ? 2 : f === 'AppResources.ru.resx' ? 1 : 3;

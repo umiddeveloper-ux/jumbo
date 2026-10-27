@@ -115,6 +115,7 @@ namespace Jumbo
             builder.Services.AddSingleton<DashboardPageModel>();
             builder.Services.AddSingleton<GamesPageModel>();
             builder.Services.AddTransient<AlphabetPageModel>();
+            builder.Services.AddTransient<RatingPageModel>();
             builder.Services.AddSingleton<DictionaryPageModel>();
             builder.Services.AddSingleton<AwardsPageModel>();
             builder.Services.AddSingleton<SettingsPageModel>();
@@ -145,6 +146,7 @@ namespace Jumbo
             builder.Services.AddSingleton<Pages.MainPage>();
             builder.Services.AddSingleton<Pages.GamesPage>();
             builder.Services.AddTransient<Pages.AlphabetPage>();
+            builder.Services.AddTransient<Pages.RatingPage>();
             builder.Services.AddSingleton<Pages.DictionaryPage>();
             builder.Services.AddSingleton<Pages.AwardsPage>();
             builder.Services.AddSingleton<Pages.SettingsPage>();

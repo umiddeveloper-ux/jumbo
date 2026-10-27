@@ -168,28 +168,20 @@
                             </Grid>
                         </Border>
 
-                        <!-- ── Place in the weekly rating, the last thing on the page; the full rating opens on the website ── -->
-                        <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="14,12">
-                            <VerticalStackLayout Spacing="12">
-                                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10" VerticalOptions="Center">
-                                    <Grid WidthRequest="54" HeightRequest="50" VerticalOptions="Center">
-                                        <Border StrokeShape="RoundRectangle 16" StrokeThickness="0"
-                                                BackgroundColor="{AppThemeBinding Light={StaticResource SuccessSoftLight}, Dark={StaticResource SuccessSoftDark}}" />
-                                        <Label Text="🏆" FontSize="24" LineBreakMode="NoWrap" HorizontalOptions="Center" VerticalOptions="Center" />
-                                    </Grid>
-                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="1">
-                                        <HorizontalStackLayout Spacing="4">
-                                            <Label Text="{Binding RatingPlaceText}" FontFamily="NunitoExtraBold" FontSize="16" VerticalOptions="End" />
-                                            <Label Text="{Binding RatingOutOfText}" FontSize="12" VerticalOptions="End"
-                                                   TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
-                                        </HorizontalStackLayout>
-                                        <Label Text="{Binding RatingSubText}" FontSize="11" MaxLines="2" LineBreakMode="TailTruncation"
-                                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
-                                    </VerticalStackLayout>
-                                </Grid>
-                                <ctl:ChunkyButton Text="{u:Tr Key=Stats_OpenRating}" Kind="outline" FontSize="14"
-                                                  Command="{Binding OpenRatingOnWebCommand}" />
-                            </VerticalStackLayout>
+                        <!-- ── Rating: a button like "Repeat the words" (the colour of the level), the list is on its own page ── -->
+                        <Border StrokeShape="RoundRectangle 22" Padding="18" BackgroundColor="{DynamicResource Primary}" StrokeThickness="0">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenRatingCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                <Label Grid.Column="0" Text="🏆" FontSize="30" VerticalOptions="Center" />
+                                <VerticalStackLayout Grid.Column="1" Margin="14,0,0,0" VerticalOptions="Center" Spacing="0">
+                                    <Label Text="{u:Tr Key=Stats_RatingTitle}" FontFamily="NunitoBlack" FontSize="18" TextColor="{DynamicResource OnPrimary}" />
+                                    <Label Text="{Binding RatingHintText}" FontSize="13" MaxLines="2" LineBreakMode="TailTruncation"
+                                           TextColor="{DynamicResource OnPrimary}" Opacity="0.75" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2" Text="→" FontSize="24" TextColor="{DynamicResource OnPrimary}" VerticalOptions="Center" />
+                            </Grid>
                         </Border>
 
                     </VerticalStackLayout>

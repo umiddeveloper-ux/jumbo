@@ -39,6 +39,7 @@ namespace Jumbo
             if (Application.Current is { } app) app.RequestedThemeChanged += (_, _) => MainThread.BeginInvokeOnMainThread(UpdateThemeIcon);
 
             Routing.RegisterRoute("AlphabetPage", typeof(Pages.AlphabetPage));
+            Routing.RegisterRoute("RatingPage", typeof(Pages.RatingPage));
             Routing.RegisterRoute("SubjectsPage", typeof(Pages.SubjectsPage));
             Routing.RegisterRoute("BookPage", typeof(Pages.BookPage));
             Routing.RegisterRoute("SubjectDetailPage", typeof(Pages.SubjectDetailPage));

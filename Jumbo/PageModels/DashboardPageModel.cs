@@ -54,6 +54,10 @@ public partial class DashboardPageModel : ObservableObject
     [ObservableProperty]
     private string _ratingSubText = string.Empty;
 
+    // the line under "Rating" on the card: the place, out of how many, and in which list
+    [ObservableProperty]
+    private string _ratingHintText = string.Empty;
+
     private RatingSummary? _rating;
     private bool _ratingLoaded;
 
@@ -245,6 +249,7 @@ public partial class DashboardPageModel : ObservableObject
             RatingOutOfText = string.Empty;
             RatingSubText = _ratingLoaded ? LocalizationManager.Get("Stats_NoPlace") : "…";
         }
+        RatingHintText = _rating is null ? RatingSubText : $"{RatingPlaceText} {RatingOutOfText} · {RatingSubText}";
 
         if (_currentOverall is { } cur)
         {
@@ -289,18 +294,9 @@ public partial class DashboardPageModel : ObservableObject
         await Shell.Current.GoToAsync($"BookPage?book={chip.Number}");
     }
 
-    // Opens the website's rating already signed in: the API hands out a one-time code, the site trades it for the session.
+    // The rating is its own page of the app; "back" returns here.
     [RelayCommand]
-    private async Task OpenRatingOnWeb()
-    {
-        try
-        {
-            var code = await _apiClient.CreateWebLinkAsync();
-            var url = code is { } c ? $"{ApiConfig.BaseUrl}go/{c}?next=/rating" : $"{ApiConfig.BaseUrl}rating";
-            await Launcher.Default.OpenAsync(new Uri(url));
-        }
-        catch (Exception ex) { _errorHandler.HandleError(ex); }
-    }
+    private async Task OpenRating() => await Shell.Current.GoToAsync("RatingPage");
 
     [RelayCommand]
     private async Task Continue()

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pageModels="clr-namespace:Jumbo.PageModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:pullToRefresh="clr-namespace:Syncfusion.Maui.Toolkit.PullToRefresh;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:ctl="clr-namespace:Jumbo.Controls"
+             xmlns:u="clr-namespace:Jumbo.Utilities"
+             x:Class="Jumbo.Pages.RatingPage"
+             x:DataType="pageModels:RatingPageModel"
+             x:Name="PageRoot"
+             Title="{u:Tr Key=Rating_Title}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            BindingContext="{Binding Path=BindingContext, Source={x:Reference PageRoot}, x:DataType=ContentPage}"
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <pullToRefresh:SfPullToRefresh IsRefreshing="{Binding IsRefreshing}" RefreshCommand="{Binding RefreshCommand}">
+            <pullToRefresh:SfPullToRefresh.PullableContent>
+                <ScrollView>
+                    <VerticalStackLayout Padding="16,12,16,28" Spacing="12" MaximumWidthRequest="640" HorizontalOptions="Fill">
+
+                        <Label Text="{u:Tr Key=Rating_Title}" FontFamily="NunitoBlack" FontSize="26" SemanticProperties.HeadingLevel="Level1" />
+                        <Label Text="{u:Tr Key=Rating_Subtitle}" FontSize="14"
+                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+
+                        <ctl:ChipGroup Items="{Binding Periods}" SelectedKey="{Binding Period, Mode=TwoWay}" />
+                        <ctl:ChipGroup Items="{Binding Scopes}" SelectedKey="{Binding Scope, Mode=TwoWay}" />
+
+                        <!-- my place -->
+                        <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16,12"
+                                IsVisible="{Binding ShowMissing, Converter={StaticResource InvertedBoolConverter}}">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="{Binding MeText}" FontFamily="NunitoExtraBold" FontSize="18" VerticalOptions="Center" />
+                                <Label Grid.Column="1" Text="{Binding MeSubText}" FontFamily="NunitoExtraBold" FontSize="15" VerticalOptions="Center"
+                                       TextColor="{DynamicResource PrimaryText}" />
+                            </Grid>
+                        </Border>
+
+                        <!-- the learner has no team / school / region -->
+                        <VerticalStackLayout Spacing="12" HorizontalOptions="Center" IsVisible="{Binding ShowMissing}">
+                            <ctl:TigerView Head="True" Size="96" Mood="wave" HorizontalOptions="Center" />
+                            <Label Text="{Binding EmptyText}" HorizontalTextAlignment="Center" FontSize="15" />
+                            <ctl:ChunkyButton Text="{u:Tr Key=Rating_GoSettings}" Command="{Binding OpenProfileCommand}" />
+                        </VerticalStackLayout>
+
+                        <Label Text="{Binding EmptyText}" HorizontalTextAlignment="Center" FontSize="15" IsVisible="{Binding ShowEmpty}"
+                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+
+                        <VerticalStackLayout Spacing="8" BindableLayout.ItemsSource="{Binding Rows}" IsVisible="{Binding ShowList}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="pageModels:RatingRow">
+                                    <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 18" Padding="12,8">
+                                        <Border.Triggers>
+                                            <DataTrigger TargetType="Border" Binding="{Binding IsMe}" Value="True">
+                                                <Setter Property="BackgroundColor" Value="{DynamicResource PrimarySoft}" />
+                                                <Setter Property="Stroke" Value="{DynamicResource PrimaryEdgeSoft}" />
+                                            </DataTrigger>
+                                        </Border.Triggers>
+                                        <Grid ColumnDefinitions="40,Auto,*,Auto" ColumnSpacing="10">
+                                            <Label Text="{Binding PlaceText}" FontFamily="NunitoBlack" FontSize="18" HorizontalTextAlignment="Center" VerticalOptions="Center">
+                                                <Label.Triggers>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding IsMedal}" Value="True">
+                                                        <Setter Property="FontSize" Value="24" />
+                                                    </DataTrigger>
+                                                </Label.Triggers>
+                                            </Label>
+                                            <Grid Grid.Column="1" WidthRequest="38" HeightRequest="38" VerticalOptions="Center">
+                                                <Border StrokeShape="RoundRectangle 19" StrokeThickness="0" BackgroundColor="{DynamicResource PrimarySoft}" />
+                                                <Label Text="{Binding Initial}" FontFamily="NunitoBlack" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center"
+                                                       TextColor="{DynamicResource PrimaryText}" />
+                                            </Grid>
+                                            <VerticalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="0">
+                                                <Label Text="{Binding Name}" FontFamily="NunitoExtraBold" FontSize="15" LineBreakMode="TailTruncation" MaxLines="1" />
+                                                <Label Text="{Binding Team}" FontSize="12" LineBreakMode="TailTruncation" MaxLines="1" IsVisible="{Binding HasTeam}"
+                                                       TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                                            </VerticalStackLayout>
+                                            <Label Grid.Column="3" Text="{Binding PointsText}" FontFamily="NunitoExtraBold" FontSize="14" VerticalOptions="Center"
+                                                   TextColor="{DynamicResource PrimaryText}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+
+                        <Label Text="{u:Tr Key=Rating_Privacy}" FontSize="12" HorizontalTextAlignment="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                    </VerticalStackLayout>
+                </ScrollView>
+            </pullToRefresh:SfPullToRefresh.PullableContent>
+        </pullToRefresh:SfPullToRefresh>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" />
+    </Grid>
+</ContentPage>

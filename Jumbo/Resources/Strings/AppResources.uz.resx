@@ -1801,4 +1801,64 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Settings_SecDeleteSub" xml:space="preserve">
     <value>Hisob va ma‘lumotlarni butunlay o‘chirish</value>
   </data>
+  <data name="Rating_Title" xml:space="preserve">
+    <value>Reyting</value>
+  </data>
+  <data name="Rating_Subtitle" xml:space="preserve">
+    <value>Kim ko'proq so'z o'rgandi</value>
+  </data>
+  <data name="Rating_Week" xml:space="preserve">
+    <value>Hafta</value>
+  </data>
+  <data name="Rating_AllTime" xml:space="preserve">
+    <value>Butun vaqt</value>
+  </data>
+  <data name="Rating_ScopeTeam" xml:space="preserve">
+    <value>Jamoam</value>
+  </data>
+  <data name="Rating_ScopeSchool" xml:space="preserve">
+    <value>Muassasam</value>
+  </data>
+  <data name="Rating_ScopeRegion" xml:space="preserve">
+    <value>Viloyatim</value>
+  </data>
+  <data name="Rating_ScopeAll" xml:space="preserve">
+    <value>Hamma</value>
+  </data>
+  <data name="Rating_Words" xml:space="preserve">
+    <value>so'z</value>
+  </data>
+  <data name="Rating_Hidden" xml:space="preserve">
+    <value>Yashirin o'yinchi</value>
+  </data>
+  <data name="Rating_You" xml:space="preserve">
+    <value>siz</value>
+  </data>
+  <data name="Rating_MyPlace" xml:space="preserve">
+    <value>Sizning o'rningiz: {0}</value>
+  </data>
+  <data name="Rating_Points" xml:space="preserve">
+    <value>{0} ta so'z</value>
+  </data>
+  <data name="Rating_NoPlace" xml:space="preserve">
+    <value>Hali ball yo'q. Reytingga kirish uchun o'ynang!</value>
+  </data>
+  <data name="Rating_Empty" xml:space="preserve">
+    <value>Bu yerda hali hech kim yo'q</value>
+  </data>
+  <data name="Rating_MissingTeam" xml:space="preserve">
+    <value>Jamoa reytingini ko'rish uchun profilga jamoangizni qo'shing</value>
+  </data>
+  <data name="Rating_MissingSchool" xml:space="preserve">
+    <value>Muassasa reytingini ko'rish uchun profilga ta'lim muassasangizni qo'shing</value>
+  </data>
+  <data name="Rating_MissingRegion" xml:space="preserve">
+    <value>Viloyat reytingini ko'rish uchun profilda viloyatingizni tanlang</value>
+  </data>
+  <data name="Rating_GoSettings" xml:space="preserve">
+    <value>Profilni ochish</value>
+  </data>
+  <data name="Rating_Privacy" xml:space="preserve">
+    <value>Faqat ism, familiyaning birinchi harfi va jamoa ko'rsatiladi.</value>
+  </data>
 </root>
