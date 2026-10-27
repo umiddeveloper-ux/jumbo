@@ -15,7 +15,7 @@ public sealed class SiteCss
     private static readonly string[] Files =
     [
         "tailwind.css", "compat.css", "fonts.css", "app.css", "jumbo-theme.css", "tiger.css", "home.css", "rating.css",
-        "top10.css", "lang.css", "exam.css", "schools.css", "teacher.css", "report.css", "jumbo-app.css"
+        "top10.css", "lang.css", "exam.css", "schools.css", "teacher.css", "report.css", "jumbo-app.css", "soft-colors.css"
     ];
 
     public string Content { get; }
