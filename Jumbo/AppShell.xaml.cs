@@ -161,7 +161,7 @@ namespace Jumbo
             ThemePalette.SetLevel(LevelPages.Contains(name) ? book : string.Empty);
         }
 
-        private void UpdateThemeIcon() => ThemeIcon.Text = ThemeService.IsDark ? Fonts.FluentUI.weather_sunny_high_24_regular : Fonts.FluentUI.weather_moon_24_regular;
+        private void UpdateThemeIcon() => ThemeIcon.Source = ThemeService.IsDark ? "ic_sun.svg" : "ic_moon.svg";
 
         private void OnThemeTapped(object? sender, TappedEventArgs e) => ThemeService.Toggle();
 

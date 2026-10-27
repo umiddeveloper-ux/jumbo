@@ -17,34 +17,34 @@
 
             <HorizontalStackLayout x:Name="RightBox" Grid.Column="2" Spacing="4" HorizontalOptions="End" VerticalOptions="Center">
                 <HorizontalStackLayout Spacing="0" VerticalOptions="Center">
-                    <Label Text="{x:Static f:FluentUI.book_open_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
+                    <Image Source="ic_book.svg" WidthRequest="22" HeightRequest="22" VerticalOptions="Center"/>
                     <Label x:Name="BookCountLabel" Text="1" FontFamily="NunitoBlack" FontSize="12" TextColor="{DynamicResource OnBrand}" VerticalOptions="End" Margin="-2,0,0,0" TranslationY="3"/>
                 </HorizontalStackLayout>
                 <Border StrokeShape="RoundRectangle 8" StrokeThickness="0" Padding="6,1" BackgroundColor="{DynamicResource OnBrand}" VerticalOptions="Center">
                     <Label x:Name="LevelLabel" Text="A1" FontFamily="NunitoBlack" FontSize="13" TextColor="{DynamicResource Brand}" VerticalOptions="Center"/>
                 </Border>
                 <HorizontalStackLayout Spacing="0" VerticalOptions="Center">
-                    <Label Text="{x:Static f:FluentUI.fire_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
+                    <Image Source="ic_fire.svg" WidthRequest="22" HeightRequest="22" VerticalOptions="Center"/>
                     <Label x:Name="StreakCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="12" TextColor="{DynamicResource OnBrand}" VerticalOptions="End" Margin="-2,0,0,0" TranslationY="3"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="FreezeBox" Spacing="0" VerticalOptions="Center" IsVisible="False">
-                    <Label Text="{x:Static f:FluentUI.weather_snow_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
+                    <Image Source="ic_snow.svg" WidthRequest="22" HeightRequest="22" VerticalOptions="Center"/>
                     <Label x:Name="FreezeCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="12" TextColor="{DynamicResource OnBrand}" VerticalOptions="End" Margin="-2,0,0,0" TranslationY="3"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="ShieldBox" Spacing="0" VerticalOptions="Center" IsVisible="False">
-                    <Label Text="{x:Static f:FluentUI.shield_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
+                    <Image Source="ic_shield.svg" WidthRequest="22" HeightRequest="22" VerticalOptions="Center"/>
                     <Label x:Name="ShieldCountLabel" Text="0" FontFamily="NunitoBlack" FontSize="12" TextColor="{DynamicResource OnBrand}" VerticalOptions="End" Margin="-2,0,0,0" TranslationY="3"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="BlockBox" Spacing="0" VerticalOptions="Center" IsVisible="False">
-                    <Label Text="{x:Static f:FluentUI.hourglass_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
+                    <Image Source="ic_hourglass.svg" WidthRequest="22" HeightRequest="22" VerticalOptions="Center"/>
                     <Label x:Name="BlockClockLabel" Text="5:00:00" FontFamily="NunitoBlack" FontSize="12" TextColor="{DynamicResource OnBrand}" VerticalOptions="End" Margin="-2,0,0,0" TranslationY="3"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="LivesBox" Spacing="0" VerticalOptions="Center">
-                    <Label Text="{x:Static f:FluentUI.heart_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
+                    <Image Source="ic_heart.svg" WidthRequest="22" HeightRequest="22" VerticalOptions="Center"/>
                     <Label x:Name="LivesCountLabel" Text="5" FontFamily="NunitoBlack" FontSize="12" TextColor="{DynamicResource OnBrand}" VerticalOptions="End" Margin="-2,0,0,0" TranslationY="3"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout x:Name="LpBox" Spacing="0" VerticalOptions="Center">
-                    <Label Text="{x:Static f:FluentUI.diamond_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" FontSize="20" TextColor="{DynamicResource OnBrand}" VerticalOptions="Center"/>
+                    <Image Source="ic_gem.svg" WidthRequest="22" HeightRequest="22" VerticalOptions="Center"/>
                     <Label x:Name="LpCountLabel" Text="100" FontFamily="NunitoBlack" FontSize="12" TextColor="{DynamicResource OnBrand}" VerticalOptions="End" Margin="-2,0,0,0" TranslationY="3"/>
                 </HorizontalStackLayout>
                 <Border x:Name="ThemeButton" WidthRequest="34" HeightRequest="34" StrokeShape="RoundRectangle 12" Padding="0" StrokeThickness="2"
@@ -53,7 +53,7 @@
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnThemeTapped" />
                     </Border.GestureRecognizers>
-                    <Label x:Name="ThemeIcon" Text="{x:Static f:FluentUI.weather_moon_24_regular}" FontFamily="{x:Static f:FluentUI.FontFamily}" TextColor="{AppThemeBinding Light={StaticResource DarkOnLightBackground}, Dark={StaticResource LightOnDarkBackground}}" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Image x:Name="ThemeIcon" Source="ic_moon.svg" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center" VerticalOptions="Center" />
                 </Border>
                 <Grid x:Name="AvatarBox" WidthRequest="40" HeightRequest="40" VerticalOptions="Center">
                     <ctl:AvatarView x:Name="AvatarButton" Size="34" HorizontalOptions="End" VerticalOptions="End" />
@@ -69,31 +69,31 @@
     <TabBar>
         <ShellContent
             Title="{u:Tr Key=DashboardTitle}"
-            Icon="{StaticResource IconDashboard}"
+            Icon="tab_home.svg"
             ContentTemplate="{DataTemplate pages:MainPage}"
             Route="main" />
 
         <ShellContent
             Title="{u:Tr Key=DictionaryTitle}"
-            Icon="{StaticResource IconProjects}"
+            Icon="tab_dict.svg"
             ContentTemplate="{DataTemplate pages:DictionaryPage}"
             Route="projects" />
 
         <ShellContent
             Title="{u:Tr Key=AwardsTitle}"
-            Icon="{StaticResource IconMeta}"
+            Icon="tab_awards.svg"
             ContentTemplate="{DataTemplate pages:AwardsPage}"
             Route="awards" />
 
         <ShellContent
             Title="{u:Tr Key=Games_Title}"
-            Icon="{StaticResource IconGames}"
+            Icon="tab_games.svg"
             ContentTemplate="{DataTemplate pages:GamesPage}"
             Route="games" />
 
         <ShellContent
             Title="{u:Tr Key=SettingsTitle}"
-            Icon="{StaticResource IconRibbon}"
+            Icon="tab_settings.svg"
             ContentTemplate="{DataTemplate pages:SettingsPage}"
             Route="settings" />
 

@@ -40,7 +40,10 @@ public class JumboShellRenderer : ShellRenderer
         }
 
         private static void Apply(BottomNavigationView v)
-            => v.ItemActiveIndicatorColor = ColorStateList.ValueOf(ThemePalette.PrimarySoft.ToPlatform());
+        {
+            v.ItemIconTintList = null;      // the tab pictures are coloured (Noto emoji): no tint, the active tab is shown by the pill and the caption
+            v.ItemActiveIndicatorColor = ColorStateList.ValueOf(ThemePalette.PrimarySoft.ToPlatform());
+        }
 
         protected override void Dispose(bool disposing)
         {

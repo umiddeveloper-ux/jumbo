@@ -1,0 +1,2 @@
+The pictures ic_*.svg and tab_*.svg in this folder are from Noto Emoji (https://github.com/googlefonts/noto-emoji, 2D/svg),
+copyright Google LLC, licensed under the Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0).
