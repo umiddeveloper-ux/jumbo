@@ -267,6 +267,13 @@
         <GradientStop Color="#0A0A0C" Offset="0.93"/>
         <GradientStop Color="#1B1B20" Offset="1.0"/>
     </LinearGradientBrush>
+    <!-- the same "pressed in" shading, laid OVER a coloured card (a button of the level colour): a shadow at the top, a light line at the bottom -->
+    <LinearGradientBrush x:Key="InsetShadeBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#3A000000" Offset="0.0"/>
+        <GradientStop Color="#00000000" Offset="0.12"/>
+        <GradientStop Color="#00FFFFFF" Offset="0.9"/>
+        <GradientStop Color="#70FFFFFF" Offset="1.0"/>
+    </LinearGradientBrush>
     <Style TargetType="Border" x:Key="InsetCardStyle">
         <Setter Property="StrokeShape" Value="RoundRectangle 20"/>
         <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource InsetBrushLight},Dark={StaticResource InsetBrushDark}}"/>

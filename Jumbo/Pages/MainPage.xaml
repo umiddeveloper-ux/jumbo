@@ -78,9 +78,10 @@
                         <!-- ── Daily goal + streak ── -->
                         <ctl:DailyCard Data="{Binding Daily}" />
 
-                        <!-- ── Books ── -->
+                        <!-- ── Books and the overall progress under them: one section ── -->
+                        <VerticalStackLayout Spacing="6">
                         <Label Text="{u:Tr Key=BooksSection}" Style="{StaticResource SectionTitle}" SemanticProperties.HeadingLevel="Level1" />
-                        <CollectionView ItemsSource="{Binding Books}" SelectionMode="None" HeightRequest="76" Margin="-4,0">
+                        <CollectionView ItemsSource="{Binding Books}" SelectionMode="None" HeightRequest="76" Margin="-4,0" HorizontalScrollBarVisibility="Never">
                             <CollectionView.ItemsLayout>
                                 <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
                             </CollectionView.ItemsLayout>
@@ -139,26 +140,21 @@
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
-
-                        <!-- ── Overall progress ── -->
-                        <Border Style="{StaticResource InsetCardStyle}" StrokeShape="RoundRectangle 22" Padding="16">
-                            <VerticalStackLayout Spacing="10">
-                                <Grid ColumnDefinitions="*, Auto">
-                                    <Label Text="{u:Tr Key=TotalProgress}" FontFamily="NunitoExtraBold" FontSize="16" />
-                                    <Label Grid.Column="1" Text="{Binding TotalProgress, StringFormat='{0:P0}'}" TextColor="{StaticResource Success}" FontFamily="NunitoBlack" FontSize="16" />
-                                </Grid>
-                                <ProgressBar Progress="{Binding TotalProgress}" ProgressColor="{StaticResource Success}" HeightRequest="10" />
-                                <Label Text="{Binding WordsProgressLabel}" HorizontalOptions="Center" FontSize="13"
-                                       TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
-                            </VerticalStackLayout>
-                        </Border>
+                        <ProgressBar Progress="{Binding TotalProgress}" ProgressColor="{StaticResource Success}" HeightRequest="10" Margin="2,0" />
+                        <Grid ColumnDefinitions="*, Auto" Margin="2,0">
+                            <Label Text="{Binding WordsProgressLabel}" FontSize="13"
+                                   TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />
+                            <Label Grid.Column="1" Text="{Binding TotalProgress, StringFormat='{0:P0}'}" TextColor="{StaticResource Success}" FontFamily="NunitoBlack" FontSize="15" />
+                        </Grid>
+                        </VerticalStackLayout>
 
                         <!-- ── Alphabet: a button whose colour follows the dominant repetition level ── -->
-                        <Border StrokeShape="RoundRectangle 22" Padding="18" BackgroundColor="{Binding AlphabetSummaryColor}" StrokeThickness="0">
+                        <Border StrokeShape="RoundRectangle 22" Padding="0" BackgroundColor="{Binding AlphabetSummaryColor}" StrokeThickness="0">
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding OpenAlphabetCommand}" />
                             </Border.GestureRecognizers>
-                            <Grid ColumnDefinitions="Auto, *, Auto">
+                            <Grid>
+                            <Grid Padding="18" ColumnDefinitions="Auto, *, Auto">
                                 <Label Grid.Column="0" Text="🔤" FontSize="30" VerticalOptions="Center" />
                                 <VerticalStackLayout Grid.Column="1" Margin="14,0,0,0" VerticalOptions="Center" Spacing="0">
                                     <Label Text="{u:Tr Key=AlphabetSection}" FontFamily="NunitoBlack" FontSize="18" TextColor="{AppThemeBinding Light=#1B1B1F, Dark=#F2F2F4}" />
@@ -166,14 +162,17 @@
                                 </VerticalStackLayout>
                                 <Label Grid.Column="2" Text="→" FontSize="24" TextColor="{AppThemeBinding Light=#1B1B1F, Dark=#F2F2F4}" VerticalOptions="Center" />
                             </Grid>
+                            <BoxView Background="{StaticResource InsetShadeBrush}" InputTransparent="True" />
+                            </Grid>
                         </Border>
 
                         <!-- ── Rating: a button like "Repeat the words" (the colour of the level), the list is on its own page ── -->
-                        <Border StrokeShape="RoundRectangle 22" Padding="18" BackgroundColor="{DynamicResource Primary}" StrokeThickness="0">
+                        <Border StrokeShape="RoundRectangle 22" Padding="0" BackgroundColor="{DynamicResource Primary}" StrokeThickness="0">
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding OpenRatingCommand}" />
                             </Border.GestureRecognizers>
-                            <Grid ColumnDefinitions="Auto, *, Auto">
+                            <Grid>
+                            <Grid Padding="18" ColumnDefinitions="Auto, *, Auto">
                                 <Label Grid.Column="0" Text="🏆" FontSize="30" VerticalOptions="Center" />
                                 <VerticalStackLayout Grid.Column="1" Margin="14,0,0,0" VerticalOptions="Center" Spacing="0">
                                     <Label Text="{u:Tr Key=Stats_RatingTitle}" FontFamily="NunitoBlack" FontSize="18" TextColor="{DynamicResource OnPrimary}" />
@@ -181,6 +180,8 @@
                                            TextColor="{DynamicResource OnPrimary}" Opacity="0.75" />
                                 </VerticalStackLayout>
                                 <Label Grid.Column="2" Text="→" FontSize="24" TextColor="{DynamicResource OnPrimary}" VerticalOptions="Center" />
+                            </Grid>
+                            <BoxView Background="{StaticResource InsetShadeBrush}" InputTransparent="True" />
                             </Grid>
                         </Border>
 
