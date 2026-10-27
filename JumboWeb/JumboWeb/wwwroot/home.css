@@ -257,9 +257,8 @@ a.stats-tile:hover { border-color: var(--lp-primary); color: var(--lp-text); }
 .top-tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
 .top-tile {
     position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; min-width: 0;
-    padding: 28px 10px 14px; border-radius: 22px; background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 5px;
+    padding: 28px 10px 16px; border-radius: 22px; background: var(--lp-surface); border: 0;      /* no frame: the medal of the first three says the place */
 }
-.top-tile.top1 { border-color: #F2C94C; } .top-tile.top2 { border-color: #D2D6DD; } .top-tile.top3 { border-color: #E0A070; }
 .top-tile-rank { position: absolute; top: 8px; left: 12px; font-size: 1.3rem; font-weight: 900; color: var(--lp-muted); }
 .top-tile-avatar { display: flex; margin-bottom: 4px; }
 .top-tile-name { max-width: 100%; font-weight: 900; font-size: 1.02rem; color: var(--lp-text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
