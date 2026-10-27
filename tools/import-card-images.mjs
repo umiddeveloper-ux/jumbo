@@ -48,13 +48,38 @@ for (const z of zips) {
 }
 console.log(zips.length + ' zips, ' + cards.size + ' cards');
 
+// The red of the card is replaced by the SOFT red of the site (the colour of level A1 mixed 30 % with white, see JumboWeb/wwwroot/soft-colors.css),
+// so that the picture melts into the card of the game. Only the pixels close to the background colour are moved (the shading of the background
+// and the soft edges of the characters are kept); set SOFT_BG = null to keep the original red.
+const SOFT_BG = [0xED, 0x74, 0x76];
+function softenBackground(buf, w, h) {
+  // the colour of the background: the corner of the picture (a white frame, i.e. no red corner: nothing to do)
+  let r = 0, g = 0, b = 0, n = 0;
+  for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) { const o = (y * w + x) * 3; r += buf[o]; g += buf[o + 1]; b += buf[o + 2]; n++; }
+  const bg = [r / n, g / n, b / n];
+  if (!(bg[0] > 150 && bg[1] < 70 && bg[2] < 80)) return;
+  const dr = SOFT_BG[0] - bg[0], dg = SOFT_BG[1] - bg[1], db = SOFT_BG[2] - bg[2];
+  for (let o = 0; o < buf.length; o += 3) {
+    const d = Math.hypot(buf[o] - bg[0], buf[o + 1] - bg[1], buf[o + 2] - bg[2]);
+    const wgt = d <= 45 ? 1 : d >= 110 ? 0 : (110 - d) / 65;
+    if (wgt === 0) continue;
+    buf[o] = Math.max(0, Math.min(255, Math.round(buf[o] + wgt * dr)));
+    buf[o + 1] = Math.max(0, Math.min(255, Math.round(buf[o + 1] + wgt * dg)));
+    buf[o + 2] = Math.max(0, Math.min(255, Math.round(buf[o + 2] + wgt * db)));
+  }
+}
+
 function pictureSvg(png) {
   const CROP = LAYOUTS[layoutOf(png)];
+  const H = Math.round(OUT_W * CROP.h / CROP.w);
+  const raw = execFileSync('ffmpeg', ['-loglevel', 'error', '-i', png, '-vf', `crop=${CROP.w}:${CROP.h}:${CROP.x}:${CROP.y},scale=${OUT_W}:${H}:flags=lanczos`, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], { maxBuffer: 1 << 28 });
+  if (SOFT_BG) softenBackground(raw, OUT_W, H);
+  // the colour of the background of the square: the corner of the (softened) picture
+  let r = 0, g = 0, b = 0;
+  for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) { const o = (y * OUT_W + x) * 3; r += raw[o]; g += raw[o + 1]; b += raw[o + 2]; }
+  const bg = '#' + [r, g, b].map(v => Math.round(v / 256).toString(16).padStart(2, '0')).join('');
   const jpg = png + '.jpg';
-  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', png, '-vf', `crop=${CROP.w}:${CROP.h}:${CROP.x}:${CROP.y},scale=${OUT_W}:-1:flags=lanczos`, '-q:v', '5', jpg]);
-  // the colour of the background: the corner of the picture
-  const px = execFileSync('ffmpeg', ['-loglevel', 'error', '-i', jpg, '-vf', 'crop=24:24:0:0,scale=1:1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-']);
-  const bg = '#' + [...px.subarray(0, 3)].map(v => v.toString(16).padStart(2, '0')).join('');
+  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', `${OUT_W}x${H}`, '-i', '-', '-q:v', '5', jpg], { input: raw, maxBuffer: 1 << 28 });
   const b64 = fs.readFileSync(jpg).toString('base64');
   const h = +(100 * CROP.h / CROP.w).toFixed(2);          // the picture is wider than high: it stands on the bottom edge of the square
   return `<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><clipPath id='c'><rect width='100' height='100' rx='18'/></clipPath></defs><g clip-path='url(#c)'><rect width='100' height='100' fill='${bg}'/><image x='0' y='${(100 - h).toFixed(2)}' width='100' height='${h}' xlink:href='data:image/jpeg;base64,${b64}'/></g></svg>`;
