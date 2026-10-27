@@ -65,13 +65,13 @@ button, input, select, textarea { font-family: inherit; }
     text-shadow: none;
 }
 .site-user-card {
-    background: var(--lp-surface);
-    border: 2px solid transparent;
+    background: transparent;            /* the orange of the menu; only a thin line shows the card */
+    border: 2px solid rgba(0, 0, 0, 0.22);
     border-radius: 16px;
     padding: 10px 12px;
     margin-bottom: 8px;
 }
-.site-user-name { color: var(--lp-text); font-weight: 800; }
+.site-user-name { color: var(--lp-on-brand); font-weight: 800; }
 .user-avatar { background: var(--lp-primary-soft); }
 
 .site-nav-list { padding: 6px 0; }
