@@ -11,6 +11,9 @@
     --lp-primary-soft:   #FFF0DC;
     --lp-on-primary:     #1B1B1F;   /* the text on a button of the primary colour (white on orange / yellow is not readable) */
     --lp-primary-text:   #B45F00;   /* the primary colour as the colour of a text on a light background (readable) */
+    --lp-brand:          #F28C0F;   /* the frame of the site (the side menu, the top bar): always the orange of the brand */
+    --lp-brand-dark:     #DB7A00;
+    --lp-on-brand:       #1B1B1F;
     --lp-secondary:      #7C4DFF;
     --lp-accent:         #FF9600;
     --lp-success:        #58CC02;
@@ -45,23 +48,25 @@ button, input, select, textarea { font-family: inherit; }
 
 /* ----- Sidebar: white, outlined, pill-shaped active item ----- */
 .site-sidebar {
-    background: var(--lp-surface);
-    border-right: 2px solid var(--lp-border);
+    width: 256px;
+    max-width: 86vw;
+    background: var(--lp-brand);
+    border-right: none;
     box-shadow: none;
     padding: 0 12px 12px;
 }
 .site-sidebar-brand { padding: 20px 8px 16px; border-bottom: none; }
 .site-brand-icon { width: 38px; height: 38px; border-radius: 12px; }
 .site-brand-name {
-    color: var(--lp-primary-text);
+    color: var(--lp-on-brand);
     font-size: 1.45rem;
     font-weight: 900;
     letter-spacing: -0.3px;
     text-shadow: none;
 }
 .site-user-card {
-    background: var(--lp-bg);
-    border: 2px solid var(--lp-border);
+    background: var(--lp-surface);
+    border: 2px solid transparent;
     border-radius: 16px;
     padding: 10px 12px;
     margin-bottom: 8px;
@@ -73,7 +78,7 @@ button, input, select, textarea { font-family: inherit; }
 .site-nav-list li { margin-bottom: 4px; }
 .site-nav-link {
     padding: 11px 14px;
-    color: var(--lp-muted);
+    color: var(--lp-on-brand);
     font-size: 0.86rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -81,33 +86,35 @@ button, input, select, textarea { font-family: inherit; }
     border: 2px solid transparent;
     border-radius: 14px;
 }
-.site-nav-link:hover { background: var(--lp-bg); color: var(--lp-text); }
+.site-nav-link:hover { background: rgba(255, 255, 255, 0.28); color: var(--lp-on-brand); }
 .site-nav-link.active {
-    background: var(--lp-primary-soft);
-    color: var(--lp-primary-text);
-    border-color: var(--lp-primary-edge);
+    background: var(--lp-surface);
+    color: var(--lp-text);
+    border-color: transparent;
     text-shadow: none;
 }
 .site-nav-icon { font-size: 1.35rem; }
 .site-nav-logo { width: 26px; height: 26px; border-radius: 7px; }
 .site-logout-link {
     border-top: none;
-    color: var(--lp-muted);
+    color: var(--lp-on-brand);
     margin-top: 4px;
     width: 100%;
 }
-.site-logout-link:hover { background: var(--lp-error-soft); color: var(--lp-error); }
+.site-logout-link:hover { background: rgba(0, 0, 0, 0.14); color: var(--lp-on-brand); }
 
 /* ----- Top bars (mobile header + LP header) ----- */
 .site-mobile-header,
 .lp-header {
-    background: var(--lp-surface);
-    border-bottom: 2px solid var(--lp-border);
+    background: var(--lp-brand);
+    border-bottom: none;
     box-shadow: none;
 }
-.site-hamburger, .lp-hamburger { color: var(--lp-primary-text); }
-.site-hamburger:hover, .lp-hamburger:hover { background: var(--lp-primary-soft); }
-.site-mobile-title, .lp-header-brand { color: var(--lp-primary-text); font-weight: 900; font-size: 1.1rem; }
+.site-hamburger, .lp-hamburger { color: var(--lp-on-brand); }
+.site-hamburger:hover, .lp-hamburger:hover { background: rgba(255, 255, 255, 0.28); }
+.site-mobile-title, .lp-header-brand { color: var(--lp-on-brand); font-weight: 900; font-size: 1.1rem; }
+/* on a computer the title "Jumbo" of the top bar is not shown (the side menu already says it); on a phone it stays next to the menu button */
+@media (min-width: 768px) { .lp-header-title { display: none; } }
 .lp-lives { color: var(--lp-error); font-weight: 800; font-size: 0.9rem; }
 .lp-lp    { color: var(--lp-accent); font-weight: 800; font-size: 0.9rem; }
 
@@ -368,6 +375,9 @@ button, input, select, textarea { font-family: inherit; }
     --lp-primary-soft:   #3A2A12;
     --lp-on-primary:     #17171A;
     --lp-primary-text:   #FFA733;
+    --lp-brand:          #E8890C;
+    --lp-brand-dark:     #C46F00;
+    --lp-on-brand:       #17171A;
     --lp-success-dark:   #7BE02B;
     --lp-success-soft:   #1F3B18;
     --lp-error-soft:     #4A2327;
@@ -383,7 +393,8 @@ button, input, select, textarea { font-family: inherit; }
     color-scheme: dark;
 }
 :root[data-theme="dark"] .site-sidebar { box-shadow: none; }
-:root[data-theme="dark"] .site-nav-link.active { color: var(--lp-primary-text); }
+:root[data-theme="dark"] .site-brand-name { color: var(--lp-on-brand); }
+:root[data-theme="dark"] .site-nav-link.active { color: var(--lp-text); }
 :root[data-theme="dark"] .lp-btn,
 :root[data-theme="dark"] .lp-btn-primary { color: var(--lp-on-primary); }
 :root[data-theme="dark"] .lp-btn-outline { color: var(--lp-primary-text); }
@@ -392,7 +403,6 @@ button, input, select, textarea { font-family: inherit; }
 :root[data-theme="dark"] .topic-word-speak { color: var(--lp-primary-text); }
 :root[data-theme="dark"] .book-number,
 :root[data-theme="dark"] .lp-register-title,
-:root[data-theme="dark"] .site-brand-name,
 :root[data-theme="dark"] .site-mobile-title,
 :root[data-theme="dark"] .lp-header-brand { color: var(--lp-primary-text); }
 :root[data-theme="dark"] .lp-input,
@@ -1298,3 +1308,6 @@ span[style*="0.85rem"] { font-size: 0.95rem !important; }
 
 /* check boxes, radio buttons and range sliders: the colour of the page (the level), not the blue of the browser */
 input[type="checkbox"], input[type="radio"], input[type="range"], progress { accent-color: var(--lp-primary); }
+
+/* the frame (side menu, top bar) follows the theme bought in the market, otherwise it is the orange of the brand */
+:root[data-palette] { --lp-brand: var(--lp-primary); --lp-brand-dark: var(--lp-primary-dark); --lp-on-brand: #FFFFFF; }
