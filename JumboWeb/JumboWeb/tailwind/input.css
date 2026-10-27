@@ -1,0 +1,29 @@
+/* Tailwind CSS for Jumbo (v4). Build: `npm run css` (writes wwwroot/tailwind.css, which SiteCss puts first in /site.css; commit the result).
+   - The classes are written with the prefix "tw:" (class="tw:flex tw:gap-2 tw:hover:bg-brand"): the site already has ~3800 lines of its own css and
+     class names like "grid", "table", "hidden", so Tailwind must not react to them by accident.
+   - Our own css files are NOT in a layer, so they win over everything here. Tailwind adds its reset (preflight, instead of Bootstrap's reboot)
+     and only the utilities that the .razor files really use (found in ../Components; wwwroot is not scanned).
+   - The colours are the tokens of the site: tw:bg-brand, tw:text-ink ... follow the theme (light / dark) and the colour of the level of the book. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme) prefix(tw);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+
+@source "../Components";
+
+@theme inline {
+    --font-sans: 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --color-brand: var(--lp-primary);
+    --color-brand-dark: var(--lp-primary-dark);
+    --color-brand-edge: var(--lp-primary-shadow);
+    --color-brand-soft: var(--lp-primary-soft);
+    --color-brand-text: var(--lp-primary-text);
+    --color-on-brand: var(--lp-on-primary);
+    --color-page: var(--lp-bg);
+    --color-surface: var(--lp-surface);
+    --color-line: var(--lp-border);
+    --color-ink: var(--lp-text);
+    --color-muted: var(--lp-muted);
+    --color-ok: var(--lp-success);
+    --color-bad: var(--lp-error);
+}

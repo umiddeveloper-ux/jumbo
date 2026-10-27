@@ -1,0 +1,15 @@
+{
+  "name": "jumboweb-css",
+  "version": "1.0.0",
+  "description": "Tailwind build of the css of the site (wwwroot/tailwind.css)",
+  "scripts": {
+    "css": "tailwindcss -i tailwind/input.css -o wwwroot/tailwind.css --minify",
+    "css:watch": "tailwindcss -i tailwind/input.css -o wwwroot/tailwind.css --watch"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "private": true
+}

@@ -1,0 +1,10 @@
+/* What the pages of the site still take from the old Bootstrap "reboot" (it was removed; Tailwind's preflight resets these things to zero).
+   Only the rules that change the look are kept. This file comes right after tailwind.css and before all the css of the site. */
+h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: .5rem; line-height: 1.2; }
+p { margin-top: 0; margin-bottom: 1rem; }
+ul, ol { margin-top: 0; margin-bottom: 1rem; padding-left: 2rem; list-style: revert; }
+ul ul, ol ol, ul ol, ol ul { margin-bottom: 0; }
+label { display: inline-block; }
+small { font-size: .875em; }
+img, svg { display: inline; vertical-align: middle; }
+[hidden] { display: none !important; }

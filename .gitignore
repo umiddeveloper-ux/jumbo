@@ -41,3 +41,6 @@ media-dev/
 # --- local helper scripts and agent folders (may hold local tokens/passwords)
 .local-test/
 .agents/
+
+# node tooling (Tailwind build)
+node_modules/

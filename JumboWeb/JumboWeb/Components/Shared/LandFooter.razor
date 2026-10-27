@@ -11,9 +11,10 @@
         <div class="foot-col foot-brand">
             <a class="land-brand" href="/"><img src="favicon.svg" alt="" /><span>@Loc["Common_BrandName"]</span></a>
             <p>@Loc["Foot_Tagline"]</p>
-            <a class="foot-bot" href="https://t.me/JumboUzBot" target="_blank" rel="noopener">
-                <span class="foot-bot-ico" aria-hidden="true">✈️</span>
-                <span class="foot-bot-text"><small>@Loc["Foot_Bot"]</small><b>@@JumboUzBot</b></span>
+            @* Tailwind (prefix tw:): see tailwind/input.css *@
+            <a class="tw:mt-1.5 tw:inline-flex tw:items-center tw:gap-3 tw:rounded-2xl tw:border-2 tw:border-b-4 tw:border-line tw:bg-surface tw:px-4 tw:py-2.5 tw:no-underline tw:hover:border-[#2AABEE]" href="https://t.me/JumboUzBot" target="_blank" rel="noopener">
+                <span class="tw:grid tw:size-[34px] tw:place-items-center tw:rounded-full tw:bg-[#2AABEE] tw:text-[1.1rem]" aria-hidden="true">✈️</span>
+                <span class="tw:grid tw:leading-[1.15]"><small class="tw:text-[.74rem] tw:font-bold tw:text-muted">@Loc["Foot_Bot"]</small><b class="tw:text-[1.05rem] tw:font-black tw:text-ink">@@JumboUzBot</b></span>
             </a>
         </div>
 

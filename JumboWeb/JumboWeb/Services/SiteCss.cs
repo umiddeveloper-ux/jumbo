@@ -14,7 +14,7 @@ public sealed class SiteCss
     // the order matters: it is the order of the cascade
     private static readonly string[] Files =
     [
-        "lib/bootstrap/dist/css/bootstrap.min.css", "fonts.css", "app.css", "jumbo-theme.css", "tiger.css", "home.css", "rating.css",
+        "tailwind.css", "compat.css", "fonts.css", "app.css", "jumbo-theme.css", "tiger.css", "home.css", "rating.css",
         "top10.css", "lang.css", "exam.css", "schools.css", "teacher.css", "report.css"
     ];
 
