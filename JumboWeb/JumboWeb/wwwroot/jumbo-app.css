@@ -192,3 +192,32 @@
 .steps-card.pc { width: min(250px, 70%); min-height: 290px; margin: 6px auto 16px; }
 .phr-pic.pc { width: 132px; height: 178px; border-radius: 16px; }
 @media (max-width: 420px) { .phr-pic.pc { width: 112px; height: 152px; } .phr-pic.pc .pc-word { font-size: 0.9rem; } }
+
+/* ----- the exam: two kinds (typing / test) ----- */
+.exam-kinds { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.exam-kind {
+    display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 10px; text-align: center; cursor: pointer; font: inherit; color: var(--lp-text);
+    background: var(--lp-surface); border: 2px solid var(--lp-border); border-radius: 18px;
+}
+.exam-kind.selected { border-color: var(--lp-primary); background: var(--lp-primary-soft); }
+.exam-kind-ico { font-size: 1.8rem; line-height: 1; }
+.exam-kind-name { font-weight: 900; font-size: 1.05rem; }
+.exam-kind-hint { font-size: 0.82rem; font-weight: 600; color: var(--lp-muted); line-height: 1.3; }
+@media (max-width: 420px) { .exam-kinds { grid-template-columns: 1fr; } }
+
+.exam-resumed { margin: 4px 0 12px; padding: 8px 12px; border-radius: 12px; background: var(--lp-primary-soft); color: var(--lp-primary-text); font-weight: 800; font-size: 0.9rem; }
+.exam-test { max-width: 560px; margin: 8px auto 24px; }
+.exam-test-q { display: flex; align-items: center; gap: 10px; padding: 18px 16px; border-radius: 18px; background: var(--lp-surface); border: 2px solid var(--lp-border);
+    font-size: 1.5rem; font-weight: 900; text-align: left; }
+.exam-test-hint { margin: 10px 4px 8px; font-size: 0.88rem; font-weight: 700; color: var(--lp-muted); }
+.exam-test-opts { display: grid; gap: 10px; }
+.exam-opt {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-align: left; cursor: pointer; font: inherit; font-size: 1.15rem; font-weight: 800; color: var(--lp-text);
+    background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 4px; border-radius: 16px; transition: border-color .12s, background .12s;
+}
+.exam-opt:hover:not(:disabled) { border-color: var(--lp-primary); background: var(--lp-primary-soft); }
+.exam-opt:active:not(:disabled) { transform: translateY(2px); border-bottom-width: 2px; }
+.exam-opt-letter { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; font-weight: 900; font-size: 0.95rem;
+    background: var(--lp-primary-soft); color: var(--lp-primary-text); }
+.exam-opt-text { overflow-wrap: anywhere; }
+@media (min-width: 640px) { .exam-test-opts { grid-template-columns: 1fr 1fr; } }

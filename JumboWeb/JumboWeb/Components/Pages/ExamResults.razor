@@ -2,6 +2,8 @@
 @rendermode InteractiveServer
 @using JumboWeb.Services
 @inject ExamStateService ExamState
+@inject ExamProgressStore Progress
+@inject UserStateService UserState
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
 
@@ -56,6 +58,17 @@
 </div>
 
 @code {
-    // The same book and number of words again, no setup page in between.
-    private void Retry() => Nav.NavigateTo($"/exam/quiz/{ExamState.BookNumber}/{ExamState.WordCount}");
+    // F5 on this page: the result of the last exam comes back from the browser
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender || ExamState.TotalCount > 0) return;
+        await UserState.EnsureLoadedAsync();
+        var r = await Progress.LoadResultAsync(UserState.CurrentUser?.UserId ?? 0);
+        if (r is null) return;
+        ExamState.SetResults(r.Answers, r.Book, r.Count, r.TeacherExamId, r.Sent, r.Kind);
+        StateHasChanged();
+    }
+
+    // The same book, number of words and kind of exam again, no setup page in between.
+    private void Retry() => Nav.NavigateTo($"/exam/quiz/{ExamState.BookNumber}/{ExamState.WordCount}" + (ExamState.Kind == "test" ? "?mode=test" : string.Empty));
 }

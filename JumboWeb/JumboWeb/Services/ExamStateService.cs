@@ -16,8 +16,12 @@ public class ExamStateService
     public int? TeacherExamId { get; private set; }
     public bool SentToTeacher { get; private set; }
 
-    public void SetResults(List<ExamAnswer> answers, int bookNumber = 0, int wordCount = 0, int? teacherExamId = null, bool sent = true)
+    // type (the translation is typed) | test (one of four answers)
+    public string Kind { get; private set; } = "type";
+
+    public void SetResults(List<ExamAnswer> answers, int bookNumber = 0, int wordCount = 0, int? teacherExamId = null, bool sent = true, string kind = "type")
     {
+        Kind = kind;
         Answers = answers;
         BookNumber = bookNumber;
         WordCount = wordCount;

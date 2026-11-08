@@ -3162,4 +3162,25 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="Foot_ShareText" xml:space="preserve">
     <value>Jumbo — learn English by playing</value>
   </data>
+  <data name="Exam_KindTitle" xml:space="preserve">
+    <value>Kind of exam</value>
+  </data>
+  <data name="Exam_KindType" xml:space="preserve">
+    <value>Typing</value>
+  </data>
+  <data name="Exam_KindTypeHint" xml:space="preserve">
+    <value>Type the word for the translation you see.</value>
+  </data>
+  <data name="Exam_KindTest" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Exam_KindTestHint" xml:space="preserve">
+    <value>Choose the right word out of four.</value>
+  </data>
+  <data name="ExamQuiz_TestHint" xml:space="preserve">
+    <value>Choose the right word</value>
+  </data>
+  <data name="ExamQuiz_Resumed" xml:space="preserve">
+    <value>The exam goes on from where you stopped.</value>
+  </data>
 </root>

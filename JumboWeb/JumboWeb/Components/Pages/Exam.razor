@@ -8,6 +8,7 @@
 @inject NavigationManager Nav
 @inject IJSRuntime JS
 @inject LivesService Lives
+@inject ExamProgressStore Progress
 
 <PageTitle>@Loc["SiteHome_ExamCardTitle"]</PageTitle>
 
@@ -114,6 +115,22 @@
             </section>
         }
 
+        <section class="exam-card">
+            <h2 class="exam-step"><span class="exam-step-num">3</span>@Loc["Exam_KindTitle"]</h2>
+            <div class="exam-kinds" role="radiogroup">
+                <button type="button" role="radio" aria-checked="@(_kind == "type" ? "true" : "false")" class="exam-kind @(_kind == "type" ? "selected" : "")" @onclick='() => _kind = "type"'>
+                    <span class="exam-kind-ico">⌨️</span>
+                    <span class="exam-kind-name">@Loc["Exam_KindType"]</span>
+                    <span class="exam-kind-hint">@Loc["Exam_KindTypeHint"]</span>
+                </button>
+                <button type="button" role="radio" aria-checked="@(_kind == "test" ? "true" : "false")" class="exam-kind @(_kind == "test" ? "selected" : "")" @onclick='() => _kind = "test"'>
+                    <span class="exam-kind-ico">✅</span>
+                    <span class="exam-kind-name">@Loc["Exam_KindTest"]</span>
+                    <span class="exam-kind-hint">@Loc["Exam_KindTestHint"]</span>
+                </button>
+            </div>
+        </section>
+
         @* Always visible at the bottom of the screen, so "Start" never hides below the fold. *@
         <div class="exam-bar">
             <div class="exam-bar-text @(CanStart ? "ready" : "")">
@@ -161,6 +178,10 @@
     private string _code = string.Empty;
     private string _codeError = string.Empty;
     private bool _joining;
+
+    // type: the translation is typed (as it was); test: one of four answers
+    private string _kind = "type";
+    private string KindQuery => _kind == "test" ? "mode=test" : string.Empty;
 
     private bool CanStart => _selectedBook.HasValue && (_teacherMode ? _code.Length == 6 : _selectedCount.HasValue);
 
@@ -242,9 +263,10 @@
     private async Task Start()
     {
         if (!CanStart || _joining) return;
+        await Progress.ClearSessionAsync();          // a new exam, not the unfinished one
         if (!_teacherMode)
         {
-            Nav.NavigateTo($"/exam/quiz/{_selectedBook}/{_selectedCount}");
+            Nav.NavigateTo($"/exam/quiz/{_selectedBook}/{_selectedCount}" + (KindQuery.Length > 0 ? "?" + KindQuery : string.Empty));
             return;
         }
 
@@ -255,7 +277,7 @@
         {
             var joined = await ApiClient.JoinTeacherExamAsync(_code);
             if (joined is not null)
-                Nav.NavigateTo($"/exam/quiz/{_selectedBook}/{joined.WordCount}?te={joined.TeacherExamId}");
+                Nav.NavigateTo($"/exam/quiz/{_selectedBook}/{joined.WordCount}?te={joined.TeacherExamId}" + (KindQuery.Length > 0 ? "&" + KindQuery : string.Empty));
         }
         catch (Exception ex)
         {

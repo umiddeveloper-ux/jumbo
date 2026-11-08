@@ -548,7 +548,8 @@
             // A small memory of the browser (the results of the games of Book 0): a failure (private mode) is never an error.
             store: {
                 get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
-                set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) { } }
+                set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) { } },
+                remove: function (k) { try { localStorage.removeItem(k); } catch (e) { } }
             },
             // A page opened at "#something" (a QR code of a part of the page): scroll to that element once the page is drawn.
             // The layout draws the page a moment after the first render, so the element is waited for (up to ~5 s).

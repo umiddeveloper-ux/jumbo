@@ -3093,4 +3093,25 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Foot_ShareText" xml:space="preserve">
     <value>Jumbo — o‘ynab inglizcha o‘rganamiz</value>
   </data>
+  <data name="Exam_KindTitle" xml:space="preserve">
+    <value>Imtihon turi</value>
+  </data>
+  <data name="Exam_KindType" xml:space="preserve">
+    <value>Tarjimani yozish</value>
+  </data>
+  <data name="Exam_KindTypeHint" xml:space="preserve">
+    <value>Tarjima bo'yicha so'zni yozasiz.</value>
+  </data>
+  <data name="Exam_KindTest" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Exam_KindTestHint" xml:space="preserve">
+    <value>To'rtta so'zdan to'g'risini tanlaysiz.</value>
+  </data>
+  <data name="ExamQuiz_TestHint" xml:space="preserve">
+    <value>To'g'ri so'zni tanlang</value>
+  </data>
+  <data name="ExamQuiz_Resumed" xml:space="preserve">
+    <value>Imtihon to'xtagan joyingizdan davom etadi.</value>
+  </data>
 </root>

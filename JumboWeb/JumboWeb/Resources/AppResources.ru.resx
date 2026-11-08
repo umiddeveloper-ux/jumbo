@@ -3162,4 +3162,25 @@
   <data name="Foot_ShareText" xml:space="preserve">
     <value>Jumbo — учим английский играя</value>
   </data>
+  <data name="Exam_KindTitle" xml:space="preserve">
+    <value>Вид экзамена</value>
+  </data>
+  <data name="Exam_KindType" xml:space="preserve">
+    <value>Ввод перевода</value>
+  </data>
+  <data name="Exam_KindTypeHint" xml:space="preserve">
+    <value>Печатаешь слово по переводу.</value>
+  </data>
+  <data name="Exam_KindTest" xml:space="preserve">
+    <value>Тест</value>
+  </data>
+  <data name="Exam_KindTestHint" xml:space="preserve">
+    <value>Выбираешь правильное слово из четырёх.</value>
+  </data>
+  <data name="ExamQuiz_TestHint" xml:space="preserve">
+    <value>Выбери правильное слово</value>
+  </data>
+  <data name="ExamQuiz_Resumed" xml:space="preserve">
+    <value>Экзамен продолжается с того места, где ты остановился.</value>
+  </data>
 </root>

@@ -1,9 +1,11 @@
 @page "/exam/quiz/{BookNumber:int}/{WordCount:int}"
 @rendermode InteractiveServer
 @using JumboWeb.Services
+@implements IDisposable
 @inject LpApiClient ApiClient
 @inject UserPreferencesService Prefs
 @inject ExamStateService ExamState
+@inject ExamProgressStore Progress
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
 @inject IJSRuntime JS
@@ -17,7 +19,7 @@
         <button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/exam")'>@Loc["Common_BackArrow"]</button>
         @if (!_isBusy && !_hasNoData)
         {
-            <span class="exam-counter">@Math.Min(_batchStart + CurrentBatch.Count, _words.Count) / @_words.Count</span>
+            <span class="exam-counter">@Done / @_words.Count</span>
         }
     </div>
 
@@ -41,29 +43,59 @@
     }
     else
     {
-        <div class="exam-quiz-list">
-            @for (int i = 0; i < CurrentBatch.Count; i++)
+        @if (_resumed)
+        {
+            <p class="exam-resumed">↻ @Loc["ExamQuiz_Resumed"]</p>
+        }
+
+        @if (IsTest)
+        {
+            @* Test: one word, four answers; a tap on an answer is the answer (no marks while the exam goes on) *@
+            @if (_qIndex < _words.Count)
             {
-                var idx = i;
-                var w = CurrentBatch[idx];
-                <div class="exam-quiz-row">
-                    <div class="exam-quiz-translation"><span class="exam-quiz-n">@(_batchStart + idx + 1)</span>@w.TranslationWord</div>
-                    <input class="exam-quiz-input" type="text" placeholder="@Loc["ExamQuiz_InputPlaceholder"]"
-                           autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"
-                           enterkeyhint="@(idx == CurrentBatch.Count - 1 ? "done" : "next")"
-                           value="@_currentInputs[idx]"
-                           @oninput="e => _currentInputs[idx] = e.Value?.ToString() ?? string.Empty"
-                           @onkeydown="e => OnKey(e, idx)" />
+                var q = _words[_qIndex];
+                var opts = _options[_qIndex];
+                <div class="exam-test">
+                    <div class="exam-test-q"><span class="exam-quiz-n">@(_qIndex + 1)</span>@q.TranslationWord</div>
+                    <div class="exam-test-hint">@Loc["ExamQuiz_TestHint"]</div>
+                    <div class="exam-test-opts">
+                        @for (int i = 0; i < opts.Count; i++)
+                        {
+                            var text = opts[i];
+                            <button type="button" class="exam-opt" disabled="@_submitting" @onclick="() => PickAsync(text)">
+                                <span class="exam-opt-letter">@((char)('A' + i))</span><span class="exam-opt-text">@text</span>
+                            </button>
+                        }
+                    </div>
                 </div>
             }
-        </div>
+        }
+        else
+        {
+            <div class="exam-quiz-list">
+                @for (int i = 0; i < CurrentBatch.Count; i++)
+                {
+                    var idx = i;
+                    var w = CurrentBatch[idx];
+                    <div class="exam-quiz-row">
+                        <div class="exam-quiz-translation"><span class="exam-quiz-n">@(_batchStart + idx + 1)</span>@w.TranslationWord</div>
+                        <input class="exam-quiz-input" type="text" placeholder="@Loc["ExamQuiz_InputPlaceholder"]"
+                               autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"
+                               enterkeyhint="@(idx == CurrentBatch.Count - 1 ? "done" : "next")"
+                               value="@_currentInputs[idx]"
+                               @oninput="e => OnInput(idx, e.Value?.ToString())"
+                               @onkeydown="e => OnKey(e, idx)" />
+                    </div>
+                }
+            </div>
 
-        <div class="exam-bar">
-            <div class="exam-bar-text">@Math.Min(_batchStart + CurrentBatch.Count, _words.Count) / @_words.Count</div>
-            <button type="button" class="lp-btn exam-go" @onclick="NextBatch">
-                @(IsLastBatch ? Loc["ExamQuiz_Finish"] : Loc["ExamQuiz_Next"])
-            </button>
-        </div>
+            <div class="exam-bar">
+                <div class="exam-bar-text">@Math.Min(_batchStart + CurrentBatch.Count, _words.Count) / @_words.Count</div>
+                <button type="button" class="lp-btn exam-go" @onclick="NextBatch">
+                    @(IsLastBatch ? Loc["ExamQuiz_Finish"] : Loc["ExamQuiz_Next"])
+                </button>
+            </div>
+        }
     }
 </div>
 
@@ -76,19 +108,29 @@
     // ?te=... : the exam was started with a teacher's code (checked by the server when the result is sent).
     [SupplyParameterFromQuery(Name = "te")] public int? TeacherExamId { get; set; }
 
+    // ?mode=test : the exam is a test (four answers); otherwise the translation is typed.
+    [SupplyParameterFromQuery(Name = "mode")] public string? Mode { get; set; }
+    private bool IsTest => string.Equals(Mode, "test", StringComparison.OrdinalIgnoreCase);
+    private string Kind => IsTest ? "test" : "type";
+
     private List<ExamWordItem> _words = new();
     private List<ExamAnswer> _answers = new();
+    private List<List<string>> _options = new();       // test: the four answers of every question
     private string[] _currentInputs = Array.Empty<string>();
     private int _batchStart;
+    private int _qIndex;                               // test: the question on the screen
     private bool _isBusy = true;
     private bool _hasNoData;
+    private bool _resumed;                             // the exam went on after F5 / a new visit
+
+    private int Done => IsTest ? _qIndex : Math.Min(_batchStart + CurrentBatch.Count, _words.Count);
 
     private List<ExamWordItem> CurrentBatch =>
         _words.Skip(_batchStart).Take(BatchSize).ToList();
 
     private bool IsLastBatch => _batchStart + BatchSize >= _words.Count;
 
-    private double _progressPct => _words.Count > 0 ? _batchStart * 100.0 / _words.Count : 0;
+    private double _progressPct => _words.Count > 0 ? (IsTest ? _qIndex : _batchStart) * 100.0 / _words.Count : 0;
 
     protected override async Task OnInitializedAsync()
     {
@@ -112,6 +154,23 @@
             return;
         }
 
+        // F5 / the tab was opened again: the same exam goes on (the same words, the answers so far, what was typed).
+        var saved = await Progress.LoadSessionAsync(user.UserId, BookNumber, WordCount, Kind, TeacherExamId);
+        if (saved is not null && (saved.BatchStart < saved.Words.Count || (IsTest && saved.Answers.Count < saved.Words.Count)))
+        {
+            _words = saved.Words;
+            _answers = saved.Answers;
+            _options = saved.Options;
+            _batchStart = saved.BatchStart;
+            _qIndex = saved.Answers.Count;
+            _currentInputs = new string[CurrentBatch.Count];
+            for (int i = 0; i < _currentInputs.Length; i++) _currentInputs[i] = i < saved.Inputs.Count ? saved.Inputs[i] : string.Empty;
+            if (IsTest && _options.Count != _words.Count) BuildOptions();
+            _resumed = _answers.Count > 0 || saved.Inputs.Any(s => !string.IsNullOrEmpty(s));
+            _isBusy = false;
+            return;
+        }
+
         try
         {
             _words = await ApiClient.GetExamWordsAsync(BookNumber, Prefs.StudyLangId, Prefs.TransLangId, WordCount);
@@ -129,21 +188,76 @@
         }
 
         _batchStart = 0;
+        _qIndex = 0;
         _currentInputs = new string[CurrentBatch.Count];
+        for (int i = 0; i < _currentInputs.Length; i++) _currentInputs[i] = string.Empty;
+        if (IsTest) BuildOptions();
         _isBusy = false;
+        await SaveAsync();
+    }
+
+    // The four answers of every question: the right word and three other words of the exam (never a word that is right too).
+    private void BuildOptions()
+    {
+        _options = new List<List<string>>();
+        var rnd = Random.Shared;
+        foreach (var w in _words)
+        {
+            var right = w.StudyWord.Trim();
+            var bad = _words
+                .Where(o => o.WordId != w.WordId)
+                .Select(o => o.StudyWord.Trim())
+                .Where(t => !string.Equals(t, right, StringComparison.OrdinalIgnoreCase)
+                            && !w.AlternativeWords.Any(a => string.Equals(a.Trim(), t, StringComparison.OrdinalIgnoreCase)))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(_ => rnd.Next())
+                .Take(3)
+                .ToList();
+            bad.Add(right);
+            _options.Add(bad.OrderBy(_ => rnd.Next()).ToList());
+        }
     }
 
     private bool _focusFirst = true;
     private bool _submitting;
+    private CancellationTokenSource? _saveCts;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         // A fresh set of 5 words: put the cursor in the first answer field.
-        if (_focusFirst && !_isBusy && !_hasNoData)
+        if (_focusFirst && !IsTest && !_isBusy && !_hasNoData)
         {
             _focusFirst = false;
             try { await JS.InvokeVoidAsync("lp.focusExamInput", 0); } catch { }
         }
+    }
+
+    private Task SaveAsync() => Progress.SaveSessionAsync(new ExamSession
+    {
+        UserId = UserState.CurrentUser?.UserId ?? 0,
+        Book = BookNumber,
+        Count = WordCount,
+        Kind = Kind,
+        TeacherExamId = TeacherExamId,
+        Words = _words,
+        Answers = _answers,
+        BatchStart = _batchStart,
+        Inputs = _currentInputs.Select(s => s ?? string.Empty).ToList(),
+        Options = _options
+    });
+
+    // What is typed is kept a moment after the last key (not on every key).
+    private void OnInput(int idx, string? value)
+    {
+        _currentInputs[idx] = value ?? string.Empty;
+        _saveCts?.Cancel();
+        var cts = _saveCts = new CancellationTokenSource();
+        _ = Task.Run(async () =>
+        {
+            try { await Task.Delay(600, cts.Token); await InvokeAsync(SaveAsync); }
+            catch (OperationCanceledException) { }
+            catch { }
+        });
     }
 
     // Enter: next field, or submit the batch from the last field.
@@ -154,58 +268,90 @@
         else await JS.InvokeVoidAsync("lp.focusExamInput", index + 1);
     }
 
+    private static bool IsRight(ExamWordItem w, string entered) =>
+        string.Equals(entered, w.StudyWord.Trim(), StringComparison.OrdinalIgnoreCase)
+        || w.AlternativeWords.Any(a => string.Equals(entered, a.Trim(), StringComparison.OrdinalIgnoreCase));
+
+    // Test: the tapped answer is the answer; the next question comes at once.
+    private async Task PickAsync(string text)
+    {
+        if (_submitting || _qIndex >= _words.Count) return;
+        var w = _words[_qIndex];
+        _answers.Add(new ExamAnswer { TranslationWord = w.TranslationWord, CorrectWord = w.StudyWord, EnteredWord = text, IsCorrect = IsRight(w, text.Trim()) });
+        _qIndex++;
+        _batchStart = _qIndex;
+        _resumed = false;
+        if (_qIndex >= _words.Count) { await FinishAsync(); return; }
+        await SaveAsync();
+    }
+
     private async Task NextBatch()
     {
         if (_submitting) return;
+        _saveCts?.Cancel();
         var batch = CurrentBatch;
         for (int i = 0; i < batch.Count; i++)
         {
             var w = batch[i];
             var entered = (_currentInputs.Length > i ? _currentInputs[i] : string.Empty)?.Trim() ?? string.Empty;
-            var isCorrect = string.Equals(entered, w.StudyWord.Trim(), StringComparison.OrdinalIgnoreCase)
-                            || w.AlternativeWords.Any(a => string.Equals(entered, a.Trim(), StringComparison.OrdinalIgnoreCase));
-
             _answers.Add(new ExamAnswer
             {
                 TranslationWord = w.TranslationWord,
                 CorrectWord = w.StudyWord,
                 EnteredWord = entered,
-                IsCorrect = isCorrect
+                IsCorrect = IsRight(w, entered)
             });
         }
 
         _batchStart += BatchSize;
+        _resumed = false;
 
         if (_batchStart >= _words.Count)
         {
-            _submitting = true;
-
-            // Only an exam by a teacher's code is stored (for the teacher's reports); a free exam is just shown at the end.
-            // A failure must never block the student's result page.
-            var sent = true;
-            if (TeacherExamId is not null)
-            try
-            {
-                await ApiClient.SubmitExamResultAsync(new SubmitExamResultRequest
-                {
-                    BookNumber = BookNumber,
-                    TeacherExamId = TeacherExamId,
-                    TotalCount = _answers.Count,
-                    CorrectCount = _answers.Count(a => a.IsCorrect),
-                    Mistakes = _answers.Where(a => !a.IsCorrect)
-                        .Select(a => new ExamMistakeDto { Word = a.CorrectWord, Translation = a.TranslationWord })
-                        .ToList()
-                });
-            }
-            catch { sent = false; }
-
-            ExamState.SetResults(_answers, BookNumber, WordCount, TeacherExamId, sent);
-            Nav.NavigateTo("/exam/results", replace: true);
+            await FinishAsync();
         }
         else
         {
             _currentInputs = new string[CurrentBatch.Count];
+            for (int i = 0; i < _currentInputs.Length; i++) _currentInputs[i] = string.Empty;
             _focusFirst = true;
+            await SaveAsync();
         }
     }
+
+    private async Task FinishAsync()
+    {
+        _submitting = true;
+
+        // Only an exam by a teacher's code is stored (for the teacher's reports); a free exam is just shown at the end.
+        // A failure must never block the student's result page.
+        var sent = true;
+        if (TeacherExamId is not null)
+        try
+        {
+            await ApiClient.SubmitExamResultAsync(new SubmitExamResultRequest
+            {
+                BookNumber = BookNumber,
+                TeacherExamId = TeacherExamId,
+                TotalCount = _answers.Count,
+                CorrectCount = _answers.Count(a => a.IsCorrect),
+                Mistakes = _answers.Where(a => !a.IsCorrect)
+                    .Select(a => new ExamMistakeDto { Word = a.CorrectWord, Translation = a.TranslationWord })
+                    .ToList()
+            });
+        }
+        catch { sent = false; }
+
+        ExamState.SetResults(_answers, BookNumber, WordCount, TeacherExamId, sent, Kind);
+        // the exam is over: it does not go on after F5 any more, the result stays for the page of results
+        await Progress.ClearSessionAsync();
+        await Progress.SaveResultAsync(new ExamResultSnapshot
+        {
+            UserId = UserState.CurrentUser?.UserId ?? 0,
+            Answers = _answers, Book = BookNumber, Count = WordCount, Kind = Kind, TeacherExamId = TeacherExamId, Sent = sent
+        });
+        Nav.NavigateTo("/exam/results", replace: true);
+    }
+
+    public void Dispose() => _saveCts?.Cancel();
 }

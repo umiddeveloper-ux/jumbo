@@ -52,6 +52,7 @@ builder.Services.AddScoped<UserStateService>();
 builder.Services.AddScoped<UserPreferencesService>();
 builder.Services.AddScoped<AppLocalizer>();
 builder.Services.AddScoped<ExamStateService>();
+builder.Services.AddScoped<ExamProgressStore>();
 builder.Services.AddScoped<BookGateService>();
 builder.Services.AddScoped<PlayerStatsService>();
 builder.Services.AddScoped<TestLevelStateService>();
