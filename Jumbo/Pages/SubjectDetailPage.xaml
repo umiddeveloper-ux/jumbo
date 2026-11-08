@@ -74,7 +74,7 @@
                                 </Border.GestureRecognizers>
 
                                 <Grid ColumnDefinitions="50,*,34" Padding="14,12" ColumnSpacing="8">
-                                    <Label Text="{Binding SvgIcon}" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    <Image Source="{Binding SvgIcon}" WidthRequest="44" HeightRequest="44" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" />
                                     <VerticalStackLayout Grid.Column="1" Spacing="1" VerticalOptions="Center">
                                         <Label Text="{Binding Name}" FontFamily="NunitoExtraBold" FontSize="17" />
                                         <Label Text="{Binding Desc}" FontSize="13"

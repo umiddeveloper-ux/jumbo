@@ -154,3 +154,6 @@
 .snake-name.side.l { text-align: right; }
 .snake-name.side.r { text-align: left; }
 .snake-name.side.current { font-weight: 900; }
+
+.lesson-icon { width: 56px; }
+.lesson-icon img { width: 56px; height: 56px; display: block; object-fit: contain; }

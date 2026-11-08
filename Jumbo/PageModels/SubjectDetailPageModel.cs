@@ -95,10 +95,10 @@ public partial class SubjectDetailPageModel : ObservableObject
         Parts = progress?.PartsDone ?? 0;
         Lessons = new ObservableCollection<LessonItemViewModel>(
         [
-            new() { Type = "Words",        Name = LocalizationManager.Get("Game_WordsTitle"), Desc = LocalizationManager.Get("Game_WordsDesc"), SvgIcon = "📖", IsPassed = false },
-            new() { Type = "FindMe",       Name = LocalizationManager.Get("Game_FindMeTitle"), Desc = LocalizationManager.Get("Game_FindMeDesc"), SvgIcon = "🔍", IsPassed = progress?.FindMeWon  ?? false },
-            new() { Type = "ListenAndFind",Name = LocalizationManager.Get("Game_ListenTitle"), Desc = LocalizationManager.Get("Game_ListenDesc"), SvgIcon = "🎧", IsPassed = progress?.ListenWon   ?? false },
-            new() { Type = "Phrase",       Name = LocalizationManager.Get("Game_PhraseTitle"), Desc = LocalizationManager.Get("Game_PhraseDesc"), SvgIcon = "🧩", IsPassed = progress?.PhraseWon   ?? false }
+            new() { Type = "Words",        Name = LocalizationManager.Get("Game_WordsTitle"), Desc = LocalizationManager.Get("Game_WordsDesc"), SvgIcon = "lesson_words.png", IsPassed = false },
+            new() { Type = "FindMe",       Name = LocalizationManager.Get("Game_FindMeTitle"), Desc = LocalizationManager.Get("Game_FindMeDesc"), SvgIcon = "lesson_findme.png", IsPassed = progress?.FindMeWon  ?? false },
+            new() { Type = "ListenAndFind",Name = LocalizationManager.Get("Game_ListenTitle"), Desc = LocalizationManager.Get("Game_ListenDesc"), SvgIcon = "lesson_listen.png", IsPassed = progress?.ListenWon   ?? false },
+            new() { Type = "Phrase",       Name = LocalizationManager.Get("Game_PhraseTitle"), Desc = LocalizationManager.Get("Game_PhraseDesc"), SvgIcon = "lesson_phrase.png", IsPassed = progress?.PhraseWon   ?? false }
         ]);
     }
 
