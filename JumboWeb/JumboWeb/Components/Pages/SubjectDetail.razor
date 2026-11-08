@@ -39,11 +39,6 @@ else
     <TopicVideo Book="BookNumber" Seq="_subject.SequenceNumber" Lang="@Jumbo.Shared.TopicVideoPaths.LanguageCode(Prefs.StudyLangId)" />
 
     <div class="lesson-grid">
-        <div class="lesson-card" @onclick="GoToWords">
-            <div class="lesson-icon"><img src="icons/lesson_words.png" alt="" width="56" height="56" /></div>
-            <div class="lesson-name">@Loc["Game_WordsTitle"]</div>
-            <div class="lesson-desc">@Loc["Game_WordsDesc"]</div>
-        </div>
         <div class="lesson-card @(_progress?.FindMeWon == true ? "passed" : "")" @onclick="GoToFindMe">
             @if (_progress?.FindMeWon == true) { <span class="lesson-check" aria-label="✓">✓</span> }
             <div class="lesson-icon"><img src="icons/lesson_findme.png" alt="" width="56" height="56" /></div>
@@ -61,6 +56,11 @@ else
             <div class="lesson-icon"><img src="icons/lesson_phrase.png" alt="" width="56" height="56" /></div>
             <div class="lesson-name">@Loc["Game_PhraseTitle"]</div>
             <div class="lesson-desc">@Loc["Game_PhraseDesc"]</div>
+        </div>
+        <div class="lesson-card" @onclick="GoToWords">
+            <div class="lesson-icon"><img src="icons/lesson_words.png" alt="" width="56" height="56" /></div>
+            <div class="lesson-name">@Loc["Game_WordsTitle"]</div>
+            <div class="lesson-desc">@Loc["Game_WordsDesc"]</div>
         </div>
     </div>
 }

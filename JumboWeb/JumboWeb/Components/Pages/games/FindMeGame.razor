@@ -72,8 +72,10 @@ else
         {
             <div class="game-card @(card.IsMatched ? "matched" : card.ShowWrong ? "wrong-flash" : "") @(card.IsFresh ? "fresh" : "")"
                  @onclick="() => SelectCard(card)">
+                @* like the printed card: the level and the number on the top, the picture, the wave with the word *@
+                <div class="pc-top"><span class="pc-level">@card.Level</span><span class="pc-num">@card.Number</span></div>
                 <div class="game-card-svg">@((MarkupString)card.SvgHtml)</div>
-                <div class="game-card-label">@card.TranslationWord</div>
+                <div class="pc-wave"><div class="game-card-label">@card.TranslationWord</div></div>
             </div>
         }
     </div>
@@ -167,7 +169,9 @@ else
                 WordId = w.WordId, SvgImageId = w.SvgImageId,
                 EnglishWord = w.WordName,
                 TranslationWord = trans?.WordName ?? w.WordName,
-                SvgHtml = svg
+                SvgHtml = svg,
+                Number = w.WordNumber,
+                Level = w.Level ?? string.Empty
             });
         }
 
@@ -269,6 +273,8 @@ else
         public string EnglishWord { get; set; } = string.Empty;
         public string TranslationWord { get; set; } = string.Empty;
         public string SvgHtml { get; set; } = string.Empty;
+        public int Number { get; set; }
+        public string Level { get; set; } = string.Empty;
         public bool IsMatched { get; set; }
         public bool ShowWrong { get; set; }
         public bool IsFresh { get; set; }          // it has just taken the place of a found card

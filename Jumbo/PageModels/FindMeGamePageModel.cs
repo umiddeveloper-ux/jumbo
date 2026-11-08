@@ -166,7 +166,9 @@ public partial class FindMeGamePageModel : ObservableObject
                     SvgImageId = enWord.SvgImageId,
                     EnglishWord = enWord.WordName,
                     TranslationWord = ruWord?.WordName ?? enWord.WordName,
-                    SvgHtml = SvgHtmlWrapper.Wrap(rawSvg)
+                    SvgHtml = SvgHtmlWrapper.Wrap(rawSvg),
+                    Number = enWord.WordNumber,
+                    Level = enWord.Level ?? string.Empty
                 });
             }
 
@@ -289,6 +291,8 @@ public partial class GameCardViewModel : ObservableObject
     public string EnglishWord { get; set; } = string.Empty;
     public string TranslationWord { get; set; } = string.Empty;
     public string SvgHtml { get; set; } = string.Empty;
+    public int Number { get; set; }          // the number of the word (on the printed card)
+    public string Level { get; set; } = string.Empty;       // A1 ... (on the printed card)
 
     // A long translation gets a smaller font so that it fits the card in one line (a label of a card did not wrap on Android).
     public double TranslationFontSize => TranslationWord.Length switch { <= 8 => 15, <= 11 => 13, <= 14 => 11.5, _ => 10.5 };

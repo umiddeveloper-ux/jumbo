@@ -70,7 +70,7 @@
                 <DataTemplate x:DataType="pageModels:GameCardViewModel">
                     <Border StrokeShape="RoundRectangle 12" Padding="0"
                             StrokeThickness="0"
-                            HeightRequest="190"
+                            HeightRequest="205"
                             Margin="0,0,8,12"
                             WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type pageModels:FindMeGamePageModel}}, Path=CardWidth}">
 
@@ -98,14 +98,23 @@
                         <Grid>
                             <!-- Активная карточка -->
                             <!-- a Grid, not a stack: in a stack the label got a width a little too small on Android and the last letter was cut -->
-                            <!-- like the front of the printed card: the whole card is in the colour of the level, the picture on top, the word under it in white (dark on yellow) -->
-                            <Grid RowDefinitions="112,Auto" RowSpacing="6" Padding="6" VerticalOptions="Start"
+                            <!-- the printed card: the level and the number of the word on the top, the picture, the orange wave with the word -->
+                            <Grid RowDefinitions="Auto,*,58"
                                   IsVisible="{Binding IsMatched, Converter={StaticResource InvertedBoolConverter}}">
-                                <ctl:SvgPicture HeightRequest="112"
-                                         InputTransparent="True"
-                                         BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
-                                <ctl:FitText Grid.Row="1" HeightRequest="64" Text="{Binding TranslationWord}" MaxFontSize="17" MinFontSize="9"
-                                             FontFamily="NunitoExtraBold" TextColor="{DynamicResource OnPrimary}" />
+                                <Grid ColumnDefinitions="*,Auto" Padding="9,7,7,0">
+                                    <Label Text="{Binding Level}" FontFamily="NunitoBlack" FontSize="15" TextColor="{DynamicResource OnPrimary}" VerticalOptions="Center" />
+                                    <Border Grid.Column="1" MinimumWidthRequest="24" HeightRequest="24" StrokeShape="RoundRectangle 12" Padding="5,0" StrokeThickness="0"
+                                            BackgroundColor="White" VerticalOptions="Center">
+                                        <Label Text="{Binding Number}" FontFamily="NunitoBlack" FontSize="11" TextColor="{DynamicResource PrimaryText}"
+                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Border>
+                                </Grid>
+                                <ctl:SvgPicture Grid.Row="1" Margin="3,0" InputTransparent="True" BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
+                                <Grid Grid.Row="2">
+                                    <ctl:WaveView />
+                                    <ctl:FitText Margin="4,12,4,2" Text="{Binding TranslationWord}" MaxFontSize="17" MinFontSize="9"
+                                                 FontFamily="NunitoExtraBold" TextColor="{DynamicResource OnBrand}" />
+                                </Grid>
                             </Grid>
 
                             <!-- Matched: галочка -->
