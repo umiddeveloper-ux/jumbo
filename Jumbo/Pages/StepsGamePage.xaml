@@ -90,7 +90,7 @@
             <!-- Рисунок (SVG) -->
             <!-- the printed card of the word: the picture is the question, the translation is on the wave -->
             <Border Grid.Row="0" StrokeShape="RoundRectangle 18" Padding="0" StrokeThickness="0" BackgroundColor="{DynamicResource Primary}"
-                    HorizontalOptions="Center" WidthRequest="230" Margin="0,0,0,12">
+                    HorizontalOptions="Center" WidthRequest="230" Margin="0,56,0,12">
                 <ctl:PrintedCard Level="{Binding CurrentLevel}" Number="{Binding CurrentNumber}" Svg="{Binding CurrentSvgHtml}" Word="{Binding CurrentTranslation}" />
             </Border>
 
