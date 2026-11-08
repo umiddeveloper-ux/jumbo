@@ -174,3 +174,21 @@
 .game-cards-grid4 .game-card.matched .pc-wave, .game-cards-grid4 .game-card.matched .pc-wave::before { background: transparent; }
 .game-cards-grid4.slots .game-card-svg, .game-cards-grid4.slots .game-card-svg svg { width: 100%; max-width: 170px; }
 .game-cards-grid4.slots .game-card-svg { max-width: none; }
+
+/* ----- the other games: the same printed card (level + number, picture, wave with the word) ----- */
+.game-card.pc, .steps-card.pc, .phr-pic.pc {
+    background: var(--lp-primary); border: 0; border-radius: 16px; overflow: hidden; padding: 0; box-shadow: none; position: relative;
+    display: flex; flex-direction: column; text-align: center; color: var(--lp-on-primary);
+}
+.game-card.pc { min-height: 230px; }
+.game-card.pc:hover { background: var(--lp-primary); border: 0; transform: none; filter: brightness(1.05); }
+.game-card.pc.correct-answer { background: var(--lp-success); }
+.game-card.pc.wrong-answer, .game-card.pc.wrong-flash { background: var(--lp-error); }
+.game-card.pc.selected { outline: 3px solid var(--lp-on-brand); outline-offset: -3px; }
+.pc-pic { flex: 1; display: flex; align-items: flex-end; justify-content: center; margin: 0 3px; min-height: 0; }
+.pc-pic svg { width: 100%; max-width: 190px; height: auto; display: block; }
+.pc-word { position: relative; color: var(--lp-on-brand); font-weight: 900; font-size: 1.05rem; line-height: 1.2; overflow-wrap: anywhere; }
+.game-card.pc .seq-badge { top: 38px; right: 10px; }
+.steps-card.pc { width: min(250px, 70%); min-height: 290px; margin: 6px auto 16px; }
+.phr-pic.pc { width: 132px; height: 178px; border-radius: 16px; }
+@media (max-width: 420px) { .phr-pic.pc { width: 112px; height: 152px; } .phr-pic.pc .pc-word { font-size: 0.9rem; } }

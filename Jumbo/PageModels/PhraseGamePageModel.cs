@@ -46,7 +46,7 @@ public partial class PhraseGamePageModel : ObservableObject
     public GameCoach Coach { get; } = new();
     public string RewardText => LocalizationManager.Format("Common_LpEarned", LpReward);
 
-    private record Round(int WordId, string SvgHtml, string Word, string WordTranslation, string Phrase, string Prompt);
+    private record Round(int WordId, string SvgHtml, string Word, string WordTranslation, string Phrase, string Prompt, int Number = 0, string Level = "");
 
     private List<Round> _rounds = [];
     private List<string> _target = [];
@@ -66,6 +66,8 @@ public partial class PhraseGamePageModel : ObservableObject
     [ObservableProperty] private string _svgHtml = string.Empty;
     [ObservableProperty] private string _word = string.Empty;
     [ObservableProperty] private string _wordTranslation = string.Empty;
+    [ObservableProperty] private int _wordNumber;
+    [ObservableProperty] private string _wordLevel = string.Empty;
     [ObservableProperty] private string _prompt = string.Empty;
     [ObservableProperty] private double _progress;
     [ObservableProperty] private string _stepText = string.Empty;
@@ -128,7 +130,7 @@ public partial class PhraseGamePageModel : ObservableObject
                 var trans = await _apiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, transLangId);
                 var svg = await _apiClient.GetSvgByIdAsync(w.SvgImageId);
                 _rounds.Add(new Round(w.WordId, SvgHtmlWrapper.Wrap(svg), w.WordName, trans?.WordName ?? string.Empty,
-                    w.Example!.Trim(), string.IsNullOrWhiteSpace(trans?.Example) ? w.Example.Trim() : trans!.Example!.Trim()));
+                    w.Example!.Trim(), string.IsNullOrWhiteSpace(trans?.Example) ? w.Example.Trim() : trans!.Example!.Trim(), w.WordNumber, w.Level ?? string.Empty));
             }
 
             IsPlaying = true;
@@ -158,6 +160,8 @@ public partial class PhraseGamePageModel : ObservableObject
 
         Word = round.Word;
         WordTranslation = round.WordTranslation;
+        WordNumber = round.Number;
+        WordLevel = round.Level;
         SvgHtml = round.SvgHtml;
         Prompt = round.Prompt;
         Progress = (double)index / _rounds.Count;

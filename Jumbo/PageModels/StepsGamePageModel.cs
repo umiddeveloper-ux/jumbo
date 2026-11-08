@@ -24,7 +24,7 @@ public partial class StepsGamePageModel : ObservableObject
 
     public string RewardText => LocalizationManager.Format("Common_LpEarned", LpReward);
 
-    private record WordData(int WordId, int SvgImageId, string EnglishWord, string TranslationWord, string SvgHtml);
+    private record WordData(int WordId, int SvgImageId, string EnglishWord, string TranslationWord, string SvgHtml, int Number = 0, string Level = "");
 
     private List<WordData> _gameWords = [];
     private int _questionIndex = -1; // 0-based, текущий вопрос в _gameWords
@@ -44,6 +44,8 @@ public partial class StepsGamePageModel : ObservableObject
     // ── Текущий вопрос ────────────────────────────────────────────
     [ObservableProperty] private string _currentSvgHtml = string.Empty;
     [ObservableProperty] private string _currentTranslation = string.Empty;
+    [ObservableProperty] private int _currentNumber;
+    [ObservableProperty] private string _currentLevel = string.Empty;
 
     // ── Подсказки ─────────────────────────────────────────────────
     [ObservableProperty] private bool _canUseFiftyFifty = true;
@@ -143,7 +145,9 @@ public partial class StepsGamePageModel : ObservableObject
                     enWord.SvgImageId,
                     enWord.WordName,
                     ruWord?.WordName ?? enWord.WordName,
-                    SvgHtmlWrapper.Wrap(svg)));
+                    SvgHtmlWrapper.Wrap(svg),
+                    enWord.WordNumber,
+                    enWord.Level ?? string.Empty));
             }
             _gameWords = [.. _gameWords.OrderBy(_ => Random.Shared.Next())];
 
@@ -178,6 +182,8 @@ public partial class StepsGamePageModel : ObservableObject
         var target = _gameWords[_questionIndex];
         CurrentSvgHtml = target.SvgHtml;
         CurrentTranslation = target.TranslationWord;
+        CurrentNumber = target.Number;
+        CurrentLevel = target.Level;
 
         // 3 дистрактора
         var distractors = _gameWords

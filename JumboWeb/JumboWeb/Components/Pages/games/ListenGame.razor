@@ -90,10 +90,9 @@ else
         @foreach (var card in _cards)
         {
             var c = card;
-            <div class="game-card @GetCardClass(c)"
+            <div class="game-card pc @GetCardClass(c)"
                  @onclick="() => SelectCard(c)">
-                <div class="game-card-svg">@((MarkupString)c.SvgHtml)</div>
-                <div class="game-card-label">@c.TranslationWord</div>
+                <PrintedCardFace Level="@c.Level" Number="@c.Number" Svg="@c.SvgHtml" Word="@c.TranslationWord" />
             </div>
         }
     </div>
@@ -120,7 +119,7 @@ else
     [SupplyParameterFromQuery(Name = "gate")] public int Gate { get; set; }
     private TigerCoach? _coach;
 
-    private record WordData(int WordId, int SvgImageId, string EnglishWord, string TranslationWord, string SvgHtml);
+    private record WordData(int WordId, int SvgImageId, string EnglishWord, string TranslationWord, string SvgHtml, int Number = 0, string Level = "");
     private List<WordData> _allWords = new();
     private List<WordData> _stepTargets = new();
     private List<ListenCard> _cards = new();
@@ -169,7 +168,7 @@ else
             var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
             var svg   = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
             _allWords.Add(new WordData(w.WordId, w.SvgImageId, w.WordName,
-                trans?.WordName ?? w.WordName, svg));
+                trans?.WordName ?? w.WordName, svg, w.WordNumber, w.Level ?? string.Empty));
         }
 
         var pool = _allWords.OrderBy(_ => Random.Shared.Next()).ToList();
@@ -195,10 +194,10 @@ else
 
         var pool = new List<ListenCard>
         {
-            new() { SvgHtml = _currentTarget.SvgHtml, TranslationWord = _currentTarget.TranslationWord, IsTarget = true }
+            new() { SvgHtml = _currentTarget.SvgHtml, TranslationWord = _currentTarget.TranslationWord, Number = _currentTarget.Number, Level = _currentTarget.Level, IsTarget = true }
         };
         foreach (var d in distractors)
-            pool.Add(new() { SvgHtml = d.SvgHtml, TranslationWord = d.TranslationWord, IsTarget = false });
+            pool.Add(new() { SvgHtml = d.SvgHtml, TranslationWord = d.TranslationWord, Number = d.Number, Level = d.Level, IsTarget = false });
 
         _cards = pool.OrderBy(_ => Random.Shared.Next()).ToList();
         _isInteractive = true;
@@ -283,6 +282,8 @@ else
     {
         public string SvgHtml { get; set; } = string.Empty;
         public string TranslationWord { get; set; } = string.Empty;
+        public int Number { get; set; }
+        public string Level { get; set; } = string.Empty;
         public bool IsTarget { get; set; }
         public ListenResult Result { get; set; }
     }

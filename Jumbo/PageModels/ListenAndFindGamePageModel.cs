@@ -26,7 +26,7 @@ public partial class ListenAndFindGamePageModel : ObservableObject
 
     public string RewardText => GateBook > 0 ? string.Empty : LocalizationManager.Format("Common_LpEarned", LpReward);
 
-    private record WordData(int WordId, int SvgImageId, string EnglishWord, string TranslationWord, string SvgHtml);
+    private record WordData(int WordId, int SvgImageId, string EnglishWord, string TranslationWord, string SvgHtml, int Number = 0, string Level = "");
 
     private List<WordData> _allWords = [];
     private List<WordData> _stepTargets = [];
@@ -161,7 +161,9 @@ public partial class ListenAndFindGamePageModel : ObservableObject
                     enWord.SvgImageId,
                     enWord.WordName,
                     ruWord?.WordName ?? enWord.WordName,
-                    SvgHtmlWrapper.Wrap(svg)));
+                    SvgHtmlWrapper.Wrap(svg),
+                    enWord.WordNumber,
+                    enWord.Level ?? string.Empty));
             }
 
             var pool = _allWords.OrderBy(_ => Random.Shared.Next()).ToList();
@@ -215,6 +217,8 @@ public partial class ListenAndFindGamePageModel : ObservableObject
         SvgImageId = w.SvgImageId,
         TranslationWord = w.TranslationWord,
         SvgHtml = w.SvgHtml,
+        Number = w.Number,
+        Level = w.Level,
         IsTarget = isTarget
     };
 
@@ -330,6 +334,8 @@ public partial class ListenCardViewModel : ObservableObject
     public int SvgImageId { get; set; }
     public string TranslationWord { get; set; } = string.Empty;
     public string SvgHtml { get; set; } = string.Empty;
+    public int Number { get; set; }
+    public string Level { get; set; } = string.Empty;
     public bool IsTarget { get; set; }
 
     [ObservableProperty]

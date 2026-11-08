@@ -1,0 +1,12 @@
+@* The face of a printed card (like the cards of the box and of the app): the level and the number of the word on the top, the picture,
+   the orange wave with the word. The colour of the card is the one of the parent (the level colour while playing). *@
+<div class="pc-top"><span class="pc-level">@Level</span>@if (Number > 0) { <span class="pc-num">@Number</span> }</div>
+<div class="pc-pic">@((MarkupString)Svg)</div>
+<div class="pc-wave"><div class="pc-word">@Word</div></div>
+
+@code {
+    [Parameter] public string Level { get; set; } = string.Empty;
+    [Parameter] public int Number { get; set; }
+    [Parameter] public string Svg { get; set; } = string.Empty;
+    [Parameter] public string Word { get; set; } = string.Empty;
+}

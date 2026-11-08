@@ -74,10 +74,9 @@ else
 
         <!-- Center: question -->
         <div class="steps-center">
-            <div class="steps-svg-wrap">
-                @((MarkupString)_currentSvg)
+            <div class="steps-card pc">
+                <PrintedCardFace Level="@_currentLevel" Number="@_currentNumber" Svg="@_currentSvg" Word="@_currentTranslation" />
             </div>
-            <div class="steps-translation">@_currentTranslation</div>
 
             @if (_showAudience)
             {
@@ -135,7 +134,7 @@ else
     [Parameter] public int SubjectId { get; set; }
     private TigerCoach? _coach;
 
-    private record WordData(int WordId, int SvgImageId, string EnglishWord, string TranslationWord, string SvgHtml);
+    private record WordData(int WordId, int SvgImageId, string EnglishWord, string TranslationWord, string SvgHtml, int Number = 0, string Level = "");
     private List<WordData> _gameWords = new();
     private List<AnswerOpt> _answers = new();
     private List<StepItem> _steps = new();
@@ -143,6 +142,8 @@ else
     private int _questionIndex;
     private int _currentStep, _totalSteps;
     private string _currentSvg = string.Empty;
+    private int _currentNumber;
+    private string _currentLevel = string.Empty;
     private string _currentTranslation = string.Empty;
     private bool _isBusy, _hasNoData, _isGameOver, _isGameWon, _isInteractive;
     private bool _canFiftyFifty = true, _canAudience = true, _showAudience;
@@ -181,7 +182,7 @@ else
             var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
             var svg   = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
             _gameWords.Add(new WordData(w.WordId, w.SvgImageId, w.WordName,
-                trans?.WordName ?? w.WordName, svg));
+                trans?.WordName ?? w.WordName, svg, w.WordNumber, w.Level ?? string.Empty));
         }
         _gameWords = _gameWords.OrderBy(_ => Random.Shared.Next()).ToList();
         _totalSteps = _gameWords.Count;
@@ -202,6 +203,8 @@ else
         var target = _gameWords[_questionIndex];
         _currentSvg = target.SvgHtml;
         _currentTranslation = target.TranslationWord;
+        _currentNumber = target.Number;
+        _currentLevel = target.Level;
 
         var distractors = _gameWords
             .Where(w => w.SvgImageId != target.SvgImageId && !Jumbo.Shared.WordMatch.SameMeaning(w.TranslationWord, target.TranslationWord))

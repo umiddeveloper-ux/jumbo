@@ -149,7 +149,9 @@ public partial class SequenceGamePageModel : ObservableObject
                     SvgImageId = enWord.SvgImageId,
                     EnglishWord = enWord.WordName,
                     TranslationWord = ruWord?.WordName ?? enWord.WordName,
-                    SvgHtml = SvgHtmlWrapper.Wrap(svg)
+                    SvgHtml = SvgHtmlWrapper.Wrap(svg),
+                    Number = enWord.WordNumber,
+                    Level = enWord.Level ?? string.Empty
                 });
             }
 
@@ -370,6 +372,8 @@ public partial class SequenceCardViewModel : ObservableObject
     public string EnglishWord { get; set; } = string.Empty;
     public string TranslationWord { get; set; } = string.Empty;
     public string SvgHtml { get; set; } = string.Empty;
+    public int Number { get; set; }
+    public string Level { get; set; } = string.Empty;
     public int CorrectOrder { get; set; }
 
     [ObservableProperty]

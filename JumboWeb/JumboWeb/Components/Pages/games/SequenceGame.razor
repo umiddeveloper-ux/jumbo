@@ -87,14 +87,13 @@ else
             @foreach (var card in _cards)
             {
                 var c = card;
-                <div class="game-card seq-card @GetCardClass(c)"
+                <div class="game-card pc seq-card @GetCardClass(c)"
                      @onclick="() => SelectCard(c)">
                     @if (c.SelectedOrder > 0)
                     {
                         <div class="seq-badge">@c.SelectedOrder</div>
                     }
-                    <div class="game-card-svg">@((MarkupString)c.SvgHtml)</div>
-                    <div class="game-card-label">@c.TranslationWord</div>
+                    <PrintedCardFace Level="@c.Level" Number="@c.Number" Svg="@c.SvgHtml" Word="@c.TranslationWord" />
                 </div>
             }
         </div>
@@ -168,7 +167,9 @@ else
                 WordId = w.WordId, SvgImageId = w.SvgImageId,
                 TranslationWord = trans?.WordName ?? w.WordName,
                 EnglishWord = w.WordName,
-                SvgHtml = svg
+                SvgHtml = svg,
+                Number = w.WordNumber,
+                Level = w.Level ?? string.Empty
             });
         }
 
@@ -327,6 +328,8 @@ else
         public string EnglishWord { get; set; } = string.Empty;
         public string TranslationWord { get; set; } = string.Empty;
         public string SvgHtml { get; set; } = string.Empty;
+        public int Number { get; set; }
+        public string Level { get; set; } = string.Empty;
         public int CorrectOrder { get; set; }
         public int SelectedOrder { get; set; }
         public SeqState State { get; set; }

@@ -129,13 +129,13 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="pageModels:ListenCardViewModel">
-                    <Border StrokeShape="RoundRectangle 16"
+                    <Border StrokeShape="RoundRectangle 16" Padding="0" HeightRequest="215"
                             StrokeThickness="0">
 
                         <Border.Triggers>
                             <DataTrigger TargetType="Border" Binding="{Binding ResultState}" Value="None">
                                 <Setter Property="BackgroundColor"
-                                        Value="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"/>
+                                        Value="{DynamicResource Primary}"/>
                             </DataTrigger>
                             <DataTrigger TargetType="Border" Binding="{Binding ResultState}" Value="Correct">
                                 <Setter Property="BackgroundColor" Value="{DynamicResource Success}"/>
@@ -151,21 +151,7 @@
                                 CommandParameter="{Binding .}"/>
                         </Border.GestureRecognizers>
 
-                        <Grid RowDefinitions="*, Auto" Padding="8">
-                            <ctl:SvgPicture Grid.Row="0"
-                                     HeightRequest="110"
-                                     InputTransparent="True"
-                                     BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
-                            <Label Grid.Row="1"
-                                   Text="{Binding TranslationWord}"
-                                   FontSize="17"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="Center"
-                                   HorizontalTextAlignment="Center"
-                                   LineBreakMode="TailTruncation"
-                                   MaxLines="2"
-                                   Padding="4,4,4,2"/>
-                        </Grid>
+                        <ctl:PrintedCard Level="{Binding Level}" Number="{Binding Number}" Svg="{Binding SvgHtml}" Word="{Binding TranslationWord}" />
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

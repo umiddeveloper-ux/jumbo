@@ -68,9 +68,8 @@ else if (_round is not null)
 
     <!-- The picture and its word -->
     <div class="phr-top">
-        <div class="phr-pic">@((MarkupString)_round.Svg)</div>
+        <div class="phr-pic pc"><PrintedCardFace Level="@_round.Level" Number="@_round.Number" Svg="@_round.Svg" Word="@_round.Word" /></div>
         <div class="phr-word-box">
-            <div class="phr-word">@_round.Word</div>
             @if (!string.IsNullOrEmpty(_round.WordTranslation))
             {
                 <div class="phr-word-trans">@_round.WordTranslation</div>
@@ -123,7 +122,7 @@ else if (_round is not null)
     private DotNetObjectReference<PhraseGame>? _self;
     private bool _dragAttached;
 
-    private record Round(int WordId, string Svg, string Word, string WordTranslation, string Phrase, string Prompt);
+    private record Round(int WordId, string Svg, string Word, string WordTranslation, string Phrase, string Prompt, int Number = 0, string Level = "");
     private class Tile
     {
         public int Id { get; init; }
@@ -183,7 +182,7 @@ else if (_round is not null)
             var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
             var svg = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
             _rounds.Add(new Round(w.WordId, svg, w.WordName, trans?.WordName ?? string.Empty,
-                w.Example!.Trim(), string.IsNullOrWhiteSpace(trans?.Example) ? w.Example.Trim() : trans!.Example!.Trim()));
+                w.Example!.Trim(), string.IsNullOrWhiteSpace(trans?.Example) ? w.Example.Trim() : trans!.Example!.Trim(), w.WordNumber, w.Level ?? string.Empty));
         }
 
         _isBusy = false;

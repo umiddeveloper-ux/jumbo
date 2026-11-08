@@ -89,7 +89,7 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="pageModels:SequenceCardViewModel">
-                    <Border StrokeShape="RoundRectangle 14"
+                    <Border StrokeShape="RoundRectangle 14" HeightRequest="215"
                             StrokeThickness="0"
                             Padding="0">
 
@@ -97,7 +97,7 @@
                         <Border.Triggers>
                             <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Idle">
                                 <Setter Property="BackgroundColor"
-                                        Value="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"/>
+                                        Value="{DynamicResource Primary}"/>
                             </DataTrigger>
                             <DataTrigger TargetType="Border" Binding="{Binding State}" Value="Correct">
                                 <Setter Property="BackgroundColor" Value="{DynamicResource Success}"/>
@@ -113,43 +113,13 @@
                                 CommandParameter="{Binding .}"/>
                         </Border.GestureRecognizers>
 
-                        <Grid RowDefinitions="*, Auto">
-
-                            <!-- SVG + Badge оверлей -->
-                            <Grid Grid.Row="0">
-                                <ctl:SvgPicture HeightRequest="120"
-                                         InputTransparent="True"
-                                         BackgroundColor="Transparent" Svg="{Binding SvgHtml}" />
-
-                                <!-- Badge: порядковый номер нажатия -->
-                                <Border WidthRequest="34"
-                                        HeightRequest="34"
-                                        StrokeShape="RoundRectangle 17"
-                                        BackgroundColor="{DynamicResource Primary}"
-                                        StrokeThickness="0"
-                                        HorizontalOptions="End"
-                                        VerticalOptions="Start"
-                                        Margin="0,6,6,0"
-                                        IsVisible="{Binding IsSelected}">
-                                    <Label Text="{Binding BadgeText}"
-                                           TextColor="{DynamicResource OnPrimary}"
-                                           FontSize="16"
-                                           FontAttributes="Bold"
-                                           HorizontalOptions="Center"
-                                           VerticalOptions="Center"/>
-                                </Border>
-                            </Grid>
-
-                            <!-- Перевод снизу карточки -->
-                            <Label Grid.Row="1"
-                                   Text="{Binding TranslationWord}"
-                                   FontSize="16"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="Center"
-                                   HorizontalTextAlignment="Center"
-                                   LineBreakMode="TailTruncation"
-                                   MaxLines="2"
-                                   Padding="8,4,8,8"/>
+                        <Grid>
+                            <ctl:PrintedCard Level="{Binding Level}" Number="{Binding Number}" Svg="{Binding SvgHtml}" Word="{Binding TranslationWord}" />
+                            <!-- the order of the press: a badge on the picture, under the number of the word -->
+                            <Border WidthRequest="34" HeightRequest="34" StrokeShape="RoundRectangle 17" BackgroundColor="{DynamicResource Brand}" StrokeThickness="0"
+                                    HorizontalOptions="End" VerticalOptions="Start" Margin="0,40,8,0" IsVisible="{Binding IsSelected}">
+                                <Label Text="{Binding BadgeText}" TextColor="{DynamicResource OnBrand}" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
                         </Grid>
                     </Border>
                 </DataTemplate>

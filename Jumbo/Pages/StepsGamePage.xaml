@@ -88,14 +88,16 @@
         <Grid Grid.Column="1" RowDefinitions="*, Auto, Auto" Padding="8,8,8,12">
 
             <!-- Рисунок (SVG) -->
-            <ctl:SvgPicture Grid.Row="0"
-                     BackgroundColor="Transparent"
-                     InputTransparent="True" Svg="{Binding CurrentSvgHtml}" />
+            <!-- the printed card of the word: the picture is the question, the translation is on the wave -->
+            <Border Grid.Row="0" StrokeShape="RoundRectangle 18" Padding="0" StrokeThickness="0" BackgroundColor="{DynamicResource Primary}"
+                    HorizontalOptions="Center" WidthRequest="230" Margin="0,0,0,12">
+                <ctl:PrintedCard Level="{Binding CurrentLevel}" Number="{Binding CurrentNumber}" Svg="{Binding CurrentSvgHtml}" Word="{Binding CurrentTranslation}" />
+            </Border>
 
             <ctl:TigerCoach Mood="{Binding Coach.Mood}" Text="{Binding Coach.Text}" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Start" />
 
-            <!-- Перевод под рисунком -->
-            <Label Grid.Row="1"
+            <!-- (the translation is on the wave of the card now) -->
+            <Label Grid.Row="1" IsVisible="False"
                    Text="{Binding CurrentTranslation}"
                    FontSize="26"
                    FontAttributes="Bold"
