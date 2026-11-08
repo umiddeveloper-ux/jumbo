@@ -159,7 +159,7 @@
 .lesson-icon img { width: 56px; height: 56px; display: block; object-fit: contain; }
 
 /* ----- the cards of the game "Find me" are the printed cards: the level and the number on the top, the picture, the wave with the word ----- */
-.game-cards-grid4 .game-card { padding: 0; display: flex; flex-direction: column; text-align: center; }
+.game-cards-grid4 .game-card, .game-cards-grid4.slots .game-card { padding: 0; display: flex; flex-direction: column; text-align: center; }
 .pc-top { display: flex; justify-content: space-between; align-items: center; padding: 7px 8px 0 10px; }
 .pc-level { font-weight: 900; font-size: 0.98rem; color: var(--lp-on-primary); }
 .pc-num { min-width: 24px; height: 24px; padding: 0 6px; box-sizing: border-box; border-radius: 12px; background: #fff; color: var(--lp-primary-text);
@@ -172,3 +172,5 @@
             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 12' preserveAspectRatio='none'%3E%3Cpath d='M0 12V9C0 -2 30 -2 30 9C30 -2 60 -2 60 9C60 -2 90 -2 90 9V12Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat; }
 .pc-wave .game-card-label { position: relative; color: var(--lp-on-brand); font-weight: 900; font-size: 1rem; }
 .game-cards-grid4 .game-card.matched .pc-wave, .game-cards-grid4 .game-card.matched .pc-wave::before { background: transparent; }
+.game-cards-grid4.slots .game-card-svg, .game-cards-grid4.slots .game-card-svg svg { width: 100%; max-width: 170px; }
+.game-cards-grid4.slots .game-card-svg { max-width: none; }
