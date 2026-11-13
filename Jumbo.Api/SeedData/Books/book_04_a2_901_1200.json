@@ -119,11 +119,11 @@
       "level": "A2",
       "subject": "Computers",
       "en": "email",
-      "ru": "электронная почта",
-      "uz": "elektron pochta",
+      "ru": "электронное письмо",
+      "uz": "elektron xat",
       "example_en": "He is writing an email to Tom.",
-      "example_ru": "Он пишет письмо Тому.",
-      "example_uz": "U Tomga elektron pochta orqali xat yozyapti.",
+      "example_ru": "Он пишет электронное письмо Тому.",
+      "example_uz": "U Tomga elektron xat yozyapti.",
       "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='18' fill='#ECEFF1'/><rect x='22' y='24' width='56' height='40' rx='5' fill='#607D8B'/><rect x='28' y='30' width='44' height='25' rx='2' fill='#E3F2FD'/><path d='M40 74 H60 M50 64 V74' stroke='#455A64' stroke-width='5'/><circle cx='72' cy='26' r='10' fill='#4CAF50'/><text x='50' y='93' text-anchor='middle' font-family='Arial' font-size='9' font-weight='700' fill='#37474F'>EM</text></svg>"
     },
     {
@@ -330,7 +330,7 @@
       "ru": "семестр",
       "uz": "semestr",
       "example_en": "The students are not working hard this term.",
-      "example_ru": "Студенты не очень стараются в этом семестре.",
+      "example_ru": "В этом семестре студенты не занимаются усердно.",
       "example_uz": "Talabalar bu semestrda unchalik tirishmayapti.",
       "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF8E1'/><rect x='16' y='20' width='68' height='64' rx='8' fill='#fff' stroke='#90A4AE' stroke-width='3'/><rect x='16' y='20' width='68' height='16' rx='8' fill='#EF5350'/><circle cx='32' cy='20' r='3' fill='#455A64'/><circle cx='68' cy='20' r='3' fill='#455A64'/><rect x='26' y='44' width='48' height='10' rx='3' fill='#FFB74D'/><path d='M26 64 H74 M26 74 H74' stroke='#CFD8DC' stroke-width='4'/></svg>"
     },
@@ -1977,13 +1977,13 @@
       "book": 4,
       "level": "A2",
       "subject": "Airport",
-      "en": "plane",
-      "ru": "самолёт",
-      "uz": "samolyot",
-      "example_en": "Our plane is coming now.",
-      "example_ru": "Наш самолёт сейчас подлетает.",
-      "example_uz": "Bizning samolyotimiz hozir yaqinlashyapti.",
-      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFFDE7'/><path d='M10 56 L90 28 L72 55 L90 72 Z' fill='#90CAF9' stroke='#1565C0' stroke-width='2'/><path d='M42 51 L28 34 M42 58 L28 76' stroke='#1565C0' stroke-width='6'/></svg>"
+      "en": "land",
+      "ru": "приземляться",
+      "uz": "qo‘nmoq",
+      "example_en": "The plane is landing.",
+      "example_ru": "Самолет приземляется.",
+      "example_uz": "Samolyot qo‘nyapti.",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E1F5FE'/><path d='M14 66 H86' stroke='#0288D1' stroke-width='3'/><path d='M22 66 L46 40 L58 44 L50 66Z M58 44 L78 36 L72 52 L58 52Z' fill='#0288D1'/><path d='M66 24 L74 32' stroke='#0288D1' stroke-width='3' stroke-linecap='round' marker-end='url(#a)'/></svg>"
     },
     {
       "id": 1052,
@@ -2081,13 +2081,13 @@
       "book": 4,
       "level": "A2",
       "subject": "Airport",
-      "en": "passport",
-      "ru": "паспорт",
-      "uz": "pasport",
-      "example_en": "She is showing her passport.",
-      "example_ru": "Она показывает свой паспорт.",
-      "example_uz": "U pasportini ko‘rsatyapti.",
-      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='18' fill='#FFFDE7'/><rect x='18' y='48' width='64' height='22' rx='6' fill='#FBC02D'/><path d='M30 48 L40 32 H62 L72 48 Z' fill='#673AB7'/><circle cx='34' cy='72' r='8' fill='#263238'/><circle cx='66' cy='72' r='8' fill='#263238'/><path d='M18 40 H8 M92 40 H82' stroke='#673AB7' stroke-width='4'/><text x='50' y='93' text-anchor='middle' font-family='Arial' font-size='9' font-weight='700' fill='#37474F'>PA</text></svg>"
+      "en": "take off",
+      "ru": "взлетать",
+      "uz": "havoga ko‘tarilmoq, uchmoq",
+      "example_en": "The big airplane takes off at five o'clock.",
+      "example_ru": "Большой самолет взлетает в пять часов.",
+      "example_uz": "Katta samolyot soat beshda havoga ko‘tariladi.",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E3F2FD'/><path d='M16 60 L42 36 L54 40 L48 60Z M54 40 L76 30 L68 48 L54 50Z' fill='#1565C0'/><path d='M26 74 L76 60' stroke='#1565C0' stroke-width='3' stroke-linecap='round'/></svg>"
     },
     {
       "id": 1060,
@@ -2367,13 +2367,13 @@
       "book": 4,
       "level": "A2",
       "subject": "Maths & Shapes",
-      "en": "number",
-      "ru": "число",
-      "uz": "son",
-      "example_en": "She is writing a big number.",
-      "example_ru": "Она пишет большое число.",
-      "example_uz": "U katta son yozyapti.",
-      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#F3E5F5'/><text x='50' y='62' text-anchor='middle' font-family='Arial' font-size='38' font-weight='700' fill='#5C6BC0'>123</text></svg>"
+      "en": "times",
+      "ru": "умножить",
+      "uz": "karra",
+      "example_en": "Five times two is ten.",
+      "example_ru": "Пять умножить на два будет десять.",
+      "example_uz": "Besh karra ikki o‘n bo‘ladi.",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#E8F5E9'/><path d='M30 30 L70 70 M70 30 L30 70' stroke='#2E7D32' stroke-width='9' stroke-linecap='round'/></svg>"
     },
     {
       "id": 1082,
@@ -2445,13 +2445,13 @@
       "book": 4,
       "level": "A2",
       "subject": "Maths & Shapes",
-      "en": "point",
-      "ru": "точка",
-      "uz": "nuqta",
-      "example_en": "Is she counting the points?",
-      "example_ru": "Она считает точки?",
-      "example_uz": "U nuqtalarni sanayaptimi?",
-      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='18' fill='#EDE7F6'/><rect x='24' y='24' width='52' height='58' rx='8' fill='#673AB7'/><path d='M34 42 H66 M34 54 H66 M34 66 H56' stroke='white' stroke-width='4'/><circle cx='70' cy='28' r='9' fill='#E91E63'/><text x='50' y='93' text-anchor='middle' font-family='Arial' font-size='9' font-weight='700' fill='#37474F'>PO</text></svg>"
+      "en": "divide",
+      "ru": "разделить",
+      "uz": "bo‘lmoq",
+      "example_en": "If you divide ten by two, you get five.",
+      "example_ru": "Если разделить десять на два, получится пять.",
+      "example_uz": "Agar o‘nni ikkiga bo‘lsang, besh chiqadi.",
+      "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='92' height='92' rx='20' fill='#FFF3E0'/><path d='M26 50 H74' stroke='#EF6C00' stroke-width='9' stroke-linecap='round'/><circle cx='50' cy='30' r='7' fill='#EF6C00'/><circle cx='50' cy='70' r='7' fill='#EF6C00'/></svg>"
     },
     {
       "id": 1088,

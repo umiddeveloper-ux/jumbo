@@ -8,7 +8,6 @@
    901,
    1200
   ],
-  "new_words": 4,
   "schema": [
    "id",
    "topic",
@@ -16,8 +15,7 @@
    "uz",
    "example_tr",
    "example_uz",
-   "concept",
-   "new"
+   "concept"
   ]
  },
  "topics": [
@@ -1460,14 +1458,7 @@
    "uz": "qo‘nmoq",
    "example_tr": "Uçak iniyor.",
    "example_uz": "Samolyot qo‘nyapti.",
-   "concept": null,
-   "new": {
-    "en": "land (plane)",
-    "ru": "приземляться",
-    "example_en": "The plane is landing.",
-    "example_ru": "Самолёт приземляется.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>inmek</text></svg>"
-   }
+   "concept": 1051
   },
   {
    "id": 1052,
@@ -1539,14 +1530,7 @@
    "uz": "havoga ko‘tarilmoq, uchmoq",
    "example_tr": "Büyük uçak saat beşte havalanıyor.",
    "example_uz": "Katta samolyot soat beshda havoga ko‘tariladi.",
-   "concept": null,
-   "new": {
-    "en": "take off (plane)",
-    "ru": "взлетать",
-    "example_en": "The big plane takes off at five o'clock.",
-    "example_ru": "Большой самолёт взлетает в пять часов.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>havalanmak</text></svg>"
-   }
+   "concept": 1059
   },
   {
    "id": 1060,
@@ -1744,14 +1728,7 @@
    "uz": "ko‘paytirmoq",
    "example_tr": "Beş çarpı iki on eder.",
    "example_uz": "Besh karra ikki o‘n bo‘ladi.",
-   "concept": null,
-   "new": {
-    "en": "multiply",
-    "ru": "умножить",
-    "example_en": "Five times two is ten.",
-    "example_ru": "Пять умножить на два будет десять.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>çarpı</text></svg>"
-   }
+   "concept": 1081
   },
   {
    "id": 1082,
@@ -1805,14 +1782,7 @@
    "uz": "bo‘lmoq",
    "example_tr": "On sayısını ikiye bölersen beş eder.",
    "example_uz": "Agar o‘nni ikkiga bo‘lsang, besh chiqadi.",
-   "concept": null,
-   "new": {
-    "en": "divide",
-    "ru": "делить",
-    "example_en": "If you divide ten by two, you get five.",
-    "example_ru": "Если разделить десять на два, получится пять.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>bölmek</text></svg>"
-   }
+   "concept": 1087
   },
   {
    "id": 1088,

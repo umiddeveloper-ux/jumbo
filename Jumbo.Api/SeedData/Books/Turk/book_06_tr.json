@@ -8,7 +8,6 @@
    1501,
    1800
   ],
-  "new_words": 2,
   "schema": [
    "id",
    "topic",
@@ -16,8 +15,7 @@
    "uz",
    "example_tr",
    "example_uz",
-   "concept",
-   "new"
+   "concept"
   ]
  },
  "topics": [
@@ -308,11 +306,7 @@
    "uz": "kirish joyi",
    "example_tr": "Lütfen hesabınıza giriş yapın.",
    "example_uz": "Iltimos, akkauntingizga kiring.",
-   "concept": 1523,
-   "own": {
-    "example_en": "Please log in to your account.",
-    "example_ru": "Пожалуйста, войдите в свою учётную запись."
-   }
+   "concept": 1523
   },
   {
    "id": 1524,
@@ -2553,14 +2547,7 @@
    "uz": "cho‘kmoq",
    "example_tr": "Ağır taş havuzun dibine battı.",
    "example_uz": "Og‘ir tosh hovuz tubiga cho‘kib ketdi.",
-   "concept": null,
-   "new": {
-    "en": "sink",
-    "ru": "тонуть",
-    "example_en": "The heavy stone sank to the bottom of the pool.",
-    "example_ru": "Тяжёлый камень утонул на дне бассейна.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>batmak</text></svg>"
-   }
+   "concept": 1772
   },
   {
    "id": 1773,
@@ -2587,14 +2574,7 @@
    "uz": "sindirmoq",
    "example_tr": "En sevdiğim fincanı kırdım.",
    "example_uz": "Men sevimli piyolamni sindirib qo‘ydim.",
-   "concept": null,
-   "new": {
-    "en": "break",
-    "ru": "ломать, разбивать",
-    "example_en": "I broke my favourite cup.",
-    "example_ru": "Я разбил свою любимую чашку.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>kırmak</text></svg>"
-   }
+   "concept": 1775
   },
   {
    "id": 1776,
@@ -2675,11 +2655,7 @@
    "uz": "uyg‘otmoq",
    "example_tr": "Yüksek ses bebeği uyandırdı.",
    "example_uz": "Baland shovqin chaqaloqni uyg‘otib yubordi.",
-   "concept": 361,
-   "own": {
-    "example_en": "The loud noise woke the baby.",
-    "example_ru": "Громкий шум разбудил ребёнка."
-   }
+   "concept": 1784
   },
   {
    "id": 1785,

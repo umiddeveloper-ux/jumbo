@@ -95,6 +95,10 @@ function enrichmentOf(book) {
   return byId;
 }
 
+// A typo in the 2026-11-13 docx itself (the Russian sentence is missing its first letter): fixed here so a fresh run of this
+// script does not lose the correction. example_en: {id: fixed text}, same for example_ru.
+const EXAMPLE_RU_FIX = { 1772: 'Тяжёлый камень утонул на дно бассейна.' };
+
 // ───────────── build ─────────────
 const docs = fs.readdirSync(docxDir).filter(f => /\.docx$/i.test(f) && !f.startsWith('~$'));
 if (docs.length === 0) { console.error(`No .docx files in ${docxDir}`); process.exit(1); }
@@ -117,7 +121,7 @@ for (const doc of docs) {
     const row = {
       id: w.id, book, level, subject: t.en,
       en: w.en, ru: w.ru, uz: e?.uz ?? old?.uz ?? '',
-      example_en: w.example_en, example_ru: w.example_ru, example_uz: e?.example_uz ?? old?.example_uz ?? '',
+      example_en: w.example_en, example_ru: EXAMPLE_RU_FIX[w.id] ?? w.example_ru, example_uz: e?.example_uz ?? old?.example_uz ?? '',
       svg: e?.svg ?? pic ?? '',
     };
     words.push(row);

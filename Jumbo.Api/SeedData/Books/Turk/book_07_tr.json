@@ -8,7 +8,6 @@
    1801,
    2100
   ],
-  "new_words": 0,
   "schema": [
    "id",
    "topic",
@@ -16,8 +15,7 @@
    "uz",
    "example_tr",
    "example_uz",
-   "concept",
-   "new"
+   "concept"
   ]
  },
  "topics": [

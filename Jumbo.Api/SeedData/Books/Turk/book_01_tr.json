@@ -8,7 +8,6 @@
    1,
    300
   ],
-  "new_words": 3,
   "schema": [
    "id",
    "topic",
@@ -16,8 +15,7 @@
    "uz",
    "example_tr",
    "example_uz",
-   "concept",
-   "new"
+   "concept"
   ]
  },
  "topics": [
@@ -1036,7 +1034,7 @@
    "tr": "mavi",
    "uz": "ko‘k",
    "example_tr": "Onun paltosu mavi.",
-   "example_uz": "Uning paltosi to‘q ko‘k.",
+   "example_uz": "Uning paltosi ko‘k.",
    "concept": 104
   },
   {
@@ -1055,11 +1053,7 @@
    "uz": "bir",
    "example_tr": "Benim bir ağabeyim var.",
    "example_uz": "Mening bitta akam bor.",
-   "concept": 107,
-   "own": {
-    "example_en": "I have an older brother.",
-    "example_ru": "У меня есть старший брат."
-   }
+   "concept": 106
   },
   {
    "id": 107,
@@ -1068,11 +1062,7 @@
    "uz": "ikki",
    "example_tr": "Onun iki çocuğu var.",
    "example_uz": "Uning ikki farzandi bor.",
-   "concept": 108,
-   "own": {
-    "example_en": "He has two children.",
-    "example_ru": "У него двое детей."
-   }
+   "concept": 107
   },
   {
    "id": 108,
@@ -1081,11 +1071,7 @@
    "uz": "uch",
    "example_tr": "Anna’nın üç elması var.",
    "example_uz": "Annaning uchta olmasi bor.",
-   "concept": 109,
-   "own": {
-    "example_en": "Anna has three apples.",
-    "example_ru": "У Анны три яблока."
-   }
+   "concept": 108
   },
   {
    "id": 109,
@@ -1094,11 +1080,7 @@
    "uz": "to‘rt",
    "example_tr": "Evimizde dört pencere var.",
    "example_uz": "Uyimizda to‘rtta deraza bor.",
-   "concept": 110,
-   "own": {
-    "example_en": "Our house has four windows.",
-    "example_ru": "В нашем доме четыре окна."
-   }
+   "concept": 109
   },
   {
    "id": 110,
@@ -1107,11 +1089,7 @@
    "uz": "besh",
    "example_tr": "Bizim beş dersimiz var.",
    "example_uz": "Bizda beshta dars bor.",
-   "concept": 111,
-   "own": {
-    "example_en": "We have five lessons.",
-    "example_ru": "У нас пять уроков."
-   }
+   "concept": 110
   },
   {
    "id": 111,
@@ -1120,11 +1098,7 @@
    "uz": "olti",
    "example_tr": "O altı yaşında.",
    "example_uz": "U olti yoshda.",
-   "concept": 112,
-   "own": {
-    "example_en": "She is six years old.",
-    "example_ru": "Ей шесть лет."
-   }
+   "concept": 111
   },
   {
    "id": 112,
@@ -1133,11 +1107,7 @@
    "uz": "yetti",
    "example_tr": "Bir haftada yedi gün var.",
    "example_uz": "Bir haftada yetti kun bor.",
-   "concept": 113,
-   "own": {
-    "example_en": "There are seven days in a week.",
-    "example_ru": "В неделе семь дней."
-   }
+   "concept": 112
   },
   {
    "id": 113,
@@ -1146,11 +1116,7 @@
    "uz": "sakkiz",
    "example_tr": "Kız kardeşim sekiz yaşında.",
    "example_uz": "Singlim sakkiz yoshda.",
-   "concept": 114,
-   "own": {
-    "example_en": "My sister is eight years old.",
-    "example_ru": "Моей сестре восемь лет."
-   }
+   "concept": 113
   },
   {
    "id": 114,
@@ -1159,11 +1125,7 @@
    "uz": "to‘qqiz",
    "example_tr": "Onun oğlu dokuz yaşında.",
    "example_uz": "Uning o‘g‘li to‘qqiz yoshda.",
-   "concept": 115,
-   "own": {
-    "example_en": "Her son is nine years old.",
-    "example_ru": "Её сыну девять лет."
-   }
+   "concept": 114
   },
   {
    "id": 115,
@@ -1172,11 +1134,7 @@
    "uz": "o‘n",
    "example_tr": "Kate’in on kitabı var.",
    "example_uz": "Keytning o‘nta kitobi bor.",
-   "concept": 116,
-   "own": {
-    "example_en": "Kate has ten books.",
-    "example_ru": "У Кейт десять книг."
-   }
+   "concept": 115
   },
   {
    "id": 116,
@@ -1185,11 +1143,7 @@
    "uz": "o‘n bir",
    "example_tr": "Bu çocuk on bir yaşında.",
    "example_uz": "Bu bola o‘n bir yoshda.",
-   "concept": 117,
-   "own": {
-    "example_en": "This child is eleven years old.",
-    "example_ru": "Этому ребёнку одиннадцать лет."
-   }
+   "concept": 116
   },
   {
    "id": 117,
@@ -1198,11 +1152,7 @@
    "uz": "o‘n ikki",
    "example_tr": "Bir yılda on iki ay var.",
    "example_uz": "Bir yilda o‘n ikki oy bor.",
-   "concept": 118,
-   "own": {
-    "example_en": "There are twelve months in a year.",
-    "example_ru": "В году двенадцать месяцев."
-   }
+   "concept": 117
   },
   {
    "id": 118,
@@ -1211,14 +1161,7 @@
    "uz": "o‘n uch",
    "example_tr": "Ağabeyim on üç yaşında.",
    "example_uz": "Akam o‘n uch yoshda.",
-   "concept": null,
-   "new": {
-    "en": "thirteen",
-    "ru": "тринадцать",
-    "example_en": "My brother is thirteen years old.",
-    "example_ru": "Моему брату тринадцать лет.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>on üç</text></svg>"
-   }
+   "concept": 118
   },
   {
    "id": 119,
@@ -1227,14 +1170,7 @@
    "uz": "o‘n to‘rt",
    "example_tr": "Çantamda on dört kurşun kalem var.",
    "example_uz": "Sumkamda o‘n to‘rtta qalam bor.",
-   "concept": null,
-   "new": {
-    "en": "fourteen",
-    "ru": "четырнадцать",
-    "example_en": "I have fourteen pencils in my bag.",
-    "example_ru": "У меня в сумке четырнадцать карандашей.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>on dört</text></svg>"
-   }
+   "concept": 119
   },
   {
    "id": 120,
@@ -1243,14 +1179,7 @@
    "uz": "o‘n besh",
    "example_tr": "On beşe kadar sayabilirim.",
    "example_uz": "Men o‘n beshgacha sanay olaman.",
-   "concept": null,
-   "new": {
-    "en": "fifteen",
-    "ru": "пятнадцать",
-    "example_en": "I can count to fifteen.",
-    "example_ru": "Я умею считать до пятнадцати.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>on beş</text></svg>"
-   }
+   "concept": 120
   },
   {
    "id": 121,
@@ -2303,11 +2232,7 @@
    "uz": "tokcha, javon",
    "example_tr": "Şampuanım rafta.",
    "example_uz": "Mening shampunim javonda.",
-   "concept": 627,
-   "own": {
-    "example_en": "My shampoo is on the shelf.",
-    "example_ru": "Мой шампунь на полке."
-   }
+   "concept": 237
   },
   {
    "id": 238,
@@ -2613,11 +2538,7 @@
    "uz": "o‘n olti",
    "example_tr": "Kız kardeşim on altı yaşında.",
    "example_uz": "Singlim o‘n olti yoshda.",
-   "concept": 1366,
-   "own": {
-    "example_en": "My sister is sixteen years old.",
-    "example_ru": "Моей сестре шестнадцать лет."
-   }
+   "concept": 271
   },
   {
    "id": 272,
@@ -2626,11 +2547,7 @@
    "uz": "o‘n yetti",
    "example_tr": "Tom on yedi yaşında.",
    "example_uz": "Tom o‘n yetti yoshda.",
-   "concept": 1367,
-   "own": {
-    "example_en": "Tom is seventeen years old.",
-    "example_ru": "Тому семнадцать лет."
-   }
+   "concept": 272
   },
   {
    "id": 273,
@@ -2639,11 +2556,7 @@
    "uz": "o‘n sakkiz",
    "example_tr": "Ağabeyin on sekiz yaşında mı?",
    "example_uz": "Akang o‘n sakkiz yoshdami?",
-   "concept": 1368,
-   "own": {
-    "example_en": "Is your brother eighteen years old?",
-    "example_ru": "Твоему брату восемнадцать лет?"
-   }
+   "concept": 273
   },
   {
    "id": 274,
@@ -2652,11 +2565,7 @@
    "uz": "o‘n to‘qqiz",
    "example_tr": "Onlar on dokuz yaşında değil.",
    "example_uz": "Ular o‘n to‘qqiz yoshda emas.",
-   "concept": 1369,
-   "own": {
-    "example_en": "They are not nineteen years old.",
-    "example_ru": "Им не девятнадцать лет."
-   }
+   "concept": 274
   },
   {
    "id": 275,
@@ -2665,11 +2574,7 @@
    "uz": "yigirma",
    "example_tr": "Yirmiye kadar sayabilir misin?",
    "example_uz": "Sen yigirmagacha sanay olasanmi?",
-   "concept": 1370,
-   "own": {
-    "example_en": "Can you count to twenty?",
-    "example_ru": "Ты умеешь считать до двадцати?"
-   }
+   "concept": 275
   },
   {
    "id": 276,
@@ -2678,11 +2583,7 @@
    "uz": "o‘ttiz",
    "example_tr": "Sınıfımızda otuz öğrenci var.",
    "example_uz": "Sinfimizda o‘ttizta o‘quvchi bor.",
-   "concept": 1371,
-   "own": {
-    "example_en": "There are thirty students in our class.",
-    "example_ru": "В нашем классе тридцать учеников."
-   }
+   "concept": 276
   },
   {
    "id": 277,
@@ -2691,11 +2592,7 @@
    "uz": "qirq",
    "example_tr": "Babam kırk yaşında.",
    "example_uz": "Dadam qirq yoshda.",
-   "concept": 1372,
-   "own": {
-    "example_en": "My father is forty years old.",
-    "example_ru": "Моему отцу сорок лет."
-   }
+   "concept": 277
   },
   {
    "id": 278,
@@ -2704,11 +2601,7 @@
    "uz": "ellik",
    "example_tr": "Bu kitap elli sayfa.",
    "example_uz": "Bu kitob ellik betdan iborat.",
-   "concept": 1373,
-   "own": {
-    "example_en": "This book has fifty pages.",
-    "example_ru": "В этой книге пятьдесят страниц."
-   }
+   "concept": 278
   },
   {
    "id": 279,
@@ -2717,11 +2610,7 @@
    "uz": "oltmish",
    "example_tr": "Dedemiz altmış yaşında.",
    "example_uz": "Bobomiz oltmish yoshda.",
-   "concept": 1374,
-   "own": {
-    "example_en": "Our grandfather is sixty years old.",
-    "example_ru": "Нашему дедушке шестьдесят лет."
-   }
+   "concept": 279
   },
   {
    "id": 280,
@@ -2730,11 +2619,7 @@
    "uz": "yetmish",
    "example_tr": "Burada yetmiş kişi çalışıyor.",
    "example_uz": "Bu yerda yetmish kishi ishlaydi.",
-   "concept": 1375,
-   "own": {
-    "example_en": "Seventy people work here.",
-    "example_ru": "Здесь работает семьдесят человек."
-   }
+   "concept": 280
   },
   {
    "id": 281,
@@ -2743,11 +2628,7 @@
    "uz": "sakson",
    "example_tr": "Onun büyükannesi seksen yaşında.",
    "example_uz": "Uning buvisi sakson yoshda.",
-   "concept": 1376,
-   "own": {
-    "example_en": "Her grandmother is eighty years old.",
-    "example_ru": "Её бабушке восемьдесят лет."
-   }
+   "concept": 281
   },
   {
    "id": 282,
@@ -2756,11 +2637,7 @@
    "uz": "to‘qson",
    "example_tr": "Film doksan dakika.",
    "example_uz": "Film to‘qson daqiqa davom etadi.",
-   "concept": 1377,
-   "own": {
-    "example_en": "The film is ninety minutes long.",
-    "example_ru": "Фильм идёт девяносто минут."
-   }
+   "concept": 282
   },
   {
    "id": 283,
@@ -2769,11 +2646,7 @@
    "uz": "yuz",
    "example_tr": "Yüze kadar sayabilirim.",
    "example_uz": "Men yuzgacha sanay olaman.",
-   "concept": 1378,
-   "own": {
-    "example_en": "I can count to a hundred.",
-    "example_ru": "Я умею считать до ста."
-   }
+   "concept": 283
   },
   {
    "id": 284,
@@ -2782,11 +2655,7 @@
    "uz": "ming",
    "example_tr": "Köyümüzde bin kişi yaşıyor.",
    "example_uz": "Qishlog‘imizda ming kishi yashaydi.",
-   "concept": 1379,
-   "own": {
-    "example_en": "A thousand people live in our village.",
-    "example_ru": "В нашей деревне живёт тысяча человек."
-   }
+   "concept": 284
   },
   {
    "id": 285,
@@ -2795,11 +2664,7 @@
    "uz": "million",
    "example_tr": "Babamın bir milyon doları yok.",
    "example_uz": "Dadamda million dollar yo‘q.",
-   "concept": 1380,
-   "own": {
-    "example_en": "My father doesn't have a million dollars.",
-    "example_ru": "У моего отца нет миллиона долларов."
-   }
+   "concept": 285
   },
   {
    "id": 286,

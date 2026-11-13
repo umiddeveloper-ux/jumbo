@@ -8,7 +8,6 @@
    2101,
    2400
   ],
-  "new_words": 3,
   "schema": [
    "id",
    "topic",
@@ -16,8 +15,7 @@
    "uz",
    "example_tr",
    "example_uz",
-   "concept",
-   "new"
+   "concept"
   ]
  },
  "topics": [
@@ -605,14 +603,7 @@
    "uz": "vaqt o‘tkazmoq (bekorga)",
    "example_tr": "Havalimanında vakit öldürmek çok sıkıcı.",
    "example_uz": "Aeroportda vaqt o‘tkazish juda zerikarli.",
-   "concept": null,
-   "new": {
-    "en": "kill time",
-    "ru": "убивать время",
-    "example_en": "Killing time at the airport is very boring.",
-    "example_ru": "Убивать время в аэропорту очень скучно.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>vakit öldürmek</text></svg>"
-   }
+   "concept": 2156
   },
   {
    "id": 2157,
@@ -1827,14 +1818,7 @@
    "uz": "ikki qavatli avtobus",
    "example_tr": "Londra kırmızı iki katlı otobüsleriyle ünlüdür.",
    "example_uz": "London qizil ikki qavatli avtobuslari bilan mashhur.",
-   "concept": null,
-   "new": {
-    "en": "double-decker bus",
-    "ru": "двухэтажный автобус",
-    "example_en": "London is famous for its red double-decker buses.",
-    "example_ru": "Лондон известен своими красными двухэтажными автобусами.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>iki katlı otobüs</text></svg>"
-   }
+   "concept": 2291
   },
   {
    "id": 2292,
@@ -1843,14 +1827,7 @@
    "uz": "shattl-avtobus",
    "example_tr": "Havalimanı ücretsiz servis otobüsü sağlıyor.",
    "example_uz": "Aeroportdan bepul shattl-avtobus qatnaydi.",
-   "concept": null,
-   "new": {
-    "en": "shuttle bus",
-    "ru": "автобус-шаттл",
-    "example_en": "The airport provides a free shuttle bus.",
-    "example_ru": "Аэропорт предоставляет бесплатный автобус-шаттл.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>servis otobüsü</text></svg>"
-   }
+   "concept": 2292
   },
   {
    "id": 2293,
@@ -2066,11 +2043,7 @@
    "uz": "yelim-qalam",
    "example_tr": "Lütfen stick yapıştırıcıyı kullandıktan sonra mutlaka kapat, yoksa çabuk kurur.",
    "example_uz": "Iltimos, yelim-qalamni ishlatgandan keyin albatta yopib qo‘y, aks holda u tez qurib qoladi.",
-   "concept": 1364,
-   "own": {
-    "example_en": "Please close the glue stick after use, or it will dry out quickly.",
-    "example_ru": "Пожалуйста, закрывайте клей-карандаш после использования, иначе он быстро высохнет."
-   }
+   "concept": 2316
   },
   {
    "id": 2317,

@@ -8,7 +8,6 @@
    1201,
    1500
   ],
-  "new_words": 3,
   "schema": [
    "id",
    "topic",
@@ -16,8 +15,7 @@
    "uz",
    "example_tr",
    "example_uz",
-   "concept",
-   "new"
+   "concept"
   ]
  },
  "topics": [
@@ -1595,11 +1593,7 @@
    "uz": "sevimli",
    "example_tr": "Müzik okulda en sevdiğim dersti.",
    "example_uz": "Maktabda musiqa mening sevimli fanim edi.",
-   "concept": 271,
-   "own": {
-    "example_en": "Music was my favourite subject at school.",
-    "example_ru": "Музыка была моим любимым предметом в школе."
-   }
+   "concept": 1366
   },
   {
    "id": 1367,
@@ -1608,11 +1602,7 @@
    "uz": "matematika",
    "example_tr": "Dün matematik dersimiz vardı.",
    "example_uz": "Kecha bizda matematika bo‘ldi.",
-   "concept": 272,
-   "own": {
-    "example_en": "We had a maths lesson yesterday.",
-    "example_ru": "Вчера у нас был урок математики."
-   }
+   "concept": 1367
   },
   {
    "id": 1368,
@@ -1621,11 +1611,7 @@
    "uz": "tabiiy fanlar",
    "example_tr": "Fen bilgisi dersimiz yarın olacak.",
    "example_uz": "Tabiiy fanlar darsimiz ertaga bo‘ladi.",
-   "concept": 273,
-   "own": {
-    "example_en": "We will have a science lesson tomorrow.",
-    "example_ru": "Завтра у нас будет урок естествознания."
-   }
+   "concept": 1368
   },
   {
    "id": 1369,
@@ -1634,11 +1620,7 @@
    "uz": "tarix",
    "example_tr": "Tom geçen yıl tarih okudu.",
    "example_uz": "Tom o‘tgan yili tarix o‘rgandi.",
-   "concept": 274,
-   "own": {
-    "example_en": "Tom studied history last year.",
-    "example_ru": "Том в прошлом году изучал историю."
-   }
+   "concept": 1369
   },
   {
    "id": 1370,
@@ -1647,11 +1629,7 @@
    "uz": "geografiya",
    "example_tr": "Salı günü coğrafya dersimiz olacak mı?",
    "example_uz": "Seshanba kuni bizda geografiya bo‘ladimi?",
-   "concept": 275,
-   "own": {
-    "example_en": "Will we have a geography lesson on Tuesday?",
-    "example_ru": "У нас во вторник будет урок географии?"
-   }
+   "concept": 1370
   },
   {
    "id": 1371,
@@ -1660,11 +1638,7 @@
    "uz": "tasviriy san’at",
    "example_tr": "Onun resim dersi çok uzundu.",
    "example_uz": "Uning tasviriy san’at darsi juda uzun bo‘ldi.",
-   "concept": 276,
-   "own": {
-    "example_en": "Her art lesson was very long.",
-    "example_ru": "Её урок рисования был очень долгим."
-   }
+   "concept": 1371
   },
   {
    "id": 1372,
@@ -1673,11 +1647,7 @@
    "uz": "musiqa",
    "example_tr": "Çocuklar konserde müzik çaldı.",
    "example_uz": "Bolalar konsertda musiqa ijro etishdi.",
-   "concept": 277,
-   "own": {
-    "example_en": "The children played music at the concert.",
-    "example_ru": "Дети играли музыку на концерте."
-   }
+   "concept": 1372
   },
   {
    "id": 1373,
@@ -1686,11 +1656,7 @@
    "uz": "biologiya",
    "example_tr": "O üniversitede biyoloji okuyacak.",
    "example_uz": "U universitetda biologiyani o‘rganadi.",
-   "concept": 278,
-   "own": {
-    "example_en": "He will study biology at university.",
-    "example_ru": "Он будет изучать биологию в университете."
-   }
+   "concept": 1373
   },
   {
    "id": 1374,
@@ -1699,11 +1665,7 @@
    "uz": "kimyo",
    "example_tr": "Sam okulda kimyayı sevmedi.",
    "example_uz": "Semga maktabda kimyo yoqmasdi.",
-   "concept": 279,
-   "own": {
-    "example_en": "Sam didn't like chemistry at school.",
-    "example_ru": "Сэму в школе не нравилась химия."
-   }
+   "concept": 1374
   },
   {
    "id": 1375,
@@ -1712,11 +1674,7 @@
    "uz": "fizika",
    "example_tr": "Fizik sınavını geçtin mi?",
    "example_uz": "Fizikadan testni topshirdingmi?",
-   "concept": 280,
-   "own": {
-    "example_en": "Did you pass the physics exam?",
-    "example_ru": "Ты сдал экзамен по физике?"
-   }
+   "concept": 1375
   },
   {
    "id": 1376,
@@ -1725,11 +1683,7 @@
    "uz": "informatika",
    "example_tr": "O gelecek yıl bilişim dersi verecek.",
    "example_uz": "Kelasi yili u informatikadan dars beradi.",
-   "concept": 281,
-   "own": {
-    "example_en": "He will teach computer science next year.",
-    "example_ru": "В следующем году он будет преподавать информатику."
-   }
+   "concept": 1376
   },
   {
    "id": 1377,
@@ -1738,11 +1692,7 @@
    "uz": "ingliz tili",
    "example_tr": "Kate Londra’da İngilizce öğrendi.",
    "example_uz": "Keyt ingliz tilini Londonda o‘rgandi.",
-   "concept": 282,
-   "own": {
-    "example_en": "Kate learned English in London.",
-    "example_ru": "Кейт выучила английский в Лондоне."
-   }
+   "concept": 1377
   },
   {
    "id": 1378,
@@ -1751,11 +1701,7 @@
    "uz": "adabiyot",
    "example_tr": "Edebiyat dersinde bir roman okuyacağız.",
    "example_uz": "Adabiyot darsida biz roman o‘qiymiz.",
-   "concept": 283,
-   "own": {
-    "example_en": "We will read a novel in the literature lesson.",
-    "example_ru": "На уроке литературы мы будем читать роман."
-   }
+   "concept": 1378
   },
   {
    "id": 1379,
@@ -1764,14 +1710,7 @@
    "uz": "rus tili",
    "example_tr": "Büyükannem okulda Rusça öğrendi.",
    "example_uz": "Buvim maktabda rus tilini o‘rgangan.",
-   "concept": null,
-   "new": {
-    "en": "Russian (language)",
-    "ru": "русский язык",
-    "example_en": "My grandmother learned Russian at school.",
-    "example_ru": "Моя бабушка учила русский язык в школе.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>Rusça</text></svg>"
-   }
+   "concept": 1379
   },
   {
    "id": 1380,
@@ -1780,14 +1719,7 @@
    "uz": "iqtisodiyot",
    "example_tr": "Anna ekonomi okumak istedi.",
    "example_uz": "Anna iqtisodiyotni o‘rganmoqchi edi.",
-   "concept": null,
-   "new": {
-    "en": "economics",
-    "ru": "экономика",
-    "example_en": "Anna wanted to study economics.",
-    "example_ru": "Анна хотела изучать экономику.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>ekonomi</text></svg>"
-   }
+   "concept": 1380
   },
   {
    "id": 1381,
@@ -2210,14 +2142,7 @@
    "uz": "Hayit (bayram)",
    "example_tr": "Bayramda insanlar birbirine hediye veriyor.",
    "example_uz": "Hayitda odamlar bir-birlariga sovg‘a berishadi.",
-   "concept": null,
-   "new": {
-    "en": "holiday (bayram)",
-    "ru": "праздник (байрам)",
-    "example_en": "At the holiday people give each other gifts.",
-    "example_ru": "В праздник люди дарят друг другу подарки.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>Bayram</text></svg>"
-   }
+   "concept": 1427
   },
   {
    "id": 1428,

@@ -8,7 +8,6 @@
    301,
    600
   ],
-  "new_words": 2,
   "schema": [
    "id",
    "topic",
@@ -16,8 +15,7 @@
    "uz",
    "example_tr",
    "example_uz",
-   "concept",
-   "new"
+   "concept"
   ]
  },
  "topics": [
@@ -2126,11 +2124,7 @@
    "uz": "tayyorlamoq",
    "example_tr": "Her gün akşam yemeği yapıyorum.",
    "example_uz": "Men har kuni kechki ovqat tayyorlayman.",
-   "concept": 523,
-   "own": {
-    "example_en": "I cook dinner every day.",
-    "example_ru": "Я каждый день готовлю ужин."
-   }
+   "concept": 525
   },
   {
    "id": 526,
@@ -2715,11 +2709,7 @@
    "uz": "pasport",
    "example_tr": "Bu benim pasaportum.",
    "example_uz": "Bu mening pasportim.",
-   "concept": 1059,
-   "own": {
-    "example_en": "This is my passport.",
-    "example_ru": "Это мой паспорт."
-   }
+   "concept": 590
   },
   {
    "id": 591,
@@ -2737,11 +2727,7 @@
    "uz": "karta",
    "example_tr": "Bana iki anahtar kartı verebilir misiniz?",
    "example_uz": "Menga ikkita kalit-karta bera olasizmi?",
-   "concept": 608,
-   "own": {
-    "example_en": "Could you give me two key cards, please?",
-    "example_ru": "Не могли бы вы дать мне две ключ-карты?"
-   }
+   "concept": 592
   },
   {
    "id": 593,
@@ -2759,14 +2745,7 @@
    "uz": "seyf",
    "example_tr": "Pasaportunuzu kasada saklayın.",
    "example_uz": "Pasportingizni seyfda saqlang.",
-   "concept": null,
-   "new": {
-    "en": "safe",
-    "ru": "сейф",
-    "example_en": "Keep your passport in the safe.",
-    "example_ru": "Храните паспорт в сейфе.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>kasa</text></svg>"
-   }
+   "concept": 594
   },
   {
    "id": 595,
@@ -2811,14 +2790,7 @@
    "uz": "Wi-Fi paroli",
    "example_tr": "Bana Wi-Fi şifresini söyleyebilir misiniz?",
    "example_uz": "Menga Wi-Fi parolini ayta olasizmi?",
-   "concept": null,
-   "new": {
-    "en": "Wi-Fi password",
-    "ru": "пароль от Wi-Fi",
-    "example_en": "Can you tell me the Wi-Fi password?",
-    "example_ru": "Вы можете сказать мне пароль от Wi-Fi?",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>Wi-Fi şifresi</text></svg>"
-   }
+   "concept": 599
   },
   {
    "id": 600,

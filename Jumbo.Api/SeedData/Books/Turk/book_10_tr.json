@@ -8,7 +8,6 @@
    2701,
    3000
   ],
-  "new_words": 4,
   "schema": [
    "id",
    "topic",
@@ -16,8 +15,7 @@
    "uz",
    "example_tr",
    "example_uz",
-   "concept",
-   "new"
+   "concept"
   ]
  },
  "topics": [
@@ -1118,14 +1116,7 @@
    "uz": "turmush o‘rtog‘i",
    "example_tr": "Eşinin öğretmen olarak çalıştığından bahsetti.",
    "example_uz": "U turmush o‘rtog‘i o‘qituvchi bo‘lib ishlashini aytib o‘tdi.",
-   "concept": null,
-   "new": {
-    "en": "spouse",
-    "ru": "супруг, супруга",
-    "example_en": "He mentioned that his spouse works as a teacher.",
-    "example_ru": "Он упомянул, что его супруга работает учителем.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>eş</text></svg>"
-   }
+   "concept": 2813
   },
   {
    "id": 2814,
@@ -1161,14 +1152,7 @@
    "uz": "qalliq, unashtirilgan qiz",
    "example_tr": "Bize nişanlısının klasik müziği sevdiğini söyledi.",
    "example_uz": "U bizga qallig‘i mumtoz musiqani yaxshi ko‘rishini aytdi.",
-   "concept": null,
-   "new": {
-    "en": "fiancée",
-    "ru": "невеста",
-    "example_en": "He told us his fiancée likes classical music.",
-    "example_ru": "Он сказал нам, что его невеста любит классическую музыку.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>nişanlı</text></svg>"
-   }
+   "concept": 2817
   },
   {
    "id": 2818,
@@ -1177,14 +1161,7 @@
    "uz": "unashtirilgan yigit",
    "example_tr": "Nişanlısının yeni bir ev aldığını söyledi.",
    "example_uz": "U unashtirilgan yigiti yangi uy sotib olganini aytdi.",
-   "concept": null,
-   "new": {
-    "en": "fiancé",
-    "ru": "жених",
-    "example_en": "She said her fiancé had bought a new house.",
-    "example_ru": "Она сказала, что её жених купил новый дом.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>nişanlı</text></svg>"
-   }
+   "concept": 2818
   },
   {
    "id": 2819,
@@ -1193,14 +1170,7 @@
    "uz": "unashtiruv",
    "example_tr": "Bana nişanını dün duyurduğunu söyledi.",
    "example_uz": "U menga kecha unashtirilganini e’lon qilganini aytdi.",
-   "concept": null,
-   "new": {
-    "en": "engagement",
-    "ru": "помолвка",
-    "example_en": "She told me she had announced her engagement yesterday.",
-    "example_ru": "Она сказала мне, что вчера объявила о помолвке.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>nişan</text></svg>"
-   }
+   "concept": 2819
   },
   {
    "id": 2820,
@@ -1407,11 +1377,7 @@
    "uz": "hisobni to‘ldirmoq, quvvatlamoq",
    "example_tr": "Telefonunu şarj etmesi gerektiğini söyledi.",
    "example_uz": "U telefonini quvvatlashi kerakligini aytdi.",
-   "concept": 2243,
-   "own": {
-    "example_en": "He said he needed to charge his phone.",
-    "example_ru": "Он сказал, что ему нужно зарядить телефон."
-   }
+   "concept": 2842
   },
   {
    "id": 2843,

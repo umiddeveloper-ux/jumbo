@@ -8,7 +8,6 @@
    601,
    900
   ],
-  "new_words": 9,
   "schema": [
    "id",
    "topic",
@@ -16,8 +15,7 @@
    "uz",
    "example_tr",
    "example_uz",
-   "concept",
-   "new"
+   "concept"
   ]
  },
  "topics": [
@@ -155,11 +153,7 @@
    "uz": "chek",
    "example_tr": "Fişi almayı unutma.",
    "example_uz": "Chekni olishni unutma.",
-   "concept": 861,
-   "own": {
-    "example_en": "Don't forget to take the receipt.",
-    "example_ru": "Не забудь взять чек."
-   }
+   "concept": 606
   },
   {
    "id": 607,
@@ -213,14 +207,7 @@
    "uz": "kassir",
    "example_tr": "Kasiyer çok nazik.",
    "example_uz": "Kassir juda mehribon.",
-   "concept": null,
-   "new": {
-    "en": "cashier",
-    "ru": "кассир",
-    "example_en": "The cashier is very kind.",
-    "example_ru": "Кассир очень добрый.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>kasiyer</text></svg>"
-   }
+   "concept": 612
   },
   {
    "id": 613,
@@ -238,14 +225,7 @@
    "uz": "xarid aravachasi",
    "example_tr": "Alışveriş arabası dolu.",
    "example_uz": "Xarid aravachasi to‘la.",
-   "concept": null,
-   "new": {
-    "en": "shopping trolley",
-    "ru": "тележка для покупок",
-    "example_en": "The shopping trolley is full.",
-    "example_ru": "Тележка для покупок полная.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>alışveriş arabası</text></svg>"
-   }
+   "concept": 614
   },
   {
    "id": 615,
@@ -254,14 +234,7 @@
    "uz": "savatcha",
    "example_tr": "Alışveriş sepeti ağır.",
    "example_uz": "Xarid savatchasi og‘ir.",
-   "concept": null,
-   "new": {
-    "en": "basket",
-    "ru": "корзина",
-    "example_en": "The shopping basket is heavy.",
-    "example_ru": "Корзина для покупок тяжёлая.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>sepet</text></svg>"
-   }
+   "concept": 615
   },
   {
    "id": 616,
@@ -306,11 +279,7 @@
    "uz": "xona o‘simligi",
    "example_tr": "Pencerenin yanında yeşil bir saksı bitkim var.",
    "example_uz": "Deraza yonida mening yashil xona o‘simligim bor.",
-   "concept": 813,
-   "own": {
-    "example_en": "I have a green house plant by the window.",
-    "example_ru": "У окна у меня стоит зелёное комнатное растение."
-   }
+   "concept": 620
   },
   {
    "id": 621,
@@ -328,14 +297,7 @@
    "uz": "kamin",
    "example_tr": "Şömine sıcak.",
    "example_uz": "Kamin iliq.",
-   "concept": null,
-   "new": {
-    "en": "fireplace",
-    "ru": "камин",
-    "example_en": "The fireplace is warm.",
-    "example_ru": "Камин тёплый.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>şömine</text></svg>"
-   }
+   "concept": 622
   },
   {
    "id": 623,
@@ -362,14 +324,7 @@
    "uz": "qandil",
    "example_tr": "Odada güzel bir avize asılı.",
    "example_uz": "Xonada chiroyli qandil osilib turibdi.",
-   "concept": null,
-   "new": {
-    "en": "chandelier",
-    "ru": "люстра",
-    "example_en": "A beautiful chandelier hangs in the room.",
-    "example_ru": "В комнате висит красивая люстра.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>avize</text></svg>"
-   }
+   "concept": 625
   },
   {
    "id": 626,
@@ -972,11 +927,7 @@
    "uz": "baho",
    "example_tr": "Öğretmen bana iyi bir not veriyor.",
    "example_uz": "O‘qituvchi menga yaxshi baho qo‘yadi.",
-   "concept": 718,
-   "own": {
-    "example_en": "The teacher gives me a good mark.",
-    "example_ru": "Учитель ставит мне хорошую оценку."
-   }
+   "concept": 692
   },
   {
    "id": 693,
@@ -1081,17 +1032,10 @@
    "id": 704,
    "topic": 7,
    "tr": "ortaokul",
-   "uz": "o‘rta maktab",
+   "uz": "o‘rta",
    "example_tr": "Çocuklar on bir yaşında ortaokula başlıyor.",
    "example_uz": "Bolalar o‘n bir yoshda o‘rta maktabga boradi.",
-   "concept": null,
-   "new": {
-    "en": "middle school",
-    "ru": "средняя школа",
-    "example_en": "Children start middle school at the age of eleven.",
-    "example_ru": "Дети идут в среднюю школу в одиннадцать лет.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>ortaokul</text></svg>"
-   }
+   "concept": 704
   },
   {
    "id": 705,
@@ -1757,11 +1701,7 @@
    "uz": "kirish joyi",
    "example_tr": "Evimin arka girişinde güzel, yeşil bir kapı var.",
    "example_uz": "Uyimning orqa kirish joyida chiroyli yashil eshik bor.",
-   "concept": 625,
-   "own": {
-    "example_en": "There is a beautiful green door at the back entrance of my house.",
-    "example_ru": "У заднего входа в мой дом красивая зелёная дверь."
-   }
+   "concept": 778
   },
   {
    "id": 779,
@@ -2049,14 +1989,7 @@
    "uz": "antonim",
    "example_tr": "“Sıcak”, “soğuk” kelimesinin zıt anlamlısı.",
    "example_uz": "«Issiq» — «sovuq» so‘zining antonimi.",
-   "concept": null,
-   "new": {
-    "en": "antonym",
-    "ru": "антоним",
-    "example_en": "\"Cold\" is the antonym of \"hot\".",
-    "example_ru": "«Холодный» — антоним слова «горячий».",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>zıt anlamlı</text></svg>"
-   }
+   "concept": 810
   },
   {
    "id": 811,
@@ -2515,14 +2448,7 @@
    "uz": "dollar",
    "example_tr": "Bu ürün sadece bir dolar.",
    "example_uz": "Bu mahsulot atigi bir dollar turadi.",
-   "concept": null,
-   "new": {
-    "en": "dollar",
-    "ru": "доллар",
-    "example_en": "This product costs only one dollar.",
-    "example_ru": "Этот товар стоит всего один доллар.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>dolar</text></svg>"
-   }
+   "concept": 861
   },
   {
    "id": 862,
@@ -2747,14 +2673,7 @@
    "uz": "rol",
    "example_tr": "Oyuncu filmde önemli bir rol oynuyor.",
    "example_uz": "Aktyor filmda muhim rol o‘ynaydi.",
-   "concept": null,
-   "new": {
-    "en": "role",
-    "ru": "роль",
-    "example_en": "The actor plays an important role in the film.",
-    "example_ru": "Актёр играет в фильме важную роль.",
-    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>rol</text></svg>"
-   }
+   "concept": 886
   },
   {
    "id": 887,
