@@ -3183,4 +3183,7 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="ExamQuiz_Resumed" xml:space="preserve">
     <value>The exam goes on from where you stopped.</value>
   </data>
+  <data name="Nav_Learn" xml:space="preserve">
+    <value>Learning</value>
+  </data>
 </root>

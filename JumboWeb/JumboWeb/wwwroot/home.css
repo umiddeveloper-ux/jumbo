@@ -366,6 +366,15 @@ a.foot-app:hover { border-color: var(--lp-primary); }
 /* "Log in" in the top bar of the landing: stays on phones too (the general rule above hides the outline buttons there) */
 .land-nav-actions .lp-btn-outline.land-nav-login { display: inline-flex; white-space: nowrap; }
 
+/* "For teachers" in the top bar of the landing: stays on phones too (the general rule hides .land-nav-link there) */
+.land-topbar .land-nav-link.land-nav-teachers { display: inline-flex; align-items: center; gap: 5px; color: var(--lp-text); }
+@media (max-width: 480px) {
+    .land-topbar .land-nav-link.land-nav-teachers { padding: 6px 6px; font-size: 0.8rem; gap: 3px; }
+    .land-topbar .land-nav { gap: 6px; }
+    .land-topbar .land-brand span { display: none; }      /* only the icon: there is no room for the name next to "For teachers" */
+    .land-topbar .land-nav-actions { margin-left: auto; }
+}
+
 /* ----- the block "download the app" above the footer ----- */
 .dl { max-width: 1120px; margin: 0 auto; padding: 44px 20px 40px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; align-items: center; border-bottom: 2px solid var(--lp-border); }
 .dl-title { margin: 0 0 12px; font-size: 1.9rem; line-height: 1.2; font-weight: 900; color: var(--lp-text); }

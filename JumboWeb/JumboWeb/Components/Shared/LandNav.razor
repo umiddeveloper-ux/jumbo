@@ -24,7 +24,8 @@
         }
         @if (Minimal)
         {
-            @* the landing: "Log in" before the language (the top bar is shown on phones too) *@
+            @* the landing: the way in for teachers, then "Log in", before the language (the top bar is shown on phones too) *@
+            <a class="land-nav-link land-nav-teachers" href="/for-schools">🧑‍🏫 <span>@Loc["FS_Nav"]</span></a>
             <a class="lp-btn lp-btn-outline lp-btn-sm land-nav-login" href="/login">@Loc["Land_Login"]</a>
         }
         <LanguageSwitcher />

@@ -3183,4 +3183,7 @@
   <data name="ExamQuiz_Resumed" xml:space="preserve">
     <value>Экзамен продолжается с того места, где ты остановился.</value>
   </data>
+  <data name="Nav_Learn" xml:space="preserve">
+    <value>Обучение</value>
+  </data>
 </root>

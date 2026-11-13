@@ -3114,4 +3114,7 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="ExamQuiz_Resumed" xml:space="preserve">
     <value>Imtihon to'xtagan joyingizdan davom etadi.</value>
   </data>
+  <data name="Nav_Learn" xml:space="preserve">
+    <value>O'qish</value>
+  </data>
 </root>
