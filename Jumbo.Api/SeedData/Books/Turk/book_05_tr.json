@@ -1,0 +1,2880 @@
+{
+ "metadata": {
+  "book": 5,
+  "level": "A2",
+  "language": "tr",
+  "word_count": 300,
+  "id_range": [
+   1201,
+   1500
+  ],
+  "new_words": 3,
+  "schema": [
+   "id",
+   "topic",
+   "tr",
+   "uz",
+   "example_tr",
+   "example_uz",
+   "concept",
+   "new"
+  ]
+ },
+ "topics": [
+  {
+   "tr": "Coğrafya",
+   "uz": "Geografiya"
+  },
+  {
+   "tr": "Uzay",
+   "uz": "Koinot"
+  },
+  {
+   "tr": "Çevre",
+   "uz": "Ekologiya"
+  },
+  {
+   "tr": "Kuşlar",
+   "uz": "Qushlar"
+  },
+  {
+   "tr": "Balıkçılık ve Tekneler",
+   "uz": "Baliq ovi va qayiqlar"
+  },
+  {
+   "tr": "Vücut 2",
+   "uz": "Tana 2"
+  },
+  {
+   "tr": "İlk Yardım ve Eczane",
+   "uz": "Birinchi yordam va dorixona"
+  },
+  {
+   "tr": "Aile 2",
+   "uz": "Oila 2"
+  },
+  {
+   "tr": "Kişilik 2",
+   "uz": "Xarakter 2"
+  },
+  {
+   "tr": "Fizik",
+   "uz": "Fizika"
+  },
+  {
+   "tr": "Malzemeler ve Aletler",
+   "uz": "Materiallar va asboblar"
+  },
+  {
+   "tr": "Dersler",
+   "uz": "Maktab fanlari"
+  },
+  {
+   "tr": "Banka ve Para",
+   "uz": "Bank va pul"
+  },
+  {
+   "tr": "Yiyecekler 2",
+   "uz": "Ovqat 2"
+  },
+  {
+   "tr": "Yolda",
+   "uz": "Yo‘lda"
+  },
+  {
+   "tr": "Bayramlar ve Gelenekler",
+   "uz": "Bayramlar va an’analar"
+  },
+  {
+   "tr": "Geçmiş Zaman Kelimeleri",
+   "uz": "O‘tmish so‘zlari"
+  },
+  {
+   "tr": "Gelecek Planları",
+   "uz": "Kelajak rejalari"
+  },
+  {
+   "tr": "Geçmiş Zaman Fiilleri 1",
+   "uz": "O‘tgan zamon fe’llari 1"
+  },
+  {
+   "tr": "Geçmiş Zaman Fiilleri 2",
+   "uz": "O‘tgan zamon fe’llari 2"
+  }
+ ],
+ "words": [
+  {
+   "id": 1201,
+   "topic": 1,
+   "tr": "dağ",
+   "uz": "tog‘",
+   "example_tr": "Yüksek bir dağ gördük.",
+   "example_uz": "Biz baland tog‘ni ko‘rdik.",
+   "concept": 1201
+  },
+  {
+   "id": 1202,
+   "topic": 1,
+   "tr": "nehir",
+   "uz": "daryo",
+   "example_tr": "Çocuklar nehirde yüzdü mü?",
+   "example_uz": "Bolalar daryoda cho‘mildimi?",
+   "concept": 1202
+  },
+  {
+   "id": 1203,
+   "topic": 1,
+   "tr": "ada",
+   "uz": "orol",
+   "example_tr": "Onlar küçük bir adayı ziyaret edecek.",
+   "example_uz": "Ular kichkina orolga borishadi.",
+   "concept": 1203
+  },
+  {
+   "id": 1204,
+   "topic": 1,
+   "tr": "orman",
+   "uz": "o‘rmon",
+   "example_tr": "Ormanda yürümedim.",
+   "example_uz": "Men o‘rmonda sayr qilmadim.",
+   "concept": 1204
+  },
+  {
+   "id": 1205,
+   "topic": 1,
+   "tr": "kara",
+   "uz": "quruqlik",
+   "example_tr": "Denizciler yakında karayı görecek.",
+   "example_uz": "Dengizchilar tez orada quruqlikni ko‘radi.",
+   "concept": 1205
+  },
+  {
+   "id": 1206,
+   "topic": 1,
+   "tr": "kıta",
+   "uz": "qit’a",
+   "example_tr": "Bu kıtayı öğrenecek misin?",
+   "example_uz": "Sen bu qit’ani o‘rganasanmi?",
+   "concept": 1206
+  },
+  {
+   "id": 1207,
+   "topic": 1,
+   "tr": "başkent",
+   "uz": "poytaxt",
+   "example_tr": "Sınıfımız başkenti ziyaret edecek mi?",
+   "example_uz": "Sinfimiz poytaxtga boradimi?",
+   "concept": 1207
+  },
+  {
+   "id": 1208,
+   "topic": 1,
+   "tr": "sınır",
+   "uz": "chegara",
+   "example_tr": "Otobüs sınırda durdu mu?",
+   "example_uz": "Avtobus chegarada to‘xtadimi?",
+   "concept": 1208
+  },
+  {
+   "id": 1209,
+   "topic": 1,
+   "tr": "tropik orman",
+   "uz": "jangal, changalzor",
+   "example_tr": "Onlar tropik ormana gidecek mi?",
+   "example_uz": "Ular jangalga borishadimi?",
+   "concept": 1209
+  },
+  {
+   "id": 1210,
+   "topic": 1,
+   "tr": "mağara",
+   "uz": "g‘or",
+   "example_tr": "O mağarayı bulmadı.",
+   "example_uz": "U g‘orni topmadi.",
+   "concept": 1210
+  },
+  {
+   "id": 1211,
+   "topic": 1,
+   "tr": "yanardağ",
+   "uz": "vulqon",
+   "example_tr": "İnsanlar yanardağdan kaçtı.",
+   "example_uz": "Odamlar vulqondan qochdi.",
+   "concept": 1211
+  },
+  {
+   "id": 1212,
+   "topic": 1,
+   "tr": "şelale",
+   "uz": "sharshara",
+   "example_tr": "Kate şelalenin fotoğrafını çekecek.",
+   "example_uz": "Keyt sharsharani suratga oladi.",
+   "concept": 1212
+  },
+  {
+   "id": 1213,
+   "topic": 1,
+   "tr": "uçurum, kayalık",
+   "uz": "qoya, jarlik",
+   "example_tr": "Kuşlar kayalığa konmadı.",
+   "example_uz": "Qushlar qoyada o‘tirmadi.",
+   "concept": 1213
+  },
+  {
+   "id": 1214,
+   "topic": 1,
+   "tr": "kum",
+   "uz": "qum",
+   "example_tr": "Kız kardeşim kumda oynayacak.",
+   "example_uz": "Singlim qumda o‘ynaydi.",
+   "concept": 1214
+  },
+  {
+   "id": 1215,
+   "topic": 1,
+   "tr": "dalga",
+   "uz": "to‘lqin",
+   "example_tr": "Büyük bir dalga bizi durduramayacak.",
+   "example_uz": "Katta to‘lqin bizni to‘xtata olmaydi.",
+   "concept": 1215
+  },
+  {
+   "id": 1216,
+   "topic": 2,
+   "tr": "uzay",
+   "uz": "koinot, kosmos",
+   "example_tr": "Astronotlar uzaya uçacak.",
+   "example_uz": "Kosmonavtlar koinotga uchadi.",
+   "concept": 1216
+  },
+  {
+   "id": 1217,
+   "topic": 2,
+   "tr": "gezegen",
+   "uz": "sayyora",
+   "example_tr": "Bilim insanları yeni bir gezegen buldu.",
+   "example_uz": "Olimlar yangi sayyora topdi.",
+   "concept": 1217
+  },
+  {
+   "id": 1218,
+   "topic": 2,
+   "tr": "yıldız",
+   "uz": "yulduz",
+   "example_tr": "Dün gece yıldızları görmedik.",
+   "example_uz": "Kecha kechqurun biz yulduzlarni ko‘rmadik.",
+   "concept": 1218
+  },
+  {
+   "id": 1219,
+   "topic": 2,
+   "tr": "ay (gökteki)",
+   "uz": "oy (osmondagi)",
+   "example_tr": "Bu gece aya bakacak mısın?",
+   "example_uz": "Bugun kechqurun oyga qaraysanmi?",
+   "concept": 1219
+  },
+  {
+   "id": 1220,
+   "topic": 2,
+   "tr": "Dünya",
+   "uz": "Yer",
+   "example_tr": "Çocuklar Dünya’yı öğrenecek.",
+   "example_uz": "Bolalar Yerni o‘rganadi.",
+   "concept": 1220
+  },
+  {
+   "id": 1221,
+   "topic": 2,
+   "tr": "Mars",
+   "uz": "Mars",
+   "example_tr": "Bir gün insanlar Mars’ta yaşayacak.",
+   "example_uz": "Bir kun kelib odamlar Marsda yashaydi.",
+   "concept": 1221
+  },
+  {
+   "id": 1222,
+   "topic": 2,
+   "tr": "roket",
+   "uz": "raketa",
+   "example_tr": "Roket havalanmadı.",
+   "example_uz": "Raketa uchmadi.",
+   "concept": 1222
+  },
+  {
+   "id": 1223,
+   "topic": 2,
+   "tr": "uzay gemisi",
+   "uz": "kosmik kema",
+   "example_tr": "Uzay gemisini gördün mü?",
+   "example_uz": "Sen kosmik kemani ko‘rdingmi?",
+   "concept": 1223
+  },
+  {
+   "id": 1224,
+   "topic": 2,
+   "tr": "astronot",
+   "uz": "kosmonavt",
+   "example_tr": "Astronot eve döndü.",
+   "example_uz": "Kosmonavt uyga qaytdi.",
+   "concept": 1224
+  },
+  {
+   "id": 1225,
+   "topic": 2,
+   "tr": "uydu",
+   "uz": "sun’iy yo‘ldosh",
+   "example_tr": "Uydu şehrin üzerinden uçmayacak.",
+   "example_uz": "Sun’iy yo‘ldosh shahar ustidan uchib o‘tmaydi.",
+   "concept": 1225
+  },
+  {
+   "id": 1226,
+   "topic": 2,
+   "tr": "teleskop",
+   "uz": "teleskop",
+   "example_tr": "O teleskopla baktı.",
+   "example_uz": "U teleskopdan qaradi.",
+   "concept": 1226
+  },
+  {
+   "id": 1227,
+   "topic": 2,
+   "tr": "yörünge",
+   "uz": "orbita",
+   "example_tr": "Öğretmenimiz yörüngeyi açıklayacak.",
+   "example_uz": "Ustozimiz orbitani tushuntirib beradi.",
+   "concept": 1227
+  },
+  {
+   "id": 1228,
+   "topic": 2,
+   "tr": "galaksi",
+   "uz": "galaktika",
+   "example_tr": "Onlar yeni bir galaksi buldu mu?",
+   "example_uz": "Ular yangi galaktika topishdimi?",
+   "concept": 1228
+  },
+  {
+   "id": 1229,
+   "topic": 2,
+   "tr": "kuyruklu yıldız",
+   "uz": "kometa",
+   "example_tr": "Kuyruklu yıldız Dünya’ya çarpmayacak.",
+   "example_uz": "Kometa Yerga urilmaydi.",
+   "concept": 1229
+  },
+  {
+   "id": 1230,
+   "topic": 2,
+   "tr": "fırlatmak",
+   "uz": "uchirish, uchirmoq",
+   "example_tr": "Onlar büyük bir roket fırlatacak.",
+   "example_uz": "Ular katta raketa uchiradi.",
+   "concept": 1230
+  },
+  {
+   "id": 1231,
+   "topic": 3,
+   "tr": "kirlilik",
+   "uz": "ifloslanish",
+   "example_tr": "Kirlilik nehre zarar verecek.",
+   "example_uz": "Ifloslanish daryoga zarar yetkazadi.",
+   "concept": 1231
+  },
+  {
+   "id": 1232,
+   "topic": 3,
+   "tr": "geri dönüştürmek",
+   "uz": "qayta ishlamoq",
+   "example_tr": "Şişeleri geri dönüştürdük.",
+   "example_uz": "Biz butilkalarni qayta ishladik.",
+   "concept": 1232
+  },
+  {
+   "id": 1233,
+   "topic": 3,
+   "tr": "yeniden kullanmak",
+   "uz": "qayta foydalanmoq",
+   "example_tr": "Bu çantayı yeniden kullanacak mısın?",
+   "example_uz": "Bu sumkadan yana foydalanasanmi?",
+   "concept": 1233
+  },
+  {
+   "id": 1234,
+   "topic": 3,
+   "tr": "plastik",
+   "uz": "plastik",
+   "example_tr": "Onlar plastik bardak almadı.",
+   "example_uz": "Ular plastik stakanlar sotib olishmadi.",
+   "concept": 1234
+  },
+  {
+   "id": 1235,
+   "topic": 3,
+   "tr": "çöp (yerdeki)",
+   "uz": "ko‘chadagi axlat",
+   "example_tr": "Çocuklar parkta çöp bıraktı.",
+   "example_uz": "Bolalar parkda axlat qoldirdi.",
+   "concept": 1235
+  },
+  {
+   "id": 1236,
+   "topic": 3,
+   "tr": "çöp kutusu",
+   "uz": "axlat qutisi",
+   "example_tr": "Bunu çöp kutusuna atacak mısın?",
+   "example_uz": "Buni axlat qutisiga tashlaysanmi?",
+   "concept": 1236
+  },
+  {
+   "id": 1237,
+   "topic": 3,
+   "tr": "konteyner",
+   "uz": "konteyner",
+   "example_tr": "O yeşil konteyneri açacak.",
+   "example_uz": "U yashil konteynerni ochadi.",
+   "concept": 1237
+  },
+  {
+   "id": 1238,
+   "topic": 3,
+   "tr": "fabrika",
+   "uz": "zavod, fabrika",
+   "example_tr": "Eski fabrika geçen yıl kapandı.",
+   "example_uz": "Eski zavod o‘tgan yili yopildi.",
+   "concept": 1238
+  },
+  {
+   "id": 1239,
+   "topic": 3,
+   "tr": "duman",
+   "uz": "tutun",
+   "example_tr": "Evden duman çıkmadı.",
+   "example_uz": "Uydan tutun chiqmadi.",
+   "concept": 1239
+  },
+  {
+   "id": 1240,
+   "topic": 3,
+   "tr": "petrol",
+   "uz": "neft, moy",
+   "example_tr": "Burada petrol buldular mı?",
+   "example_uz": "Ular bu yerdan neft topishdimi?",
+   "concept": 1240
+  },
+  {
+   "id": 1241,
+   "topic": 3,
+   "tr": "güneş (enerjisi)",
+   "uz": "quyosh (energiyasi)",
+   "example_tr": "Okulumuz güneş enerjisi kullanacak.",
+   "example_uz": "Maktabimiz quyosh energiyasidan foydalanadi.",
+   "concept": 1241
+  },
+  {
+   "id": 1242,
+   "topic": 3,
+   "tr": "iklim",
+   "uz": "iqlim",
+   "example_tr": "İklim değişecek mi?",
+   "example_uz": "Iqlim o‘zgaradimi?",
+   "concept": 1242
+  },
+  {
+   "id": 1243,
+   "topic": 3,
+   "tr": "hasar vermek",
+   "uz": "zarar, shikast yetkazmoq",
+   "example_tr": "Fırtına ormana hasar verdi.",
+   "example_uz": "Bo‘ron o‘rmonga zarar yetkazdi.",
+   "concept": 1243
+  },
+  {
+   "id": 1244,
+   "topic": 3,
+   "tr": "zarar vermek",
+   "uz": "zarar, zarar yetkazmoq",
+   "example_tr": "Plastik kuşlara zarar verecek.",
+   "example_uz": "Plastik qushlarga zarar yetkazadi.",
+   "concept": 1244
+  },
+  {
+   "id": 1245,
+   "topic": 3,
+   "tr": "doğa",
+   "uz": "tabiat",
+   "example_tr": "İnsanlar doğayı unutmayacak.",
+   "example_uz": "Odamlar tabiatni unutmaydi.",
+   "concept": 1245
+  },
+  {
+   "id": 1246,
+   "topic": 4,
+   "tr": "kartal",
+   "uz": "burgut",
+   "example_tr": "Bir kartal tepenin üzerinden uçtu.",
+   "example_uz": "Burgut tepalik ustidan uchib o‘tdi.",
+   "concept": 1246
+  },
+  {
+   "id": 1247,
+   "topic": 4,
+   "tr": "baykuş",
+   "uz": "boyqush",
+   "example_tr": "Dün gece bir baykuş duydun mu?",
+   "example_uz": "Kecha kechqurun boyqushni eshitdingmi?",
+   "concept": 1247
+  },
+  {
+   "id": 1248,
+   "topic": 4,
+   "tr": "papağan",
+   "uz": "to‘tiqush",
+   "example_tr": "Papağanım adımı söyleyecek.",
+   "example_uz": "To‘tiqushim mening ismimni aytadi.",
+   "concept": 1248
+  },
+  {
+   "id": 1249,
+   "topic": 4,
+   "tr": "güvercin",
+   "uz": "kaptar",
+   "example_tr": "Güvercinler bu ekmeği yiyecek mi?",
+   "example_uz": "Kaptarlar bu nonni yeydimi?",
+   "concept": 1249
+  },
+  {
+   "id": 1250,
+   "topic": 4,
+   "tr": "serçe",
+   "uz": "chumchuq",
+   "example_tr": "Küçük bir serçe pencerenin kenarına kondu.",
+   "example_uz": "Kichkina chumchuq deraza tokchasiga qo‘ndi.",
+   "concept": 1250
+  },
+  {
+   "id": 1251,
+   "topic": 4,
+   "tr": "kuğu",
+   "uz": "oqqush",
+   "example_tr": "Gölde kuğuları göreceğiz.",
+   "example_uz": "Biz ko‘lda oqqushlarni ko‘ramiz.",
+   "concept": 1251
+  },
+  {
+   "id": 1252,
+   "topic": 4,
+   "tr": "karga",
+   "uz": "qarg‘a",
+   "example_tr": "Karga uçup gitmedi.",
+   "example_uz": "Qarg‘a uchib ketmadi.",
+   "concept": 1252
+  },
+  {
+   "id": 1253,
+   "topic": 4,
+   "tr": "tavus kuşu",
+   "uz": "tovus",
+   "example_tr": "Çocuklar bugün tavus kuşu görmeyecek.",
+   "example_uz": "Bolalar bugun tovusni ko‘rmaydi.",
+   "concept": 1253
+  },
+  {
+   "id": 1254,
+   "topic": 4,
+   "tr": "leylek",
+   "uz": "laylak",
+   "example_tr": "Bir leylek büyük bir yuva yaptı.",
+   "example_uz": "Laylak katta uya qurdi.",
+   "concept": 1254
+  },
+  {
+   "id": 1255,
+   "topic": 4,
+   "tr": "martı",
+   "uz": "chag‘alay",
+   "example_tr": "Martılar gemiyi takip edecek.",
+   "example_uz": "Chag‘alaylar kema ortidan uchadi.",
+   "concept": 1255
+  },
+  {
+   "id": 1256,
+   "topic": 4,
+   "tr": "yuva",
+   "uz": "uya",
+   "example_tr": "Kuşlar yuvayı terk etmeyecek.",
+   "example_uz": "Qushlar uyani tashlab ketmaydi.",
+   "concept": 1256
+  },
+  {
+   "id": 1257,
+   "topic": 4,
+   "tr": "kanat",
+   "uz": "qanot",
+   "example_tr": "Kuş kanadını incitti.",
+   "example_uz": "Qush qanotini jarohatladi.",
+   "concept": 1257
+  },
+  {
+   "id": 1258,
+   "topic": 4,
+   "tr": "tüy",
+   "uz": "pat",
+   "example_tr": "Beyaz bir tüy bulacak mısın?",
+   "example_uz": "Sen oq pat topasanmi?",
+   "concept": 1258
+  },
+  {
+   "id": 1259,
+   "topic": 4,
+   "tr": "gaga",
+   "uz": "tumshuq",
+   "example_tr": "Papağan gagasını açacak mı?",
+   "example_uz": "To‘tiqush tumshug‘ini ochadimi?",
+   "concept": 1259
+  },
+  {
+   "id": 1260,
+   "topic": 4,
+   "tr": "avlanmak",
+   "uz": "ov qilmoq",
+   "example_tr": "Baykuşlar gündüz avlanmayacak.",
+   "example_uz": "Boyqushlar kunduzi ov qilmaydi.",
+   "concept": 1260
+  },
+  {
+   "id": 1261,
+   "topic": 5,
+   "tr": "balıkçı",
+   "uz": "baliqchi",
+   "example_tr": "Balıkçı erken geldi mi?",
+   "example_uz": "Baliqchi erta keldimi?",
+   "concept": 1261
+  },
+  {
+   "id": 1262,
+   "topic": 5,
+   "tr": "olta",
+   "uz": "qarmoq",
+   "example_tr": "Tom oltasını getirecek.",
+   "example_uz": "Tom qarmog‘ini olib keladi.",
+   "concept": 1262
+  },
+  {
+   "id": 1263,
+   "topic": 5,
+   "tr": "ağ",
+   "uz": "to‘r",
+   "example_tr": "Adamlar ağ kullanmadı.",
+   "example_uz": "Erkaklar to‘rdan foydalanmadi.",
+   "concept": 1263
+  },
+  {
+   "id": 1264,
+   "topic": 5,
+   "tr": "olta iğnesi",
+   "uz": "ilmoq (qarmoqda)",
+   "example_tr": "Misinaya iğne takacak mısın?",
+   "example_uz": "Ipga ilmoq taqasanmi?",
+   "concept": 1264
+  },
+  {
+   "id": 1265,
+   "topic": 5,
+   "tr": "yem",
+   "uz": "xo‘rak",
+   "example_tr": "O yemi evde unuttu.",
+   "example_uz": "U xo‘rakni uyda unutib qoldirdi.",
+   "concept": 1265
+  },
+  {
+   "id": 1266,
+   "topic": 5,
+   "tr": "tutmak, yakalamak",
+   "uz": "tutmoq",
+   "example_tr": "Büyük bir balık tutacağız.",
+   "example_uz": "Biz katta baliq tutamiz.",
+   "concept": 1266
+  },
+  {
+   "id": 1267,
+   "topic": 5,
+   "tr": "dalmak",
+   "uz": "sho‘ng‘imoq",
+   "example_tr": "O denize daldı mı?",
+   "example_uz": "U dengizga sho‘ng‘idimi?",
+   "concept": 1267
+  },
+  {
+   "id": 1268,
+   "topic": 5,
+   "tr": "yelken açmak",
+   "uz": "yelkan, yelkanli kemada suzmoq",
+   "example_tr": "Tekne saat altıda yelken açacak.",
+   "example_uz": "Qayiq soat oltida suzib ketadi.",
+   "concept": 1268
+  },
+  {
+   "id": 1269,
+   "topic": 5,
+   "tr": "çapa",
+   "uz": "langar",
+   "example_tr": "Kaptan çapayı attı.",
+   "example_uz": "Kapitan langarni tashladi.",
+   "concept": 1269
+  },
+  {
+   "id": 1270,
+   "topic": 5,
+   "tr": "güverte",
+   "uz": "paluba",
+   "example_tr": "Çocuklar güvertede koşmayacak.",
+   "example_uz": "Bolalar palubada yugurmaydi.",
+   "concept": 1270
+  },
+  {
+   "id": 1271,
+   "topic": 5,
+   "tr": "halat",
+   "uz": "arqon",
+   "example_tr": "Halatı bulmadım.",
+   "example_uz": "Men arqonni topmadim.",
+   "concept": 1271
+  },
+  {
+   "id": 1272,
+   "topic": 5,
+   "tr": "kaptan",
+   "uz": "kapitan",
+   "example_tr": "Kaptan bize yardım edecek mi?",
+   "example_uz": "Kapitan bizga yordam beradimi?",
+   "concept": 1272
+  },
+  {
+   "id": 1273,
+   "topic": 5,
+   "tr": "denizci",
+   "uz": "dengizchi",
+   "example_tr": "Genç bir denizci şarkı söyledi.",
+   "example_uz": "Yosh dengizchi qo‘shiq aytdi.",
+   "concept": 1273
+  },
+  {
+   "id": 1274,
+   "topic": 5,
+   "tr": "liman",
+   "uz": "bandargoh",
+   "example_tr": "Gemi limana girecek.",
+   "example_uz": "Kema bandargohga kiradi.",
+   "concept": 1274
+  },
+  {
+   "id": 1275,
+   "topic": 5,
+   "tr": "deniz feneri",
+   "uz": "mayoq",
+   "example_tr": "Deniz feneri bu gece yanmayacak.",
+   "example_uz": "Mayoq bugun kechqurun yonmaydi.",
+   "concept": 1275
+  },
+  {
+   "id": 1276,
+   "topic": 6,
+   "tr": "omuz",
+   "uz": "yelka",
+   "example_tr": "Maçtan sonra omzum ağrıdı.",
+   "example_uz": "O‘yindan keyin yelkam og‘ridi.",
+   "concept": 1276
+  },
+  {
+   "id": 1277,
+   "topic": 6,
+   "tr": "göğüs",
+   "uz": "ko‘krak",
+   "example_tr": "Doktor göğsünü dinleyecek.",
+   "example_uz": "Shifokor ko‘kragingni eshitib ko‘radi.",
+   "concept": 1277
+  },
+  {
+   "id": 1278,
+   "topic": 6,
+   "tr": "mide, karın",
+   "uz": "qorin, oshqozon",
+   "example_tr": "Bugün onun karnı ağrımadı.",
+   "example_uz": "Bugun uning qorni og‘rimadi.",
+   "concept": 1278
+  },
+  {
+   "id": 1279,
+   "topic": 6,
+   "tr": "sırt, bel",
+   "uz": "orqa, bel",
+   "example_tr": "Yarın sırtın daha iyi olacak mı?",
+   "example_uz": "Ertaga beling yaxshi bo‘ladimi?",
+   "concept": 1279
+  },
+  {
+   "id": 1280,
+   "topic": 6,
+   "tr": "diz",
+   "uz": "tizza",
+   "example_tr": "O düştü ve dizini incitti.",
+   "example_uz": "U yiqilib, tizzasini lat yedirdi.",
+   "concept": 1280
+  },
+  {
+   "id": 1281,
+   "topic": 6,
+   "tr": "dirsek",
+   "uz": "tirsak",
+   "example_tr": "Dirseğimi masaya koyacağım.",
+   "example_uz": "Men tirsagimni stolga qo‘yaman.",
+   "concept": 1281
+  },
+  {
+   "id": 1282,
+   "topic": 6,
+   "tr": "bilek",
+   "uz": "bilak",
+   "example_tr": "O bileğini kırdı mı?",
+   "example_uz": "U bilagini sindirdimi?",
+   "concept": 1282
+  },
+  {
+   "id": 1283,
+   "topic": 6,
+   "tr": "ayak bileği",
+   "uz": "to‘piq",
+   "example_tr": "Onun ayak bileği uzun süre ağrımayacak.",
+   "example_uz": "Uning to‘pig‘i uzoq og‘rimaydi.",
+   "concept": 1283
+  },
+  {
+   "id": 1284,
+   "topic": 6,
+   "tr": "ayak parmağı",
+   "uz": "oyoq barmog‘i",
+   "example_tr": "Çocuk ayak parmağını kutuya çarptı.",
+   "example_uz": "Bola oyoq barmog‘ini qutiga urib oldi.",
+   "concept": 1284
+  },
+  {
+   "id": 1285,
+   "topic": 6,
+   "tr": "başparmak",
+   "uz": "bosh barmoq",
+   "example_tr": "Bana başparmağını gösterecek misin?",
+   "example_uz": "Menga bosh barmog‘ingni ko‘rsatasanmi?",
+   "concept": 1285
+  },
+  {
+   "id": 1286,
+   "topic": 6,
+   "tr": "yanak",
+   "uz": "yonoq",
+   "example_tr": "Anna’nın yanağı sıcak olacak.",
+   "example_uz": "Annaning yonog‘i iliq bo‘ladi.",
+   "concept": 1286
+  },
+  {
+   "id": 1287,
+   "topic": 6,
+   "tr": "çene",
+   "uz": "iyak",
+   "example_tr": "O çenesine dokunmadı.",
+   "example_uz": "U iyagiga tegmadi.",
+   "concept": 1287
+  },
+  {
+   "id": 1288,
+   "topic": 6,
+   "tr": "alın",
+   "uz": "peshona",
+   "example_tr": "Hemşire onun alnını kontrol edecek.",
+   "example_uz": "Hamshira uning peshonasini tekshiradi.",
+   "concept": 1288
+  },
+  {
+   "id": 1289,
+   "topic": 6,
+   "tr": "dudak",
+   "uz": "lab",
+   "example_tr": "Tom’un dudağı yarın ağrımayacak.",
+   "example_uz": "Tomning labi ertaga og‘rimaydi.",
+   "concept": 1289
+  },
+  {
+   "id": 1290,
+   "topic": 6,
+   "tr": "boğaz",
+   "uz": "tomoq",
+   "example_tr": "Boğazın yakında iyileşecek mi?",
+   "example_uz": "Tomog‘ing tez orada tuzaladimi?",
+   "concept": 1290
+  },
+  {
+   "id": 1291,
+   "topic": 7,
+   "tr": "tablet, hap",
+   "uz": "tabletka",
+   "example_tr": "O sabah bir hap içti.",
+   "example_uz": "U ertalab tabletka ichdi.",
+   "concept": 1291
+  },
+  {
+   "id": 1292,
+   "topic": 7,
+   "tr": "sargı bezi",
+   "uz": "bint",
+   "example_tr": "Hemşire sargı bezi saracak.",
+   "example_uz": "Hamshira bint bog‘laydi.",
+   "concept": 1292
+  },
+  {
+   "id": 1293,
+   "topic": 7,
+   "tr": "ağrı kesici",
+   "uz": "og‘riq qoldiruvchi dori",
+   "example_tr": "O ağrı kesici içmedi.",
+   "example_uz": "U og‘riq qoldiruvchi dori ichmadi.",
+   "concept": 1293
+  },
+  {
+   "id": 1294,
+   "topic": 7,
+   "tr": "krem",
+   "uz": "malham, krem",
+   "example_tr": "Bu kremi alacak mısın?",
+   "example_uz": "Bu malhamni sotib olasanmi?",
+   "concept": 1294
+  },
+  {
+   "id": 1295,
+   "topic": 7,
+   "tr": "vitamin",
+   "uz": "vitamin",
+   "example_tr": "Çocuklar her gün vitamin alacak mı?",
+   "example_uz": "Bolalar har kuni vitamin ichadimi?",
+   "concept": 1295
+  },
+  {
+   "id": 1296,
+   "topic": 7,
+   "tr": "reçete",
+   "uz": "shifokor retsepti",
+   "example_tr": "Doktor bir reçete yazdı.",
+   "example_uz": "Shifokor retsept yozib berdi.",
+   "concept": 1296
+  },
+  {
+   "id": 1297,
+   "topic": 7,
+   "tr": "termometre",
+   "uz": "termometr, gradusnik",
+   "example_tr": "Termometreyi buldun mu?",
+   "example_uz": "Gradusnikni topdingmi?",
+   "concept": 1297
+  },
+  {
+   "id": 1298,
+   "topic": 7,
+   "tr": "sakatlık",
+   "uz": "jarohat",
+   "example_tr": "Sakatlığı onu durduramayacak.",
+   "example_uz": "Jarohati uni to‘xtata olmaydi.",
+   "concept": 1298
+  },
+  {
+   "id": 1299,
+   "topic": 7,
+   "tr": "yara",
+   "uz": "yara",
+   "example_tr": "Annem küçük yarayı yıkadı.",
+   "example_uz": "Oyim kichkina yarani yuvdi.",
+   "concept": 1299
+  },
+  {
+   "id": 1300,
+   "topic": 7,
+   "tr": "morluk",
+   "uz": "ko‘karish, lat",
+   "example_tr": "Morluk yakında geçecek.",
+   "example_uz": "Ko‘karish tez orada o‘tib ketadi.",
+   "concept": 1300
+  },
+  {
+   "id": 1301,
+   "topic": 7,
+   "tr": "yanık, yakmak",
+   "uz": "kuyish, kuydirmoq",
+   "example_tr": "Elimi tavada yaktım.",
+   "example_uz": "Men qo‘limni tovada kuydirib oldim.",
+   "concept": 1301
+  },
+  {
+   "id": 1302,
+   "topic": 7,
+   "tr": "kan",
+   "uz": "qon",
+   "example_tr": "Onun dizinde kan gördün mü?",
+   "example_uz": "Uning tizzasida qon ko‘rdingmi?",
+   "concept": 1302
+  },
+  {
+   "id": 1303,
+   "topic": 7,
+   "tr": "hasta",
+   "uz": "kasal",
+   "example_tr": "Ağabeyim uzun süre hasta olmayacak.",
+   "example_uz": "Akam uzoq kasal bo‘lmaydi.",
+   "concept": 1303
+  },
+  {
+   "id": 1304,
+   "topic": 7,
+   "tr": "ağrımak, incitmek",
+   "uz": "og‘rimoq, jarohatlamoq",
+   "example_tr": "Kolun yarın ağrıyacak mı?",
+   "example_uz": "Qo‘ling ertaga og‘riydimi?",
+   "concept": 1304
+  },
+  {
+   "id": 1305,
+   "topic": 7,
+   "tr": "kurtarmak",
+   "uz": "qutqarmoq",
+   "example_tr": "Cesur polis memuru çocuğu nehirden kurtardı.",
+   "example_uz": "Jasur politsiyachi bolani daryodan qutqardi.",
+   "concept": 1305
+  },
+  {
+   "id": 1306,
+   "topic": 8,
+   "tr": "akraba",
+   "uz": "qarindosh",
+   "example_tr": "Akrabalarımız pazar günü geldi.",
+   "example_uz": "Qarindoshlarimiz yakshanba kuni kelishdi.",
+   "concept": 1306
+  },
+  {
+   "id": 1307,
+   "topic": 8,
+   "tr": "çekirdek aile",
+   "uz": "yaqin oila a’zolari",
+   "example_tr": "Çekirdek ailem gelecek ay yeni bir eve taşınacak.",
+   "example_uz": "Yaqin oila a’zolarim kelasi oy yangi uyga ko‘chishadi.",
+   "concept": 1307
+  },
+  {
+   "id": 1308,
+   "topic": 8,
+   "tr": "geniş aile",
+   "uz": "katta oila, uzoq qarindoshlar",
+   "example_tr": "Geçen yaz geniş ailem doğum günümde toplandı.",
+   "example_uz": "O‘tgan yozda uzoq qarindoshlarim tug‘ilgan kunimga yig‘ilishdi.",
+   "concept": 1308
+  },
+  {
+   "id": 1309,
+   "topic": 8,
+   "tr": "damat",
+   "uz": "kuyov",
+   "example_tr": "Müstakbel damadım gelecek yıl ailesi için yeni bir ev yapacak.",
+   "example_uz": "Bo‘lajak kuyovim kelasi yili oilasi uchun yangi uy quradi.",
+   "concept": 1309
+  },
+  {
+   "id": 1310,
+   "topic": 8,
+   "tr": "gelin",
+   "uz": "kelin",
+   "example_tr": "Gelinimiz dün bütün aile için lezzetli bir akşam yemeği pişirdi.",
+   "example_uz": "Kecha kelinimiz butun oila uchun mazali kechki ovqat tayyorladi.",
+   "concept": 1310
+  },
+  {
+   "id": 1311,
+   "topic": 8,
+   "tr": "yeğen (erkek)",
+   "uz": "jiyan (o‘g‘il)",
+   "example_tr": "Yeğenime bir hediye verdim.",
+   "example_uz": "Men jiyanimga sovg‘a berdim.",
+   "concept": 1311
+  },
+  {
+   "id": 1312,
+   "topic": 8,
+   "tr": "yeğen (kız)",
+   "uz": "jiyan (qiz)",
+   "example_tr": "Onun yeğeni gelecek yıl altı yaşında olmayacak.",
+   "example_uz": "Uning jiyani kelasi yili olti yoshga to‘lmaydi.",
+   "concept": 1312
+  },
+  {
+   "id": 1313,
+   "topic": 8,
+   "tr": "kardeş",
+   "uz": "aka-uka yoki opa-singil",
+   "example_tr": "Kardeşin sana yardım edecek mi?",
+   "example_uz": "Akang yoki opang senga yordam beradimi?",
+   "concept": 1313
+  },
+  {
+   "id": 1314,
+   "topic": 8,
+   "tr": "ikizler",
+   "uz": "egizaklar",
+   "example_tr": "İkizler okula gitmedi.",
+   "example_uz": "Egizaklar maktabga borishmadi.",
+   "concept": 1314
+  },
+  {
+   "id": 1315,
+   "topic": 8,
+   "tr": "üvey anne",
+   "uz": "o‘gay ona",
+   "example_tr": "Kate’in üvey annesi büyük bir pasta yaptı.",
+   "example_uz": "Keytning o‘gay onasi katta tort pishirdi.",
+   "concept": 1315
+  },
+  {
+   "id": 1316,
+   "topic": 8,
+   "tr": "üvey baba",
+   "uz": "o‘gay ota",
+   "example_tr": "Üvey babası onları arabayla eve götürecek mi?",
+   "example_uz": "O‘gay otasi ularni uyga mashinada olib boradimi?",
+   "concept": 1316
+  },
+  {
+   "id": 1317,
+   "topic": 8,
+   "tr": "erkek torun",
+   "uz": "nevara (o‘g‘il)",
+   "example_tr": "Onların torunu doktor olacak.",
+   "example_uz": "Ularning nevarasi shifokor bo‘ladi.",
+   "concept": 1317
+  },
+  {
+   "id": 1318,
+   "topic": 8,
+   "tr": "kız torun",
+   "uz": "nevara (qiz)",
+   "example_tr": "Kız torun iyi uyumadı.",
+   "example_uz": "Nevara qiz yaxshi uxlamadi.",
+   "concept": 1318
+  },
+  {
+   "id": 1319,
+   "topic": 8,
+   "tr": "ata",
+   "uz": "ajdod",
+   "example_tr": "İnsanlar atalarını öğrenecek.",
+   "example_uz": "Odamlar o‘z ajdodlarini o‘rganadi.",
+   "concept": 1319
+  },
+  {
+   "id": 1320,
+   "topic": 8,
+   "tr": "yetim",
+   "uz": "yetim",
+   "example_tr": "Okul bu yetime yardım edecek.",
+   "example_uz": "Maktab bu yetimga yordam beradi.",
+   "concept": 1320
+  },
+  {
+   "id": 1321,
+   "topic": 9,
+   "tr": "cömert",
+   "uz": "saxiy",
+   "example_tr": "Öğretmenimiz çok cömertti.",
+   "example_uz": "Ustozimiz juda saxiy edi.",
+   "concept": 1321
+  },
+  {
+   "id": 1322,
+   "topic": 9,
+   "tr": "çalışkan",
+   "uz": "mehnatkash",
+   "example_tr": "O çalışkan bir öğrenci olacak.",
+   "example_uz": "U mehnatkash o‘quvchi bo‘ladi.",
+   "concept": 1322
+  },
+  {
+   "id": 1323,
+   "topic": 9,
+   "tr": "alçakgönüllü",
+   "uz": "kamtar",
+   "example_tr": "Kate alçakgönüllü bir kızdı.",
+   "example_uz": "Keyt kamtar qiz edi.",
+   "concept": 1323
+  },
+  {
+   "id": 1324,
+   "topic": 9,
+   "tr": "kendinden emin",
+   "uz": "o‘ziga ishongan",
+   "example_tr": "Yarın kendinden emin olacak mısın?",
+   "example_uz": "Ertaga o‘zingni ishonchli his qilasanmi?",
+   "concept": 1324
+  },
+  {
+   "id": 1325,
+   "topic": 9,
+   "tr": "bencil",
+   "uz": "xudbin",
+   "example_tr": "Kuzenim bencil değildi.",
+   "example_uz": "Amakivachcham xudbin emas edi.",
+   "concept": 1325
+  },
+  {
+   "id": 1326,
+   "topic": 9,
+   "tr": "kıskanç",
+   "uz": "hasadgo‘y, rashkchi",
+   "example_tr": "Tom seni kıskanmayacak.",
+   "example_uz": "Tom senga hasad qilmaydi.",
+   "concept": 1326
+  },
+  {
+   "id": 1327,
+   "topic": 9,
+   "tr": "sakin",
+   "uz": "xotirjam",
+   "example_tr": "Kaptan sakin değildi.",
+   "example_uz": "Kapitan xotirjam emas edi.",
+   "concept": 1327
+  },
+  {
+   "id": 1328,
+   "topic": 9,
+   "tr": "sert, katı (kişi)",
+   "uz": "qattiqqo‘l",
+   "example_tr": "Öğretmenin sert miydi?",
+   "example_uz": "O‘qituvching qattiqqo‘l edimi?",
+   "concept": 1328
+  },
+  {
+   "id": 1329,
+   "topic": 9,
+   "tr": "yumuşak, nazik",
+   "uz": "yumshoq, mayin",
+   "example_tr": "Onun sesi yumuşak olacak.",
+   "example_uz": "Uning ovozi mayin bo‘ladi.",
+   "concept": 1329
+  },
+  {
+   "id": 1330,
+   "topic": 9,
+   "tr": "neşeli",
+   "uz": "quvnoq, xushchaqchaq",
+   "example_tr": "Çocuklar partide neşeli olacak.",
+   "example_uz": "Bayramda bolalar quvnoq bo‘ladi.",
+   "concept": 1330
+  },
+  {
+   "id": 1331,
+   "topic": 9,
+   "tr": "kaba",
+   "uz": "qo‘pol",
+   "example_tr": "Çocuk kaba değildi.",
+   "example_uz": "Bola qo‘pol emas edi.",
+   "concept": 1331
+  },
+  {
+   "id": 1332,
+   "topic": 9,
+   "tr": "açgözlü",
+   "uz": "ochko‘z, xasis",
+   "example_tr": "Açgözlü adam yemeğini paylaşacak mı?",
+   "example_uz": "Xasis odam ovqatini bo‘lishadimi?",
+   "concept": 1332
+  },
+  {
+   "id": 1333,
+   "topic": 9,
+   "tr": "inatçı",
+   "uz": "o‘jar",
+   "example_tr": "İnatçılık yapmayacağım.",
+   "example_uz": "Men o‘jarlik qilmayman.",
+   "concept": 1333
+  },
+  {
+   "id": 1334,
+   "topic": 9,
+   "tr": "bilge",
+   "uz": "dono",
+   "example_tr": "Dedem bilge bir adamdı.",
+   "example_uz": "Bobom dono odam edi.",
+   "concept": 1334
+  },
+  {
+   "id": 1335,
+   "topic": 9,
+   "tr": "sadık",
+   "uz": "sodiq",
+   "example_tr": "Köpek her zaman sadık olacak.",
+   "example_uz": "It doim sodiq bo‘ladi.",
+   "concept": 1335
+  },
+  {
+   "id": 1336,
+   "topic": 10,
+   "tr": "enerji",
+   "uz": "energiya",
+   "example_tr": "Güneş bize enerji verecek.",
+   "example_uz": "Quyosh bizga energiya beradi.",
+   "concept": 1336
+  },
+  {
+   "id": 1337,
+   "topic": 10,
+   "tr": "kuvvet",
+   "uz": "kuch",
+   "example_tr": "Büyük bir kuvvet kutuyu hareket ettirdi.",
+   "example_uz": "Katta kuch qutini siljitdi.",
+   "concept": 1337
+  },
+  {
+   "id": 1338,
+   "topic": 10,
+   "tr": "ses",
+   "uz": "tovush",
+   "example_tr": "O sesi duydun mu?",
+   "example_uz": "Sen bu tovushni eshitdingmi?",
+   "concept": 1338
+  },
+  {
+   "id": 1339,
+   "topic": 10,
+   "tr": "yer çekimi",
+   "uz": "tortishish kuchi",
+   "example_tr": "Yer çekimi roketi durdurmadı.",
+   "example_uz": "Tortishish kuchi raketani to‘xtatmadi.",
+   "concept": 1339
+  },
+  {
+   "id": 1340,
+   "topic": 10,
+   "tr": "güç",
+   "uz": "quvvat, quvvatli",
+   "example_tr": "Bu yeni bilgisayar çok güçlü olacak.",
+   "example_uz": "Bu yangi kompyuter juda quvvatli bo‘ladi",
+   "concept": 1340
+  },
+  {
+   "id": 1341,
+   "topic": 10,
+   "tr": "hareket",
+   "uz": "harakat",
+   "example_tr": "Dünya’nın hareketini inceleyeceğiz.",
+   "example_uz": "Biz Yerning harakatini o‘rganamiz.",
+   "concept": 1341
+  },
+  {
+   "id": 1342,
+   "topic": 10,
+   "tr": "mıknatıs",
+   "uz": "magnit",
+   "example_tr": "O mıknatısı masaya koydu.",
+   "example_uz": "U magnitni stol ustiga qo‘ydi.",
+   "concept": 1342
+  },
+  {
+   "id": 1343,
+   "topic": 10,
+   "tr": "sıcaklık",
+   "uz": "harorat",
+   "example_tr": "Bu gece sıcaklık düşecek mi?",
+   "example_uz": "Bugun kechqurun harorat pasayadimi?",
+   "concept": 1343
+  },
+  {
+   "id": 1344,
+   "topic": 10,
+   "tr": "makine",
+   "uz": "mashina, mexanizm",
+   "example_tr": "Şu makine çamaşırları yıkamayacak.",
+   "example_uz": "O‘sha mashina kiyimlarni yuvmaydi.",
+   "concept": 1344
+  },
+  {
+   "id": 1345,
+   "topic": 10,
+   "tr": "basınç, tansiyon",
+   "uz": "bosim",
+   "example_tr": "Doktor onun tansiyonunu kontrol edecek.",
+   "example_uz": "Shifokor uning bosimini tekshiradi.",
+   "concept": 1345
+  },
+  {
+   "id": 1346,
+   "topic": 10,
+   "tr": "kütle",
+   "uz": "massa",
+   "example_tr": "Kutunun kütlesini bulacak mısın?",
+   "example_uz": "Qutining massasini topasanmi?",
+   "concept": 1346
+  },
+  {
+   "id": 1347,
+   "topic": 10,
+   "tr": "deney",
+   "uz": "tajriba, eksperiment",
+   "example_tr": "Sınıfımız yeni bir deney yaptı.",
+   "example_uz": "Sinfimiz yangi tajriba o‘tkazdi.",
+   "concept": 1347
+  },
+  {
+   "id": 1348,
+   "topic": 10,
+   "tr": "bilim insanı",
+   "uz": "olim",
+   "example_tr": "Okulda bir bilim insanı konuşma yapacak.",
+   "example_uz": "Maktabda olim ma’ruza qiladi.",
+   "concept": 1348
+  },
+  {
+   "id": 1349,
+   "topic": 10,
+   "tr": "denge",
+   "uz": "muvozanat",
+   "example_tr": "Çocuk dengesini kaybetmedi.",
+   "example_uz": "Bola muvozanatini yo‘qotmadi.",
+   "concept": 1349
+  },
+  {
+   "id": 1350,
+   "topic": 10,
+   "tr": "kaldıraç",
+   "uz": "richag, dasta",
+   "example_tr": "Bu kaldıraç kapıyı açacak.",
+   "example_uz": "Bu richag eshikni ochadi.",
+   "concept": 1350
+  },
+  {
+   "id": 1351,
+   "topic": 11,
+   "tr": "metal",
+   "uz": "metall",
+   "example_tr": "Eski bahçe kapısı metaldendi.",
+   "example_uz": "Eski darvoza metalldan edi.",
+   "concept": 1351
+  },
+  {
+   "id": 1352,
+   "topic": 11,
+   "tr": "çelik",
+   "uz": "po‘lat",
+   "example_tr": "Onlar sağlam çelik kullanacak.",
+   "example_uz": "Ular mustahkam po‘latdan foydalanadi.",
+   "concept": 1352
+  },
+  {
+   "id": 1353,
+   "topic": 11,
+   "tr": "lastik",
+   "uz": "rezina",
+   "example_tr": "Lastik bir top buldun mu?",
+   "example_uz": "Rezina to‘p topdingmi?",
+   "concept": 1353
+  },
+  {
+   "id": 1354,
+   "topic": 11,
+   "tr": "deri",
+   "uz": "charm, teri",
+   "example_tr": "Babam deri ayakkabı aldı.",
+   "example_uz": "Dadam charm tufli sotib oldi.",
+   "concept": 1354
+  },
+  {
+   "id": 1355,
+   "topic": 11,
+   "tr": "pamuk",
+   "uz": "paxta",
+   "example_tr": "Bu gömlek pamuklu olacak mı?",
+   "example_uz": "Bu ko‘ylak paxtadan bo‘ladimi?",
+   "concept": 1355
+  },
+  {
+   "id": 1356,
+   "topic": 11,
+   "tr": "yün",
+   "uz": "jun",
+   "example_tr": "Büyükannem yün bir bere örecek.",
+   "example_uz": "Buvim jun shapka to‘qiydi.",
+   "concept": 1356
+  },
+  {
+   "id": 1357,
+   "topic": 11,
+   "tr": "tuğla",
+   "uz": "g‘isht",
+   "example_tr": "Adamlar tuğla ev yapmadı.",
+   "example_uz": "Erkaklar g‘isht uy qurishmadi.",
+   "concept": 1357
+  },
+  {
+   "id": 1358,
+   "topic": 11,
+   "tr": "çekiç",
+   "uz": "bolg‘a",
+   "example_tr": "O çekici bulmadı.",
+   "example_uz": "U bolg‘ani topmadi.",
+   "concept": 1358
+  },
+  {
+   "id": 1359,
+   "topic": 11,
+   "tr": "çivi",
+   "uz": "mix",
+   "example_tr": "Bana uzun bir çivi verecek misin?",
+   "example_uz": "Menga uzun mix berasanmi?",
+   "concept": 1359
+  },
+  {
+   "id": 1360,
+   "topic": 11,
+   "tr": "vida",
+   "uz": "vint, shurup",
+   "example_tr": "Vida yere düştü.",
+   "example_uz": "Vint polga tushib ketdi.",
+   "concept": 1360
+  },
+  {
+   "id": 1361,
+   "topic": 11,
+   "tr": "İngiliz anahtarı",
+   "uz": "gayka kaliti",
+   "example_tr": "Babam İngiliz anahtarını alacak.",
+   "example_uz": "Dadam gayka kalitini oladi.",
+   "concept": 1361
+  },
+  {
+   "id": 1362,
+   "topic": 11,
+   "tr": "matkap",
+   "uz": "drel",
+   "example_tr": "O bugün matkabı kullanacak mı?",
+   "example_uz": "U bugun drelni ishlatadimi?",
+   "concept": 1362
+  },
+  {
+   "id": 1363,
+   "topic": 11,
+   "tr": "el merdiveni",
+   "uz": "narvon",
+   "example_tr": "Merdiveni getirmeyeceğim.",
+   "example_uz": "Men narvonni olib kelmayman.",
+   "concept": 1363
+  },
+  {
+   "id": 1364,
+   "topic": 11,
+   "tr": "yapıştırıcı",
+   "uz": "yelim",
+   "example_tr": "Yapıştırıcı kullanmadık.",
+   "example_uz": "Biz yelim ishlatmadik.",
+   "concept": 1364
+  },
+  {
+   "id": 1365,
+   "topic": 11,
+   "tr": "alet çantası",
+   "uz": "asboblar qutisi",
+   "example_tr": "Onun alet çantası arabada olacak.",
+   "example_uz": "Uning asboblar qutisi mashinada bo‘ladi.",
+   "concept": 1365
+  },
+  {
+   "id": 1366,
+   "topic": 12,
+   "tr": "en sevdiğim",
+   "uz": "sevimli",
+   "example_tr": "Müzik okulda en sevdiğim dersti.",
+   "example_uz": "Maktabda musiqa mening sevimli fanim edi.",
+   "concept": 271,
+   "own": {
+    "example_en": "Music was my favourite subject at school.",
+    "example_ru": "Музыка была моим любимым предметом в школе."
+   }
+  },
+  {
+   "id": 1367,
+   "topic": 12,
+   "tr": "matematik",
+   "uz": "matematika",
+   "example_tr": "Dün matematik dersimiz vardı.",
+   "example_uz": "Kecha bizda matematika bo‘ldi.",
+   "concept": 272,
+   "own": {
+    "example_en": "We had a maths lesson yesterday.",
+    "example_ru": "Вчера у нас был урок математики."
+   }
+  },
+  {
+   "id": 1368,
+   "topic": 12,
+   "tr": "fen bilgisi",
+   "uz": "tabiiy fanlar",
+   "example_tr": "Fen bilgisi dersimiz yarın olacak.",
+   "example_uz": "Tabiiy fanlar darsimiz ertaga bo‘ladi.",
+   "concept": 273,
+   "own": {
+    "example_en": "We will have a science lesson tomorrow.",
+    "example_ru": "Завтра у нас будет урок естествознания."
+   }
+  },
+  {
+   "id": 1369,
+   "topic": 12,
+   "tr": "tarih",
+   "uz": "tarix",
+   "example_tr": "Tom geçen yıl tarih okudu.",
+   "example_uz": "Tom o‘tgan yili tarix o‘rgandi.",
+   "concept": 274,
+   "own": {
+    "example_en": "Tom studied history last year.",
+    "example_ru": "Том в прошлом году изучал историю."
+   }
+  },
+  {
+   "id": 1370,
+   "topic": 12,
+   "tr": "coğrafya",
+   "uz": "geografiya",
+   "example_tr": "Salı günü coğrafya dersimiz olacak mı?",
+   "example_uz": "Seshanba kuni bizda geografiya bo‘ladimi?",
+   "concept": 275,
+   "own": {
+    "example_en": "Will we have a geography lesson on Tuesday?",
+    "example_ru": "У нас во вторник будет урок географии?"
+   }
+  },
+  {
+   "id": 1371,
+   "topic": 12,
+   "tr": "resim",
+   "uz": "tasviriy san’at",
+   "example_tr": "Onun resim dersi çok uzundu.",
+   "example_uz": "Uning tasviriy san’at darsi juda uzun bo‘ldi.",
+   "concept": 276,
+   "own": {
+    "example_en": "Her art lesson was very long.",
+    "example_ru": "Её урок рисования был очень долгим."
+   }
+  },
+  {
+   "id": 1372,
+   "topic": 12,
+   "tr": "müzik",
+   "uz": "musiqa",
+   "example_tr": "Çocuklar konserde müzik çaldı.",
+   "example_uz": "Bolalar konsertda musiqa ijro etishdi.",
+   "concept": 277,
+   "own": {
+    "example_en": "The children played music at the concert.",
+    "example_ru": "Дети играли музыку на концерте."
+   }
+  },
+  {
+   "id": 1373,
+   "topic": 12,
+   "tr": "biyoloji",
+   "uz": "biologiya",
+   "example_tr": "O üniversitede biyoloji okuyacak.",
+   "example_uz": "U universitetda biologiyani o‘rganadi.",
+   "concept": 278,
+   "own": {
+    "example_en": "He will study biology at university.",
+    "example_ru": "Он будет изучать биологию в университете."
+   }
+  },
+  {
+   "id": 1374,
+   "topic": 12,
+   "tr": "kimya",
+   "uz": "kimyo",
+   "example_tr": "Sam okulda kimyayı sevmedi.",
+   "example_uz": "Semga maktabda kimyo yoqmasdi.",
+   "concept": 279,
+   "own": {
+    "example_en": "Sam didn't like chemistry at school.",
+    "example_ru": "Сэму в школе не нравилась химия."
+   }
+  },
+  {
+   "id": 1375,
+   "topic": 12,
+   "tr": "fizik",
+   "uz": "fizika",
+   "example_tr": "Fizik sınavını geçtin mi?",
+   "example_uz": "Fizikadan testni topshirdingmi?",
+   "concept": 280,
+   "own": {
+    "example_en": "Did you pass the physics exam?",
+    "example_ru": "Ты сдал экзамен по физике?"
+   }
+  },
+  {
+   "id": 1376,
+   "topic": 12,
+   "tr": "bilişim",
+   "uz": "informatika",
+   "example_tr": "O gelecek yıl bilişim dersi verecek.",
+   "example_uz": "Kelasi yili u informatikadan dars beradi.",
+   "concept": 281,
+   "own": {
+    "example_en": "He will teach computer science next year.",
+    "example_ru": "В следующем году он будет преподавать информатику."
+   }
+  },
+  {
+   "id": 1377,
+   "topic": 12,
+   "tr": "İngilizce",
+   "uz": "ingliz tili",
+   "example_tr": "Kate Londra’da İngilizce öğrendi.",
+   "example_uz": "Keyt ingliz tilini Londonda o‘rgandi.",
+   "concept": 282,
+   "own": {
+    "example_en": "Kate learned English in London.",
+    "example_ru": "Кейт выучила английский в Лондоне."
+   }
+  },
+  {
+   "id": 1378,
+   "topic": 12,
+   "tr": "edebiyat",
+   "uz": "adabiyot",
+   "example_tr": "Edebiyat dersinde bir roman okuyacağız.",
+   "example_uz": "Adabiyot darsida biz roman o‘qiymiz.",
+   "concept": 283,
+   "own": {
+    "example_en": "We will read a novel in the literature lesson.",
+    "example_ru": "На уроке литературы мы будем читать роман."
+   }
+  },
+  {
+   "id": 1379,
+   "topic": 12,
+   "tr": "Rusça",
+   "uz": "rus tili",
+   "example_tr": "Büyükannem okulda Rusça öğrendi.",
+   "example_uz": "Buvim maktabda rus tilini o‘rgangan.",
+   "concept": null,
+   "new": {
+    "en": "Russian (language)",
+    "ru": "русский язык",
+    "example_en": "My grandmother learned Russian at school.",
+    "example_ru": "Моя бабушка учила русский язык в школе.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>Rusça</text></svg>"
+   }
+  },
+  {
+   "id": 1380,
+   "topic": 12,
+   "tr": "ekonomi",
+   "uz": "iqtisodiyot",
+   "example_tr": "Anna ekonomi okumak istedi.",
+   "example_uz": "Anna iqtisodiyotni o‘rganmoqchi edi.",
+   "concept": null,
+   "new": {
+    "en": "economics",
+    "ru": "экономика",
+    "example_en": "Anna wanted to study economics.",
+    "example_ru": "Анна хотела изучать экономику.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>ekonomi</text></svg>"
+   }
+  },
+  {
+   "id": 1381,
+   "topic": 13,
+   "tr": "birikim",
+   "uz": "jamg‘arma",
+   "example_tr": "O birikimini bir kutuya koydu.",
+   "example_uz": "U jamg‘armasini qutiga soldi.",
+   "concept": 1381
+  },
+  {
+   "id": 1382,
+   "topic": 13,
+   "tr": "hesap (banka)",
+   "uz": "bank hisobi",
+   "example_tr": "Babam yeni bir hesap açtı.",
+   "example_uz": "Dadam yangi hisob ochdi.",
+   "concept": 1382
+  },
+  {
+   "id": 1383,
+   "topic": 13,
+   "tr": "ATM, bankamatik",
+   "uz": "bankomat",
+   "example_tr": "Burada bir ATM bulacak mısın?",
+   "example_uz": "Bu yerda bankomat topasanmi?",
+   "concept": 1383
+  },
+  {
+   "id": 1384,
+   "topic": 13,
+   "tr": "gelir",
+   "uz": "daromad",
+   "example_tr": "Onların geliri gelecek yıl değişmeyecek.",
+   "example_uz": "Ularning daromadi kelasi yili o‘zgarmaydi.",
+   "concept": 1384
+  },
+  {
+   "id": 1385,
+   "topic": 13,
+   "tr": "kredi",
+   "uz": "kredit, qarz",
+   "example_tr": "Onlar kredi almadı.",
+   "example_uz": "Ular kredit olishmadi.",
+   "concept": 1385
+  },
+  {
+   "id": 1386,
+   "topic": 13,
+   "tr": "borç",
+   "uz": "qarz",
+   "example_tr": "O borcunu yakında ödeyecek.",
+   "example_uz": "U qarzini tez orada to‘laydi.",
+   "concept": 1386
+  },
+  {
+   "id": 1387,
+   "topic": 13,
+   "tr": "bütçe",
+   "uz": "byudjet",
+   "example_tr": "Ailemiz bir bütçe yaptı.",
+   "example_uz": "Oilamiz byudjet tuzdi.",
+   "concept": 1387
+  },
+  {
+   "id": 1388,
+   "topic": 13,
+   "tr": "çek",
+   "uz": "chek",
+   "example_tr": "O bir çek yazdı mı?",
+   "example_uz": "U chek yozib berdimi?",
+   "concept": 1388
+  },
+  {
+   "id": 1389,
+   "topic": 13,
+   "tr": "vergi",
+   "uz": "soliq",
+   "example_tr": "İnsanlar bu vergiyi mayısta ödeyecek mi?",
+   "example_uz": "Odamlar bu soliqni mayda to‘laydimi?",
+   "concept": 1389
+  },
+  {
+   "id": 1390,
+   "topic": 13,
+   "tr": "para kazanmak",
+   "uz": "pul topmoq",
+   "example_tr": "İlk paramı kazanacağım.",
+   "example_uz": "Men birinchi pulimni topaman.",
+   "concept": 1390
+  },
+  {
+   "id": 1391,
+   "topic": 13,
+   "tr": "kâr",
+   "uz": "foyda",
+   "example_tr": "Dükkân iyi bir kâr elde etti.",
+   "example_uz": "Do‘kon yaxshi foyda ko‘rdi.",
+   "concept": 1391
+  },
+  {
+   "id": 1392,
+   "topic": 13,
+   "tr": "borçlu olmak",
+   "uz": "qarzdor bo‘lmoq",
+   "example_tr": "Tom bana on sterlin borçlu olacak.",
+   "example_uz": "Tom mendan o‘n funt qarzdor bo‘ladi.",
+   "concept": 1392
+  },
+  {
+   "id": 1393,
+   "topic": 13,
+   "tr": "bozdurmak, değiştirmek",
+   "uz": "almashtirish, almashtirmoq",
+   "example_tr": "Bu parayı bozduracak mısın?",
+   "example_uz": "Bu pulni almashtirasanmi?",
+   "concept": 1393
+  },
+  {
+   "id": 1394,
+   "topic": 13,
+   "tr": "faiz",
+   "uz": "foiz",
+   "example_tr": "Banka faiz ödemedi.",
+   "example_uz": "Bank foiz to‘lamadi.",
+   "concept": 1394
+  },
+  {
+   "id": 1395,
+   "topic": 13,
+   "tr": "ödeme",
+   "uz": "to‘lov",
+   "example_tr": "Onun ödemesi cuma günü gelmeyecek.",
+   "example_uz": "Uning to‘lovi juma kuni kelmaydi.",
+   "concept": 1395
+  },
+  {
+   "id": 1396,
+   "topic": 14,
+   "tr": "makarna",
+   "uz": "makaron",
+   "example_tr": "Annem akşam yemeği için makarna pişirdi.",
+   "example_uz": "Oyim kechki ovqatga makaron pishirdi.",
+   "concept": 1396
+  },
+  {
+   "id": 1397,
+   "topic": 14,
+   "tr": "erişte",
+   "uz": "lag‘mon, ugra",
+   "example_tr": "Bugün erişte yiyecek misin?",
+   "example_uz": "Bugun ugra yeysanmi?",
+   "concept": 1397
+  },
+  {
+   "id": 1398,
+   "topic": 14,
+   "tr": "hamburger",
+   "uz": "burger",
+   "example_tr": "O hamburgeri yemedi.",
+   "example_uz": "U burgerni yemadi.",
+   "concept": 1398
+  },
+  {
+   "id": 1399,
+   "topic": 14,
+   "tr": "sosis",
+   "uz": "kolbasa, sosiska",
+   "example_tr": "Köpek masadan bir sosis aldı.",
+   "example_uz": "It stoldan sosiskani olib qochdi.",
+   "concept": 1399
+  },
+  {
+   "id": 1400,
+   "topic": 14,
+   "tr": "biftek",
+   "uz": "steyk",
+   "example_tr": "Babam büyük bir biftek pişirecek.",
+   "example_uz": "Dadam katta steyk pishiradi.",
+   "concept": 1400
+  },
+  {
+   "id": 1401,
+   "topic": 14,
+   "tr": "krep",
+   "uz": "quymoq, blin",
+   "example_tr": "Büyükannem tatlı krepler yaptı.",
+   "example_uz": "Buvim shirin quymoqlar pishirdi.",
+   "concept": 1401
+  },
+  {
+   "id": 1402,
+   "topic": 14,
+   "tr": "mısır gevreği",
+   "uz": "yorma, xlopya",
+   "example_tr": "Sabah mısır gevreği yiyeceğim.",
+   "example_uz": "Men ertalab xlopya yeyman.",
+   "concept": 1402
+  },
+  {
+   "id": 1403,
+   "topic": 14,
+   "tr": "yoğurt",
+   "uz": "yogurt",
+   "example_tr": "Yoğurt aldın mı?",
+   "example_uz": "Sen yogurt sotib oldingmi?",
+   "concept": 1403
+  },
+  {
+   "id": 1404,
+   "topic": 14,
+   "tr": "bal",
+   "uz": "asal",
+   "example_tr": "Çaya bal koyacak mısın?",
+   "example_uz": "Choyga asal solasanmi?",
+   "concept": 1404
+  },
+  {
+   "id": 1405,
+   "topic": 14,
+   "tr": "bisküvi",
+   "uz": "pechene",
+   "example_tr": "Çocuklar bu bisküvileri yemeyecek.",
+   "example_uz": "Bolalar bu pechenelarni yemaydi.",
+   "concept": 1405
+  },
+  {
+   "id": 1406,
+   "topic": 14,
+   "tr": "turta",
+   "uz": "pirog",
+   "example_tr": "Teyzen elmalı turta yapacak mı?",
+   "example_uz": "Xolang olmali pirog pishiradimi?",
+   "concept": 1406
+  },
+  {
+   "id": 1407,
+   "topic": 14,
+   "tr": "omlet",
+   "uz": "omlet",
+   "example_tr": "O kahvaltı için omlet yaptı.",
+   "example_uz": "U nonushtaga omlet tayyorladi.",
+   "concept": 1407
+  },
+  {
+   "id": 1408,
+   "topic": 14,
+   "tr": "patates kızartması",
+   "uz": "kartoshka fri",
+   "example_tr": "Onlar patates kızartması sipariş etmeyecek.",
+   "example_uz": "Ular kartoshka fri buyurtma qilmaydi.",
+   "concept": 1408
+  },
+  {
+   "id": 1409,
+   "topic": 14,
+   "tr": "dondurma",
+   "uz": "muzqaymoq",
+   "example_tr": "Kate okuldan sonra dondurma alacak.",
+   "example_uz": "Keyt maktabdan keyin muzqaymoq sotib oladi.",
+   "concept": 1409
+  },
+  {
+   "id": 1410,
+   "topic": 14,
+   "tr": "sos",
+   "uz": "sous",
+   "example_tr": "Bu sos çok acı olacak.",
+   "example_uz": "Bu sous juda achchiq bo‘ladi.",
+   "concept": 1410
+  },
+  {
+   "id": 1411,
+   "topic": 15,
+   "tr": "kavşak",
+   "uz": "chorraha",
+   "example_tr": "Kavşakta durduk.",
+   "example_uz": "Biz chorrahada to‘xtadik.",
+   "concept": 1411
+  },
+  {
+   "id": 1412,
+   "topic": 15,
+   "tr": "dönel kavşak, göbek",
+   "uz": "aylanma harakat",
+   "example_tr": "Otobüs dönel kavşaktan geçecek.",
+   "example_uz": "Avtobus aylanma yo‘ldan o‘tadi.",
+   "concept": 1412
+  },
+  {
+   "id": 1413,
+   "topic": 15,
+   "tr": "kaldırım",
+   "uz": "piyodalar yo‘lagi, trotuar",
+   "example_tr": "Çocuklar kaldırımda yürüdü.",
+   "example_uz": "Bolalar trotuarda yurishdi.",
+   "concept": 1413
+  },
+  {
+   "id": 1414,
+   "topic": 15,
+   "tr": "köprü",
+   "uz": "ko‘prik",
+   "example_tr": "Tren köprünün üzerinden geçecek mi?",
+   "example_uz": "Poyezd ko‘prikdan o‘tadimi?",
+   "concept": 1414
+  },
+  {
+   "id": 1415,
+   "topic": 15,
+   "tr": "tünel",
+   "uz": "tunnel",
+   "example_tr": "Araba tünele girmedi.",
+   "example_uz": "Mashina tunnelga kirmadi.",
+   "concept": 1415
+  },
+  {
+   "id": 1416,
+   "topic": 15,
+   "tr": "yol tabelası",
+   "uz": "yo‘l ko‘rsatkichi",
+   "example_tr": "O yol tabelasını dikkatlice okudu.",
+   "example_uz": "U yo‘l ko‘rsatkichini diqqat bilan o‘qidi.",
+   "concept": 1416
+  },
+  {
+   "id": 1417,
+   "topic": 15,
+   "tr": "güzergâh",
+   "uz": "yo‘nalish, marshrut",
+   "example_tr": "Güzergâhımız kısa olacak.",
+   "example_uz": "Bizning yo‘nalishimiz qisqa bo‘ladi.",
+   "concept": 1417
+  },
+  {
+   "id": 1418,
+   "topic": 15,
+   "tr": "dar sokak",
+   "uz": "tor ko‘cha, yo‘lak",
+   "example_tr": "Onlar dar sokağa döndü mü?",
+   "example_uz": "Ular tor ko‘chaga burilishdimi?",
+   "concept": 1418
+  },
+  {
+   "id": 1419,
+   "topic": 15,
+   "tr": "yolculuk",
+   "uz": "safar, yo‘l",
+   "example_tr": "Yolculuk iki saat sürmeyecek.",
+   "example_uz": "Safar ikki soat davom etmaydi.",
+   "concept": 1419
+  },
+  {
+   "id": 1420,
+   "topic": 15,
+   "tr": "mil",
+   "uz": "mil",
+   "example_tr": "Dün beş mil yürüdüm.",
+   "example_uz": "Men kecha besh mil yurdim.",
+   "concept": 1420
+  },
+  {
+   "id": 1421,
+   "topic": 15,
+   "tr": "trafik sıkışıklığı",
+   "uz": "tirbandlik",
+   "example_tr": "Babam trafik sıkışıklığında kalmayacak.",
+   "example_uz": "Dadam tirbandlikda qolmaydi.",
+   "concept": 1421
+  },
+  {
+   "id": 1422,
+   "topic": 15,
+   "tr": "takip etmek",
+   "uz": "ergashmoq",
+   "example_tr": "Bu arabayı takip edecek misin?",
+   "example_uz": "Bu mashina ortidan borasanmi?",
+   "concept": 1422
+  },
+  {
+   "id": 1423,
+   "topic": 15,
+   "tr": "dümdüz",
+   "uz": "to‘g‘riga",
+   "example_tr": "Şoför dümdüz gitmedi.",
+   "example_uz": "Haydovchi to‘g‘riga ketmadi.",
+   "concept": 1423
+  },
+  {
+   "id": 1424,
+   "topic": 15,
+   "tr": "geri dönmek",
+   "uz": "orqaga qaytmoq",
+   "example_tr": "Onlar nehrin yanında geri dönecek.",
+   "example_uz": "Ular daryo oldida orqaga qaytishadi.",
+   "concept": 1424
+  },
+  {
+   "id": 1425,
+   "topic": 15,
+   "tr": "otoyol",
+   "uz": "avtomagistral",
+   "example_tr": "Bu gece otoyol kalabalık olacak.",
+   "example_uz": "Bugun kechqurun avtomagistral gavjum bo‘ladi.",
+   "concept": 1425
+  },
+  {
+   "id": 1426,
+   "topic": 16,
+   "tr": "Yılbaşı",
+   "uz": "Yangi yil",
+   "example_tr": "Yılbaşını evde kutlayacağız.",
+   "example_uz": "Biz Yangi yilni uyda nishonlaymiz.",
+   "concept": 1426
+  },
+  {
+   "id": 1427,
+   "topic": 16,
+   "tr": "Bayram",
+   "uz": "Hayit (bayram)",
+   "example_tr": "Bayramda insanlar birbirine hediye veriyor.",
+   "example_uz": "Hayitda odamlar bir-birlariga sovg‘a berishadi.",
+   "concept": null,
+   "new": {
+    "en": "holiday (bayram)",
+    "ru": "праздник (байрам)",
+    "example_en": "At the holiday people give each other gifts.",
+    "example_ru": "В праздник люди дарят друг другу подарки.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>Bayram</text></svg>"
+   }
+  },
+  {
+   "id": 1428,
+   "topic": 16,
+   "tr": "festival, şenlik",
+   "uz": "bayram, festival",
+   "example_tr": "Şehrimizde büyük bir festival oldu.",
+   "example_uz": "Shahrimizda katta festival bo‘ldi.",
+   "concept": 1428
+  },
+  {
+   "id": 1429,
+   "topic": 16,
+   "tr": "parti",
+   "uz": "ziyofat, bazm",
+   "example_tr": "Partime gelecek misin?",
+   "example_uz": "Mening ziyofatimga kelasanmi?",
+   "concept": 1429
+  },
+  {
+   "id": 1430,
+   "topic": 16,
+   "tr": "hediye",
+   "uz": "sovg‘a",
+   "example_tr": "O bana küçük bir hediye verdi.",
+   "example_uz": "U menga kichkina sovg‘a berdi.",
+   "concept": 1430
+  },
+  {
+   "id": 1431,
+   "topic": 16,
+   "tr": "davetiye",
+   "uz": "taklifnoma",
+   "example_tr": "Yarın bir davetiye göndereceğim.",
+   "example_uz": "Men ertaga taklifnoma yuboraman.",
+   "concept": 1431
+  },
+  {
+   "id": 1432,
+   "topic": 16,
+   "tr": "ev sahibi",
+   "uz": "mezbon",
+   "example_tr": "Ev sahibi kapıyı açacak.",
+   "example_uz": "Mezbon eshikni ochadi.",
+   "concept": 1432
+  },
+  {
+   "id": 1433,
+   "topic": 16,
+   "tr": "süs, dekorasyon",
+   "uz": "bezak",
+   "example_tr": "Bu süsleri sen mi yapacaksın?",
+   "example_uz": "Bu bezaklarni sen yasaysanmi?",
+   "concept": 1433
+  },
+  {
+   "id": 1434,
+   "topic": 16,
+   "tr": "balon",
+   "uz": "havo shari",
+   "example_tr": "Çocuklar balonları kaybetmeyecek.",
+   "example_uz": "Bolalar havo sharlarini yo‘qotmaydi.",
+   "concept": 1434
+  },
+  {
+   "id": 1435,
+   "topic": 16,
+   "tr": "havai fişek",
+   "uz": "mushak, feyerverk",
+   "example_tr": "Dün gece insanlar güzel havai fişekler gördü.",
+   "example_uz": "Kecha kechqurun odamlar chiroyli mushakbozlikni ko‘rishdi.",
+   "concept": 1435
+  },
+  {
+   "id": 1436,
+   "topic": 16,
+   "tr": "kutlamak",
+   "uz": "nishonlamoq",
+   "example_tr": "Onlar onun doğum gününü kutlayacak mı?",
+   "example_uz": "Ular uning tug‘ilgan kunini nishonlaydimi?",
+   "concept": 1436
+  },
+  {
+   "id": 1437,
+   "topic": 16,
+   "tr": "gelenek",
+   "uz": "an’ana",
+   "example_tr": "Ailem eski bir geleneği korudu.",
+   "example_uz": "Oilam eski an’anani saqlab qoldi.",
+   "concept": 1437
+  },
+  {
+   "id": 1438,
+   "topic": 16,
+   "tr": "kostüm",
+   "uz": "kostyum (bayram uchun)",
+   "example_tr": "O komik bir kostüm giyecek.",
+   "example_uz": "U kulgili kostyum kiyadi.",
+   "concept": 1438
+  },
+  {
+   "id": 1439,
+   "topic": 16,
+   "tr": "geçit töreni",
+   "uz": "parad",
+   "example_tr": "Geçit töreni saat onda başlayacak mı?",
+   "example_uz": "Parad soat o‘nda boshlanadimi?",
+   "concept": 1439
+  },
+  {
+   "id": 1440,
+   "topic": 16,
+   "tr": "dilek",
+   "uz": "tilak, tilamoq",
+   "example_tr": "Dileğin gerçek oldu mu?",
+   "example_uz": "Tilaging amalga oshdimi?",
+   "concept": 1440
+  },
+  {
+   "id": 1441,
+   "topic": 17,
+   "tr": "önce",
+   "uz": "oldin, avval",
+   "example_tr": "Onlar iki gün önce geldi.",
+   "example_uz": "Ular ikki kun oldin kelishdi.",
+   "concept": 1441
+  },
+  {
+   "id": 1442,
+   "topic": 17,
+   "tr": "çok eskiden",
+   "uz": "qadim zamonlarda",
+   "example_tr": "Çok eskiden insanların arabası yoktu.",
+   "example_uz": "Qadim zamonlarda odamlarning mashinasi bo‘lmagan.",
+   "concept": 1442
+  },
+  {
+   "id": 1443,
+   "topic": 17,
+   "tr": "dün gece",
+   "uz": "kecha kechasi",
+   "example_tr": "Dün gece iyi uyudun mu?",
+   "example_uz": "Kecha kechasi yaxshi uxladingmi?",
+   "concept": 1443
+  },
+  {
+   "id": 1444,
+   "topic": 17,
+   "tr": "geçen yıl",
+   "uz": "o‘tgan yili",
+   "example_tr": "Geçen yıl seyahat etmedik.",
+   "example_uz": "Biz o‘tgan yili sayohat qilmadik.",
+   "concept": 1444
+  },
+  {
+   "id": 1445,
+   "topic": 17,
+   "tr": "geçen ay",
+   "uz": "o‘tgan oy",
+   "example_tr": "Amcam geçen ay bizi ziyaret etmedi.",
+   "example_uz": "Amakim o‘tgan oy bizning uyga kelmadi.",
+   "concept": 1445
+  },
+  {
+   "id": 1446,
+   "topic": 17,
+   "tr": "geçen gün",
+   "uz": "yaqinda, kunlarning birida",
+   "example_tr": "Geçen gün kız kardeşinle karşılaştım.",
+   "example_uz": "Kunlarning birida singlingni uchratdim.",
+   "concept": 1446
+  },
+  {
+   "id": 1447,
+   "topic": 17,
+   "tr": "bir zamanlar, bir gün",
+   "uz": "bir kuni, bir marta",
+   "example_tr": "Bir gün bir çocuk altın bir para buldu.",
+   "example_uz": "Bir kuni bola tilla tanga topib oldi.",
+   "concept": 1447
+  },
+  {
+   "id": 1448,
+   "topic": 17,
+   "tr": "sonra",
+   "uz": "keyin, so‘ngra",
+   "example_tr": "O kahvaltı yaptı, sonra okula gitti.",
+   "example_uz": "U nonushta qildi, keyin maktabga ketdi.",
+   "concept": 1448
+  },
+  {
+   "id": 1449,
+   "topic": 17,
+   "tr": "birdenbire",
+   "uz": "birdan, to‘satdan",
+   "example_tr": "Birdenbire ışık söndü.",
+   "example_uz": "Birdan chiroq o‘chib qoldi.",
+   "concept": 1449
+  },
+  {
+   "id": 1450,
+   "topic": 17,
+   "tr": "ilk başta",
+   "uz": "avvaliga",
+   "example_tr": "İlk başta o anlamadı.",
+   "example_uz": "Avvaliga u tushunmadi.",
+   "concept": 1450
+  },
+  {
+   "id": 1451,
+   "topic": 17,
+   "tr": "ondan sonra",
+   "uz": "shundan so‘ng",
+   "example_tr": "Ondan sonra onlar konuşmadı.",
+   "example_uz": "Shundan so‘ng ular gaplashmadi.",
+   "concept": 1451
+  },
+  {
+   "id": 1452,
+   "topic": 17,
+   "tr": "sonunda",
+   "uz": "nihoyat",
+   "example_tr": "Sonunda yağmur durdu.",
+   "example_uz": "Nihoyat yomg‘ir to‘xtadi.",
+   "concept": 1452
+  },
+  {
+   "id": 1453,
+   "topic": 17,
+   "tr": "en sonunda",
+   "uz": "oxir-oqibat",
+   "example_tr": "En sonunda onlar kazandı mı?",
+   "example_uz": "Ular oxir-oqibat yutishdimi?",
+   "concept": 1453
+  },
+  {
+   "id": 1454,
+   "topic": 17,
+   "tr": "eskiden",
+   "uz": "o‘tmishda",
+   "example_tr": "Eskiden insanların telefonu yoktu.",
+   "example_uz": "Ilgari odamlarda telefon bo‘lmagan.",
+   "concept": 1454
+  },
+  {
+   "id": 1455,
+   "topic": 17,
+   "tr": "son zamanlarda",
+   "uz": "yaqinda",
+   "example_tr": "Öğretmenimiz son zamanlarda bu kitabı okudu.",
+   "example_uz": "Ustozimiz yaqinda bu kitobni o‘qib chiqdi.",
+   "concept": 1455
+  },
+  {
+   "id": 1456,
+   "topic": 18,
+   "tr": "gelecekte",
+   "uz": "kelajakda",
+   "example_tr": "Gelecekte arabalar uçacak.",
+   "example_uz": "Kelajakda mashinalar uchadi.",
+   "concept": 1456
+  },
+  {
+   "id": 1457,
+   "topic": 18,
+   "tr": "gelecek yıl",
+   "uz": "kelasi yili",
+   "example_tr": "Gelecek yıl taşınacak mıyız?",
+   "example_uz": "Kelasi yili ko‘chib o‘tamizmi?",
+   "concept": 1457
+  },
+  {
+   "id": 1458,
+   "topic": 18,
+   "tr": "gelecek ay",
+   "uz": "kelasi oy",
+   "example_tr": "Ağabeyin gelecek ay işe başlayacak mı?",
+   "example_uz": "Akang kelasi oy ishga kirishadimi?",
+   "concept": 1458
+  },
+  {
+   "id": 1459,
+   "topic": 18,
+   "tr": "öbür gün",
+   "uz": "indinga",
+   "example_tr": "Onlar öbür gün gelecek.",
+   "example_uz": "Ular indinga yetib kelishadi.",
+   "concept": 1459
+  },
+  {
+   "id": 1460,
+   "topic": 18,
+   "tr": "bir gün",
+   "uz": "bir kun kelib (kelajakda)",
+   "example_tr": "Bir gün okyanusu göreceğim.",
+   "example_uz": "Bir kun kelib men okeanni ko‘raman.",
+   "concept": 1460
+  },
+  {
+   "id": 1461,
+   "topic": 18,
+   "tr": "günün birinde",
+   "uz": "qachondir",
+   "example_tr": "O günün birinde Paris’i ziyaret edecek.",
+   "example_uz": "U qachondir Parijga boradi.",
+   "concept": 1461
+  },
+  {
+   "id": 1462,
+   "topic": 18,
+   "tr": "plan, plan yapmak",
+   "uz": "reja, rejalashtirmoq",
+   "example_tr": "Öğretmenimiz plan yapmayacak.",
+   "example_uz": "Ustozimiz reja tuzmaydi.",
+   "concept": 1462
+  },
+  {
+   "id": 1463,
+   "topic": 18,
+   "tr": "ummak",
+   "uz": "umid qilmoq",
+   "example_tr": "Umarım hava güzel olacak.",
+   "example_uz": "Umid qilamanki, ob-havo yaxshi bo‘ladi.",
+   "concept": 1463
+  },
+  {
+   "id": 1464,
+   "topic": 18,
+   "tr": "söz vermek",
+   "uz": "va’da bermoq",
+   "example_tr": "Bana söz verecek misin?",
+   "example_uz": "Menga va’da berasanmi?",
+   "concept": 1464
+  },
+  {
+   "id": 1465,
+   "topic": 18,
+   "tr": "beklemek",
+   "uz": "kutmoq (umid qilmoq)",
+   "example_tr": "Annem bizi bu kadar erken beklemeyecek.",
+   "example_uz": "Oyim bizni bunchalik erta kutmaydi.",
+   "concept": 1465
+  },
+  {
+   "id": 1466,
+   "topic": 18,
+   "tr": "belki",
+   "uz": "balki",
+   "example_tr": "Belki yarın kar yağacak.",
+   "example_uz": "Balki ertaga qor yog‘ar.",
+   "concept": 1466
+  },
+  {
+   "id": 1467,
+   "topic": 18,
+   "tr": "belki de",
+   "uz": "ehtimol",
+   "example_tr": "Belki de onlar gelmeyecek.",
+   "example_uz": "Ehtimol, ular kelmas.",
+   "concept": 1467
+  },
+  {
+   "id": 1468,
+   "topic": 18,
+   "tr": "muhtemelen",
+   "uz": "katta ehtimol bilan",
+   "example_tr": "O muhtemelen yarışı kazanacak.",
+   "example_uz": "U katta ehtimol bilan poygada yutadi.",
+   "concept": 1468
+  },
+  {
+   "id": 1469,
+   "topic": 18,
+   "tr": "kesinlikle",
+   "uz": "albatta, shubhasiz",
+   "example_tr": "Otobüs kesinlikle gecikecek.",
+   "example_uz": "Avtobus albatta kechikadi.",
+   "concept": 1469
+  },
+  {
+   "id": 1470,
+   "topic": 18,
+   "tr": "tabii ki",
+   "uz": "albatta",
+   "example_tr": "Tabii ki sana yardım edeceğiz.",
+   "example_uz": "Albatta, biz senga yordam beramiz.",
+   "concept": 1470
+  },
+  {
+   "id": 1471,
+   "topic": 19,
+   "tr": "olmak – oldu",
+   "uz": "bo‘lib qolmoq",
+   "example_tr": "O iyi bir doktor oldu.",
+   "example_uz": "U yaxshi shifokor bo‘ldi.",
+   "concept": 1471
+  },
+  {
+   "id": 1472,
+   "topic": 19,
+   "tr": "başlamak – başladı",
+   "uz": "boshlamoq",
+   "example_tr": "Ders saat dokuzda başladı.",
+   "example_uz": "Dars soat to‘qqizda boshlandi.",
+   "concept": 1472
+  },
+  {
+   "id": 1473,
+   "topic": 19,
+   "tr": "inşa etmek – inşa etti",
+   "uz": "qurmoq",
+   "example_tr": "Onlar yeni bir köprü inşa etti.",
+   "example_uz": "Ular yangi ko‘prik qurishdi.",
+   "concept": 1473
+  },
+  {
+   "id": 1474,
+   "topic": 19,
+   "tr": "çizmek – çizdi",
+   "uz": "chizmoq",
+   "example_tr": "O bir harita çizdi mi?",
+   "example_uz": "U xarita chizdimi?",
+   "concept": 1474
+  },
+  {
+   "id": 1475,
+   "topic": 19,
+   "tr": "beslemek – besledi",
+   "uz": "boqmoq, ovqatlantirmoq",
+   "example_tr": "Parkta kuşları besledik.",
+   "example_uz": "Biz parkda qushlarga don berdik.",
+   "concept": 1475
+  },
+  {
+   "id": 1476,
+   "topic": 19,
+   "tr": "kavga etmek – kavga etti",
+   "uz": "urushmoq, kurashmoq",
+   "example_tr": "Çocuklar kavga etmedi.",
+   "example_uz": "Bolalar urishishmadi.",
+   "concept": 1476
+  },
+  {
+   "id": 1477,
+   "topic": 19,
+   "tr": "donmak – dondu",
+   "uz": "muzlamoq",
+   "example_tr": "Dün gece su donmadı.",
+   "example_uz": "Kecha kechasi suv muzlamadi.",
+   "concept": 1477
+  },
+  {
+   "id": 1478,
+   "topic": 19,
+   "tr": "almak – aldı",
+   "uz": "olmoq",
+   "example_tr": "İyi bir not aldım.",
+   "example_uz": "Men yaxshi baho oldim.",
+   "concept": 1478
+  },
+  {
+   "id": 1479,
+   "topic": 19,
+   "tr": "büyümek – büyüdü",
+   "uz": "o‘smoq",
+   "example_tr": "Çiçeklerimiz çok hızlı büyüdü.",
+   "example_uz": "Gullarimiz juda tez o‘sdi.",
+   "concept": 1479
+  },
+  {
+   "id": 1480,
+   "topic": 19,
+   "tr": "geçirmek – geçirdi",
+   "uz": "ega bo‘lmoq",
+   "example_tr": "İyi bir gün geçirdin mi?",
+   "example_uz": "Kuning yaxshi o‘tdimi?",
+   "concept": 1480
+  },
+  {
+   "id": 1481,
+   "topic": 19,
+   "tr": "saklanmak – saklandı",
+   "uz": "yashirinmoq, yashirmoq",
+   "example_tr": "Kedi yatağın altına saklandı.",
+   "example_uz": "Mushuk karavot tagiga yashirindi.",
+   "concept": 1481
+  },
+  {
+   "id": 1482,
+   "topic": 19,
+   "tr": "çarpmak – çarptı",
+   "uz": "urmoq",
+   "example_tr": "Top pencereye çarptı mı?",
+   "example_uz": "To‘p derazaga tegdimi?",
+   "concept": 1482
+  },
+  {
+   "id": 1483,
+   "topic": 19,
+   "tr": "tutmak – tuttu",
+   "uz": "ushlab turmoq",
+   "example_tr": "O elimi tuttu.",
+   "example_uz": "U qo‘limdan ushlab turdi.",
+   "concept": 1483
+  },
+  {
+   "id": 1484,
+   "topic": 19,
+   "tr": "ayrılmak – ayrıldı",
+   "uz": "ketmoq, qoldirmoq",
+   "example_tr": "Çocuklar evden ayrılmadı.",
+   "example_uz": "Bolalar uydan chiqishmadi.",
+   "concept": 1484
+  },
+  {
+   "id": 1485,
+   "topic": 19,
+   "tr": "kaybetmek – kaybetti",
+   "uz": "yo‘qotmoq, yutqazmoq",
+   "example_tr": "Anahtarını kaybettin mi?",
+   "example_uz": "Kalitingni yo‘qotdingmi?",
+   "concept": 1485
+  },
+  {
+   "id": 1486,
+   "topic": 20,
+   "tr": "yapmak – yaptı",
+   "uz": "qilmoq, yasamoq",
+   "example_tr": "Annem büyük bir pasta yaptı.",
+   "example_uz": "Oyim katta tort pishirdi.",
+   "concept": 1486
+  },
+  {
+   "id": 1487,
+   "topic": 20,
+   "tr": "binmek – bindi",
+   "uz": "minib yurmoq, haydamoq",
+   "example_tr": "O okula bisikletine binip gitti.",
+   "example_uz": "U maktabga velosipedda bordi.",
+   "concept": 1487
+  },
+  {
+   "id": 1488,
+   "topic": 20,
+   "tr": "doğmak – doğdu",
+   "uz": "ko‘tarilmoq",
+   "example_tr": "Güneş saat altıda doğdu.",
+   "example_uz": "Quyosh soat oltida chiqdi.",
+   "concept": 1488
+  },
+  {
+   "id": 1489,
+   "topic": 20,
+   "tr": "göndermek – gönderdi",
+   "uz": "yubormoq",
+   "example_tr": "E-postayı gönderdin mi?",
+   "example_uz": "Sen xatni yubordingmi?",
+   "concept": 1489
+  },
+  {
+   "id": 1490,
+   "topic": 20,
+   "tr": "sallamak – salladı",
+   "uz": "silkitmoq",
+   "example_tr": "Rüzgâr pencereyi sallamadı.",
+   "example_uz": "Shamol derazani silkitmadi.",
+   "concept": 1490
+  },
+  {
+   "id": 1491,
+   "topic": 20,
+   "tr": "parlamak – parladı",
+   "uz": "porlamoq",
+   "example_tr": "Dün gece ay parlamadı.",
+   "example_uz": "Kecha kechasi oy yog‘du sochmadi.",
+   "concept": 1491
+  },
+  {
+   "id": 1492,
+   "topic": 20,
+   "tr": "kapatmak – kapattı",
+   "uz": "yopmoq",
+   "example_tr": "O kapıyı sessizce kapattı.",
+   "example_uz": "U eshikni sekin yopdi.",
+   "concept": 1492
+  },
+  {
+   "id": 1493,
+   "topic": 20,
+   "tr": "yüzmek – yüzdü",
+   "uz": "suzmoq",
+   "example_tr": "Nehirde yüzdük.",
+   "example_uz": "Biz daryoda suzdik.",
+   "concept": 1493
+  },
+  {
+   "id": 1494,
+   "topic": 20,
+   "tr": "öğretmek – öğretti",
+   "uz": "o‘rgatmoq, dars bermoq",
+   "example_tr": "Öğretmenimiz bize bir şarkı öğretti.",
+   "example_uz": "Ustozimiz bizga qo‘shiq o‘rgatdi.",
+   "concept": 1494
+  },
+  {
+   "id": 1495,
+   "topic": 20,
+   "tr": "atmak – attı",
+   "uz": "otmoq, uloqtirmoq",
+   "example_tr": "O topu attı mı?",
+   "example_uz": "U to‘pni otdimi?",
+   "concept": 1495
+  },
+  {
+   "id": 1496,
+   "topic": 20,
+   "tr": "kazanmak – kazandı",
+   "uz": "yutmoq, g‘olib bo‘lmoq",
+   "example_tr": "Tom yarışı kazanmadı.",
+   "example_uz": "Tom poygada yutmadi.",
+   "concept": 1496
+  },
+  {
+   "id": 1497,
+   "topic": 20,
+   "tr": "ısırmak – ısırdı",
+   "uz": "tishlamoq",
+   "example_tr": "Köpek çocuğu ısırmadı.",
+   "example_uz": "It bolani tishlamadi.",
+   "concept": 1497
+  },
+  {
+   "id": 1498,
+   "topic": 20,
+   "tr": "esmek – esti",
+   "uz": "puflamoq, esmoq",
+   "example_tr": "Bütün gün soğuk bir rüzgâr esti.",
+   "example_uz": "Kun bo‘yi sovuq shamol esdi.",
+   "concept": 1498
+  },
+  {
+   "id": 1499,
+   "topic": 20,
+   "tr": "kazmak – kazdı",
+   "uz": "qazimoq",
+   "example_tr": "Onlar bahçede toprak kazdı.",
+   "example_uz": "Ular bog‘da yer qazishdi.",
+   "concept": 1499
+  },
+  {
+   "id": 1500,
+   "topic": 20,
+   "tr": "bükmek – büktü",
+   "uz": "egmoq",
+   "example_tr": "Metali büktün mü?",
+   "example_uz": "Sen metallni egdingmi?",
+   "concept": 1500
+  }
+ ]
+}

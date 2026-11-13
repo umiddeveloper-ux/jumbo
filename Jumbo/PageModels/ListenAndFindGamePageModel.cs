@@ -231,7 +231,7 @@ public partial class ListenAndFindGamePageModel : ObservableObject
         try
         {
             var locales = await TextToSpeech.Default.GetLocalesAsync();
-            var locale = locales.FirstOrDefault(l => l.Language.StartsWith("en"));
+            var locale = locales.FirstOrDefault(l => l.Language.StartsWith(Jumbo.Shared.SpeechLanguages.Prefix(UserLanguagePrefs.StudyLangId), StringComparison.OrdinalIgnoreCase));
 
             await TextToSpeech.Default.SpeakAsync(_currentTarget.EnglishWord, new SpeechOptions
             {

@@ -13,6 +13,25 @@ namespace Jumbo.Api.Controllers;
 public class WordsController(AppDbContext db, SeedDataService seedDataService, ICurrentUserService currentUser) : ControllerBase
 {
     private const string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    // The Turkish alphabet (29 letters); its upper case of i / ı is I-with-dot / I, which the invariant culture does not know
+    private const string TurkishAlphabet = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
+    private const int TurkishLanguageId = 4;
+    private static string FirstLetter(string word, int languageId)
+    {
+        if (string.IsNullOrEmpty(word)) return string.Empty;
+        var c = word[0];
+        if (languageId == TurkishLanguageId) return c switch { 'i' => "İ", 'ı' => "I", _ => char.ToUpperInvariant(c).ToString() };
+        return c.ToString().ToUpper();
+    }
+
+    // The word and the sentence of pictures that have no Words row in that language: the words of the Turkish edition that are not in the English
+    // books (see WordTranslation). The answers below use it when the Words table has nothing for a picture.
+    private async Task<Dictionary<int, WordTranslation>> ExtraTranslationsAsync(IEnumerable<int> svgIds, int languageId)
+    {
+        var ids = svgIds.Distinct().ToList();
+        if (ids.Count == 0) return [];
+        return await db.WordTranslations.AsNoTracking().Where(t => t.LanguageId == languageId && ids.Contains(t.SvgImageId)).ToDictionaryAsync(t => t.SvgImageId);
+    }
 
     [HttpGet]
     public async Task<ActionResult<List<Word>>> GetPaged([FromQuery] string? filterText, [FromQuery] int page, [FromQuery] int pageSize, [FromQuery] int languageId)
@@ -46,6 +65,12 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
     [HttpGet("by-letter")]
     public async Task<ActionResult<List<Word>>> GetByLetter([FromQuery] string letter, [FromQuery] int languageId, [FromQuery] int count)
     {
+        if (languageId == TurkishLanguageId)
+        {
+            // done here: the database does not know that the upper case of "i" is "İ" in Turkish
+            var turkish = await db.Words.AsNoTracking().Where(w => w.LanguageId == languageId).ToListAsync();
+            return turkish.Where(w => FirstLetter(w.WordName, languageId) == letter.Trim()).Take(count).ToList();
+        }
         var upper = letter.ToUpper();
         return await db.Words.AsNoTracking()
             .Where(w => w.LanguageId == languageId && w.WordName.ToUpper().StartsWith(upper))
@@ -79,7 +104,7 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
     [HttpGet("by-subject/cards")]
     public async Task<ActionResult<List<WordCardDto>>> GetCardsBySubject([FromQuery] int subjectId, [FromQuery] int languageId, [FromQuery] int translationLanguageId)
     {
-        return await (
+        var cards = await (
             from w in db.Words.AsNoTracking().Where(w => w.SubjectId == subjectId && w.LanguageId == languageId)
             join t in db.Words.AsNoTracking().Where(x => x.LanguageId == translationLanguageId) on w.SvgImageId equals t.SvgImageId into translations
             from t in translations.DefaultIfEmpty()
@@ -98,6 +123,18 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
                 TranslationExample = t == null ? null : t.Example,
                 Svg = s == null ? string.Empty : s.SVG
             }).ToListAsync();
+
+        var missing = cards.Where(c => c.TranslationWord is null).Select(c => c.SvgImageId).ToList();
+        if (missing.Count > 0)
+        {
+            var extra = await ExtraTranslationsAsync(missing, translationLanguageId);
+            foreach (var c in cards.Where(c => c.TranslationWord is null && extra.ContainsKey(c.SvgImageId)))
+            {
+                c.TranslationWord = extra[c.SvgImageId].WordName;
+                c.TranslationExample = extra[c.SvgImageId].Example;
+            }
+        }
+        return cards;
     }
 
     [HttpGet("by-subject/all")]
@@ -122,7 +159,13 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
     public async Task<ActionResult<Word>> GetBySvg([FromQuery] int svgImageId, [FromQuery] int languageId)
     {
         var word = await db.Words.AsNoTracking().SingleOrDefaultAsync(w => w.SvgImageId == svgImageId && w.LanguageId == languageId);
-        return word is null ? NotFound() : word;
+        if (word is not null) return word;
+        var extra = await db.WordTranslations.AsNoTracking().SingleOrDefaultAsync(t => t.SvgImageId == svgImageId && t.LanguageId == languageId);
+        return extra is null ? NotFound() : new Word
+        {
+            SvgImageId = svgImageId, LanguageId = languageId, WordName = extra.WordName, Example = extra.Example,
+            FirstSymbol = extra.WordName.Length > 0 ? extra.WordName[..1].ToUpperInvariant() : string.Empty
+        };
     }
 
     // The exam is only for players who have told us their region, school and team (profile): the data
@@ -157,6 +200,8 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
         var translations = await db.Words.AsNoTracking()
             .Where(w => svgIds.Contains(w.SvgImageId) && w.LanguageId == transLanguageId)
             .ToDictionaryAsync(w => w.SvgImageId, w => w.WordName);
+        foreach (var (svg, extra) in await ExtraTranslationsAsync(svgIds.Where(i => !translations.ContainsKey(i)), transLanguageId))
+            translations[svg] = extra.WordName;
 
         var picked = studyWords
             .Where(w => translations.ContainsKey(w.SvgImageId))
@@ -210,6 +255,8 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
         var translations = await db.Words.AsNoTracking()
             .Where(w => svgIds.Contains(w.SvgImageId) && w.LanguageId == transLanguageId)
             .ToDictionaryAsync(w => w.SvgImageId, w => w.WordName);
+        foreach (var (svg, extra) in await ExtraTranslationsAsync(svgIds.Where(i => !translations.ContainsKey(i)), transLanguageId))
+            translations[svg] = extra.WordName;
 
         return studyWords
             .Where(w => translations.ContainsKey(w.SvgImageId))
@@ -240,10 +287,10 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
             .ToDictionaryAsync(uw => uw.WordId, uw => uw.RepeatingCount);
 
         var list = new List<LetterItem>();
-        foreach (var ch in Alphabet)
+        foreach (var ch in studyLanguageId == TurkishLanguageId ? TurkishAlphabet : Alphabet)
         {
             var letter = ch.ToString();
-            var letterWords = allWords.Where(w => !string.IsNullOrEmpty(w.WordName) && w.WordName[0].ToString().ToUpper() == letter).ToList();
+            var letterWords = allWords.Where(w => !string.IsNullOrEmpty(w.WordName) && FirstLetter(w.WordName, studyLanguageId) == letter).ToList();
             var total = letterWords.Count;
 
             int level;

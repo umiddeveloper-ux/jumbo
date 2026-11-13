@@ -1,0 +1,2832 @@
+{
+ "metadata": {
+  "book": 8,
+  "level": "B1",
+  "language": "tr",
+  "word_count": 300,
+  "id_range": [
+   2101,
+   2400
+  ],
+  "new_words": 3,
+  "schema": [
+   "id",
+   "topic",
+   "tr",
+   "uz",
+   "example_tr",
+   "example_uz",
+   "concept",
+   "new"
+  ]
+ },
+ "topics": [
+  {
+   "tr": "Sevdiklerimiz ve Sevmediklerimiz",
+   "uz": "Yoqadi va yoqmaydi"
+  },
+  {
+   "tr": "Fiil + -meyi / -mekten",
+   "uz": "Fe’llar + -meyi / -mekten"
+  },
+  {
+   "tr": "Fiil + -meye",
+   "uz": "Fe’llar + -meye"
+  },
+  {
+   "tr": "Boş Zaman",
+   "uz": "Bo‘sh vaqt"
+  },
+  {
+   "tr": "Takım Sporları",
+   "uz": "Jamoaviy o‘yinlar"
+  },
+  {
+   "tr": "Kariyer",
+   "uz": "Karyera"
+  },
+  {
+   "tr": "Ders Çalışma Becerileri",
+   "uz": "O‘qish ko‘nikmalari"
+  },
+  {
+   "tr": "İletişim",
+   "uz": "Muloqot"
+  },
+  {
+   "tr": "Davetler",
+   "uz": "Takliflar va uchrashuvlar"
+  },
+  {
+   "tr": "Teknoloji",
+   "uz": "Texnologiyalarmen"
+  },
+  {
+   "tr": "Moda",
+   "uz": "Moda va uslub"
+  },
+  {
+   "tr": "Kişisel Bakım",
+   "uz": "O‘zini parvarish qilish"
+  },
+  {
+   "tr": "Toplu Taşıma",
+   "uz": "Jamoat transporti"
+  },
+  {
+   "tr": "Şehir Hizmetleri",
+   "uz": "Shahar xizmatlari"
+  },
+  {
+   "tr": "El İşleri",
+   "uz": "Qo‘l mehnati va «o‘zing qil»"
+  },
+  {
+   "tr": "Sorunlar ve Çözümler",
+   "uz": "Muammolar va yechimlar"
+  },
+  {
+   "tr": "Sıfat + Hâl Eki",
+   "uz": "Sifatlar + kelishik qo‘shimchasi"
+  },
+  {
+   "tr": "Amaçlar ve Sebepler",
+   "uz": "Maqsadlar va sabablar"
+  },
+  {
+   "tr": "Bakmak ve Koymak",
+   "uz": "BAKMAK va KOYMAK"
+  },
+  {
+   "tr": "Karakter 3",
+   "uz": "Xarakter 3"
+  }
+ ],
+ "words": [
+  {
+   "id": 2101,
+   "topic": 1,
+   "tr": "zevk almak",
+   "uz": "zavq olmoq",
+   "example_tr": "Arkadaşlarım için yemek yapmaktan zevk alıyorum.",
+   "example_uz": "Menga do‘stlarim uchun ovqat pishirish yoqadi.",
+   "concept": 2101
+  },
+  {
+   "id": 2102,
+   "topic": 1,
+   "tr": "dayanamamak",
+   "uz": "toqat qila olmaslik",
+   "example_tr": "Kuyrukta beklemeye dayanamıyorum.",
+   "example_uz": "Navbatda turishga toqatim yo‘q.",
+   "concept": 2102
+  },
+  {
+   "id": 2103,
+   "topic": 1,
+   "tr": "sakıncası olmak",
+   "uz": "qarshi bo‘lmoq",
+   "example_tr": "Pencereyi açmanın sakıncası var mı?",
+   "example_uz": "Derazani ochishga qarshi emasmisan?",
+   "concept": 2103
+  },
+  {
+   "id": 2104,
+   "topic": 1,
+   "tr": "tercih etmek",
+   "uz": "afzal ko‘rmoq",
+   "example_tr": "Araba sürmek yerine yürümeyi tercih ederim.",
+   "example_uz": "Men mashinada yurishdan ko‘ra piyoda yurishni afzal ko‘raman.",
+   "concept": 2104
+  },
+  {
+   "id": 2105,
+   "topic": 1,
+   "tr": "canı istemek",
+   "uz": "xohlamoq (so‘zlashuv)",
+   "example_tr": "Canın sinemaya gitmek istiyor mu?",
+   "example_uz": "Kinoga borishni xohlaysanmi?",
+   "concept": 2105
+  },
+  {
+   "id": 2106,
+   "topic": 1,
+   "tr": "meraklı, hevesli",
+   "uz": "qiziqqan, ishqiboz",
+   "example_tr": "Oğlum resim yapmaya çok meraklı.",
+   "example_uz": "O‘g‘lim rasm chizishga qiziqadi.",
+   "concept": 2106
+  },
+  {
+   "id": 2107,
+   "topic": 1,
+   "tr": "çok ilgilenmek",
+   "uz": "qiziqmoq, berilmoq",
+   "example_tr": "O dansla gerçekten çok ilgileniyor.",
+   "example_uz": "U raqsga juda qiziqadi.",
+   "concept": 2107
+  },
+  {
+   "id": 2108,
+   "topic": 1,
+   "tr": "bayılmak",
+   "uz": "juda yaxshi ko‘rmoq",
+   "example_tr": "Yeğenimle oynamaya bayılıyorum.",
+   "example_uz": "Men jiyanim bilan o‘ynashni juda yaxshi ko‘raman.",
+   "concept": 2108
+  },
+  {
+   "id": 2109,
+   "topic": 1,
+   "tr": "deli olmak (bir şeye)",
+   "uz": "… ning ishqibozi",
+   "example_tr": "Tom futbol oynamaya bayılıyor.",
+   "example_uz": "Tom futbolga juda ishqiboz.",
+   "concept": 2109
+  },
+  {
+   "id": 2110,
+   "topic": 1,
+   "tr": "dört gözle beklemek",
+   "uz": "intizorlik bilan kutmoq",
+   "example_tr": "Seni görmeyi dört gözle bekliyorum.",
+   "example_uz": "Sen bilan uchrashishni intizorlik bilan kutaman.",
+   "concept": 2110
+  },
+  {
+   "id": 2111,
+   "topic": 1,
+   "tr": "sevmemek",
+   "uz": "yoqtirmaslik",
+   "example_tr": "Erken kalkmayı sevmiyorum.",
+   "example_uz": "Men erta turishni yoqtirmayman.",
+   "concept": 2111
+  },
+  {
+   "id": 2112,
+   "topic": 1,
+   "tr": "canı istemek",
+   "uz": "… gisi kelmoq",
+   "example_tr": "Bu akşam dışarı çıkmak canım istemiyor.",
+   "example_uz": "Bugun kechqurun hech qayerga borgim kelmayapti.",
+   "concept": 2112
+  },
+  {
+   "id": 2113,
+   "topic": 1,
+   "tr": "sabırsızlanmak",
+   "uz": "sabri chidamaslik",
+   "example_tr": "Yeni filmi görmek için sabırsızlanıyorum.",
+   "example_uz": "Yangi filmni ko‘rishga sabrim chidamayapti.",
+   "concept": 2113
+  },
+  {
+   "id": 2114,
+   "topic": 1,
+   "tr": "-meyi tercih etmek",
+   "uz": "… gani yaxshiroq, afzal ko‘rmoq",
+   "example_tr": "Bu akşam evde kalmayı tercih ederim.",
+   "example_uz": "Bugun kechqurun uyda qolganim yaxshiroq.",
+   "concept": 2114
+  },
+  {
+   "id": 2115,
+   "topic": 1,
+   "tr": "bıkmak",
+   "uz": "jonga tegmoq",
+   "example_tr": "Aynı şarkıyı dinlemekten bıktım.",
+   "example_uz": "Bir xil qo‘shiqni eshitish jonimga tegdi.",
+   "concept": 2115
+  },
+  {
+   "id": 2116,
+   "topic": 2,
+   "tr": "kaçınmak",
+   "uz": "qochmoq, saqlanmoq",
+   "example_tr": "Gece geç yemekten kaçınmaya çalış.",
+   "example_uz": "Kechqurun kech ovqatlanishdan saqlanishga harakat qil.",
+   "concept": 2116
+  },
+  {
+   "id": 2117,
+   "topic": 2,
+   "tr": "devam etmek",
+   "uz": "davom ettirmoq (qilishni)",
+   "example_tr": "Pratik yapmaya devam et, gelişeceksin.",
+   "example_uz": "Mashq qilishda davom et, va natijang yaxshilanadi.",
+   "concept": 2117
+  },
+  {
+   "id": 2118,
+   "topic": 2,
+   "tr": "pratik yapmak",
+   "uz": "mashq qilmoq",
+   "example_tr": "Her gün İngilizce konuşma pratiği yapıyorum.",
+   "example_uz": "Men har kuni inglizcha gapirishni mashq qilaman.",
+   "concept": 2118
+  },
+  {
+   "id": 2119,
+   "topic": 2,
+   "tr": "düşünmek (değerlendirmek)",
+   "uz": "ko‘rib chiqmoq, o‘ylab ko‘rmoq",
+   "example_tr": "Araba almayı düşünüyoruz.",
+   "example_uz": "Biz mashina sotib olishni o‘ylab ko‘ryapmiz.",
+   "concept": 2119
+  },
+  {
+   "id": 2120,
+   "topic": 2,
+   "tr": "itiraf etmek",
+   "uz": "tan olmoq",
+   "example_tr": "Parayı aldığını itiraf etti.",
+   "example_uz": "U pulni olganini tan oldi.",
+   "concept": 2120
+  },
+  {
+   "id": 2121,
+   "topic": 2,
+   "tr": "inkâr etmek",
+   "uz": "inkor qilmoq",
+   "example_tr": "Fincanı kırdığını inkâr etti.",
+   "example_uz": "U piyolani sindirganini inkor qildi.",
+   "concept": 2121
+  },
+  {
+   "id": 2122,
+   "topic": 2,
+   "tr": "hayal etmek",
+   "uz": "tasavvur qilmoq",
+   "example_tr": "Ay’da yaşamayı hayal edebiliyor musun?",
+   "example_uz": "Oyda yashashni tasavvur qila olasanmi?",
+   "concept": 2122
+  },
+  {
+   "id": 2123,
+   "topic": 2,
+   "tr": "göze almak",
+   "uz": "tavakkal qilmoq, xavf ostiga qo‘ymoq",
+   "example_tr": "İşini kaybetmeyi göze alma.",
+   "example_uz": "Ishingni yo‘qotib qo‘yishni xavf ostiga qo‘yma.",
+   "concept": 2123
+  },
+  {
+   "id": 2124,
+   "topic": 2,
+   "tr": "ertelemek",
+   "uz": "orqaga surmoq, kechiktirmoq",
+   "example_tr": "Ödevini ertelemeyi bırak.",
+   "example_uz": "Uy vazifasini kechiktirishni bas qil.",
+   "concept": 2124
+  },
+  {
+   "id": 2125,
+   "topic": 2,
+   "tr": "devam etmek (durmadan)",
+   "uz": "davom etmoq (to‘xtamasdan)",
+   "example_tr": "Okumaya devam et, lütfen.",
+   "example_uz": "O‘qishda davom et, iltimos.",
+   "concept": 2125
+  },
+  {
+   "id": 2126,
+   "topic": 2,
+   "tr": "sonunda (-mek)",
+   "uz": "oxir-oqibat (qilib qolmoq)",
+   "example_tr": "Sonunda evde kaldık.",
+   "example_uz": "Oxir-oqibat biz uyda qoldik.",
+   "concept": 2126
+  },
+  {
+   "id": 2127,
+   "topic": 2,
+   "tr": "değmek",
+   "uz": "arzimoq, … ga arziydi",
+   "example_tr": "Bu müze görmeye değer.",
+   "example_uz": "Bu muzeyni ko‘rishga arziydi.",
+   "concept": 2127
+  },
+  {
+   "id": 2128,
+   "topic": 2,
+   "tr": "anlamı yok",
+   "uz": "ma’nosi yo‘q",
+   "example_tr": "Onunla tartışmanın anlamı yok.",
+   "example_uz": "U bilan bahslashishning ma’nosi yo‘q.",
+   "concept": 2128
+  },
+  {
+   "id": 2129,
+   "topic": 2,
+   "tr": "kendini alamamak",
+   "uz": "… masdan iloji yo‘q",
+   "example_tr": "Onun şakalarına gülmekten kendimi alamıyorum.",
+   "example_uz": "Uning hazillariga kulmasdan iloji yo‘q.",
+   "concept": 2129
+  },
+  {
+   "id": 2130,
+   "topic": 2,
+   "tr": "takdir etmek",
+   "uz": "qadrlamoq",
+   "example_tr": "Bana yardım etmeni takdir ediyorum.",
+   "example_uz": "Menga yordam berayotganingni qadrlayman.",
+   "concept": 2130
+  },
+  {
+   "id": 2131,
+   "topic": 3,
+   "tr": "karar vermek",
+   "uz": "yechmoq (masalani)",
+   "example_tr": "Evde kalmaya karar verdik.",
+   "example_uz": "Biz uyda qolishga qaror qildik.",
+   "concept": 2131
+  },
+  {
+   "id": 2132,
+   "topic": 3,
+   "tr": "reddetmek",
+   "uz": "rad etmoq, bosh tortmoq",
+   "example_tr": "Cevap vermeyi reddetti.",
+   "example_uz": "U javob berishdan bosh tortdi.",
+   "concept": 2132
+  },
+  {
+   "id": 2133,
+   "topic": 3,
+   "tr": "başarmak",
+   "uz": "uddalamoq, ulgurmoq",
+   "example_tr": "Zamanında bitirmeyi başardım.",
+   "example_uz": "Men o‘z vaqtida tugatishga ulgurdim.",
+   "concept": 2133
+  },
+  {
+   "id": 2134,
+   "topic": 3,
+   "tr": "teklif etmek",
+   "uz": "taklif qilmoq (o‘zi qilishni)",
+   "example_tr": "Bana yardım etmeyi teklif etti.",
+   "example_uz": "U menga yordam berishni taklif qildi.",
+   "concept": 2134
+  },
+  {
+   "id": 2135,
+   "topic": 3,
+   "tr": "gücü yetmek",
+   "uz": "qurbi yetmoq",
+   "example_tr": "Yeni bir araba almaya gücümüz yetmiyor.",
+   "example_uz": "Yangi mashina sotib olishga qurbimiz yetmaydi.",
+   "concept": 2135
+  },
+  {
+   "id": 2136,
+   "topic": 3,
+   "tr": "-miş gibi yapmak",
+   "uz": "o‘zini … ga solmoq",
+   "example_tr": "Uyuyormuş gibi yaptı.",
+   "example_uz": "U o‘zini uxlayotganga soldi.",
+   "concept": 2136
+  },
+  {
+   "id": 2137,
+   "topic": 3,
+   "tr": "gibi görünmek",
+   "uz": "tuyulmoq, ko‘rinmoq",
+   "example_tr": "Yorgun görünüyorsun.",
+   "example_uz": "Charchaganga o‘xshaysan.",
+   "concept": 2137
+  },
+  {
+   "id": 2138,
+   "topic": 3,
+   "tr": "eğiliminde olmak",
+   "uz": "moyil bo‘lmoq",
+   "example_tr": "Akşamları çok yemek yeme eğilimindeyim.",
+   "example_uz": "Men odatda kechqurun juda ko‘p ovqat yeyman.",
+   "concept": 2138
+  },
+  {
+   "id": 2139,
+   "topic": 3,
+   "tr": "niyet etmek",
+   "uz": "niyat qilmoq",
+   "example_tr": "Teyzemi ziyaret etmeye niyetliyim.",
+   "example_uz": "Men xolamnikiga borishni niyat qilganman.",
+   "concept": 2139
+  },
+  {
+   "id": 2140,
+   "topic": 3,
+   "tr": "sözleşmek",
+   "uz": "kelishmoq",
+   "example_tr": "Saat altıda buluşmak için sözleştik.",
+   "example_uz": "Biz soat oltida uchrashishga kelishdik.",
+   "concept": 2140
+  },
+  {
+   "id": 2141,
+   "topic": 3,
+   "tr": "tehdit etmek",
+   "uz": "tahdid qilmoq",
+   "example_tr": "Polisi aramakla tehdit etti.",
+   "example_uz": "U politsiya chaqirish bilan tahdid qildi.",
+   "concept": 2141
+  },
+  {
+   "id": 2142,
+   "topic": 3,
+   "tr": "hak etmek",
+   "uz": "loyiq bo‘lmoq",
+   "example_tr": "Kazanmayı hak ediyorsun.",
+   "example_uz": "Sen g‘alabaga loyiqsan.",
+   "concept": 2142
+  },
+  {
+   "id": 2143,
+   "topic": 3,
+   "tr": "girişmek, çalışmak",
+   "uz": "urinmoq",
+   "example_tr": "Bisikleti tamir etmeye çalıştım.",
+   "example_uz": "Men velosipedni tuzatishga urindim.",
+   "concept": 2143
+  },
+  {
+   "id": 2144,
+   "topic": 3,
+   "tr": "çekinmek, tereddüt etmek",
+   "uz": "ikkilanmoq, tortinmoq",
+   "example_tr": "Beni aramaktan çekinme.",
+   "example_uz": "Menga qo‘ng‘iroq qilishdan tortinma.",
+   "concept": 2144
+  },
+  {
+   "id": 2145,
+   "topic": 3,
+   "tr": "-mek istemek",
+   "uz": "… ni xohlardim",
+   "example_tr": "Bir pizza sipariş etmek istiyorum.",
+   "example_uz": "Men pitsa buyurtma qilmoqchiman.",
+   "concept": 2145
+  },
+  {
+   "id": 2146,
+   "topic": 4,
+   "tr": "takılmak, vakit geçirmek",
+   "uz": "vaqt o‘tkazmoq",
+   "example_tr": "Arkadaşlarımla takılmayı çok seviyorum.",
+   "example_uz": "Do‘stlarim bilan vaqt o‘tkazishni yaxshi ko‘raman.",
+   "concept": 2146
+  },
+  {
+   "id": 2147,
+   "topic": 4,
+   "tr": "kafa dinlemek",
+   "uz": "dam olmoq, hordiq chiqarmoq",
+   "example_tr": "Evde kafa dinlemeye karar verdik.",
+   "example_uz": "Biz uyda hordiq chiqarishga qaror qildik.",
+   "concept": 2147
+  },
+  {
+   "id": 2148,
+   "topic": 4,
+   "tr": "boş zaman",
+   "uz": "bo‘sh vaqt",
+   "example_tr": "Boş zamanımda kitap okumayı severim.",
+   "example_uz": "Bo‘sh vaqtimda kitob o‘qishni yaxshi ko‘raman.",
+   "concept": 2148
+  },
+  {
+   "id": 2149,
+   "topic": 4,
+   "tr": "kutu oyunu",
+   "uz": "stol o‘yini",
+   "example_tr": "Kutu oyunları oynamaktan zevk alıyoruz.",
+   "example_uz": "Bizga stol o‘yinlari o‘ynash yoqadi.",
+   "concept": 2149
+  },
+  {
+   "id": 2150,
+   "topic": 4,
+   "tr": "yapboz",
+   "uz": "pazl, boshqotirma",
+   "example_tr": "Oğlum yapboz yapmayı çok seviyor.",
+   "example_uz": "O‘g‘lim pazl yig‘ishni yaxshi ko‘radi.",
+   "concept": 2150
+  },
+  {
+   "id": 2151,
+   "topic": 4,
+   "tr": "bulmaca",
+   "uz": "krossvord",
+   "example_tr": "Dedem bulmaca çözmekten zevk alıyor.",
+   "example_uz": "Bobom krossvord yechishni yaxshi ko‘radi.",
+   "concept": 2151
+  },
+  {
+   "id": 2152,
+   "topic": 4,
+   "tr": "enstrüman çalmak",
+   "uz": "cholg‘u asbobi chalmoq",
+   "example_tr": "Bir enstrüman çalmayı öğrenmek istiyorum.",
+   "example_uz": "Men cholg‘u asbobi chalishni o‘rganmoqchiman.",
+   "concept": 2152
+  },
+  {
+   "id": 2153,
+   "topic": 4,
+   "tr": "fotoğrafçılık",
+   "uz": "fotografiya (mashg‘ulot)",
+   "example_tr": "O fotoğrafçılık öğrenmek istiyor.",
+   "example_uz": "U fotografiyani o‘rganmoqchi.",
+   "concept": 2153
+  },
+  {
+   "id": 2154,
+   "topic": 4,
+   "tr": "yürüyüşe çıkmak",
+   "uz": "sayrga chiqmoq",
+   "example_tr": "Yürüyüşe çıkmaya karar verdik.",
+   "example_uz": "Biz sayrga chiqishga qaror qildik.",
+   "concept": 2154
+  },
+  {
+   "id": 2155,
+   "topic": 4,
+   "tr": "dizi maratonu yapmak",
+   "uz": "to‘xtovsiz tomosha qilmoq",
+   "example_tr": "Pazar gününü dizi izleyerek geçirdim.",
+   "example_uz": "Yakshanbani serial tomosha qilib o‘tkazdim.",
+   "concept": 2155
+  },
+  {
+   "id": 2156,
+   "topic": 4,
+   "tr": "vakit öldürmek",
+   "uz": "vaqt o‘tkazmoq (bekorga)",
+   "example_tr": "Havalimanında vakit öldürmek çok sıkıcı.",
+   "example_uz": "Aeroportda vaqt o‘tkazish juda zerikarli.",
+   "concept": null,
+   "new": {
+    "en": "kill time",
+    "ru": "убивать время",
+    "example_en": "Killing time at the airport is very boring.",
+    "example_ru": "Убивать время в аэропорту очень скучно.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>vakit öldürmek</text></svg>"
+   }
+  },
+  {
+   "id": 2157,
+   "topic": 4,
+   "tr": "uğraş, eğlence",
+   "uz": "mashg‘ulot, ermak",
+   "example_tr": "Kitap okumak en sevdiğim uğraş.",
+   "example_uz": "Kitob o‘qish — mening sevimli mashg‘ulotim.",
+   "concept": 2157
+  },
+  {
+   "id": 2158,
+   "topic": 4,
+   "tr": "kaykay",
+   "uz": "skeytbordda uchish",
+   "example_tr": "Ağabeyim kaykaya meraklı.",
+   "example_uz": "Akam skeytbordga qiziqadi.",
+   "concept": 2158
+  },
+  {
+   "id": 2159,
+   "topic": 4,
+   "tr": "evde kalmak",
+   "uz": "uyda qolmoq",
+   "example_tr": "Yağmurlu günlerde evde kalmayı tercih ederim.",
+   "example_uz": "Yomg‘irli kunlarda uyda qolishni afzal ko‘raman.",
+   "concept": 2159
+  },
+  {
+   "id": 2160,
+   "topic": 4,
+   "tr": "eğlenmek",
+   "uz": "maroqli vaqt o‘tkazmoq",
+   "example_tr": "Karda oynarken çok eğlendik.",
+   "example_uz": "Biz qorda maroqli o‘ynadik.",
+   "concept": 2160
+  },
+  {
+   "id": 2161,
+   "topic": 5,
+   "tr": "takım",
+   "uz": "jamoa",
+   "example_tr": "Takımda oynamaktan zevk alıyorum.",
+   "example_uz": "Menga jamoada o‘ynash yoqadi.",
+   "concept": 2161
+  },
+  {
+   "id": 2162,
+   "topic": 5,
+   "tr": "oyuncu",
+   "uz": "o‘yinchi",
+   "example_tr": "O futbolcu olmak istiyor.",
+   "example_uz": "U futbolchi bo‘lishni xohlaydi.",
+   "concept": 2162
+  },
+  {
+   "id": 2163,
+   "topic": 5,
+   "tr": "antrenör, koç",
+   "uz": "jamoa murabbiyi",
+   "example_tr": "Antrenörümüz daha hızlı koşmamızı söyledi.",
+   "example_uz": "Murabbiyimiz bizga tezroq yugurishni aytdi.",
+   "concept": 2163
+  },
+  {
+   "id": 2164,
+   "topic": 5,
+   "tr": "hakem",
+   "uz": "hakam",
+   "example_tr": "Hakem maçı durdurmaya karar verdi.",
+   "example_uz": "Hakam o‘yinni to‘xtatishga qaror qildi.",
+   "concept": 2164
+  },
+  {
+   "id": 2165,
+   "topic": 5,
+   "tr": "stadyum",
+   "uz": "stadion",
+   "example_tr": "Yeni stadyumu ziyaret etmeyi umuyoruz.",
+   "example_uz": "Yangi stadionga borishni umid qilamiz.",
+   "concept": 2165
+  },
+  {
+   "id": 2166,
+   "topic": 5,
+   "tr": "gol atmak",
+   "uz": "gol urmoq",
+   "example_tr": "Bu oyunda gol atmak zor.",
+   "example_uz": "Bu o‘yinda gol urish qiyin.",
+   "concept": 2166
+  },
+  {
+   "id": 2167,
+   "topic": 5,
+   "tr": "gol",
+   "uz": "gol",
+   "example_tr": "Gol atmak en güzel duygu.",
+   "example_uz": "Gol urish — eng yaxshi tuyg‘u.",
+   "concept": 2167
+  },
+  {
+   "id": 2168,
+   "topic": 5,
+   "tr": "rakip",
+   "uz": "raqib",
+   "example_tr": "Rakibinle tokalaşmayı unutma.",
+   "example_uz": "Raqibing bilan qo‘l siqishishni unutma.",
+   "concept": 2168
+  },
+  {
+   "id": 2169,
+   "topic": 5,
+   "tr": "turnuva",
+   "uz": "turnir",
+   "example_tr": "Okulumuz bir turnuva düzenlemeye karar verdi.",
+   "example_uz": "Maktabimiz turnir o‘tkazishga qaror qildi.",
+   "concept": 2169
+  },
+  {
+   "id": 2170,
+   "topic": 5,
+   "tr": "tekmelemek",
+   "uz": "tepmoq",
+   "example_tr": "Topu duvara tekmelemeyi bırak!",
+   "example_uz": "To‘pni devorga tepishni bas qil!",
+   "concept": 2170
+  },
+  {
+   "id": 2171,
+   "topic": 5,
+   "tr": "taraftar",
+   "uz": "muxlis",
+   "example_tr": "Taraftarlar maçlarda şarkı söylemeyi sever.",
+   "example_uz": "Muxlislar o‘yinlarda qo‘shiq aytishni yaxshi ko‘radi.",
+   "concept": 2171
+  },
+  {
+   "id": 2172,
+   "topic": 5,
+   "tr": "devre arası",
+   "uz": "taymlar orasidagi tanaffus",
+   "example_tr": "Devre arasında içecek almaya gittik.",
+   "example_uz": "Tanaffusda ichimlik olgani bordik.",
+   "concept": 2172
+  },
+  {
+   "id": 2173,
+   "topic": 5,
+   "tr": "takım arkadaşı",
+   "uz": "jamoadosh",
+   "example_tr": "Takım arkadaşlarımla antrenman yapmaktan zevk alıyorum.",
+   "example_uz": "Menga jamoadoshlarim bilan mashq qilish yoqadi.",
+   "concept": 2173
+  },
+  {
+   "id": 2174,
+   "topic": 5,
+   "tr": "kupa",
+   "uz": "kubok",
+   "example_tr": "Onlar kupayı kazanmayı umuyor.",
+   "example_uz": "Ular kubokni yutishga umid qilishadi.",
+   "concept": 2174
+  },
+  {
+   "id": 2175,
+   "topic": 5,
+   "tr": "antrenman",
+   "uz": "mashg‘ulotlar",
+   "example_tr": "Her gün antrenman yapmak kolay değil.",
+   "example_uz": "Har kuni mashq qilish oson emas.",
+   "concept": 2175
+  },
+  {
+   "id": 2176,
+   "topic": 6,
+   "tr": "kariyer",
+   "uz": "karyera, martaba",
+   "example_tr": "O tıpta kariyer yapmak istiyor.",
+   "example_uz": "U tibbiyotda martaba qurmoqchi.",
+   "concept": 2176
+  },
+  {
+   "id": 2177,
+   "topic": 6,
+   "tr": "başvurmak",
+   "uz": "ariza bermoq",
+   "example_tr": "Bu işe başvurmaya karar verdim.",
+   "example_uz": "Men bu ishga ariza berishga qaror qildim.",
+   "concept": 2177
+  },
+  {
+   "id": 2178,
+   "topic": 6,
+   "tr": "başvuru",
+   "uz": "ariza",
+   "example_tr": "Başvurunu göndermeyi unutma.",
+   "example_uz": "Arizangni yuborishni unutma.",
+   "concept": 2178
+  },
+  {
+   "id": 2179,
+   "topic": 6,
+   "tr": "işveren",
+   "uz": "ish beruvchi",
+   "example_tr": "İşverenim bana bir gün izin vermeyi kabul etti.",
+   "example_uz": "Ish beruvchim menga dam olish kuni berishga rozi bo‘ldi.",
+   "concept": 2179
+  },
+  {
+   "id": 2180,
+   "topic": 6,
+   "tr": "izin günü",
+   "uz": "dam olish kuni",
+   "example_tr": "Bir gün izin almam gerekiyor.",
+   "example_uz": "Menga bir kun dam olish kerak.",
+   "concept": 2180
+  },
+  {
+   "id": 2181,
+   "topic": 6,
+   "tr": "yarı zamanlı",
+   "uz": "to‘liqsiz ish kuni",
+   "example_tr": "Yarı zamanlı çalışmaktan hoşlanıyorum.",
+   "example_uz": "Menga to‘liqsiz ish kunida ishlash yoqadi.",
+   "concept": 2181
+  },
+  {
+   "id": 2182,
+   "topic": 6,
+   "tr": "tam zamanlı",
+   "uz": "to‘liq ish kuni",
+   "example_tr": "O tam zamanlı bir iş bulmayı umuyor.",
+   "example_uz": "U to‘liq ish kunlik ish topishga umid qiladi.",
+   "concept": 2182
+  },
+  {
+   "id": 2183,
+   "topic": 6,
+   "tr": "staj",
+   "uz": "amaliyot, stajirovka",
+   "example_tr": "O staj yapmayı planlıyor.",
+   "example_uz": "U amaliyot o‘tashni rejalashtiryapti.",
+   "concept": 2183
+  },
+  {
+   "id": 2184,
+   "topic": 6,
+   "tr": "nitelik, yeterlilik",
+   "uz": "malaka",
+   "example_tr": "Burada çalışmak için iyi niteliklere ihtiyacın var.",
+   "example_uz": "Bu yerda ishlash uchun yaxshi malaka kerak.",
+   "concept": 2184
+  },
+  {
+   "id": 2185,
+   "topic": 6,
+   "tr": "iş teklifi",
+   "uz": "ish taklifi",
+   "example_tr": "İş teklifini kabul etmeye karar verdim.",
+   "example_uz": "Men ish taklifini qabul qilishga qaror qildim.",
+   "concept": 2185
+  },
+  {
+   "id": 2186,
+   "topic": 6,
+   "tr": "istifa etmek",
+   "uz": "lavozimdan ketmoq",
+   "example_tr": "O istifa etmeye karar verdi.",
+   "example_uz": "U ishdan bo‘shashga qaror qildi.",
+   "concept": 2186
+  },
+  {
+   "id": 2187,
+   "topic": 6,
+   "tr": "iş yeri",
+   "uz": "ish joyi",
+   "example_tr": "İş yerinde kendini güvende hissetmek önemli.",
+   "example_uz": "Ish joyida o‘zingni xavfsiz his qilish muhim.",
+   "concept": 2187
+  },
+  {
+   "id": 2188,
+   "topic": 6,
+   "tr": "serbest çalışan",
+   "uz": "o‘zini o‘zi band qilgan",
+   "example_tr": "Serbest çalışmayı tercih ederim.",
+   "example_uz": "Men o‘zim uchun ishlashni afzal ko‘raman.",
+   "concept": 2188
+  },
+  {
+   "id": 2189,
+   "topic": 6,
+   "tr": "vardiya",
+   "uz": "smena",
+   "example_tr": "Gece vardiyasında çalışmanın benim için sakıncası yok.",
+   "example_uz": "Tungi smenada ishlashga qarshi emasman.",
+   "concept": 2189
+  },
+  {
+   "id": 2190,
+   "topic": 6,
+   "tr": "hedef, hırs",
+   "uz": "orzu, intilish",
+   "example_tr": "Onun hedefi bir restoran açmak.",
+   "example_uz": "Uning orzusi — restoran ochish.",
+   "concept": 2190
+  },
+  {
+   "id": 2191,
+   "topic": 7,
+   "tr": "konsantre olmak",
+   "uz": "diqqatni jamlamoq",
+   "example_tr": "Akşamları konsantre olmakta zorlanıyorum.",
+   "example_uz": "Kechqurun diqqatimni jamlash qiyin.",
+   "concept": 2191
+  },
+  {
+   "id": 2192,
+   "topic": 7,
+   "tr": "odaklanmak",
+   "uz": "e’tibor qaratmoq",
+   "example_tr": "Bir seferde tek bir şeye odaklanmaya çalış.",
+   "example_uz": "Bir vaqtda bitta narsaga e’tibor qaratishga harakat qil.",
+   "concept": 2192
+  },
+  {
+   "id": 2193,
+   "topic": 7,
+   "tr": "ezberlemek",
+   "uz": "yodlamoq",
+   "example_tr": "Kartlarla kelime ezberlemek kolay.",
+   "example_uz": "Kartochkalar yordamida so‘zlarni yodlash oson.",
+   "concept": 2193
+  },
+  {
+   "id": 2194,
+   "topic": 7,
+   "tr": "kelime kartı",
+   "uz": "yodlash kartochkasi",
+   "example_tr": "Yeni kelimeleri öğrenmek için kelime kartları kullanıyorum.",
+   "example_uz": "Yangi so‘zlarni o‘rganish uchun kartochkalardan foydalanaman.",
+   "concept": 2194
+  },
+  {
+   "id": 2195,
+   "topic": 7,
+   "tr": "işaretlemek (fosforlu kalemle)",
+   "uz": "ajratib ko‘rsatmoq (marker bilan)",
+   "example_tr": "Anahtar kelimeleri işaretlemeyi unutma.",
+   "example_uz": "Kalit so‘zlarni ajratib ko‘rsatishni unutma.",
+   "concept": 2195
+  },
+  {
+   "id": 2196,
+   "topic": 7,
+   "tr": "altını çizmek",
+   "uz": "tagiga chizmoq",
+   "example_tr": "Yeni kelimelerin altını çizmek bana yardımcı oluyor.",
+   "example_uz": "Yangi so‘zlarning tagiga chizish menga yordam beradi.",
+   "concept": 2196
+  },
+  {
+   "id": 2197,
+   "topic": 7,
+   "tr": "özet",
+   "uz": "qisqacha mazmun",
+   "example_tr": "Kısa bir özet yazmaya çalış.",
+   "example_uz": "Qisqacha mazmun yozishga harakat qil.",
+   "concept": 2197
+  },
+  {
+   "id": 2198,
+   "topic": 7,
+   "tr": "tahmin etmek",
+   "uz": "taxmin qilmoq",
+   "example_tr": "Anlamını tahmin etmeye çalış.",
+   "example_uz": "Ma’nosini taxmin qilishga harakat qil.",
+   "concept": 2198
+  },
+  {
+   "id": 2199,
+   "topic": 7,
+   "tr": "kopya çekmek",
+   "uz": "ko‘chirmoq (imtihonda)",
+   "example_tr": "Sınavda kopya çekmek yanlış.",
+   "example_uz": "Imtihonda ko‘chirish yomon ish.",
+   "concept": 2199
+  },
+  {
+   "id": 2200,
+   "topic": 7,
+   "tr": "bakmak (sözlükte)",
+   "uz": "qidirib topmoq (lug‘atdan)",
+   "example_tr": "Sözlükte bir kelimeye bakmak için durdum.",
+   "example_uz": "Lug‘atdan so‘z qidirish uchun to‘xtadim.",
+   "concept": 2200
+  },
+  {
+   "id": 2201,
+   "topic": 7,
+   "tr": "dikkat dağınıklığı",
+   "uz": "chalg‘itish",
+   "example_tr": "Dikkatin dağılmasın diye telefonunu kapat.",
+   "example_uz": "Chalg‘imaslik uchun telefoningni o‘chir.",
+   "concept": 2201
+  },
+  {
+   "id": 2202,
+   "topic": 7,
+   "tr": "el yazısı",
+   "uz": "husnixat",
+   "example_tr": "El yazını güzelleştirmek zaman alır.",
+   "example_uz": "Husnixatni yaxshilash uchun vaqt kerak.",
+   "concept": 2202
+  },
+  {
+   "id": 2203,
+   "topic": 7,
+   "tr": "ezbere",
+   "uz": "yoddan",
+   "example_tr": "Bu şiiri ezbere öğrenmek istiyorum.",
+   "example_uz": "Men bu she’rni yoddan o‘rganmoqchiman.",
+   "concept": 2203
+  },
+  {
+   "id": 2204,
+   "topic": 7,
+   "tr": "son dakika ezberlemek",
+   "uz": "yodlab olmoq (shoshilib)",
+   "example_tr": "Sınavdan önce son dakika ezber yapmaktan nefret ediyorum.",
+   "example_uz": "Imtihon oldidan shoshilib yodlashni yomon ko‘raman.",
+   "concept": 2204
+  },
+  {
+   "id": 2205,
+   "topic": 7,
+   "tr": "çevrim içi kurs",
+   "uz": "onlayn kurs",
+   "example_tr": "Çevrim içi bir kursa katılmaya karar verdim.",
+   "example_uz": "Men onlayn kursda o‘qishga qaror qildim.",
+   "concept": 2205
+  },
+  {
+   "id": 2206,
+   "topic": 8,
+   "tr": "tanıtmak",
+   "uz": "tanishtirmoq",
+   "example_tr": "Kendimi tanıtayım.",
+   "example_uz": "O‘zimni tanishtirishga ruxsat bering.",
+   "concept": 2206
+  },
+  {
+   "id": 2207,
+   "topic": 8,
+   "tr": "selamlamak",
+   "uz": "salomlashmoq",
+   "example_tr": "Komşularını selamlamak kibarlıktır.",
+   "example_uz": "Qo‘shnilar bilan salomlashish odobdan.",
+   "concept": 2207
+  },
+  {
+   "id": 2208,
+   "topic": 8,
+   "tr": "cevap vermek",
+   "uz": "javob bermoq (xatga)",
+   "example_tr": "Mesajıma cevap vermeyi unutma.",
+   "example_uz": "Xabarimga javob berishni unutma.",
+   "concept": 2208
+  },
+  {
+   "id": 2209,
+   "topic": 8,
+   "tr": "sözünü kesmek",
+   "uz": "gapni bo‘lmoq",
+   "example_tr": "İnsanların sözünü kesmek kabalıktır.",
+   "example_uz": "Odamlarning gapini bo‘lish odobsizlik.",
+   "concept": 2209
+  },
+  {
+   "id": 2210,
+   "topic": 8,
+   "tr": "bahsetmek",
+   "uz": "eslatib o‘tmoq",
+   "example_tr": "Fiyattan bahsetmeyi unuttu.",
+   "example_uz": "U narxni aytishni unutib qo‘ydi.",
+   "concept": 2210
+  },
+  {
+   "id": 2211,
+   "topic": 8,
+   "tr": "şikâyet etmek",
+   "uz": "shikoyat qilmoq",
+   "example_tr": "Havadan şikâyet etmeyi bırak!",
+   "example_uz": "Ob-havodan shikoyat qilishni bas qil!",
+   "concept": 2211
+  },
+  {
+   "id": 2212,
+   "topic": 8,
+   "tr": "özür dilemek",
+   "uz": "kechirim so‘ramoq",
+   "example_tr": "Ondan özür dilemen gerekiyor.",
+   "example_uz": "Undan kechirim so‘rashing kerak.",
+   "concept": 2212
+  },
+  {
+   "id": 2213,
+   "topic": 8,
+   "tr": "ikna etmek",
+   "uz": "ko‘ndirmoq",
+   "example_tr": "Onu kalmaya ikna etmeye çalıştım.",
+   "example_uz": "Men uni qolishga ko‘ndirishga harakat qildim.",
+   "concept": 2213
+  },
+  {
+   "id": 2214,
+   "topic": 8,
+   "tr": "dedikodu yapmak",
+   "uz": "g‘iybat qilmoq",
+   "example_tr": "Arkadaşlar hakkında dedikodu yapmak hoş değil.",
+   "example_uz": "Do‘stlar haqida g‘iybat qilish yaxshi emas.",
+   "concept": 2214
+  },
+  {
+   "id": 2215,
+   "topic": 8,
+   "tr": "ifade etmek",
+   "uz": "ifoda qilmoq",
+   "example_tr": "Duygularımı ifade etmek zor.",
+   "example_uz": "Hissiyotlarimni ifoda qilish qiyin.",
+   "concept": 2215
+  },
+  {
+   "id": 2216,
+   "topic": 8,
+   "tr": "fikir",
+   "uz": "fikr",
+   "example_tr": "Fikrini öğrenmek isterim.",
+   "example_uz": "Fikringni bilmoqchi edim.",
+   "concept": 2216
+  },
+  {
+   "id": 2217,
+   "topic": 8,
+   "tr": "bakış açısı",
+   "uz": "nuqtai nazar",
+   "example_tr": "Benim bakış açımı anlamaya çalış.",
+   "example_uz": "Mening nuqtai nazarimni tushunishga harakat qil.",
+   "concept": 2217
+  },
+  {
+   "id": 2218,
+   "topic": 8,
+   "tr": "havadan sudan sohbet",
+   "uz": "yengil suhbat",
+   "example_tr": "Havadan sudan sohbet etmekte iyi değilim.",
+   "example_uz": "Men yengil suhbat qurishga usta emasman.",
+   "concept": 2218
+  },
+  {
+   "id": 2219,
+   "topic": 8,
+   "tr": "beden dili",
+   "uz": "tana tili",
+   "example_tr": "Beden dilini öğrenmek ilginç.",
+   "example_uz": "Tana tilini o‘rganish qiziqarli.",
+   "concept": 2219
+  },
+  {
+   "id": 2220,
+   "topic": 8,
+   "tr": "iletişimi koparmamak",
+   "uz": "aloqani uzmaslik",
+   "example_tr": "Haydi, iletişimi koparmamaya çalışalım.",
+   "example_uz": "Keling, aloqani uzmaslikka harakat qilaylik.",
+   "concept": 2220
+  },
+  {
+   "id": 2221,
+   "topic": 9,
+   "tr": "kabul etmek",
+   "uz": "qabul qilmoq (taklifni)",
+   "example_tr": "Davetini memnuniyetle kabul ederim.",
+   "example_uz": "Taklifingni mamnuniyat bilan qabul qilaman.",
+   "concept": 2221
+  },
+  {
+   "id": 2222,
+   "topic": 9,
+   "tr": "geri çevirmek",
+   "uz": "rad etmoq",
+   "example_tr": "Daveti geri çevirmek zorunda kaldım.",
+   "example_uz": "Men taklifni rad etishga majbur bo‘ldim.",
+   "concept": 2222
+  },
+  {
+   "id": 2223,
+   "topic": 9,
+   "tr": "katılmak",
+   "uz": "qo‘shilmoq",
+   "example_tr": "Akşam yemeğinde bize katılmak ister misiniz?",
+   "example_uz": "Kechki ovqatga bizga qo‘shilasizmi?",
+   "concept": 2223
+  },
+  {
+   "id": 2224,
+   "topic": 9,
+   "tr": "uğramak",
+   "uz": "kirib o‘tmoq",
+   "example_tr": "İstediğin zaman uğrayabilirsin.",
+   "example_uz": "Istalgan vaqtda kirib o‘taver.",
+   "concept": 2224
+  },
+  {
+   "id": 2225,
+   "topic": 9,
+   "tr": "gelmek (ziyarete)",
+   "uz": "mehmonga kelmoq",
+   "example_tr": "Bu akşam bana gelmek ister misin?",
+   "example_uz": "Bugun kechqurun menikiga kelasanmi?",
+   "concept": 2225
+  },
+  {
+   "id": 2226,
+   "topic": 9,
+   "tr": "hasret gidermek",
+   "uz": "gaplashib olmoq (uzoq vaqtdan keyin)",
+   "example_tr": "Yakında buluşup hasret gidersek güzel olur.",
+   "example_uz": "Tez orada gaplashib olsak yaxshi bo‘lardi.",
+   "concept": 2226
+  },
+  {
+   "id": 2227,
+   "topic": 9,
+   "tr": "müsait",
+   "uz": "bo‘sh (vaqt jihatidan)",
+   "example_tr": "Cuma günü buluşmak için müsait misin?",
+   "example_uz": "Juma kuni uchrashishga vaqting bormi?",
+   "concept": 2227
+  },
+  {
+   "id": 2228,
+   "topic": 9,
+   "tr": "özel gün, vesile",
+   "uz": "voqea, munosabat",
+   "example_tr": "Bugün özel bir gün, haydi kutlayalım.",
+   "example_uz": "Bu alohida voqea, keling, nishonlaymiz.",
+   "concept": 2228
+  },
+  {
+   "id": 2229,
+   "topic": 9,
+   "tr": "şık giyinmek",
+   "uz": "yasanmoq",
+   "example_tr": "Partiler için şık giyinmeyi sevmem.",
+   "example_uz": "Men ziyofatlarga yasanishni yoqtirmayman.",
+   "concept": 2229
+  },
+  {
+   "id": 2230,
+   "topic": 9,
+   "tr": "kıyafet kuralı",
+   "uz": "kiyinish qoidasi (dress-kod)",
+   "example_tr": "Kıyafet kuralını kontrol etmeyi unutma.",
+   "example_uz": "Dress-kodni aniqlashtirishni unutma.",
+   "concept": 2230
+  },
+  {
+   "id": 2231,
+   "topic": 9,
+   "tr": "mekân",
+   "uz": "o‘tkaziladigan joy",
+   "example_tr": "Parti için bir mekân bulmamız gerekiyor.",
+   "example_uz": "Bizga bayram uchun joy topish kerak.",
+   "concept": 2231
+  },
+  {
+   "id": 2232,
+   "topic": 9,
+   "tr": "sürpriz parti",
+   "uz": "syurpriz ziyofat",
+   "example_tr": "Bir sürpriz parti düzenlemeyi planlıyoruz.",
+   "example_uz": "Biz syurpriz ziyofat uyushtirishni rejalashtiryapmiz.",
+   "concept": 2232
+  },
+  {
+   "id": 2233,
+   "topic": 9,
+   "tr": "iptal etmek",
+   "uz": "bekor qilmoq",
+   "example_tr": "Üzgünüm ama toplantımızı iptal etmek zorundayım.",
+   "example_uz": "Kechirasiz, lekin uchrashuvimizni bekor qilishga majburman.",
+   "concept": 2233
+  },
+  {
+   "id": 2234,
+   "topic": 9,
+   "tr": "ertelemek",
+   "uz": "keyinga qoldirmoq",
+   "example_tr": "Geziyi ertelemeye karar verdik.",
+   "example_uz": "Biz safarni keyinga qoldirishga qaror qildik.",
+   "concept": 2234
+  },
+  {
+   "id": 2235,
+   "topic": 9,
+   "tr": "plan yapmak",
+   "uz": "reja tuzmoq",
+   "example_tr": "Haydi, hafta sonu için plan yapalım.",
+   "example_uz": "Keling, dam olish kunlari uchun reja tuzaylik.",
+   "concept": 2235
+  },
+  {
+   "id": 2236,
+   "topic": 10,
+   "tr": "Wi-Fi",
+   "uz": "Wi-Fi",
+   "example_tr": "Wi-Fi’ye bağlanmaya çalıştım.",
+   "example_uz": "Men Wi-Fi ga ulanishga urindim.",
+   "concept": 2236
+  },
+  {
+   "id": 2237,
+   "topic": 10,
+   "tr": "bağlamak",
+   "uz": "ulamoq",
+   "example_tr": "Yazıcıyı bağlamak kolay.",
+   "example_uz": "Printerni ulash oson.",
+   "concept": 2237
+  },
+  {
+   "id": 2238,
+   "topic": 10,
+   "tr": "yüklemek (program)",
+   "uz": "o‘rnatmoq",
+   "example_tr": "Yeni bir uygulama yüklemem gerekiyor.",
+   "example_uz": "Menga yangi ilova o‘rnatish kerak.",
+   "concept": 2238
+  },
+  {
+   "id": 2239,
+   "topic": 10,
+   "tr": "silmek",
+   "uz": "o‘chirmoq (fayl)",
+   "example_tr": "Eski fotoğrafları silmeyi unutma.",
+   "example_uz": "Eski suratlarni o‘chirishni unutma.",
+   "concept": 2239
+  },
+  {
+   "id": 2240,
+   "topic": 10,
+   "tr": "yedeklemek",
+   "uz": "zaxira nusxa olmoq",
+   "example_tr": "Dosyalarını yedeklemeyi unutma.",
+   "example_uz": "Fayllaringning zaxira nusxasini olishni unutma.",
+   "concept": 2240
+  },
+  {
+   "id": 2241,
+   "topic": 10,
+   "tr": "kaydolmak (internette)",
+   "uz": "ro‘yxatdan o‘tmoq (onlayn)",
+   "example_tr": "Kaydolmak bir dakika sürer.",
+   "example_uz": "Ro‘yxatdan o‘tish bir daqiqa vaqt oladi.",
+   "concept": 2241
+  },
+  {
+   "id": 2242,
+   "topic": 10,
+   "tr": "ekran görüntüsü",
+   "uz": "skrinshot",
+   "example_tr": "Sana göstermek için ekran görüntüsü aldım.",
+   "example_uz": "Senga ko‘rsatish uchun skrinshot oldim.",
+   "concept": 2242
+  },
+  {
+   "id": 2243,
+   "topic": 10,
+   "tr": "şarj etmek",
+   "uz": "zaryadlamoq",
+   "example_tr": "Telefonumu şarj etmeyi unuttum.",
+   "example_uz": "Telefonimni zaryadlashni unutibman.",
+   "concept": 2243
+  },
+  {
+   "id": 2244,
+   "topic": 10,
+   "tr": "çökmek (bilgisayar)",
+   "uz": "qotib qolmoq, ishdan chiqmoq (dastur)",
+   "example_tr": "Bilgisayarım sürekli çöküyor.",
+   "example_uz": "Kompyuterim doim qotib qolyapti.",
+   "concept": 2244
+  },
+  {
+   "id": 2245,
+   "topic": 10,
+   "tr": "yeniden başlatmak",
+   "uz": "qayta yuklamoq",
+   "example_tr": "Bilgisayarı yeniden başlatmayı dene.",
+   "example_uz": "Kompyuterni qayta yuklab ko‘r.",
+   "concept": 2245
+  },
+  {
+   "id": 2246,
+   "topic": 10,
+   "tr": "dokunmatik ekran",
+   "uz": "sensorli ekran",
+   "example_tr": "Çocuklar için dokunmatik ekran kullanmak kolay.",
+   "example_uz": "Bolalar uchun sensorli ekrandan foydalanish oson.",
+   "concept": 2246
+  },
+  {
+   "id": 2247,
+   "topic": 10,
+   "tr": "sesli mesaj",
+   "uz": "ovozli xabar",
+   "example_tr": "Sesli mesaj göndermeyi tercih ederim.",
+   "example_uz": "Men ovozli xabar yuborishni afzal ko‘raman.",
+   "concept": 2247
+  },
+  {
+   "id": 2248,
+   "topic": 10,
+   "tr": "görüntülü arama",
+   "uz": "videoqo‘ng‘iroq",
+   "example_tr": "Haydi, görüntülü arama yapmayı deneyelim.",
+   "example_uz": "Keling, videoqo‘ng‘iroq qilib ko‘raylik.",
+   "concept": 2248
+  },
+  {
+   "id": 2249,
+   "topic": 10,
+   "tr": "yazmak (klavyede)",
+   "uz": "terib yozmoq (klaviaturada)",
+   "example_tr": "Daha hızlı yazmayı öğrenmem gerekiyor.",
+   "example_uz": "Tezroq terishni o‘rganishim kerak.",
+   "concept": 2249
+  },
+  {
+   "id": 2250,
+   "topic": 10,
+   "tr": "güncellemek",
+   "uz": "yangilamoq",
+   "example_tr": "Uygulamalarını güncellemeyi unutma.",
+   "example_uz": "Ilovalaringni yangilashni unutma.",
+   "concept": 2250
+  },
+  {
+   "id": 2251,
+   "topic": 11,
+   "tr": "moda, şık",
+   "uz": "zamonaviy, moda",
+   "example_tr": "O moda kıyafetler giymeyi seviyor.",
+   "example_uz": "U zamonaviy kiyimlar kiyishni yaxshi ko‘radi.",
+   "concept": 2251
+  },
+  {
+   "id": 2252,
+   "topic": 11,
+   "tr": "kombin, kıyafet",
+   "uz": "libos, kiyim to‘plami",
+   "example_tr": "Bir kombin seçmem bir saatimi aldı.",
+   "example_uz": "Libos tanlashimga bir soat ketdi.",
+   "concept": 2252
+  },
+  {
+   "id": 2253,
+   "topic": 11,
+   "tr": "yakışmak",
+   "uz": "yarashmoq",
+   "example_tr": "Kırmızı sana gerçekten çok yakışıyor.",
+   "example_uz": "Qizil rang senga juda yarashadi.",
+   "concept": 2253
+  },
+  {
+   "id": 2254,
+   "topic": 11,
+   "tr": "dar",
+   "uz": "tor, siqib turadigan",
+   "example_tr": "Bu kot pantolon giymek için çok dar.",
+   "example_uz": "Bu jinsi shimlar kiyish uchun juda tor.",
+   "concept": 2254
+  },
+  {
+   "id": 2255,
+   "topic": 11,
+   "tr": "bol",
+   "uz": "keng, erkin (kiyim)",
+   "example_tr": "Bol kıyafetler giymeyi tercih ederim.",
+   "example_uz": "Men keng kiyim kiyishni afzal ko‘raman.",
+   "concept": 2255
+  },
+  {
+   "id": 2256,
+   "topic": 11,
+   "tr": "günlük (kıyafet)",
+   "uz": "kundalik",
+   "example_tr": "Hafta sonları günlük kıyafetler giymeyi severim.",
+   "example_uz": "Dam olish kunlari kundalik kiyim kiyishni yaxshi ko‘raman.",
+   "concept": 2256
+  },
+  {
+   "id": 2257,
+   "topic": 11,
+   "tr": "şık, düzgün",
+   "uz": "ozoda, nafis",
+   "example_tr": "İş görüşmesi için şık görünmen gerekiyor.",
+   "example_uz": "Suhbatga nafis ko‘rinishda borish kerak.",
+   "concept": 2257
+  },
+  {
+   "id": 2258,
+   "topic": 11,
+   "tr": "uymak (kıyafete)",
+   "uz": "mos kelmoq",
+   "example_tr": "Bu elbiseye uyan ayakkabılara ihtiyacım var.",
+   "example_uz": "Menga bu ko‘ylakka mos tufli kerak.",
+   "concept": 2258
+  },
+  {
+   "id": 2259,
+   "topic": 11,
+   "tr": "ikinci el",
+   "uz": "ishlatilgan, ikkinchi qo‘l",
+   "example_tr": "İkinci el kıyafet almaktan zevk alıyorum.",
+   "example_uz": "Menga ikkinchi qo‘l kiyimlar sotib olish yoqadi.",
+   "concept": 2259
+  },
+  {
+   "id": 2260,
+   "topic": 11,
+   "tr": "tasarımcı",
+   "uz": "dizayner",
+   "example_tr": "O tasarımcı olmayı hayal ediyor.",
+   "example_uz": "U dizayner bo‘lishni orzu qiladi.",
+   "concept": 2260
+  },
+  {
+   "id": 2261,
+   "topic": 11,
+   "tr": "kapüşonlu sweatshirt",
+   "uz": "xudi",
+   "example_tr": "Evde kapüşonlu sweatshirt giymeyi severim.",
+   "example_uz": "Uyda xudi kiyishni yaxshi ko‘raman.",
+   "concept": 2261
+  },
+  {
+   "id": 2262,
+   "topic": 11,
+   "tr": "spor ayakkabı",
+   "uz": "krossovkalar",
+   "example_tr": "Spor ayakkabıyla koşmayı tercih ederim.",
+   "example_uz": "Men krossovkada yugurishni afzal ko‘raman.",
+   "concept": 2262
+  },
+  {
+   "id": 2263,
+   "topic": 11,
+   "tr": "bot, çizme",
+   "uz": "botinka, etik",
+   "example_tr": "Yeni bot almanın zamanı geldi.",
+   "example_uz": "Yangi etik sotib olish vaqti keldi.",
+   "concept": 2263
+  },
+  {
+   "id": 2264,
+   "topic": 11,
+   "tr": "kazak",
+   "uz": "sviter",
+   "example_tr": "Annem bana kazak örmeyi teklif etti.",
+   "example_uz": "Oyim menga sviter to‘qib berishni taklif qildi.",
+   "concept": 2264
+  },
+  {
+   "id": 2265,
+   "topic": 11,
+   "tr": "kol (giysi)",
+   "uz": "yeng",
+   "example_tr": "Kolları kısaltmam gerekiyor.",
+   "example_uz": "Yenglarni qisqartirishim kerak.",
+   "concept": 2265
+  },
+  {
+   "id": 2266,
+   "topic": 12,
+   "tr": "saç kesimi",
+   "uz": "soch turmagi",
+   "example_tr": "Saçımı kestirmem gerekiyor.",
+   "example_uz": "Sochimni oldirishim kerak.",
+   "concept": 2266
+  },
+  {
+   "id": 2267,
+   "topic": 12,
+   "tr": "tıraş olmak",
+   "uz": "soqol olmoq",
+   "example_tr": "Oğlum tıraş olmayı öğreniyor.",
+   "example_uz": "O‘g‘lim soqol olishni o‘rganyapti.",
+   "concept": 2267
+  },
+  {
+   "id": 2268,
+   "topic": 12,
+   "tr": "tıraş bıçağı",
+   "uz": "ustara",
+   "example_tr": "Tıraş bıçağını almayı unutma.",
+   "example_uz": "Ustarangni olishni unutma.",
+   "concept": 2268
+  },
+  {
+   "id": 2269,
+   "topic": 12,
+   "tr": "manikür",
+   "uz": "manikyur",
+   "example_tr": "Manikür yaptırmaktan hoşlanıyor.",
+   "example_uz": "Unga manikyur qildirish yoqadi.",
+   "concept": 2269
+  },
+  {
+   "id": 2270,
+   "topic": 12,
+   "tr": "makyaj",
+   "uz": "pardoz",
+   "example_tr": "Makyaj yapmayı sevmem.",
+   "example_uz": "Men pardoz qilishni yoqtirmayman.",
+   "concept": 2270
+  },
+  {
+   "id": 2271,
+   "topic": 12,
+   "tr": "deodorant",
+   "uz": "dezodorant",
+   "example_tr": "Spordan sonra deodorant kullanmayı unutma.",
+   "example_uz": "Sportdan keyin dezodorant ishlatishni unutma.",
+   "concept": 2271
+  },
+  {
+   "id": 2272,
+   "topic": 12,
+   "tr": "cilt",
+   "uz": "teri",
+   "example_tr": "Cildini korumak önemli.",
+   "example_uz": "Teringni himoya qilish muhim.",
+   "concept": 2272
+  },
+  {
+   "id": 2273,
+   "topic": 12,
+   "tr": "güneş kremi",
+   "uz": "quyoshdan himoya kremi",
+   "example_tr": "Güneş kremi sürmeyi unutma.",
+   "example_uz": "Quyoshdan himoya kremini surtishni unutma.",
+   "concept": 2273
+  },
+  {
+   "id": 2274,
+   "topic": 12,
+   "tr": "ruj",
+   "uz": "lab bo‘yog‘i",
+   "example_tr": "Denemek için yeni bir ruj aldı.",
+   "example_uz": "U sinab ko‘rish uchun yangi lab bo‘yog‘i sotib oldi.",
+   "concept": 2274
+  },
+  {
+   "id": 2275,
+   "topic": 12,
+   "tr": "saç kremi",
+   "uz": "soch balzami",
+   "example_tr": "Saç kremi saçı yumuşak yapar.",
+   "example_uz": "Balzam sochni yumshoq qiladi.",
+   "concept": 2275
+  },
+  {
+   "id": 2276,
+   "topic": 12,
+   "tr": "boyatmak (saç)",
+   "uz": "bo‘yamoq (sochni)",
+   "example_tr": "Saçını kızıla boyatmaya karar verdi.",
+   "example_uz": "U sochini malla rangga bo‘yashga qaror qildi.",
+   "concept": 2276
+  },
+  {
+   "id": 2277,
+   "topic": 12,
+   "tr": "kâğıt mendil",
+   "uz": "qog‘oz salfetka",
+   "example_tr": "Ellerimi silmek için hep kâğıt mendil taşırım.",
+   "example_uz": "Qo‘limni artish uchun doim salfetka olib yuraman.",
+   "concept": 2277
+  },
+  {
+   "id": 2278,
+   "topic": 12,
+   "tr": "makas",
+   "uz": "qaychi",
+   "example_tr": "Tırnaklarımı kesmek için makasa ihtiyacım var.",
+   "example_uz": "Tirnoqlarimni olish uchun menga qaychi kerak.",
+   "concept": 2278
+  },
+  {
+   "id": 2279,
+   "topic": 12,
+   "tr": "hijyen",
+   "uz": "gigiyena",
+   "example_tr": "Elleri yıkamak iyi hijyenin bir parçası.",
+   "example_uz": "Qo‘l yuvish — yaxshi gigiyenaning bir qismi.",
+   "concept": 2279
+  },
+  {
+   "id": 2280,
+   "topic": 12,
+   "tr": "güzellik salonu",
+   "uz": "go‘zallik saloni",
+   "example_tr": "Tırnaklarını yaptırmak için güzellik salonuna gitti.",
+   "example_uz": "U tirnoqlarini qildirish uchun go‘zallik saloniga bordi.",
+   "concept": 2280
+  },
+  {
+   "id": 2281,
+   "topic": 13,
+   "tr": "peron",
+   "uz": "platforma",
+   "example_tr": "Treni yakalamak için perona koştuk.",
+   "example_uz": "Poyezdga ulgurish uchun platformaga yugurdik.",
+   "concept": 2281
+  },
+  {
+   "id": 2282,
+   "topic": 13,
+   "tr": "bilet ücreti",
+   "uz": "yo‘l haqi",
+   "example_tr": "Bilet ücretini kartla ödemek daha ucuz.",
+   "example_uz": "Yo‘l haqini karta bilan to‘lash arzonroq.",
+   "concept": 2282
+  },
+  {
+   "id": 2283,
+   "topic": 13,
+   "tr": "ulaşım kartı",
+   "uz": "yo‘l kartasi",
+   "example_tr": "Ulaşım kartına para yüklemeyi unutma.",
+   "example_uz": "Yo‘l kartangni to‘ldirishni unutma.",
+   "concept": 2283
+  },
+  {
+   "id": 2284,
+   "topic": 13,
+   "tr": "yüklemek (para)",
+   "uz": "to‘ldirmoq (hisobni)",
+   "example_tr": "Telefonuma kontör yüklemem gerekiyor.",
+   "example_uz": "Telefonimga pul solishim kerak.",
+   "concept": 2284
+  },
+  {
+   "id": 2285,
+   "topic": 13,
+   "tr": "yoğun saat",
+   "uz": "tig‘iz payt",
+   "example_tr": "Yoğun saatte yolculuk etmekten kaçınmaya çalışırım.",
+   "example_uz": "Tig‘iz paytda yurmaslikka harakat qilaman.",
+   "concept": 2285
+  },
+  {
+   "id": 2286,
+   "topic": 13,
+   "tr": "aktarma yapmak",
+   "uz": "poyezd almashtirmoq",
+   "example_tr": "Bir sonraki istasyonda aktarma yapman gerekiyor.",
+   "example_uz": "Keyingi bekatda poyezd almashtirishing kerak.",
+   "concept": 2286
+  },
+  {
+   "id": 2287,
+   "topic": 13,
+   "tr": "kondüktör",
+   "uz": "nazoratchi",
+   "example_tr": "Kondüktör biletimi göstermemi istedi.",
+   "example_uz": "Nazoratchi mendan chiptani ko‘rsatishni so‘radi.",
+   "concept": 2287
+  },
+  {
+   "id": 2288,
+   "topic": 13,
+   "tr": "vagon",
+   "uz": "vagon",
+   "example_tr": "Haydi, boş bir vagon bulmaya çalışalım.",
+   "example_uz": "Keling, bo‘sh vagon topishga harakat qilaylik.",
+   "concept": 2288
+  },
+  {
+   "id": 2289,
+   "topic": 13,
+   "tr": "dolmuş, minibüs",
+   "uz": "marshrutka",
+   "example_tr": "Dolmuşla gitmek daha hızlı.",
+   "example_uz": "Marshrutkada tezroq.",
+   "concept": 2289
+  },
+  {
+   "id": 2290,
+   "topic": 13,
+   "tr": "yürüyen merdiven",
+   "uz": "eskalator",
+   "example_tr": "Çocuklar yürüyen merdivene binmeye bayılır.",
+   "example_uz": "Bolalar eskalatorda yurishni yaxshi ko‘radi.",
+   "concept": 2290
+  },
+  {
+   "id": 2291,
+   "topic": 13,
+   "tr": "iki katlı otobüs",
+   "uz": "ikki qavatli avtobus",
+   "example_tr": "Londra kırmızı iki katlı otobüsleriyle ünlüdür.",
+   "example_uz": "London qizil ikki qavatli avtobuslari bilan mashhur.",
+   "concept": null,
+   "new": {
+    "en": "double-decker bus",
+    "ru": "двухэтажный автобус",
+    "example_en": "London is famous for its red double-decker buses.",
+    "example_ru": "Лондон известен своими красными двухэтажными автобусами.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>iki katlı otobüs</text></svg>"
+   }
+  },
+  {
+   "id": 2292,
+   "topic": 13,
+   "tr": "servis otobüsü",
+   "uz": "shattl-avtobus",
+   "example_tr": "Havalimanı ücretsiz servis otobüsü sağlıyor.",
+   "example_uz": "Aeroportdan bepul shattl-avtobus qatnaydi.",
+   "concept": null,
+   "new": {
+    "en": "shuttle bus",
+    "ru": "автобус-шаттл",
+    "example_en": "The airport provides a free shuttle bus.",
+    "example_ru": "Аэропорт предоставляет бесплатный автобус-шаттл.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>servis otobüsü</text></svg>"
+   }
+  },
+  {
+   "id": 2293,
+   "topic": 13,
+   "tr": "kayıp eşya bürosu",
+   "uz": "yo‘qolgan buyumlar byurosi",
+   "example_tr": "Çantamı aramak için kayıp eşya bürosuna gittim.",
+   "example_uz": "Sumkamni qidirish uchun yo‘qolgan buyumlar byurosiga bordim.",
+   "concept": 2293
+  },
+  {
+   "id": 2294,
+   "topic": 13,
+   "tr": "okutmak (bilet)",
+   "uz": "tasdiqlamoq (chiptani)",
+   "example_tr": "Biletini okutmayı unutma.",
+   "example_uz": "Chiptangni tasdiqlashni unutma.",
+   "concept": 2294
+  },
+  {
+   "id": 2295,
+   "topic": 13,
+   "tr": "gece otobüsü",
+   "uz": "tungi avtobus",
+   "example_tr": "Taksiye para vermektense gece otobüsüne binmeyi tercih ederim.",
+   "example_uz": "Taksiga pul to‘lagandan ko‘ra tungi avtobusda ketganim yaxshi.",
+   "concept": 2295
+  },
+  {
+   "id": 2296,
+   "topic": 14,
+   "tr": "belediye binası",
+   "uz": "hokimiyat binosi",
+   "example_tr": "Evlenmek için belediyeye gittik.",
+   "example_uz": "Biz nikohdan o‘tish uchun hokimiyatga bordik.",
+   "concept": 2296
+  },
+  {
+   "id": 2297,
+   "topic": 14,
+   "tr": "belge",
+   "uz": "hujjat",
+   "example_tr": "Belgelerini getirmen gerekiyor.",
+   "example_uz": "Hujjatlaringni olib kelishing kerak.",
+   "concept": 2297
+  },
+  {
+   "id": 2298,
+   "topic": 14,
+   "tr": "doldurmak (form)",
+   "uz": "to‘ldirmoq (blankani)",
+   "example_tr": "Lütfen formu doldurmayı unutma.",
+   "example_uz": "Iltimos, blankani to‘ldirishni unutma.",
+   "concept": 2298
+  },
+  {
+   "id": 2299,
+   "topic": 14,
+   "tr": "form",
+   "uz": "blanka, anketa",
+   "example_tr": "Bu formu doldurmak bir saatimi aldı.",
+   "example_uz": "Bu anketani to‘ldirishimga bir soat ketdi.",
+   "concept": 2299
+  },
+  {
+   "id": 2300,
+   "topic": 14,
+   "tr": "imza",
+   "uz": "imzo",
+   "example_tr": "Benden buraya imza atmamı istediler.",
+   "example_uz": "Mendan shu yerga imzo qo‘yishni so‘rashdi.",
+   "concept": 2300
+  },
+  {
+   "id": 2301,
+   "topic": 14,
+   "tr": "kimlik kartı",
+   "uz": "shaxsiy guvohnoma (ID karta)",
+   "example_tr": "Kimlik kartını getirmeyi unutma.",
+   "example_uz": "ID kartangni olishni unutma.",
+   "concept": 2301
+  },
+  {
+   "id": 2302,
+   "topic": 14,
+   "tr": "kayıt olmak",
+   "uz": "ro‘yxatdan o‘tmoq",
+   "example_tr": "Kliniğe kayıt olman gerekiyor.",
+   "example_uz": "Poliklinikada ro‘yxatdan o‘tishing kerak.",
+   "concept": 2302
+  },
+  {
+   "id": 2303,
+   "topic": 14,
+   "tr": "koli",
+   "uz": "posilka",
+   "example_tr": "Koli göndermek için postaneye gittim.",
+   "example_uz": "Posilka jo‘natish uchun pochtaga bordim.",
+   "concept": 2303
+  },
+  {
+   "id": 2304,
+   "topic": 14,
+   "tr": "teslim almak",
+   "uz": "olib ketmoq",
+   "example_tr": "Kolimi teslim almam gerekiyor.",
+   "example_uz": "Posilkamni olib ketishim kerak.",
+   "concept": 2304
+  },
+  {
+   "id": 2305,
+   "topic": 14,
+   "tr": "çalışma saatleri",
+   "uz": "ish vaqti",
+   "example_tr": "Çalışma saatlerini kontrol etmeyi unutma.",
+   "example_uz": "Ish vaqtini tekshirishni unutma.",
+   "concept": 2305
+  },
+  {
+   "id": 2306,
+   "topic": 14,
+   "tr": "para cezası",
+   "uz": "jarima",
+   "example_tr": "Park yüzünden para cezası ödemek zorunda kaldı.",
+   "example_uz": "U avtoturargoh uchun jarima to‘lashga majbur bo‘ldi.",
+   "concept": 2306
+  },
+  {
+   "id": 2307,
+   "topic": 14,
+   "tr": "belge, sertifika",
+   "uz": "sertifikat, ma’lumotnoma",
+   "example_tr": "İşe başlamak için bir belgeye ihtiyacın var.",
+   "example_uz": "Ishni boshlash uchun ma’lumotnoma kerak.",
+   "concept": 2307
+  },
+  {
+   "id": 2308,
+   "topic": 14,
+   "tr": "yenilemek",
+   "uz": "uzaytirmoq",
+   "example_tr": "Pasaportumu yenilemem gerekiyor.",
+   "example_uz": "Pasportimni uzaytirishim kerak.",
+   "concept": 2308
+  },
+  {
+   "id": 2309,
+   "topic": 14,
+   "tr": "resmî",
+   "uz": "rasmiy",
+   "example_tr": "Resmî web sitesini kullanmak daha güvenli.",
+   "example_uz": "Rasmiy saytdan foydalanish xavfsizroq.",
+   "concept": 2309
+  },
+  {
+   "id": 2310,
+   "topic": 14,
+   "tr": "danışma masası",
+   "uz": "ma’lumot byurosi",
+   "example_tr": "Harita almak için danışma masasına sor.",
+   "example_uz": "Xarita olish uchun ma’lumot byurosidan so‘ra.",
+   "concept": 2310
+  },
+  {
+   "id": 2311,
+   "topic": 15,
+   "tr": "el işi",
+   "uz": "qo‘l ishi, buyum",
+   "example_tr": "Çocuklarımla el işi yapmaktan zevk alıyorum.",
+   "example_uz": "Bolalarim bilan qo‘l ishlari yasash menga yoqadi.",
+   "concept": 2311
+  },
+  {
+   "id": 2312,
+   "topic": 15,
+   "tr": "el yapımı",
+   "uz": "qo‘lda yasalgan",
+   "example_tr": "El yapımı hediyeler vermeyi tercih ederim.",
+   "example_uz": "Men qo‘lda yasalgan sovg‘alar berishni afzal ko‘raman.",
+   "concept": 2312
+  },
+  {
+   "id": 2313,
+   "topic": 15,
+   "tr": "örmek",
+   "uz": "to‘qimoq",
+   "example_tr": "Annem bana örgü örmeyi öğretti.",
+   "example_uz": "Oyim menga to‘qishni o‘rgatdi.",
+   "concept": 2313
+  },
+  {
+   "id": 2314,
+   "topic": 15,
+   "tr": "iğne",
+   "uz": "igna",
+   "example_tr": "İğneye iplik geçirmek zor.",
+   "example_uz": "Ignaga ip o‘tkazish qiyin.",
+   "concept": 2314
+  },
+  {
+   "id": 2315,
+   "topic": 15,
+   "tr": "iplik",
+   "uz": "ip",
+   "example_tr": "Gömleğimi dikmek için biraz kırmızı ipliğe ihtiyacım var.",
+   "example_uz": "Ko‘ylagimni tikish uchun qizil ip kerak.",
+   "concept": 2315
+  },
+  {
+   "id": 2316,
+   "topic": 15,
+   "tr": "stick yapıştırıcı",
+   "uz": "yelim-qalam",
+   "example_tr": "Lütfen stick yapıştırıcıyı kullandıktan sonra mutlaka kapat, yoksa çabuk kurur.",
+   "example_uz": "Iltimos, yelim-qalamni ishlatgandan keyin albatta yopib qo‘y, aks holda u tez qurib qoladi.",
+   "concept": 1364,
+   "own": {
+    "example_en": "Please close the glue stick after use, or it will dry out quickly.",
+    "example_ru": "Пожалуйста, закрывайте клей-карандаш после использования, иначе он быстро высохнет."
+   }
+  },
+  {
+   "id": 2317,
+   "topic": 15,
+   "tr": "çömlekçilik",
+   "uz": "kulolchilik",
+   "example_tr": "Çömlekçiliği denemek isterim.",
+   "example_uz": "Men kulolchilikni sinab ko‘rmoqchiman.",
+   "concept": 2317
+  },
+  {
+   "id": 2318,
+   "topic": 15,
+   "tr": "ahşap işleri",
+   "uz": "yog‘och ishlari",
+   "example_tr": "Oğlum ahşap işleri yapmaktan zevk alıyor.",
+   "example_uz": "O‘g‘lim yog‘och bilan ishlashni yaxshi ko‘radi.",
+   "concept": 2318
+  },
+  {
+   "id": 2319,
+   "topic": 15,
+   "tr": "kendin yap (tamirat)",
+   "uz": "o‘z qo‘li bilan ta’mirlash",
+   "example_tr": "Tamiratı kendin yapmak para kazandırır.",
+   "example_uz": "O‘z qo‘ling bilan ta’mirlash pulni tejaydi.",
+   "concept": 2319
+  },
+  {
+   "id": 2320,
+   "topic": 15,
+   "tr": "karton",
+   "uz": "karton",
+   "example_tr": "Kedi için kartondan bir ev yaptık.",
+   "example_uz": "Biz mushuk uchun kartondan uycha yasadik.",
+   "concept": 2320
+  },
+  {
+   "id": 2321,
+   "topic": 15,
+   "tr": "bant",
+   "uz": "skotch",
+   "example_tr": "Kutuyu kapatmak için biraz bant lazım.",
+   "example_uz": "Qutini yopish uchun skotch kerak.",
+   "concept": 2321
+  },
+  {
+   "id": 2322,
+   "topic": 15,
+   "tr": "çıkartma",
+   "uz": "stiker, yopishqoq rasm",
+   "example_tr": "Çocuklar her yere çıkartma yapıştırmaya bayılır.",
+   "example_uz": "Bolalar hamma joyga stiker yopishtirishni yaxshi ko‘radi.",
+   "concept": 2322
+  },
+  {
+   "id": 2323,
+   "topic": 15,
+   "tr": "boncuk",
+   "uz": "munchoqlar",
+   "example_tr": "Boncuktan bilezik yapmayı seviyor.",
+   "example_uz": "U munchoqlardan bilaguzuk yasashni yaxshi ko‘radi.",
+   "concept": 2323
+  },
+  {
+   "id": 2324,
+   "topic": 15,
+   "tr": "boyama kitabı",
+   "uz": "bo‘yash kitobi",
+   "example_tr": "Boyama kitapları çocukların rahatlamasına yardım eder.",
+   "example_uz": "Bo‘yash kitoblari bolalarga dam olishga yordam beradi.",
+   "concept": 2324
+  },
+  {
+   "id": 2325,
+   "topic": 15,
+   "tr": "fırça",
+   "uz": "mo‘yqalam",
+   "example_tr": "Fırçanı yıkamayı unutma.",
+   "example_uz": "Mo‘yqalamingni yuvishni unutma.",
+   "concept": 2325
+  },
+  {
+   "id": 2326,
+   "topic": 16,
+   "tr": "çözüm",
+   "uz": "yechim",
+   "example_tr": "Bir çözüm bulmamız gerekiyor.",
+   "example_uz": "Biz yechim topishimiz kerak.",
+   "concept": 2326
+  },
+  {
+   "id": 2327,
+   "topic": 16,
+   "tr": "halletmek",
+   "uz": "hal qilmoq",
+   "example_tr": "Bu sorunu halletmem gerekiyor.",
+   "example_uz": "Bu muammoni hal qilishim kerak.",
+   "concept": 2327
+  },
+  {
+   "id": 2328,
+   "topic": 16,
+   "tr": "çözmek, anlamak",
+   "uz": "tushunib olmoq, fahmlamoq",
+   "example_tr": "Bunu nasıl açacağımı çözemiyorum.",
+   "example_uz": "Buni qanday ochishni tushuna olmayapman.",
+   "concept": 2328
+  },
+  {
+   "id": 2329,
+   "topic": 16,
+   "tr": "bulmak (cevabı)",
+   "uz": "javobini topmoq",
+   "example_tr": "Cevabı bulmam bir saatimi aldı.",
+   "example_uz": "Javobni topishimga bir soat ketdi.",
+   "concept": 2329
+  },
+  {
+   "id": 2330,
+   "topic": 16,
+   "tr": "başarmak",
+   "uz": "muvaffaqiyatga erishmoq",
+   "example_tr": "Sınavı geçmeyi başardı.",
+   "example_uz": "U imtihondan muvaffaqiyatli o‘tdi.",
+   "concept": 2330
+  },
+  {
+   "id": 2331,
+   "topic": 16,
+   "tr": "seçenek",
+   "uz": "variant",
+   "example_tr": "En iyi seçenek beklemek.",
+   "example_uz": "Eng yaxshi variant — kutish.",
+   "concept": 2331
+  },
+  {
+   "id": 2332,
+   "topic": 16,
+   "tr": "zorluk",
+   "uz": "qiyinchilik",
+   "example_tr": "Sokağı bulmakta zorlandım.",
+   "example_uz": "Ko‘chani topishda qiynaldim.",
+   "concept": 2332
+  },
+  {
+   "id": 2333,
+   "topic": 16,
+   "tr": "sorun, sıkıntı",
+   "uz": "muammo, tashvish",
+   "example_tr": "Dün gece uyumakta zorlandım.",
+   "example_uz": "Kecha kechasi uxlay olmay qiynaldim.",
+   "concept": 2333
+  },
+  {
+   "id": 2334,
+   "topic": 16,
+   "tr": "başa çıkmak",
+   "uz": "uddalamoq, bardosh bermoq",
+   "example_tr": "Stresle başa çıkmak zor.",
+   "example_uz": "Stressni yengish qiyin.",
+   "concept": 2334
+  },
+  {
+   "id": 2335,
+   "topic": 16,
+   "tr": "halletmek, ilgilenmek",
+   "uz": "hal qilmoq, eplamoq",
+   "example_tr": "Bırak ben halledeyim.",
+   "example_uz": "Buni men hal qilay.",
+   "concept": 2335
+  },
+  {
+   "id": 2336,
+   "topic": 16,
+   "tr": "engel",
+   "uz": "to‘siq",
+   "example_tr": "Küçük engellerin seni durdurmasına izin verme.",
+   "example_uz": "Kichik to‘siqlar seni to‘xtatishiga yo‘l qo‘yma.",
+   "concept": 2336
+  },
+  {
+   "id": 2337,
+   "topic": 16,
+   "tr": "bir denemek",
+   "uz": "sinab ko‘rmoq",
+   "example_tr": "Neden bir denemiyorsun?",
+   "example_uz": "Nega sinab ko‘rmaslik kerak?",
+   "concept": 2337
+  },
+  {
+   "id": 2338,
+   "topic": 16,
+   "tr": "B planı",
+   "uz": "zaxira reja",
+   "example_tr": "Bir B planına sahip olmak akıllıca.",
+   "example_uz": "Zaxira rejaga ega bo‘lish oqilona.",
+   "concept": 2338
+  },
+  {
+   "id": 2339,
+   "topic": 16,
+   "tr": "beklenmedik",
+   "uz": "kutilmagan",
+   "example_tr": "Beklenmedik sorunlarla karşılaşmak normal.",
+   "example_uz": "Kutilmagan muammolarga duch kelish — normal hol.",
+   "concept": 2339
+  },
+  {
+   "id": 2340,
+   "topic": 16,
+   "tr": "beyin fırtınası yapmak",
+   "uz": "aqliy hujum o‘tkazmoq",
+   "example_tr": "Yeni fikirler bulmak için beyin fırtınası yapalım.",
+   "example_uz": "Yangi g‘oyalar topish uchun aqliy hujum o‘tkazaylik.",
+   "concept": 2340
+  },
+  {
+   "id": 2341,
+   "topic": 17,
+   "tr": "-de iyi",
+   "uz": "… ni yaxshi biladigan",
+   "example_tr": "Bulmaca çözmekte iyiyim.",
+   "example_uz": "Men boshqotirmalarni yaxshi yechaman.",
+   "concept": 2341
+  },
+  {
+   "id": 2342,
+   "topic": 17,
+   "tr": "-de kötü",
+   "uz": "… ni yomon biladigan",
+   "example_tr": "O isimleri hatırlamakta kötü.",
+   "example_uz": "U ismlarni yomon eslab qoladi.",
+   "concept": 2342
+  },
+  {
+   "id": 2343,
+   "topic": 17,
+   "tr": "-den korkmak",
+   "uz": "… dan qo‘rqadigan",
+   "example_tr": "O uçmaktan korkuyor.",
+   "example_uz": "U samolyotda uchishdan qo‘rqadi.",
+   "concept": 2343
+  },
+  {
+   "id": 2344,
+   "topic": 17,
+   "tr": "-den bıkmış",
+   "uz": "… dan charchagan",
+   "example_tr": "Beklemekten bıktım.",
+   "example_uz": "Kutishdan charchadim.",
+   "concept": 2344
+  },
+  {
+   "id": 2345,
+   "topic": 17,
+   "tr": "-i seven",
+   "uz": "… ni yaxshi ko‘radigan",
+   "example_tr": "Büyükannem örgü örmeyi seviyor.",
+   "example_uz": "Buvim to‘qishni yaxshi ko‘radi.",
+   "concept": 2345
+  },
+  {
+   "id": 2346,
+   "topic": 17,
+   "tr": "ile ünlü",
+   "uz": "… bilan mashhur",
+   "example_tr": "Bu şehir halı dokumacılığıyla ünlü.",
+   "example_uz": "Bu shahar gilam to‘qish bilan mashhur.",
+   "concept": 2346
+  },
+  {
+   "id": 2347,
+   "topic": 17,
+   "tr": "-den sorumlu",
+   "uz": "… uchun mas’ul",
+   "example_tr": "Akşam yemeğini pişirmekten ben sorumluyum.",
+   "example_uz": "Kechki ovqat tayyorlashga men mas’ulman.",
+   "concept": 2347
+  },
+  {
+   "id": 2348,
+   "topic": 17,
+   "tr": "-ebilecek durumda",
+   "uz": "… ga qodir",
+   "example_tr": "Daha iyisini yapabilecek durumdasın.",
+   "example_uz": "Sen bundan yaxshiroq qilishga qodirsan.",
+   "concept": 2348
+  },
+  {
+   "id": 2349,
+   "topic": 17,
+   "tr": "-in farkında",
+   "uz": "… dan xabardor",
+   "example_tr": "İzlendiğinin farkında değildi.",
+   "example_uz": "U kimdir uni kuzatayotganidan bexabar edi.",
+   "concept": 2349
+  },
+  {
+   "id": 2350,
+   "topic": 17,
+   "tr": "-e benzer",
+   "uz": "… ga o‘xshash",
+   "example_tr": "Senin çantan benimkine benziyor.",
+   "example_uz": "Sening sumkang menikiga o‘xshaydi.",
+   "concept": 2350
+  },
+  {
+   "id": 2351,
+   "topic": 17,
+   "tr": "-e alerjisi olmak",
+   "uz": "… ga allergiyasi bor",
+   "example_tr": "Kedilere alerjim var.",
+   "example_uz": "Menda mushuklarga allergiya bor.",
+   "concept": 2351
+  },
+  {
+   "id": 2352,
+   "topic": 17,
+   "tr": "-de yer almak",
+   "uz": "… da ishtirok etuvchi",
+   "example_tr": "O, etkinliği düzenlemede yer alıyor.",
+   "example_uz": "U tadbirni tashkil qilishda ishtirok etyapti.",
+   "concept": 2352
+  },
+  {
+   "id": 2353,
+   "topic": 17,
+   "tr": "-de çok kötü",
+   "uz": "… ni juda yomon biladigan",
+   "example_tr": "Şarkı söylemekte çok kötüyüm.",
+   "example_uz": "Men juda yomon kuylayman.",
+   "concept": 2353
+  },
+  {
+   "id": 2354,
+   "topic": 17,
+   "tr": "-de çok iyi",
+   "uz": "… ni a’lo biladigan",
+   "example_tr": "Annem pasta yapmakta çok iyi.",
+   "example_uz": "Oyim tortni a’lo darajada pishiradi.",
+   "concept": 2354
+  },
+  {
+   "id": 2355,
+   "topic": 17,
+   "tr": "-de hiç becerikli değil",
+   "uz": "… ni umuman eplay olmaydigan",
+   "example_tr": "Resim yapmakta hiç becerikli değilim.",
+   "example_uz": "Men umuman rasm chiza olmayman.",
+   "concept": 2355
+  },
+  {
+   "id": 2356,
+   "topic": 18,
+   "tr": "-mek için",
+   "uz": "… uchun, … maqsadida",
+   "example_tr": "Sınavı geçmek için çok çalışıyorum.",
+   "example_uz": "Imtihondan o‘tish uchun astoydil o‘qiyman.",
+   "concept": 2356
+  },
+  {
+   "id": 2357,
+   "topic": 18,
+   "tr": "-memek için",
+   "uz": "… masligi uchun",
+   "example_tr": "Geç kalmamak için erken çıktım.",
+   "example_uz": "Kechikmaslik uchun erta chiqdim.",
+   "concept": 2357
+  },
+  {
+   "id": 2358,
+   "topic": 18,
+   "tr": "-sin diye",
+   "uz": "… uchun, toki",
+   "example_tr": "Unutmayayım diye bunu yazdım.",
+   "example_uz": "Unutib qo‘ymaslik uchun buni yozib qo‘ydim.",
+   "concept": 2358
+  },
+  {
+   "id": 2359,
+   "topic": 18,
+   "tr": "sebep",
+   "uz": "sabab",
+   "example_tr": "Bana kalmam için bir sebep söyle.",
+   "example_uz": "Qolishim uchun hech bo‘lmasa bitta sabab ayt.",
+   "concept": 2359
+  },
+  {
+   "id": 2360,
+   "topic": 18,
+   "tr": "amaç",
+   "uz": "maqsad",
+   "example_tr": "Bu gezinin amacı dinlenmek.",
+   "example_uz": "Bu safarning maqsadi — dam olish.",
+   "concept": 2360
+  },
+  {
+   "id": 2361,
+   "topic": 18,
+   "tr": "hedef",
+   "uz": "vazifa, maqsad",
+   "example_tr": "Hedefimiz cumaya kadar bitirmek.",
+   "example_uz": "Bizning maqsadimiz — juma kunigacha tugatish.",
+   "concept": 2361
+  },
+  {
+   "id": 2362,
+   "topic": 18,
+   "tr": "yüzünden",
+   "uz": "… tufayli, … sababli",
+   "example_tr": "Yağmur yüzünden evde kaldık.",
+   "example_uz": "Yomg‘ir sababli uyda qoldik.",
+   "concept": 2362
+  },
+  {
+   "id": 2363,
+   "topic": 18,
+   "tr": "nedeniyle",
+   "uz": "… natijasida, … sababli",
+   "example_tr": "Uçuş sis nedeniyle iptal edildi.",
+   "example_uz": "Tuman sababli reys bekor qilindi.",
+   "concept": 2363
+  },
+  {
+   "id": 2364,
+   "topic": 18,
+   "tr": "sayesinde",
+   "uz": "… tufayli, … sharofati bilan",
+   "example_tr": "Senin sayende bitirmeyi başardım.",
+   "example_uz": "Sen tufayli tugatishga ulgurdim.",
+   "concept": 2364
+  },
+  {
+   "id": 2365,
+   "topic": 18,
+   "tr": "bilerek, kasten",
+   "uz": "ataylab",
+   "example_tr": "Onu bilerek mi kırdın?",
+   "example_uz": "Buni ataylab sindirdingmi?",
+   "concept": 2365
+  },
+  {
+   "id": 2366,
+   "topic": 18,
+   "tr": "yanlışlıkla",
+   "uz": "adashib, yanglishib",
+   "example_tr": "Çantanı yanlışlıkla aldım.",
+   "example_uz": "Sening sumkangni adashib olib qo‘ydim.",
+   "concept": 2366
+  },
+  {
+   "id": 2367,
+   "topic": 18,
+   "tr": "bu yüzden",
+   "uz": "shuning uchun ham",
+   "example_tr": "Yorgundum, bu yüzden uyumaya karar verdim.",
+   "example_uz": "Charchagandim, shuning uchun ham uxlashga qaror qildim.",
+   "concept": 2367
+  },
+  {
+   "id": 2368,
+   "topic": 18,
+   "tr": "sonuç olarak",
+   "uz": "natijada",
+   "example_tr": "Sonuç olarak kalmaya karar verdik.",
+   "example_uz": "Natijada biz qolishga qaror qildik.",
+   "concept": 2368
+  },
+  {
+   "id": 2369,
+   "topic": 18,
+   "tr": "bu nedenle",
+   "uz": "shuning uchun",
+   "example_tr": "Geç olmuştu, bu nedenle bitirmeye karar verdik.",
+   "example_uz": "Kech bo‘lgan edi, shuning uchun tugatishga kelishdik.",
+   "concept": 2369
+  },
+  {
+   "id": 2370,
+   "topic": 18,
+   "tr": "yoksa, aksi hâlde",
+   "uz": "aks holda",
+   "example_tr": "Acele et, yoksa geç kalacağız.",
+   "example_uz": "Shoshil, aks holda kechikamiz.",
+   "concept": 2370
+  },
+  {
+   "id": 2371,
+   "topic": 19,
+   "tr": "bakmak (birine)",
+   "uz": "qarab turmoq, g‘amxo‘rlik qilmoq",
+   "example_tr": "Kedime baktığın için teşekkürler.",
+   "example_uz": "Mushugimga qarab turganing uchun rahmat.",
+   "concept": 2371
+  },
+  {
+   "id": 2372,
+   "topic": 19,
+   "tr": "dikkat etmek",
+   "uz": "ehtiyot bo‘l",
+   "example_tr": "Dikkat et! Yer ıslak.",
+   "example_uz": "Ehtiyot bo‘l! Pol ho‘l.",
+   "concept": 2372
+  },
+  {
+   "id": 2373,
+   "topic": 19,
+   "tr": "etrafa bakınmak",
+   "uz": "atrofni ko‘zdan kechirmoq",
+   "example_tr": "Dükkânda bir saat etrafa bakındık.",
+   "example_uz": "Biz bir soat do‘konni aylanib chiqdik.",
+   "concept": 2373
+  },
+  {
+   "id": 2374,
+   "topic": 19,
+   "tr": "göz atmak",
+   "uz": "ko‘zdan kechirmoq",
+   "example_tr": "Eski fotoğraflara göz atmaktan zevk alıyorum.",
+   "example_uz": "Eski suratlarni ko‘zdan kechirish menga yoqadi.",
+   "concept": 2374
+  },
+  {
+   "id": 2375,
+   "topic": 19,
+   "tr": "araştırmak",
+   "uz": "hal qilmoq",
+   "example_tr": "Polis sorunu araştırmaya söz verdi.",
+   "example_uz": "Politsiya muammoni o‘rganib chiqishga va’da berdi.",
+   "concept": 2375
+  },
+  {
+   "id": 2376,
+   "topic": 19,
+   "tr": "geriye bakmak",
+   "uz": "eslamoq (o‘tmishni)",
+   "example_tr": "Tatillerimizi hatırlamak güzel.",
+   "example_uz": "Ta’tilimizni eslash yoqimli.",
+   "concept": 2376
+  },
+  {
+   "id": 2377,
+   "topic": 19,
+   "tr": "tepeden bakmak",
+   "uz": "past nazar bilan qaramoq",
+   "example_tr": "İnsanlara tepeden bakmak yanlış.",
+   "example_uz": "Odamlarga past nazar bilan qarash noto‘g‘ri.",
+   "concept": 2377
+  },
+  {
+   "id": 2378,
+   "topic": 19,
+   "tr": "örnek almak",
+   "uz": "… ni o‘ziga ibrat qilmoq",
+   "example_tr": "Her zaman babamı örnek aldım.",
+   "example_uz": "Men doim otamni o‘zimga ibrat qilganman.",
+   "concept": 2378
+  },
+  {
+   "id": 2379,
+   "topic": 19,
+   "tr": "kaldırmak (yerine)",
+   "uz": "joyiga yig‘ishtirmoq",
+   "example_tr": "Oyuncaklarını kaldırmayı unutma.",
+   "example_uz": "O‘yinchoqlaringni joyiga yig‘ishtirishni unutma.",
+   "concept": 2379
+  },
+  {
+   "id": 2380,
+   "topic": 19,
+   "tr": "katlanmak",
+   "uz": "chidamoq, toqat qilmoq",
+   "example_tr": "Bu gürültüye katlanamıyorum.",
+   "example_uz": "Bu shovqinga chiday olmayman.",
+   "concept": 2380
+  },
+  {
+   "id": 2381,
+   "topic": 19,
+   "tr": "söndürmek",
+   "uz": "o‘chirmoq (olovni)",
+   "example_tr": "İtfaiyeciler yangını söndürmeyi başardı.",
+   "example_uz": "O‘t o‘chiruvchilar yong‘inni o‘chirishga muvaffaq bo‘lishdi.",
+   "concept": 2381
+  },
+  {
+   "id": 2382,
+   "topic": 19,
+   "tr": "kurmak (parçalardan)",
+   "uz": "yig‘moq (qismlardan)",
+   "example_tr": "Masayı kurmak bir saatimi aldı.",
+   "example_uz": "Stolni yig‘ishimga bir soat ketdi.",
+   "concept": 2382
+  },
+  {
+   "id": 2383,
+   "topic": 19,
+   "tr": "bırakmak, indirmek",
+   "uz": "qo‘ymoq, tushirmoq",
+   "example_tr": "Lütfen telefonlarınızı bırakın.",
+   "example_uz": "Iltimos, telefonlaringizni qo‘ying.",
+   "concept": 2383
+  },
+  {
+   "id": 2384,
+   "topic": 19,
+   "tr": "geri koymak",
+   "uz": "joyiga qaytarmoq",
+   "example_tr": "Sütü buzdolabına geri koymayı unutma.",
+   "example_uz": "Sutni muzlatkichga qaytarib qo‘yishni unutma.",
+   "concept": 2384
+  },
+  {
+   "id": 2385,
+   "topic": 19,
+   "tr": "bağlamak (telefonla)",
+   "uz": "ulamoq (telefonda)",
+   "example_tr": "Beni müdüre bağlayabilir misiniz?",
+   "example_uz": "Iltimos, meni menejer bilan ulab bera olasizmi?",
+   "concept": 2385
+  },
+  {
+   "id": 2386,
+   "topic": 20,
+   "tr": "güvenilir",
+   "uz": "ishonchli",
+   "example_tr": "O güvenilirdir ve sözünü her zaman tutar.",
+   "example_uz": "U ishonchli va doim va’dasiga vafo qiladi.",
+   "concept": 2386
+  },
+  {
+   "id": 2387,
+   "topic": 20,
+   "tr": "yaratıcı",
+   "uz": "ijodkor",
+   "example_tr": "O yaratıcıdır ve oyun icat etmeyi sever.",
+   "example_uz": "U ijodkor va o‘yinlar o‘ylab topishni yaxshi ko‘radi.",
+   "concept": 2387
+  },
+  {
+   "id": 2388,
+   "topic": 20,
+   "tr": "kararlı",
+   "uz": "maqsadga intiluvchan",
+   "example_tr": "O kazanmaya kararlı.",
+   "example_uz": "U g‘alaba qozonishga qat’iy bel bog‘lagan.",
+   "concept": 2388
+  },
+  {
+   "id": 2389,
+   "topic": 20,
+   "tr": "mantıklı",
+   "uz": "oqil, aqlli",
+   "example_tr": "Biraz para biriktirmek mantıklı.",
+   "example_uz": "Biroz pul jamg‘arib qo‘yish oqilona.",
+   "concept": 2389
+  },
+  {
+   "id": 2390,
+   "topic": 20,
+   "tr": "hassas",
+   "uz": "ta’sirchan, nozik",
+   "example_tr": "O hassastır ve insanları kırmaktan nefret eder.",
+   "example_uz": "U ta’sirchan va odamlarni xafa qilishni yomon ko‘radi.",
+   "concept": 2390
+  },
+  {
+   "id": 2391,
+   "topic": 20,
+   "tr": "rahat, uysal",
+   "uz": "ko‘nglichan, beozor",
+   "example_tr": "Babam rahat biridir, onu kızdırmak zordur.",
+   "example_uz": "Dadam ko‘nglichan, uning jahlini chiqarish qiyin.",
+   "concept": 2391
+  },
+  {
+   "id": 2392,
+   "topic": 20,
+   "tr": "dışa dönük",
+   "uz": "kirishimli",
+   "example_tr": "O dışa dönüktür ve insanlarla tanışmayı sever.",
+   "example_uz": "U kirishimli va odamlar bilan tanishishni yaxshi ko‘radi.",
+   "concept": 2392
+  },
+  {
+   "id": 2393,
+   "topic": 20,
+   "tr": "emir vermeyi seven",
+   "uz": "buyruq berishni yaxshi ko‘radigan",
+   "example_tr": "Ablam emir vermeyi sever ve bana ne yapacağımı söyler.",
+   "example_uz": "Opam buyruq berishni yaxshi ko‘radi va menga nima qilishni aytadi.",
+   "concept": 2393
+  },
+  {
+   "id": 2394,
+   "topic": 20,
+   "tr": "konuşkan",
+   "uz": "gapdon, sergap",
+   "example_tr": "O konuşkandır ve konuşmayı bırakamaz.",
+   "example_uz": "U sergap va gapirishdan to‘xtay olmaydi.",
+   "concept": 2394
+  },
+  {
+   "id": 2395,
+   "topic": 20,
+   "tr": "düşünceli",
+   "uz": "e’tiborli (boshqalarga)",
+   "example_tr": "Araman çok düşünceli bir davranıştı.",
+   "example_uz": "Qo‘ng‘iroq qilganing juda e’tiborli ish bo‘ldi.",
+   "concept": 2395
+  },
+  {
+   "id": 2396,
+   "topic": 20,
+   "tr": "şefkatli",
+   "uz": "g‘amxo‘r",
+   "example_tr": "O şefkatlidir ve insanlara bakmayı sever.",
+   "example_uz": "U g‘amxo‘r va odamlarga qarashni yaxshi ko‘radi.",
+   "concept": 2396
+  },
+  {
+   "id": 2397,
+   "topic": 20,
+   "tr": "bağımsız",
+   "uz": "mustaqil",
+   "example_tr": "Bağımsız olmayı severim.",
+   "example_uz": "Menga mustaqil bo‘lish yoqadi.",
+   "concept": 2397
+  },
+  {
+   "id": 2398,
+   "topic": 20,
+   "tr": "olgun",
+   "uz": "yetuk, katta",
+   "example_tr": "O yalnız seyahat edecek kadar olgun.",
+   "example_uz": "U yolg‘iz sayohat qilishga yetarlicha katta.",
+   "concept": 2398
+  },
+  {
+   "id": 2399,
+   "topic": 20,
+   "tr": "huysuz",
+   "uz": "kayfiyati tez o‘zgaradigan",
+   "example_tr": "O huysuzdur ve onunla konuşmak zordur.",
+   "example_uz": "Uning kayfiyati tez o‘zgaradi, u bilan gaplashish qiyin.",
+   "concept": 2399
+  },
+  {
+   "id": 2400,
+   "topic": 20,
+   "tr": "açık fikirli",
+   "uz": "yangilikka ochiq",
+   "example_tr": "O açık fikirlidir ve yeni şeyler denemeye isteklidir.",
+   "example_uz": "U yangilikka ochiq va yangi narsalarni sinab ko‘rishga tayyor.",
+   "concept": 2400
+  }
+ ]
+}

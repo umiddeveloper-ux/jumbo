@@ -81,13 +81,7 @@ else
         _loaded = true;
     }
 
-    // Language ids follow the API's seed order: 1 = English, 2 = Russian, 3 = Uzbek.
-    private string SpeechLang => Prefs.StudyLangId switch
-    {
-        2 => "ru-RU",
-        3 => "uz-UZ",
-        _ => "en-US"
-    };
+    private string SpeechLang => Jumbo.Shared.SpeechLanguages.Code(Prefs.StudyLangId);
 
     private async Task Speak(string word)
     {

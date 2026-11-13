@@ -254,7 +254,7 @@ else
     private async Task SpeakWord()
     {
         if (!string.IsNullOrEmpty(_targetWord))
-            await JS.InvokeVoidAsync("lp.speak", _targetWord, "en-US");
+            await JS.InvokeVoidAsync("lp.speak", _targetWord, Jumbo.Shared.SpeechLanguages.Code(Prefs.StudyLangId));
     }
 
     private async Task RestartGame()

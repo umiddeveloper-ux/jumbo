@@ -33,7 +33,7 @@
                         <ctl:FormPicker Caption="{u:Tr Key=Settings_StudyLangLabel}" DisplayMember="Name"
                                         ItemsSource="{Binding AvailableLanguages}" SelectedItem="{Binding SelectedStudyLanguage, Mode=TwoWay}" />
                         <ctl:FormPicker Caption="{u:Tr Key=TranslationLanguageTitle}" DisplayMember="Name"
-                                        ItemsSource="{Binding AvailableLanguages}" SelectedItem="{Binding SelectedTargetLanguage, Mode=TwoWay}" />
+                                        ItemsSource="{Binding AvailableTargetLanguages}" SelectedItem="{Binding SelectedTargetLanguage, Mode=TwoWay}" />
                     </VerticalStackLayout>
                 </Border>
                 <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">

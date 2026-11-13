@@ -271,7 +271,7 @@ else if (_round is not null)
         if (ok)
         {
             _coach?.Cheer();
-            try { await JS.InvokeVoidAsync("lp.speak", _round!.Phrase, "en-US"); } catch { }
+            try { await JS.InvokeVoidAsync("lp.speak", _round!.Phrase, Jumbo.Shared.SpeechLanguages.Code(Prefs.StudyLangId)); } catch { }
             await Task.Delay(1800);
 
             _step++;
@@ -312,7 +312,7 @@ else if (_round is not null)
     private async Task SpeakWord()
     {
         if (_round is not null)
-            try { await JS.InvokeVoidAsync("lp.speak", _round.Word, "en-US"); } catch { }
+            try { await JS.InvokeVoidAsync("lp.speak", _round.Word, Jumbo.Shared.SpeechLanguages.Code(Prefs.StudyLangId)); } catch { }
     }
 
     private async Task RestartGame()

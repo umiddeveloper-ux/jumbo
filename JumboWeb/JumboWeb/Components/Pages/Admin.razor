@@ -710,7 +710,7 @@ else
         else await LoadSchoolsAsync();
     }
 
-    private static string VideoLangName(string code) => code switch { "ru" => "Русский", "uz" => "O'zbekcha", _ => "English" };
+    private static string VideoLangName(string code) => code switch { "ru" => "Русский", "uz" => "O'zbekcha", "tr" => "Türkçe", _ => "English" };
 
     private static string FormatSize(long bytes) => bytes >= 1024 * 1024 ? $"{bytes / 1048576.0:0.#} MB" : $"{Math.Max(1, bytes / 1024)} KB";
 

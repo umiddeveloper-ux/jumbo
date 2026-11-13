@@ -16,6 +16,8 @@ public partial class RegistrationPageModel : ObservableObject
     private readonly LpApiClient _api;
 
     public List<LanguageOption> Languages { get; } = [new("en", "English"), new("ru", "Русский"), new("uz", "O'zbekcha")];
+    // Turkish is a language to study only: it is in the list of the study languages, not of the translation languages
+    public List<LanguageOption> StudyLanguages { get; } = [new("en", "English"), new("ru", "Русский"), new("uz", "O'zbekcha"), new("tr", "Türkçe")];
 
     [ObservableProperty] [NotifyPropertyChangedFor(nameof(IsStep1), nameof(IsStep2), nameof(IsStep3), nameof(CanGoBack), nameof(IsLastStep), nameof(Progress), nameof(StepTitle), nameof(StepOfText))]
     private int _step = 1;
@@ -60,7 +62,7 @@ public partial class RegistrationPageModel : ObservableObject
     public RegistrationPageModel(LpApiClient api)
     {
         _api = api;
-        StudyLanguage = Languages[0];
+        StudyLanguage = StudyLanguages[0];
         TranslationLanguage = Languages[1];
 #if DEBUG
         // Screenshots / manual checks: JUMBO_STEP=3 opens the wizard on that step.

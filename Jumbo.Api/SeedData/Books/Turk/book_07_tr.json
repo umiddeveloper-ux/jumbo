@@ -1,0 +1,2807 @@
+{
+ "metadata": {
+  "book": 7,
+  "level": "B1",
+  "language": "tr",
+  "word_count": 300,
+  "id_range": [
+   1801,
+   2100
+  ],
+  "new_words": 0,
+  "schema": [
+   "id",
+   "topic",
+   "tr",
+   "uz",
+   "example_tr",
+   "example_uz",
+   "concept",
+   "new"
+  ]
+ },
+ "topics": [
+  {
+   "tr": "Günlük Rutin",
+   "uz": "Kun tartibi"
+  },
+  {
+   "tr": "Çocukluk",
+   "uz": "Bolalik"
+  },
+  {
+   "tr": "İlişkiler",
+   "uz": "Munosabatlar"
+  },
+  {
+   "tr": "Hayattaki Olaylar",
+   "uz": "Hayotiy voqealar"
+  },
+  {
+   "tr": "Sağlık ve Spor",
+   "uz": "Salomatlik va fitnes"
+  },
+  {
+   "tr": "Doktorda",
+   "uz": "Shifokor qabulida"
+  },
+  {
+   "tr": "Market Alışverişi",
+   "uz": "Oziq-ovqat mahsulotlari"
+  },
+  {
+   "tr": "Beslenme Alışkanlıkları",
+   "uz": "Ovqatlanish"
+  },
+  {
+   "tr": "Evde Tamirat",
+   "uz": "Ta’mirlash va buzilishlar"
+  },
+  {
+   "tr": "Ev Aletleri",
+   "uz": "Maishiy texnika"
+  },
+  {
+   "tr": "Değişiklikler",
+   "uz": "O‘zgarishlar"
+  },
+  {
+   "tr": "Seyahat Deneyimleri",
+   "uz": "Sayohatlar"
+  },
+  {
+   "tr": "Hava Durumu 2",
+   "uz": "Ob-havo 2"
+  },
+  {
+   "tr": "Duygular 2",
+   "uz": "Hissiyotlar 2"
+  },
+  {
+   "tr": "Alışkanlıklar",
+   "uz": "Odatlar"
+  },
+  {
+   "tr": "-dır ve -den beri",
+   "uz": "Vaqt: -dır va -den beri"
+  },
+  {
+   "tr": "Miktar Sözleri",
+   "uz": "Miqdor so‘zlari"
+  },
+  {
+   "tr": "Ödeme ve Fiyatlar",
+   "uz": "To‘lov va narxlar"
+  },
+  {
+   "tr": "Mahalle ve Komşuluk",
+   "uz": "Qo‘shnichilik va mahalla"
+  },
+  {
+   "tr": "«Get» Anlamındaki Fiiller",
+   "uz": "«get» ma’nosidagi fe’llar"
+  }
+ ],
+ "words": [
+  {
+   "id": 1801,
+   "topic": 1,
+   "tr": "çalar saat",
+   "uz": "budilnik",
+   "example_tr": "Çalar saatim henüz çalmadı.",
+   "example_uz": "Budilnigim hali jiringlamadi.",
+   "concept": 1801
+  },
+  {
+   "id": 1802,
+   "topic": 1,
+   "tr": "uyuyakalmak",
+   "uz": "uxlab qolmoq",
+   "example_tr": "Eyvah, yine uyuyakaldım!",
+   "example_uz": "Voy, yana uxlab qolibman!",
+   "concept": 1802
+  },
+  {
+   "id": 1803,
+   "topic": 1,
+   "tr": "giyinmek",
+   "uz": "kiyinmoq",
+   "example_tr": "Giyindin mi?",
+   "example_uz": "Kiyinib bo‘ldingmi?",
+   "concept": 1803
+  },
+  {
+   "id": 1804,
+   "topic": 1,
+   "tr": "kalkmak (yataktan)",
+   "uz": "turmoq (uyqudan)",
+   "example_tr": "Bu hafta her gün erken kalktım.",
+   "example_uz": "Bu hafta men har kuni erta turdim.",
+   "concept": 1804
+  },
+  {
+   "id": 1805,
+   "topic": 1,
+   "tr": "kestirme, şekerleme",
+   "uz": "qisqa uyqu",
+   "example_tr": "Dedem az önce biraz kestirdi.",
+   "example_uz": "Bobom hozirgina biroz mizg‘ib oldi.",
+   "concept": 1805
+  },
+  {
+   "id": 1806,
+   "topic": 1,
+   "tr": "günlük rutin",
+   "uz": "kun tartibi",
+   "example_tr": "Sabah rutinim değişti.",
+   "example_uz": "Mening ertalabki kun tartibim o‘zgardi.",
+   "concept": 1806
+  },
+  {
+   "id": 1807,
+   "topic": 1,
+   "tr": "işe gidip gelmek",
+   "uz": "ishga qatnamoq",
+   "example_tr": "Yıllardır işe otobüsle gidip geliyorum.",
+   "example_uz": "Men ko‘p yillardan beri ishga avtobusda qatnayman.",
+   "concept": 1807
+  },
+  {
+   "id": 1808,
+   "topic": 1,
+   "tr": "acele etmek",
+   "uz": "shoshilmoq",
+   "example_tr": "Bütün sabah acele ediyoruz.",
+   "example_uz": "Biz ertalabdan beri shoshyapmiz.",
+   "concept": 1808
+  },
+  {
+   "id": 1809,
+   "topic": 1,
+   "tr": "atıştırmalık",
+   "uz": "yengil tamaddi",
+   "example_tr": "Bugün birkaç kez atıştırdım.",
+   "example_uz": "Bugun bir necha marta tamaddi qildim.",
+   "concept": 1809
+  },
+  {
+   "id": 1810,
+   "topic": 1,
+   "tr": "öğle arası",
+   "uz": "tushlik tanaffusi",
+   "example_tr": "Öğle aran başladı mı?",
+   "example_uz": "Tushlik tanaffusing boshlandimi?",
+   "concept": 1810
+  },
+  {
+   "id": 1811,
+   "topic": 1,
+   "tr": "geç yatmak",
+   "uz": "kech yotmoq",
+   "example_tr": "Bütün hafta geç yattım.",
+   "example_uz": "Butun hafta kech yotdim.",
+   "concept": 1811
+  },
+  {
+   "id": 1812,
+   "topic": 1,
+   "tr": "uykuya dalmak",
+   "uz": "uxlab qolmoq (uyquga ketmoq)",
+   "example_tr": "Bebek az önce uykuya daldı.",
+   "example_uz": "Chaqaloq hozirgina uxlab qoldi.",
+   "concept": 1812
+  },
+  {
+   "id": 1813,
+   "topic": 1,
+   "tr": "hafta içi günü",
+   "uz": "ish kuni",
+   "example_tr": "Hafta içi her gün çok çalıştım.",
+   "example_uz": "Men har ish kuni qattiq ishladim.",
+   "concept": 1813
+  },
+  {
+   "id": 1814,
+   "topic": 1,
+   "tr": "hafta sonu",
+   "uz": "dam olish kunlari",
+   "example_tr": "Aylardır boş bir hafta sonumuz olmadı.",
+   "example_uz": "Bir necha oydan beri bo‘sh dam olish kunimiz bo‘lmadi.",
+   "concept": 1814
+  },
+  {
+   "id": 1815,
+   "topic": 1,
+   "tr": "toplamak, toparlamak",
+   "uz": "yig‘ishtirmoq",
+   "example_tr": "Az önce odamı topladım.",
+   "example_uz": "Men hozirgina xonamni yig‘ishtirdim.",
+   "concept": 1815
+  },
+  {
+   "id": 1816,
+   "topic": 2,
+   "tr": "çocukluk",
+   "uz": "bolalik",
+   "example_tr": "Mutlu bir çocukluğum oldu.",
+   "example_uz": "Mening bolaligim baxtli o‘tgan.",
+   "concept": 1816
+  },
+  {
+   "id": 1817,
+   "topic": 2,
+   "tr": "oyuncak",
+   "uz": "o‘yinchoq",
+   "example_tr": "Eskiden çok oyuncağım vardı.",
+   "example_uz": "Ilgari mening o‘yinchoqlarim ko‘p edi.",
+   "concept": 1817
+  },
+  {
+   "id": 1818,
+   "topic": 2,
+   "tr": "oyuncak bebek",
+   "uz": "qo‘g‘irchoq",
+   "example_tr": "Kız kardeşim eskiden bebeklerle oynardı.",
+   "example_uz": "Singlim ilgari qo‘g‘irchoq o‘ynardi.",
+   "concept": 1818
+  },
+  {
+   "id": 1819,
+   "topic": 2,
+   "tr": "anaokulu",
+   "uz": "bolalar bog‘chasi",
+   "example_tr": "Eskiden anaokuluna gider miydin?",
+   "example_uz": "Sen bolalar bog‘chasiga borarmiding?",
+   "concept": 1819
+  },
+  {
+   "id": 1820,
+   "topic": 2,
+   "tr": "oyun parkı",
+   "uz": "bolalar maydonchasi",
+   "example_tr": "Eskiden bu oyun parkında oynardık.",
+   "example_uz": "Biz ilgari shu maydonchada o‘ynardik.",
+   "concept": 1820
+  },
+  {
+   "id": 1821,
+   "topic": 2,
+   "tr": "saklambaç",
+   "uz": "berkinmachoq",
+   "example_tr": "Eskiden saklambaç oynardık.",
+   "example_uz": "Biz ilgari berkinmachoq o‘ynardik.",
+   "concept": 1821
+  },
+  {
+   "id": 1822,
+   "topic": 2,
+   "tr": "masal",
+   "uz": "ertak",
+   "example_tr": "Büyükannem bize masal anlatırdı.",
+   "example_uz": "Buvim bizga ertak aytib berardi.",
+   "concept": 1822
+  },
+  {
+   "id": 1823,
+   "topic": 2,
+   "tr": "yaramaz",
+   "uz": "sho‘x, gapga kirmaydigan",
+   "example_tr": "Eskiden çok yaramaz bir çocuktum.",
+   "example_uz": "Ilgari men juda sho‘x bola edim.",
+   "concept": 1823
+  },
+  {
+   "id": 1824,
+   "topic": 2,
+   "tr": "lolipop şeker",
+   "uz": "tayoqchali konfet",
+   "example_tr": "Eskiden lolipopları çok severdim.",
+   "example_uz": "Men tayoqchali konfetni juda yaxshi ko‘rardim.",
+   "concept": 1824
+  },
+  {
+   "id": 1825,
+   "topic": 2,
+   "tr": "misket",
+   "uz": "sharchalar (o‘yin)",
+   "example_tr": "Eskiden avluda misket oynardık.",
+   "example_uz": "Ilgari biz hovlida sharcha o‘ynardik.",
+   "concept": 1825
+  },
+  {
+   "id": 1826,
+   "topic": 2,
+   "tr": "kum havuzu",
+   "uz": "qum o‘yingohi",
+   "example_tr": "Çocuklar eskiden kum havuzunda oynardı.",
+   "example_uz": "Bolalar ilgari qum o‘yingohida o‘ynashardi.",
+   "concept": 1826
+  },
+  {
+   "id": 1827,
+   "topic": 2,
+   "tr": "çizgi roman",
+   "uz": "komiks",
+   "example_tr": "Eskiden her gün çizgi roman okurdum.",
+   "example_uz": "Ilgari men har kuni komiks o‘qirdim.",
+   "concept": 1827
+  },
+  {
+   "id": 1828,
+   "topic": 2,
+   "tr": "oyuncak ayı",
+   "uz": "ayiqcha (o‘yinchoq)",
+   "example_tr": "Eskiden oyuncak ayıyla uyurdum.",
+   "example_uz": "Ilgari men ayiqcha bilan uxlardim.",
+   "concept": 1828
+  },
+  {
+   "id": 1829,
+   "topic": 2,
+   "tr": "scooter",
+   "uz": "samokat",
+   "example_tr": "Eskiden okula scooter ile giderdim.",
+   "example_uz": "Ilgari maktabga samokatda borardim.",
+   "concept": 1829
+  },
+  {
+   "id": 1830,
+   "topic": 2,
+   "tr": "harçlık",
+   "uz": "cho‘ntak puli",
+   "example_tr": "Eskiden biraz harçlık alırdım.",
+   "example_uz": "Ilgari men ozgina cho‘ntak puli olardim.",
+   "concept": 1830
+  },
+  {
+   "id": 1831,
+   "topic": 3,
+   "tr": "ilişki",
+   "uz": "munosabatlar",
+   "example_tr": "Onların ilişkisi çok değişti.",
+   "example_uz": "Ularning munosabatlari ancha o‘zgardi.",
+   "concept": 1831
+  },
+  {
+   "id": 1832,
+   "topic": 3,
+   "tr": "erkek arkadaş, sevgili",
+   "uz": "yigit (sevgan)",
+   "example_tr": "İki yıldır aynı erkek arkadaşı var.",
+   "example_uz": "Uning ikki yildan beri bitta yigiti bor.",
+   "concept": 1832
+  },
+  {
+   "id": 1833,
+   "topic": 3,
+   "tr": "kız arkadaş, sevgili",
+   "uz": "qiz (sevgan)",
+   "example_tr": "Kız arkadaşın ailenle tanıştı mı?",
+   "example_uz": "Sevgan qizing ota-onang bilan tanishdimi?",
+   "concept": 1833
+  },
+  {
+   "id": 1834,
+   "topic": 3,
+   "tr": "iyi anlaşmak",
+   "uz": "yaxshi chiqishmoq",
+   "example_tr": "Biz her zaman iyi anlaştık.",
+   "example_uz": "Biz doim yaxshi chiqishganmiz.",
+   "concept": 1834
+  },
+  {
+   "id": 1835,
+   "topic": 3,
+   "tr": "küsmek, bozuşmak",
+   "uz": "urishib qolmoq",
+   "example_tr": "Sam’le küstünüz mü?",
+   "example_uz": "Sem bilan urishib qoldingmi?",
+   "concept": 1835
+  },
+  {
+   "id": 1836,
+   "topic": 3,
+   "tr": "barışmak",
+   "uz": "yarashmoq",
+   "example_tr": "Onlar az önce barıştı.",
+   "example_uz": "Ular hozirgina yarashishdi.",
+   "concept": 1836
+  },
+  {
+   "id": 1837,
+   "topic": 3,
+   "tr": "güvenmek",
+   "uz": "ishonmoq",
+   "example_tr": "Çocukluğumdan beri ona güveniyorum.",
+   "example_uz": "Men unga bolalikdan beri ishonaman.",
+   "concept": 1837
+  },
+  {
+   "id": 1838,
+   "topic": 3,
+   "tr": "desteklemek",
+   "uz": "qo‘llab-quvvatlamoq",
+   "example_tr": "Annemle babam beni her zaman destekledi.",
+   "example_uz": "Ota-onam meni doim qo‘llab-quvvatlagan.",
+   "concept": 1838
+  },
+  {
+   "id": 1839,
+   "topic": 3,
+   "tr": "buluşma (sevgililer)",
+   "uz": "uchrashuv (sevgililar)",
+   "example_tr": "Onlar üç kez buluştu.",
+   "example_uz": "Ular uch marta uchrashishgan.",
+   "concept": 1839
+  },
+  {
+   "id": 1840,
+   "topic": 3,
+   "tr": "en yakın arkadaş",
+   "uz": "eng yaqin do‘st",
+   "example_tr": "Tom okuldan beri en yakın arkadaşım.",
+   "example_uz": "Tom maktabdan beri mening eng yaqin do‘stim.",
+   "concept": 1840
+  },
+  {
+   "id": 1841,
+   "topic": 3,
+   "tr": "evlenmek",
+   "uz": "turmush qurmoq",
+   "example_tr": "Onlar az önce evlendi.",
+   "example_uz": "Ular hozirgina turmush qurishdi.",
+   "concept": 1841
+  },
+  {
+   "id": 1842,
+   "topic": 3,
+   "tr": "boşanmış",
+   "uz": "ajrashgan",
+   "example_tr": "Amcam yıllardır boşanmış.",
+   "example_uz": "Amakim ko‘p yillardan beri ajrashgan.",
+   "concept": 1842
+  },
+  {
+   "id": 1843,
+   "topic": 3,
+   "tr": "bekâr, yalnız",
+   "uz": "bo‘ydoq, yolg‘iz",
+   "example_tr": "Kate mayıstan beri yalnız.",
+   "example_uz": "Keyt maydan beri yolg‘iz.",
+   "concept": 1843
+  },
+  {
+   "id": 1844,
+   "topic": 3,
+   "tr": "partner, eş",
+   "uz": "hamroh, juft",
+   "example_tr": "Partnerini ne zamandır tanıyorsun?",
+   "example_uz": "Hamrohingni qancha vaqtdan beri bilasan?",
+   "concept": 1844
+  },
+  {
+   "id": 1845,
+   "topic": 3,
+   "tr": "nişanlı",
+   "uz": "unashtirilgan",
+   "example_tr": "Onlar nişanlandı mı?",
+   "example_uz": "Ular unashtirilib bo‘lishdimi?",
+   "concept": 1845
+  },
+  {
+   "id": 1846,
+   "topic": 4,
+   "tr": "doğmak",
+   "uz": "tug‘ilmoq",
+   "example_tr": "Bu hafta burada on bebek doğdu.",
+   "example_uz": "Bu hafta bu yerda o‘nta chaqaloq tug‘ildi.",
+   "concept": 1846
+  },
+  {
+   "id": 1847,
+   "topic": 4,
+   "tr": "mezuniyet",
+   "uz": "bitiruv",
+   "example_tr": "Onun mezuniyet töreni oldu mu?",
+   "example_uz": "Uning bitiruv kechasi bo‘lib o‘tdimi?",
+   "concept": 1847
+  },
+  {
+   "id": 1848,
+   "topic": 4,
+   "tr": "düğün",
+   "uz": "to‘y",
+   "example_tr": "Bu yıl üç düğüne gittik.",
+   "example_uz": "Bu yil biz uchta to‘yda bo‘ldik.",
+   "concept": 1848
+  },
+  {
+   "id": 1849,
+   "topic": 4,
+   "tr": "yıl dönümü",
+   "uz": "yubiley, yillik sana",
+   "example_tr": "Annemle babam az önce evlilik yıl dönümlerini kutladı.",
+   "example_uz": "Ota-onam hozirgina to‘y yilligini nishonlashdi.",
+   "concept": 1849
+  },
+  {
+   "id": 1850,
+   "topic": 4,
+   "tr": "emekli olmak",
+   "uz": "nafaqaga chiqmoq",
+   "example_tr": "Dedem emekli oldu.",
+   "example_uz": "Bobom nafaqaga chiqdi.",
+   "concept": 1850
+  },
+  {
+   "id": 1851,
+   "topic": 4,
+   "tr": "emekli maaşı",
+   "uz": "nafaqa, pensiya",
+   "example_tr": "O ilk emekli maaşını aldı.",
+   "example_uz": "U birinchi pensiyasini oldi.",
+   "concept": 1851
+  },
+  {
+   "id": 1852,
+   "topic": 4,
+   "tr": "iş bulmak",
+   "uz": "ishga joylashmoq",
+   "example_tr": "Ağabeyim az önce iş buldu.",
+   "example_uz": "Akam hozirgina ishga joylashdi.",
+   "concept": 1852
+  },
+  {
+   "id": 1853,
+   "topic": 4,
+   "tr": "terfi",
+   "uz": "lavozimga ko‘tarilish",
+   "example_tr": "Anna terfi aldı.",
+   "example_uz": "Anna lavozimga ko‘tarildi.",
+   "concept": 1853
+  },
+  {
+   "id": 1854,
+   "topic": 4,
+   "tr": "işsiz",
+   "uz": "ishsiz",
+   "example_tr": "O bir aydır işsiz.",
+   "example_uz": "U bir oydan beri ishsiz.",
+   "concept": 1854
+  },
+  {
+   "id": 1855,
+   "topic": 4,
+   "tr": "cenaze töreni",
+   "uz": "dafn marosimi",
+   "example_tr": "Hiç cenaze törenine gitmedim.",
+   "example_uz": "Men hech qachon dafn marosimida bo‘lmaganman.",
+   "concept": 1855
+  },
+  {
+   "id": 1856,
+   "topic": 4,
+   "tr": "balayı",
+   "uz": "asal oyi",
+   "example_tr": "Onlar az önce balayından döndü.",
+   "example_uz": "Ular hozirgina asal oyidan qaytishdi.",
+   "concept": 1856
+  },
+  {
+   "id": 1857,
+   "topic": 4,
+   "tr": "ehliyet sınavı",
+   "uz": "haydovchilik imtihoni",
+   "example_tr": "Ehliyet sınavını geçtim!",
+   "example_uz": "Men haydovchilik imtihonini topshirdim!",
+   "concept": 1857
+  },
+  {
+   "id": 1858,
+   "topic": 4,
+   "tr": "taşınmak",
+   "uz": "ko‘chmoq",
+   "example_tr": "Yeni bir şehre taşındık.",
+   "example_uz": "Biz yangi shaharga ko‘chdik.",
+   "concept": 1858
+  },
+  {
+   "id": 1859,
+   "topic": 4,
+   "tr": "tören",
+   "uz": "marosim",
+   "example_tr": "Tören çoktan başladı.",
+   "example_uz": "Marosim allaqachon boshlandi.",
+   "concept": 1859
+  },
+  {
+   "id": 1860,
+   "topic": 4,
+   "tr": "hamile",
+   "uz": "homilador",
+   "example_tr": "O az önce bize hamile olduğunu söyledi.",
+   "example_uz": "U hozirgina bizga homiladorligini aytdi.",
+   "concept": 1860
+  },
+  {
+   "id": 1861,
+   "topic": 5,
+   "tr": "formda",
+   "uz": "sog‘lom, chiniqqan",
+   "example_tr": "Koşmaya başladığımdan beri formdayım.",
+   "example_uz": "Yugurishni boshlaganimdan beri men chiniqqanman.",
+   "concept": 1861
+  },
+  {
+   "id": 1862,
+   "topic": 5,
+   "tr": "antrenman",
+   "uz": "mashg‘ulot",
+   "example_tr": "Bugün antrenmanını yaptın mı?",
+   "example_uz": "Bugun mashg‘ulot qildingmi?",
+   "concept": 1862
+  },
+  {
+   "id": 1863,
+   "topic": 5,
+   "tr": "diyet",
+   "uz": "parhez",
+   "example_tr": "O bir aydır diyette.",
+   "example_uz": "U bir oydan beri parhezda.",
+   "concept": 1863
+  },
+  {
+   "id": 1864,
+   "topic": 5,
+   "tr": "kilo vermek",
+   "uz": "ozmoq",
+   "example_tr": "Çok kilo verdim.",
+   "example_uz": "Men ancha ozdim.",
+   "concept": 1864
+  },
+  {
+   "id": 1865,
+   "topic": 5,
+   "tr": "kilo almak",
+   "uz": "semirmoq",
+   "example_tr": "O biraz kilo aldı.",
+   "example_uz": "U biroz semirdi.",
+   "concept": 1865
+  },
+  {
+   "id": 1866,
+   "topic": 5,
+   "tr": "esneme hareketi yapmak",
+   "uz": "cho‘zilish mashqi qilmoq",
+   "example_tr": "Koştuktan sonra esneme hareketlerini yaptın mı?",
+   "example_uz": "Yugurgandan keyin cho‘zilish mashqini qildingmi?",
+   "concept": 1866
+  },
+  {
+   "id": 1867,
+   "topic": 5,
+   "tr": "hafif koşmak",
+   "uz": "yengil yugurmoq",
+   "example_tr": "Bu hafta her sabah hafif koşu yaptım.",
+   "example_uz": "Bu hafta men har kuni ertalab yengil yugurdim.",
+   "concept": 1867
+  },
+  {
+   "id": 1868,
+   "topic": 5,
+   "tr": "şınav",
+   "uz": "qo‘l yerga tirab ko‘tarilish",
+   "example_tr": "Bugün elli şınav çektim.",
+   "example_uz": "Bugun men ellik marta qo‘l yerga tirab ko‘tarildim.",
+   "concept": 1868
+  },
+  {
+   "id": 1869,
+   "topic": 5,
+   "tr": "kas",
+   "uz": "muskul, mushak",
+   "example_tr": "Dünden beri kaslarım ağrıyor.",
+   "example_uz": "Kechadan beri mushaklarim og‘riyapti.",
+   "concept": 1869
+  },
+  {
+   "id": 1870,
+   "topic": 5,
+   "tr": "adım",
+   "uz": "qadam",
+   "example_tr": "Bugün on bin adım yürüdüm.",
+   "example_uz": "Bugun men o‘n ming qadam yurdim.",
+   "concept": 1870
+  },
+  {
+   "id": 1871,
+   "topic": 5,
+   "tr": "terlemek",
+   "uz": "terlamoq",
+   "example_tr": "Spor salonunda çok terledim.",
+   "example_uz": "Sport zalida qattiq terladim.",
+   "concept": 1871
+  },
+  {
+   "id": 1872,
+   "topic": 5,
+   "tr": "kondisyon",
+   "uz": "jismoniy holat",
+   "example_tr": "Kondisyonun iyileşti mi?",
+   "example_uz": "Jismoniy holating yaxshilandimi?",
+   "concept": 1872
+  },
+  {
+   "id": 1873,
+   "topic": 5,
+   "tr": "antrenör",
+   "uz": "murabbiy",
+   "example_tr": "Antrenörüm bana yeni bir plan verdi.",
+   "example_uz": "Murabbiyim menga yangi reja berdi.",
+   "concept": 1873
+  },
+  {
+   "id": 1874,
+   "topic": 5,
+   "tr": "kalori",
+   "uz": "kaloriya",
+   "example_tr": "Bugün kaç kalori yedin?",
+   "example_uz": "Bugun qancha kaloriya yeding?",
+   "concept": 1874
+  },
+  {
+   "id": 1875,
+   "topic": 5,
+   "tr": "nefes nefese",
+   "uz": "nafasi qisilgan, hansiragan",
+   "example_tr": "O kadar hızlı koştum ki nefes nefese kaldım.",
+   "example_uz": "Shunchalik tez yugurdimki, hansirab qoldim.",
+   "concept": 1875
+  },
+  {
+   "id": 1876,
+   "topic": 6,
+   "tr": "randevu (doktor)",
+   "uz": "qabulga yozilish",
+   "example_tr": "Doktordan randevu aldım.",
+   "example_uz": "Men shifokor qabuliga yozildim.",
+   "concept": 1876
+  },
+  {
+   "id": 1877,
+   "topic": 6,
+   "tr": "belirti",
+   "uz": "alomat, simptom",
+   "example_tr": "Bu belirtiler ne zamandır var?",
+   "example_uz": "Bu alomatlar senda qachondan beri bor?",
+   "concept": 1877
+  },
+  {
+   "id": 1878,
+   "topic": 6,
+   "tr": "burun akıntısı",
+   "uz": "tumov",
+   "example_tr": "Pazartesiden beri burnum akıyor.",
+   "example_uz": "Dushanbadan beri tumov bo‘lib yuribman.",
+   "concept": 1878
+  },
+  {
+   "id": 1879,
+   "topic": 6,
+   "tr": "boğaz ağrısı",
+   "uz": "tomoq og‘rig‘i",
+   "example_tr": "Üç gündür onun boğazı ağrıyor.",
+   "example_uz": "Uning tomog‘i uch kundan beri og‘riydi.",
+   "concept": 1879
+  },
+  {
+   "id": 1880,
+   "topic": 6,
+   "tr": "hapşırmak",
+   "uz": "aksirmoq",
+   "example_tr": "On kez hapşırdın!",
+   "example_uz": "Sen o‘n marta aksirding!",
+   "concept": 1880
+  },
+  {
+   "id": 1881,
+   "topic": 6,
+   "tr": "alerji",
+   "uz": "allergiya",
+   "example_tr": "Hiç alerjin oldu mu?",
+   "example_uz": "Senda hech allergiya bo‘lganmi?",
+   "concept": 1881
+  },
+  {
+   "id": 1882,
+   "topic": 6,
+   "tr": "genel kontrol, check-up",
+   "uz": "tibbiy ko‘rik",
+   "example_tr": "Bir yıldır genel kontrole gitmedim.",
+   "example_uz": "Bir yildan beri tibbiy ko‘rikdan o‘tmadim.",
+   "concept": 1882
+  },
+  {
+   "id": 1883,
+   "topic": 6,
+   "tr": "kan tahlili",
+   "uz": "qon tahlili",
+   "example_tr": "Kan tahlili yaptırdın mı?",
+   "example_uz": "Qon tahlili topshirdingmi?",
+   "concept": 1883
+  },
+  {
+   "id": 1884,
+   "topic": 6,
+   "tr": "başı dönen",
+   "uz": "boshi aylanayotgan",
+   "example_tr": "Bütün sabah başım döndü.",
+   "example_uz": "Ertalabdan beri boshim aylanyapti.",
+   "concept": 1884
+  },
+  {
+   "id": 1885,
+   "topic": 6,
+   "tr": "iyileşmek",
+   "uz": "tuzalmoq",
+   "example_tr": "O gripten iyileşti.",
+   "example_uz": "U grippdan tuzaldi.",
+   "concept": 1885
+  },
+  {
+   "id": 1886,
+   "topic": 6,
+   "tr": "düzelmek, daha iyi olmak",
+   "uz": "sog‘aymoq",
+   "example_tr": "Daha iyi misin?",
+   "example_uz": "O‘zingni yaxshi his qilyapsanmi?",
+   "concept": 1886
+  },
+  {
+   "id": 1887,
+   "topic": 6,
+   "tr": "kulak ağrısı",
+   "uz": "quloq og‘rig‘i",
+   "example_tr": "Dünden beri kulağım ağrıyor.",
+   "example_uz": "Kechadan beri qulog‘im og‘riyapti.",
+   "concept": 1887
+  },
+  {
+   "id": 1888,
+   "topic": 6,
+   "tr": "diş ağrısı",
+   "uz": "tish og‘rig‘i",
+   "example_tr": "Hiç dişin ağrıdı mı?",
+   "example_uz": "Hech tishing og‘riganmi?",
+   "concept": 1888
+  },
+  {
+   "id": 1889,
+   "topic": 6,
+   "tr": "iğne (enjeksiyon)",
+   "uz": "ukol",
+   "example_tr": "Hemşire az önce bana iğne yaptı.",
+   "example_uz": "Hamshira hozirgina menga ukol qildi.",
+   "concept": 1889
+  },
+  {
+   "id": 1890,
+   "topic": 6,
+   "tr": "röntgen",
+   "uz": "rentgen",
+   "example_tr": "Röntgen çektiler mi?",
+   "example_uz": "Senga rentgen qilishdimi?",
+   "concept": 1890
+  },
+  {
+   "id": 1891,
+   "topic": 7,
+   "tr": "dana eti",
+   "uz": "mol go‘shti",
+   "example_tr": "Bu hafta hiç dana eti almadık.",
+   "example_uz": "Bu hafta biz mol go‘shti sotib olmadik.",
+   "concept": 1891
+  },
+  {
+   "id": 1892,
+   "topic": 7,
+   "tr": "sirke",
+   "uz": "sirka",
+   "example_tr": "Sirke aldın mı?",
+   "example_uz": "Sirka sotib oldingmi?",
+   "concept": 1892
+  },
+  {
+   "id": 1893,
+   "topic": 7,
+   "tr": "baharat",
+   "uz": "ziravor",
+   "example_tr": "Birkaç baharat aldım.",
+   "example_uz": "Men bir nechta ziravor sotib oldim.",
+   "concept": 1893
+  },
+  {
+   "id": 1894,
+   "topic": 7,
+   "tr": "kuruyemiş",
+   "uz": "yong‘oqlar",
+   "example_tr": "Kaç tane kuruyemiş yedin?",
+   "example_uz": "Nechta yong‘oq yeding?",
+   "concept": 1894
+  },
+  {
+   "id": 1895,
+   "topic": 7,
+   "tr": "mercimek",
+   "uz": "yasmiq",
+   "example_tr": "Çok mercimek kalmadı.",
+   "example_uz": "Yasmiq ko‘p qolmadi.",
+   "concept": 1895
+  },
+  {
+   "id": 1896,
+   "topic": 7,
+   "tr": "kuru üzüm",
+   "uz": "mayiz",
+   "example_tr": "Keke kuru üzüm koydun mu?",
+   "example_uz": "Pirogga mayiz soldingmi?",
+   "concept": 1896
+  },
+  {
+   "id": 1897,
+   "topic": 7,
+   "tr": "ekşi krema",
+   "uz": "smetana, qaymoq",
+   "example_tr": "Hiç ekşi krema kalmadı.",
+   "example_uz": "Smetana qolmadi.",
+   "concept": 1897
+  },
+  {
+   "id": 1898,
+   "topic": 7,
+   "tr": "lor peyniri",
+   "uz": "tvorog, suzma",
+   "example_tr": "Biraz lor peyniri yedim.",
+   "example_uz": "Men biroz tvorog yedim.",
+   "concept": 1898
+  },
+  {
+   "id": 1899,
+   "topic": 7,
+   "tr": "ketçap",
+   "uz": "ketchup",
+   "example_tr": "Buzdolabında bol ketçap var.",
+   "example_uz": "Muzlatkichda ketchup mo‘l.",
+   "concept": 1899
+  },
+  {
+   "id": 1900,
+   "topic": 7,
+   "tr": "yeşillik",
+   "uz": "ko‘katlar",
+   "example_tr": "Birkaç çeşit yeşillik yetiştirdim.",
+   "example_uz": "Men bir oz ko‘kat yetishtirdim.",
+   "concept": 1900
+  },
+  {
+   "id": 1901,
+   "topic": 7,
+   "tr": "yulaf lapası",
+   "uz": "bo‘tqa",
+   "example_tr": "Ocaktan beri her sabah yulaf lapası yiyorum.",
+   "example_uz": "Yanvardan beri har kuni ertalab bo‘tqa yeyman.",
+   "concept": 1901
+  },
+  {
+   "id": 1902,
+   "topic": 7,
+   "tr": "maden suyu",
+   "uz": "mineral suv",
+   "example_tr": "Çok maden suyu içtik.",
+   "example_uz": "Biz ko‘p mineral suv ichdik.",
+   "concept": 1902
+  },
+  {
+   "id": 1903,
+   "topic": 7,
+   "tr": "alışveriş listesi",
+   "uz": "xaridlar ro‘yxati",
+   "example_tr": "Alışveriş listesi yaptın mı?",
+   "example_uz": "Xaridlar ro‘yxatini tuzdingmi?",
+   "concept": 1903
+  },
+  {
+   "id": 1904,
+   "topic": 7,
+   "tr": "son kullanma tarihi",
+   "uz": "yaroqlilik muddati",
+   "example_tr": "Son kullanma tarihine baktın mı?",
+   "example_uz": "Yaroqlilik muddatini tekshirdingmi?",
+   "concept": 1904
+  },
+  {
+   "id": 1905,
+   "topic": 7,
+   "tr": "bitmek (stok)",
+   "uz": "tugab qolmoq (zaxira)",
+   "example_tr": "Tuzumuz bitti.",
+   "example_uz": "Bizda tuz tugab qoldi.",
+   "concept": 1905
+  },
+  {
+   "id": 1906,
+   "topic": 8,
+   "tr": "vejetaryen",
+   "uz": "vegetarian",
+   "example_tr": "Kız kardeşim bir yıldır vejetaryen.",
+   "example_uz": "Singlim bir yildan beri vegetarian.",
+   "concept": 1906
+  },
+  {
+   "id": 1907,
+   "topic": 8,
+   "tr": "fast food",
+   "uz": "fastfud",
+   "example_tr": "Bir aydır fast food yemedim.",
+   "example_uz": "Bir oydan beri fastfud yemadim.",
+   "concept": 1907
+  },
+  {
+   "id": 1908,
+   "topic": 8,
+   "tr": "ev yapımı",
+   "uz": "uy sharoitida tayyorlangan",
+   "example_tr": "Hiç ev yapımı ekmek denedin mi?",
+   "example_uz": "Hech uyda yopilgan non tatib ko‘rganmisan?",
+   "concept": 1908
+  },
+  {
+   "id": 1909,
+   "topic": 8,
+   "tr": "porsiyon",
+   "uz": "porsiya",
+   "example_tr": "Porsiyonumda çok fazla pilav var.",
+   "example_uz": "Mening porsiyamda guruch juda ko‘p.",
+   "concept": 1909
+  },
+  {
+   "id": 1910,
+   "topic": 8,
+   "tr": "artık yemek",
+   "uz": "ovqat qoldiqlari",
+   "example_tr": "Bütün artık yemekleri yedik.",
+   "example_uz": "Biz barcha ovqat qoldiqlarini yeb tugatdik.",
+   "concept": 1910
+  },
+  {
+   "id": 1911,
+   "topic": 8,
+   "tr": "iştah",
+   "uz": "ishtaha",
+   "example_tr": "Son zamanlarda pek iştahım yok.",
+   "example_uz": "So‘nggi paytlarda ishtaham yaxshi emas.",
+   "concept": 1911
+  },
+  {
+   "id": 1912,
+   "topic": 8,
+   "tr": "atlamak (öğün)",
+   "uz": "tashlab ketmoq (ovqatni)",
+   "example_tr": "Yine kahvaltıyı atladım.",
+   "example_uz": "Men yana nonushta qilmadim.",
+   "concept": 1912
+  },
+  {
+   "id": 1913,
+   "topic": 8,
+   "tr": "acılı",
+   "uz": "achchiq (ziravorli)",
+   "example_tr": "Acılı yemeği hiç sevmedim.",
+   "example_uz": "Men hech qachon achchiq ovqatni yoqtirmaganman.",
+   "concept": 1913
+  },
+  {
+   "id": 1914,
+   "topic": 8,
+   "tr": "tuzlu",
+   "uz": "sho‘r",
+   "example_tr": "Çok fazla tuz koydun, yemek tuzlu oldu.",
+   "example_uz": "Sen juda ko‘p tuz solding, ovqat sho‘r bo‘lib qoldi.",
+   "concept": 1914
+  },
+  {
+   "id": 1915,
+   "topic": 8,
+   "tr": "ekşi",
+   "uz": "nordon",
+   "example_tr": "Süt ekşidi.",
+   "example_uz": "Sut achib qoldi.",
+   "concept": 1915
+  },
+  {
+   "id": 1916,
+   "topic": 8,
+   "tr": "lezzetli",
+   "uz": "mazali",
+   "example_tr": "Çok lezzetli bir akşam yemeği pişirdin!",
+   "example_uz": "Sen juda mazali kechki ovqat tayyorlading!",
+   "concept": 1916
+  },
+  {
+   "id": 1917,
+   "topic": 8,
+   "tr": "çiğ",
+   "uz": "xom",
+   "example_tr": "Hiç çiğ balık yedin mi?",
+   "example_uz": "Hech xom baliq yeganmisan?",
+   "concept": 1917
+  },
+  {
+   "id": 1918,
+   "topic": 8,
+   "tr": "kızarmış",
+   "uz": "qovurilgan",
+   "example_tr": "Çok fazla kızartma yedim.",
+   "example_uz": "Men juda ko‘p qovurilgan ovqat yedim.",
+   "concept": 1918
+  },
+  {
+   "id": 1919,
+   "topic": 8,
+   "tr": "buharda pişmiş",
+   "uz": "bug‘da pishirilgan",
+   "example_tr": "Bu hafta sadece buharda pişmiş sebze yedim.",
+   "example_uz": "Bu hafta men faqat bug‘da pishirilgan sabzavot yedim.",
+   "concept": 1919
+  },
+  {
+   "id": 1920,
+   "topic": 8,
+   "tr": "tat, aroma",
+   "uz": "ta’m",
+   "example_tr": "Birkaç yeni tat denedik.",
+   "example_uz": "Biz bir nechta yangi ta’mlarni tatib ko‘rdik.",
+   "concept": 1920
+  },
+  {
+   "id": 1921,
+   "topic": 9,
+   "tr": "bozuk",
+   "uz": "buzilgan, singan",
+   "example_tr": "Çamaşır makinesi bir haftadır bozuk.",
+   "example_uz": "Kir yuvish mashinasi bir haftadan beri buzuq.",
+   "concept": 1921
+  },
+  {
+   "id": 1922,
+   "topic": 9,
+   "tr": "akıtmak, sızdırmak",
+   "uz": "oqmoq, chakka o‘tmoq",
+   "example_tr": "Fırtınadan beri çatı akıtıyor.",
+   "example_uz": "Bo‘rondan beri tomdan chakka o‘tyapti.",
+   "concept": 1922
+  },
+  {
+   "id": 1923,
+   "topic": 9,
+   "tr": "tamir etmek",
+   "uz": "tuzatmoq",
+   "example_tr": "Musluğu tamir ettin mi?",
+   "example_uz": "Jumrakni tuzatdingmi?",
+   "concept": 1923
+  },
+  {
+   "id": 1924,
+   "topic": 9,
+   "tr": "tesisatçı",
+   "uz": "santexnik",
+   "example_tr": "Tesisatçı henüz gelmedi.",
+   "example_uz": "Santexnik hali kelmadi.",
+   "concept": 1924
+  },
+  {
+   "id": 1925,
+   "topic": 9,
+   "tr": "elektrikçi",
+   "uz": "elektrik",
+   "example_tr": "Bir elektrikçi çağırdık.",
+   "example_uz": "Biz elektrik chaqirdik.",
+   "concept": 1925
+  },
+  {
+   "id": 1926,
+   "topic": 9,
+   "tr": "ampul",
+   "uz": "lampochka",
+   "example_tr": "Ampulü değiştirdim.",
+   "example_uz": "Men lampochkani almashtirdim.",
+   "concept": 1926
+  },
+  {
+   "id": 1927,
+   "topic": 9,
+   "tr": "çatlak",
+   "uz": "yoriq",
+   "example_tr": "Duvarda yıllardır bir çatlak var.",
+   "example_uz": "Devorda ko‘p yillardan beri yoriq bor.",
+   "concept": 1927
+  },
+  {
+   "id": 1928,
+   "topic": 9,
+   "tr": "tıkalı",
+   "uz": "tiqilib qolgan",
+   "example_tr": "Lavabo sabahtan beri tıkalı.",
+   "example_uz": "Rakovina ertalabdan beri tiqilib qolgan.",
+   "concept": 1928
+  },
+  {
+   "id": 1929,
+   "topic": 9,
+   "tr": "duvar kâğıdı",
+   "uz": "gulqog‘oz",
+   "example_tr": "Az önce yeni duvar kâğıdı yapıştırdık.",
+   "example_uz": "Biz hozirgina yangi gulqog‘oz yopishtirdik.",
+   "concept": 1929
+  },
+  {
+   "id": 1930,
+   "topic": 9,
+   "tr": "tornavida",
+   "uz": "otvyortka",
+   "example_tr": "Tornavidamı gördün mü?",
+   "example_uz": "Otvyortkamni ko‘rmadingmi?",
+   "concept": 1930
+  },
+  {
+   "id": 1931,
+   "topic": 9,
+   "tr": "elektrik kesintisi",
+   "uz": "elektr uzilishi",
+   "example_tr": "Bu hafta üç kez elektrik kesildi.",
+   "example_uz": "Bu hafta elektr uch marta o‘chdi.",
+   "concept": 1931
+  },
+  {
+   "id": 1932,
+   "topic": 9,
+   "tr": "priz",
+   "uz": "rozetka",
+   "example_tr": "Bu priz aylardır çalışmıyor.",
+   "example_uz": "Bu rozetka bir necha oydan beri ishlamaydi.",
+   "concept": 1932
+  },
+  {
+   "id": 1933,
+   "topic": 9,
+   "tr": "küf",
+   "uz": "mog‘or",
+   "example_tr": "Banyoda biraz küf oluştu.",
+   "example_uz": "Vannaxonada biroz mog‘or paydo bo‘ldi.",
+   "concept": 1933
+  },
+  {
+   "id": 1934,
+   "topic": 9,
+   "tr": "değiştirmek",
+   "uz": "almashtirmoq",
+   "example_tr": "Eski pencereyi değiştirdik.",
+   "example_uz": "Biz eski derazani almashtirdik.",
+   "concept": 1934
+  },
+  {
+   "id": 1935,
+   "topic": 9,
+   "tr": "arızalı",
+   "uz": "ishlamaydi, nosoz",
+   "example_tr": "Asansör cumadan beri arızalı.",
+   "example_uz": "Lift jumadan beri ishlamayapti.",
+   "concept": 1935
+  },
+  {
+   "id": 1936,
+   "topic": 10,
+   "tr": "çamaşır makinesi",
+   "uz": "kir yuvish mashinasi",
+   "example_tr": "Çamaşır makinesini çalıştırdın mı?",
+   "example_uz": "Kir yuvish mashinasini yoqdingmi?",
+   "concept": 1936
+  },
+  {
+   "id": 1937,
+   "topic": 10,
+   "tr": "bulaşık makinesi",
+   "uz": "idish yuvish mashinasi",
+   "example_tr": "Geçen yıldan beri bulaşık makinemiz var.",
+   "example_uz": "O‘tgan yildan beri bizda idish yuvish mashinasi bor.",
+   "concept": 1937
+  },
+  {
+   "id": 1938,
+   "topic": 10,
+   "tr": "saç kurutma makinesi",
+   "uz": "fen",
+   "example_tr": "Saç kurutma makinemi gördün mü?",
+   "example_uz": "Fenimni ko‘rmadingmi?",
+   "concept": 1938
+  },
+  {
+   "id": 1939,
+   "topic": 10,
+   "tr": "ekmek kızartma makinesi",
+   "uz": "toster",
+   "example_tr": "Ekmek kızartma makinesi yine ekmeğimi yaktı.",
+   "example_uz": "Toster yana nonimni kuydirib qo‘ydi.",
+   "concept": 1939
+  },
+  {
+   "id": 1940,
+   "topic": 10,
+   "tr": "blender",
+   "uz": "blender",
+   "example_tr": "Blenderı birkaç kez kullandım.",
+   "example_uz": "Men blenderdan bir necha marta foydalandim.",
+   "concept": 1940
+  },
+  {
+   "id": 1941,
+   "topic": 10,
+   "tr": "klima",
+   "uz": "konditsioner",
+   "example_tr": "Klima bütün gün çalışıyor.",
+   "example_uz": "Konditsioner kun bo‘yi ishlayapti.",
+   "concept": 1941
+  },
+  {
+   "id": 1942,
+   "topic": 10,
+   "tr": "vantilatör",
+   "uz": "ventilyator",
+   "example_tr": "Yeni bir vantilatör aldık.",
+   "example_uz": "Biz yangi ventilyator sotib oldik.",
+   "concept": 1942
+  },
+  {
+   "id": 1943,
+   "topic": 10,
+   "tr": "kahve makinesi",
+   "uz": "qahva mashinasi",
+   "example_tr": "Kahve makinesini kimse temizledi mi?",
+   "example_uz": "Kimdir qahva mashinasini tozaladimi?",
+   "concept": 1943
+  },
+  {
+   "id": 1944,
+   "topic": 10,
+   "tr": "fiş",
+   "uz": "vilka (elektr)",
+   "example_tr": "Fişi prizden çektin mi?",
+   "example_uz": "Vilkani rozetkadan sug‘urdingmi?",
+   "concept": 1944
+  },
+  {
+   "id": 1945,
+   "topic": 10,
+   "tr": "fişini çekmek",
+   "uz": "rozetkadan uzmoq",
+   "example_tr": "Televizyonun fişini çektim.",
+   "example_uz": "Men televizorni rozetkadan uzdim.",
+   "concept": 1945
+  },
+  {
+   "id": 1946,
+   "topic": 10,
+   "tr": "ayar",
+   "uz": "sozlama",
+   "example_tr": "Ayarları değiştirdin mi?",
+   "example_uz": "Sozlamalarni o‘zgartirdingmi?",
+   "concept": 1946
+  },
+  {
+   "id": 1947,
+   "topic": 10,
+   "tr": "garanti",
+   "uz": "kafolat",
+   "example_tr": "Garanti henüz bitmedi.",
+   "example_uz": "Kafolat hali tugamadi.",
+   "concept": 1947
+  },
+  {
+   "id": 1948,
+   "topic": 10,
+   "tr": "cihaz",
+   "uz": "qurilma",
+   "example_tr": "Evinde kaç cihaz var?",
+   "example_uz": "Uyingda nechta qurilma bor?",
+   "concept": 1948
+  },
+  {
+   "id": 1949,
+   "topic": 10,
+   "tr": "şofben",
+   "uz": "suv isitgich",
+   "example_tr": "Şofben çalışmayı bıraktı.",
+   "example_uz": "Suv isitgich ishlamay qoldi.",
+   "concept": 1949
+  },
+  {
+   "id": 1950,
+   "topic": 10,
+   "tr": "dikiş makinesi",
+   "uz": "tikuv mashinasi",
+   "example_tr": "Annemin bu dikiş makinesi yıllardır var.",
+   "example_uz": "Oyimda bu tikuv mashinasi ko‘p yillardan beri bor.",
+   "concept": 1950
+  },
+  {
+   "id": 1951,
+   "topic": 11,
+   "tr": "yaşlanmak",
+   "uz": "qarimoq, yoshi ulg‘aymoq",
+   "example_tr": "Annemle babam yaşlandı.",
+   "example_uz": "Ota-onam qarib qolishdi.",
+   "concept": 1951
+  },
+  {
+   "id": 1952,
+   "topic": 11,
+   "tr": "artmak",
+   "uz": "o‘smoq, oshmoq",
+   "example_tr": "Fiyatlar çok arttı.",
+   "example_uz": "Narxlar ancha oshdi.",
+   "concept": 1952
+  },
+  {
+   "id": 1953,
+   "topic": 11,
+   "tr": "azalmak",
+   "uz": "kamaymoq",
+   "example_tr": "Turist sayısı azaldı.",
+   "example_uz": "Sayyohlar soni kamaydi.",
+   "concept": 1953
+  },
+  {
+   "id": 1954,
+   "topic": 11,
+   "tr": "kötüleşmek",
+   "uz": "yomonlashmoq",
+   "example_tr": "Hava kötüleşti.",
+   "example_uz": "Ob-havo yomonlashdi.",
+   "concept": 1954
+  },
+  {
+   "id": 1955,
+   "topic": 11,
+   "tr": "modern",
+   "uz": "zamonaviy",
+   "example_tr": "Kasabamız çok modern oldu.",
+   "example_uz": "Shahrimiz juda zamonaviy bo‘lib ketdi.",
+   "concept": 1955
+  },
+  {
+   "id": 1956,
+   "topic": 11,
+   "tr": "eski moda",
+   "uz": "eskicha, eskirgan",
+   "example_tr": "Telefonum eski moda oldu.",
+   "example_uz": "Telefonim eskirib qoldi.",
+   "concept": 1956
+  },
+  {
+   "id": 1957,
+   "topic": 11,
+   "tr": "gelişmek",
+   "uz": "rivojlanmoq",
+   "example_tr": "Şehir hızla gelişti.",
+   "example_uz": "Shahar tez rivojlandi.",
+   "concept": 1957
+  },
+  {
+   "id": 1958,
+   "topic": 11,
+   "tr": "kaybolmak, yok olmak",
+   "uz": "g‘oyib bo‘lmoq",
+   "example_tr": "Anahtarlarım kayboldu!",
+   "example_uz": "Kalitlarim g‘oyib bo‘ldi!",
+   "concept": 1958
+  },
+  {
+   "id": 1959,
+   "topic": 11,
+   "tr": "ortaya çıkmak",
+   "uz": "paydo bo‘lmoq",
+   "example_tr": "Sokağımızda yeni bir kafe ortaya çıktı.",
+   "example_uz": "Ko‘chamizda yangi kafe paydo bo‘ldi.",
+   "concept": 1959
+  },
+  {
+   "id": 1960,
+   "topic": 11,
+   "tr": "düşmek",
+   "uz": "tushmoq, pasaymoq",
+   "example_tr": "Sıcaklık düştü.",
+   "example_uz": "Harorat pasaydi.",
+   "concept": 1960
+  },
+  {
+   "id": 1961,
+   "topic": 11,
+   "tr": "günümüzde",
+   "uz": "hozirgi kunda",
+   "example_tr": "Günümüzde az insan mektup gönderiyor.",
+   "example_uz": "Hozirgi kunda kam odam xat yuboradi.",
+   "concept": 1961
+  },
+  {
+   "id": 1962,
+   "topic": 11,
+   "tr": "yeniden inşa etmek",
+   "uz": "qayta qurmoq",
+   "example_tr": "Eski köprüyü yeniden inşa ettiler.",
+   "example_uz": "Eski ko‘prikni qayta qurishdi.",
+   "concept": 1962
+  },
+  {
+   "id": 1963,
+   "topic": 11,
+   "tr": "uyum sağlamak",
+   "uz": "moslashmoq",
+   "example_tr": "Yeni okula uyum sağladın mı?",
+   "example_uz": "Yangi maktabga moslashdingmi?",
+   "concept": 1963
+  },
+  {
+   "id": 1964,
+   "topic": 11,
+   "tr": "alışmak",
+   "uz": "ko‘nikmoq",
+   "example_tr": "Soğuk havaya alıştım.",
+   "example_uz": "Men sovuq havoga ko‘nikdim.",
+   "concept": 1964
+  },
+  {
+   "id": 1965,
+   "topic": 11,
+   "tr": "nüfus",
+   "uz": "aholi",
+   "example_tr": "Nüfus hızla arttı.",
+   "example_uz": "Aholi tez o‘sdi.",
+   "concept": 1965
+  },
+  {
+   "id": 1966,
+   "topic": 12,
+   "tr": "gezi",
+   "uz": "safar",
+   "example_tr": "Gezin iyi geçti mi?",
+   "example_uz": "Safaring yaxshi o‘tdimi?",
+   "concept": 1966
+  },
+  {
+   "id": 1967,
+   "topic": 12,
+   "tr": "gezip görmek",
+   "uz": "diqqatga sazovor joylarni ko‘rish",
+   "example_tr": "Birçok yeri gezip gördük.",
+   "example_uz": "Biz ko‘plab diqqatga sazovor joylarni ko‘rdik.",
+   "concept": 1967
+  },
+  {
+   "id": 1968,
+   "topic": 12,
+   "tr": "hediyelik eşya",
+   "uz": "esdalik sovg‘a, suvenir",
+   "example_tr": "Birkaç hediyelik eşya aldım.",
+   "example_uz": "Men bir nechta suvenir sotib oldim.",
+   "concept": 1968
+  },
+  {
+   "id": 1969,
+   "topic": 12,
+   "tr": "turist",
+   "uz": "sayyoh",
+   "example_tr": "Bu yaz çok turist vardı.",
+   "example_uz": "Bu yoz sayyohlar ko‘p bo‘ldi.",
+   "concept": 1969
+  },
+  {
+   "id": 1970,
+   "topic": 12,
+   "tr": "rehber",
+   "uz": "gid",
+   "example_tr": "Rehberimiz bize eski şehri gösterdi.",
+   "example_uz": "Gidimiz bizga eski shaharni ko‘rsatdi.",
+   "concept": 1970
+  },
+  {
+   "id": 1971,
+   "topic": 12,
+   "tr": "vize",
+   "uz": "viza",
+   "example_tr": "Vizeni aldın mı?",
+   "example_uz": "Vizangni oldingmi?",
+   "concept": 1971
+  },
+  {
+   "id": 1972,
+   "topic": 12,
+   "tr": "yabancı",
+   "uz": "xorijiy, chet el",
+   "example_tr": "Hiç yabancı bir ülkede yaşadın mı?",
+   "example_uz": "Hech chet elda yashaganmisan?",
+   "concept": 1972
+  },
+  {
+   "id": 1973,
+   "topic": 12,
+   "tr": "döviz",
+   "uz": "valyuta",
+   "example_tr": "Döviz bozdurdun mu?",
+   "example_uz": "Valyuta almashtirdingmi?",
+   "concept": 1973
+  },
+  {
+   "id": 1974,
+   "topic": 12,
+   "tr": "jet lag",
+   "uz": "soat mintaqasi o‘zgarishidan charchash",
+   "example_tr": "İki gündür jet lag yaşıyorum.",
+   "example_uz": "Ikki kundan beri soat mintaqasi o‘zgarishiga ko‘nika olmayapman.",
+   "concept": 1974
+  },
+  {
+   "id": 1975,
+   "topic": 12,
+   "tr": "seyahat acentesi",
+   "uz": "turistik agentlik",
+   "example_tr": "Turu bir seyahat acentesinden ayırttık.",
+   "example_uz": "Biz turni turistik agentlik orqali band qildik.",
+   "concept": 1975
+  },
+  {
+   "id": 1976,
+   "topic": 12,
+   "tr": "tur",
+   "uz": "ekskursiya, tur",
+   "example_tr": "Hiç şehir turuna katıldın mı?",
+   "example_uz": "Hech shahar bo‘ylab ekskursiyada bo‘lganmisan?",
+   "concept": 1976
+  },
+  {
+   "id": 1977,
+   "topic": 12,
+   "tr": "plaj",
+   "uz": "plyaj",
+   "example_tr": "Her günü plajda geçirdik.",
+   "example_uz": "Biz har kuni plyajda bo‘ldik.",
+   "concept": 1977
+  },
+  {
+   "id": 1978,
+   "topic": 12,
+   "tr": "güneş yanığı",
+   "uz": "quyoshda kuyish",
+   "example_tr": "Güneşte yandım!",
+   "example_uz": "Men quyoshda kuyib qoldim!",
+   "concept": 1978
+  },
+  {
+   "id": 1979,
+   "topic": 12,
+   "tr": "bavul hazırlamak",
+   "uz": "narsalarni yig‘moq",
+   "example_tr": "Çantanı hazırladın mı?",
+   "example_uz": "Sumkangni yig‘ib bo‘ldingmi?",
+   "concept": 1979
+  },
+  {
+   "id": 1980,
+   "topic": 12,
+   "tr": "yerel",
+   "uz": "mahalliy",
+   "example_tr": "Yerel yemekleri denedin mi?",
+   "example_uz": "Mahalliy taomlarni tatib ko‘rdingmi?",
+   "concept": 1980
+  },
+  {
+   "id": 1981,
+   "topic": 13,
+   "tr": "bulutlu",
+   "uz": "bulutli",
+   "example_tr": "Bütün hafta hava bulutluydu.",
+   "example_uz": "Butun hafta havo bulutli.",
+   "concept": 1981
+  },
+  {
+   "id": 1982,
+   "topic": 13,
+   "tr": "rüzgârlı",
+   "uz": "shamolli",
+   "example_tr": "Sabahtan beri hava çok rüzgârlı.",
+   "example_uz": "Ertalabdan beri kuchli shamol esyapti.",
+   "concept": 1982
+  },
+  {
+   "id": 1983,
+   "topic": 13,
+   "tr": "sisli",
+   "uz": "tumanli",
+   "example_tr": "Havalimanında hava sisli miydi?",
+   "example_uz": "Aeroportda tuman bo‘ldimi?",
+   "concept": 1983
+  },
+  {
+   "id": 1984,
+   "topic": 13,
+   "tr": "gök gürültüsü",
+   "uz": "momaqaldiroq",
+   "example_tr": "İki kez gök gürültüsü duyduk.",
+   "example_uz": "Biz ikki marta momaqaldiroq eshitdik.",
+   "concept": 1984
+  },
+  {
+   "id": 1985,
+   "topic": 13,
+   "tr": "yıldırım, şimşek",
+   "uz": "chaqmoq",
+   "example_tr": "Yıldırım yaşlı ağaca düştü.",
+   "example_uz": "Chaqmoq eski daraxtga tushdi.",
+   "concept": 1985
+  },
+  {
+   "id": 1986,
+   "topic": 13,
+   "tr": "sıcak hava dalgası",
+   "uz": "jazirama issiq",
+   "example_tr": "Bütün hafta sıcak hava dalgası vardı.",
+   "example_uz": "Butun hafta jazirama issiq bo‘lyapti.",
+   "concept": 1986
+  },
+  {
+   "id": 1987,
+   "topic": 13,
+   "tr": "don, kırağı",
+   "uz": "qirov, sovuq urishi",
+   "example_tr": "Her gece don oldu.",
+   "example_uz": "Har kecha qirov tushdi.",
+   "concept": 1987
+  },
+  {
+   "id": 1988,
+   "topic": 13,
+   "tr": "buz",
+   "uz": "muz",
+   "example_tr": "Yollar buzla kaplandı.",
+   "example_uz": "Yo‘llar muz bilan qoplangan.",
+   "concept": 1988
+  },
+  {
+   "id": 1989,
+   "topic": 13,
+   "tr": "nemli",
+   "uz": "nam, rutubatli",
+   "example_tr": "Son zamanlarda hava çok nemli.",
+   "example_uz": "So‘nggi paytlarda havo juda nam.",
+   "concept": 1989
+  },
+  {
+   "id": 1990,
+   "topic": 13,
+   "tr": "kuru",
+   "uz": "quruq",
+   "example_tr": "Çok yağmur yağmadı, bu yüzden hava kuru.",
+   "example_uz": "Yomg‘ir kam yog‘di, shuning uchun havo quruq.",
+   "concept": 1990
+  },
+  {
+   "id": 1991,
+   "topic": 13,
+   "tr": "yağmurluk",
+   "uz": "plash, yomg‘irpo‘sh",
+   "example_tr": "Yağmurluğunu aldın mı?",
+   "example_uz": "Yomg‘irpo‘shingni oldingmi?",
+   "concept": 1991
+  },
+  {
+   "id": 1992,
+   "topic": 13,
+   "tr": "su birikintisi",
+   "uz": "ko‘lmak",
+   "example_tr": "Çocuklar her su birikintisine atladı.",
+   "example_uz": "Bolalar har bir ko‘lmakka sakrashdi.",
+   "concept": 1992
+  },
+  {
+   "id": 1993,
+   "topic": 13,
+   "tr": "dolu",
+   "uz": "do‘l",
+   "example_tr": "Bu ilkbaharda iki kez dolu yağdı.",
+   "example_uz": "Bu bahorda ikki marta do‘l yog‘di.",
+   "concept": 1993
+  },
+  {
+   "id": 1994,
+   "topic": 13,
+   "tr": "erimek",
+   "uz": "erimoq",
+   "example_tr": "Kar çoktan eridi.",
+   "example_uz": "Qor allaqachon erib ketdi.",
+   "concept": 1994
+  },
+  {
+   "id": 1995,
+   "topic": 13,
+   "tr": "sıfırın altında",
+   "uz": "noldan past",
+   "example_tr": "Bir haftadır hava sıfırın altında.",
+   "example_uz": "Bir haftadan beri harorat noldan past.",
+   "concept": 1995
+  },
+  {
+   "id": 1996,
+   "topic": 14,
+   "tr": "yalnız",
+   "uz": "yolg‘iz, tanho",
+   "example_tr": "Arkadaşım taşındığından beri kendimi yalnız hissediyorum.",
+   "example_uz": "Do‘stim ko‘chib ketganidan beri o‘zimni yolg‘iz his qilyapman.",
+   "concept": 1996
+  },
+  {
+   "id": 1997,
+   "topic": 14,
+   "tr": "minnettar",
+   "uz": "minnatdor",
+   "example_tr": "Öğretmenime her zaman minnettar oldum.",
+   "example_uz": "Men o‘qituvchimdan doim minnatdor bo‘lganman.",
+   "concept": 1997
+  },
+  {
+   "id": 1998,
+   "topic": 14,
+   "tr": "evini özlemiş",
+   "uz": "uyini sog‘ingan",
+   "example_tr": "Hiç evini özledin mi?",
+   "example_uz": "Hech uyingni sog‘inganmisan?",
+   "concept": 1998
+  },
+  {
+   "id": 1999,
+   "topic": 14,
+   "tr": "umutlu",
+   "uz": "umidvor",
+   "example_tr": "Bütün hafta umutluyduk.",
+   "example_uz": "Butun hafta biz umidvor bo‘lib yurdik.",
+   "concept": 1999
+  },
+  {
+   "id": 2000,
+   "topic": 14,
+   "tr": "ruh hâli, keyif",
+   "uz": "kayfiyat",
+   "example_tr": "Bugün keyfin yerinde.",
+   "example_uz": "Bugun kayfiyating yaxshi.",
+   "concept": 2000
+  },
+  {
+   "id": 2001,
+   "topic": 14,
+   "tr": "ağlamak",
+   "uz": "yig‘lamoq",
+   "example_tr": "Bebek bütün gece ağladı.",
+   "example_uz": "Chaqaloq tun bo‘yi yig‘ladi.",
+   "concept": 2001
+  },
+  {
+   "id": 2002,
+   "topic": 14,
+   "tr": "gülmek",
+   "uz": "kulmoq",
+   "example_tr": "Bugün çok güldük.",
+   "example_uz": "Bugun biz ko‘p kuldik.",
+   "concept": 2002
+  },
+  {
+   "id": 2003,
+   "topic": 14,
+   "tr": "korku",
+   "uz": "qo‘rquv",
+   "example_tr": "O yıllardır bu korkuyla yaşıyor.",
+   "example_uz": "U ko‘p yillardan beri shu qo‘rquv bilan yashaydi.",
+   "concept": 2003
+  },
+  {
+   "id": 2004,
+   "topic": 14,
+   "tr": "sevinç",
+   "uz": "quvonch",
+   "example_tr": "Bütün gün yüzleri sevinçle doluydu.",
+   "example_uz": "Kun bo‘yi ularning yuzlari quvonchga to‘la.",
+   "concept": 2004
+  },
+  {
+   "id": 2005,
+   "topic": 14,
+   "tr": "utanmış",
+   "uz": "uyalgan",
+   "example_tr": "Hiç bu kadar utanmadım.",
+   "example_uz": "Men hech qachon bunchalik uyalmaganman.",
+   "concept": 2005
+  },
+  {
+   "id": 2006,
+   "topic": 14,
+   "tr": "mutsuz",
+   "uz": "baxtsiz, g‘amgin",
+   "example_tr": "Sınavdan beri mutsuz.",
+   "example_uz": "Imtihondan beri u g‘amgin yuribdi.",
+   "concept": 2006
+  },
+  {
+   "id": 2007,
+   "topic": 14,
+   "tr": "bıkmış",
+   "uz": "joniga tekkan, to‘ygan",
+   "example_tr": "Bütün hafta bu yağmurdan bıktım.",
+   "example_uz": "Butun hafta bu yomg‘ir joniga tegdi.",
+   "concept": 2007
+  },
+  {
+   "id": 2008,
+   "topic": 14,
+   "tr": "panik yapmak",
+   "uz": "vahimaga tushmoq",
+   "example_tr": "Panik yapma, kötü bir şey olmadı.",
+   "example_uz": "Vahimaga tushma — hech qanday yomon narsa bo‘lmadi.",
+   "concept": 2008
+  },
+  {
+   "id": 2009,
+   "topic": 14,
+   "tr": "sakinleşmek",
+   "uz": "tinchlanmoq",
+   "example_tr": "Sakinleştin mi?",
+   "example_uz": "Tinchlandingmi?",
+   "concept": 2009
+  },
+  {
+   "id": 2010,
+   "topic": 14,
+   "tr": "neşelendirmek",
+   "uz": "ruhlantirmoq, ko‘nglini ko‘tarmoq",
+   "example_tr": "Telefonun beni neşelendirdi.",
+   "example_uz": "Qo‘ng‘irog‘ing ko‘nglimni ko‘tardi.",
+   "concept": 2010
+  },
+  {
+   "id": 2011,
+   "topic": 15,
+   "tr": "alışkanlık",
+   "uz": "odat",
+   "example_tr": "Eskiden kötü bir alışkanlığım vardı.",
+   "example_uz": "Ilgari menda yomon odat bor edi.",
+   "concept": 2011
+  },
+  {
+   "id": 2012,
+   "topic": 15,
+   "tr": "bırakmak (alışkanlık)",
+   "uz": "tashlamoq (odatni)",
+   "example_tr": "Babam sigarayı bıraktı.",
+   "example_uz": "Dadam chekishni tashladi.",
+   "concept": 2012
+  },
+  {
+   "id": 2013,
+   "topic": 15,
+   "tr": "sakız çiğnemek",
+   "uz": "saqich chaynamoq",
+   "example_tr": "Eskiden derste sakız çiğnerdim.",
+   "example_uz": "Ilgari men darsda saqich chaynardim.",
+   "concept": 2013
+  },
+  {
+   "id": 2014,
+   "topic": 15,
+   "tr": "dakik",
+   "uz": "vaqtga rioya qiluvchi, aniq",
+   "example_tr": "O eskiden dakik değildi.",
+   "example_uz": "Ilgari u vaqtga rioya qilmasdi.",
+   "concept": 2014
+  },
+  {
+   "id": 2015,
+   "topic": 15,
+   "tr": "erkenci",
+   "uz": "erta turuvchi (odam)",
+   "example_tr": "Eskiden erkenciydim.",
+   "example_uz": "Ilgari men erta turardim.",
+   "concept": 2015
+  },
+  {
+   "id": 2016,
+   "topic": 15,
+   "tr": "gece kuşu",
+   "uz": "kech yotuvchi (odam)",
+   "example_tr": "Ağabeyim her zaman gece kuşuydu.",
+   "example_uz": "Akam doim kech yotadigan odam bo‘lgan.",
+   "concept": 2016
+  },
+  {
+   "id": 2017,
+   "topic": 15,
+   "tr": "unutkan",
+   "uz": "unutuvchan, esi past",
+   "example_tr": "Dedem eskiden bu kadar unutkan değildi.",
+   "example_uz": "Ilgari bobom bunchalik unutuvchan emas edi.",
+   "concept": 2017
+  },
+  {
+   "id": 2018,
+   "topic": 15,
+   "tr": "horlamak",
+   "uz": "xurrak otmoq",
+   "example_tr": "Baban eskiden horlar mıydı?",
+   "example_uz": "Dadang ilgari xurrak otarmidi?",
+   "concept": 2018
+  },
+  {
+   "id": 2019,
+   "topic": 15,
+   "tr": "bağımlı",
+   "uz": "qaram, mukkasidan ketgan",
+   "example_tr": "O eskiden oyunlara bağımlıydı.",
+   "example_uz": "Ilgari u o‘yinlarga qaram edi.",
+   "concept": 2019
+  },
+  {
+   "id": 2020,
+   "topic": 15,
+   "tr": "ekran süresi",
+   "uz": "ekran oldida o‘tkazilgan vaqt",
+   "example_tr": "Eskiden ekran sürem çok fazlaydı.",
+   "example_uz": "Ilgari men ekran oldida juda ko‘p vaqt o‘tkazardim.",
+   "concept": 2020
+  },
+  {
+   "id": 2021,
+   "topic": 15,
+   "tr": "ekranda gezinmek",
+   "uz": "varaqlamoq (lentani)",
+   "example_tr": "Eskiden saatlerce telefonda gezinirdim.",
+   "example_uz": "Ilgari men soatlab telefonni varaqlardim.",
+   "concept": 2021
+  },
+  {
+   "id": 2022,
+   "topic": 15,
+   "tr": "düzenli olarak",
+   "uz": "muntazam",
+   "example_tr": "Eskiden düzenli olarak spor yapardım.",
+   "example_uz": "Ilgari men muntazam sport bilan shug‘ullanardim.",
+   "concept": 2022
+  },
+  {
+   "id": 2023,
+   "topic": 15,
+   "tr": "her gün",
+   "uz": "har kuni",
+   "example_tr": "Eskiden haberleri her gün okurdum.",
+   "example_uz": "Ilgari men har kuni yangiliklarni o‘qirdim.",
+   "concept": 2023
+  },
+  {
+   "id": 2024,
+   "topic": 15,
+   "tr": "eskiden (-erdi)",
+   "uz": "ilgari (qilardim)",
+   "example_tr": "Eskiden Taşkent’te yaşardım.",
+   "example_uz": "Ilgari men Toshkentda yashardim.",
+   "concept": 2024
+  },
+  {
+   "id": 2025,
+   "topic": 15,
+   "tr": "artık … değil",
+   "uz": "endi … emas",
+   "example_tr": "Artık satranç oynamıyorum ama eskiden oynardım.",
+   "example_uz": "Endi shaxmat o‘ynamayman, lekin ilgari o‘ynardim.",
+   "concept": 2025
+  },
+  {
+   "id": 2026,
+   "topic": 16,
+   "tr": "şimdiye kadar",
+   "uz": "hozircha",
+   "example_tr": "Şimdiye kadar iki kitap okudum.",
+   "example_uz": "Hozircha men ikkita kitob o‘qidim.",
+   "concept": 2026
+  },
+  {
+   "id": 2027,
+   "topic": 16,
+   "tr": "son zamanlarda",
+   "uz": "so‘nggi paytlarda",
+   "example_tr": "Son zamanlarda Kate’i gördün mü?",
+   "example_uz": "So‘nggi paytlarda Keytni ko‘rdingmi?",
+   "concept": 2027
+  },
+  {
+   "id": 2028,
+   "topic": 16,
+   "tr": "o zamandan beri",
+   "uz": "o‘shandan beri",
+   "example_tr": "2015’te buraya taşındım ve o zamandan beri burada yaşıyorum.",
+   "example_uz": "Men bu yerga 2015-yilda ko‘chib keldim va o‘shandan beri shu yerda yashayman.",
+   "concept": 2028
+  },
+  {
+   "id": 2029,
+   "topic": 16,
+   "tr": "şu ana kadar",
+   "uz": "hozirgacha",
+   "example_tr": "Şu ana kadar her şey yolunda gitti.",
+   "example_uz": "Hozirgacha hammasi yaxshi bo‘ldi.",
+   "concept": 2029
+  },
+  {
+   "id": 2030,
+   "topic": 16,
+   "tr": "uzun zamandır",
+   "uz": "uzoq vaqt, bir umr",
+   "example_tr": "Seni uzun zamandır görmedim!",
+   "example_uz": "Seni ko‘rmaganimga ancha bo‘ldi!",
+   "concept": 2030
+  },
+  {
+   "id": 2031,
+   "topic": 16,
+   "tr": "o günden beri",
+   "uz": "o‘shandan beri",
+   "example_tr": "O günden beri Londra’da yaşıyor.",
+   "example_uz": "U o‘shandan beri Londonda yashaydi.",
+   "concept": 2031
+  },
+  {
+   "id": 2032,
+   "topic": 16,
+   "tr": "bütün hayatım boyunca",
+   "uz": "butun umr",
+   "example_tr": "Bütün hayatım boyunca burada yaşadım.",
+   "example_uz": "Men butun umrim shu yerda yashayman.",
+   "concept": 2032
+  },
+  {
+   "id": 2033,
+   "topic": 16,
+   "tr": "bu ay",
+   "uz": "shu oy",
+   "example_tr": "Bu ay çok yağmur yağdı.",
+   "example_uz": "Shu oy ko‘p yomg‘ir yog‘di.",
+   "concept": 2033
+  },
+  {
+   "id": 2034,
+   "topic": 16,
+   "tr": "iki kez",
+   "uz": "ikki marta",
+   "example_tr": "Semerkant’a iki kez gittim.",
+   "example_uz": "Men Samarqandda ikki marta bo‘lganman.",
+   "concept": 2034
+  },
+  {
+   "id": 2035,
+   "topic": 16,
+   "tr": "birçok kez",
+   "uz": "ko‘p marta",
+   "example_tr": "Sana birçok kez söyledim!",
+   "example_uz": "Men senga ko‘p marta aytganman!",
+   "concept": 2035
+  },
+  {
+   "id": 2036,
+   "topic": 16,
+   "tr": "ilk kez",
+   "uz": "birinchi marta",
+   "example_tr": "İlk kez uçağa biniyorum.",
+   "example_uz": "Men birinchi marta samolyotda uchyapman.",
+   "concept": 2036
+  },
+  {
+   "id": 2037,
+   "topic": 16,
+   "tr": "bir süre",
+   "uz": "bir muddat",
+   "example_tr": "Bir süredir hiçbir şey yemedim.",
+   "example_uz": "Bir muddatdan beri hech narsa yemadim.",
+   "concept": 2037
+  },
+  {
+   "id": 2038,
+   "topic": 16,
+   "tr": "ne zamandır",
+   "uz": "qancha vaqt(dan beri)",
+   "example_tr": "Ne zamandır burada yaşıyorsun?",
+   "example_uz": "Bu yerda qancha vaqtdan beri yashaysan?",
+   "concept": 2038
+  },
+  {
+   "id": 2039,
+   "topic": 16,
+   "tr": "son birkaç gündür",
+   "uz": "so‘nggi bir necha kun ichida",
+   "example_tr": "Son birkaç gündür az uyudum.",
+   "example_uz": "So‘nggi bir necha kun ichida kam uxladim.",
+   "concept": 2039
+  },
+  {
+   "id": 2040,
+   "topic": 16,
+   "tr": "yıllar içinde",
+   "uz": "yillar davomida",
+   "example_tr": "Şehir yıllar içinde değişti.",
+   "example_uz": "Yillar davomida shahar o‘zgardi.",
+   "concept": 2040
+  },
+  {
+   "id": 2041,
+   "topic": 17,
+   "tr": "bol bol",
+   "uz": "mo‘l-ko‘l, yetarlicha",
+   "example_tr": "Bol bol zamanımız vardı.",
+   "example_uz": "Bizda vaqt mo‘l edi.",
+   "concept": 2041
+  },
+  {
+   "id": 2042,
+   "topic": 17,
+   "tr": "bir sürü",
+   "uz": "ko‘p",
+   "example_tr": "Bir sürü yeni arkadaş edindim.",
+   "example_uz": "Men ko‘plab yangi do‘stlar orttirdim.",
+   "concept": 2042
+  },
+  {
+   "id": 2043,
+   "topic": 17,
+   "tr": "hiçbiri",
+   "uz": "hech biri",
+   "example_tr": "Arkadaşlarımın hiçbiri aramadı.",
+   "example_uz": "Do‘stlarimdan hech biri qo‘ng‘iroq qilmadi.",
+   "concept": 2043
+  },
+  {
+   "id": 2044,
+   "topic": 17,
+   "tr": "çoğu",
+   "uz": "ko‘pchilik",
+   "example_tr": "Öğrencilerin çoğu sınavı geçti.",
+   "example_uz": "Talabalarning ko‘pchiligi testdan o‘tdi.",
+   "concept": 2044
+  },
+  {
+   "id": 2045,
+   "topic": 17,
+   "tr": "neredeyse hiç",
+   "uz": "deyarli yo‘q",
+   "example_tr": "Neredeyse hiç süt kalmadı.",
+   "example_uz": "Sut deyarli qolmadi.",
+   "concept": 2045
+  },
+  {
+   "id": 2046,
+   "topic": 17,
+   "tr": "bir iki, birkaç",
+   "uz": "bir-ikkita, bir nechta",
+   "example_tr": "Bir iki bölüm okudum.",
+   "example_uz": "Men bir-ikkita bobni o‘qidim.",
+   "concept": 2046
+  },
+  {
+   "id": 2047,
+   "topic": 17,
+   "tr": "bir kısım, birçok",
+   "uz": "bir qancha, bir nechta",
+   "example_tr": "Birçok kişi şikâyet etti.",
+   "example_uz": "Bir qancha odam shikoyat qildi.",
+   "concept": 2047
+  },
+  {
+   "id": 2048,
+   "topic": 17,
+   "tr": "çok miktarda",
+   "uz": "juda ko‘p (sanalmaydigan)",
+   "example_tr": "Çok miktarda para harcadık.",
+   "example_uz": "Biz juda ko‘p pul sarfladik.",
+   "concept": 2048
+  },
+  {
+   "id": 2049,
+   "topic": 17,
+   "tr": "ikisinden biri",
+   "uz": "ikkisidan istalgani",
+   "example_tr": "İki otobüsten birine binebilirsin.",
+   "example_uz": "Ikkala avtobusdan istalganiga chiqishing mumkin.",
+   "concept": 2049
+  },
+  {
+   "id": 2050,
+   "topic": 17,
+   "tr": "ikisi de … değil",
+   "uz": "ikkisidan hech biri",
+   "example_tr": "İkimiz de oraya gitmedik.",
+   "example_uz": "Ikkalamiz ham u yerda bo‘lmaganmiz.",
+   "concept": 2050
+  },
+  {
+   "id": 2051,
+   "topic": 17,
+   "tr": "bütün",
+   "uz": "butun, yaxlit",
+   "example_tr": "Bütün evi temizledim.",
+   "example_uz": "Men butun uyni tozaladim.",
+   "concept": 2051
+  },
+  {
+   "id": 2052,
+   "topic": 17,
+   "tr": "biraz",
+   "uz": "ozgina",
+   "example_tr": "Bugün biraz şanslıydım.",
+   "example_uz": "Bugun menga biroz omad kuldi.",
+   "concept": 2052
+  },
+  {
+   "id": 2053,
+   "topic": 17,
+   "tr": "çok fazla (sayılamayan)",
+   "uz": "haddan tashqari ko‘p (sanalmaydigan)",
+   "example_tr": "Çok fazla pasta yedin.",
+   "example_uz": "Sen haddan tashqari ko‘p tort yeding.",
+   "concept": 2053
+  },
+  {
+   "id": 2054,
+   "topic": 17,
+   "tr": "çok fazla (sayılabilen)",
+   "uz": "haddan tashqari ko‘p (sanaladigan)",
+   "example_tr": "Çok fazla hata oldu.",
+   "example_uz": "Juda ko‘p xatolar bo‘ldi.",
+   "concept": 2054
+  },
+  {
+   "id": 2055,
+   "topic": 17,
+   "tr": "hiç kimse",
+   "uz": "hech kim",
+   "example_tr": "Bugün beni hiç kimse aramadı.",
+   "example_uz": "Bugun menga hech kim qo‘ng‘iroq qilmadi.",
+   "concept": 2055
+  },
+  {
+   "id": 2056,
+   "topic": 18,
+   "tr": "uygun fiyatlı",
+   "uz": "hamyonbop",
+   "example_tr": "Buradaki daireler artık o kadar uygun fiyatlı değil.",
+   "example_uz": "Bu yerdagi kvartiralar kamroq hamyonbop bo‘lib qoldi.",
+   "concept": 2056
+  },
+  {
+   "id": 2057,
+   "topic": 18,
+   "tr": "fiyat etiketi",
+   "uz": "narx yorlig‘i",
+   "example_tr": "Fiyat etiketini gördün mü?",
+   "example_uz": "Narx yorlig‘ini ko‘rdingmi?",
+   "concept": 2057
+  },
+  {
+   "id": 2058,
+   "topic": 18,
+   "tr": "kelepir",
+   "uz": "foydali xarid",
+   "example_tr": "Gerçek bir kelepir buldum!",
+   "example_uz": "Men juda foydali xarid topdim!",
+   "concept": 2058
+  },
+  {
+   "id": 2059,
+   "topic": 18,
+   "tr": "para iadesi",
+   "uz": "pulni qaytarish",
+   "example_tr": "Sana para iadesi yaptılar mı?",
+   "example_uz": "Senga pulingni qaytarishdimi?",
+   "concept": 2059
+  },
+  {
+   "id": 2060,
+   "topic": 18,
+   "tr": "fazla pahalı",
+   "uz": "haddan tashqari qimmat",
+   "example_tr": "Burada her şey fazla pahalı oldu.",
+   "example_uz": "Bu yerda hamma narsa haddan tashqari qimmat bo‘lib ketdi.",
+   "concept": 2060
+  },
+  {
+   "id": 2061,
+   "topic": 18,
+   "tr": "geri ödemek",
+   "uz": "qaytarib bermoq (qarzni)",
+   "example_tr": "Parayı geri ödedin mi?",
+   "example_uz": "Pulni qaytarib berdingmi?",
+   "concept": 2061
+  },
+  {
+   "id": 2062,
+   "topic": 18,
+   "tr": "internetten alışveriş",
+   "uz": "onlayn xaridlar",
+   "example_tr": "Çok fazla internetten alışveriş yaptım.",
+   "example_uz": "Men ko‘p onlayn xarid qildim.",
+   "concept": 2062
+  },
+  {
+   "id": 2063,
+   "topic": 18,
+   "tr": "teslimat",
+   "uz": "yetkazib berish",
+   "example_tr": "Teslimat henüz gelmedi.",
+   "example_uz": "Buyurtma hali yetib kelmadi.",
+   "concept": 2063
+  },
+  {
+   "id": 2064,
+   "topic": 18,
+   "tr": "ücretsiz",
+   "uz": "bepul",
+   "example_tr": "Teslimat her zaman ücretsizdi.",
+   "example_uz": "Yetkazib berish doim bepul bo‘lgan.",
+   "concept": 2064
+  },
+  {
+   "id": 2065,
+   "topic": 18,
+   "tr": "PIN kodu",
+   "uz": "PIN-kod",
+   "example_tr": "PIN kodumu unuttum.",
+   "example_uz": "Men PIN-kodimni unutib qo‘ydim.",
+   "concept": 2065
+  },
+  {
+   "id": 2066,
+   "topic": 18,
+   "tr": "havale etmek",
+   "uz": "o‘tkazmoq (pulni)",
+   "example_tr": "Parayı sana havale ettim.",
+   "example_uz": "Men senga pul o‘tkazdim.",
+   "concept": 2066
+  },
+  {
+   "id": 2067,
+   "topic": 18,
+   "tr": "yarı fiyatına",
+   "uz": "yarim narxda",
+   "example_tr": "Bu ayakkabıları yarı fiyatına aldım.",
+   "example_uz": "Men bu tuflilarni yarim narxda sotib oldim.",
+   "concept": 2067
+  },
+  {
+   "id": 2068,
+   "topic": 18,
+   "tr": "taksit",
+   "uz": "bo‘lib to‘lash, badal",
+   "example_tr": "Arabayı taksitle aldık.",
+   "example_uz": "Biz mashinani bo‘lib to‘lashga oldik.",
+   "concept": 2068
+  },
+  {
+   "id": 2069,
+   "topic": 18,
+   "tr": "nakit iade",
+   "uz": "keshbek",
+   "example_tr": "Bu ay biraz nakit iade aldım.",
+   "example_uz": "Bu oy biroz keshbek oldim.",
+   "concept": 2069
+  },
+  {
+   "id": 2070,
+   "topic": 18,
+   "tr": "kasa",
+   "uz": "kassa",
+   "example_tr": "Kasada uzun kuyruklar vardı.",
+   "example_uz": "Kassada uzun navbatlar bo‘ldi.",
+   "concept": 2070
+  },
+  {
+   "id": 2071,
+   "topic": 19,
+   "tr": "topluluk, mahalle",
+   "uz": "mahalliy jamoa",
+   "example_tr": "Mahallemiz çok büyüdü.",
+   "example_uz": "Bizning jamoamiz ancha o‘sdi.",
+   "concept": 2071
+  },
+  {
+   "id": 2072,
+   "topic": 19,
+   "tr": "sakin, oturan",
+   "uz": "aholi, yashovchi",
+   "example_tr": "Mektubu kaç sakin imzaladı?",
+   "example_uz": "Xatga nechta yashovchi imzo chekdi?",
+   "concept": 2072
+  },
+  {
+   "id": 2073,
+   "topic": 19,
+   "tr": "apartman",
+   "uz": "ko‘p qavatli uy",
+   "example_tr": "On yıldır bu apartmanda yaşıyoruz.",
+   "example_uz": "Biz bu ko‘p qavatli uyda o‘n yildan beri yashaymiz.",
+   "concept": 2073
+  },
+  {
+   "id": 2074,
+   "topic": 19,
+   "tr": "yan ev",
+   "uz": "qo‘shni, yondagi",
+   "example_tr": "Yan evdeki aile taşındı.",
+   "example_uz": "Qo‘shni oila ko‘chib ketdi.",
+   "concept": 2074
+  },
+  {
+   "id": 2075,
+   "topic": 19,
+   "tr": "bakkal",
+   "uz": "uy yonidagi do‘kon",
+   "example_tr": "Köşedeki bakkal kapandı.",
+   "example_uz": "Uy yonidagi do‘koncha yopildi.",
+   "concept": 2075
+  },
+  {
+   "id": 2076,
+   "topic": 19,
+   "tr": "otobüs durağı",
+   "uz": "avtobus bekati",
+   "example_tr": "Otobüs durağını taşıdılar.",
+   "example_uz": "Avtobus bekatini ko‘chirishdi.",
+   "concept": 2076
+  },
+  {
+   "id": 2077,
+   "topic": 19,
+   "tr": "kalabalık",
+   "uz": "gavjum, odam ko‘p",
+   "example_tr": "Sokaklar bütün gün kalabalıktı.",
+   "example_uz": "Kun bo‘yi ko‘chalarda odam ko‘p bo‘ldi.",
+   "concept": 2077
+  },
+  {
+   "id": 2078,
+   "topic": 19,
+   "tr": "gürültü",
+   "uz": "shovqin",
+   "example_tr": "Binadan çok gürültü geldi.",
+   "example_uz": "Bu binodan ko‘p shovqin chiqdi.",
+   "concept": 2078
+  },
+  {
+   "id": 2079,
+   "topic": 19,
+   "tr": "şantiye",
+   "uz": "qurilish maydoni",
+   "example_tr": "Onlar ilkbahardan beri şantiyede çalışıyor.",
+   "example_uz": "Ular bahordan beri qurilish maydonida ishlashyapti.",
+   "concept": 2079
+  },
+  {
+   "id": 2080,
+   "topic": 19,
+   "tr": "berber",
+   "uz": "sartarosh (erkaklar)",
+   "example_tr": "Yıllardır aynı berbere gidiyorum.",
+   "example_uz": "Men ko‘p yillardan beri bitta sartaroshga boraman.",
+   "concept": 2080
+  },
+  {
+   "id": 2081,
+   "topic": 19,
+   "tr": "kuru temizlemeci",
+   "uz": "kimyoviy tozalash",
+   "example_tr": "Takım elbiseyi kuru temizlemeciden aldın mı?",
+   "example_uz": "Kostyumni kimyoviy tozalashdan olib keldingmi?",
+   "concept": 2081
+  },
+  {
+   "id": 2082,
+   "topic": 19,
+   "tr": "fırın (ekmek)",
+   "uz": "nonvoyxona",
+   "example_tr": "Yakınımızda yeni bir fırın açıldı.",
+   "example_uz": "Yonimizda yangi nonvoyxona ochildi.",
+   "concept": 2082
+  },
+  {
+   "id": 2083,
+   "topic": 19,
+   "tr": "benzin istasyonu",
+   "uz": "yoqilg‘i quyish shoxobchasi",
+   "example_tr": "Benzin istasyonu bütün gece açıktı.",
+   "example_uz": "Yoqilg‘i quyish shoxobchasi tun bo‘yi ochiq bo‘ldi.",
+   "concept": 2083
+  },
+  {
+   "id": 2084,
+   "topic": 19,
+   "tr": "yaya",
+   "uz": "piyoda",
+   "example_tr": "Yayalar yıllardır bu yolu kullanıyor.",
+   "example_uz": "Piyodalar ko‘p yillardan beri bu so‘qmoqdan yurishadi.",
+   "concept": 2084
+  },
+  {
+   "id": 2085,
+   "topic": 19,
+   "tr": "sokak lambası",
+   "uz": "ko‘cha chirog‘i",
+   "example_tr": "Sokak lambaları bir haftadır yanmıyor.",
+   "example_uz": "Ko‘cha chiroqlari bir haftadan beri ishlamayapti.",
+   "concept": 2085
+  },
+  {
+   "id": 2086,
+   "topic": 20,
+   "tr": "binmek",
+   "uz": "chiqmoq (transportga)",
+   "example_tr": "Doğru otobüse bindin mi?",
+   "example_uz": "Kerakli avtobusga chiqdingmi?",
+   "concept": 2086
+  },
+  {
+   "id": 2087,
+   "topic": 20,
+   "tr": "inmek",
+   "uz": "tushmoq (transportdan)",
+   "example_tr": "Az önce trenden indik.",
+   "example_uz": "Biz hozirgina poyezddan tushdik.",
+   "concept": 2087
+  },
+  {
+   "id": 2088,
+   "topic": 20,
+   "tr": "binmek (arabaya)",
+   "uz": "o‘tirmoq (mashinaga)",
+   "example_tr": "Herkes arabaya bindi mi?",
+   "example_uz": "Hamma mashinaga o‘tirdimi?",
+   "concept": 2088
+  },
+  {
+   "id": 2089,
+   "topic": 20,
+   "tr": "çıkmak (dışarı)",
+   "uz": "chiqib ketmoq",
+   "example_tr": "Kedi evden çıktı.",
+   "example_uz": "Mushuk uydan chiqib ketdi.",
+   "concept": 2089
+  },
+  {
+   "id": 2090,
+   "topic": 20,
+   "tr": "geri dönmek",
+   "uz": "qaytmoq",
+   "example_tr": "Babam henüz işten dönmedi.",
+   "example_uz": "Dadam hali ishdan qaytmadi.",
+   "concept": 2090
+  },
+  {
+   "id": 2091,
+   "topic": 20,
+   "tr": "atlatmak",
+   "uz": "tuzalmoq, o‘ziga kelmoq",
+   "example_tr": "O sonunda gribi atlattı.",
+   "example_uz": "U nihoyat grippdan tuzaldi.",
+   "concept": 2091
+  },
+  {
+   "id": 2092,
+   "topic": 20,
+   "tr": "kurtulmak",
+   "uz": "qutulmoq",
+   "example_tr": "Eski kanepemizden kurtulduk.",
+   "example_uz": "Biz eski divanimizdan qutuldik.",
+   "concept": 2092
+  },
+  {
+   "id": 2093,
+   "topic": 20,
+   "tr": "bir araya gelmek",
+   "uz": "yig‘ilmoq, to‘planmoq",
+   "example_tr": "Uzun zamandır bir araya gelmedik.",
+   "example_uz": "Biz anchadan beri yig‘ilmadik.",
+   "concept": 2093
+  },
+  {
+   "id": 2094,
+   "topic": 20,
+   "tr": "üstesinden gelmek",
+   "uz": "boshdan kechirmoq, yengib o‘tmoq",
+   "example_tr": "Zor bir yılın üstesinden geldim.",
+   "example_uz": "Men qiyin yilni yengib o‘tdim.",
+   "concept": 2094
+  },
+  {
+   "id": 2095,
+   "topic": 20,
+   "tr": "kaçmak",
+   "uz": "qochib ketmoq",
+   "example_tr": "Hırsız kaçtı.",
+   "example_uz": "O‘g‘ri qochib ketdi.",
+   "concept": 2095
+  },
+  {
+   "id": 2096,
+   "topic": 20,
+   "tr": "yolunu kaybetmek",
+   "uz": "adashib qolmoq",
+   "example_tr": "Hiç büyük bir şehirde yolunu kaybettin mi?",
+   "example_uz": "Hech katta shaharda adashib qolganmisan?",
+   "concept": 2096
+  },
+  {
+   "id": 2097,
+   "topic": 20,
+   "tr": "hazırlanmak",
+   "uz": "tayyorlanmoq",
+   "example_tr": "Geziye hazırlandın mı?",
+   "example_uz": "Safarga tayyorlandingmi?",
+   "concept": 2097
+  },
+  {
+   "id": 2098,
+   "topic": 20,
+   "tr": "ıslanmak",
+   "uz": "ho‘l bo‘lmoq",
+   "example_tr": "Ayakkabılarım ıslandı.",
+   "example_uz": "Tuflilarim ho‘l bo‘lib qoldi.",
+   "concept": 2098
+  },
+  {
+   "id": 2099,
+   "topic": 20,
+   "tr": "eve varmak",
+   "uz": "uyga yetib olmoq",
+   "example_tr": "Eve sağ salim vardın mı?",
+   "example_uz": "Uyga eson-omon yetib oldingmi?",
+   "concept": 2099
+  },
+  {
+   "id": 2100,
+   "topic": 20,
+   "tr": "sıkılmak",
+   "uz": "zerikib qolmoq",
+   "example_tr": "Çocuklar sıkıldı.",
+   "example_uz": "Bolalar zerikib qolishdi.",
+   "concept": 2100
+  }
+ ]
+}

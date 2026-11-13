@@ -1,0 +1,2839 @@
+{
+ "metadata": {
+  "book": 10,
+  "level": "B1",
+  "language": "tr",
+  "word_count": 300,
+  "id_range": [
+   2701,
+   3000
+  ],
+  "new_words": 4,
+  "schema": [
+   "id",
+   "topic",
+   "tr",
+   "uz",
+   "example_tr",
+   "example_uz",
+   "concept",
+   "new"
+  ]
+ },
+ "topics": [
+  {
+   "tr": "Aktarma Fiilleri",
+   "uz": "Nutq fe’llari"
+  },
+  {
+   "tr": "Hatalar ve Pişmanlıklar",
+   "uz": "Xatolar va afsuslar"
+  },
+  {
+   "tr": "Hayat Hikâyeleri",
+   "uz": "Hayot hikoyalari"
+  },
+  {
+   "tr": "Suç ve Adalet",
+   "uz": "Jinoyat va odil sudlov"
+  },
+  {
+   "tr": "Kazalar ve Yaralanmalar",
+   "uz": "Baxtsiz hodisalar va jarohatlar"
+  },
+  {
+   "tr": "Şans ve Tesadüf",
+   "uz": "Omad va tasodif"
+  },
+  {
+   "tr": "Arkadaşlık",
+   "uz": "Do‘stlik"
+  },
+  {
+   "tr": "Aşk ve Evlilik",
+   "uz": "Sevgi va nikoh"
+  },
+  {
+   "tr": "İş Dünyası ve Toplantılar",
+   "uz": "Biznes va yig‘ilishlar"
+  },
+  {
+   "tr": "Telefon Görüşmeleri",
+   "uz": "Telefon suhbatlari"
+  },
+  {
+   "tr": "Zihin ve Psikoloji",
+   "uz": "Miya va psixologiya"
+  },
+  {
+   "tr": "Medya ve Röportajlar",
+   "uz": "OAV va intervyular"
+  },
+  {
+   "tr": "Yolculuk Sorunları",
+   "uz": "Safardagi muammolar"
+  },
+  {
+   "tr": "Tepkiler",
+   "uz": "Munosabatlar va hissiyotlar"
+  },
+  {
+   "tr": "Konuşma Fiilleri",
+   "uz": "Muloqot fe’llari"
+  },
+  {
+   "tr": "Görüşler ve Tartışmalar",
+   "uz": "Fikrlar va bahslar"
+  },
+  {
+   "tr": "Önemli Kavramlar",
+   "uz": "Muhim tushunchalar"
+  },
+  {
+   "tr": "Deyimler",
+   "uz": "Turg‘un iboralar"
+  },
+  {
+   "tr": "Sorular ve Ricalar",
+   "uz": "Savollar va iltimoslar"
+  },
+  {
+   "tr": "Anlatımda Zaman Sözleri",
+   "uz": "O‘zlashtirma gapdagi vaqt so‘zlari"
+  }
+ ],
+ "words": [
+  {
+   "id": 2701,
+   "topic": 1,
+   "tr": "iddia etmek",
+   "uz": "da’vo qilmoq",
+   "example_tr": "Bir UFO gördüğünü iddia etti.",
+   "example_uz": "U NUJni ko‘rganini da’vo qildi.",
+   "concept": 2701
+  },
+  {
+   "id": 2702,
+   "topic": 1,
+   "tr": "duyurmak",
+   "uz": "e’lon qilmoq",
+   "example_tr": "Uçuşun ertelendiğini duyurdular.",
+   "example_uz": "Reys kechikayotgani e’lon qilindi.",
+   "concept": 2702
+  },
+  {
+   "id": 2703,
+   "topic": 1,
+   "tr": "ısrar etmek",
+   "uz": "turib olmoq",
+   "example_tr": "Haklı olduğunda ısrar etti.",
+   "example_uz": "U o‘zini haq deb turib oldi.",
+   "concept": 2703
+  },
+  {
+   "id": 2704,
+   "topic": 1,
+   "tr": "hatırlatmak",
+   "uz": "eslatmoq",
+   "example_tr": "Annem bana ekmek almamı hatırlattı.",
+   "example_uz": "Oyim menga non sotib olishni eslatdi.",
+   "concept": 2704
+  },
+  {
+   "id": 2705,
+   "topic": 1,
+   "tr": "yalvarmak",
+   "uz": "yolvormoq",
+   "example_tr": "Çocuk babasına kalması için yalvardı.",
+   "example_uz": "Bola dadasiga qolishini so‘rab yolvordi.",
+   "concept": 2705
+  },
+  {
+   "id": 2706,
+   "topic": 1,
+   "tr": "övünmek",
+   "uz": "maqtanmoq",
+   "example_tr": "Her maçı kazandığıyla övündü.",
+   "example_uz": "U barcha o‘yinlarda yutganini aytib maqtandi.",
+   "concept": 2706
+  },
+  {
+   "id": 2707,
+   "topic": 1,
+   "tr": "itiraf etmek",
+   "uz": "tan olmoq, iqror bo‘lmoq",
+   "example_tr": "Pastayı yediğini itiraf etti.",
+   "example_uz": "U tortni yeganini tan oldi.",
+   "concept": 2707
+  },
+  {
+   "id": 2708,
+   "topic": 1,
+   "tr": "bilgilendirmek",
+   "uz": "xabar bermoq",
+   "example_tr": "Dükkânın kapandığı bize bildirildi.",
+   "example_uz": "Bizga do‘kon yopilgani haqida xabar berishdi.",
+   "concept": 2708
+  },
+  {
+   "id": 2709,
+   "topic": 1,
+   "tr": "temin etmek",
+   "uz": "ishontirmoq",
+   "example_tr": "Bana her şeyin yolunda olduğunu temin etti.",
+   "example_uz": "U meni hammasi joyida ekaniga ishontirdi.",
+   "concept": 2709
+  },
+  {
+   "id": 2710,
+   "topic": 1,
+   "tr": "belirtmek",
+   "uz": "ko‘rsatib o‘tmoq (biror narsaga)",
+   "example_tr": "Bir hata yaptığımı belirtti.",
+   "example_uz": "U mening xato qilganimni ko‘rsatib o‘tdi.",
+   "concept": 2710
+  },
+  {
+   "id": 2711,
+   "topic": 1,
+   "tr": "açıklamak (sır)",
+   "uz": "oshkor qilmoq (sirni)",
+   "example_tr": "Evlendiğini açıkladı.",
+   "example_uz": "U uylanganini oshkor qildi.",
+   "concept": 2711
+  },
+  {
+   "id": 2712,
+   "topic": 1,
+   "tr": "cesaretlendirmek",
+   "uz": "rag‘batlantirmoq, dalda bermoq",
+   "example_tr": "Öğretmenim beni tekrar denemem için cesaretlendirdi.",
+   "example_uz": "O‘qituvchim menga yana urinib ko‘rishga dalda berdi.",
+   "concept": 2712
+  },
+  {
+   "id": 2713,
+   "topic": 1,
+   "tr": "tavsiye etmek",
+   "uz": "tavsiya qilmoq",
+   "example_tr": "Doktor bana dinlenmemi tavsiye etti.",
+   "example_uz": "Shifokor menga dam olishni maslahat berdi.",
+   "concept": 2713
+  },
+  {
+   "id": 2714,
+   "topic": 1,
+   "tr": "suçlamak",
+   "uz": "ayblamoq",
+   "example_tr": "Onu yalan söylemekle suçladılar.",
+   "example_uz": "Uni yolg‘on gapirishda ayblashdi.",
+   "concept": 2714
+  },
+  {
+   "id": 2715,
+   "topic": 1,
+   "tr": "yanıt vermek",
+   "uz": "javob qaytarmoq, munosabat bildirmoq",
+   "example_tr": "Meşgul olduğunu söyleyerek yanıt verdi.",
+   "example_uz": "U band ekanini aytib javob qaytardi.",
+   "concept": 2715
+  },
+  {
+   "id": 2716,
+   "topic": 2,
+   "tr": "pişman olmak",
+   "uz": "afsuslanmoq",
+   "example_tr": "Bunu söylemeseydim şimdi pişman olmazdım.",
+   "example_uz": "Agar buni aytmaganimda, hozir afsuslanmagan bo‘lardim.",
+   "concept": 2716
+  },
+  {
+   "id": 2717,
+   "topic": 2,
+   "tr": "-meliydim",
+   "uz": "… kerak edi",
+   "example_tr": "Seni aramalıydım.",
+   "example_uz": "Senga qo‘ng‘iroq qilishim kerak edi.",
+   "concept": 2717
+  },
+  {
+   "id": 2718,
+   "topic": 2,
+   "tr": "yanlış karar",
+   "uz": "noto‘g‘ri qaror",
+   "example_tr": "Oraya taşınmak yanlış bir karardı.",
+   "example_uz": "U yerga ko‘chish noto‘g‘ri qaror edi.",
+   "concept": 2718
+  },
+  {
+   "id": 2719,
+   "topic": 2,
+   "tr": "suçlamak (birini)",
+   "uz": "ayblamoq",
+   "example_tr": "Kendini suçlama, bu senin hatan değildi.",
+   "example_uz": "O‘zingni aybdor qilma, bu sening aybing emas edi.",
+   "concept": 2719
+  },
+  {
+   "id": 2720,
+   "topic": 2,
+   "tr": "dikkatsiz",
+   "uz": "beparvo",
+   "example_tr": "Dikkatsiz olmasaydım onu kaybetmezdim.",
+   "example_uz": "Agar beparvo bo‘lmaganimda, uni yo‘qotmagan bo‘lardim.",
+   "concept": 2720
+  },
+  {
+   "id": 2721,
+   "topic": 2,
+   "tr": "affetmek",
+   "uz": "kechirmoq",
+   "example_tr": "Özür dileseydin seni affederdim.",
+   "example_uz": "Agar kechirim so‘raganingda, seni kechirgan bo‘lardim.",
+   "concept": 2721
+  },
+  {
+   "id": 2722,
+   "topic": 2,
+   "tr": "berbat etmek",
+   "uz": "buzib qo‘ymoq (hammasini)",
+   "example_tr": "Ben her şeyi berbat etmeseydim kazanırdık.",
+   "example_uz": "Agar men ishni buzib qo‘ymaganimda, yutgan bo‘lardik.",
+   "concept": 2722
+  },
+  {
+   "id": 2723,
+   "topic": 2,
+   "tr": "yanlışlıkla",
+   "uz": "tasodifan",
+   "example_tr": "Fotoğrafları yanlışlıkla sildim.",
+   "example_uz": "Men tasodifan suratlarni o‘chirib yubordim.",
+   "concept": 2723
+  },
+  {
+   "id": 2724,
+   "topic": 2,
+   "tr": "iyice düşününce",
+   "uz": "yaxshilab o‘ylab ko‘rsam",
+   "example_tr": "İyice düşününce kalmalıydım.",
+   "example_uz": "Yaxshilab o‘ylab ko‘rsam, qolishim kerak edi.",
+   "concept": 2724
+  },
+  {
+   "id": 2725,
+   "topic": 2,
+   "tr": "ikinci şans",
+   "uz": "ikkinchi imkoniyat",
+   "example_tr": "İkinci bir şansım olsa farklı yapardım.",
+   "example_uz": "Agar menda ikkinchi imkoniyat bo‘lganida, boshqacha qilardim.",
+   "concept": 2725
+  },
+  {
+   "id": 2726,
+   "topic": 2,
+   "tr": "aptalca",
+   "uz": "ahmoqona, bema’ni",
+   "example_tr": "Bu benim için aptalcaydı, sormalıydım.",
+   "example_uz": "Bu men tomonimdan ahmoqlik edi, so‘rashim kerak edi.",
+   "concept": 2726
+  },
+  {
+   "id": 2727,
+   "topic": 2,
+   "tr": "yanlış anlamak",
+   "uz": "noto‘g‘ri tushunmoq",
+   "example_tr": "Dinleseydim yanlış anlamazdım.",
+   "example_uz": "Agar tinglaganimda, noto‘g‘ri tushunmagan bo‘lardim.",
+   "concept": 2727
+  },
+  {
+   "id": 2728,
+   "topic": 2,
+   "tr": "çok geç",
+   "uz": "juda kech",
+   "example_tr": "Özür dilemek için çok geç olduğunu söyledi.",
+   "example_uz": "U kechirim so‘rash uchun juda kech ekanini aytdi.",
+   "concept": 2728
+  },
+  {
+   "id": 2729,
+   "topic": 2,
+   "tr": "telafi etmek",
+   "uz": "aybini yuvmoq",
+   "example_tr": "Özür dilerim, bunu telafi edeceğim.",
+   "example_uz": "Kechir, men aybimni yuvaman.",
+   "concept": 2729
+  },
+  {
+   "id": 2730,
+   "topic": 2,
+   "tr": "bahane, mazeret",
+   "uz": "bahona, uzr",
+   "example_tr": "İyi bir mazereti olduğunu söyledi.",
+   "example_uz": "U yaxshi bahonasi borligini aytdi.",
+   "concept": 2730
+  },
+  {
+   "id": 2731,
+   "topic": 3,
+   "tr": "biyografi",
+   "uz": "tarjimai hol",
+   "example_tr": "Biyografisini okumasaydım onu tanımazdım.",
+   "example_uz": "Agar uning tarjimai holini o‘qimaganimda, u haqda bilmagan bo‘lardim.",
+   "concept": 2731
+  },
+  {
+   "id": 2732,
+   "topic": 3,
+   "tr": "büyümek",
+   "uz": "voyaga yetmoq, ulg‘aymoq",
+   "example_tr": "Londra’da büyüseydim İngilizcem daha iyi olurdu.",
+   "example_uz": "Agar Londonda ulg‘ayganimda, ingliz tilim yaxshiroq bo‘lardi.",
+   "concept": 2732
+  },
+  {
+   "id": 2733,
+   "topic": 3,
+   "tr": "memleket",
+   "uz": "ona shahar",
+   "example_tr": "Memleketinin çok değiştiğini söyledi.",
+   "example_uz": "U ona shahri ancha o‘zgarganini aytdi.",
+   "concept": 2733
+  },
+  {
+   "id": 2734,
+   "topic": 3,
+   "tr": "gençlik",
+   "uz": "yoshlik",
+   "example_tr": "Gençliğinde çok seyahat ettiğini bana söyledi.",
+   "example_uz": "U yoshligida ko‘p sayohat qilganini aytdi.",
+   "concept": 2734
+  },
+  {
+   "id": 2735,
+   "topic": 3,
+   "tr": "yaşlılık",
+   "uz": "keksalik",
+   "example_tr": "Dedem yaşlılığında mutlu olduğunu söyledi.",
+   "example_uz": "Bobom keksaligida baxtli ekanini aytdi.",
+   "concept": 2735
+  },
+  {
+   "id": 2736,
+   "topic": 3,
+   "tr": "nesil",
+   "uz": "avlod",
+   "example_tr": "Büyükannem kendi neslinin daha çok çalıştığını söyledi.",
+   "example_uz": "Buvim ularning avlodi ko‘proq mehnat qilganini aytdi.",
+   "concept": 2736
+  },
+  {
+   "id": 2737,
+   "topic": 3,
+   "tr": "göç etmek",
+   "uz": "muhojirlikka ketmoq",
+   "example_tr": "Onlar göç etmeseydi şimdi Rusya’da yaşardım.",
+   "example_uz": "Agar ular muhojirlikka ketmaganida, men hozir Rossiyada yashardim.",
+   "concept": 2737
+  },
+  {
+   "id": 2738,
+   "topic": 3,
+   "tr": "düzen kurmak",
+   "uz": "o‘rnashib qolmoq, oila qurib tinchimoq",
+   "example_tr": "Düzenli bir hayat kurmak istediğini söyledi.",
+   "example_uz": "U o‘rnashib, tinch hayot kechirmoqchi ekanini aytdi.",
+   "concept": 2738
+  },
+  {
+   "id": 2739,
+   "topic": 3,
+   "tr": "dönüm noktası",
+   "uz": "burilish nuqtasi",
+   "example_tr": "O gezinin bir dönüm noktası olduğunu söyledi.",
+   "example_uz": "U o‘sha safar burilish nuqtasi bo‘lganini aytdi.",
+   "concept": 2739
+  },
+  {
+   "id": 2740,
+   "topic": 3,
+   "tr": "aile kökeni, geçmiş",
+   "uz": "kelib chiqish",
+   "example_tr": "Bana ailesinin kökeninden bahsetti.",
+   "example_uz": "U menga oilasining kelib chiqishi haqida gapirib berdi.",
+   "concept": 2740
+  },
+  {
+   "id": 2741,
+   "topic": 3,
+   "tr": "ulaşmak (hedefe)",
+   "uz": "erishmoq",
+   "example_tr": "Bütün hedeflerine ulaştığını söyledi.",
+   "example_uz": "U barcha maqsadlariga erishganini aytdi.",
+   "concept": 2741
+  },
+  {
+   "id": 2742,
+   "topic": 3,
+   "tr": "ömür",
+   "uz": "butun umr",
+   "example_tr": "Bunun ömürde bir kez gelecek bir fırsat olduğunu söyledi.",
+   "example_uz": "U bu umrida bir marta keladigan imkoniyat ekanini aytdi.",
+   "concept": 2742
+  },
+  {
+   "id": 2743,
+   "topic": 3,
+   "tr": "evden kaçmak",
+   "uz": "qochib ketmoq (uydan)",
+   "example_tr": "On beş yaşında evden kaçtığını bana söyledi.",
+   "example_uz": "U 15 yoshida uydan qochib ketganini aytdi.",
+   "concept": 2743
+  },
+  {
+   "id": 2744,
+   "topic": 3,
+   "tr": "geçimini sağlamak",
+   "uz": "tirikchilik qilmoq",
+   "example_tr": "Geçimini meyve satarak sağladığını söyledi.",
+   "example_uz": "U meva sotib tirikchilik qilishini aytdi.",
+   "concept": 2744
+  },
+  {
+   "id": 2745,
+   "topic": 3,
+   "tr": "ilham vermek",
+   "uz": "ilhomlantirmoq",
+   "example_tr": "O bana ilham vermeseydi şimdi öğretmen olmazdım.",
+   "example_uz": "Agar u meni ilhomlantirmaganida, men hozir o‘qituvchi bo‘lmasdim.",
+   "concept": 2745
+  },
+  {
+   "id": 2746,
+   "topic": 4,
+   "tr": "mahkeme",
+   "uz": "sud",
+   "example_tr": "Mahkemeye masum olduğunu söyledi.",
+   "example_uz": "U sudga o‘zini aybsiz deb aytdi.",
+   "concept": 2746
+  },
+  {
+   "id": 2747,
+   "topic": 4,
+   "tr": "masum, suçsuz",
+   "uz": "aybsiz",
+   "example_tr": "Masum olsaydı bir alibisi olurdu.",
+   "example_uz": "Agar u aybsiz bo‘lganida, uning alibisi bo‘lgan bo‘lardi.",
+   "concept": 2747
+  },
+  {
+   "id": 2748,
+   "topic": 4,
+   "tr": "avukat",
+   "uz": "advokat",
+   "example_tr": "Avukatım cevap vermek zorunda olmadığımı söyledi.",
+   "example_uz": "Advokatim javob berishim shart emasligini aytdi.",
+   "concept": 2748
+  },
+  {
+   "id": 2749,
+   "topic": 4,
+   "tr": "duruşma",
+   "uz": "sud jarayoni",
+   "example_tr": "Duruşmanın pazartesi başlayacağını söylediler.",
+   "example_uz": "Sud jarayoni dushanba kuni boshlanishini aytishdi.",
+   "concept": 2749
+  },
+  {
+   "id": 2750,
+   "topic": 4,
+   "tr": "kanıt",
+   "uz": "dalillar",
+   "example_tr": "Daha fazla kanıt olsaydı hapse girerdi.",
+   "example_uz": "Agar dalillar ko‘proq bo‘lganida, u qamoqqa tushgan bo‘lardi.",
+   "concept": 2750
+  },
+  {
+   "id": 2751,
+   "topic": 4,
+   "tr": "şüpheli",
+   "uz": "gumondor",
+   "example_tr": "Polis şüphelinin kaçtığını söyledi.",
+   "example_uz": "Politsiya gumondor qochib ketganini xabar qildi.",
+   "concept": 2751
+  },
+  {
+   "id": 2752,
+   "topic": 4,
+   "tr": "alibi",
+   "uz": "alibi",
+   "example_tr": "Bir alibisi olduğunu söyledi.",
+   "example_uz": "U alibisi borligini aytdi.",
+   "concept": 2752
+  },
+  {
+   "id": 2753,
+   "topic": 4,
+   "tr": "ceza (mahkeme)",
+   "uz": "hukm",
+   "example_tr": "Hâkim cezanın beş yıl olacağını söyledi.",
+   "example_uz": "Sudya hukm besh yil bo‘lishini aytdi.",
+   "concept": 2753
+  },
+  {
+   "id": 2754,
+   "topic": 4,
+   "tr": "parmak izi",
+   "uz": "barmoq izi",
+   "example_tr": "Eldiven giyseydi parmak izi kalmazdı.",
+   "example_uz": "Agar u qo‘lqop kiyganida, barmoq izlari qolmagan bo‘lardi.",
+   "concept": 2754
+  },
+  {
+   "id": 2755,
+   "topic": 4,
+   "tr": "dedektif",
+   "uz": "detektiv, izquvar",
+   "example_tr": "Dedektif nerede olduğumu sordu.",
+   "example_uz": "Detektiv qayerda bo‘lganimni so‘radi.",
+   "concept": 2755
+  },
+  {
+   "id": 2756,
+   "topic": 4,
+   "tr": "yankesici",
+   "uz": "cho‘ntakkesar",
+   "example_tr": "Bir yankesicinin cüzdanını çaldığını söyledi.",
+   "example_uz": "U cho‘ntakkesar hamyonini o‘g‘irlaganini aytdi.",
+   "concept": 2756
+  },
+  {
+   "id": 2757,
+   "topic": 4,
+   "tr": "mağaza hırsızlığı",
+   "uz": "do‘kondan o‘g‘rilik",
+   "example_tr": "Mağazalardan hırsızlık yaptığını itiraf etti.",
+   "example_uz": "U do‘konlardan o‘g‘rilik qilganini tan oldi.",
+   "concept": 2757
+  },
+  {
+   "id": 2758,
+   "topic": 4,
+   "tr": "dolandırıcılık",
+   "uz": "firibgarlik",
+   "example_tr": "Bunun bir dolandırıcılık olayı olduğunu söylediler.",
+   "example_uz": "Bu firibgarlik bo‘lganini aytishdi.",
+   "concept": 2758
+  },
+  {
+   "id": 2759,
+   "topic": 4,
+   "tr": "tuzak, kandırmaca",
+   "uz": "aldov, firib",
+   "example_tr": "Bunun bir kandırmaca olduğunu bilseydim para ödemezdim.",
+   "example_uz": "Agar bu aldov ekanini bilganimda, pul to‘lamagan bo‘lardim.",
+   "concept": 2759
+  },
+  {
+   "id": 2760,
+   "topic": 4,
+   "tr": "serbest bırakmak",
+   "uz": "ozod qilmoq",
+   "example_tr": "Hapisten serbest bırakıldığını söyledi.",
+   "example_uz": "U qamoqdan ozod qilinganini aytdi.",
+   "concept": 2760
+  },
+  {
+   "id": 2761,
+   "topic": 5,
+   "tr": "kaymak",
+   "uz": "sirpanib ketmoq",
+   "example_tr": "Kaymasaydım düşmezdim.",
+   "example_uz": "Agar sirpanib ketmaganimda, yiqilmagan bo‘lardim.",
+   "concept": 2761
+  },
+  {
+   "id": 2762,
+   "topic": 5,
+   "tr": "çarpmak",
+   "uz": "urilib ketmoq, to‘qnashmoq",
+   "example_tr": "Kapıya çarptığını söyledi.",
+   "example_uz": "U eshikka urilib ketganini aytdi.",
+   "concept": 2762
+  },
+  {
+   "id": 2763,
+   "topic": 5,
+   "tr": "burkmak",
+   "uz": "burab olmoq, chiqarib olmoq",
+   "example_tr": "Ayak bileğini burktuğunu söyledi.",
+   "example_uz": "U to‘pig‘ini burab olganini aytdi.",
+   "concept": 2763
+  },
+  {
+   "id": 2764,
+   "topic": 5,
+   "tr": "morarmış göz",
+   "uz": "ko‘z ostidagi ko‘karish",
+   "example_tr": "Bir kavgada gözünün morardığını bana söyledi.",
+   "example_uz": "U mushtlashuvda ko‘zi ko‘karganini aytdi.",
+   "concept": 2764
+  },
+  {
+   "id": 2765,
+   "topic": 5,
+   "tr": "beyin sarsıntısı",
+   "uz": "miya chayqalishi",
+   "example_tr": "Kask taksaydı beyin sarsıntısı geçirmezdi.",
+   "example_uz": "Agar u dubulg‘a kiyganida, miyasi chayqalmagan bo‘lardi.",
+   "concept": 2765
+  },
+  {
+   "id": 2766,
+   "topic": 5,
+   "tr": "kırık (kemik)",
+   "uz": "suyak sinishi",
+   "example_tr": "Doktor bunun bir kırık olduğunu söyledi.",
+   "example_uz": "Shifokor bu suyak sinishi ekanini aytdi.",
+   "concept": 2766
+  },
+  {
+   "id": 2767,
+   "topic": 5,
+   "tr": "dikiş (yara)",
+   "uz": "choklar",
+   "example_tr": "Beş dikiş atıldığını söyledi.",
+   "example_uz": "U beshta chok qo‘yilganini aytdi.",
+   "concept": 2767
+  },
+  {
+   "id": 2768,
+   "topic": 5,
+   "tr": "düşmek (yere)",
+   "uz": "yiqilib tushmoq, qoqilmoq",
+   "example_tr": "Önüne baksaydın düşmezdin.",
+   "example_uz": "Agar oyog‘ing ostiga qaraganingda, yiqilmagan bo‘larding.",
+   "concept": 2768
+  },
+  {
+   "id": 2769,
+   "topic": 5,
+   "tr": "devirmek",
+   "uz": "ag‘darib yubormoq",
+   "example_tr": "Köpek koşmasaydı vazoyu devirmezdi.",
+   "example_uz": "Agar it yugurmaganida, guldonni ag‘darib yubormagan bo‘lardi.",
+   "concept": 2769
+  },
+  {
+   "id": 2770,
+   "topic": 5,
+   "tr": "çarpışma",
+   "uz": "to‘qnashuv",
+   "example_tr": "Polis çarpışmanın gece olduğunu söyledi.",
+   "example_uz": "Politsiya to‘qnashuv kechasi sodir bo‘lganini xabar qildi.",
+   "concept": 2770
+  },
+  {
+   "id": 2771,
+   "topic": 5,
+   "tr": "kaymak (araba)",
+   "uz": "sirg‘anib ketmoq (mashina)",
+   "example_tr": "Yol kuru olsaydı araba kaymazdı.",
+   "example_uz": "Agar yo‘l quruq bo‘lganida, mashina sirg‘anib ketmagan bo‘lardi.",
+   "concept": 2771
+  },
+  {
+   "id": 2772,
+   "topic": 5,
+   "tr": "alçı",
+   "uz": "gips",
+   "example_tr": "Doktor alçı takmam gerektiğini söyledi.",
+   "example_uz": "Shifokor menga gips taqib yurishim kerakligini aytdi.",
+   "concept": 2772
+  },
+  {
+   "id": 2773,
+   "topic": 5,
+   "tr": "tekerlekli sandalye",
+   "uz": "nogironlar aravachasi",
+   "example_tr": "Bir ay tekerlekli sandalyede olduğunu söyledi.",
+   "example_uz": "U bir oy nogironlar aravachasida bo‘lganini aytdi.",
+   "concept": 2773
+  },
+  {
+   "id": 2774,
+   "topic": 5,
+   "tr": "acil servis",
+   "uz": "shoshilinch tibbiy yordam bo‘limi",
+   "example_tr": "Onu acil servise götürdüklerini söylediler.",
+   "example_uz": "Uni shoshilinch tibbiy yordam bo‘limiga olib borishganini aytishdi.",
+   "concept": 2774
+  },
+  {
+   "id": 2775,
+   "topic": 5,
+   "tr": "sakar",
+   "uz": "tez-tez jarohat oladigan",
+   "example_tr": "Annem ağabeyimin sakar olduğunu söyledi.",
+   "example_uz": "Oyim akam tez-tez jarohat olib turishini aytdi.",
+   "concept": 2775
+  },
+  {
+   "id": 2776,
+   "topic": 6,
+   "tr": "tesadüf",
+   "uz": "tasodif",
+   "example_tr": "Bunun sadece bir tesadüf olduğunu söyledi.",
+   "example_uz": "U bu shunchaki tasodif ekanini aytdi.",
+   "concept": 2776
+  },
+  {
+   "id": 2777,
+   "topic": 6,
+   "tr": "tesadüfen",
+   "uz": "tasodifan",
+   "example_tr": "Havalimanında tesadüfen karşılaştık.",
+   "example_uz": "Biz aeroportda tasodifan uchrashib qoldik.",
+   "concept": 2777
+  },
+  {
+   "id": 2778,
+   "topic": 6,
+   "tr": "neyse ki",
+   "uz": "baxtimizga",
+   "example_tr": "Neyse ki biri telefonumu buldu.",
+   "example_uz": "Baxtimga, kimdir telefonimni topib oldi.",
+   "concept": 2778
+  },
+  {
+   "id": 2779,
+   "topic": 6,
+   "tr": "maalesef",
+   "uz": "afsuski",
+   "example_tr": "Maalesef gelemeyeceğini söyledi.",
+   "example_uz": "Afsuski, u kela olmasligini aytdi.",
+   "concept": 2779
+  },
+  {
+   "id": 2780,
+   "topic": 6,
+   "tr": "kader",
+   "uz": "taqdir",
+   "example_tr": "Bunun kader olduğunu söyledi.",
+   "example_uz": "U bu taqdir ekanini aytdi.",
+   "concept": 2780
+  },
+  {
+   "id": 2781,
+   "topic": 6,
+   "tr": "batıl inançlı",
+   "uz": "irimchi",
+   "example_tr": "Batıl inançlı olmadığını söyledi.",
+   "example_uz": "U irimchi emasligini aytdi.",
+   "concept": 2781
+  },
+  {
+   "id": 2782,
+   "topic": 6,
+   "tr": "büyük ikramiye",
+   "uz": "jekpot",
+   "example_tr": "Bilet alsaydı büyük ikramiyeyi kazanırdı.",
+   "example_uz": "Agar u chipta sotib olganida, jekpotni yutgan bo‘lardi.",
+   "concept": 2782
+  },
+  {
+   "id": 2783,
+   "topic": 6,
+   "tr": "kumar oynamak",
+   "uz": "qimor o‘ynamoq",
+   "example_tr": "Hiç kumar oynamadığını söyledi.",
+   "example_uz": "U hech qachon qimor o‘ynamaganini aytdi.",
+   "concept": 2783
+  },
+  {
+   "id": 2784,
+   "topic": 6,
+   "tr": "ihtimal, şans",
+   "uz": "imkoniyatlar, ehtimollar",
+   "example_tr": "Şansımız daha yüksek olsaydı kazanırdık.",
+   "example_uz": "Agar imkoniyatlar yaxshiroq bo‘lganida, biz yutgan bo‘lardik.",
+   "concept": 2784
+  },
+  {
+   "id": 2785,
+   "topic": 6,
+   "tr": "uğur, tılsım",
+   "uz": "tumor",
+   "example_tr": "Bana paranın onun uğuru olduğunu söyledi.",
+   "example_uz": "U tanga uning tumori ekanini aytdi.",
+   "concept": 2785
+  },
+  {
+   "id": 2786,
+   "topic": 6,
+   "tr": "servet",
+   "uz": "boylik, davlat",
+   "example_tr": "Servetini kaybetmeseydi hâlâ zengin olurdu.",
+   "example_uz": "Agar u boyligini yo‘qotmaganida, hali ham boy bo‘lardi.",
+   "concept": 2786
+  },
+  {
+   "id": 2787,
+   "topic": 6,
+   "tr": "mucize",
+   "uz": "mo‘jiza",
+   "example_tr": "Doktor bunun bir mucize olduğunu söyledi.",
+   "example_uz": "Shifokor bu mo‘jiza ekanini aytdi.",
+   "concept": 2787
+  },
+  {
+   "id": 2788,
+   "topic": 6,
+   "tr": "fırsat",
+   "uz": "imkoniyat",
+   "example_tr": "Fırsatım olsaydı giderdim.",
+   "example_uz": "Agar imkoniyatim bo‘lganida, borgan bo‘lardim.",
+   "concept": 2788
+  },
+  {
+   "id": 2789,
+   "topic": 6,
+   "tr": "burç yorumu",
+   "uz": "goroskop",
+   "example_tr": "Burç yorumunun bunu önceden söylediğini söyledi.",
+   "example_uz": "U goroskopi buni bashorat qilganini aytdi.",
+   "concept": 2789
+  },
+  {
+   "id": 2790,
+   "topic": 6,
+   "tr": "tahmin etmek",
+   "uz": "bashorat qilmoq",
+   "example_tr": "Kimse onun kazanacağını tahmin etmedi.",
+   "example_uz": "Hech kim uning yutishini bashorat qilmagan.",
+   "concept": 2790
+  },
+  {
+   "id": 2791,
+   "topic": 7,
+   "tr": "yakın arkadaş",
+   "uz": "yaqin do‘st",
+   "example_tr": "Okulda yakın arkadaş olduğumuzu söyledi.",
+   "example_uz": "U maktabda biz yaqin do‘st bo‘lganimizni aytdi.",
+   "concept": 2791
+  },
+  {
+   "id": 2792,
+   "topic": 7,
+   "tr": "arkadaşlık",
+   "uz": "do‘stlik",
+   "example_tr": "Sen aramasaydın arkadaşlığımız biterdi.",
+   "example_uz": "Agar sen qo‘ng‘iroq qilmaganingda, do‘stligimiz tugagan bo‘lardi.",
+   "concept": 2792
+  },
+  {
+   "id": 2793,
+   "topic": 7,
+   "tr": "tanıdık",
+   "uz": "tanish",
+   "example_tr": "Onun sadece bir tanıdığı olduğunu söyledi.",
+   "example_uz": "U bu yigit shunchaki tanishi ekanini aytdi.",
+   "concept": 2793
+  },
+  {
+   "id": 2794,
+   "topic": 7,
+   "tr": "sır tutmak",
+   "uz": "sir saqlamoq",
+   "example_tr": "Sırrı tutacağına söz verdi.",
+   "example_uz": "U sirni saqlashga va’da berdi.",
+   "concept": 2794
+  },
+  {
+   "id": 2795,
+   "topic": 7,
+   "tr": "ihanet etmek",
+   "uz": "xiyonat qilmoq",
+   "example_tr": "Bana ihanet etmeseydi hâlâ arkadaş olurduk.",
+   "example_uz": "Agar u menga xiyonat qilmaganida, hali ham do‘st bo‘lardik.",
+   "concept": 2795
+  },
+  {
+   "id": 2796,
+   "topic": 7,
+   "tr": "-e güvenmek",
+   "uz": "… ga tayanmoq",
+   "example_tr": "Ona güvenmeseydim hayal kırıklığına uğramazdım.",
+   "example_uz": "Agar unga tayanmaganimda, hafsalam pir bo‘lmagan bo‘lardi.",
+   "concept": 2796
+  },
+  {
+   "id": 2797,
+   "topic": 7,
+   "tr": "-e güvenebilmek",
+   "uz": "… ga ishonmoq",
+   "example_tr": "Ona güvenebileceğimi söyledi.",
+   "example_uz": "U unga ishonishim mumkinligini aytdi.",
+   "concept": 2797
+  },
+  {
+   "id": 2798,
+   "topic": 7,
+   "tr": "bağlantıyı kaybetmek",
+   "uz": "aloqani yo‘qotmoq",
+   "example_tr": "Taşınmasaydık bağlantımızı kaybetmezdik.",
+   "example_uz": "Agar biz ko‘chib ketmaganimizda, aloqani yo‘qotmagan bo‘lardik.",
+   "concept": 2798
+  },
+  {
+   "id": 2799,
+   "topic": 7,
+   "tr": "mektup arkadaşı",
+   "uz": "yozishma do‘sti",
+   "example_tr": "Japonya’da bir mektup arkadaşı olduğunu söyledi.",
+   "example_uz": "U Yaponiyada yozishma do‘sti bo‘lganini aytdi.",
+   "concept": 2799
+  },
+  {
+   "id": 2800,
+   "topic": 7,
+   "tr": "yanında olmak",
+   "uz": "yonida bo‘lmoq, qo‘llab-quvvatlamoq",
+   "example_tr": "Her zaman yanımda olacağını söyledi.",
+   "example_uz": "U doim yonimda bo‘lishini aytdi.",
+   "concept": 2800
+  },
+  {
+   "id": 2801,
+   "topic": 7,
+   "tr": "eski dostlarla buluşma",
+   "uz": "uchrashuv (eski do‘stlar)",
+   "example_tr": "Buluşmaya gelseydin herkesi görürdün.",
+   "example_uz": "Agar uchrashuvga kelganingda, hammani ko‘rgan bo‘larding.",
+   "concept": 2801
+  },
+  {
+   "id": 2802,
+   "topic": 7,
+   "tr": "bağ",
+   "uz": "rishta, bog‘liqlik",
+   "example_tr": "Aralarında güçlü bir bağ olduğunu söylediler.",
+   "example_uz": "Ular o‘rtasida mustahkam rishta borligini aytishdi.",
+   "concept": 2802
+  },
+  {
+   "id": 2803,
+   "topic": 7,
+   "tr": "yoldaş",
+   "uz": "hamroh, sherik",
+   "example_tr": "Dedem köpeğinin en iyi yoldaşı olduğunu söyledi.",
+   "example_uz": "Bobom iti uning eng yaxshi hamrohi ekanini aytdi.",
+   "concept": 2803
+  },
+  {
+   "id": 2804,
+   "topic": 7,
+   "tr": "ortak arkadaş",
+   "uz": "umumiy do‘st",
+   "example_tr": "Ortak bir arkadaşımız olmasaydı tanışmazdık.",
+   "example_uz": "Agar umumiy do‘stimiz bo‘lmaganida, tanishmagan bo‘lardik.",
+   "concept": 2804
+  },
+  {
+   "id": 2805,
+   "topic": 7,
+   "tr": "kanka, arkadaş",
+   "uz": "o‘rtoq, og‘ayni",
+   "example_tr": "Arkadaşlarının onu beklediğini söyledi.",
+   "example_uz": "U o‘rtoqlari uni kutayotganini aytdi.",
+   "concept": 2805
+  },
+  {
+   "id": 2806,
+   "topic": 8,
+   "tr": "âşık olmak",
+   "uz": "sevib qolmoq",
+   "example_tr": "Tanışmasalardı birbirlerine âşık olmazlardı.",
+   "example_uz": "Agar ular uchrashmaganida, bir-birini sevib qolmagan bo‘lardi.",
+   "concept": 2806
+  },
+  {
+   "id": 2807,
+   "topic": 8,
+   "tr": "evlenme teklif etmek",
+   "uz": "turmush qurishni taklif qilmoq",
+   "example_tr": "Ona evlenme teklif edeceğini söyledi.",
+   "example_uz": "U unga turmush qurishni taklif qilmoqchi ekanini aytdi.",
+   "concept": 2807
+  },
+  {
+   "id": 2808,
+   "topic": 8,
+   "tr": "gelin",
+   "uz": "kelin (to‘yda)",
+   "example_tr": "Gelin hiç bu kadar mutlu olmadığını söyledi.",
+   "example_uz": "Kelin hech qachon bunchalik baxtli bo‘lmaganini aytdi.",
+   "concept": 2808
+  },
+  {
+   "id": 2809,
+   "topic": 8,
+   "tr": "damat",
+   "uz": "kuyov (to‘yda)",
+   "example_tr": "Damat bize heyecanlı olduğunu söyledi.",
+   "example_uz": "Kuyov bizga hayajonlanayotganini aytdi.",
+   "concept": 2809
+  },
+  {
+   "id": 2810,
+   "topic": 8,
+   "tr": "romantik",
+   "uz": "romantik",
+   "example_tr": "Onun yeterince romantik olmadığını söyledi.",
+   "example_uz": "U yigit yetarlicha romantik emasligini aytdi.",
+   "concept": 2810
+  },
+  {
+   "id": 2811,
+   "topic": 8,
+   "tr": "hoşlanma",
+   "uz": "ko‘ngil qo‘yish",
+   "example_tr": "Bana ondan hoşlandığını söyledi.",
+   "example_uz": "U menga o‘sha yigitga ko‘ngil qo‘yganini aytdi.",
+   "concept": 2811
+  },
+  {
+   "id": 2812,
+   "topic": 8,
+   "tr": "ayrılmak (sevgililer)",
+   "uz": "ajrashmoq (munosabatni uzmoq)",
+   "example_tr": "Ayrılmasalardı şimdi evli olurlardı.",
+   "example_uz": "Agar ular ajrashmaganida, hozir turmush qurgan bo‘lishardi.",
+   "concept": 2812
+  },
+  {
+   "id": 2813,
+   "topic": 8,
+   "tr": "eş",
+   "uz": "turmush o‘rtog‘i",
+   "example_tr": "Eşinin öğretmen olarak çalıştığından bahsetti.",
+   "example_uz": "U turmush o‘rtog‘i o‘qituvchi bo‘lib ishlashini aytib o‘tdi.",
+   "concept": null,
+   "new": {
+    "en": "spouse",
+    "ru": "супруг, супруга",
+    "example_en": "He mentioned that his spouse works as a teacher.",
+    "example_ru": "Он упомянул, что его супруга работает учителем.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>eş</text></svg>"
+   }
+  },
+  {
+   "id": 2814,
+   "topic": 8,
+   "tr": "ilk görüşte aşk",
+   "uz": "bir qarashda sevib qolish",
+   "example_tr": "Bunun ilk görüşte aşk olduğunu söyledi.",
+   "example_uz": "U bu bir qarashda sevib qolish bo‘lganini aytdi.",
+   "concept": 2814
+  },
+  {
+   "id": 2815,
+   "topic": 8,
+   "tr": "evlilik",
+   "uz": "nikoh",
+   "example_tr": "Evliliklerinin mutlu geçtiğini söylediler.",
+   "example_uz": "Ular nikohlari baxtli bo‘lganini aytishdi.",
+   "concept": 2815
+  },
+  {
+   "id": 2816,
+   "topic": 8,
+   "tr": "ruh eşi",
+   "uz": "jondosh, qalbdosh",
+   "example_tr": "Ruh eşini bulduğunu söyledi.",
+   "example_uz": "U o‘z qalbdoshini topganini aytdi.",
+   "concept": 2816
+  },
+  {
+   "id": 2817,
+   "topic": 8,
+   "tr": "nişanlı (kız)",
+   "uz": "qalliq, unashtirilgan qiz",
+   "example_tr": "Bize nişanlısının klasik müziği sevdiğini söyledi.",
+   "example_uz": "U bizga qallig‘i mumtoz musiqani yaxshi ko‘rishini aytdi.",
+   "concept": null,
+   "new": {
+    "en": "fiancée",
+    "ru": "невеста",
+    "example_en": "He told us his fiancée likes classical music.",
+    "example_ru": "Он сказал нам, что его невеста любит классическую музыку.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>nişanlı</text></svg>"
+   }
+  },
+  {
+   "id": 2818,
+   "topic": 8,
+   "tr": "nişanlı (erkek)",
+   "uz": "unashtirilgan yigit",
+   "example_tr": "Nişanlısının yeni bir ev aldığını söyledi.",
+   "example_uz": "U unashtirilgan yigiti yangi uy sotib olganini aytdi.",
+   "concept": null,
+   "new": {
+    "en": "fiancé",
+    "ru": "жених",
+    "example_en": "She said her fiancé had bought a new house.",
+    "example_ru": "Она сказала, что её жених купил новый дом.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>nişanlı</text></svg>"
+   }
+  },
+  {
+   "id": 2819,
+   "topic": 8,
+   "tr": "nişan",
+   "uz": "unashtiruv",
+   "example_tr": "Bana nişanını dün duyurduğunu söyledi.",
+   "example_uz": "U menga kecha unashtirilganini e’lon qilganini aytdi.",
+   "concept": null,
+   "new": {
+    "en": "engagement",
+    "ru": "помолвка",
+    "example_en": "She told me she had announced her engagement yesterday.",
+    "example_ru": "Она сказала мне, что вчера объявила о помолвке.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>nişan</text></svg>"
+   }
+  },
+  {
+   "id": 2820,
+   "topic": 8,
+   "tr": "kayınvalide ve kayınpeder",
+   "uz": "quda-andalar (erning yoki xotinning qarindoshlari)",
+   "example_tr": "Kayınvalidesiyle kayınpederinin çok nazik olduğunu söyledi.",
+   "example_uz": "U erining qarindoshlari juda mehribon ekanini aytdi.",
+   "concept": 2820
+  },
+  {
+   "id": 2821,
+   "topic": 9,
+   "tr": "şirket",
+   "uz": "kompaniya",
+   "example_tr": "Şirketin hızla büyüdüğünü söyledi.",
+   "example_uz": "U kompaniya tez o‘sayotganini aytdi.",
+   "concept": 2821
+  },
+  {
+   "id": 2822,
+   "topic": 9,
+   "tr": "müşteri",
+   "uz": "mijoz",
+   "example_tr": "Müşteri indirim istediğini söyledi.",
+   "example_uz": "Mijoz chegirma xohlashini aytdi.",
+   "concept": 2822
+  },
+  {
+   "id": 2823,
+   "topic": 9,
+   "tr": "gündem",
+   "uz": "kun tartibi (yig‘ilish)",
+   "example_tr": "Gündemde ne olduğunu sordu.",
+   "example_uz": "U kun tartibida nima borligini so‘radi.",
+   "concept": 2823
+  },
+  {
+   "id": 2824,
+   "topic": 9,
+   "tr": "sunum",
+   "uz": "taqdimot",
+   "example_tr": "Sunumunun iyi geçtiğini söyledi.",
+   "example_uz": "U taqdimoti yaxshi o‘tganini aytdi.",
+   "concept": 2824
+  },
+  {
+   "id": 2825,
+   "topic": 9,
+   "tr": "yatırımcı",
+   "uz": "investor",
+   "example_tr": "Bir yatırımcı bulsaydık bir dükkân açardık.",
+   "example_uz": "Agar investor topganimizda, do‘kon ochgan bo‘lardik.",
+   "concept": 2825
+  },
+  {
+   "id": 2826,
+   "topic": 9,
+   "tr": "genel merkez",
+   "uz": "bosh ofis",
+   "example_tr": "Genel merkezin Taşkent’te olduğunu söyledi.",
+   "example_uz": "U bosh ofis Toshkentda ekanini aytdi.",
+   "concept": 2826
+  },
+  {
+   "id": 2827,
+   "topic": 9,
+   "tr": "konferans",
+   "uz": "konferensiya",
+   "example_tr": "Bir konferansa uçacağını bana söyledi.",
+   "example_uz": "U menga konferensiyaga uchib ketayotganini aytdi.",
+   "concept": 2827
+  },
+  {
+   "id": 2828,
+   "topic": 9,
+   "tr": "iş seyahati",
+   "uz": "xizmat safari",
+   "example_tr": "İş seyahatinde olduğunu söyledi.",
+   "example_uz": "U xizmat safarida ekanini aytdi.",
+   "concept": 2828
+  },
+  {
+   "id": 2829,
+   "topic": 9,
+   "tr": "hedef",
+   "uz": "maqsad, reja",
+   "example_tr": "Müdür hedefimize ulaştığımızı söyledi.",
+   "example_uz": "Menejer biz rejani bajarganimizni aytdi.",
+   "concept": 2829
+  },
+  {
+   "id": 2830,
+   "topic": 9,
+   "tr": "geri bildirim",
+   "uz": "fikr-mulohaza",
+   "example_tr": "Patron bir geri bildirimim olup olmadığını sordu.",
+   "example_uz": "Rahbar mening biror mulohazam bor-yo‘qligini so‘radi.",
+   "concept": 2830
+  },
+  {
+   "id": 2831,
+   "topic": 9,
+   "tr": "fatura",
+   "uz": "hisob-faktura",
+   "example_tr": "Müşteri faturayı ne zaman göndereceğimizi sordu.",
+   "example_uz": "Mijoz hisob-fakturani qachon yuborishimizni so‘radi.",
+   "concept": 2831
+  },
+  {
+   "id": 2832,
+   "topic": 9,
+   "tr": "girişim, startup",
+   "uz": "startap",
+   "example_tr": "Kendi girişimini başlattığını söyledi.",
+   "example_uz": "U o‘z startapini ishga tushirganini aytdi.",
+   "concept": 2832
+  },
+  {
+   "id": 2833,
+   "topic": 9,
+   "tr": "takım çalışması",
+   "uz": "jamoaviy ish",
+   "example_tr": "Patron anahtarın takım çalışması olduğunu söyledi.",
+   "example_uz": "Rahbar asosiysi jamoaviy ish ekanini aytdi.",
+   "concept": 2833
+  },
+  {
+   "id": 2834,
+   "topic": 9,
+   "tr": "katılmak",
+   "uz": "ishtirok etmoq",
+   "example_tr": "Toplantıya katılamayacağını söyledi.",
+   "example_uz": "U yig‘ilishda ishtirok eta olmasligini aytdi.",
+   "concept": 2834
+  },
+  {
+   "id": 2835,
+   "topic": 9,
+   "tr": "zarar",
+   "uz": "zarar",
+   "example_tr": "Şirketin zarar ettiğini söylediler.",
+   "example_uz": "Kompaniya zarar ko‘rganini aytishdi.",
+   "concept": 2835
+  },
+  {
+   "id": 2836,
+   "topic": 10,
+   "tr": "telefonu kapatmak",
+   "uz": "go‘shakni qo‘ymoq",
+   "example_tr": "Kızın telefonu yüzüne kapattığını söyledi.",
+   "example_uz": "U qiz go‘shakni qo‘yib qo‘yganini aytdi.",
+   "concept": 2836
+  },
+  {
+   "id": 2837,
+   "topic": 10,
+   "tr": "hatta beklemek",
+   "uz": "kutib turmoq (liniyada)",
+   "example_tr": "Hatta beklememi istedi.",
+   "example_uz": "U mendan liniyada kutib turishimni so‘radi.",
+   "concept": 2837
+  },
+  {
+   "id": 2838,
+   "topic": 10,
+   "tr": "geri aramak",
+   "uz": "qayta qo‘ng‘iroq qilmoq",
+   "example_tr": "Beni geri arayacağını söyledi.",
+   "example_uz": "U menga qayta qo‘ng‘iroq qilishini aytdi.",
+   "concept": 2838
+  },
+  {
+   "id": 2839,
+   "topic": 10,
+   "tr": "cevapsız arama",
+   "uz": "javobsiz qo‘ng‘iroq",
+   "example_tr": "Üç cevapsız araması olduğunu söyledi.",
+   "example_uz": "U uchta javobsiz qo‘ng‘irog‘i borligini aytdi.",
+   "concept": 2839
+  },
+  {
+   "id": 2840,
+   "topic": 10,
+   "tr": "sesli mesaj",
+   "uz": "ovozli pochta",
+   "example_tr": "Sesli mesaj bıraktığını söyledi.",
+   "example_uz": "U ovozli xabar qoldirganini aytdi.",
+   "concept": 2840
+  },
+  {
+   "id": 2841,
+   "topic": 10,
+   "tr": "yanlış numara",
+   "uz": "noto‘g‘ri raqam",
+   "example_tr": "Yanlış numarayı çevirdiğimi söyledi.",
+   "example_uz": "U men noto‘g‘ri raqam terganimni aytdi.",
+   "concept": 2841
+  },
+  {
+   "id": 2842,
+   "topic": 10,
+   "tr": "şarj etmek",
+   "uz": "hisobni to‘ldirmoq, quvvatlamoq",
+   "example_tr": "Telefonunu şarj etmesi gerektiğini söyledi.",
+   "example_uz": "U telefonini quvvatlashi kerakligini aytdi.",
+   "concept": 2243,
+   "own": {
+    "example_en": "He said he needed to charge his phone.",
+    "example_ru": "Он сказал, что ему нужно зарядить телефон."
+   }
+  },
+  {
+   "id": 2843,
+   "topic": 10,
+   "tr": "kesilmek (hat)",
+   "uz": "uzilib qolmoq (aloqa)",
+   "example_tr": "Hat kesilmeseydi sözümü bitirirdim.",
+   "example_uz": "Agar aloqa uzilib qolmaganida, gapimni tugatgan bo‘lardim.",
+   "concept": 2843
+  },
+  {
+   "id": 2844,
+   "topic": 10,
+   "tr": "arayan kişi",
+   "uz": "qo‘ng‘iroq qiluvchi",
+   "example_tr": "Arayan kişi bankadan aradığını söyledi.",
+   "example_uz": "Qo‘ng‘iroq qiluvchi bankdan ekanini aytdi.",
+   "concept": 2844
+  },
+  {
+   "id": 2845,
+   "topic": 10,
+   "tr": "spam arama",
+   "uz": "spam-qo‘ng‘iroq",
+   "example_tr": "Bunun bir spam arama olduğunu söyledi.",
+   "example_uz": "U bu spam-qo‘ng‘iroq bo‘lganini aytdi.",
+   "concept": 2845
+  },
+  {
+   "id": 2846,
+   "topic": 10,
+   "tr": "kulaklık (eller serbest)",
+   "uz": "garnitura",
+   "example_tr": "Arabada her zaman kulaklık kullandığını söyledi.",
+   "example_uz": "U mashinada doim garnituradan foydalanishini aytdi.",
+   "concept": 2846
+  },
+  {
+   "id": 2847,
+   "topic": 10,
+   "tr": "zil sesi",
+   "uz": "rington, qo‘ng‘iroq ohangi",
+   "example_tr": "Zil sesimi değiştirmemi istedi.",
+   "example_uz": "U mendan qo‘ng‘iroq ohangimni almashtirishimni so‘radi.",
+   "concept": 2847
+  },
+  {
+   "id": 2848,
+   "topic": 10,
+   "tr": "sessiz mod",
+   "uz": "ovozsiz rejim",
+   "example_tr": "Telefonum sessiz modda olmasaydı cevap verirdim.",
+   "example_uz": "Agar telefonim ovozsiz rejimda bo‘lmaganida, javob bergan bo‘lardim.",
+   "concept": 2848
+  },
+  {
+   "id": 2849,
+   "topic": 10,
+   "tr": "operatör",
+   "uz": "operator",
+   "example_tr": "Operatör bütün hatların meşgul olduğunu söyledi.",
+   "example_uz": "Operator barcha liniyalar band ekanini aytdi.",
+   "concept": 2849
+  },
+  {
+   "id": 2850,
+   "topic": 10,
+   "tr": "sabit telefon",
+   "uz": "statsionar telefon",
+   "example_tr": "Büyükannem hâlâ sabit telefon kullandığını söyledi.",
+   "example_uz": "Buvim hali ham uy telefonidan foydalanishini aytdi.",
+   "concept": 2850
+  },
+  {
+   "id": 2851,
+   "topic": 11,
+   "tr": "beyin",
+   "uz": "miya",
+   "example_tr": "Doktor beynimin dinlenmeye ihtiyacı olduğunu söyledi.",
+   "example_uz": "Shifokor miyamga dam kerakligini aytdi.",
+   "concept": 2851
+  },
+  {
+   "id": 2852,
+   "topic": 11,
+   "tr": "kaygı",
+   "uz": "xavotir, bezovtalik",
+   "example_tr": "Kaygısının arttığını söyledi.",
+   "example_uz": "U xavotiri kuchayganini aytdi.",
+   "concept": 2852
+  },
+  {
+   "id": 2853,
+   "topic": 11,
+   "tr": "depresif",
+   "uz": "tushkun",
+   "example_tr": "Haftalardır depresif hissettiğini bana söyledi.",
+   "example_uz": "U menga bir necha haftadan beri tushkun kayfiyatda ekanini aytdi.",
+   "concept": 2853
+  },
+  {
+   "id": 2854,
+   "topic": 11,
+   "tr": "motivasyon",
+   "uz": "motivatsiya",
+   "example_tr": "Daha çok motivasyonum olsaydı bitirirdim.",
+   "example_uz": "Agar motivatsiyam ko‘proq bo‘lganida, tugatgan bo‘lardim.",
+   "concept": 2854
+  },
+  {
+   "id": 2855,
+   "topic": 11,
+   "tr": "tutum",
+   "uz": "munosabat (ishga)",
+   "example_tr": "Antrenör tutumumun değiştiğini söyledi.",
+   "example_uz": "Murabbiy mening munosabatim o‘zgarganini aytdi.",
+   "concept": 2855
+  },
+  {
+   "id": 2856,
+   "topic": 11,
+   "tr": "fazla düşünmek",
+   "uz": "haddan tashqari ko‘p o‘ylamoq",
+   "example_tr": "Her şeyi her zaman fazla düşündüğünü söyledi.",
+   "example_uz": "U hamma narsa haqida haddan tashqari ko‘p o‘ylashini aytdi.",
+   "concept": 2856
+  },
+  {
+   "id": 2857,
+   "topic": 11,
+   "tr": "terapist",
+   "uz": "psixoterapevt",
+   "example_tr": "Bir terapiste gitseydi şimdi kendini daha iyi hissederdi.",
+   "example_uz": "Agar u psixoterapevtga borganida, hozir o‘zini yaxshiroq his qilardi.",
+   "concept": 2857
+  },
+  {
+   "id": 2858,
+   "topic": 11,
+   "tr": "ruh sağlığı",
+   "uz": "ruhiy salomatlik",
+   "example_tr": "Doktor ruh sağlığının önemli olduğunu söyledi.",
+   "example_uz": "Shifokor ruhiy salomatlik muhim ekanini aytdi.",
+   "concept": 2858
+  },
+  {
+   "id": 2859,
+   "topic": 11,
+   "tr": "tükenmişlik",
+   "uz": "charchab ado bo‘lish",
+   "example_tr": "Geçen yıl tükenmişlik yaşadığını söyledi.",
+   "example_uz": "U o‘tgan yili charchab ado bo‘lganini aytdi.",
+   "concept": 2859
+  },
+  {
+   "id": 2860,
+   "topic": 11,
+   "tr": "kâbus",
+   "uz": "dahshatli tush",
+   "example_tr": "Bir kâbus gördüğünü bana söyledi.",
+   "example_uz": "U menga dahshatli tush ko‘rganini aytdi.",
+   "concept": 2860
+  },
+  {
+   "id": 2861,
+   "topic": 11,
+   "tr": "zihniyet",
+   "uz": "fikrlash tarzi",
+   "example_tr": "Olumlu bir zihniyetim olsaydı pes etmezdim.",
+   "example_uz": "Agar ijobiy fikrlaganimda, taslim bo‘lmagan bo‘lardim.",
+   "concept": 2861
+  },
+  {
+   "id": 2862,
+   "topic": 11,
+   "tr": "irade gücü",
+   "uz": "iroda kuchi",
+   "example_tr": "Yeterince irade gücü olmadığını söyledi.",
+   "example_uz": "U iroda kuchi yetishmasligini aytdi.",
+   "concept": 2862
+  },
+  {
+   "id": 2863,
+   "topic": 11,
+   "tr": "özgüven",
+   "uz": "o‘zini baholash",
+   "example_tr": "Öğretmen onun özgüveninin düşük olduğunu söyledi.",
+   "example_uz": "O‘qituvchi uning o‘ziga baho berishi past ekanini aytdi.",
+   "concept": 2863
+  },
+  {
+   "id": 2864,
+   "topic": 11,
+   "tr": "tepki",
+   "uz": "munosabat, reaksiya",
+   "example_tr": "Onun habere verdiği tepkiye şaşırdığını söyledi.",
+   "example_uz": "U qizning yangilikka munosabatidan hayron bo‘lganini aytdi.",
+   "concept": 2864
+  },
+  {
+   "id": 2865,
+   "topic": 11,
+   "tr": "derin nefes",
+   "uz": "chuqur nafas",
+   "example_tr": "Hemşire bana derin bir nefes almamı söyledi.",
+   "example_uz": "Hamshira menga chuqur nafas olishni aytdi.",
+   "concept": 2865
+  },
+  {
+   "id": 2866,
+   "topic": 12,
+   "tr": "alıntı",
+   "uz": "iqtibos",
+   "example_tr": "Alıntının yanlış olduğunu söyledi.",
+   "example_uz": "U iqtibos noto‘g‘ri ekanini aytdi.",
+   "concept": 2866
+  },
+  {
+   "id": 2867,
+   "topic": 12,
+   "tr": "açıklama",
+   "uz": "bayonot",
+   "example_tr": "Polis yaptığı açıklamada kimsenin yaralanmadığını söyledi.",
+   "example_uz": "Politsiya bayonotida hech kim jabrlanmaganini aytdi.",
+   "concept": 2867
+  },
+  {
+   "id": 2868,
+   "topic": 12,
+   "tr": "söylenti",
+   "uz": "mish-mish",
+   "example_tr": "Söylentinin doğru olmadığını söyledi.",
+   "example_uz": "U mish-mish haqiqatga to‘g‘ri kelmasligini aytdi.",
+   "concept": 2868
+  },
+  {
+   "id": 2869,
+   "topic": 12,
+   "tr": "sahte haber",
+   "uz": "soxta yangiliklar",
+   "example_tr": "Hikâyenin sahte haber olduğunu söyledi.",
+   "example_uz": "U bu voqea soxta yangilik ekanini aytdi.",
+   "concept": 2869
+  },
+  {
+   "id": 2870,
+   "topic": 12,
+   "tr": "fenomen",
+   "uz": "bloger, influenser",
+   "example_tr": "Fenomen bir milyon takipçisi olduğunu söyledi.",
+   "example_uz": "Bloger qizning bir million obunachisi borligini aytdi.",
+   "concept": 2870
+  },
+  {
+   "id": 2871,
+   "topic": 12,
+   "tr": "son dakika haberi",
+   "uz": "shoshilinch yangiliklar",
+   "example_tr": "Bir son dakika haberi olduğunu söylediler.",
+   "example_uz": "Shoshilinch yangilik borligini aytishdi.",
+   "concept": 2871
+  },
+  {
+   "id": 2872,
+   "topic": 12,
+   "tr": "canlı (yayın)",
+   "uz": "jonli efirda",
+   "example_tr": "Sunucu canlı yayında olduklarını söyledi.",
+   "example_uz": "Boshlovchi ular jonli efirda ekanini aytdi.",
+   "concept": 2872
+  },
+  {
+   "id": 2873,
+   "topic": 12,
+   "tr": "sunucu",
+   "uz": "boshlovchi",
+   "example_tr": "Sunucu konuğa nerede yaşadığını sordu.",
+   "example_uz": "Boshlovchi mehmondan qayerda yashashini so‘radi.",
+   "concept": 2873
+  },
+  {
+   "id": 2874,
+   "topic": 12,
+   "tr": "seyirci",
+   "uz": "tomoshabinlar, auditoriya",
+   "example_tr": "Sunucu seyircilere hazır olup olmadıklarını sordu.",
+   "example_uz": "Boshlovchi tomoshabinlardan tayyormisizlar, deb so‘radi.",
+   "concept": 2874
+  },
+  {
+   "id": 2875,
+   "topic": 12,
+   "tr": "ünlü",
+   "uz": "mashhur kishi",
+   "example_tr": "Bana bir ünlüyle tanıştığını söyledi.",
+   "example_uz": "U menga mashhur kishi bilan uchrashganini aytdi.",
+   "concept": 2875
+  },
+  {
+   "id": 2876,
+   "topic": 12,
+   "tr": "paparazzi",
+   "uz": "paparatsi",
+   "example_tr": "Oyuncu paparazzilerin onu takip ettiğini söyledi.",
+   "example_uz": "Aktyor paparatsilar uni ta’qib qilganini aytdi.",
+   "concept": 2876
+  },
+  {
+   "id": 2877,
+   "topic": 12,
+   "tr": "belgesel",
+   "uz": "hujjatli film",
+   "example_tr": "O belgeseli izlemeseydim bunu bilmezdim.",
+   "example_uz": "Agar o‘sha hujjatli filmni ko‘rmaganimda, buni bilmagan bo‘lardim.",
+   "concept": 2877
+  },
+  {
+   "id": 2878,
+   "topic": 12,
+   "tr": "fragman",
+   "uz": "treyler",
+   "example_tr": "Fragmanın filmden daha iyi olduğunu söyledi.",
+   "example_uz": "U treyler filmning o‘zidan yaxshiroq ekanini aytdi.",
+   "concept": 2878
+  },
+  {
+   "id": 2879,
+   "topic": 12,
+   "tr": "viral olmak",
+   "uz": "viral, tez tarqalgan",
+   "example_tr": "Videosunun viral olduğunu söyledi.",
+   "example_uz": "U videosi tez tarqalib ketganini aytdi.",
+   "concept": 2879
+  },
+  {
+   "id": 2880,
+   "topic": 12,
+   "tr": "spoiler",
+   "uz": "spoyler",
+   "example_tr": "Ona hiç spoiler vermememi istedi.",
+   "example_uz": "U mendan unga spoyler aytmasligimni so‘radi.",
+   "concept": 2880
+  },
+  {
+   "id": 2881,
+   "topic": 13,
+   "tr": "mahsur kalmış",
+   "uz": "yo‘lda qolib ketgan",
+   "example_tr": "Uçak zamanında kalksaydı mahsur kalmazdık.",
+   "example_uz": "Agar reys o‘z vaqtida uchganida, biz yo‘lda qolib ketmagan bo‘lardik.",
+   "concept": 2881
+  },
+  {
+   "id": 2882,
+   "topic": 13,
+   "tr": "fazla bilet satılmış",
+   "uz": "ortiqcha chipta sotilgan",
+   "example_tr": "Uçuşa fazla bilet satıldığını söylediler.",
+   "example_uz": "Reysga ortiqcha chipta sotilganini aytishdi.",
+   "concept": 2882
+  },
+  {
+   "id": 2883,
+   "topic": 13,
+   "tr": "aktarmalı uçuş",
+   "uz": "ulanuvchi reys",
+   "example_tr": "Aktarma uçuşumuzun kalktığını söylediler.",
+   "example_uz": "Bizning ulanuvchi reysimiz uchib ketganini aytishdi.",
+   "concept": 2883
+  },
+  {
+   "id": 2884,
+   "topic": 13,
+   "tr": "aktarma beklemesi",
+   "uz": "tranzit to‘xtash (aeroportda)",
+   "example_tr": "Aktarma beklemesinin on saat olduğunu söyledi.",
+   "example_uz": "U tranzit to‘xtash o‘n soat davom etishini aytdi.",
+   "concept": 2884
+  },
+  {
+   "id": 2885,
+   "topic": 13,
+   "tr": "kazıklamak",
+   "uz": "shilmoq, aldab pul olmoq",
+   "example_tr": "Taksicinin bizi kazıkladığını söyledi.",
+   "example_uz": "U taksi haydovchisi bizni shilib olganini aytdi.",
+   "concept": 2885
+  },
+  {
+   "id": 2886,
+   "topic": 13,
+   "tr": "dil engeli",
+   "uz": "til to‘sig‘i",
+   "example_tr": "Dil engeli olmasaydı daha kolay olurdu.",
+   "example_uz": "Agar til to‘sig‘i bo‘lmaganida, osonroq bo‘lardi.",
+   "concept": 2886
+  },
+  {
+   "id": 2887,
+   "topic": 13,
+   "tr": "büyükelçilik",
+   "uz": "elchixona",
+   "example_tr": "Bize büyükelçiliğe gitmemizi söylediler.",
+   "example_uz": "Bizga elchixonaga borishni aytishdi.",
+   "concept": 2887
+  },
+  {
+   "id": 2888,
+   "topic": 13,
+   "tr": "deniz tutmuş",
+   "uz": "dengiz kasalligiga chalingan",
+   "example_tr": "Hap içseydim beni deniz tutmazdı.",
+   "example_uz": "Agar tabletka ichganimda, meni dengiz kasalligi tutmagan bo‘lardi.",
+   "concept": 2888
+  },
+  {
+   "id": 2889,
+   "topic": 13,
+   "tr": "üst sınıfa geçiş",
+   "uz": "yuqori klassga o‘tkazish",
+   "example_tr": "Daha fazla ödeseydik üst sınıfa geçirilirdik.",
+   "example_uz": "Agar ko‘proq to‘laganimizda, bizni yuqori klassga o‘tkazishgan bo‘lardi.",
+   "concept": 2889
+  },
+  {
+   "id": 2890,
+   "topic": 13,
+   "tr": "uzun mesafeli",
+   "uz": "uzoq masofali (parvoz)",
+   "example_tr": "Uzun mesafeli uçuşların onu yorduğunu söyledi.",
+   "example_uz": "U uzoq masofali parvozlardan charchashini aytdi.",
+   "concept": 2890
+  },
+  {
+   "id": 2891,
+   "topic": 13,
+   "tr": "turist tuzağı",
+   "uz": "sayyohlar uchun tuzoq",
+   "example_tr": "Restoranın bir turist tuzağı olduğunu söyledi.",
+   "example_uz": "U restoran sayyohlar uchun tuzoq ekanini aytdi.",
+   "concept": 2891
+  },
+  {
+   "id": 2892,
+   "topic": 13,
+   "tr": "konuşma kılavuzu",
+   "uz": "so‘zlashgich",
+   "example_tr": "Konuşma kılavuzu getirseydim onları anlardım.",
+   "example_uz": "Agar so‘zlashgich olib kelganimda, ularni tushungan bo‘lardim.",
+   "concept": 2892
+  },
+  {
+   "id": 2893,
+   "topic": 13,
+   "tr": "rezervasyon",
+   "uz": "bron",
+   "example_tr": "Otel adıma rezervasyon olmadığını söyledi.",
+   "example_uz": "Mehmonxonada mening nomimga bron yo‘qligini aytishdi.",
+   "concept": 2893
+  },
+  {
+   "id": 2894,
+   "topic": 13,
+   "tr": "yerel saat",
+   "uz": "mahalliy vaqt",
+   "example_tr": "Pilot yerel saatin sabah dokuz olduğunu söyledi.",
+   "example_uz": "Uchuvchi mahalliy vaqt ertalab soat 9 ekanini aytdi.",
+   "concept": 2894
+  },
+  {
+   "id": 2895,
+   "topic": 13,
+   "tr": "saat farkı",
+   "uz": "vaqt farqi",
+   "example_tr": "Saat farkını bilseydim gece aramazdım.",
+   "example_uz": "Agar vaqt farqini bilganimda, kechasi qo‘ng‘iroq qilmagan bo‘lardim.",
+   "concept": 2895
+  },
+  {
+   "id": 2896,
+   "topic": 14,
+   "tr": "dili tutulmuş",
+   "uz": "gapirishga so‘z topolmagan",
+   "example_tr": "Dilinin tutulduğunu söyledi.",
+   "example_uz": "U gapirishga so‘z topa olmaganini aytdi.",
+   "concept": 2896
+  },
+  {
+   "id": 2897,
+   "topic": 14,
+   "tr": "çok mutlu",
+   "uz": "behad xursand",
+   "example_tr": "Haberden çok mutlu olduğunu bana söyledi.",
+   "example_uz": "U menga yangilikdan behad xursand ekanini aytdi.",
+   "concept": 2897
+  },
+  {
+   "id": 2898,
+   "topic": 14,
+   "tr": "kırılmış, gücenmiş",
+   "uz": "xafa bo‘lgan, ranjigan",
+   "example_tr": "Sözlerime kırıldığını söyledi.",
+   "example_uz": "U mening so‘zlarimdan ranjiganini aytdi.",
+   "concept": 2898
+  },
+  {
+   "id": 2899,
+   "topic": 14,
+   "tr": "duygulanmış",
+   "uz": "ta’sirlangan",
+   "example_tr": "Hediyemize duygulandığını söyledi.",
+   "example_uz": "U sovg‘amizdan ta’sirlanganini aytdi.",
+   "concept": 2899
+  },
+  {
+   "id": 2900,
+   "topic": 14,
+   "tr": "bunalmış",
+   "uz": "hissiyotga to‘lib ketgan",
+   "example_tr": "Bunalmış hissettiğini söyledi.",
+   "example_uz": "U hissiyotlarga to‘lib ketganini aytdi.",
+   "concept": 2900
+  },
+  {
+   "id": 2901,
+   "topic": 14,
+   "tr": "şaşkın",
+   "uz": "hayron, dovdiragan",
+   "example_tr": "Şaşkın görünüyordu ve ne demek istediğimi sordu.",
+   "example_uz": "U hayron bo‘lib, nima demoqchi ekanimni so‘radi.",
+   "concept": 2901
+  },
+  {
+   "id": 2902,
+   "topic": 14,
+   "tr": "dehşete düşmüş",
+   "uz": "dahshatga tushgan",
+   "example_tr": "Haberden dehşete düştüğünü söyledi.",
+   "example_uz": "U yangilikdan dahshatga tushganini aytdi.",
+   "concept": 2902
+  },
+  {
+   "id": 2903,
+   "topic": 14,
+   "tr": "sempati, acıma",
+   "uz": "hamdardlik",
+   "example_tr": "Ona karşı sempati duyduğunu söyledi.",
+   "example_uz": "U unga hamdardlik bildirishini aytdi.",
+   "concept": 2903
+  },
+  {
+   "id": 2904,
+   "topic": 14,
+   "tr": "kızarmak (yüz)",
+   "uz": "qizarmoq",
+   "example_tr": "O gülümseyince yüzünün kızardığını söyledi.",
+   "example_uz": "U yigit jilmayganda qizarib ketganini aytdi.",
+   "concept": 2904
+  },
+  {
+   "id": 2905,
+   "topic": 14,
+   "tr": "titremek",
+   "uz": "titramoq",
+   "example_tr": "Ellerinin titrediğini söyledi.",
+   "example_uz": "U qo‘llari titrayotganini aytdi.",
+   "concept": 2905
+  },
+  {
+   "id": 2906,
+   "topic": 14,
+   "tr": "iç çekmek",
+   "uz": "xo‘rsinmoq",
+   "example_tr": "İç çekti ve yorgun olduğunu söyledi.",
+   "example_uz": "U xo‘rsinib, charchaganini aytdi.",
+   "concept": 2906
+  },
+  {
+   "id": 2907,
+   "topic": 14,
+   "tr": "kaş çatmak",
+   "uz": "qovog‘ini solmoq",
+   "example_tr": "Neden kaşlarımı çattığımı sordu.",
+   "example_uz": "U mendan nega qovog‘imni solganimni so‘radi.",
+   "concept": 2907
+  },
+  {
+   "id": 2908,
+   "topic": 14,
+   "tr": "omuz silkmek",
+   "uz": "yelka qismoq",
+   "example_tr": "Omuz silkti ve bilmediğini söyledi.",
+   "example_uz": "U yelkasini qisib, bilmasligini aytdi.",
+   "concept": 2908
+  },
+  {
+   "id": 2909,
+   "topic": 14,
+   "tr": "çığlık atmak",
+   "uz": "chinqirmoq, qichqirmoq",
+   "example_tr": "Örümceği görünce çığlık attığını söyledi.",
+   "example_uz": "U o‘rgimchakni ko‘rganda chinqirib yuborganini aytdi.",
+   "concept": 2909
+  },
+  {
+   "id": 2910,
+   "topic": 14,
+   "tr": "başını sallamak",
+   "uz": "bosh irg‘amoq",
+   "example_tr": "Başını salladı ve katıldığını söyledi.",
+   "example_uz": "U bosh irg‘ab, rozi ekanini aytdi.",
+   "concept": 2910
+  },
+  {
+   "id": 2911,
+   "topic": 15,
+   "tr": "öğrenmek (gerçeği)",
+   "uz": "bilib olmoq, aniqlamoq",
+   "example_tr": "Gerçeği öğrenip öğrenmediğimi sordu.",
+   "example_uz": "U mendan haqiqatni bilib olganimni so‘radi.",
+   "concept": 2911
+  },
+  {
+   "id": 2912,
+   "topic": 15,
+   "tr": "sonuçlanmak",
+   "uz": "bo‘lib chiqmoq",
+   "example_tr": "Her şeyin iyi sonuçlandığını söyledi.",
+   "example_uz": "U hammasi yaxshi bo‘lib chiqqanini aytdi.",
+   "concept": 2912
+  },
+  {
+   "id": 2913,
+   "topic": 15,
+   "tr": "seçebilmek (sözleri)",
+   "uz": "ajrata olmoq (so‘zlarni)",
+   "example_tr": "Ne dediğini anlayamadım.",
+   "example_uz": "Uning nima deganini ajrata olmadim.",
+   "concept": 2913
+  },
+  {
+   "id": 2914,
+   "topic": 15,
+   "tr": "ikna etmek",
+   "uz": "ko‘ndirmoq",
+   "example_tr": "Beni köpek almaya ikna etti.",
+   "example_uz": "U meni it sotib olishga ko‘ndirdi.",
+   "concept": 2914
+  },
+  {
+   "id": 2915,
+   "topic": 15,
+   "tr": "konuşup karar vermek",
+   "uz": "muhokama qilib olmoq",
+   "example_tr": "Bunu konuşacağımızı söyledik.",
+   "example_uz": "Biz buni muhokama qilib olishimizni aytdik.",
+   "concept": 2915
+  },
+  {
+   "id": 2916,
+   "topic": 15,
+   "tr": "azarlamak",
+   "uz": "koyimoq, tanbeh bermoq",
+   "example_tr": "Annem geç kaldığım için beni azarladı.",
+   "example_uz": "Oyim kechikkanim uchun meni koyidi.",
+   "concept": 2916
+  },
+  {
+   "id": 2917,
+   "topic": 15,
+   "tr": "açıkça konuşmak",
+   "uz": "ochiq gapirmoq",
+   "example_tr": "Açıkça konuşsaydı işler değişirdi.",
+   "example_uz": "Agar u ochiq gapirganida, vaziyat o‘zgargan bo‘lardi.",
+   "concept": 2917
+  },
+  {
+   "id": 2918,
+   "topic": 15,
+   "tr": "bulmak (fikir)",
+   "uz": "o‘ylab topmoq",
+   "example_tr": "Bir plan bulduğunu söyledi.",
+   "example_uz": "U reja o‘ylab topganini aytdi.",
+   "concept": 2918
+  },
+  {
+   "id": 2919,
+   "topic": 15,
+   "tr": "devam etmek",
+   "uz": "davom etmoq",
+   "example_tr": "Bana devam etmemi söyledi.",
+   "example_uz": "U menga davom etishimni aytdi.",
+   "concept": 2919
+  },
+  {
+   "id": 2920,
+   "topic": 15,
+   "tr": "özetlemek",
+   "uz": "qisqacha bayon qilmoq",
+   "example_tr": "Öğretmen hikâyeyi özetlememi istedi.",
+   "example_uz": "O‘qituvchi mendan hikoyani qisqacha bayon qilishimni so‘radi.",
+   "concept": 2920
+  },
+  {
+   "id": 2921,
+   "topic": 15,
+   "tr": "anlatabilmek (fikri)",
+   "uz": "tushuntirib bermoq (fikrni)",
+   "example_tr": "Fikrini anlatmanın zor olduğunu söyledi.",
+   "example_uz": "U o‘z g‘oyasini tushuntirib berish qiyinligini aytdi.",
+   "concept": 2921
+  },
+  {
+   "id": 2922,
+   "topic": 15,
+   "tr": "iptal etmek",
+   "uz": "bekor qilmoq (tadbirni)",
+   "example_tr": "Maçın iptal edildiğini söylediler.",
+   "example_uz": "O‘yin bekor qilinganini aytishdi.",
+   "concept": 2922
+  },
+  {
+   "id": 2923,
+   "topic": 15,
+   "tr": "lafa karışmak",
+   "uz": "gapga aralashmoq",
+   "example_tr": "Lafa karışmamamı istedi.",
+   "example_uz": "U mendan gapga aralashmasligimni so‘radi.",
+   "concept": 2923
+  },
+  {
+   "id": 2924,
+   "topic": 15,
+   "tr": "içini dökmek",
+   "uz": "yuragini ochmoq, dardini aytmoq",
+   "example_tr": "Sonunda ailesine içini döktüğünü söyledi.",
+   "example_uz": "U nihoyat ota-onasiga yuragini ochganini aytdi.",
+   "concept": 2924
+  },
+  {
+   "id": 2925,
+   "topic": 15,
+   "tr": "rastlamak",
+   "uz": "tasodifan uchratib qolmoq",
+   "example_tr": "Ona ağabeyine rastladığımı söyledim.",
+   "example_uz": "Men unga akasini tasodifan uchratib qolganimni aytdim.",
+   "concept": 2925
+  },
+  {
+   "id": 2926,
+   "topic": 16,
+   "tr": "katılmamak",
+   "uz": "rozi bo‘lmaslik",
+   "example_tr": "Bana katılmadığını söyledi.",
+   "example_uz": "U men bilan rozi emasligini aytdi.",
+   "concept": 2926
+  },
+  {
+   "id": 2927,
+   "topic": 16,
+   "tr": "ikna olmuş",
+   "uz": "ishongan, amin",
+   "example_tr": "İkna olmadığını söyledi.",
+   "example_uz": "U bunga ishonmaganini aytdi.",
+   "concept": 2927
+  },
+  {
+   "id": 2928,
+   "topic": 16,
+   "tr": "tartışma, münazara",
+   "uz": "bahs, munozara",
+   "example_tr": "Daha çok vaktimiz olsaydı münazara daha uzun sürerdi.",
+   "example_uz": "Agar vaqtimiz ko‘proq bo‘lganida, munozara uzoqroq davom etgan bo‘lardi.",
+   "concept": 2928
+  },
+  {
+   "id": 2929,
+   "topic": 16,
+   "tr": "gerçek, olgu",
+   "uz": "fakt, dalil",
+   "example_tr": "Bunun bir gerçek olduğunu söyledi.",
+   "example_uz": "U bu fakt ekanini aytdi.",
+   "concept": 2929
+  },
+  {
+   "id": 2930,
+   "topic": 16,
+   "tr": "kanıtlamak",
+   "uz": "isbotlamoq",
+   "example_tr": "Bunu kanıtlayabileceğini söyledi.",
+   "example_uz": "U buni isbotlay olishini aytdi.",
+   "concept": 2930
+  },
+  {
+   "id": 2931,
+   "topic": 16,
+   "tr": "mantıklı",
+   "uz": "mantiqiy",
+   "example_tr": "Fikrimin mantıklı olmadığını söyledi.",
+   "example_uz": "U mening g‘oyam mantiqiy emasligini aytdi.",
+   "concept": 2931
+  },
+  {
+   "id": 2932,
+   "topic": 16,
+   "tr": "taraflı",
+   "uz": "xolis emas, bir tomonlama",
+   "example_tr": "Makalenin taraflı olduğunu söyledi.",
+   "example_uz": "U maqola bir tomonlama ekanini aytdi.",
+   "concept": 2932
+  },
+  {
+   "id": 2933,
+   "topic": 16,
+   "tr": "haklı bir nokta",
+   "uz": "o‘rinli e’tiroz",
+   "example_tr": "Haklı bir noktaya değindiğimi kabul etti.",
+   "example_uz": "U mening e’tirozim o‘rinli ekanini tan oldi.",
+   "concept": 2933
+  },
+  {
+   "id": 2934,
+   "topic": 16,
+   "tr": "abartmak",
+   "uz": "bo‘rttirmoq, oshirib yubormoq",
+   "example_tr": "Abarttığımı söyledi.",
+   "example_uz": "U meni oshirib yuboryapsan, dedi.",
+   "concept": 2934
+  },
+  {
+   "id": 2935,
+   "topic": 16,
+   "tr": "öte yandan",
+   "uz": "boshqa tomondan",
+   "example_tr": "Öte yandan bunun ucuz olduğunu söyledi.",
+   "example_uz": "U, boshqa tomondan, bu arzon ekanini aytdi.",
+   "concept": 2935
+  },
+  {
+   "id": 2936,
+   "topic": 16,
+   "tr": "belli ki",
+   "uz": "aniqki, shubhasiz",
+   "example_tr": "Bunun belli ki bir şaka olduğunu söyledi.",
+   "example_uz": "U bu aniq hazil ekanini aytdi.",
+   "concept": 2936
+  },
+  {
+   "id": 2937,
+   "topic": 16,
+   "tr": "kesinlikle",
+   "uz": "albatta, aniq",
+   "example_tr": "Kesinlikle geleceğini söyledi.",
+   "example_uz": "U albatta kelishini aytdi.",
+   "concept": 2937
+  },
+  {
+   "id": 2938,
+   "topic": 16,
+   "tr": "eleştirmek",
+   "uz": "tanqid qilmoq",
+   "example_tr": "Onu her zaman eleştirdiğimi söyledi.",
+   "example_uz": "U meni doim uni tanqid qilasan, dedi.",
+   "concept": 2938
+  },
+  {
+   "id": 2939,
+   "topic": 16,
+   "tr": "sesini yükseltmek",
+   "uz": "ovozini ko‘tarmoq",
+   "example_tr": "Sesimi yükseltmememi istedi.",
+   "example_uz": "U mendan ovozimni ko‘tarmasligimni so‘radi.",
+   "concept": 2939
+  },
+  {
+   "id": 2940,
+   "topic": 16,
+   "tr": "tartışmalı",
+   "uz": "munozarali, bahsli",
+   "example_tr": "Konunun tartışmalı olduğunu söyledi.",
+   "example_uz": "U mavzu bahsli ekanini aytdi.",
+   "concept": 2940
+  },
+  {
+   "id": 2941,
+   "topic": 17,
+   "tr": "gerçek, doğru",
+   "uz": "haqiqat",
+   "example_tr": "Gerçeği söylememi istedi.",
+   "example_uz": "U mendan haqiqatni aytishimni so‘radi.",
+   "concept": 2941
+  },
+  {
+   "id": 2942,
+   "topic": 17,
+   "tr": "yalan",
+   "uz": "yolg‘on",
+   "example_tr": "Hiç yalan söylemediğini söyledi.",
+   "example_uz": "U hech qachon yolg‘on gapirmaganini aytdi.",
+   "concept": 2942
+  },
+  {
+   "id": 2943,
+   "topic": 17,
+   "tr": "özgürlük",
+   "uz": "erkinlik, ozodlik",
+   "example_tr": "Daha çok özgürlüğüm olsaydı seyahat ederdim.",
+   "example_uz": "Agar erkinligim ko‘proq bo‘lganida, sayohat qilgan bo‘lardim.",
+   "concept": 2943
+  },
+  {
+   "id": 2944,
+   "topic": 17,
+   "tr": "barış",
+   "uz": "tinchlik",
+   "example_tr": "Barış istediklerini söylediler.",
+   "example_uz": "Ular tinchlik istashlarini aytishdi.",
+   "concept": 2944
+  },
+  {
+   "id": 2945,
+   "topic": 17,
+   "tr": "değer",
+   "uz": "qadriyat",
+   "example_tr": "Ailenin en önemli değeri olduğunu söyledi.",
+   "example_uz": "U oila uning asosiy qadriyati ekanini aytdi.",
+   "concept": 2945
+  },
+  {
+   "id": 2946,
+   "topic": 17,
+   "tr": "inanç",
+   "uz": "e’tiqod, ishonch",
+   "example_tr": "İnançlarının onun için önemli olduğunu söyledi.",
+   "example_uz": "U o‘z e’tiqodlari uning uchun muhim ekanini aytdi.",
+   "concept": 2946
+  },
+  {
+   "id": 2947,
+   "topic": 17,
+   "tr": "iman",
+   "uz": "iymon, ishonch",
+   "example_tr": "İmanım olmasaydı pes ederdim.",
+   "example_uz": "Agar ishonchim bo‘lmaganida, taslim bo‘lgan bo‘lardim.",
+   "concept": 2947
+  },
+  {
+   "id": 2948,
+   "topic": 17,
+   "tr": "zenginlik",
+   "uz": "boylik",
+   "example_tr": "Zenginliğin mutluluk getirmediğini söyledi.",
+   "example_uz": "U boylik baxt keltirmasligini aytdi.",
+   "concept": 2948
+  },
+  {
+   "id": 2949,
+   "topic": 17,
+   "tr": "sağlık",
+   "uz": "salomatlik, sog‘liq",
+   "example_tr": "Sağlığıma dikkat etseydim şimdi hasta olmazdım.",
+   "example_uz": "Agar sog‘lig‘imni asraganimda, hozir kasal bo‘lmasdim.",
+   "concept": 2949
+  },
+  {
+   "id": 2950,
+   "topic": 17,
+   "tr": "şiddet",
+   "uz": "zo‘ravonlik",
+   "example_tr": "Filmde çok fazla şiddet olduğunu söyledi.",
+   "example_uz": "U filmda zo‘ravonlik juda ko‘p ekanini aytdi.",
+   "concept": 2950
+  },
+  {
+   "id": 2951,
+   "topic": 17,
+   "tr": "ayartma, cazibe",
+   "uz": "vasvasa",
+   "example_tr": "Cazibeye karşı koyamadığını söyledi.",
+   "example_uz": "U vasvasaga qarshi tura olmaganini aytdi.",
+   "concept": 2951
+  },
+  {
+   "id": 2952,
+   "topic": 17,
+   "tr": "kaos",
+   "uz": "tartibsizlik, xaos",
+   "example_tr": "Öğretmen sınıfta kaos olduğunu söyledi.",
+   "example_uz": "O‘qituvchi sinfda tartibsizlik ekanini aytdi.",
+   "concept": 2952
+  },
+  {
+   "id": 2953,
+   "topic": 17,
+   "tr": "onur",
+   "uz": "sharaf",
+   "example_tr": "Benimle tanışmanın bir onur olduğunu söyledi.",
+   "example_uz": "U men bilan tanishish uning uchun sharaf ekanini aytdi.",
+   "concept": 2953
+  },
+  {
+   "id": 2954,
+   "topic": 17,
+   "tr": "kültür",
+   "uz": "madaniyat",
+   "example_tr": "Kültürümüzü çok sevdiğini söyledi.",
+   "example_uz": "U bizning madaniyatimizni yaxshi ko‘rishini aytdi.",
+   "concept": 2954
+  },
+  {
+   "id": 2955,
+   "topic": 17,
+   "tr": "mizah",
+   "uz": "hazil-mutoyiba, yumor",
+   "example_tr": "Harika bir mizah anlayışım olduğunu söyledi.",
+   "example_uz": "U mening hazil tuyg‘um a’lo ekanini aytdi.",
+   "concept": 2955
+  },
+  {
+   "id": 2956,
+   "topic": 18,
+   "tr": "çocuk oyuncağı",
+   "uz": "hech gap emas, juda oson",
+   "example_tr": "Sınavın çocuk oyuncağı olduğunu söyledi.",
+   "example_uz": "U imtihon juda oson bo‘lganini aytdi.",
+   "concept": 2956
+  },
+  {
+   "id": 2957,
+   "topic": 18,
+   "tr": "buzları eritmek",
+   "uz": "muzni eritmoq (tanglikni yumshatmoq)",
+   "example_tr": "Bir şakanın buzları eritmeye yardım ettiğini söyledi.",
+   "example_uz": "U hazil muzni eritishga yordam berganini aytdi.",
+   "concept": 2957
+  },
+  {
+   "id": 2958,
+   "topic": 18,
+   "tr": "keyifsiz olmak",
+   "uz": "o‘zini yaxshi his qilmaslik",
+   "example_tr": "Kendini biraz keyifsiz hissettiğini söyledi.",
+   "example_uz": "U o‘zini yaxshi his qilmayotganini aytdi.",
+   "concept": 2958
+  },
+  {
+   "id": 2959,
+   "topic": 18,
+   "tr": "dudak uçuklatmak (fiyat)",
+   "uz": "juda qimmatga tushmoq",
+   "example_tr": "Arabanın fiyatının dudak uçuklattığını söyledi.",
+   "example_uz": "U mashina juda qimmatga tushganini aytdi.",
+   "concept": 2959
+  },
+  {
+   "id": 2960,
+   "topic": 18,
+   "tr": "kırk yılda bir",
+   "uz": "juda kamdan-kam",
+   "example_tr": "Onları kırk yılda bir ziyaret ettiğini söyledi.",
+   "example_uz": "U ularnikiga juda kamdan-kam borishini aytdi.",
+   "concept": 2960
+  },
+  {
+   "id": 2961,
+   "topic": 18,
+   "tr": "kitaplara gömülmek",
+   "uz": "o‘qishga berilmoq",
+   "example_tr": "Kitaplara gömülmesi gerektiğini söyledi.",
+   "example_uz": "U o‘qishga berilishi kerakligini aytdi.",
+   "concept": 2961
+  },
+  {
+   "id": 2962,
+   "topic": 18,
+   "tr": "bugünlük bu kadar demek",
+   "uz": "bugungi ishni yakunlamoq",
+   "example_tr": "Patron bugünlük bu kadar diyebileceğimizi söyledi.",
+   "example_uz": "Rahbar bugungi ishni yakunlashimiz mumkinligini aytdi.",
+   "concept": 2962
+  },
+  {
+   "id": 2963,
+   "topic": 18,
+   "tr": "havalara uçmak",
+   "uz": "yetti osmonda",
+   "example_tr": "Bana sevinçten havalara uçtuğunu söyledi.",
+   "example_uz": "U menga baxtdan yetti osmonda ekanini aytdi.",
+   "concept": 2963
+  },
+  {
+   "id": 2964,
+   "topic": 18,
+   "tr": "başı belada olmak",
+   "uz": "nohush ahvolda",
+   "example_tr": "Patronuyla başının belada olduğunu söyledi.",
+   "example_uz": "U rahbari bilan nohush ahvolga tushib qolganini aytdi.",
+   "concept": 2964
+  },
+  {
+   "id": 2965,
+   "topic": 18,
+   "tr": "baklayı ağzından çıkarmak",
+   "uz": "sirni ochib qo‘ymoq",
+   "example_tr": "Baklayı ağzından çıkardığını söyledi.",
+   "example_uz": "U sirni ochib qo‘yganini aytdi.",
+   "concept": 2965
+  },
+  {
+   "id": 2966,
+   "topic": 18,
+   "tr": "bardağı taşıran son damla",
+   "uz": "sabr kosasini to‘ldirgan oxirgi tomchi",
+   "example_tr": "Bunun bardağı taşıran son damla olduğunu söyledi.",
+   "example_uz": "U bu sabr kosasini to‘ldirgan oxirgi tomchi ekanini aytdi.",
+   "concept": 2966
+  },
+  {
+   "id": 2967,
+   "topic": 18,
+   "tr": "her işte bir hayır var",
+   "uz": "har yomonlikning bir yaxshiligi bor",
+   "example_tr": "İşini kaybetmesinin aslında hayırlı olduğunu söyledi.",
+   "example_uz": "U ishini yo‘qotish oxir-oqibat yaxshilikka bo‘lganini aytdi.",
+   "concept": 2967
+  },
+  {
+   "id": 2968,
+   "topic": 18,
+   "tr": "göz kulak olmak",
+   "uz": "ko‘z-quloq bo‘lmoq",
+   "example_tr": "Çantasına göz kulak olmamı istedi.",
+   "example_uz": "U mendan sumkasiga ko‘z-quloq bo‘lib turishimni so‘radi.",
+   "concept": 2968
+  },
+  {
+   "id": 2969,
+   "topic": 18,
+   "tr": "birdenbire, durup dururken",
+   "uz": "kutilmaganda",
+   "example_tr": "Kızın birdenbire aradığını söyledi.",
+   "example_uz": "U qiz kutilmaganda qo‘ng‘iroq qilganini aytdi.",
+   "concept": 2969
+  },
+  {
+   "id": 2970,
+   "topic": 18,
+   "tr": "son anda korkmak",
+   "uz": "yuragi dov bermaslik",
+   "example_tr": "Düğünden önce son anda korktuğunu söyledi.",
+   "example_uz": "U to‘y oldidan yuragi dov bermay qolganini aytdi.",
+   "concept": 2970
+  },
+  {
+   "id": 2971,
+   "topic": 19,
+   "tr": "iyilik",
+   "uz": "yaxshilik, iltifot",
+   "example_tr": "Ona bir iyilik yapmamı istedi.",
+   "example_uz": "U mendan unga bir yaxshilik qilishimni so‘radi.",
+   "concept": 2971
+  },
+  {
+   "id": 2972,
+   "topic": 19,
+   "tr": "rica, talep",
+   "uz": "iltimos, so‘rov",
+   "example_tr": "Talebinin reddedildiğini söyledi.",
+   "example_uz": "U iltimosi rad etilganini aytdi.",
+   "concept": 2972
+  },
+  {
+   "id": 2973,
+   "topic": 19,
+   "tr": "bilgi talebi",
+   "uz": "so‘rov, ma’lumot so‘rash",
+   "example_tr": "Bilgi isteyip isteyemeyeceğini sordu.",
+   "example_uz": "U ma’lumot so‘rasa bo‘ladimi, deb so‘radi.",
+   "concept": 2973
+  },
+  {
+   "id": 2974,
+   "topic": 19,
+   "tr": "yol sormak",
+   "uz": "yo‘l so‘ramoq",
+   "example_tr": "Bir turist bana yol sordu.",
+   "example_uz": "Sayyoh mendan yo‘l so‘radi.",
+   "concept": 2974
+  },
+  {
+   "id": 2975,
+   "topic": 19,
+   "tr": "affedersiniz",
+   "uz": "kechirasiz (murojaat)",
+   "example_tr": "“Affedersiniz,” dedi ve istasyonun nerede olduğunu sordu.",
+   "example_uz": "«Kechirasiz», — dedi u va vokzal qayerdaligini so‘radi.",
+   "concept": 2975
+  },
+  {
+   "id": 2976,
+   "topic": 19,
+   "tr": "efendim? (tekrar sorma)",
+   "uz": "labbay? (qayta so‘rash)",
+   "example_tr": "Beni duymadığı için “Efendim?” dedi.",
+   "example_uz": "U meni eshitmagani uchun «Labbay?» deb qayta so‘radi.",
+   "concept": 2976
+  },
+  {
+   "id": 2977,
+   "topic": 19,
+   "tr": "sorun değil",
+   "uz": "muammo yo‘q",
+   "example_tr": "Bunun sorun olmadığını söyledi.",
+   "example_uz": "U bu muammo emasligini aytdi.",
+   "concept": 2977
+  },
+  {
+   "id": 2978,
+   "topic": 19,
+   "tr": "devam et, buyur",
+   "uz": "marhamat, davom et",
+   "example_tr": "Devam edebileceğimi söyledi.",
+   "example_uz": "U menga davom etaverishim mumkinligini aytdi.",
+   "concept": 2978
+  },
+  {
+   "id": 2979,
+   "topic": 19,
+   "tr": "buyurun",
+   "uz": "marhamat, tortinmang",
+   "example_tr": "“Buyurun,” dedi ve bana anahtarları verdi.",
+   "example_uz": "U «Marhamat» deb, menga kalitlarni berdi.",
+   "concept": 2979
+  },
+  {
+   "id": 2980,
+   "topic": 19,
+   "tr": "maalesef",
+   "uz": "afsuski, … dan qo‘rqaman",
+   "example_tr": "Maalesef yardım edemeyeceğini söyledi.",
+   "example_uz": "U afsuski yordam bera olmasligini aytdi.",
+   "concept": 2980
+  },
+  {
+   "id": 2981,
+   "topic": 19,
+   "tr": "açıklığa kavuşturmak",
+   "uz": "aniqlashtirmoq, tushuntirmoq",
+   "example_tr": "Öğretmen ertesi gün sınav kurallarını açıklayacağını söyledi.",
+   "example_uz": "O‘qituvchi ertasi kuni imtihon qoidalarini tushuntirib berishini aytdi.",
+   "concept": 2981
+  },
+  {
+   "id": 2982,
+   "topic": 19,
+   "tr": "aşağı yukarı nerede",
+   "uz": "taxminan qayerda",
+   "example_tr": "Aşağı yukarı nerede yaşadığımı sordu.",
+   "example_uz": "U mendan taxminan qayerda yashashimni so‘radi.",
+   "concept": 2982
+  },
+  {
+   "id": 2983,
+   "topic": 19,
+   "tr": "nasıl oldu da",
+   "uz": "qanday qilib shunday bo‘ldi",
+   "example_tr": "Nasıl oldu da bu kadar geç kaldığımı sordu.",
+   "example_uz": "U mendan qanday qilib bunchalik kechikkanimni so‘radi.",
+   "concept": 2983
+  },
+  {
+   "id": 2984,
+   "topic": 19,
+   "tr": "ne için",
+   "uz": "nima uchun, nimaga",
+   "example_tr": "Paranın ne için olduğunu sordu.",
+   "example_uz": "U pul nima uchunligini so‘radi.",
+   "concept": 2984
+  },
+  {
+   "id": 2985,
+   "topic": 19,
+   "tr": "acaba",
+   "uz": "tasodifan (savolda)",
+   "example_tr": "Acaba anahtarlarını görüp görmediğimi sordu.",
+   "example_uz": "U mendan tasodifan kalitlarini ko‘rmadimmi, deb so‘radi.",
+   "concept": 2985
+  },
+  {
+   "id": 2986,
+   "topic": 20,
+   "tr": "bir gün önce",
+   "uz": "bir kun oldin",
+   "example_tr": "Onu bir gün önce gördüğünü söyledi.",
+   "example_uz": "U qizni bir kun oldin ko‘rganini aytdi.",
+   "concept": 2986
+  },
+  {
+   "id": 2987,
+   "topic": 20,
+   "tr": "ertesi gün",
+   "uz": "ertasi kuni",
+   "example_tr": "Ertesi gün arayacağını söyledi.",
+   "example_uz": "U ertasi kuni qo‘ng‘iroq qilishini aytdi.",
+   "concept": 2987
+  },
+  {
+   "id": 2988,
+   "topic": 20,
+   "tr": "sonraki hafta",
+   "uz": "kelasi hafta",
+   "example_tr": "Sonraki hafta başlayacağını söyledi.",
+   "example_uz": "U keyingi haftada boshlashini aytdi.",
+   "concept": 2988
+  },
+  {
+   "id": 2989,
+   "topic": 20,
+   "tr": "o gün",
+   "uz": "o‘sha kuni",
+   "example_tr": "O gün meşgul olduğunu söyledi.",
+   "example_uz": "U o‘sha kuni band ekanini aytdi.",
+   "concept": 2989
+  },
+  {
+   "id": 2990,
+   "topic": 20,
+   "tr": "bir önceki yıl",
+   "uz": "bir yil oldin",
+   "example_tr": "Bir önceki yıl taşındıklarını söylediler.",
+   "example_uz": "Ular bir yil oldin ko‘chib kelishganini aytishdi.",
+   "concept": 2990
+  },
+  {
+   "id": 2991,
+   "topic": 20,
+   "tr": "daha önce",
+   "uz": "avvalroq",
+   "example_tr": "Daha önce aradığını söyledi.",
+   "example_uz": "U avvalroq qo‘ng‘iroq qilganini aytdi.",
+   "concept": 2991
+  },
+  {
+   "id": 2992,
+   "topic": 20,
+   "tr": "o zamanlar",
+   "uz": "o‘sha paytda",
+   "example_tr": "O zamanlar Paris’te yaşadığını söyledi.",
+   "example_uz": "U o‘sha paytda Parijda yashaganini aytdi.",
+   "concept": 2992
+  },
+  {
+   "id": 2993,
+   "topic": 20,
+   "tr": "o zamana kadar",
+   "uz": "o‘sha vaqtga kelib",
+   "example_tr": "O zamana kadar dükkânın kapalı olacağını söyledi.",
+   "example_uz": "U o‘sha vaqtga kelib do‘kon yopiq bo‘lishini aytdi.",
+   "concept": 2993
+  },
+  {
+   "id": 2994,
+   "topic": 20,
+   "tr": "o gece",
+   "uz": "o‘sha tunda",
+   "example_tr": "O gece uyumadığını bana söyledi.",
+   "example_uz": "U menga o‘sha tunda uxlamaganini aytdi.",
+   "concept": 2994
+  },
+  {
+   "id": 2995,
+   "topic": 20,
+   "tr": "bir hafta önce",
+   "uz": "bir hafta oldin",
+   "example_tr": "Bir hafta önce hasta olduğunu söyledi.",
+   "example_uz": "U bir hafta oldin kasal bo‘lganini aytdi.",
+   "concept": 2995
+  },
+  {
+   "id": 2996,
+   "topic": 20,
+   "tr": "o günlerde",
+   "uz": "o‘sha zamonlarda",
+   "example_tr": "Dedem o günlerde hayatın daha basit olduğunu söyledi.",
+   "example_uz": "Bobom o‘sha zamonlarda hayot oddiyroq bo‘lganini aytdi.",
+   "concept": 2996
+  },
+  {
+   "id": 2997,
+   "topic": 20,
+   "tr": "hemen",
+   "uz": "darhol",
+   "example_tr": "Bana hemen gelmemi söyledi.",
+   "example_uz": "U menga darhol kelishimni aytdi.",
+   "concept": 2997
+  },
+  {
+   "id": 2998,
+   "topic": 20,
+   "tr": "derhal",
+   "uz": "shu zahoti",
+   "example_tr": "Bunu derhal yapacağını söyledi.",
+   "example_uz": "U buni shu zahoti qilishini aytdi.",
+   "concept": 2998
+  },
+  {
+   "id": 2999,
+   "topic": 20,
+   "tr": "bu arada",
+   "uz": "shu orada",
+   "example_tr": "Bu arada beklememiz gerektiğini söyledi.",
+   "example_uz": "U shu orada biz kutishimiz kerakligini aytdi.",
+   "concept": 2999
+  },
+  {
+   "id": 3000,
+   "topic": 20,
+   "tr": "daha sonra",
+   "uz": "keyin, so‘ng",
+   "example_tr": "Daha sonra açıklayacağını söyledi.",
+   "example_uz": "U keyin tushuntirib berishini aytdi.",
+   "concept": 3000
+  }
+ ]
+}

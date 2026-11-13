@@ -267,6 +267,15 @@ public class AdminController(AppDbContext db, ICurrentUserService currentUser, S
         }
     }
 
+    // Replaces the Turkish words of all books with their SeedData files (SeedData/Books/Turk). Deletes the progress of the learners of
+    // Turkish in the replaced words (the other languages are not touched), so it needs ?confirm=true on purpose.
+    [HttpPost("turkish/reload")]
+    public async Task<IActionResult> ReloadTurkish([FromQuery] bool confirm = false)
+    {
+        if (!confirm) return BadRequest(new { error = "CONFIRM_REQUIRED" });
+        return Ok(new { words = await seedData.ReloadTurkishAsync() });
+    }
+
     // Removes one book from the database (topics, words, pictures, learners' progress in it). Needs ?confirm=true on purpose.
     [HttpDelete("books/{bookNumber:int}")]
     public async Task<IActionResult> RemoveBook(int bookNumber, [FromQuery] bool confirm = false)

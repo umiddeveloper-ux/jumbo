@@ -368,6 +368,8 @@ public partial class SettingsPageModel : ObservableObject
     private string _appLanguageKey = "ru";
 
     public ObservableCollection<LanguageModel> AvailableLanguages { get; } = [];
+    // Turkish is a language to study only: not offered as the translation language
+    public ObservableCollection<LanguageModel> AvailableTargetLanguages { get; } = [];
 
     [ObservableProperty]
     private LanguageModel? _selectedTargetLanguage;
@@ -449,8 +451,12 @@ public partial class SettingsPageModel : ObservableObject
 
             var dbLanguages = await _apiClient.GetLanguagesAsync();
             AvailableLanguages.Clear();
+            AvailableTargetLanguages.Clear();
             foreach (var lang in dbLanguages)
+            {
                 AvailableLanguages.Add(new LanguageModel { Id = lang.LanguageId, Name = lang.Name });
+                if (!Jumbo.Shared.LanguageRoles.IsStudyOnly(lang.ShorName)) AvailableTargetLanguages.Add(new LanguageModel { Id = lang.LanguageId, Name = lang.Name });
+            }
 
             _currentUser = await _apiClient.GetCurrentUserAsync();
             if (_currentUser != null)
@@ -467,7 +473,7 @@ public partial class SettingsPageModel : ObservableObject
                 DailyGoalKey = (_currentUser.DailyGoalWords > 0 ? _currentUser.DailyGoalWords : 10).ToString();
                 IsLearner = _currentUser.Role == UserRole.Learner;
 
-                SelectedTargetLanguage = AvailableLanguages.FirstOrDefault(l => l.Id == _currentUser.TranslationLanguageId);
+                SelectedTargetLanguage = AvailableTargetLanguages.FirstOrDefault(l => l.Id == _currentUser.TranslationLanguageId);
                 SelectedStudyLanguage = AvailableLanguages.FirstOrDefault(l => l.Id == _currentUser.StudyLanguageId);
                 AppLanguageKey = dbLanguages.FirstOrDefault(l => l.LanguageId == _currentUser.AppLanguageId)?.ShorName ?? LocalizationService.CurrentCode;
 

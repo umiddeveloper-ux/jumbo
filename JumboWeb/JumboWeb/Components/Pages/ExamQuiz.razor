@@ -268,9 +268,9 @@
         else await JS.InvokeVoidAsync("lp.focusExamInput", index + 1);
     }
 
-    private static bool IsRight(ExamWordItem w, string entered) =>
-        string.Equals(entered, w.StudyWord.Trim(), StringComparison.OrdinalIgnoreCase)
-        || w.AlternativeWords.Any(a => string.Equals(entered, a.Trim(), StringComparison.OrdinalIgnoreCase));
+    private bool IsRight(ExamWordItem w, string entered) =>
+        Jumbo.Shared.WordMatch.TypedEquals(entered, w.StudyWord, Prefs.StudyLangId)
+        || w.AlternativeWords.Any(a => Jumbo.Shared.WordMatch.TypedEquals(entered, a, Prefs.StudyLangId));
 
     // Test: the tapped answer is the answer; the next question comes at once.
     private async Task PickAsync(string text)

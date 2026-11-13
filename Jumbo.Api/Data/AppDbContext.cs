@@ -36,6 +36,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<AdView> AdViews => Set<AdView>();
     public DbSet<PlanPrice> PlanPrices => Set<PlanPrice>();
     public DbSet<FeedbackMessage> FeedbackMessages => Set<FeedbackMessage>();
+    public DbSet<WordTranslation> WordTranslations => Set<WordTranslation>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

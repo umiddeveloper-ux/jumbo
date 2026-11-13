@@ -81,7 +81,7 @@ else
     private bool IsStaff => UserState.HidesLessons;
     private int StudyLangId => IsStaff ? 1 : Prefs.StudyLangId;
     private int TransLangId => IsStaff ? (Prefs.AppLangId == 1 ? 2 : Prefs.AppLangId) : Prefs.TransLangId;
-    private string SpeechLang => StudyLangId switch { 2 => "ru-RU", 3 => "uz-UZ", _ => "en-US" };
+    private string SpeechLang => Jumbo.Shared.SpeechLanguages.Code(StudyLangId);
 
     private async Task Speak(string word)
     {

@@ -73,13 +73,7 @@ public partial class SubjectWordsPageModel : ObservableObject
         }
     }
 
-    // Language ids follow the API seed order: 1 = English, 2 = Russian, 3 = Uzbek.
-    private static string SpeechLanguagePrefix => UserLanguagePrefs.StudyLangId switch
-    {
-        2 => "ru",
-        3 => "uz",
-        _ => "en"
-    };
+    private static string SpeechLanguagePrefix => Jumbo.Shared.SpeechLanguages.Prefix(UserLanguagePrefs.StudyLangId);
 
     [RelayCommand]
     private async Task Speak(TopicWordItem? item)

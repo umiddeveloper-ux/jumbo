@@ -1552,6 +1552,45 @@ namespace Jumbo.Api.Data.Migrations
                     b.ToTable("words", (string)null);
                 });
 
+            modelBuilder.Entity("Jumbo.Shared.Entities.WordTranslation", b =>
+                {
+                    b.Property<int>("WordTranslationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("word_translation_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("WordTranslationId"));
+
+                    b.Property<string>("Example")
+                        .HasColumnType("text")
+                        .HasColumnName("example");
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("integer")
+                        .HasColumnName("language_id");
+
+                    b.Property<int>("SvgImageId")
+                        .HasColumnType("integer")
+                        .HasColumnName("svg_image_id");
+
+                    b.Property<string>("WordName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("word_name");
+
+                    b.HasKey("WordTranslationId")
+                        .HasName("pk_word_translations");
+
+                    b.HasIndex("LanguageId")
+                        .HasDatabaseName("ix_word_translations_language_id");
+
+                    b.HasIndex("SvgImageId", "LanguageId")
+                        .IsUnique()
+                        .HasDatabaseName("ix_word_translations_svg_image_id_language_id");
+
+                    b.ToTable("word_translations", (string)null);
+                });
+
             modelBuilder.Entity("Jumbo.Shared.Entities.AdView", b =>
                 {
                     b.HasOne("Jumbo.Shared.Entities.Ad", null)
@@ -1896,6 +1935,23 @@ namespace Jumbo.Api.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("fk_words_svg_images_svg_image_id");
+                });
+
+            modelBuilder.Entity("Jumbo.Shared.Entities.WordTranslation", b =>
+                {
+                    b.HasOne("Jumbo.Shared.Entities.Language", null)
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("fk_word_translations_languages_language_id");
+
+                    b.HasOne("Jumbo.Shared.Entities.SvgImage", null)
+                        .WithMany()
+                        .HasForeignKey("SvgImageId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("fk_word_translations_svg_images_svg_image_id");
                 });
 #pragma warning restore 612, 618
         }

@@ -11,7 +11,7 @@ public class LanguagesController(AppDbContext db) : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<List<Language>>> GetAll() =>
-        await db.Languages.AsNoTracking().ToListAsync();
+        await db.Languages.AsNoTracking().OrderBy(l => l.LanguageId).ToListAsync();
 
     [HttpGet("by-code/{shortName}")]
     public async Task<ActionResult<Language>> GetByShortName(string shortName)

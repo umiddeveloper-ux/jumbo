@@ -1,0 +1,2886 @@
+{
+ "metadata": {
+  "book": 3,
+  "level": "A1",
+  "language": "tr",
+  "word_count": 300,
+  "id_range": [
+   601,
+   900
+  ],
+  "new_words": 9,
+  "schema": [
+   "id",
+   "topic",
+   "tr",
+   "uz",
+   "example_tr",
+   "example_uz",
+   "concept",
+   "new"
+  ]
+ },
+ "topics": [
+  {
+   "tr": "Alışveriş",
+   "uz": "Xaridlar"
+  },
+  {
+   "tr": "Oturma Odası",
+   "uz": "Mehmonxona (uyda)"
+  },
+  {
+   "tr": "Kişilik",
+   "uz": "Xarakter"
+  },
+  {
+   "tr": "Zıt Sıfatlar 2",
+   "uz": "Qarama-qarshi sifatlar — 2"
+  },
+  {
+   "tr": "Kıyafetler ve Aksesuarlar",
+   "uz": "Kiyim va aksessuarlar"
+  },
+  {
+   "tr": "Ulaşım",
+   "uz": "Transport"
+  },
+  {
+   "tr": "Okul",
+   "uz": "Maktab"
+  },
+  {
+   "tr": "Eğitim",
+   "uz": "O‘qish"
+  },
+  {
+   "tr": "Böcekler",
+   "uz": "Hasharotlar"
+  },
+  {
+   "tr": "Ev ve Çevresi",
+   "uz": "Uy atrofida"
+  },
+  {
+   "tr": "Müzik",
+   "uz": "Musiqa"
+  },
+  {
+   "tr": "Ev",
+   "uz": "Uy"
+  },
+  {
+   "tr": "Zaman",
+   "uz": "Vaqt"
+  },
+  {
+   "tr": "Zıt Sıfatlar 3",
+   "uz": "Qarama-qarshi sifatlar — 3"
+  },
+  {
+   "tr": "Doğa",
+   "uz": "Tabiat"
+  },
+  {
+   "tr": "Yönler",
+   "uz": "Yo‘nalishlar"
+  },
+  {
+   "tr": "Çiftlik ve Köy",
+   "uz": "Ferma va qishloq"
+  },
+  {
+   "tr": "Para",
+   "uz": "Pul"
+  },
+  {
+   "tr": "Deniz Hayvanları",
+   "uz": "Dengiz hayvonlari"
+  },
+  {
+   "tr": "Sinema ve Tiyatro",
+   "uz": "Kino va teatr"
+  }
+ ],
+ "words": [
+  {
+   "id": 601,
+   "topic": 1,
+   "tr": "alışveriş merkezi",
+   "uz": "savdo markazi",
+   "example_tr": "Bizim alışveriş merkezimiz çok büyük.",
+   "example_uz": "Bizning savdo markazimiz juda katta.",
+   "concept": 601
+  },
+  {
+   "id": 602,
+   "topic": 1,
+   "tr": "indirim",
+   "uz": "chegirma",
+   "example_tr": "Çocuklar indirim alıyor.",
+   "example_uz": "Bolalar chegirma oladi.",
+   "concept": 602
+  },
+  {
+   "id": 603,
+   "topic": 1,
+   "tr": "mağaza",
+   "uz": "do‘kon",
+   "example_tr": "Bu mağaza bugün açık.",
+   "example_uz": "Bu do‘kon bugun ochiq.",
+   "concept": 603
+  },
+  {
+   "id": 604,
+   "topic": 1,
+   "tr": "müşteri",
+   "uz": "xaridor",
+   "example_tr": "Şu müşteri meyve alıyor.",
+   "example_uz": "O‘sha xaridor meva sotib oladi.",
+   "concept": 604
+  },
+  {
+   "id": 605,
+   "topic": 1,
+   "tr": "fiyat",
+   "uz": "narx",
+   "example_tr": "Fiyat düşük.",
+   "example_uz": "Narx past.",
+   "concept": 605
+  },
+  {
+   "id": 606,
+   "topic": 1,
+   "tr": "fiş",
+   "uz": "chek",
+   "example_tr": "Fişi almayı unutma.",
+   "example_uz": "Chekni olishni unutma.",
+   "concept": 861,
+   "own": {
+    "example_en": "Don't forget to take the receipt.",
+    "example_ru": "Не забудь взять чек."
+   }
+  },
+  {
+   "id": 607,
+   "topic": 1,
+   "tr": "denemek (giysi)",
+   "uz": "kiyib ko‘rmoq",
+   "example_tr": "Kate bir elbise deniyor.",
+   "example_uz": "Keyt ko‘ylakni kiyib ko‘radi.",
+   "concept": 607
+  },
+  {
+   "id": 608,
+   "topic": 1,
+   "tr": "kart",
+   "uz": "karta (bank kartasi)",
+   "example_tr": "Babam kartla ödüyor.",
+   "example_uz": "Dadam karta bilan to‘laydi.",
+   "concept": 608
+  },
+  {
+   "id": 609,
+   "topic": 1,
+   "tr": "beden",
+   "uz": "o‘lcham",
+   "example_tr": "Onun bedeni küçük.",
+   "example_uz": "Uning o‘lchami kichik.",
+   "concept": 609
+  },
+  {
+   "id": 610,
+   "topic": 1,
+   "tr": "indirimli satış",
+   "uz": "chegirmali savdo",
+   "example_tr": "Büyük indirimleri seviyoruz.",
+   "example_uz": "Bizga katta chegirmali savdolar yoqadi.",
+   "concept": 610
+  },
+  {
+   "id": 611,
+   "topic": 1,
+   "tr": "deneme kabini",
+   "uz": "kiyinib ko‘rish xonasi",
+   "example_tr": "Deneme kabini burada.",
+   "example_uz": "Kiyinib ko‘rish xonasi shu yerda.",
+   "concept": 611
+  },
+  {
+   "id": 612,
+   "topic": 1,
+   "tr": "kasiyer",
+   "uz": "kassir",
+   "example_tr": "Kasiyer çok nazik.",
+   "example_uz": "Kassir juda mehribon.",
+   "concept": null,
+   "new": {
+    "en": "cashier",
+    "ru": "кассир",
+    "example_en": "The cashier is very kind.",
+    "example_ru": "Кассир очень добрый.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>kasiyer</text></svg>"
+   }
+  },
+  {
+   "id": 613,
+   "topic": 1,
+   "tr": "sıra, kuyruk",
+   "uz": "navbat",
+   "example_tr": "Sırada bekliyorum.",
+   "example_uz": "Men navbatda turibman.",
+   "concept": 613
+  },
+  {
+   "id": 614,
+   "topic": 1,
+   "tr": "alışveriş arabası",
+   "uz": "xarid aravachasi",
+   "example_tr": "Alışveriş arabası dolu.",
+   "example_uz": "Xarid aravachasi to‘la.",
+   "concept": null,
+   "new": {
+    "en": "shopping trolley",
+    "ru": "тележка для покупок",
+    "example_en": "The shopping trolley is full.",
+    "example_ru": "Тележка для покупок полная.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>alışveriş arabası</text></svg>"
+   }
+  },
+  {
+   "id": 615,
+   "topic": 1,
+   "tr": "sepet",
+   "uz": "savatcha",
+   "example_tr": "Alışveriş sepeti ağır.",
+   "example_uz": "Xarid savatchasi og‘ir.",
+   "concept": null,
+   "new": {
+    "en": "basket",
+    "ru": "корзина",
+    "example_en": "The shopping basket is heavy.",
+    "example_ru": "Корзина для покупок тяжёлая.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>sepet</text></svg>"
+   }
+  },
+  {
+   "id": 616,
+   "topic": 2,
+   "tr": "kanepe",
+   "uz": "divan",
+   "example_tr": "Babam kanepede uyuyor.",
+   "example_uz": "Dadam divanda uxlaydi.",
+   "concept": 616
+  },
+  {
+   "id": 617,
+   "topic": 2,
+   "tr": "koltuk",
+   "uz": "kreslo",
+   "example_tr": "Büyükannem koltuğunu seviyor.",
+   "example_uz": "Buvim o‘z kreslosini yaxshi ko‘radi.",
+   "concept": 617
+  },
+  {
+   "id": 618,
+   "topic": 2,
+   "tr": "sehpa",
+   "uz": "jurnal stoli",
+   "example_tr": "Bizim sehpamız alçak.",
+   "example_uz": "Bizning jurnal stolimiz past.",
+   "concept": 618
+  },
+  {
+   "id": 619,
+   "topic": 2,
+   "tr": "mum",
+   "uz": "sham",
+   "example_tr": "Bu mum sarı.",
+   "example_uz": "Bu sham sariq.",
+   "concept": 619
+  },
+  {
+   "id": 620,
+   "topic": 2,
+   "tr": "saksı bitkisi",
+   "uz": "xona o‘simligi",
+   "example_tr": "Pencerenin yanında yeşil bir saksı bitkim var.",
+   "example_uz": "Deraza yonida mening yashil xona o‘simligim bor.",
+   "concept": 813,
+   "own": {
+    "example_en": "I have a green house plant by the window.",
+    "example_ru": "У окна у меня стоит зелёное комнатное растение."
+   }
+  },
+  {
+   "id": 621,
+   "topic": 2,
+   "tr": "kırlent",
+   "uz": "yostiqcha (divan uchun)",
+   "example_tr": "Onun kırlenti yumuşak.",
+   "example_uz": "Uning yostiqchasi yumshoq.",
+   "concept": 621
+  },
+  {
+   "id": 622,
+   "topic": 2,
+   "tr": "şömine",
+   "uz": "kamin",
+   "example_tr": "Şömine sıcak.",
+   "example_uz": "Kamin iliq.",
+   "concept": null,
+   "new": {
+    "en": "fireplace",
+    "ru": "камин",
+    "example_en": "The fireplace is warm.",
+    "example_ru": "Камин тёплый.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>şömine</text></svg>"
+   }
+  },
+  {
+   "id": 623,
+   "topic": 2,
+   "tr": "kilim",
+   "uz": "gilamcha",
+   "example_tr": "Benim kilimim kahverengi.",
+   "example_uz": "Mening gilamcham jigarrang.",
+   "concept": 623
+  },
+  {
+   "id": 624,
+   "topic": 2,
+   "tr": "elektrikli süpürge",
+   "uz": "changyutgich",
+   "example_tr": "Elektrikli süpürge gürültülü.",
+   "example_uz": "Changyutgich shovqinli.",
+   "concept": 624
+  },
+  {
+   "id": 625,
+   "topic": 2,
+   "tr": "avize",
+   "uz": "qandil",
+   "example_tr": "Odada güzel bir avize asılı.",
+   "example_uz": "Xonada chiroyli qandil osilib turibdi.",
+   "concept": null,
+   "new": {
+    "en": "chandelier",
+    "ru": "люстра",
+    "example_en": "A beautiful chandelier hangs in the room.",
+    "example_ru": "В комнате висит красивая люстра.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>avize</text></svg>"
+   }
+  },
+  {
+   "id": 626,
+   "topic": 2,
+   "tr": "sıcacık, rahat",
+   "uz": "shinam",
+   "example_tr": "Onların oturma odası sıcacık.",
+   "example_uz": "Ularning mehmonxonasi shinam.",
+   "concept": 626
+  },
+  {
+   "id": 627,
+   "topic": 2,
+   "tr": "kitaplık",
+   "uz": "kitob javoni",
+   "example_tr": "Kitaplık kitaplarla dolu.",
+   "example_uz": "Kitob javoni kitoblarga to‘la.",
+   "concept": 627
+  },
+  {
+   "id": 628,
+   "topic": 2,
+   "tr": "kapatmak (cihaz)",
+   "uz": "o‘chirmoq",
+   "example_tr": "Lütfen televizyonu kapat.",
+   "example_uz": "Televizorni o‘chir, iltimos.",
+   "concept": 628
+  },
+  {
+   "id": 629,
+   "topic": 2,
+   "tr": "açmak (cihaz)",
+   "uz": "yoqmoq",
+   "example_tr": "Tom lambayı açıyor.",
+   "example_uz": "Tom chiroqni yoqadi.",
+   "concept": 629
+  },
+  {
+   "id": 630,
+   "topic": 2,
+   "tr": "resim",
+   "uz": "rasm, surat",
+   "example_tr": "Senin resmin güzel.",
+   "example_uz": "Sening rasming chiroyli.",
+   "concept": 630
+  },
+  {
+   "id": 631,
+   "topic": 3,
+   "tr": "iyi kalpli",
+   "uz": "mehribon",
+   "example_tr": "Büyükannem iyi kalpli.",
+   "example_uz": "Buvim mehribon.",
+   "concept": 631
+  },
+  {
+   "id": 632,
+   "topic": 3,
+   "tr": "arkadaş canlısı",
+   "uz": "do‘stona, samimiy",
+   "example_tr": "Onların köpeği arkadaş canlısı.",
+   "example_uz": "Ularning iti do‘stona.",
+   "concept": 632
+  },
+  {
+   "id": 633,
+   "topic": 3,
+   "tr": "hoş",
+   "uz": "yoqimli",
+   "example_tr": "O hoş bir insan.",
+   "example_uz": "U yoqimli inson.",
+   "concept": 633
+  },
+  {
+   "id": 634,
+   "topic": 3,
+   "tr": "komik",
+   "uz": "kulgili",
+   "example_tr": "Bu çizgi film komik.",
+   "example_uz": "Bu multfilm kulgili.",
+   "concept": 634
+  },
+  {
+   "id": 635,
+   "topic": 3,
+   "tr": "sessiz",
+   "uz": "jim, tinch",
+   "example_tr": "Bugün sınıfımız sessiz.",
+   "example_uz": "Bugun sinfimiz jim.",
+   "concept": 635
+  },
+  {
+   "id": 636,
+   "topic": 3,
+   "tr": "akıllı",
+   "uz": "aqlli",
+   "example_tr": "Anna akıllı bir kız.",
+   "example_uz": "Anna aqlli qiz.",
+   "concept": 636
+  },
+  {
+   "id": 637,
+   "topic": 3,
+   "tr": "cesur",
+   "uz": "jasur",
+   "example_tr": "Tom cesur bir çocuk.",
+   "example_uz": "Tom jasur bola.",
+   "concept": 637
+  },
+  {
+   "id": 638,
+   "topic": 3,
+   "tr": "meraklı",
+   "uz": "qiziquvchan",
+   "example_tr": "Onun oğlu meraklı.",
+   "example_uz": "Uning o‘g‘li qiziquvchan.",
+   "concept": 638
+  },
+  {
+   "id": 639,
+   "topic": 3,
+   "tr": "kibar",
+   "uz": "xushmuomala, odobli",
+   "example_tr": "Kate çok kibar.",
+   "example_uz": "Keyt juda odobli.",
+   "concept": 639
+  },
+  {
+   "id": 640,
+   "topic": 3,
+   "tr": "yardımsever",
+   "uz": "yordamga tayyor",
+   "example_tr": "Ağabeyin yardımsever.",
+   "example_uz": "Akang yordam berishga doim tayyor.",
+   "concept": 640
+  },
+  {
+   "id": 641,
+   "topic": 3,
+   "tr": "tembel",
+   "uz": "dangasa",
+   "example_tr": "Şu kedi tembel.",
+   "example_uz": "O‘sha mushuk dangasa.",
+   "concept": 641
+  },
+  {
+   "id": 642,
+   "topic": 3,
+   "tr": "hareketli, aktif",
+   "uz": "faol",
+   "example_tr": "O aktif bir çocuk.",
+   "example_uz": "U faol bola.",
+   "concept": 642
+  },
+  {
+   "id": 643,
+   "topic": 3,
+   "tr": "ciddi",
+   "uz": "jiddiy",
+   "example_tr": "Doktorlar ciddi insanlar.",
+   "example_uz": "Shifokorlar — jiddiy odamlar.",
+   "concept": 643
+  },
+  {
+   "id": 644,
+   "topic": 3,
+   "tr": "dikkatli",
+   "uz": "ehtiyotkor",
+   "example_tr": "Burada şoförler dikkatli.",
+   "example_uz": "Bu yerda haydovchilar ehtiyotkor.",
+   "concept": 644
+  },
+  {
+   "id": 645,
+   "topic": 3,
+   "tr": "dürüst",
+   "uz": "halol, rostgo‘y",
+   "example_tr": "Sam dürüst bir arkadaş.",
+   "example_uz": "Sem — rostgo‘y do‘st.",
+   "concept": 645
+  },
+  {
+   "id": 646,
+   "topic": 4,
+   "tr": "farklı",
+   "uz": "turli, boshqacha",
+   "example_tr": "Bu iki fincan farklı.",
+   "example_uz": "Bu ikki piyola turlicha.",
+   "concept": 646
+  },
+  {
+   "id": 647,
+   "topic": 4,
+   "tr": "aynı",
+   "uz": "bir xil",
+   "example_tr": "Bizim çantalarımız aynı.",
+   "example_uz": "Bizning sumkalarimiz bir xil.",
+   "concept": 647
+  },
+  {
+   "id": 648,
+   "topic": 4,
+   "tr": "dolu",
+   "uz": "to‘la",
+   "example_tr": "Benim bardağım dolu.",
+   "example_uz": "Mening stakanim to‘la.",
+   "concept": 648
+  },
+  {
+   "id": 649,
+   "topic": 4,
+   "tr": "boş",
+   "uz": "bo‘sh",
+   "example_tr": "Şu şişe boş.",
+   "example_uz": "O‘sha butilka bo‘sh.",
+   "concept": 649
+  },
+  {
+   "id": 650,
+   "topic": 4,
+   "tr": "sert",
+   "uz": "qattiq",
+   "example_tr": "Bu ekmek sert.",
+   "example_uz": "Bu non qattiq.",
+   "concept": 650
+  },
+  {
+   "id": 651,
+   "topic": 4,
+   "tr": "yumuşak",
+   "uz": "yumshoq",
+   "example_tr": "Onun yastığı yumuşak.",
+   "example_uz": "Uning yostiqchasi yumshoq.",
+   "concept": 651
+  },
+  {
+   "id": 652,
+   "topic": 4,
+   "tr": "doğru",
+   "uz": "to‘g‘ri, rost",
+   "example_tr": "Gökyüzü mavi. Bu doğru.",
+   "example_uz": "Osmon ko‘k. Bu rost.",
+   "concept": 652
+  },
+  {
+   "id": 653,
+   "topic": 4,
+   "tr": "yanlış",
+   "uz": "noto‘g‘ri, yolg‘on",
+   "example_tr": "Kediler uçabilir. Bu yanlış.",
+   "example_uz": "Mushuklar ucha oladi. Bu yolg‘on.",
+   "concept": 653
+  },
+  {
+   "id": 654,
+   "topic": 4,
+   "tr": "zengin",
+   "uz": "boy",
+   "example_tr": "Bay Brown zengin.",
+   "example_uz": "Mister Braun boy.",
+   "concept": 654
+  },
+  {
+   "id": 655,
+   "topic": 4,
+   "tr": "fakir",
+   "uz": "kambag‘al",
+   "example_tr": "Onlar fakir değil.",
+   "example_uz": "Ular kambag‘al emas.",
+   "concept": 655
+  },
+  {
+   "id": 656,
+   "topic": 4,
+   "tr": "doğru (cevap)",
+   "uz": "to‘g‘ri",
+   "example_tr": "Kate’in cevabı doğru.",
+   "example_uz": "Keytning javobi to‘g‘ri.",
+   "concept": 656
+  },
+  {
+   "id": 657,
+   "topic": 4,
+   "tr": "yanlış (cevap)",
+   "uz": "noto‘g‘ri",
+   "example_tr": "Tom’un cevabı yanlış.",
+   "example_uz": "Tomning javobi noto‘g‘ri.",
+   "concept": 657
+  },
+  {
+   "id": 658,
+   "topic": 4,
+   "tr": "emin",
+   "uz": "ishonchli, amin",
+   "example_tr": "Bundan eminim.",
+   "example_uz": "Men bunga aminman.",
+   "concept": 658
+  },
+  {
+   "id": 659,
+   "topic": 4,
+   "tr": "emin değil",
+   "uz": "ishonchsiz, ikkilangan",
+   "example_tr": "Anna bugün emin değil.",
+   "example_uz": "Anna bugun ikkilanyapti.",
+   "concept": 659
+  },
+  {
+   "id": 660,
+   "topic": 4,
+   "tr": "sıfat",
+   "uz": "sifat (so‘z turkumi)",
+   "example_tr": "“Büyük” bir sıfattır.",
+   "example_uz": "«Büyük» — bu sifat.",
+   "concept": 660
+  },
+  {
+   "id": 661,
+   "topic": 5,
+   "tr": "cep",
+   "uz": "cho‘ntak",
+   "example_tr": "Benim cebim boş.",
+   "example_uz": "Mening cho‘ntagim bo‘sh.",
+   "concept": 661
+  },
+  {
+   "id": 662,
+   "topic": 5,
+   "tr": "düğme",
+   "uz": "tugma",
+   "example_tr": "Şu düğme altın rengi.",
+   "example_uz": "O‘sha tugma tilla rangda.",
+   "concept": 662
+  },
+  {
+   "id": 663,
+   "topic": 5,
+   "tr": "okul forması",
+   "uz": "maktab formasi",
+   "example_tr": "Onun okul forması lacivert.",
+   "example_uz": "Uning maktab formasi ko‘k.",
+   "concept": 663
+  },
+  {
+   "id": 664,
+   "topic": 5,
+   "tr": "şemsiye",
+   "uz": "soyabon",
+   "example_tr": "Bugün bir şemsiyeye ihtiyacım var.",
+   "example_uz": "Bugun menga soyabon kerak.",
+   "concept": 664
+  },
+  {
+   "id": 665,
+   "topic": 5,
+   "tr": "el çantası",
+   "uz": "ayollar sumkasi",
+   "example_tr": "Annemin küçük bir el çantası var.",
+   "example_uz": "Oyimning kichkina sumkasi bor.",
+   "concept": 665
+  },
+  {
+   "id": 666,
+   "topic": 5,
+   "tr": "gözlük",
+   "uz": "ko‘zoynak",
+   "example_tr": "Öğretmenimiz gözlük takıyor.",
+   "example_uz": "Ustozimiz ko‘zoynak taqadi.",
+   "concept": 666
+  },
+  {
+   "id": 667,
+   "topic": 5,
+   "tr": "güneş gözlüğü",
+   "uz": "quyosh ko‘zoynagi",
+   "example_tr": "Onun güneş gözlüğü yeni.",
+   "example_uz": "Uning quyosh ko‘zoynagi yangi.",
+   "concept": 667
+  },
+  {
+   "id": 668,
+   "topic": 5,
+   "tr": "cüzdan",
+   "uz": "hamyon",
+   "example_tr": "Babam parayı cüzdana koyuyor.",
+   "example_uz": "Dadam pulni hamyonga soladi.",
+   "concept": 668
+  },
+  {
+   "id": 669,
+   "topic": 5,
+   "tr": "küpe",
+   "uz": "sirg‘a",
+   "example_tr": "Kate’in altın küpeleri var.",
+   "example_uz": "Keytning tilla sirg‘alari bor.",
+   "concept": 669
+  },
+  {
+   "id": 670,
+   "topic": 5,
+   "tr": "yüzük",
+   "uz": "uzuk",
+   "example_tr": "Bu yüzük gümüş.",
+   "example_uz": "Bu uzuk kumushdan.",
+   "concept": 670
+  },
+  {
+   "id": 671,
+   "topic": 5,
+   "tr": "parfüm",
+   "uz": "atir",
+   "example_tr": "Senin parfümün çok güzel.",
+   "example_uz": "Sening atiring juda yaxshi.",
+   "concept": 671
+  },
+  {
+   "id": 672,
+   "topic": 5,
+   "tr": "giymek",
+   "uz": "kiymoq",
+   "example_tr": "O sıcak bir palto giyiyor.",
+   "example_uz": "U iliq palto kiyadi.",
+   "concept": 672
+  },
+  {
+   "id": 673,
+   "topic": 5,
+   "tr": "çıkarmak (giysi)",
+   "uz": "yechmoq (kiyimni)",
+   "example_tr": "Onlar ayakkabılarını çıkarıyor.",
+   "example_uz": "Ular poyabzallarini yechadi.",
+   "concept": 673
+  },
+  {
+   "id": 674,
+   "topic": 5,
+   "tr": "fermuar",
+   "uz": "zamok (kiyimda)",
+   "example_tr": "Fermuar iyi değil.",
+   "example_uz": "Zamok yaxshi emas.",
+   "concept": 674
+  },
+  {
+   "id": 675,
+   "topic": 5,
+   "tr": "kemer",
+   "uz": "kamar",
+   "example_tr": "Sam’in kahverengi bir kemeri var.",
+   "example_uz": "Semning jigarrang kamari bor.",
+   "concept": 675
+  },
+  {
+   "id": 676,
+   "topic": 6,
+   "tr": "otobüs",
+   "uz": "avtobus",
+   "example_tr": "Bizim otobüsümüz sarı.",
+   "example_uz": "Bizning avtobusimiz sariq.",
+   "concept": 676
+  },
+  {
+   "id": 677,
+   "topic": 6,
+   "tr": "tren",
+   "uz": "poyezd",
+   "example_tr": "Tren çok hızlı.",
+   "example_uz": "Poyezd juda tez.",
+   "concept": 677
+  },
+  {
+   "id": 678,
+   "topic": 6,
+   "tr": "araba",
+   "uz": "mashina",
+   "example_tr": "Babam araba sürüyor.",
+   "example_uz": "Dadam mashina haydaydi.",
+   "concept": 678
+  },
+  {
+   "id": 679,
+   "topic": 6,
+   "tr": "taksi",
+   "uz": "taksi",
+   "example_tr": "Bugün taksiye biniyoruz.",
+   "example_uz": "Bugun biz taksiga chiqamiz.",
+   "concept": 679
+  },
+  {
+   "id": 680,
+   "topic": 6,
+   "tr": "bisiklet",
+   "uz": "velosiped",
+   "example_tr": "Onun bisikleti kırmızı.",
+   "example_uz": "Uning velosipedi qizil.",
+   "concept": 680
+  },
+  {
+   "id": 681,
+   "topic": 6,
+   "tr": "motosiklet",
+   "uz": "mototsikl",
+   "example_tr": "Onun motosikleti gürültülü.",
+   "example_uz": "Uning mototsikli shovqinli.",
+   "concept": 681
+  },
+  {
+   "id": 682,
+   "topic": 6,
+   "tr": "istasyon",
+   "uz": "bekat, vokzal",
+   "example_tr": "İstasyon buraya yakın.",
+   "example_uz": "Vokzal yaqinda.",
+   "concept": 682
+  },
+  {
+   "id": 683,
+   "topic": 6,
+   "tr": "kayık",
+   "uz": "qayiq",
+   "example_tr": "Şu kayık küçük.",
+   "example_uz": "O‘sha qayiq kichkina.",
+   "concept": 683
+  },
+  {
+   "id": 684,
+   "topic": 6,
+   "tr": "gemi",
+   "uz": "kema",
+   "example_tr": "Onların gemisi çok büyük.",
+   "example_uz": "Ularning kemasi juda katta.",
+   "concept": 684
+  },
+  {
+   "id": 685,
+   "topic": 6,
+   "tr": "metro",
+   "uz": "metro",
+   "example_tr": "Metroyla gidiyorum.",
+   "example_uz": "Men metroda yuraman.",
+   "concept": 685
+  },
+  {
+   "id": 686,
+   "topic": 6,
+   "tr": "uçak",
+   "uz": "samolyot",
+   "example_tr": "Bu uçak yeni.",
+   "example_uz": "Bu samolyot yangi.",
+   "concept": 686
+  },
+  {
+   "id": 687,
+   "topic": 6,
+   "tr": "helikopter",
+   "uz": "vertolyot",
+   "example_tr": "Helikopter çok gürültülü.",
+   "example_uz": "Vertolyot juda shovqinli.",
+   "concept": 687
+  },
+  {
+   "id": 688,
+   "topic": 6,
+   "tr": "tramvay",
+   "uz": "tramvay",
+   "example_tr": "Kate tramvaya biniyor.",
+   "example_uz": "Keyt tramvayda yuradi.",
+   "concept": 688
+  },
+  {
+   "id": 689,
+   "topic": 6,
+   "tr": "kamyon",
+   "uz": "yuk mashinasi",
+   "example_tr": "Kamyon meyve taşıyor.",
+   "example_uz": "Yuk mashinasi meva tashiydi.",
+   "concept": 689
+  },
+  {
+   "id": 690,
+   "topic": 6,
+   "tr": "havalimanı",
+   "uz": "aeroport",
+   "example_tr": "Tom havalimanında çalışıyor.",
+   "example_uz": "Tom aeroportda ishlaydi.",
+   "concept": 690
+  },
+  {
+   "id": 691,
+   "topic": 7,
+   "tr": "okul müdürü",
+   "uz": "maktab direktori",
+   "example_tr": "Müdürümüz iyi kalpli.",
+   "example_uz": "Direktorimiz mehribon.",
+   "concept": 691
+  },
+  {
+   "id": 692,
+   "topic": 7,
+   "tr": "not",
+   "uz": "baho",
+   "example_tr": "Öğretmen bana iyi bir not veriyor.",
+   "example_uz": "O‘qituvchi menga yaxshi baho qo‘yadi.",
+   "concept": 718,
+   "own": {
+    "example_en": "The teacher gives me a good mark.",
+    "example_ru": "Учитель ставит мне хорошую оценку."
+   }
+  },
+  {
+   "id": 693,
+   "topic": 7,
+   "tr": "okul çantası",
+   "uz": "maktab sumkasi",
+   "example_tr": "Yeni okul çantam çok ağır.",
+   "example_uz": "Mening yangi maktab sumkam juda og‘ir.",
+   "concept": 693
+  },
+  {
+   "id": 694,
+   "topic": 7,
+   "tr": "yemekhane",
+   "uz": "oshxona (maktabda)",
+   "example_tr": "Çocuklar yemekhanede yemek yiyor.",
+   "example_uz": "Bolalar oshxonada ovqatlanadi.",
+   "concept": 694
+  },
+  {
+   "id": 695,
+   "topic": 7,
+   "tr": "salon",
+   "uz": "zal",
+   "example_tr": "Salon çok büyük.",
+   "example_uz": "Zal juda katta.",
+   "concept": 695
+  },
+  {
+   "id": 696,
+   "topic": 7,
+   "tr": "koridor",
+   "uz": "yo‘lak",
+   "example_tr": "Öğrenciler koridorda yürüyor.",
+   "example_uz": "O‘quvchilar yo‘lakda yurishadi.",
+   "concept": 696
+  },
+  {
+   "id": 697,
+   "topic": 7,
+   "tr": "laboratuvar",
+   "uz": "laboratoriya",
+   "example_tr": "Onun laboratuvarı yeni.",
+   "example_uz": "Uning laboratoriyasi yangi.",
+   "concept": 697
+  },
+  {
+   "id": 698,
+   "topic": 7,
+   "tr": "ilkokul",
+   "uz": "boshlang‘ich",
+   "example_tr": "Tom ilkokulda okuyor.",
+   "example_uz": "Tom boshlang‘ich maktabda o‘qiydi.",
+   "concept": 698
+  },
+  {
+   "id": 699,
+   "topic": 7,
+   "tr": "devlet",
+   "uz": "davlat",
+   "example_tr": "Bu bir devlet okulu.",
+   "example_uz": "Bu davlat maktabi.",
+   "concept": 699
+  },
+  {
+   "id": 700,
+   "topic": 7,
+   "tr": "teneffüs",
+   "uz": "tanaffus",
+   "example_tr": "Uzun bir teneffüsümüz var.",
+   "example_uz": "Bizda uzun tanaffus bor.",
+   "concept": 700
+  },
+  {
+   "id": 701,
+   "topic": 7,
+   "tr": "ödev",
+   "uz": "uy vazifasi",
+   "example_tr": "Ödevimi saat beşte yapıyorum.",
+   "example_uz": "Men uy vazifamni soat beshda bajaraman.",
+   "concept": 701
+  },
+  {
+   "id": 702,
+   "topic": 7,
+   "tr": "spor salonu",
+   "uz": "sport zali",
+   "example_tr": "Onların spor salonu temiz.",
+   "example_uz": "Ularning sport zali toza.",
+   "concept": 702
+  },
+  {
+   "id": 703,
+   "topic": 7,
+   "tr": "ders programı",
+   "uz": "dars jadvali",
+   "example_tr": "Senin ders programın burada.",
+   "example_uz": "Sening dars jadvaling shu yerda.",
+   "concept": 703
+  },
+  {
+   "id": 704,
+   "topic": 7,
+   "tr": "ortaokul",
+   "uz": "o‘rta maktab",
+   "example_tr": "Çocuklar on bir yaşında ortaokula başlıyor.",
+   "example_uz": "Bolalar o‘n bir yoshda o‘rta maktabga boradi.",
+   "concept": null,
+   "new": {
+    "en": "middle school",
+    "ru": "средняя школа",
+    "example_en": "Children start middle school at the age of eleven.",
+    "example_ru": "Дети идут в среднюю школу в одиннадцать лет.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>ortaokul</text></svg>"
+   }
+  },
+  {
+   "id": 705,
+   "topic": 7,
+   "tr": "sınıf",
+   "uz": "sinfxona",
+   "example_tr": "Sınıf sessiz.",
+   "example_uz": "Sinfxonada jimjitlik.",
+   "concept": 705
+  },
+  {
+   "id": 706,
+   "topic": 8,
+   "tr": "kurs",
+   "uz": "kurs",
+   "example_tr": "Bu kurs kolay.",
+   "example_uz": "Bu kurs oson.",
+   "concept": 706
+  },
+  {
+   "id": 707,
+   "topic": 8,
+   "tr": "seviye",
+   "uz": "daraja",
+   "example_tr": "Benim İngilizce seviyem iyi.",
+   "example_uz": "Mening ingliz tili darajam yaxshi.",
+   "concept": 707
+  },
+  {
+   "id": 708,
+   "topic": 8,
+   "tr": "bölüm (üniversite)",
+   "uz": "mutaxassislik",
+   "example_tr": "Onun bölümü kimya.",
+   "example_uz": "Uning mutaxassisligi — kimyo.",
+   "concept": 708
+  },
+  {
+   "id": 709,
+   "topic": 8,
+   "tr": "sözlük",
+   "uz": "lug‘at",
+   "example_tr": "Senin sözlüğün büyük.",
+   "example_uz": "Sening lug‘ating katta.",
+   "concept": 709
+  },
+  {
+   "id": 710,
+   "topic": 8,
+   "tr": "sınav",
+   "uz": "imtihon",
+   "example_tr": "Sınavımız pazartesi günü.",
+   "example_uz": "Imtihonimiz dushanba kuni.",
+   "concept": 710
+  },
+  {
+   "id": 711,
+   "topic": 8,
+   "tr": "test",
+   "uz": "test",
+   "example_tr": "Tom teste giriyor.",
+   "example_uz": "Tom test topshiradi.",
+   "concept": 711
+  },
+  {
+   "id": 712,
+   "topic": 8,
+   "tr": "pratik, alıştırma",
+   "uz": "mashq, amaliyot",
+   "example_tr": "Pratik bizi güçlü yapıyor.",
+   "example_uz": "Mashq bizni kuchli qiladi.",
+   "concept": 712
+  },
+  {
+   "id": 713,
+   "topic": 8,
+   "tr": "geçmek (sınavı)",
+   "uz": "topshirmoq (imtihonni)",
+   "example_tr": "Öğrenciler sınavı geçiyor.",
+   "example_uz": "O‘quvchilar imtihonni topshiradi.",
+   "concept": 713
+  },
+  {
+   "id": 714,
+   "topic": 8,
+   "tr": "kalmak (sınavdan)",
+   "uz": "yiqilmoq (imtihondan)",
+   "example_tr": "O testten kalmıyor.",
+   "example_uz": "U testdan yiqilmaydi.",
+   "concept": 714
+  },
+  {
+   "id": 715,
+   "topic": 8,
+   "tr": "mevcut, var",
+   "uz": "hozir bo‘lgan, bor",
+   "example_tr": "Bütün çocuklar derste.",
+   "example_uz": "Hamma bolalar darsda bor.",
+   "concept": 715
+  },
+  {
+   "id": 716,
+   "topic": 8,
+   "tr": "yok, gelmemiş",
+   "uz": "yo‘q, qatnashmagan",
+   "example_tr": "Kate bugün derste yok.",
+   "example_uz": "Keyt bugun darsda yo‘q.",
+   "concept": 716
+  },
+  {
+   "id": 717,
+   "topic": 8,
+   "tr": "araştırma",
+   "uz": "tadqiqot",
+   "example_tr": "Onların araştırması ilginç.",
+   "example_uz": "Ularning tadqiqoti qiziqarli.",
+   "concept": 717
+  },
+  {
+   "id": 718,
+   "topic": 8,
+   "tr": "not",
+   "uz": "baho",
+   "example_tr": "Sam’in notu iyi.",
+   "example_uz": "Semning bahosi yaxshi.",
+   "concept": 718
+  },
+  {
+   "id": 719,
+   "topic": 8,
+   "tr": "çözmek",
+   "uz": "yechmoq (masalani)",
+   "example_tr": "Zor bir problemi çözüyoruz.",
+   "example_uz": "Biz qiyin masalani yechamiz.",
+   "concept": 719
+  },
+  {
+   "id": 720,
+   "topic": 8,
+   "tr": "problem, sorun",
+   "uz": "masala, muammo",
+   "example_tr": "Şu problem kolay değil.",
+   "example_uz": "O‘sha masala oson emas.",
+   "concept": 720
+  },
+  {
+   "id": 721,
+   "topic": 9,
+   "tr": "karınca",
+   "uz": "chumoli",
+   "example_tr": "Karıncalar çok küçük.",
+   "example_uz": "Chumolilar juda kichkina.",
+   "concept": 721
+  },
+  {
+   "id": 722,
+   "topic": 9,
+   "tr": "arı",
+   "uz": "asalari",
+   "example_tr": "Arı çiçeğe konuyor.",
+   "example_uz": "Asalari gulga qo‘nadi.",
+   "concept": 722
+  },
+  {
+   "id": 723,
+   "topic": 9,
+   "tr": "kelebek",
+   "uz": "kapalak",
+   "example_tr": "Şu kelebek sarı.",
+   "example_uz": "O‘sha kapalak sariq.",
+   "concept": 723
+  },
+  {
+   "id": 724,
+   "topic": 9,
+   "tr": "sinek",
+   "uz": "pashsha",
+   "example_tr": "Bu sinek siyah.",
+   "example_uz": "Bu pashsha qora.",
+   "concept": 724
+  },
+  {
+   "id": 725,
+   "topic": 9,
+   "tr": "sivrisinek",
+   "uz": "chivin",
+   "example_tr": "Sivrisinekler yazın geliyor.",
+   "example_uz": "Chivinlar yozda paydo bo‘ladi.",
+   "concept": 725
+  },
+  {
+   "id": 726,
+   "topic": 9,
+   "tr": "pervane, güve",
+   "uz": "parvona",
+   "example_tr": "Pervane geceleri uçuyor.",
+   "example_uz": "Parvona kechasi uchadi.",
+   "concept": 726
+  },
+  {
+   "id": 727,
+   "topic": 9,
+   "tr": "böcek (kınkanatlı)",
+   "uz": "qo‘ng‘iz",
+   "example_tr": "Bizim böceğimiz yeşil.",
+   "example_uz": "Bizning qo‘ng‘izimiz yashil.",
+   "concept": 727
+  },
+  {
+   "id": 728,
+   "topic": 9,
+   "tr": "eşek arısı",
+   "uz": "ari",
+   "example_tr": "Eşek arılarından korkuyorum.",
+   "example_uz": "Men arilardan qo‘rqaman.",
+   "concept": 728
+  },
+  {
+   "id": 729,
+   "topic": 9,
+   "tr": "çekirge",
+   "uz": "chigirtka",
+   "example_tr": "Çekirgeler çok yükseğe zıplıyor.",
+   "example_uz": "Chigirtkalar juda baland sakraydi.",
+   "concept": 729
+  },
+  {
+   "id": 730,
+   "topic": 9,
+   "tr": "uğur böceği",
+   "uz": "xonqizi",
+   "example_tr": "Onun uğur böceği kırmızı.",
+   "example_uz": "Uning xonqizi qizil.",
+   "concept": 730
+  },
+  {
+   "id": 731,
+   "topic": 9,
+   "tr": "hamam böceği",
+   "uz": "suvarak",
+   "example_tr": "Kate hamam böceklerinden nefret ediyor.",
+   "example_uz": "Keyt suvaraklarni yomon ko‘radi.",
+   "concept": 731
+  },
+  {
+   "id": 732,
+   "topic": 9,
+   "tr": "böcek",
+   "uz": "qo‘ng‘izcha, hasharot",
+   "example_tr": "Tom küçük bir böcek buluyor.",
+   "example_uz": "Tom kichkina qo‘ng‘izcha topadi.",
+   "concept": 732
+  },
+  {
+   "id": 733,
+   "topic": 9,
+   "tr": "yusufçuk",
+   "uz": "ninachi",
+   "example_tr": "Yusufçuklar suyun yanında yaşıyor.",
+   "example_uz": "Ninachilar suv yonida yashaydi.",
+   "concept": 733
+  },
+  {
+   "id": 734,
+   "topic": 9,
+   "tr": "tırtıl",
+   "uz": "qurt (kapalak qurti)",
+   "example_tr": "Yaprakta küçük, yeşil bir tırtıl var.",
+   "example_uz": "Kichkina yashil qurt barg ustida turibdi.",
+   "concept": 734
+  },
+  {
+   "id": 735,
+   "topic": 9,
+   "tr": "cırcır böceği",
+   "uz": "chirildoq",
+   "example_tr": "Bir cırcır böceği duyuyoruz.",
+   "example_uz": "Biz chirildoqni eshitamiz.",
+   "concept": 735
+  },
+  {
+   "id": 736,
+   "topic": 10,
+   "tr": "bahçe",
+   "uz": "bog‘",
+   "example_tr": "Bizim bahçemiz güzel.",
+   "example_uz": "Bizning bog‘imiz chiroyli.",
+   "concept": 736
+  },
+  {
+   "id": 737,
+   "topic": 10,
+   "tr": "avlu",
+   "uz": "hovli",
+   "example_tr": "Çocuklar avluda oynuyor.",
+   "example_uz": "Bolalar hovlida o‘ynaydi.",
+   "concept": 737
+  },
+  {
+   "id": 738,
+   "topic": 10,
+   "tr": "garaj",
+   "uz": "garaj",
+   "example_tr": "Onun arabası garajda.",
+   "example_uz": "Uning mashinasi garajda.",
+   "concept": 738
+  },
+  {
+   "id": 739,
+   "topic": 10,
+   "tr": "balkon",
+   "uz": "balkon",
+   "example_tr": "Onun balkonu küçük.",
+   "example_uz": "Uning balkoni kichkina.",
+   "concept": 739
+  },
+  {
+   "id": 740,
+   "topic": 10,
+   "tr": "merdiven",
+   "uz": "zinapoya",
+   "example_tr": "Bu merdiven eski.",
+   "example_uz": "Bu zinapoya eski.",
+   "concept": 740
+  },
+  {
+   "id": 741,
+   "topic": 10,
+   "tr": "duvar",
+   "uz": "devor",
+   "example_tr": "Benim resmim duvarda.",
+   "example_uz": "Mening rasmim devorda.",
+   "concept": 741
+  },
+  {
+   "id": 742,
+   "topic": 10,
+   "tr": "zemin, yer",
+   "uz": "pol",
+   "example_tr": "Yer çok temiz.",
+   "example_uz": "Pol juda toza.",
+   "concept": 742
+  },
+  {
+   "id": 743,
+   "topic": 10,
+   "tr": "tavan",
+   "uz": "shift",
+   "example_tr": "Şu tavan beyaz.",
+   "example_uz": "O‘sha shift oq.",
+   "concept": 743
+  },
+  {
+   "id": 744,
+   "topic": 10,
+   "tr": "çatı",
+   "uz": "tom",
+   "example_tr": "Çatıda bir kuş oturuyor.",
+   "example_uz": "Tomda qush o‘tiribdi.",
+   "concept": 744
+  },
+  {
+   "id": 745,
+   "topic": 10,
+   "tr": "bahçe kapısı",
+   "uz": "darvoza",
+   "example_tr": "Bahçe kapısı açık.",
+   "example_uz": "Darvoza ochiq.",
+   "concept": 745
+  },
+  {
+   "id": 746,
+   "topic": 10,
+   "tr": "çit",
+   "uz": "panjara, devor",
+   "example_tr": "Onların çiti kahverengi.",
+   "example_uz": "Ularning panjarasi jigarrang.",
+   "concept": 746
+  },
+  {
+   "id": 747,
+   "topic": 10,
+   "tr": "kapı zili",
+   "uz": "eshik qo‘ng‘irog‘i",
+   "example_tr": "Kapı zilini duyuyorum.",
+   "example_uz": "Men eshik qo‘ng‘irog‘ini eshityapman.",
+   "concept": 747
+  },
+  {
+   "id": 748,
+   "topic": 10,
+   "tr": "patika",
+   "uz": "so‘qmoq, yo‘lak",
+   "example_tr": "Bu patika gölete gidiyor.",
+   "example_uz": "Bu so‘qmoq hovuzga olib boradi.",
+   "concept": 748
+  },
+  {
+   "id": 749,
+   "topic": 10,
+   "tr": "çöp kutusu",
+   "uz": "axlat chelagi",
+   "example_tr": "Senin çöp kutun dolu.",
+   "example_uz": "Sening axlat chelaging to‘la.",
+   "concept": 749
+  },
+  {
+   "id": 750,
+   "topic": 10,
+   "tr": "kilit",
+   "uz": "qulf",
+   "example_tr": "Babam kilidi tamir ediyor.",
+   "example_uz": "Dadam qulfni tuzatadi.",
+   "concept": 750
+  },
+  {
+   "id": 751,
+   "topic": 11,
+   "tr": "dans etmek",
+   "uz": "raqsga tushmoq",
+   "example_tr": "Kate çok güzel dans ediyor.",
+   "example_uz": "Keyt juda yaxshi raqsga tushadi.",
+   "concept": 751
+  },
+  {
+   "id": 752,
+   "topic": 11,
+   "tr": "müzik grubu",
+   "uz": "guruh",
+   "example_tr": "Onların grubu yeni.",
+   "example_uz": "Ularning guruhi yangi.",
+   "concept": 752
+  },
+  {
+   "id": 753,
+   "topic": 11,
+   "tr": "şarkı söylemek",
+   "uz": "qo‘shiq aytmoq",
+   "example_tr": "Her sabah şarkı söylüyoruz.",
+   "example_uz": "Biz har kuni ertalab qo‘shiq aytamiz.",
+   "concept": 753
+  },
+  {
+   "id": 754,
+   "topic": 11,
+   "tr": "şarkı",
+   "uz": "qo‘shiq",
+   "example_tr": "Bu şarkı güzel.",
+   "example_uz": "Bu qo‘shiq chiroyli.",
+   "concept": 754
+  },
+  {
+   "id": 755,
+   "topic": 11,
+   "tr": "müzisyen",
+   "uz": "musiqachi",
+   "example_tr": "Ağabeyim müzisyen.",
+   "example_uz": "Akam — musiqachi.",
+   "concept": 755
+  },
+  {
+   "id": 756,
+   "topic": 11,
+   "tr": "caz",
+   "uz": "jaz",
+   "example_tr": "Onun babası cazı seviyor.",
+   "example_uz": "Uning dadasi jazni yaxshi ko‘radi.",
+   "concept": 756
+  },
+  {
+   "id": 757,
+   "topic": 11,
+   "tr": "rock",
+   "uz": "rok",
+   "example_tr": "Tom rock dinliyor.",
+   "example_uz": "Tom rok tinglaydi.",
+   "concept": 757
+  },
+  {
+   "id": 758,
+   "topic": 11,
+   "tr": "ses",
+   "uz": "ovoz",
+   "example_tr": "Anna’nın sesi güzel.",
+   "example_uz": "Annaning ovozi yaxshi.",
+   "concept": 758
+  },
+  {
+   "id": 759,
+   "topic": 11,
+   "tr": "konser",
+   "uz": "konsert",
+   "example_tr": "Konser saat yedide başlıyor.",
+   "example_uz": "Konsert soat yettida boshlanadi.",
+   "concept": 759
+  },
+  {
+   "id": 760,
+   "topic": 11,
+   "tr": "dansçı",
+   "uz": "raqqos",
+   "example_tr": "Şu dansçı çok hızlı.",
+   "example_uz": "O‘sha raqqos juda chaqqon.",
+   "concept": 760
+  },
+  {
+   "id": 761,
+   "topic": 11,
+   "tr": "davul",
+   "uz": "baraban",
+   "example_tr": "Onun davulu gürültülü.",
+   "example_uz": "Uning barabani shovqinli.",
+   "concept": 761
+  },
+  {
+   "id": 762,
+   "topic": 11,
+   "tr": "piyano",
+   "uz": "pianino",
+   "example_tr": "Bizim piyanomuz eski.",
+   "example_uz": "Bizning pianinomiz eski.",
+   "concept": 762
+  },
+  {
+   "id": 763,
+   "topic": 11,
+   "tr": "keman",
+   "uz": "skripka",
+   "example_tr": "O keman çalabilir.",
+   "example_uz": "U skripka chala oladi.",
+   "concept": 763
+  },
+  {
+   "id": 764,
+   "topic": 11,
+   "tr": "opera",
+   "uz": "opera",
+   "example_tr": "Büyükannem operayı çok seviyor.",
+   "example_uz": "Buvim operani juda yaxshi ko‘radi.",
+   "concept": 764
+  },
+  {
+   "id": 765,
+   "topic": 11,
+   "tr": "yüksek (ses), gürültülü",
+   "uz": "baland (ovoz), shovqinli",
+   "example_tr": "Senin müziğin çok yüksek.",
+   "example_uz": "Sening musiqang juda baland.",
+   "concept": 765
+  },
+  {
+   "id": 766,
+   "topic": 12,
+   "tr": "daire",
+   "uz": "kvartira",
+   "example_tr": "Bizim dairemiz çok küçük.",
+   "example_uz": "Bizning kvartiramiz juda kichkina.",
+   "concept": 766
+  },
+  {
+   "id": 767,
+   "topic": 12,
+   "tr": "bodrum",
+   "uz": "yerto‘la",
+   "example_tr": "Bodrum soğuk.",
+   "example_uz": "Yerto‘lada sovuq.",
+   "concept": 767
+  },
+  {
+   "id": 768,
+   "topic": 12,
+   "tr": "adres",
+   "uz": "manzil",
+   "example_tr": "Senin adresini biliyorum.",
+   "example_uz": "Men sening manzilingni bilaman.",
+   "concept": 768
+  },
+  {
+   "id": 769,
+   "topic": 12,
+   "tr": "acil çıkış",
+   "uz": "favqulodda chiqish yo‘li",
+   "example_tr": "Şu acil çıkış açık.",
+   "example_uz": "O‘sha favqulodda chiqish yo‘li ochiq.",
+   "concept": 769
+  },
+  {
+   "id": 770,
+   "topic": 12,
+   "tr": "çöp",
+   "uz": "axlat",
+   "example_tr": "Çöpü dışarı çıkarıyoruz.",
+   "example_uz": "Biz axlatni chiqaramiz.",
+   "concept": 770
+  },
+  {
+   "id": 771,
+   "topic": 12,
+   "tr": "elektrik düğmesi",
+   "uz": "o‘chirgich-yoqqich",
+   "example_tr": "Bu elektrik düğmesi yeni.",
+   "example_uz": "Bu o‘chirgich-yoqqich yangi.",
+   "concept": 771
+  },
+  {
+   "id": 772,
+   "topic": 12,
+   "tr": "tamir etmek",
+   "uz": "tuzatmoq",
+   "example_tr": "Babam kapıyı tamir ediyor.",
+   "example_uz": "Dadam eshikni tuzatadi.",
+   "concept": 772
+  },
+  {
+   "id": 773,
+   "topic": 12,
+   "tr": "elektrik",
+   "uz": "elektr energiyasi",
+   "example_tr": "Elektrik pahalı.",
+   "example_uz": "Elektr energiyasi qimmat.",
+   "concept": 773
+  },
+  {
+   "id": 774,
+   "topic": 12,
+   "tr": "gaz",
+   "uz": "gaz",
+   "example_tr": "Annem gazı kapatıyor.",
+   "example_uz": "Oyim gazni o‘chiradi.",
+   "concept": 774
+  },
+  {
+   "id": 775,
+   "topic": 12,
+   "tr": "ısıtma",
+   "uz": "isitish tizimi",
+   "example_tr": "Onların ısıtması çok iyi.",
+   "example_uz": "Ularning isitish tizimi juda yaxshi.",
+   "concept": 775
+  },
+  {
+   "id": 776,
+   "topic": 12,
+   "tr": "kablo",
+   "uz": "kabel, sim",
+   "example_tr": "Onun kablosu uzun.",
+   "example_uz": "Uning kabeli uzun.",
+   "concept": 776
+  },
+  {
+   "id": 777,
+   "topic": 12,
+   "tr": "kira",
+   "uz": "ijara",
+   "example_tr": "Şehirde kira yüksek.",
+   "example_uz": "Shaharda ijara qimmat.",
+   "concept": 777
+  },
+  {
+   "id": 778,
+   "topic": 12,
+   "tr": "giriş",
+   "uz": "kirish joyi",
+   "example_tr": "Evimin arka girişinde güzel, yeşil bir kapı var.",
+   "example_uz": "Uyimning orqa kirish joyida chiroyli yashil eshik bor.",
+   "concept": 625,
+   "own": {
+    "example_en": "There is a beautiful green door at the back entrance of my house.",
+    "example_ru": "У заднего входа в мой дом красивая зелёная дверь."
+   }
+  },
+  {
+   "id": 779,
+   "topic": 12,
+   "tr": "eve taşınmak",
+   "uz": "ko‘chib kelmoq",
+   "example_tr": "Onlar bugün yeni eve taşınıyor.",
+   "example_uz": "Ular bugun ko‘chib keladi.",
+   "concept": 779
+  },
+  {
+   "id": 780,
+   "topic": 12,
+   "tr": "evden taşınmak",
+   "uz": "ko‘chib ketmoq",
+   "example_tr": "Kate haziranda evden taşınıyor.",
+   "example_uz": "Keyt iyunda ko‘chib ketadi.",
+   "concept": 780
+  },
+  {
+   "id": 781,
+   "topic": 13,
+   "tr": "zamanında",
+   "uz": "o‘z vaqtida",
+   "example_tr": "Otobüsümüz zamanında geliyor.",
+   "example_uz": "Avtobusimiz o‘z vaqtida keladi.",
+   "concept": 781
+  },
+  {
+   "id": 782,
+   "topic": 13,
+   "tr": "saat",
+   "uz": "soat (vaqt birligi)",
+   "example_tr": "Bir saat bekliyoruz.",
+   "example_uz": "Biz bir soat kutamiz.",
+   "concept": 782
+  },
+  {
+   "id": 783,
+   "topic": 13,
+   "tr": "dakika",
+   "uz": "daqiqa",
+   "example_tr": "Lütfen bir dakika bekle.",
+   "example_uz": "Bir daqiqa kut, iltimos.",
+   "concept": 783
+  },
+  {
+   "id": 784,
+   "topic": 13,
+   "tr": "saniye",
+   "uz": "soniya",
+   "example_tr": "Bir dakikada altmış saniye var.",
+   "example_uz": "Bir daqiqada oltmish soniya bor.",
+   "concept": 784
+  },
+  {
+   "id": 785,
+   "topic": 13,
+   "tr": "geçmiş",
+   "uz": "o‘tmish",
+   "example_tr": "Geçmiş çok ilginç.",
+   "example_uz": "O‘tmish juda qiziqarli.",
+   "concept": 785
+  },
+  {
+   "id": 786,
+   "topic": 13,
+   "tr": "gelecek",
+   "uz": "kelajak",
+   "example_tr": "Çocuklar geleceği düşünüyor.",
+   "example_uz": "Bolalar kelajak haqida o‘ylaydi.",
+   "concept": 786
+  },
+  {
+   "id": 787,
+   "topic": 13,
+   "tr": "boşa harcamak",
+   "uz": "behuda sarflamoq",
+   "example_tr": "Tom zamanı boşa harcamıyor.",
+   "example_uz": "Tom vaqtni behuda sarflamaydi.",
+   "concept": 787
+  },
+  {
+   "id": 788,
+   "topic": 13,
+   "tr": "gece",
+   "uz": "tun, kecha",
+   "example_tr": "Bu gece çok sessiz.",
+   "example_uz": "Bugun kechasi juda jimjit.",
+   "concept": 788
+  },
+  {
+   "id": 789,
+   "topic": 13,
+   "tr": "erken",
+   "uz": "erta",
+   "example_tr": "Onun annesi erken geliyor.",
+   "example_uz": "Uning oyisi erta keladi.",
+   "concept": 789
+  },
+  {
+   "id": 790,
+   "topic": 13,
+   "tr": "geç",
+   "uz": "kech",
+   "example_tr": "Geç oldu. Uyumaya git.",
+   "example_uz": "Kech bo‘ldi. Uxlashga bor.",
+   "concept": 790
+  },
+  {
+   "id": 791,
+   "topic": 13,
+   "tr": "şimdi",
+   "uz": "hozir",
+   "example_tr": "Şimdi evdeyim.",
+   "example_uz": "Men hozir uydaman.",
+   "concept": 791
+  },
+  {
+   "id": 792,
+   "topic": 13,
+   "tr": "yakında",
+   "uz": "tez orada",
+   "example_tr": "Ders yakında başlıyor.",
+   "example_uz": "Dars tez orada boshlanadi.",
+   "concept": 792
+  },
+  {
+   "id": 793,
+   "topic": 13,
+   "tr": "önce",
+   "uz": "oldin, avval",
+   "example_tr": "Kate akşam yemeğinden önce ellerini yıkıyor.",
+   "example_uz": "Keyt kechki ovqatdan oldin qo‘lini yuvadi.",
+   "concept": 793
+  },
+  {
+   "id": 794,
+   "topic": 13,
+   "tr": "sonra",
+   "uz": "keyin",
+   "example_tr": "Filmden sonra eve gidiyorlar.",
+   "example_uz": "Filmdan keyin ular uyga ketadi.",
+   "concept": 794
+  },
+  {
+   "id": 795,
+   "topic": 13,
+   "tr": "daha sonra",
+   "uz": "keyinroq",
+   "example_tr": "Sam daha sonra geliyor.",
+   "example_uz": "Sem keyinroq keladi.",
+   "concept": 795
+  },
+  {
+   "id": 796,
+   "topic": 14,
+   "tr": "zeki",
+   "uz": "aqlli",
+   "example_tr": "Kız kardeşim zeki.",
+   "example_uz": "Singlim aqlli.",
+   "concept": 796
+  },
+  {
+   "id": 797,
+   "topic": 14,
+   "tr": "aptal",
+   "uz": "ahmoq, aqlsiz",
+   "example_tr": "Bu robot aptal. Konuşamıyor.",
+   "example_uz": "Bu robot aqlsiz. U gapira olmaydi.",
+   "concept": 797
+  },
+  {
+   "id": 798,
+   "topic": 14,
+   "tr": "meşgul",
+   "uz": "band",
+   "example_tr": "Annem bugün meşgul.",
+   "example_uz": "Oyim bugun band.",
+   "concept": 798
+  },
+  {
+   "id": 799,
+   "topic": 14,
+   "tr": "boş, serbest",
+   "uz": "bo‘sh, bo‘sh vaqtli",
+   "example_tr": "Pazar günü boşum.",
+   "example_uz": "Yakshanba kuni men bo‘shman.",
+   "concept": 799
+  },
+  {
+   "id": 800,
+   "topic": 14,
+   "tr": "düzenli",
+   "uz": "ozoda, tartibli",
+   "example_tr": "Kate düzenli bir kız.",
+   "example_uz": "Keyt tartibli qiz.",
+   "concept": 800
+  },
+  {
+   "id": 801,
+   "topic": 14,
+   "tr": "düzensiz, dağınık",
+   "uz": "tartibsiz",
+   "example_tr": "Onun odası dağınık.",
+   "example_uz": "Uning xonasi tartibsiz.",
+   "concept": 801
+  },
+  {
+   "id": 802,
+   "topic": 14,
+   "tr": "faydalı",
+   "uz": "foydali",
+   "example_tr": "Sözlük faydalı.",
+   "example_uz": "Lug‘at foydali.",
+   "concept": 802
+  },
+  {
+   "id": 803,
+   "topic": 14,
+   "tr": "faydasız",
+   "uz": "foydasiz",
+   "example_tr": "Onun eski telefonu faydasız.",
+   "example_uz": "Uning eski telefoni foydasiz.",
+   "concept": 803
+  },
+  {
+   "id": 804,
+   "topic": 14,
+   "tr": "şanslı",
+   "uz": "omadli",
+   "example_tr": "Tom şanslı bir çocuk.",
+   "example_uz": "Tom omadli bola.",
+   "concept": 804
+  },
+  {
+   "id": 805,
+   "topic": 14,
+   "tr": "şanssız",
+   "uz": "omadsiz",
+   "example_tr": "Bugün şanssızım.",
+   "example_uz": "Bugun men omadsizman.",
+   "concept": 805
+  },
+  {
+   "id": 806,
+   "topic": 14,
+   "tr": "popüler",
+   "uz": "mashhur, ommabop",
+   "example_tr": "Bu şarkı popüler.",
+   "example_uz": "Bu qo‘shiq mashhur.",
+   "concept": 806
+  },
+  {
+   "id": 807,
+   "topic": 14,
+   "tr": "popüler değil",
+   "uz": "mashhur emas",
+   "example_tr": "Şu film popüler değil.",
+   "example_uz": "O‘sha film mashhur emas.",
+   "concept": 807
+  },
+  {
+   "id": 808,
+   "topic": 14,
+   "tr": "güvenli",
+   "uz": "xavfsiz",
+   "example_tr": "Bizim sokağımız güvenli.",
+   "example_uz": "Bizning ko‘chamiz xavfsiz.",
+   "concept": 808
+  },
+  {
+   "id": 809,
+   "topic": 14,
+   "tr": "güvensiz, tehlikeli",
+   "uz": "xavfli",
+   "example_tr": "Bu yol tehlikeli.",
+   "example_uz": "Bu yo‘l xavfli.",
+   "concept": 809
+  },
+  {
+   "id": 810,
+   "topic": 14,
+   "tr": "zıt anlamlı",
+   "uz": "antonim",
+   "example_tr": "“Sıcak”, “soğuk” kelimesinin zıt anlamlısı.",
+   "example_uz": "«Issiq» — «sovuq» so‘zining antonimi.",
+   "concept": null,
+   "new": {
+    "en": "antonym",
+    "ru": "антоним",
+    "example_en": "\"Cold\" is the antonym of \"hot\".",
+    "example_ru": "«Холодный» — антоним слова «горячий».",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='10' fill='#fff'>zıt anlamlı</text></svg>"
+   }
+  },
+  {
+   "id": 811,
+   "topic": 15,
+   "tr": "dünya",
+   "uz": "dunyo",
+   "example_tr": "Dünyamız çok güzel.",
+   "example_uz": "Bizning dunyomiz juda chiroyli.",
+   "concept": 811
+  },
+  {
+   "id": 812,
+   "topic": 15,
+   "tr": "çevre",
+   "uz": "atrof-muhit",
+   "example_tr": "Çevremizi seviyoruz.",
+   "example_uz": "Biz atrof-muhitimizni sevamiz.",
+   "concept": 812
+  },
+  {
+   "id": 813,
+   "topic": 15,
+   "tr": "bitki",
+   "uz": "o‘simlik",
+   "example_tr": "Onun bitkisinin suya ihtiyacı var.",
+   "example_uz": "Uning o‘simligiga suv kerak.",
+   "concept": 813
+  },
+  {
+   "id": 814,
+   "topic": 15,
+   "tr": "toprak, yer",
+   "uz": "yer",
+   "example_tr": "Toprak ıslak.",
+   "example_uz": "Yer ho‘l.",
+   "concept": 814
+  },
+  {
+   "id": 815,
+   "topic": 15,
+   "tr": "tarla",
+   "uz": "dala",
+   "example_tr": "Bu tarla çok yeşil.",
+   "example_uz": "Bu dala juda yashil.",
+   "concept": 815
+  },
+  {
+   "id": 816,
+   "topic": 15,
+   "tr": "gökyüzü",
+   "uz": "osmon",
+   "example_tr": "Gökyüzü açık mavi.",
+   "example_uz": "Osmon havorang.",
+   "concept": 816
+  },
+  {
+   "id": 817,
+   "topic": 15,
+   "tr": "çimen, ot",
+   "uz": "o‘t, maysa",
+   "example_tr": "Koyunlar ot yiyor.",
+   "example_uz": "Qo‘ylar o‘t yeydi.",
+   "concept": 817
+  },
+  {
+   "id": 818,
+   "topic": 15,
+   "tr": "sahil",
+   "uz": "sohil",
+   "example_tr": "Tom sahil boyunca yürüyor.",
+   "example_uz": "Tom sohil bo‘ylab sayr qiladi.",
+   "concept": 818
+  },
+  {
+   "id": 819,
+   "topic": 15,
+   "tr": "tepe",
+   "uz": "tepalik",
+   "example_tr": "Şu tepe yüksek değil.",
+   "example_uz": "O‘sha tepalik baland emas.",
+   "concept": 819
+  },
+  {
+   "id": 820,
+   "topic": 15,
+   "tr": "taş",
+   "uz": "tosh",
+   "example_tr": "Onun taşı beyaz.",
+   "example_uz": "Uning toshi oq.",
+   "concept": 820
+  },
+  {
+   "id": 821,
+   "topic": 15,
+   "tr": "vadi",
+   "uz": "vodiy",
+   "example_tr": "Onların vadisi güzel.",
+   "example_uz": "Ularning vodiysi chiroyli.",
+   "concept": 821
+  },
+  {
+   "id": 822,
+   "topic": 15,
+   "tr": "göl",
+   "uz": "ko‘l",
+   "example_tr": "Çocuklar gölde yüzüyor.",
+   "example_uz": "Bolalar ko‘lda suzadi.",
+   "concept": 822
+  },
+  {
+   "id": 823,
+   "topic": 15,
+   "tr": "okyanus",
+   "uz": "okean",
+   "example_tr": "Okyanus çok derin.",
+   "example_uz": "Okean juda chuqur.",
+   "concept": 823
+  },
+  {
+   "id": 824,
+   "topic": 15,
+   "tr": "tahta, ahşap",
+   "uz": "yog‘och",
+   "example_tr": "Benim masam ahşaptan yapılmış.",
+   "example_uz": "Mening stolim yog‘ochdan yasalgan.",
+   "concept": 824
+  },
+  {
+   "id": 825,
+   "topic": 15,
+   "tr": "çöl",
+   "uz": "cho‘l, sahro",
+   "example_tr": "Deve çölde yaşıyor.",
+   "example_uz": "Tuya cho‘lda yashaydi.",
+   "concept": 825
+  },
+  {
+   "id": 826,
+   "topic": 16,
+   "tr": "sol, sola",
+   "uz": "chap, chapga",
+   "example_tr": "Lütfen sola dön.",
+   "example_uz": "Chapga buril, iltimos.",
+   "concept": 826
+  },
+  {
+   "id": 827,
+   "topic": 16,
+   "tr": "sağ, sağa",
+   "uz": "o‘ng, o‘ngga",
+   "example_tr": "Onun sağ eli güçlü.",
+   "example_uz": "Uning o‘ng qo‘li kuchli.",
+   "concept": 827
+  },
+  {
+   "id": 828,
+   "topic": 16,
+   "tr": "harita",
+   "uz": "xarita",
+   "example_tr": "Benim haritam çok eski.",
+   "example_uz": "Mening xaritam juda eski.",
+   "concept": 828
+  },
+  {
+   "id": 829,
+   "topic": 16,
+   "tr": "kuzey",
+   "uz": "shimol",
+   "example_tr": "Bizim şehrimiz kuzeyde.",
+   "example_uz": "Bizning shahrimiz shimolda.",
+   "concept": 829
+  },
+  {
+   "id": 830,
+   "topic": 16,
+   "tr": "güney",
+   "uz": "janub",
+   "example_tr": "Deniz güneyde.",
+   "example_uz": "Dengiz janubda.",
+   "concept": 830
+  },
+  {
+   "id": 831,
+   "topic": 16,
+   "tr": "doğu",
+   "uz": "sharq",
+   "example_tr": "Güneş doğudan doğuyor.",
+   "example_uz": "Quyosh sharqdan chiqadi.",
+   "concept": 831
+  },
+  {
+   "id": 832,
+   "topic": 16,
+   "tr": "batı",
+   "uz": "g‘arb",
+   "example_tr": "Kate batıda yaşıyor.",
+   "example_uz": "Keyt g‘arbda yashaydi.",
+   "concept": 832
+  },
+  {
+   "id": 833,
+   "topic": 16,
+   "tr": "yakın",
+   "uz": "yaqin",
+   "example_tr": "Dükkân buraya yakın.",
+   "example_uz": "Do‘kon yaqin.",
+   "concept": 833
+  },
+  {
+   "id": 834,
+   "topic": 16,
+   "tr": "uzak",
+   "uz": "uzoq",
+   "example_tr": "Havalimanı çok uzak.",
+   "example_uz": "Aeroport juda uzoqda.",
+   "concept": 834
+  },
+  {
+   "id": 835,
+   "topic": 16,
+   "tr": "karşısında",
+   "uz": "qarshisida",
+   "example_tr": "Şu banka karşıda.",
+   "example_uz": "O‘sha bank qarshida.",
+   "concept": 835
+  },
+  {
+   "id": 836,
+   "topic": 16,
+   "tr": "yanında",
+   "uz": "yonida",
+   "example_tr": "Onların evi parkın yanında.",
+   "example_uz": "Ularning uyi park yonida.",
+   "concept": 836
+  },
+  {
+   "id": 837,
+   "topic": 16,
+   "tr": "arkasında",
+   "uz": "orqasida",
+   "example_tr": "Tom benim arkamda duruyor.",
+   "example_uz": "Tom mening orqamda turibdi.",
+   "concept": 837
+  },
+  {
+   "id": 838,
+   "topic": 16,
+   "tr": "arasında",
+   "uz": "orasida",
+   "example_tr": "Bu kafe iki dükkânın arasında.",
+   "example_uz": "Bu kafe ikki do‘kon orasida.",
+   "concept": 838
+  },
+  {
+   "id": 839,
+   "topic": 16,
+   "tr": "köşe",
+   "uz": "burchak, muyulish",
+   "example_tr": "Mağaza köşede.",
+   "example_uz": "Do‘kon muyulishda.",
+   "concept": 839
+  },
+  {
+   "id": 840,
+   "topic": 16,
+   "tr": "yol",
+   "uz": "yo‘l",
+   "example_tr": "Eve giden yolu biliyorum.",
+   "example_uz": "Men uyga yo‘lni bilaman.",
+   "concept": 840
+  },
+  {
+   "id": 841,
+   "topic": 17,
+   "tr": "çiftlik",
+   "uz": "ferma",
+   "example_tr": "Bizim çiftliğimiz çok büyük.",
+   "example_uz": "Bizning fermamiz juda katta.",
+   "concept": 841
+  },
+  {
+   "id": 842,
+   "topic": 17,
+   "tr": "köy",
+   "uz": "qishloq",
+   "example_tr": "Büyükannem bir köyde yaşıyor.",
+   "example_uz": "Buvim qishloqda yashaydi.",
+   "concept": 842
+  },
+  {
+   "id": 843,
+   "topic": 17,
+   "tr": "traktör",
+   "uz": "traktor",
+   "example_tr": "Şu traktör kırmızı.",
+   "example_uz": "O‘sha traktor qizil.",
+   "concept": 843
+  },
+  {
+   "id": 844,
+   "topic": 17,
+   "tr": "ahır, ambar",
+   "uz": "ombor, molxona",
+   "example_tr": "Ahır evin yanında.",
+   "example_uz": "Ombor uy yonida.",
+   "concept": 844
+  },
+  {
+   "id": 845,
+   "topic": 17,
+   "tr": "saman",
+   "uz": "pichan",
+   "example_tr": "Kışın inekler saman yiyor.",
+   "example_uz": "Qishda sigirlar pichan yeydi.",
+   "concept": 845
+  },
+  {
+   "id": 846,
+   "topic": 17,
+   "tr": "ürün, ekin",
+   "uz": "hosil (ekin)",
+   "example_tr": "Bu ürün çok iyi.",
+   "example_uz": "Bu hosil juda yaxshi.",
+   "concept": 846
+  },
+  {
+   "id": 847,
+   "topic": 17,
+   "tr": "hasat yapmak",
+   "uz": "hosil yig‘moq",
+   "example_tr": "Çiftçiler sonbaharda hasat yapıyor.",
+   "example_uz": "Kuzda fermerlar hosil yig‘adi.",
+   "concept": 847
+  },
+  {
+   "id": 848,
+   "topic": 17,
+   "tr": "buğday",
+   "uz": "bug‘doy",
+   "example_tr": "Onların buğdayı uzun.",
+   "example_uz": "Ularning bug‘doyi baland.",
+   "concept": 848
+  },
+  {
+   "id": 849,
+   "topic": 17,
+   "tr": "çoban",
+   "uz": "cho‘pon",
+   "example_tr": "O genç bir çoban.",
+   "example_uz": "U yosh cho‘pon.",
+   "concept": 849
+  },
+  {
+   "id": 850,
+   "topic": 17,
+   "tr": "arı kovanı",
+   "uz": "asalari uyasi",
+   "example_tr": "Arılar kovanda yaşıyor.",
+   "example_uz": "Asalarilar uyada yashaydi.",
+   "concept": 850
+  },
+  {
+   "id": 851,
+   "topic": 17,
+   "tr": "korkuluk",
+   "uz": "qo‘riqchi qo‘g‘irchoq",
+   "example_tr": "Korkuluk komik.",
+   "example_uz": "Qo‘riqchi qo‘g‘irchoq kulgili.",
+   "concept": 851
+  },
+  {
+   "id": 852,
+   "topic": 17,
+   "tr": "gölet",
+   "uz": "hovuz",
+   "example_tr": "Ördekler gölette yüzüyor.",
+   "example_uz": "O‘rdaklar hovuzda suzadi.",
+   "concept": 852
+  },
+  {
+   "id": 853,
+   "topic": 17,
+   "tr": "değirmen",
+   "uz": "tegirmon",
+   "example_tr": "Onun köyünde eski bir değirmen var.",
+   "example_uz": "Uning qishlog‘ida eski tegirmon bor.",
+   "concept": 853
+  },
+  {
+   "id": 854,
+   "topic": 17,
+   "tr": "at arabası",
+   "uz": "arava",
+   "example_tr": "Dedemin küçük bir arabası var.",
+   "example_uz": "Bobomning kichkina aravasi bor.",
+   "concept": 854
+  },
+  {
+   "id": 855,
+   "topic": 17,
+   "tr": "saman yığını",
+   "uz": "pichan g‘arami",
+   "example_tr": "Çocuklar saman yığınının yanında oynuyor.",
+   "example_uz": "Bolalar pichan g‘arami yonida o‘ynaydi.",
+   "concept": 855
+  },
+  {
+   "id": 856,
+   "topic": 18,
+   "tr": "nakit",
+   "uz": "naqd pul",
+   "example_tr": "Nakit ödüyorum.",
+   "example_uz": "Men naqd pul bilan to‘layman.",
+   "concept": 856
+  },
+  {
+   "id": 857,
+   "topic": 18,
+   "tr": "avro",
+   "uz": "yevro",
+   "example_tr": "Bu kitap on avro.",
+   "example_uz": "Bu kitob o‘n yevro turadi.",
+   "concept": 857
+  },
+  {
+   "id": 858,
+   "topic": 18,
+   "tr": "sterlin",
+   "uz": "funt",
+   "example_tr": "Sterlin İngiliz parası.",
+   "example_uz": "Funt — Britaniya puli.",
+   "concept": 858
+  },
+  {
+   "id": 859,
+   "topic": 18,
+   "tr": "sent",
+   "uz": "sent",
+   "example_tr": "Bir sent çok küçük.",
+   "example_uz": "Bir sent juda kichik.",
+   "concept": 859
+  },
+  {
+   "id": 860,
+   "topic": 18,
+   "tr": "kâğıt para",
+   "uz": "qog‘oz pul",
+   "example_tr": "Onun bir kâğıt parası var.",
+   "example_uz": "Uning bitta qog‘oz puli bor.",
+   "concept": 860
+  },
+  {
+   "id": 861,
+   "topic": 18,
+   "tr": "dolar",
+   "uz": "dollar",
+   "example_tr": "Bu ürün sadece bir dolar.",
+   "example_uz": "Bu mahsulot atigi bir dollar turadi.",
+   "concept": null,
+   "new": {
+    "en": "dollar",
+    "ru": "доллар",
+    "example_en": "This product costs only one dollar.",
+    "example_ru": "Этот товар стоит всего один доллар.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>dolar</text></svg>"
+   }
+  },
+  {
+   "id": 862,
+   "topic": 18,
+   "tr": "maaş",
+   "uz": "maosh",
+   "example_tr": "Babamın maaşı iyi.",
+   "example_uz": "Dadamning maoshi yaxshi.",
+   "concept": 862
+  },
+  {
+   "id": 863,
+   "topic": 18,
+   "tr": "fiyatı olmak",
+   "uz": "turmoq (narxi)",
+   "example_tr": "Bunun fiyatı ne kadar?",
+   "example_uz": "Bu qancha turadi?",
+   "concept": 863
+  },
+  {
+   "id": 864,
+   "topic": 18,
+   "tr": "harcamak",
+   "uz": "sarflamoq",
+   "example_tr": "Onlar çok para harcıyor.",
+   "example_uz": "Ular ko‘p pul sarflaydi.",
+   "concept": 864
+  },
+  {
+   "id": 865,
+   "topic": 18,
+   "tr": "biriktirmek",
+   "uz": "tejamoq, yig‘moq",
+   "example_tr": "Her ay para biriktiriyoruz.",
+   "example_uz": "Biz har oy pul yig‘amiz.",
+   "concept": 865
+  },
+  {
+   "id": 866,
+   "topic": 18,
+   "tr": "cüzdan (kadın)",
+   "uz": "hamyon",
+   "example_tr": "Onun cüzdanı çantada.",
+   "example_uz": "Uning hamyoni sumkada.",
+   "concept": 866
+  },
+  {
+   "id": 867,
+   "topic": 18,
+   "tr": "ödünç vermek",
+   "uz": "qarzga bermoq",
+   "example_tr": "Tom bana kalemini ödünç veriyor.",
+   "example_uz": "Tom menga ruchkasini qarzga beradi.",
+   "concept": 867
+  },
+  {
+   "id": 868,
+   "topic": 18,
+   "tr": "ödünç almak",
+   "uz": "qarzga olmoq",
+   "example_tr": "Kalemini ödünç alabilir miyim, lütfen?",
+   "example_uz": "Ruchkangni olib tursam bo‘ladimi, iltimos?",
+   "concept": 868
+  },
+  {
+   "id": 869,
+   "topic": 18,
+   "tr": "madeni para",
+   "uz": "tanga",
+   "example_tr": "Şu madeni para çok eski.",
+   "example_uz": "O‘sha tanga juda eski.",
+   "concept": 869
+  },
+  {
+   "id": 870,
+   "topic": 18,
+   "tr": "para üstü",
+   "uz": "qaytim",
+   "example_tr": "Kasiyer para üstü veriyor.",
+   "example_uz": "Kassir qaytim beradi.",
+   "concept": 870
+  },
+  {
+   "id": 871,
+   "topic": 19,
+   "tr": "deniz",
+   "uz": "dengiz",
+   "example_tr": "Bugün deniz ılık.",
+   "example_uz": "Bugun dengiz iliq.",
+   "concept": 871
+  },
+  {
+   "id": 872,
+   "topic": 19,
+   "tr": "köpek balığı",
+   "uz": "akula",
+   "example_tr": "Köpek balıkları okyanusta yaşıyor.",
+   "example_uz": "Akulalar okeanda yashaydi.",
+   "concept": 872
+  },
+  {
+   "id": 873,
+   "topic": 19,
+   "tr": "balina",
+   "uz": "kit",
+   "example_tr": "Balina çok büyük.",
+   "example_uz": "Kit juda katta.",
+   "concept": 873
+  },
+  {
+   "id": 874,
+   "topic": 19,
+   "tr": "yunus",
+   "uz": "delfin",
+   "example_tr": "Yunuslar çok akıllı.",
+   "example_uz": "Delfinlar juda aqlli.",
+   "concept": 874
+  },
+  {
+   "id": 875,
+   "topic": 19,
+   "tr": "yengeç",
+   "uz": "qisqichbaqa",
+   "example_tr": "Bu yengeç kırmızı.",
+   "example_uz": "Bu qisqichbaqa qizil.",
+   "concept": 875
+  },
+  {
+   "id": 876,
+   "topic": 19,
+   "tr": "deniz kaplumbağası",
+   "uz": "dengiz toshbaqasi",
+   "example_tr": "Deniz kaplumbağası yavaş.",
+   "example_uz": "Dengiz toshbaqasi sekin.",
+   "concept": 876
+  },
+  {
+   "id": 877,
+   "topic": 19,
+   "tr": "ahtapot",
+   "uz": "sakkizoyoq",
+   "example_tr": "Şu ahtapotun sekiz kolu var.",
+   "example_uz": "O‘sha sakkizoyoqning sakkizta paypaslagichi bor.",
+   "concept": 877
+  },
+  {
+   "id": 878,
+   "topic": 19,
+   "tr": "deniz yıldızı",
+   "uz": "dengiz yulduzi",
+   "example_tr": "Kate bir deniz yıldızı buluyor.",
+   "example_uz": "Keyt dengiz yulduzini topadi.",
+   "concept": 878
+  },
+  {
+   "id": 879,
+   "topic": 19,
+   "tr": "denizanası",
+   "uz": "meduza",
+   "example_tr": "Denizanalarından korkuyorum.",
+   "example_uz": "Men meduzalardan qo‘rqaman.",
+   "concept": 879
+  },
+  {
+   "id": 880,
+   "topic": 19,
+   "tr": "fok",
+   "uz": "tyulen",
+   "example_tr": "Foklar çok hızlı yüzüyor.",
+   "example_uz": "Tyulenlar juda tez suzadi.",
+   "concept": 880
+  },
+  {
+   "id": 881,
+   "topic": 19,
+   "tr": "penguen",
+   "uz": "pingvin",
+   "example_tr": "Penguenler soğuk bir yerde yaşıyor.",
+   "example_uz": "Pingvinlar sovuq joyda yashaydi.",
+   "concept": 881
+  },
+  {
+   "id": 882,
+   "topic": 19,
+   "tr": "kalamar",
+   "uz": "kalmar",
+   "example_tr": "Onun babası kalamar yiyor.",
+   "example_uz": "Uning dadasi kalmar yeydi.",
+   "concept": 882
+  },
+  {
+   "id": 883,
+   "topic": 19,
+   "tr": "karides",
+   "uz": "krevetka",
+   "example_tr": "Taze karides alıyoruz.",
+   "example_uz": "Biz yangi krevetkalar sotib olamiz.",
+   "concept": 883
+  },
+  {
+   "id": 884,
+   "topic": 19,
+   "tr": "ıstakoz",
+   "uz": "omar",
+   "example_tr": "Istakoz ucuz değil.",
+   "example_uz": "Omar arzon emas.",
+   "concept": 884
+  },
+  {
+   "id": 885,
+   "topic": 19,
+   "tr": "denizatı",
+   "uz": "dengiz otchasi",
+   "example_tr": "Tom denizatlarını seviyor.",
+   "example_uz": "Tomga dengiz otchalari yoqadi.",
+   "concept": 885
+  },
+  {
+   "id": 886,
+   "topic": 20,
+   "tr": "rol",
+   "uz": "rol",
+   "example_tr": "Oyuncu filmde önemli bir rol oynuyor.",
+   "example_uz": "Aktyor filmda muhim rol o‘ynaydi.",
+   "concept": null,
+   "new": {
+    "en": "role",
+    "ru": "роль",
+    "example_en": "The actor plays an important role in the film.",
+    "example_ru": "Актёр играет в фильме важную роль.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>rol</text></svg>"
+   }
+  },
+  {
+   "id": 887,
+   "topic": 20,
+   "tr": "tiyatro",
+   "uz": "teatr",
+   "example_tr": "Bizim tiyatromuz eski.",
+   "example_uz": "Bizning teatrimiz eski.",
+   "concept": 887
+  },
+  {
+   "id": 888,
+   "topic": 20,
+   "tr": "sahne",
+   "uz": "sahna",
+   "example_tr": "Sahne çok büyük.",
+   "example_uz": "Sahna juda katta.",
+   "concept": 888
+  },
+  {
+   "id": 889,
+   "topic": 20,
+   "tr": "koltuk (salonda)",
+   "uz": "o‘rin (zalda)",
+   "example_tr": "Benim koltuğum on numara.",
+   "example_uz": "Mening o‘rnim — o‘ninchi raqam.",
+   "concept": 889
+  },
+  {
+   "id": 890,
+   "topic": 20,
+   "tr": "yönetmen",
+   "uz": "rejissyor",
+   "example_tr": "Şu yönetmen ünlü.",
+   "example_uz": "O‘sha rejissyor mashhur.",
+   "concept": 890
+  },
+  {
+   "id": 891,
+   "topic": 20,
+   "tr": "sahne (bölüm)",
+   "uz": "sahna (epizod), lavha",
+   "example_tr": "Bu sahne kısa.",
+   "example_uz": "Lavha qisqa.",
+   "concept": 891
+  },
+  {
+   "id": 892,
+   "topic": 20,
+   "tr": "karakter",
+   "uz": "personaj, qahramon",
+   "example_tr": "Onun en sevdiği karakter komik.",
+   "example_uz": "Uning sevimli personaji kulgili.",
+   "concept": 892
+  },
+  {
+   "id": 893,
+   "topic": 20,
+   "tr": "kahraman",
+   "uz": "qahramon",
+   "example_tr": "Tom cesur bir kahraman.",
+   "example_uz": "Tom — jasur qahramon.",
+   "concept": 893
+  },
+  {
+   "id": 894,
+   "topic": 20,
+   "tr": "patlamış mısır",
+   "uz": "popkorn",
+   "example_tr": "Çocuklar burada patlamış mısır yiyor.",
+   "example_uz": "Bolalar bu yerda popkorn yeydi.",
+   "concept": 894
+  },
+  {
+   "id": 895,
+   "topic": 20,
+   "tr": "aksiyon filmi",
+   "uz": "jangari film",
+   "example_tr": "Onun ağabeyi aksiyon filmlerini seviyor.",
+   "example_uz": "Uning akasi jangari filmlarni yaxshi ko‘radi.",
+   "concept": 895
+  },
+  {
+   "id": 896,
+   "topic": 20,
+   "tr": "dram",
+   "uz": "drama",
+   "example_tr": "Kate bir dram izliyor.",
+   "example_uz": "Keyt drama tomosha qiladi.",
+   "concept": 896
+  },
+  {
+   "id": 897,
+   "topic": 20,
+   "tr": "korku filmi",
+   "uz": "qo‘rqinchli film",
+   "example_tr": "Korku filmlerini sevmiyoruz.",
+   "example_uz": "Biz qo‘rqinchli filmlarni yoqtirmaymiz.",
+   "concept": 897
+  },
+  {
+   "id": 898,
+   "topic": 20,
+   "tr": "afiş",
+   "uz": "afisha, plakat",
+   "example_tr": "Senin afişin güzel.",
+   "example_uz": "Sening afishang chiroyli.",
+   "concept": 898
+  },
+  {
+   "id": 899,
+   "topic": 20,
+   "tr": "bilet",
+   "uz": "chipta",
+   "example_tr": "Anna iki bilet alıyor.",
+   "example_uz": "Anna ikkita chipta sotib oladi.",
+   "concept": 899
+  },
+  {
+   "id": 900,
+   "topic": 20,
+   "tr": "altyazı",
+   "uz": "subtitrlar",
+   "example_tr": "Onlar altyazıları okuyor.",
+   "example_uz": "Ular subtitrlarni o‘qiydi.",
+   "concept": 900
+  }
+ ]
+}

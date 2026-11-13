@@ -65,7 +65,7 @@
 
                         <div class="lp-field-label">@Loc["TranslationLanguageTitle"]</div>
                         <InputSelect class="lp-select" @bind-Value="_model.TransLangId">
-                            @foreach (var l in _languages)
+                            @foreach (var l in _translationLanguages)
                             {
                                 <option value="@l.LanguageId">@l.Name</option>
                             }
@@ -169,6 +169,8 @@
 
     private RegisterModel _model = new();
     private List<Language> _languages = new();
+    // Turkish is a language to study only: not offered as the translation language (nor as the app language)
+    private IEnumerable<Language> _translationLanguages => _languages.Where(l => !Jumbo.Shared.LanguageRoles.IsStudyOnly(l.ShorName));
     private int _step = 1;
     private string _error = string.Empty;
     private string _avatarError = string.Empty;

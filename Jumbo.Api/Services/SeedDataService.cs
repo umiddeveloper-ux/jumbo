@@ -27,6 +27,13 @@ public class SeedDataService(AppDbContext db, IHostEnvironment env, ILogger<Seed
                 new Language { Name = "O`zbekcha", ShorName = "uz" });
             await db.SaveChangesAsync();
         }
+    
+        // Turkish: a language to study only (no app texts, never a translation language). Added after the first three, so it gets the next number.
+        if (!await db.Languages.AnyAsync(l => l.ShorName == "tr"))
+        {
+            db.Languages.Add(new Language { Name = "Türkçe", ShorName = "tr" });
+            await db.SaveChangesAsync();
+        }
     }
 
     public async Task LoadSeedDataAsync()
@@ -47,6 +54,8 @@ public class SeedDataService(AppDbContext db, IHostEnvironment env, ILogger<Seed
 
         await BackfillWordNumbersAsync();
         await BackfillExamplesAsync();
+
+        await LoadTurkishAsync();
     }
 
     // Books seeded before example sentences existed: copies the examples from the book JSON into the rows that still have none.
@@ -139,7 +148,9 @@ public class SeedDataService(AppDbContext db, IHostEnvironment env, ILogger<Seed
         await db.UserSubjectProgresses.Where(p => subjectIds.Contains(p.SubjectId)).ExecuteDeleteAsync();
         await db.Words.Where(w => subjectIds.Contains(w.SubjectId)).ExecuteDeleteAsync();
         await db.Subjects.Where(s => s.BookId == bookNumber).ExecuteDeleteAsync();
-        await db.SvgImages.Where(i => svgIds.Contains(i.SvgImageId)).ExecuteDeleteAsync();
+        await db.WordTranslations.Where(t => svgIds.Contains(t.SvgImageId)).ExecuteDeleteAsync();
+        // a picture that a word of another book still uses (the Turkish books share pictures across books) stays
+        await db.SvgImages.Where(i => svgIds.Contains(i.SvgImageId) && !db.Words.Any(w => w.SvgImageId == i.SvgImageId)).ExecuteDeleteAsync();
     }
 
     // Removes books that are no longer wanted (server setting SeedData__RemoveBooks="11,12,13"; the admin endpoint does the same
@@ -497,6 +508,192 @@ public class SeedDataService(AppDbContext db, IHostEnvironment env, ILogger<Seed
             db.Words.AddRange(WordRows(w, subjectId, svg.SvgImageId, enId, ruId, uzId));
         }
         await db.SaveChangesAsync();
+    }
+
+    // ───────────── Turkish (a language to study) ─────────────
+    // SeedData/Books/Turk/book_NN_tr.json (made by tools/import-turkish.mjs from the Turkish books). A Turkish word is a fourth row of
+    // the topic of the same place (book NN, topic N) and shares the picture - so also the translations into English, Russian and Uzbek -
+    // with the English word it means ("concept"). A word with no English counterpart (and a word whose sentence is not a translation of
+    // the English one) gets a picture of its own and keeps its translations in WordTranslations (the API answers from there).
+    // Nothing of the other languages is touched, so it is safe to run on every start: a book that already has all its Turkish words is skipped.
+    private string TurkDirectory => Path.Combine(BooksDirectory, "Turk");
+    private static readonly Regex TurkFileRegex = new(@"^book_(\d+)_tr\.json$", RegexOptions.IgnoreCase);
+
+    public async Task LoadTurkishAsync()
+    {
+        if (!Directory.Exists(TurkDirectory)) return;
+        foreach (var file in Directory.GetFiles(TurkDirectory, "*.json").OrderBy(f => f, StringComparer.OrdinalIgnoreCase))
+        {
+            var match = TurkFileRegex.Match(Path.GetFileName(file));
+            if (match.Success) await LoadTurkishBookAsync(int.Parse(match.Groups[1].Value), file);
+        }
+    }
+
+    // Replaces the Turkish words of every book with the files. DESTRUCTIVE for the learners of Turkish (their progress in the words
+    // that are replaced is deleted); nothing of the other languages is touched.
+    public async Task<int> ReloadTurkishAsync()
+    {
+        var total = 0;
+        if (!Directory.Exists(TurkDirectory)) return 0;
+        foreach (var file in Directory.GetFiles(TurkDirectory, "*.json").OrderBy(f => f, StringComparer.OrdinalIgnoreCase))
+        {
+            var match = TurkFileRegex.Match(Path.GetFileName(file));
+            if (!match.Success) continue;
+            var book = int.Parse(match.Groups[1].Value);
+            await RemoveTurkishBookRowsAsync(book);
+            total += await LoadTurkishBookAsync(book, file);
+        }
+        return total;
+    }
+
+    private async Task RemoveTurkishBookRowsAsync(int bookNumber)
+    {
+        var trId = await db.Languages.Where(l => l.ShorName == "tr").Select(l => l.LanguageId).SingleOrDefaultAsync();
+        if (trId == 0) return;
+        var subjectIds = await db.Subjects.Where(s => s.BookId == bookNumber).Select(s => s.SubjectId).ToListAsync();
+        var turkish = db.Words.Where(w => w.LanguageId == trId && subjectIds.Contains(w.SubjectId));
+        var svgIds = await turkish.Select(w => w.SvgImageId).Distinct().ToListAsync();
+        var ownSvgIds = await db.WordTranslations.Where(t => svgIds.Contains(t.SvgImageId)).Select(t => t.SvgImageId).Distinct().ToListAsync();
+
+        await db.UsersWords.Where(u => turkish.Select(w => w.WordId).Contains(u.WordId)).ExecuteDeleteAsync();
+        await db.UserDailyWords.Where(u => turkish.Select(w => w.WordId).Contains(u.WordId)).ExecuteDeleteAsync();
+        await turkish.ExecuteDeleteAsync();
+        await db.WordTranslations.Where(t => ownSvgIds.Contains(t.SvgImageId)).ExecuteDeleteAsync();
+        await db.SvgImages.Where(i => ownSvgIds.Contains(i.SvgImageId) && !db.Words.Any(w => w.SvgImageId == i.SvgImageId)).ExecuteDeleteAsync();
+    }
+
+    private async Task<int> LoadTurkishBookAsync(int bookNumber, string filePath)
+    {
+        var trId = await db.Languages.Where(l => l.ShorName == "tr").Select(l => l.LanguageId).SingleOrDefaultAsync();
+        if (trId == 0) return 0;
+
+        var book = await ReadJsonAsync<TurkFileJson>(filePath);
+        if (book is null || book.words.Count == 0) return 0;
+
+        var subjects = await db.Subjects.Where(s => s.BookId == bookNumber).OrderBy(s => s.SequenceNumber).ToListAsync();
+        if (subjects.Count == 0)
+        {
+            logger.LogWarning("Turkish book {BookNumber}: the English book is not loaded, skipped", bookNumber);
+            return 0;
+        }
+        if (subjects.Count != book.words.Max(w => w.topic))
+        {
+            logger.LogWarning("Turkish book {BookNumber}: {Turkish} topics in the file, {English} in the database, skipped", bookNumber, book.words.Max(w => w.topic), subjects.Count);
+            return 0;
+        }
+
+        var subjectIds = subjects.Select(s => s.SubjectId).ToList();
+        var have = await db.Words.CountAsync(w => w.LanguageId == trId && subjectIds.Contains(w.SubjectId));
+        if (have >= book.words.Count) return 0;
+        if (have > 0) await RemoveTurkishBookRowsAsync(bookNumber);        // a half-loaded book: start it again
+
+        var (enId, ruId, uzId) = await GetLanguageIdsAsync();
+        var level = book.metadata.level;
+
+        // the English words the Turkish ones mean: their picture, and their word in en / ru / uz
+        var conceptIds = book.words.Where(w => w.concept is not null).Select(w => w.concept!.Value).Distinct().ToList();
+        var conceptRows = await db.Words.AsNoTracking()
+            .Where(w => (w.LanguageId == enId || w.LanguageId == ruId || w.LanguageId == uzId) && conceptIds.Contains(w.WordNumber))
+            .Select(w => new { w.WordNumber, w.LanguageId, w.SvgImageId, w.WordName })
+            .ToListAsync();
+        var conceptSvg = conceptRows.Where(r => r.LanguageId == enId).GroupBy(r => r.WordNumber).ToDictionary(g => g.Key, g => g.First().SvgImageId);
+        string? ConceptWord(int number, int languageId) =>
+            conceptRows.FirstOrDefault(r => r.WordNumber == number && r.LanguageId == languageId)?.WordName;
+
+        // pictures of their own: a card for a new word, a copy of the concept's picture for a word with its own sentence
+        var ownConceptSvgIds = book.words.Where(w => w.own is not null && w.concept is { } c && conceptSvg.ContainsKey(c)).Select(w => conceptSvg[w.concept!.Value]).Distinct().ToList();
+        var svgTexts = await db.SvgImages.AsNoTracking().Where(s => ownConceptSvgIds.Contains(s.SvgImageId)).ToDictionaryAsync(s => s.SvgImageId, s => s.SVG);
+        var ownPictures = new Dictionary<int, SvgImage>();      // Turkish word number -> its own picture
+        foreach (var w in book.words)
+        {
+            if (w.@new is { } nw) ownPictures[w.id] = new SvgImage { SVG = nw.svg };
+            else if (w.own is not null && w.concept is { } c && conceptSvg.TryGetValue(c, out var cs) && svgTexts.TryGetValue(cs, out var text))
+                ownPictures[w.id] = new SvgImage { SVG = text };
+        }
+
+        await using var tx = await db.Database.BeginTransactionAsync();
+        db.SvgImages.AddRange(ownPictures.Values);
+        await db.SaveChangesAsync();                           // the pictures get their numbers
+
+        var added = 0;
+        foreach (var w in book.words)
+        {
+            int svgId;
+            if (ownPictures.TryGetValue(w.id, out var picture))
+            {
+                svgId = picture.SvgImageId;
+                if (w.@new is { } nw)
+                    db.WordTranslations.AddRange(
+                        new WordTranslation { SvgImageId = svgId, LanguageId = enId, WordName = nw.en, Example = Clean(nw.example_en) },
+                        new WordTranslation { SvgImageId = svgId, LanguageId = ruId, WordName = nw.ru, Example = Clean(nw.example_ru) },
+                        new WordTranslation { SvgImageId = svgId, LanguageId = uzId, WordName = w.uz, Example = Clean(w.example_uz) });
+                else if (w.own is { } own)
+                {
+                    var c = w.concept!.Value;
+                    db.WordTranslations.AddRange(
+                        new WordTranslation { SvgImageId = svgId, LanguageId = enId, WordName = ConceptWord(c, enId) ?? w.tr, Example = Clean(own.example_en) },
+                        new WordTranslation { SvgImageId = svgId, LanguageId = ruId, WordName = ConceptWord(c, ruId) ?? w.tr, Example = Clean(own.example_ru) },
+                        new WordTranslation { SvgImageId = svgId, LanguageId = uzId, WordName = ConceptWord(c, uzId) ?? w.uz, Example = Clean(w.example_uz) });
+                }
+            }
+            else if (w.concept is { } concept && conceptSvg.TryGetValue(concept, out var shared)) svgId = shared;
+            else
+            {
+                logger.LogWarning("Turkish book {BookNumber}, word {Id} \"{Word}\": no English word {Concept} to share the picture with, skipped", bookNumber, w.id, w.tr, w.concept);
+                continue;
+            }
+
+            db.Words.Add(new Word
+            {
+                LanguageId = trId, SubjectId = subjects[w.topic - 1].SubjectId, SvgImageId = svgId, WordName = w.tr, FirstSymbol = FirstSymbolOf(w.tr),
+                WordNumber = w.id, Level = level, Example = Clean(w.example_tr)
+            });
+            added++;
+        }
+        await db.SaveChangesAsync();
+        await tx.CommitAsync();
+
+        logger.LogInformation("Seeded Turkish book {BookNumber}: {Count} words, {Own} with a picture of their own", bookNumber, added, ownPictures.Count);
+        return added;
+    }
+
+    private class TurkFileJson
+    {
+        public TurkMetaJson metadata { get; set; } = new();
+        public List<TurkWordJson> words { get; set; } = [];
+    }
+
+    private class TurkMetaJson
+    {
+        public string level { get; set; } = string.Empty;
+    }
+
+    private class TurkWordJson
+    {
+        public int id { get; set; }
+        public int topic { get; set; }
+        public string tr { get; set; } = string.Empty;
+        public string uz { get; set; } = string.Empty;
+        public string example_tr { get; set; } = string.Empty;
+        public string example_uz { get; set; } = string.Empty;
+        public int? concept { get; set; }
+        public TurkOwnJson? own { get; set; }
+        public TurkNewJson? @new { get; set; }
+    }
+
+    private class TurkOwnJson
+    {
+        public string example_en { get; set; } = string.Empty;
+        public string example_ru { get; set; } = string.Empty;
+    }
+
+    private class TurkNewJson
+    {
+        public string en { get; set; } = string.Empty;
+        public string ru { get; set; } = string.Empty;
+        public string example_en { get; set; } = string.Empty;
+        public string example_ru { get; set; } = string.Empty;
+        public string svg { get; set; } = string.Empty;
     }
 
     // The three rows (English, Russian, Uzbek) of one book word. Each row carries the example sentence in its own language.

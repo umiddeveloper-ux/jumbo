@@ -37,7 +37,7 @@
                             <ctl:FormEntry Caption="{u:Tr Key=Register_FirstNameLabel}" Placeholder="{u:Tr Key=EnterFirstName}" Text="{Binding FirstName, Mode=TwoWay}" />
                             <ctl:FormEntry Caption="{u:Tr Key=LastName}" Placeholder="{u:Tr Key=EnterLastName}" Text="{Binding LastName, Mode=TwoWay}" />
                             <ctl:FormEntry Caption="{u:Tr Key=Settings_PhoneLabel}" Placeholder="{Binding PhoneHint}" Keyboard="Telephone" Text="{Binding Phone, Mode=TwoWay}" />
-                            <ctl:FormPicker Caption="{u:Tr Key=Settings_StudyLangLabel}" DisplayMember="Name" ItemsSource="{Binding Languages}" SelectedItem="{Binding StudyLanguage, Mode=TwoWay}" />
+                            <ctl:FormPicker Caption="{u:Tr Key=Settings_StudyLangLabel}" DisplayMember="Name" ItemsSource="{Binding StudyLanguages}" SelectedItem="{Binding StudyLanguage, Mode=TwoWay}" />
                             <ctl:FormPicker Caption="{u:Tr Key=TranslationLanguageTitle}" DisplayMember="Name" ItemsSource="{Binding Languages}" SelectedItem="{Binding TranslationLanguage, Mode=TwoWay}" />
                             <Label Text="{u:Tr Key=Reg_StudyLangHelp}" FontSize="13"
                                    TextColor="{AppThemeBinding Light={StaticResource MutedLight}, Dark={StaticResource MutedDark}}" />

@@ -269,7 +269,7 @@ public partial class PhraseGamePageModel : ObservableObject
         try
         {
             var locales = await TextToSpeech.Default.GetLocalesAsync();
-            var locale = locales.FirstOrDefault(l => l.Language.StartsWith("en", StringComparison.OrdinalIgnoreCase));
+            var locale = locales.FirstOrDefault(l => l.Language.StartsWith(Jumbo.Shared.SpeechLanguages.Prefix(UserLanguagePrefs.StudyLangId), StringComparison.OrdinalIgnoreCase));
             await TextToSpeech.Default.SpeakAsync(text, new SpeechOptions { Locale = locale, Pitch = 1.0f, Volume = 1.0f }, _ttsCts.Token);
         }
         catch (OperationCanceledException) { }

@@ -1,0 +1,2835 @@
+{
+ "metadata": {
+  "book": 4,
+  "level": "A2",
+  "language": "tr",
+  "word_count": 300,
+  "id_range": [
+   901,
+   1200
+  ],
+  "new_words": 4,
+  "schema": [
+   "id",
+   "topic",
+   "tr",
+   "uz",
+   "example_tr",
+   "example_uz",
+   "concept",
+   "new"
+  ]
+ },
+ "topics": [
+  {
+   "tr": "Bilgisayar",
+   "uz": "Kompyuter"
+  },
+  {
+   "tr": "Üniversite",
+   "uz": "Universitet"
+  },
+  {
+   "tr": "Telefon",
+   "uz": "Telefon"
+  },
+  {
+   "tr": "Suç",
+   "uz": "Jinoyat"
+  },
+  {
+   "tr": "Yapmak / Etmek",
+   "uz": "YAPMAK va ETMEK fe’llari"
+  },
+  {
+   "tr": "Konuşma",
+   "uz": "Suhbat"
+  },
+  {
+   "tr": "Araba Kullanma",
+   "uz": "Rul ortida"
+  },
+  {
+   "tr": "Bağlaçlar",
+   "uz": "Bog‘lovchilar"
+  },
+  {
+   "tr": "Zaman Kelimeleri",
+   "uz": "Vaqt so‘zlari"
+  },
+  {
+   "tr": "Edatlar ve Hâl Ekleri",
+   "uz": "Ko‘makchilar va kelishik qo‘shimchalari"
+  },
+  {
+   "tr": "Havalimanı",
+   "uz": "Aeroport"
+  },
+  {
+   "tr": "Nasıl? (Durum Zarfları)",
+   "uz": "Qanday? (Ish-harakat tarzi)"
+  },
+  {
+   "tr": "Matematik ve Şekiller",
+   "uz": "Matematika va shakllar"
+  },
+  {
+   "tr": "Ev İşleri",
+   "uz": "Uy yumushlari"
+  },
+  {
+   "tr": "Miktarlar",
+   "uz": "Miqdor"
+  },
+  {
+   "tr": "Dil Öğrenme",
+   "uz": "Til o‘rganish"
+  },
+  {
+   "tr": "Ölçüler",
+   "uz": "O‘lchov"
+  },
+  {
+   "tr": "Fiil + Hâl Eki",
+   "uz": "Fe’l + kelishik qo‘shimchasi"
+  },
+  {
+   "tr": "Gelmek",
+   "uz": "GELMEK fe’li"
+  },
+  {
+   "tr": "Uyarılar",
+   "uz": "Ogohlantirishlar"
+  }
+ ],
+ "words": [
+  {
+   "id": 901,
+   "topic": 1,
+   "tr": "bilgisayar",
+   "uz": "kompyuter",
+   "example_tr": "Babam şu anda bilgisayarı kullanıyor.",
+   "example_uz": "Dadam hozir kompyuterda ishlayapti.",
+   "concept": 901
+  },
+  {
+   "id": 902,
+   "topic": 1,
+   "tr": "dizüstü bilgisayar",
+   "uz": "noutbuk",
+   "example_tr": "Bugün dizüstü bilgisayarımı kullanmıyorum.",
+   "example_uz": "Men bugun noutbukdan foydalanmayapman.",
+   "concept": 902
+  },
+  {
+   "id": 903,
+   "topic": 1,
+   "tr": "klavye",
+   "uz": "klaviatura",
+   "example_tr": "O klavyeyi temizliyor.",
+   "example_uz": "U klaviaturani tozalayapti.",
+   "concept": 903
+  },
+  {
+   "id": 904,
+   "topic": 1,
+   "tr": "fare",
+   "uz": "sichqoncha",
+   "example_tr": "O fareyi oynatıyor mu?",
+   "example_uz": "U sichqonchani qimirlatyaptimi?",
+   "concept": 904
+  },
+  {
+   "id": 905,
+   "topic": 1,
+   "tr": "yazıcı",
+   "uz": "printer",
+   "example_tr": "Yazıcı bugün çalışmıyor.",
+   "example_uz": "Printer bugun ishlamayapti.",
+   "concept": 905
+  },
+  {
+   "id": 906,
+   "topic": 1,
+   "tr": "internet",
+   "uz": "internet",
+   "example_tr": "İnternet şimdi iyi çalışıyor.",
+   "example_uz": "Internet hozir yaxshi ishlayapti.",
+   "concept": 906
+  },
+  {
+   "id": 907,
+   "topic": 1,
+   "tr": "web sitesi",
+   "uz": "sayt",
+   "example_tr": "O yeni bir web sitesi mi açıyor?",
+   "example_uz": "U yangi saytni ochyaptimi?",
+   "concept": 907
+  },
+  {
+   "id": 908,
+   "topic": 1,
+   "tr": "e-posta",
+   "uz": "elektron xat",
+   "example_tr": "O, Tom’a bir e-posta yazıyor.",
+   "example_uz": "U Tomga elektron xat yozyapti.",
+   "concept": 908
+  },
+  {
+   "id": 909,
+   "topic": 1,
+   "tr": "dosya",
+   "uz": "fayl",
+   "example_tr": "Onlar büyük bir dosya açıyor.",
+   "example_uz": "Ular katta faylni ochyapti.",
+   "concept": 909
+  },
+  {
+   "id": 910,
+   "topic": 1,
+   "tr": "klasör",
+   "uz": "papka",
+   "example_tr": "Kate fotoğraflarını bir klasöre koyuyor.",
+   "example_uz": "Keyt rasmlarini papkaga solyapti.",
+   "concept": 910
+  },
+  {
+   "id": 911,
+   "topic": 1,
+   "tr": "şifre",
+   "uz": "parol",
+   "example_tr": "Şifreyi buraya yazmıyoruz.",
+   "example_uz": "Biz bu yerga parolni yozmayapmiz.",
+   "concept": 911
+  },
+  {
+   "id": 912,
+   "topic": 1,
+   "tr": "program",
+   "uz": "ko‘rsatuv, dastur",
+   "example_tr": "Bu program çalışmıyor.",
+   "example_uz": "Bu dastur ishlamayapti.",
+   "concept": 912
+  },
+  {
+   "id": 913,
+   "topic": 1,
+   "tr": "tıklamak",
+   "uz": "bosmoq, chertmoq",
+   "example_tr": "Yanlış düğmeye mi tıklıyorsun?",
+   "example_uz": "Sen noto‘g‘ri tugmani bosyapsanmi?",
+   "concept": 913
+  },
+  {
+   "id": 914,
+   "topic": 1,
+   "tr": "yüklemek (internete)",
+   "uz": "yuklamoq (internetga)",
+   "example_tr": "Ağabeyim bir video yüklüyor.",
+   "example_uz": "Akam video yuklayapti.",
+   "concept": 914
+  },
+  {
+   "id": 915,
+   "topic": 1,
+   "tr": "indirmek",
+   "uz": "yuklab olmoq",
+   "example_tr": "Yeni bir program indiriyorsun.",
+   "example_uz": "Sen yangi dasturni yuklab olyapsan.",
+   "concept": 915
+  },
+  {
+   "id": 916,
+   "topic": 2,
+   "tr": "üniversite",
+   "uz": "universitet",
+   "example_tr": "Ablam üniversitede okuyor.",
+   "example_uz": "Opam universitetda o‘qiyapti.",
+   "concept": 916
+  },
+  {
+   "id": 917,
+   "topic": 2,
+   "tr": "yüksekokul",
+   "uz": "kollej",
+   "example_tr": "O bugün yüksekokula gitmiyor.",
+   "example_uz": "U bugun kollejga bormayapti.",
+   "concept": 917
+  },
+  {
+   "id": 918,
+   "topic": 2,
+   "tr": "kampüs",
+   "uz": "kampus, talabalar shaharchasi",
+   "example_tr": "Öğrenciler kampüste yürüyor.",
+   "example_uz": "Talabalar kampusda sayr qilyapti.",
+   "concept": 918
+  },
+  {
+   "id": 919,
+   "topic": 2,
+   "tr": "seminer",
+   "uz": "seminar",
+   "example_tr": "Profesör semineri başlatıyor mu?",
+   "example_uz": "Professor seminarni boshlayaptimi?",
+   "concept": 919
+  },
+  {
+   "id": 920,
+   "topic": 2,
+   "tr": "profesör",
+   "uz": "professor",
+   "example_tr": "Profesör yeni bir kuralı açıklıyor.",
+   "example_uz": "Professor yangi qoidani tushuntiryapti.",
+   "concept": 920
+  },
+  {
+   "id": 921,
+   "topic": 2,
+   "tr": "sınıf arkadaşı",
+   "uz": "kursdosh, sinfdosh",
+   "example_tr": "Sınıf arkadaşımı bekliyorum.",
+   "example_uz": "Men kursdoshimni kutyapman.",
+   "concept": 921
+  },
+  {
+   "id": 922,
+   "topic": 2,
+   "tr": "ders, konu",
+   "uz": "fan",
+   "example_tr": "Yeni bir ders mi öğreniyorsun?",
+   "example_uz": "Sen yangi fanni o‘rganyapsanmi?",
+   "concept": 922
+  },
+  {
+   "id": 923,
+   "topic": 2,
+   "tr": "ders (anlatım)",
+   "uz": "ma’ruza",
+   "example_tr": "Uzun bir dersi dinliyoruz.",
+   "example_uz": "Biz uzun ma’ruzani tinglayapmiz.",
+   "concept": 923
+  },
+  {
+   "id": 924,
+   "topic": 2,
+   "tr": "dönem",
+   "uz": "semestr",
+   "example_tr": "Öğrenciler bu dönem çok çalışmıyor.",
+   "example_uz": "Bu semestrda talabalar astoydil o‘qimayapti.",
+   "concept": 924
+  },
+  {
+   "id": 925,
+   "topic": 2,
+   "tr": "özel öğretmen",
+   "uz": "o‘qituvchi, murabbiy",
+   "example_tr": "Özel öğretmeni şimdi ona yardım ediyor.",
+   "example_uz": "Uning murabbiysi hozir unga yordam beryapti.",
+   "concept": 925
+  },
+  {
+   "id": 926,
+   "topic": 2,
+   "tr": "kompozisyon",
+   "uz": "insho, esse",
+   "example_tr": "Onlar bugün kompozisyon yazmıyor.",
+   "example_uz": "Ular bugun insho yozmayapti.",
+   "concept": 926
+  },
+  {
+   "id": 927,
+   "topic": 2,
+   "tr": "proje",
+   "uz": "loyiha",
+   "example_tr": "O büyük bir proje mi yapıyor?",
+   "example_uz": "U katta loyiha qilyaptimi?",
+   "concept": 927
+  },
+  {
+   "id": 928,
+   "topic": 2,
+   "tr": "burs",
+   "uz": "stipendiya",
+   "example_tr": "Tom burs alıyor.",
+   "example_uz": "Tom stipendiya olyapti.",
+   "concept": 928
+  },
+  {
+   "id": 929,
+   "topic": 2,
+   "tr": "diploma",
+   "uz": "diplom",
+   "example_tr": "Diplomanı mı gösteriyorsun?",
+   "example_uz": "Sen diplomingni ko‘rsatyapsanmi?",
+   "concept": 929
+  },
+  {
+   "id": 930,
+   "topic": 2,
+   "tr": "mezun",
+   "uz": "bitiruvchi",
+   "example_tr": "Bir mezun öğrencilerle konuşuyor.",
+   "example_uz": "Bitiruvchi talabalar bilan gaplashyapti.",
+   "concept": 930
+  },
+  {
+   "id": 931,
+   "topic": 3,
+   "tr": "cep telefonu",
+   "uz": "mobil telefon",
+   "example_tr": "O cep telefonunu arıyor.",
+   "example_uz": "U telefonini qidiryapti.",
+   "concept": 931
+  },
+  {
+   "id": 932,
+   "topic": 3,
+   "tr": "akıllı telefon",
+   "uz": "smartfon",
+   "example_tr": "Babam akıllı telefon alıyor.",
+   "example_uz": "Dadam smartfon sotib olyapti.",
+   "concept": 932
+  },
+  {
+   "id": 933,
+   "topic": 3,
+   "tr": "numara çevirmek",
+   "uz": "raqam termoq",
+   "example_tr": "O uzun bir numara çeviriyor.",
+   "example_uz": "U uzun raqamni teryapti.",
+   "concept": 933
+  },
+  {
+   "id": 934,
+   "topic": 3,
+   "tr": "sinyal, çekim",
+   "uz": "signal, aloqa",
+   "example_tr": "Telefon sinyal almıyor.",
+   "example_uz": "Telefon signal tutmayapti.",
+   "concept": 934
+  },
+  {
+   "id": 935,
+   "topic": 3,
+   "tr": "mesaj",
+   "uz": "xabar",
+   "example_tr": "Mesajını okumuyorum.",
+   "example_uz": "Men sening xabaringni o‘qimayapman.",
+   "concept": 935
+  },
+  {
+   "id": 936,
+   "topic": 3,
+   "tr": "mesaj atmak",
+   "uz": "xabar yozmoq",
+   "example_tr": "Arkadaşına mesaj mı atıyorsun?",
+   "example_uz": "Sen do‘stingga xabar yozyapsanmi?",
+   "concept": 936
+  },
+  {
+   "id": 937,
+   "topic": 3,
+   "tr": "kişi (rehberde)",
+   "uz": "kontakt",
+   "example_tr": "O yeni bir kişiyi kaydediyor mu?",
+   "example_uz": "U yangi kontaktni saqlayaptimi?",
+   "concept": 937
+  },
+  {
+   "id": 938,
+   "topic": 3,
+   "tr": "pil, batarya",
+   "uz": "batareya",
+   "example_tr": "Batarya şu anda çalışmıyor.",
+   "example_uz": "Batareya hozir ishlamayapti.",
+   "concept": 938
+  },
+  {
+   "id": 939,
+   "topic": 3,
+   "tr": "şarj aleti",
+   "uz": "zaryadlovchi",
+   "example_tr": "Şarj aletini arıyoruz.",
+   "example_uz": "Biz zaryadlovchini qidiryapmiz.",
+   "concept": 939
+  },
+  {
+   "id": 940,
+   "topic": 3,
+   "tr": "hoparlör",
+   "uz": "dinamik, karnay",
+   "example_tr": "Hoparlör çalışıyor mu?",
+   "example_uz": "Dinamik ishlayaptimi?",
+   "concept": 940
+  },
+  {
+   "id": 941,
+   "topic": 3,
+   "tr": "kulaklık",
+   "uz": "quloqchinlar",
+   "example_tr": "Onlar kulaklık kullanmıyor.",
+   "example_uz": "Ular quloqchindan foydalanmayapti.",
+   "concept": 941
+  },
+  {
+   "id": 942,
+   "topic": 3,
+   "tr": "uygulama",
+   "uz": "ilova",
+   "example_tr": "Kate komik bir uygulama açıyor.",
+   "example_uz": "Keyt kulgili ilovani ochyapti.",
+   "concept": 942
+  },
+  {
+   "id": 943,
+   "topic": 3,
+   "tr": "kamera",
+   "uz": "kamera",
+   "example_tr": "O kamerayı temizliyor mu?",
+   "example_uz": "U kamerani tozalayaptimi?",
+   "concept": 943
+  },
+  {
+   "id": 944,
+   "topic": 3,
+   "tr": "video",
+   "uz": "video",
+   "example_tr": "Öğretmenimiz bir video gösteriyor.",
+   "example_uz": "O‘qituvchimiz video ko‘rsatyapti.",
+   "concept": 944
+  },
+  {
+   "id": 945,
+   "topic": 3,
+   "tr": "fotoğraf",
+   "uz": "surat, foto",
+   "example_tr": "Köpeğin fotoğrafını çekiyorsun.",
+   "example_uz": "Sen itni suratga olyapsan.",
+   "concept": 945
+  },
+  {
+   "id": 946,
+   "topic": 4,
+   "tr": "suç",
+   "uz": "jinoyat",
+   "example_tr": "Polis büyük bir suç üzerinde çalışıyor.",
+   "example_uz": "Politsiya katta jinoyat ustida ishlayapti.",
+   "concept": 946
+  },
+  {
+   "id": 947,
+   "topic": 4,
+   "tr": "suçlu",
+   "uz": "jinoyatchi",
+   "example_tr": "Bir suçlu sokakta koşuyor.",
+   "example_uz": "Jinoyatchi ko‘cha bo‘ylab yuguryapti.",
+   "concept": 947
+  },
+  {
+   "id": 948,
+   "topic": 4,
+   "tr": "hırsız",
+   "uz": "o‘g‘ri",
+   "example_tr": "Hırsız kapıyı açıyor mu?",
+   "example_uz": "O‘g‘ri eshikni ochyaptimi?",
+   "concept": 948
+  },
+  {
+   "id": 949,
+   "topic": 4,
+   "tr": "çalmak",
+   "uz": "o‘g‘irlamoq",
+   "example_tr": "Bir çocuk elma çalıyor.",
+   "example_uz": "Bir bola olma o‘g‘irlayapti.",
+   "concept": 949
+  },
+  {
+   "id": 950,
+   "topic": 4,
+   "tr": "soymak",
+   "uz": "talamoq",
+   "example_tr": "Onlar dükkânı soymuyor.",
+   "example_uz": "Ular do‘konni talamayapti.",
+   "concept": 950
+  },
+  {
+   "id": 951,
+   "topic": 4,
+   "tr": "soygun",
+   "uz": "talonchilik",
+   "example_tr": "Bütün şehir bu soygunu konuşuyor.",
+   "example_uz": "Shahar bu talonchilik haqida gapiryapti.",
+   "concept": 951
+  },
+  {
+   "id": 952,
+   "topic": 4,
+   "tr": "polis",
+   "uz": "politsiya",
+   "example_tr": "Polis şimdi geliyor mu?",
+   "example_uz": "Politsiya hozir kelyaptimi?",
+   "concept": 952
+  },
+  {
+   "id": 953,
+   "topic": 4,
+   "tr": "tutuklamak",
+   "uz": "hibsga olmoq",
+   "example_tr": "Polis iki adamı tutukluyor.",
+   "example_uz": "Politsiya ikki erkakni hibsga olyapti.",
+   "concept": 953
+  },
+  {
+   "id": 954,
+   "topic": 4,
+   "tr": "hapishane",
+   "uz": "qamoqxona",
+   "example_tr": "O hapse girmiyor.",
+   "example_uz": "U qamoqqa ketmayapti.",
+   "concept": 954
+  },
+  {
+   "id": 955,
+   "topic": 4,
+   "tr": "kanun, yasa",
+   "uz": "qonun",
+   "example_tr": "Öğretmen kanunu açıklamıyor.",
+   "example_uz": "O‘qituvchi qonunni tushuntirmayapti.",
+   "concept": 955
+  },
+  {
+   "id": 956,
+   "topic": 4,
+   "tr": "kural",
+   "uz": "qoida",
+   "example_tr": "Kuralları okuyor musun?",
+   "example_uz": "Sen qoidalarni o‘qiyapsanmi?",
+   "concept": 956
+  },
+  {
+   "id": 957,
+   "topic": 4,
+   "tr": "suçlu (kabahatli)",
+   "uz": "aybdor",
+   "example_tr": "Bu çocuk suçlu görünmüyor.",
+   "example_uz": "Bu bola aybdorga o‘xshamaydi.",
+   "concept": 957
+  },
+  {
+   "id": 958,
+   "topic": 4,
+   "tr": "mağdur",
+   "uz": "jabrlanuvchi",
+   "example_tr": "Bir doktor mağdura yardım ediyor.",
+   "example_uz": "Shifokor jabrlanuvchiga yordam beryapti.",
+   "concept": 958
+  },
+  {
+   "id": 959,
+   "topic": 4,
+   "tr": "tanık",
+   "uz": "guvoh",
+   "example_tr": "Bir tanık polisle konuşuyor mu?",
+   "example_uz": "Guvoh politsiya bilan gaplashyaptimi?",
+   "concept": 959
+  },
+  {
+   "id": 960,
+   "topic": 4,
+   "tr": "bildirmek",
+   "uz": "xabar bermoq",
+   "example_tr": "O suçu polise bildiriyor.",
+   "example_uz": "U jinoyat haqida xabar beryapti.",
+   "concept": 960
+  },
+  {
+   "id": 961,
+   "topic": 5,
+   "tr": "ödev yapmak",
+   "uz": "uy vazifasini bajarmoq",
+   "example_tr": "Şu anda ödevimi yapıyorum.",
+   "example_uz": "Men hozir uy vazifamni bajaryapman.",
+   "concept": 961
+  },
+  {
+   "id": 962,
+   "topic": 5,
+   "tr": "ev işi yapmak",
+   "uz": "uy ishlarini qilmoq",
+   "example_tr": "Annem ev işi yapıyor.",
+   "example_uz": "Oyim uy ishlarini qilyapti.",
+   "concept": 962
+  },
+  {
+   "id": 963,
+   "topic": 5,
+   "tr": "egzersiz yapmak",
+   "uz": "badantarbiya qilmoq",
+   "example_tr": "O şimdi egzersiz yapıyor mu?",
+   "example_uz": "U hozir badantarbiya qilyaptimi?",
+   "concept": 963
+  },
+  {
+   "id": 964,
+   "topic": 5,
+   "tr": "bulaşık yıkamak",
+   "uz": "idish yuvmoq",
+   "example_tr": "O bulaşık yıkamıyor.",
+   "example_uz": "U idish yuvmayapti.",
+   "concept": 964
+  },
+  {
+   "id": 965,
+   "topic": 5,
+   "tr": "alışveriş yapmak",
+   "uz": "xarid qilmoq",
+   "example_tr": "Birlikte alışveriş yapıyoruz.",
+   "example_uz": "Biz birga xarid qilyapmiz.",
+   "concept": 965
+  },
+  {
+   "id": 966,
+   "topic": 5,
+   "tr": "çamaşır yıkamak",
+   "uz": "kir yuvmoq",
+   "example_tr": "Büyükannem çamaşır yıkıyor.",
+   "example_uz": "Buvim kir yuvyapti.",
+   "concept": 966
+  },
+  {
+   "id": 967,
+   "topic": 5,
+   "tr": "yemek yapmak",
+   "uz": "ovqat pishirmoq",
+   "example_tr": "Babam bugün yemek yapmıyor.",
+   "example_uz": "Dadam bugun ovqat pishirmayapti.",
+   "concept": 967
+  },
+  {
+   "id": 968,
+   "topic": 5,
+   "tr": "elinden geleni yapmak",
+   "uz": "bor kuchini sarflamoq",
+   "example_tr": "Elinden geleni yapıyorsun!",
+   "example_uz": "Sen bor kuchingni sarflayapsan!",
+   "concept": 968
+  },
+  {
+   "id": 969,
+   "topic": 5,
+   "tr": "başarılı olmak",
+   "uz": "yaxshi natija ko‘rsatmoq",
+   "example_tr": "Tom okulda başarılı mı?",
+   "example_uz": "Tom maktabda yaxshi o‘qiyaptimi?",
+   "concept": 969
+  },
+  {
+   "id": 970,
+   "topic": 5,
+   "tr": "kötü gitmek",
+   "uz": "yomon natija ko‘rsatmoq",
+   "example_tr": "Onların işleri kötü gitmiyor.",
+   "example_uz": "Ularning ishlari yomon emas.",
+   "concept": 970
+  },
+  {
+   "id": 971,
+   "topic": 5,
+   "tr": "bir şey yapmak",
+   "uz": "nimadir qilmoq",
+   "example_tr": "O komik bir şey yapıyor.",
+   "example_uz": "U nimadir kulgili ish qilyapti.",
+   "concept": 971
+  },
+  {
+   "id": 972,
+   "topic": 5,
+   "tr": "hiçbir şey yapmamak",
+   "uz": "hech narsa qilmaslik",
+   "example_tr": "Kate şu anda hiçbir şey yapmıyor.",
+   "example_uz": "Keyt hozir hech narsa qilmayapti.",
+   "concept": 972
+  },
+  {
+   "id": 973,
+   "topic": 5,
+   "tr": "iş yapmak",
+   "uz": "ish bajarmoq",
+   "example_tr": "Ağabeyim zor bir iş yapıyor.",
+   "example_uz": "Akam qiyin ish bajaryapti.",
+   "concept": 973
+  },
+  {
+   "id": 974,
+   "topic": 5,
+   "tr": "ticaret yapmak",
+   "uz": "biznes yuritmoq",
+   "example_tr": "Onlar Londra’da ticaret yapıyor mu?",
+   "example_uz": "Ular Londonda biznes yuritishyaptimi?",
+   "concept": 974
+  },
+  {
+   "id": 975,
+   "topic": 5,
+   "tr": "çalışmak",
+   "uz": "ish qilmoq",
+   "example_tr": "Çocuklar hiç çalışmıyor.",
+   "example_uz": "Bolalar hech qanday ish qilmayapti.",
+   "concept": 975
+  },
+  {
+   "id": 976,
+   "topic": 6,
+   "tr": "söylemek",
+   "uz": "aytmoq",
+   "example_tr": "O bana bir şey söylüyor.",
+   "example_uz": "U menga nimadir aytyapti.",
+   "concept": 976
+  },
+  {
+   "id": 977,
+   "topic": 6,
+   "tr": "anlatmak",
+   "uz": "hikoya qilmoq, aytib bermoq",
+   "example_tr": "Dedem bize çiftliği anlatıyor.",
+   "example_uz": "Bobom bizga ferma haqida hikoya qilyapti.",
+   "concept": 977
+  },
+  {
+   "id": 978,
+   "topic": 6,
+   "tr": "sohbet etmek",
+   "uz": "gaplashmoq, suhbatlashmoq",
+   "example_tr": "Onlar telefonda sohbet ediyor.",
+   "example_uz": "Ular telefonda gaplashyapti.",
+   "concept": 978
+  },
+  {
+   "id": 979,
+   "topic": 6,
+   "tr": "fısıldamak",
+   "uz": "shivirlamoq",
+   "example_tr": "Neden fısıldıyorsun?",
+   "example_uz": "Nega shivirlayapsan?",
+   "concept": 979
+  },
+  {
+   "id": 980,
+   "topic": 6,
+   "tr": "bağırmak",
+   "uz": "baqirmoq",
+   "example_tr": "Adam şimdi bağırmıyor.",
+   "example_uz": "Erkak hozir baqirmayapti.",
+   "concept": 980
+  },
+  {
+   "id": 981,
+   "topic": 6,
+   "tr": "tarif etmek",
+   "uz": "tasvirlamoq",
+   "example_tr": "O yeni odasını tarif ediyor.",
+   "example_uz": "U yangi xonasini tasvirlayapti.",
+   "concept": 981
+  },
+  {
+   "id": 982,
+   "topic": 6,
+   "tr": "açıklamak",
+   "uz": "tushuntirmoq",
+   "example_tr": "Öğretmen kuralı açıklıyor mu?",
+   "example_uz": "O‘qituvchi qoidani tushuntiryaptimi?",
+   "concept": 982
+  },
+  {
+   "id": 983,
+   "topic": 6,
+   "tr": "tekrar etmek",
+   "uz": "takrorlamoq",
+   "example_tr": "Bu kelimeyi tekrar etmiyoruz.",
+   "example_uz": "Biz bu so‘zni takrorlamayapmiz.",
+   "concept": 983
+  },
+  {
+   "id": 984,
+   "topic": 6,
+   "tr": "tartışmak (konuşmak)",
+   "uz": "muhokama qilmoq",
+   "example_tr": "Çocuklar filmi tartışıyor mu?",
+   "example_uz": "Bolalar filmni muhokama qilyaptimi?",
+   "concept": 984
+  },
+  {
+   "id": 985,
+   "topic": 6,
+   "tr": "tartışmak (kavga)",
+   "uz": "bahslashmoq",
+   "example_tr": "Kız kardeşlerim bugün tartışmıyor.",
+   "example_uz": "Opa-singillarim bugun bahslashmayapti.",
+   "concept": 985
+  },
+  {
+   "id": 986,
+   "topic": 6,
+   "tr": "şaka yapmak",
+   "uz": "hazillashmoq",
+   "example_tr": "Nick yine şaka yapıyor.",
+   "example_uz": "Nik yana hazillashyapti.",
+   "concept": 986
+  },
+  {
+   "id": 987,
+   "topic": 6,
+   "tr": "soru",
+   "uz": "savol",
+   "example_tr": "Bir soru soruyorum.",
+   "example_uz": "Men savol beryapman.",
+   "concept": 987
+  },
+  {
+   "id": 988,
+   "topic": 6,
+   "tr": "sohbet, konuşma",
+   "uz": "suhbat",
+   "example_tr": "Anna ve Tom sohbet ediyor.",
+   "example_uz": "Anna va Tom suhbatlashyapti.",
+   "concept": 988
+  },
+  {
+   "id": 989,
+   "topic": 6,
+   "tr": "anlamına gelmek",
+   "uz": "anglatmoq, nazarda tutmoq",
+   "example_tr": "Bu kelime ne anlama geliyor?",
+   "example_uz": "Bu so‘z nimani anglatadi?",
+   "concept": 989
+  },
+  {
+   "id": 990,
+   "topic": 6,
+   "tr": "katılmak (fikre)",
+   "uz": "rozi bo‘lmoq",
+   "example_tr": "Tom, Kate’e katılmıyor.",
+   "example_uz": "Tom Keyt bilan rozi emas.",
+   "concept": 990
+  },
+  {
+   "id": 991,
+   "topic": 7,
+   "tr": "yol",
+   "uz": "yo‘l",
+   "example_tr": "Yolda bir otobüs geliyor.",
+   "example_uz": "Yo‘l bo‘ylab avtobus kelyapti.",
+   "concept": 991
+  },
+  {
+   "id": 992,
+   "topic": 7,
+   "tr": "yaya geçidi",
+   "uz": "piyodalar o‘tish joyi",
+   "example_tr": "Çocuklar yaya geçidinde bekliyor.",
+   "example_uz": "Bolalar piyodalar o‘tish joyida kutyapti.",
+   "concept": 992
+  },
+  {
+   "id": 993,
+   "topic": 7,
+   "tr": "trafik",
+   "uz": "harakat, transport oqimi",
+   "example_tr": "Trafik şu anda ilerlemiyor.",
+   "example_uz": "Transport hozir harakatlanmayapti.",
+   "concept": 993
+  },
+  {
+   "id": 994,
+   "topic": 7,
+   "tr": "trafik lambası",
+   "uz": "svetofor",
+   "example_tr": "Trafik lambası değişiyor.",
+   "example_uz": "Svetofor rangini o‘zgartiryapti.",
+   "concept": 994
+  },
+  {
+   "id": 995,
+   "topic": 7,
+   "tr": "hız",
+   "uz": "tezlik",
+   "example_tr": "O hızını kontrol etmiyor.",
+   "example_uz": "U tezligini tekshirmayapti.",
+   "concept": 995
+  },
+  {
+   "id": 996,
+   "topic": 7,
+   "tr": "motor",
+   "uz": "dvigatel",
+   "example_tr": "Motor iyi çalışıyor mu?",
+   "example_uz": "Dvigatel yaxshi ishlayaptimi?",
+   "concept": 996
+  },
+  {
+   "id": 997,
+   "topic": 7,
+   "tr": "direksiyon",
+   "uz": "rul, g‘ildirak",
+   "example_tr": "O direksiyonu dikkatle tutuyor.",
+   "example_uz": "U rulni ehtiyotkorlik bilan ushlab turibdi.",
+   "concept": 997
+  },
+  {
+   "id": 998,
+   "topic": 7,
+   "tr": "lastik",
+   "uz": "shina",
+   "example_tr": "Babam lastiği değiştiriyor.",
+   "example_uz": "Dadam shinani almashtiryapti.",
+   "concept": 998
+  },
+  {
+   "id": 999,
+   "topic": 7,
+   "tr": "fren, fren yapmak",
+   "uz": "tormoz, tormozlamoq",
+   "example_tr": "Şoför neden fren yapıyor?",
+   "example_uz": "Nega haydovchi tormoz bosyapti?",
+   "concept": 999
+  },
+  {
+   "id": 1000,
+   "topic": 7,
+   "tr": "emniyet kemeri",
+   "uz": "xavfsizlik kamari",
+   "example_tr": "Emniyet kemerini takıyor musun?",
+   "example_uz": "Sen xavfsizlik kamarini taqyapsanmi?",
+   "concept": 1000
+  },
+  {
+   "id": 1001,
+   "topic": 7,
+   "tr": "korna",
+   "uz": "signal (mashinada)",
+   "example_tr": "Şoför korna çalıyor.",
+   "example_uz": "Haydovchi signal chalyapti.",
+   "concept": 1001
+  },
+  {
+   "id": 1002,
+   "topic": 7,
+   "tr": "benzin",
+   "uz": "benzin",
+   "example_tr": "Bugün benzin almıyoruz.",
+   "example_uz": "Biz bugun benzin sotib olmayapmiz.",
+   "concept": 1002
+  },
+  {
+   "id": 1003,
+   "topic": 7,
+   "tr": "park yeri",
+   "uz": "avtoturargoh",
+   "example_tr": "O park yeri mi arıyor?",
+   "example_uz": "U avtoturargoh qidiryaptimi?",
+   "concept": 1003
+  },
+  {
+   "id": 1004,
+   "topic": 7,
+   "tr": "kaza",
+   "uz": "avariya, baxtsiz hodisa",
+   "example_tr": "Bir kaza hakkında okuyorum.",
+   "example_uz": "Men avariya haqida o‘qiyapman.",
+   "concept": 1004
+  },
+  {
+   "id": 1005,
+   "topic": 7,
+   "tr": "ehliyet",
+   "uz": "haydovchilik guvohnomasi",
+   "example_tr": "Annem ehliyetini gösteriyor.",
+   "example_uz": "Oyim haydovchilik guvohnomasini ko‘rsatyapti.",
+   "concept": 1005
+  },
+  {
+   "id": 1006,
+   "topic": 8,
+   "tr": "ve",
+   "uz": "va",
+   "example_tr": "Tom ve Kate futbol oynuyor.",
+   "example_uz": "Tom va Keyt futbol o‘ynayapti.",
+   "concept": 1006
+  },
+  {
+   "id": 1007,
+   "topic": 8,
+   "tr": "ama, fakat",
+   "uz": "lekin, ammo",
+   "example_tr": "Ben kitap okuyorum ama Kate uyuyor.",
+   "example_uz": "Men kitob o‘qiyapman, Keyt esa uxlayapti.",
+   "concept": 1007
+  },
+  {
+   "id": 1008,
+   "topic": 8,
+   "tr": "veya, yoksa",
+   "uz": "yoki",
+   "example_tr": "Çay mı içiyorsun, yoksa kahve mi?",
+   "example_uz": "Sen choy ichyapsanmi yoki qahva?",
+   "concept": 1008
+  },
+  {
+   "id": 1009,
+   "topic": 8,
+   "tr": "bu yüzden",
+   "uz": "shuning uchun",
+   "example_tr": "Hava sıcak, bu yüzden su içiyoruz.",
+   "example_uz": "Issiq, shuning uchun biz suv ichyapmiz.",
+   "concept": 1009
+  },
+  {
+   "id": 1010,
+   "topic": 8,
+   "tr": "çünkü",
+   "uz": "chunki",
+   "example_tr": "Tom oynamıyor çünkü hava soğuk.",
+   "example_uz": "Tom o‘ynamayapti, chunki havo sovuq.",
+   "concept": 1010
+  },
+  {
+   "id": 1011,
+   "topic": 8,
+   "tr": "eğer, -se",
+   "uz": "agar",
+   "example_tr": "Eğer hava ılıksa yüzüyoruz.",
+   "example_uz": "Agar havo iliq bo‘lsa, biz suzamiz.",
+   "concept": 1011
+  },
+  {
+   "id": 1012,
+   "topic": 8,
+   "tr": "-mezse",
+   "uz": "agar … bo‘lmasa",
+   "example_tr": "Sen yardım etmezsen başlamayacağız.",
+   "example_uz": "Agar sen yordam bermasang, biz boshlamaymiz.",
+   "concept": 1012
+  },
+  {
+   "id": 1013,
+   "topic": 8,
+   "tr": "-e kadar",
+   "uz": "… guncha",
+   "example_tr": "O, yağmur durana kadar bekliyor.",
+   "example_uz": "U yomg‘ir to‘xtaguncha kutyapti.",
+   "concept": 1013
+  },
+  {
+   "id": 1014,
+   "topic": 8,
+   "tr": "-ir -mez",
+   "uz": "… bilanoq",
+   "example_tr": "Onlar fırsat bulur bulmaz geliyor.",
+   "example_uz": "Ular imkoni bo‘lishi bilanoq kelishadi.",
+   "concept": 1014
+  },
+  {
+   "id": 1015,
+   "topic": 8,
+   "tr": "madem",
+   "uz": "… dan beri, … gani uchun, modomiki",
+   "example_tr": "Madem geç oldu, çocuklar uyuyor.",
+   "example_uz": "Kech bo‘lgani uchun bolalar uxlayapti.",
+   "concept": 1015
+  },
+  {
+   "id": 1016,
+   "topic": 8,
+   "tr": "-ken",
+   "uz": "… ayotganda, … gan paytda",
+   "example_tr": "Babam uyurken annem yemek mi yapıyor?",
+   "example_uz": "Dadam uxlayotganda oyim ovqat pishiryaptimi?",
+   "concept": 1016
+  },
+  {
+   "id": 1017,
+   "topic": 8,
+   "tr": "-diği için",
+   "uz": "… gani uchun, … ganda",
+   "example_tr": "O yorgun olduğu için akşam yemeğini eşi yapıyor.",
+   "example_uz": "U charchagani uchun kechki ovqatni u (erkak) pishiryapti.",
+   "concept": 1017
+  },
+  {
+   "id": 1018,
+   "topic": 8,
+   "tr": "-e rağmen",
+   "uz": "garchi … bo‘lsa ham",
+   "example_tr": "Geç olmasına rağmen o hâlâ çalışıyor mu?",
+   "example_uz": "Kech bo‘lsa ham, u hali ishlayaptimi?",
+   "concept": 1018
+  },
+  {
+   "id": 1019,
+   "topic": 8,
+   "tr": "-den (daha)",
+   "uz": "… dan (ko‘ra)",
+   "example_tr": "Tom, Nick’ten daha hızlı koşmuyor.",
+   "example_uz": "Tom Nikdan tezroq yugurmayapti.",
+   "concept": 1019
+  },
+  {
+   "id": 1020,
+   "topic": 8,
+   "tr": "-ip -mediğini",
+   "uz": "… mi, -mi yo‘qmi",
+   "example_tr": "Açık olup olmadığını mı soruyorsun?",
+   "example_uz": "Sen ochiq yoki yo‘qligini so‘rayapsanmi?",
+   "concept": 1020
+  },
+  {
+   "id": 1021,
+   "topic": 9,
+   "tr": "her zaman",
+   "uz": "doim, har doim",
+   "example_tr": "O her zaman annesine yardım ediyor.",
+   "example_uz": "U doim oyisiga yordam beradi.",
+   "concept": 1021
+  },
+  {
+   "id": 1022,
+   "topic": 9,
+   "tr": "genellikle",
+   "uz": "odatda",
+   "example_tr": "O genellikle akşamları kitap okuyor.",
+   "example_uz": "U odatda kechqurun kitob o‘qiydi.",
+   "concept": 1022
+  },
+  {
+   "id": 1023,
+   "topic": 9,
+   "tr": "sık sık",
+   "uz": "tez-tez, ko‘pincha",
+   "example_tr": "Sık sık büyükanneme gidiyoruz.",
+   "example_uz": "Biz buvimnikiga tez-tez boramiz.",
+   "concept": 1023
+  },
+  {
+   "id": 1024,
+   "topic": 9,
+   "tr": "bazen",
+   "uz": "ba’zan",
+   "example_tr": "Bazen mutfakta yardım ediyorum.",
+   "example_uz": "Men ba’zan oshxonada yordam beraman.",
+   "concept": 1024
+  },
+  {
+   "id": 1025,
+   "topic": 9,
+   "tr": "asla, hiç",
+   "uz": "hech qachon",
+   "example_tr": "Tom derste asla uyumuyor.",
+   "example_uz": "Tom hech qachon darsda uxlamaydi.",
+   "concept": 1025
+  },
+  {
+   "id": 1026,
+   "topic": 9,
+   "tr": "çoktan, zaten",
+   "uz": "allaqachon",
+   "example_tr": "Çocuklar çoktan uyuyor.",
+   "example_uz": "Bolalar allaqachon uxlayapti.",
+   "concept": 1026
+  },
+  {
+   "id": 1027,
+   "topic": 9,
+   "tr": "hâlâ",
+   "uz": "hali ham",
+   "example_tr": "Hâlâ ödevini mi yapıyorsun?",
+   "example_uz": "Sen hali ham uy vazifasini qilyapsanmi?",
+   "concept": 1027
+  },
+  {
+   "id": 1028,
+   "topic": 9,
+   "tr": "tam (şimdi)",
+   "uz": "hozirgina, aynan",
+   "example_tr": "Annem tam şimdi eve geliyor.",
+   "example_uz": "Oyim aynan hozir uyga kelyapti.",
+   "concept": 1028
+  },
+  {
+   "id": 1029,
+   "topic": 9,
+   "tr": "şu anda",
+   "uz": "ayni paytda",
+   "example_tr": "O şu anda çalışıyor mu?",
+   "example_uz": "U ayni paytda ishlayaptimi?",
+   "concept": 1029
+  },
+  {
+   "id": 1030,
+   "topic": 9,
+   "tr": "tam şu an",
+   "uz": "aynan hozir",
+   "example_tr": "Kate tam şu an yemek yemiyor.",
+   "example_uz": "Keyt aynan hozir ovqat yemayapti.",
+   "concept": 1030
+  },
+  {
+   "id": 1031,
+   "topic": 9,
+   "tr": "bütün gün",
+   "uz": "kun bo‘yi",
+   "example_tr": "Bütün gün yağmur yağıyor.",
+   "example_uz": "Kun bo‘yi yomg‘ir yog‘yapti.",
+   "concept": 1031
+  },
+  {
+   "id": 1032,
+   "topic": 9,
+   "tr": "bu akşam",
+   "uz": "bugun kechqurun",
+   "example_tr": "Onlar bu akşam geliyor mu?",
+   "example_uz": "Ular bugun kechqurun kelishadimi?",
+   "concept": 1032
+  },
+  {
+   "id": 1033,
+   "topic": 9,
+   "tr": "bu hafta",
+   "uz": "shu hafta",
+   "example_tr": "Babam bu hafta çalışmıyor.",
+   "example_uz": "Dadam shu hafta ishlamayapti.",
+   "concept": 1033
+  },
+  {
+   "id": 1034,
+   "topic": 9,
+   "tr": "gelecek hafta",
+   "uz": "kelasi hafta",
+   "example_tr": "O gelecek hafta yüksekokula başlıyor mu?",
+   "example_uz": "U kelasi hafta kollejda o‘qishni boshlayaptimi?",
+   "concept": 1034
+  },
+  {
+   "id": 1035,
+   "topic": 9,
+   "tr": "bugünlerde",
+   "uz": "hozirgi kunda, shu kunlarda",
+   "example_tr": "Bugünlerde insanlar kitap okumuyor.",
+   "example_uz": "Hozirgi kunda odamlar kitob o‘qimayapti.",
+   "concept": 1035
+  },
+  {
+   "id": 1036,
+   "topic": 10,
+   "tr": "içinde, -de",
+   "uz": "ichida, -da",
+   "example_tr": "Kedi kutunun içinde uyuyor.",
+   "example_uz": "Mushuk qutida uxlayapti.",
+   "concept": 1036
+  },
+  {
+   "id": 1037,
+   "topic": 10,
+   "tr": "üstünde, -de",
+   "uz": "ustida, -da",
+   "example_tr": "Kedin sandalyede uyumuyor.",
+   "example_uz": "Sening mushuging stulda uxlamayapti.",
+   "concept": 1037
+  },
+  {
+   "id": 1038,
+   "topic": 10,
+   "tr": "-de, önünde",
+   "uz": "-da, yonida",
+   "example_tr": "Kapının önünde bekliyoruz.",
+   "example_uz": "Biz eshik oldida kutyapmiz.",
+   "concept": 1038
+  },
+  {
+   "id": 1039,
+   "topic": 10,
+   "tr": "yanında",
+   "uz": "yonida, oldida",
+   "example_tr": "O pencerenin yanında duruyor.",
+   "example_uz": "U deraza oldida turibdi.",
+   "concept": 1039
+  },
+  {
+   "id": 1040,
+   "topic": 10,
+   "tr": "için",
+   "uz": "uchun",
+   "example_tr": "Kate için pasta yapıyorum.",
+   "example_uz": "Men Keyt uchun tort tayyorlayapman.",
+   "concept": 1040
+  },
+  {
+   "id": 1041,
+   "topic": 10,
+   "tr": "-den",
+   "uz": "-dan",
+   "example_tr": "O okuldan mı geliyor?",
+   "example_uz": "U maktabdan kelyaptimi?",
+   "concept": 1041
+  },
+  {
+   "id": 1042,
+   "topic": 10,
+   "tr": "-e",
+   "uz": "-ga, tomon",
+   "example_tr": "Onlar parka yürüyor.",
+   "example_uz": "Ular parkka piyoda ketyapti.",
+   "concept": 1042
+  },
+  {
+   "id": 1043,
+   "topic": 10,
+   "tr": "ile, -le",
+   "uz": "bilan",
+   "example_tr": "Tom köpeğiyle oynuyor.",
+   "example_uz": "Tom iti bilan o‘ynayapti.",
+   "concept": 1043
+  },
+  {
+   "id": 1044,
+   "topic": 10,
+   "tr": "-siz",
+   "uz": "-siz",
+   "example_tr": "O şekersiz çay içmiyor.",
+   "example_uz": "U shakarsiz choy ichmayapti.",
+   "concept": 1044
+  },
+  {
+   "id": 1045,
+   "topic": 10,
+   "tr": "hakkında",
+   "uz": "haqida",
+   "example_tr": "Hayvanlar hakkında mı okuyorsun?",
+   "example_uz": "Sen hayvonlar haqida o‘qiyapsanmi?",
+   "concept": 1045
+  },
+  {
+   "id": 1046,
+   "topic": 10,
+   "tr": "altında",
+   "uz": "ostida, tagida",
+   "example_tr": "Kedi yatağın altında oynamıyor.",
+   "example_uz": "Mushuk karavot tagida o‘ynamayapti.",
+   "concept": 1046
+  },
+  {
+   "id": 1047,
+   "topic": 10,
+   "tr": "üzerinden",
+   "uz": "ustidan, tepasidan",
+   "example_tr": "Şehrin üzerinden bir uçak uçuyor mu?",
+   "example_uz": "Shahar ustidan samolyot uchyaptimi?",
+   "concept": 1047
+  },
+  {
+   "id": 1048,
+   "topic": 10,
+   "tr": "içinden",
+   "uz": "orqali, ichidan",
+   "example_tr": "Çocuklar parkın içinden yürüyor.",
+   "example_uz": "Bolalar park orqali piyoda ketyapti.",
+   "concept": 1048
+  },
+  {
+   "id": 1049,
+   "topic": 10,
+   "tr": "karşıya",
+   "uz": "kesib o‘tib",
+   "example_tr": "O yolun karşısına mı koşuyor?",
+   "example_uz": "U yo‘lni kesib yuguryaptimi?",
+   "concept": 1049
+  },
+  {
+   "id": 1050,
+   "topic": 10,
+   "tr": "yukarısında",
+   "uz": "tepasida, yuqorisida",
+   "example_tr": "Kuş evin yukarısında uçmuyor.",
+   "example_uz": "Qush uyning tepasida uchmayapti.",
+   "concept": 1050
+  },
+  {
+   "id": 1051,
+   "topic": 11,
+   "tr": "inmek (uçak)",
+   "uz": "qo‘nmoq",
+   "example_tr": "Uçak iniyor.",
+   "example_uz": "Samolyot qo‘nyapti.",
+   "concept": null,
+   "new": {
+    "en": "land (plane)",
+    "ru": "приземляться",
+    "example_en": "The plane is landing.",
+    "example_ru": "Самолёт приземляется.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>inmek</text></svg>"
+   }
+  },
+  {
+   "id": 1052,
+   "topic": 11,
+   "tr": "pist",
+   "uz": "uchish-qo‘nish yo‘lagi",
+   "example_tr": "Pistte bir uçak duruyor.",
+   "example_uz": "Uchish-qo‘nish yo‘lagida samolyot turibdi.",
+   "concept": 1052
+  },
+  {
+   "id": 1053,
+   "topic": 11,
+   "tr": "mürettebat",
+   "uz": "ekipaj",
+   "example_tr": "Mürettebat yolculara yardım ediyor.",
+   "example_uz": "Ekipaj yo‘lovchilarga yordam beryapti.",
+   "concept": 1053
+  },
+  {
+   "id": 1054,
+   "topic": 11,
+   "tr": "uçuş",
+   "uz": "reys",
+   "example_tr": "Uçuşunu mu bekliyorsun?",
+   "example_uz": "Sen reysingni kutyapsanmi?",
+   "concept": 1054
+  },
+  {
+   "id": 1055,
+   "topic": 11,
+   "tr": "kalkış",
+   "uz": "uchib ketish",
+   "example_tr": "Kalkış saatine bakıyoruz.",
+   "example_uz": "Biz uchib ketish vaqtiga qarayapmiz.",
+   "concept": 1055
+  },
+  {
+   "id": 1056,
+   "topic": 11,
+   "tr": "varış",
+   "uz": "yetib kelish",
+   "example_tr": "Anna varışı bekliyor.",
+   "example_uz": "Anna yetib kelishni kutyapti.",
+   "concept": 1056
+  },
+  {
+   "id": 1057,
+   "topic": 11,
+   "tr": "rötar, gecikme",
+   "uz": "kechikish",
+   "example_tr": "Annem gecikmeyi sormuyor.",
+   "example_uz": "Oyim kechikish haqida so‘ramayapti.",
+   "concept": 1057
+  },
+  {
+   "id": 1058,
+   "topic": 11,
+   "tr": "yolcu",
+   "uz": "yo‘lovchi",
+   "example_tr": "Yolcular terminalde uyumuyor.",
+   "example_uz": "Yo‘lovchilar terminalda uxlamayapti.",
+   "concept": 1058
+  },
+  {
+   "id": 1059,
+   "topic": 11,
+   "tr": "havalanmak",
+   "uz": "havoga ko‘tarilmoq, uchmoq",
+   "example_tr": "Büyük uçak saat beşte havalanıyor.",
+   "example_uz": "Katta samolyot soat beshda havoga ko‘tariladi.",
+   "concept": null,
+   "new": {
+    "en": "take off (plane)",
+    "ru": "взлетать",
+    "example_en": "The big plane takes off at five o'clock.",
+    "example_ru": "Большой самолёт взлетает в пять часов.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>havalanmak</text></svg>"
+   }
+  },
+  {
+   "id": 1060,
+   "topic": 11,
+   "tr": "biniş kartı",
+   "uz": "bort taloni",
+   "example_tr": "Biniş kartını mı arıyorsun?",
+   "example_uz": "Sen bort talonini qidiryapsanmi?",
+   "concept": 1060
+  },
+  {
+   "id": 1061,
+   "topic": 11,
+   "tr": "bavul",
+   "uz": "chamadon",
+   "example_tr": "Babam büyük bir bavul taşıyor.",
+   "example_uz": "Dadam katta chamadon ko‘tarib ketyapti.",
+   "concept": 1061
+  },
+  {
+   "id": 1062,
+   "topic": 11,
+   "tr": "check-in",
+   "uz": "ro‘yxatdan o‘tish",
+   "example_tr": "Şimdi check-in’i açıyorlar mı?",
+   "example_uz": "Ular hozir ro‘yxatdan o‘tishni ochyaptimi?",
+   "concept": 1062
+  },
+  {
+   "id": 1063,
+   "topic": 11,
+   "tr": "güvenlik kontrolü",
+   "uz": "ko‘rik, xavfsizlik nazorati",
+   "example_tr": "Onlar güvenlik kontrolünden geçmiyor.",
+   "example_uz": "Ular xavfsizlik nazoratidan o‘tmayapti.",
+   "concept": 1063
+  },
+  {
+   "id": 1064,
+   "topic": 11,
+   "tr": "gümrük",
+   "uz": "bojxona",
+   "example_tr": "O gümrükte mi bekliyor?",
+   "example_uz": "U bojxonada kutyaptimi?",
+   "concept": 1064
+  },
+  {
+   "id": 1065,
+   "topic": 11,
+   "tr": "terminal",
+   "uz": "terminal",
+   "example_tr": "Terminalde oturuyorum.",
+   "example_uz": "Men terminalda o‘tiribman.",
+   "concept": 1065
+  },
+  {
+   "id": 1066,
+   "topic": 12,
+   "tr": "yavaşça",
+   "uz": "sekin",
+   "example_tr": "Dedem yavaşça yürüyor.",
+   "example_uz": "Bobom sekin yuryapti.",
+   "concept": 1066
+  },
+  {
+   "id": 1067,
+   "topic": 12,
+   "tr": "hızlıca",
+   "uz": "tez",
+   "example_tr": "O kahvaltısını hızlıca yiyor.",
+   "example_uz": "U nonushtasini tez yeyapti.",
+   "concept": 1067
+  },
+  {
+   "id": 1068,
+   "topic": 12,
+   "tr": "dikkatlice",
+   "uz": "ehtiyotkorlik bilan",
+   "example_tr": "O arabayı dikkatlice sürmüyor.",
+   "example_uz": "U mashinani ehtiyotkorlik bilan haydamayapti.",
+   "concept": 1068
+  },
+  {
+   "id": 1069,
+   "topic": 12,
+   "tr": "kolayca",
+   "uz": "oson, osonlik bilan",
+   "example_tr": "O görevi kolayca yapıyor mu?",
+   "example_uz": "U vazifani oson bajaryaptimi?",
+   "concept": 1069
+  },
+  {
+   "id": 1070,
+   "topic": 12,
+   "tr": "kötü (bir şekilde)",
+   "uz": "yomon",
+   "example_tr": "Çocuklar kötü şarkı söylemiyor.",
+   "example_uz": "Bolalar yomon kuylamayapti.",
+   "concept": 1070
+  },
+  {
+   "id": 1071,
+   "topic": 12,
+   "tr": "açıkça, net",
+   "uz": "aniq, ravshan",
+   "example_tr": "Net konuşuyor musun?",
+   "example_uz": "Sen aniq gapiryapsanmi?",
+   "concept": 1071
+  },
+  {
+   "id": 1072,
+   "topic": 12,
+   "tr": "sessizce",
+   "uz": "jimgina, sekin",
+   "example_tr": "Sınıfta sessizce oturuyoruz.",
+   "example_uz": "Biz sinfda jimgina o‘tiribmiz.",
+   "concept": 1072
+  },
+  {
+   "id": 1073,
+   "topic": 12,
+   "tr": "yüksek sesle",
+   "uz": "baland ovozda",
+   "example_tr": "O çok mu yüksek sesle konuşuyor?",
+   "example_uz": "U juda baland ovozda gapiryaptimi?",
+   "concept": 1073
+  },
+  {
+   "id": 1074,
+   "topic": 12,
+   "tr": "mutlu bir şekilde",
+   "uz": "xursand holda",
+   "example_tr": "Köpek bahçede mutlu bir şekilde koşuyor.",
+   "example_uz": "It bog‘da xursand yuguryapti.",
+   "concept": 1074
+  },
+  {
+   "id": 1075,
+   "topic": 12,
+   "tr": "üzgün üzgün",
+   "uz": "g‘amgin holda",
+   "example_tr": "Tom yağmura üzgün üzgün bakıyor.",
+   "example_uz": "Tom yomg‘irga g‘amgin qarayapti.",
+   "concept": 1075
+  },
+  {
+   "id": 1076,
+   "topic": 12,
+   "tr": "kibarca",
+   "uz": "xushmuomalalik bilan",
+   "example_tr": "Onlar kibarca yardım istiyor.",
+   "example_uz": "Ular xushmuomalalik bilan yordam so‘rayapti.",
+   "concept": 1076
+  },
+  {
+   "id": 1077,
+   "topic": 12,
+   "tr": "güvenli bir şekilde",
+   "uz": "xavfsiz",
+   "example_tr": "Otobüs güvenli bir şekilde gidiyor mu?",
+   "example_uz": "Avtobus xavfsiz ketyaptimi?",
+   "concept": 1077
+  },
+  {
+   "id": 1078,
+   "topic": 12,
+   "tr": "ciddi bir şekilde",
+   "uz": "jiddiy",
+   "example_tr": "Bay Brown ciddi bir şekilde konuşuyor.",
+   "example_uz": "Mister Braun jiddiy gapiryapti.",
+   "concept": 1078
+  },
+  {
+   "id": 1079,
+   "topic": 12,
+   "tr": "birlikte",
+   "uz": "birga",
+   "example_tr": "Kardeşlerim birlikte oynamıyor.",
+   "example_uz": "Akalarim birga o‘ynamayapti.",
+   "concept": 1079
+  },
+  {
+   "id": 1080,
+   "topic": 12,
+   "tr": "yalnız",
+   "uz": "yolg‘iz",
+   "example_tr": "Kız yalnız oturmuyor.",
+   "example_uz": "Qiz yolg‘iz o‘tirmayapti.",
+   "concept": 1080
+  },
+  {
+   "id": 1081,
+   "topic": 13,
+   "tr": "çarpı",
+   "uz": "ko‘paytirmoq",
+   "example_tr": "Beş çarpı iki on eder.",
+   "example_uz": "Besh karra ikki o‘n bo‘ladi.",
+   "concept": null,
+   "new": {
+    "en": "multiply",
+    "ru": "умножить",
+    "example_en": "Five times two is ten.",
+    "example_ru": "Пять умножить на два будет десять.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>çarpı</text></svg>"
+   }
+  },
+  {
+   "id": 1082,
+   "topic": 13,
+   "tr": "daire",
+   "uz": "doira",
+   "example_tr": "O bir daire çiziyor.",
+   "example_uz": "U doira chizyapti.",
+   "concept": 1082
+  },
+  {
+   "id": 1083,
+   "topic": 13,
+   "tr": "kare",
+   "uz": "kvadrat",
+   "example_tr": "Kare mi çiziyorsun?",
+   "example_uz": "Sen kvadrat chizyapsanmi?",
+   "concept": 1083
+  },
+  {
+   "id": 1084,
+   "topic": 13,
+   "tr": "üçgen",
+   "uz": "uchburchak",
+   "example_tr": "Öğretmen bir üçgen gösteriyor.",
+   "example_uz": "O‘qituvchi uchburchakni ko‘rsatyapti.",
+   "concept": 1084
+  },
+  {
+   "id": 1085,
+   "topic": 13,
+   "tr": "dikdörtgen",
+   "uz": "to‘g‘ri to‘rtburchak",
+   "example_tr": "Dikdörtgen çizmiyoruz.",
+   "example_uz": "Biz to‘g‘ri to‘rtburchak chizmayapmiz.",
+   "concept": 1085
+  },
+  {
+   "id": 1086,
+   "topic": 13,
+   "tr": "çizgi",
+   "uz": "chiziq",
+   "example_tr": "Uzun bir çizgi çiziyorum.",
+   "example_uz": "Men uzun chiziq chizyapman.",
+   "concept": 1086
+  },
+  {
+   "id": 1087,
+   "topic": 13,
+   "tr": "bölmek",
+   "uz": "bo‘lmoq",
+   "example_tr": "On sayısını ikiye bölersen beş eder.",
+   "example_uz": "Agar o‘nni ikkiga bo‘lsang, besh chiqadi.",
+   "concept": null,
+   "new": {
+    "en": "divide",
+    "ru": "делить",
+    "example_en": "If you divide ten by two, you get five.",
+    "example_ru": "Если разделить десять на два, получится пять.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#f2c14e'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>bölmek</text></svg>"
+   }
+  },
+  {
+   "id": 1088,
+   "topic": 13,
+   "tr": "kenar",
+   "uz": "tomon",
+   "example_tr": "Tom bir kenarı ölçüyor.",
+   "example_uz": "Tom bir tomonni o‘lchayapti.",
+   "concept": 1088
+  },
+  {
+   "id": 1089,
+   "topic": 13,
+   "tr": "şekil",
+   "uz": "shakl",
+   "example_tr": "Onlar yeni şekiller mi öğreniyor?",
+   "example_uz": "Ular yangi shakllarni o‘rganyaptimi?",
+   "concept": 1089
+  },
+  {
+   "id": 1090,
+   "topic": 13,
+   "tr": "yarım",
+   "uz": "yarim",
+   "example_tr": "Kate yarım elma yiyor.",
+   "example_uz": "Keyt yarimta olma yeyapti.",
+   "concept": 1090
+  },
+  {
+   "id": 1091,
+   "topic": 13,
+   "tr": "iki katına çıkarmak",
+   "uz": "ikki baravar, ikki hissa oshirmoq",
+   "example_tr": "Öğretmen sayıyı iki katına çıkarmıyor.",
+   "example_uz": "O‘qituvchi sonni ikki baravar oshirmayapti.",
+   "concept": 1091
+  },
+  {
+   "id": 1092,
+   "topic": 13,
+   "tr": "artı",
+   "uz": "plyus, qo‘shuv",
+   "example_tr": "O iki artı ikiyi mi hesaplıyor?",
+   "example_uz": "U ikki qo‘shuv ikkini hisoblayaptimi?",
+   "concept": 1092
+  },
+  {
+   "id": 1093,
+   "topic": 13,
+   "tr": "eksi",
+   "uz": "minus, ayiruv",
+   "example_tr": "Onlar artı ve eksiyi öğreniyor.",
+   "example_uz": "Ular qo‘shuv va ayiruvni o‘rganyapti.",
+   "concept": 1093
+  },
+  {
+   "id": 1094,
+   "topic": 13,
+   "tr": "eşit",
+   "uz": "teng",
+   "example_tr": "Kate iki eşit çizgi çizmiyor.",
+   "example_uz": "Keyt ikkita teng chiziq chizmayapti.",
+   "concept": 1094
+  },
+  {
+   "id": 1095,
+   "topic": 13,
+   "tr": "toplam",
+   "uz": "jami, umumiy",
+   "example_tr": "Kız kardeşim toplamı hesaplıyor.",
+   "example_uz": "Singlim jamini hisoblayapti.",
+   "concept": 1095
+  },
+  {
+   "id": 1096,
+   "topic": 14,
+   "tr": "süpürmek",
+   "uz": "supurmoq",
+   "example_tr": "Annem yeri süpürüyor.",
+   "example_uz": "Oyim polni supuryapti.",
+   "concept": 1096
+  },
+  {
+   "id": 1097,
+   "topic": 14,
+   "tr": "paspas yapmak",
+   "uz": "pol yuvmoq",
+   "example_tr": "O mutfağı paspaslıyor.",
+   "example_uz": "U oshxonada pol yuvyapti.",
+   "concept": 1097
+  },
+  {
+   "id": 1098,
+   "topic": 14,
+   "tr": "toz almak",
+   "uz": "chang artmoq",
+   "example_tr": "O masanın tozunu almıyor.",
+   "example_uz": "U stoldagi changni artmayapti.",
+   "concept": 1098
+  },
+  {
+   "id": 1099,
+   "topic": 14,
+   "tr": "silmek",
+   "uz": "artmoq",
+   "example_tr": "Pencereyi mi siliyorsun?",
+   "example_uz": "Sen derazani artyapsanmi?",
+   "concept": 1099
+  },
+  {
+   "id": 1100,
+   "topic": 14,
+   "tr": "cilalamak, boyamak",
+   "uz": "yaltiratmoq",
+   "example_tr": "Babam ayakkabılarını boyuyor.",
+   "example_uz": "Dadam tuflisini yaltiratyapti.",
+   "concept": 1100
+  },
+  {
+   "id": 1101,
+   "topic": 14,
+   "tr": "ütülemek",
+   "uz": "dazmollamoq",
+   "example_tr": "Gömleğimi ütülüyorum.",
+   "example_uz": "Men ko‘ylagimni dazmollayapman.",
+   "concept": 1101
+  },
+  {
+   "id": 1102,
+   "topic": 14,
+   "tr": "katlamak",
+   "uz": "taxlamoq",
+   "example_tr": "Kıyafetleri katlıyoruz.",
+   "example_uz": "Biz kiyimlarni taxlayapmiz.",
+   "concept": 1102
+  },
+  {
+   "id": 1103,
+   "topic": 14,
+   "tr": "asmak",
+   "uz": "osmoq, ilmoq",
+   "example_tr": "O elbisesini asıyor mu?",
+   "example_uz": "U ko‘ylagini ilyaptimi?",
+   "concept": 1103
+  },
+  {
+   "id": 1104,
+   "topic": 14,
+   "tr": "süpürge çekmek",
+   "uz": "changyutgich bilan tozalamoq",
+   "example_tr": "Onlar bugün süpürge çekmiyor.",
+   "example_uz": "Ular bugun changyutgich bilan tozalamayapti.",
+   "concept": 1104
+  },
+  {
+   "id": 1105,
+   "topic": 14,
+   "tr": "çamaşır",
+   "uz": "kir, yuviladigan kiyimlar",
+   "example_tr": "Büyükannem çamaşır yıkıyor.",
+   "example_uz": "Buvim kir yuvyapti.",
+   "concept": 1105
+  },
+  {
+   "id": 1106,
+   "topic": 14,
+   "tr": "süpürge",
+   "uz": "supurgi",
+   "example_tr": "Tom bir süpürge taşıyor.",
+   "example_uz": "Tom supurgi ko‘tarib ketyapti.",
+   "concept": 1106
+  },
+  {
+   "id": 1107,
+   "topic": 14,
+   "tr": "kova",
+   "uz": "chelak",
+   "example_tr": "O kovayı yıkıyor mu?",
+   "example_uz": "U chelakni yuvyaptimi?",
+   "concept": 1107
+  },
+  {
+   "id": 1108,
+   "topic": 14,
+   "tr": "bez",
+   "uz": "latta",
+   "example_tr": "Kız kardeşim bez kullanmıyor.",
+   "example_uz": "Singlim lattadan foydalanmayapti.",
+   "concept": 1108
+  },
+  {
+   "id": 1109,
+   "topic": 14,
+   "tr": "tozlu",
+   "uz": "changli",
+   "example_tr": "Çocuk tozlu yeri temizlemiyor.",
+   "example_uz": "Bola changli polni tozalamayapti.",
+   "concept": 1109
+  },
+  {
+   "id": 1110,
+   "topic": 14,
+   "tr": "dağınık",
+   "uz": "tartibsiz, betartib",
+   "example_tr": "Çocuklar odayı dağıtıyor mu?",
+   "example_uz": "Bolalar xonani tartibsiz qilyaptimi?",
+   "concept": 1110
+  },
+  {
+   "id": 1111,
+   "topic": 15,
+   "tr": "ne kadar (sayılamayan)",
+   "uz": "ko‘p (sanalmaydigan)",
+   "example_tr": "Ne kadar su içiyorsun?",
+   "example_uz": "Sen qancha suv ichyapsan?",
+   "concept": 1111
+  },
+  {
+   "id": 1112,
+   "topic": 15,
+   "tr": "kaç (sayılabilen)",
+   "uz": "ko‘p (sanaladigan)",
+   "example_tr": "Kaç çocuk oynuyor?",
+   "example_uz": "Nechta bola o‘ynayapti?",
+   "concept": 1112
+  },
+  {
+   "id": 1113,
+   "topic": 15,
+   "tr": "biraz",
+   "uz": "biroz, bir nechta",
+   "example_tr": "O biraz ekmek alıyor.",
+   "example_uz": "U biroz non sotib olyapti.",
+   "concept": 1113
+  },
+  {
+   "id": 1114,
+   "topic": 15,
+   "tr": "hiç",
+   "uz": "hech qancha, istalgan",
+   "example_tr": "O hiç süt almıyor.",
+   "example_uz": "U sut sotib olmayapti.",
+   "concept": 1114
+  },
+  {
+   "id": 1115,
+   "topic": 15,
+   "tr": "çok, bir sürü",
+   "uz": "ko‘p",
+   "example_tr": "Onlar çok yemek yiyor.",
+   "example_uz": "Ular ko‘p ovqat yeyapti.",
+   "concept": 1115
+  },
+  {
+   "id": 1116,
+   "topic": 15,
+   "tr": "yeterli",
+   "uz": "yetarli",
+   "example_tr": "Yeterli kek yapmıyoruz.",
+   "example_uz": "Biz yetarlicha pirojniy tayyorlamayapmiz.",
+   "concept": 1116
+  },
+  {
+   "id": 1117,
+   "topic": 15,
+   "tr": "azıcık",
+   "uz": "ozgina",
+   "example_tr": "Azıcık çay içiyorum.",
+   "example_uz": "Men ozgina choy ichyapman.",
+   "concept": 1117
+  },
+  {
+   "id": 1118,
+   "topic": 15,
+   "tr": "birkaç",
+   "uz": "bir nechta",
+   "example_tr": "Birkaç çocuk futbol oynuyor.",
+   "example_uz": "Bir nechta bola futbol o‘ynayapti.",
+   "concept": 1118
+  },
+  {
+   "id": 1119,
+   "topic": 15,
+   "tr": "daha fazla",
+   "uz": "ko‘proq",
+   "example_tr": "Tom daha fazla meyve yemiyor.",
+   "example_uz": "Tom ko‘proq meva yemayapti.",
+   "concept": 1119
+  },
+  {
+   "id": 1120,
+   "topic": 15,
+   "tr": "daha az",
+   "uz": "kamroq",
+   "example_tr": "O daha az süt mü içiyor?",
+   "example_uz": "U kamroq sut ichyaptimi?",
+   "concept": 1120
+  },
+  {
+   "id": 1121,
+   "topic": 15,
+   "tr": "bütün, hepsi",
+   "uz": "hamma, barcha",
+   "example_tr": "Bütün çocuklar şimdi uyuyor.",
+   "example_uz": "Hamma bolalar hozir uxlayapti.",
+   "concept": 1121
+  },
+  {
+   "id": 1122,
+   "topic": 15,
+   "tr": "ikisi de",
+   "uz": "ikkalasi ham",
+   "example_tr": "İki kız da birlikte şarkı söylüyor.",
+   "example_uz": "Ikkala qiz birga qo‘shiq aytyapti.",
+   "concept": 1122
+  },
+  {
+   "id": 1123,
+   "topic": 15,
+   "tr": "her bir",
+   "uz": "har bir",
+   "example_tr": "Her bir öğrenci sınava giriyor.",
+   "example_uz": "Har bir o‘quvchi test topshiryapti.",
+   "concept": 1123
+  },
+  {
+   "id": 1124,
+   "topic": 15,
+   "tr": "her",
+   "uz": "har bir",
+   "example_tr": "Her çocuk bugün geliyor mu?",
+   "example_uz": "Har bir bola bugun keladimi?",
+   "concept": 1124
+  },
+  {
+   "id": 1125,
+   "topic": 15,
+   "tr": "birkaç, bazı",
+   "uz": "bir nechta",
+   "example_tr": "Birkaç kişi otobüs beklemiyor.",
+   "example_uz": "Bir necha kishi avtobus kutmayapti.",
+   "concept": 1125
+  },
+  {
+   "id": 1126,
+   "topic": 16,
+   "tr": "tekrar etmek (ders)",
+   "uz": "takrorlamoq",
+   "example_tr": "O yeni kelimelerini tekrar ediyor.",
+   "example_uz": "U yangi so‘zlarini takrorlayapti.",
+   "concept": 1126
+  },
+  {
+   "id": 1127,
+   "topic": 16,
+   "tr": "harf harf söylemek",
+   "uz": "harflab aytmoq",
+   "example_tr": "Bu kelime nasıl yazılıyor?",
+   "example_uz": "Bu so‘z qanday yoziladi?",
+   "concept": 1127
+  },
+  {
+   "id": 1128,
+   "topic": 16,
+   "tr": "telaffuz etmek",
+   "uz": "talaffuz qilmoq",
+   "example_tr": "O bunu iyi telaffuz etmiyor.",
+   "example_uz": "U buni noto‘g‘ri talaffuz qilyapti.",
+   "concept": 1128
+  },
+  {
+   "id": 1129,
+   "topic": 16,
+   "tr": "çevirmek",
+   "uz": "tarjima qilmoq",
+   "example_tr": "Kısa bir metin çeviriyorum.",
+   "example_uz": "Men qisqa matnni tarjima qilyapman.",
+   "concept": 1129
+  },
+  {
+   "id": 1130,
+   "topic": 16,
+   "tr": "ifade, deyim",
+   "uz": "ibora",
+   "example_tr": "Yeni bir ifade mi öğreniyorlar?",
+   "example_uz": "Ular yangi iborani o‘rganyaptimi?",
+   "concept": 1130
+  },
+  {
+   "id": 1131,
+   "topic": 16,
+   "tr": "ders kitabı",
+   "uz": "darslik",
+   "example_tr": "Ders kitaplarımızı açıyoruz.",
+   "example_uz": "Biz darsliklarimizni ochyapmiz.",
+   "concept": 1131
+  },
+  {
+   "id": 1132,
+   "topic": 16,
+   "tr": "kelime bilgisi",
+   "uz": "so‘z boyligi",
+   "example_tr": "Kate bugün kelime çalışmıyor.",
+   "example_uz": "Keyt bugun so‘zlarni yodlamayapti.",
+   "concept": 1132
+  },
+  {
+   "id": 1133,
+   "topic": 16,
+   "tr": "anlam",
+   "uz": "ma’no",
+   "example_tr": "O anlamını mı arıyor?",
+   "example_uz": "U ma’nosini qidiryaptimi?",
+   "concept": 1133
+  },
+  {
+   "id": 1134,
+   "topic": 16,
+   "tr": "hata",
+   "uz": "xato",
+   "example_tr": "Tom küçük bir hata yapıyor.",
+   "example_uz": "Tom kichik xato qilyapti.",
+   "concept": 1134
+  },
+  {
+   "id": 1135,
+   "topic": 16,
+   "tr": "gelişmek",
+   "uz": "yaxshilamoq",
+   "example_tr": "Türkçem her gün gelişiyor.",
+   "example_uz": "Mening turk tilim har kuni yaxshilanyapti.",
+   "concept": 1135
+  },
+  {
+   "id": 1136,
+   "topic": 16,
+   "tr": "aksan",
+   "uz": "talaffuz, aksent",
+   "example_tr": "O aksanla mı konuşuyor?",
+   "example_uz": "U aksent bilan gapiryaptimi?",
+   "concept": 1136
+  },
+  {
+   "id": 1137,
+   "topic": 16,
+   "tr": "ilerleme",
+   "uz": "yutuqlar, o‘sish",
+   "example_tr": "Çocuklar iyi ilerleme kaydediyor.",
+   "example_uz": "Bolalar yaxshi natijalarga erishyapti.",
+   "concept": 1137
+  },
+  {
+   "id": 1138,
+   "topic": 16,
+   "tr": "örnek",
+   "uz": "misol",
+   "example_tr": "Öğretmen bir örnek veriyor.",
+   "example_uz": "O‘qituvchi misol keltiryapti.",
+   "concept": 1138
+  },
+  {
+   "id": 1139,
+   "topic": 16,
+   "tr": "hatırlamak",
+   "uz": "eslamoq, yodda tutmoq",
+   "example_tr": "Onlar yeni kelimeleri hatırlamıyor.",
+   "example_uz": "Ular yangi so‘zlarni eslay olmaydi.",
+   "concept": 1139
+  },
+  {
+   "id": 1140,
+   "topic": 16,
+   "tr": "unutmak",
+   "uz": "unutmoq",
+   "example_tr": "Tom yeni kelimeleri unutmuyor.",
+   "example_uz": "Tom yangi so‘zlarni unutmaydi.",
+   "concept": 1140
+  },
+  {
+   "id": 1141,
+   "topic": 17,
+   "tr": "ölçmek",
+   "uz": "o‘lchamoq",
+   "example_tr": "O masayı ölçüyor.",
+   "example_uz": "U stolni o‘lchayapti.",
+   "concept": 1141
+  },
+  {
+   "id": 1142,
+   "topic": 17,
+   "tr": "alan",
+   "uz": "maydon, yuza",
+   "example_tr": "Odanın alanını ölçüyoruz.",
+   "example_uz": "Biz xonaning maydonini o‘lchayapmiz.",
+   "concept": 1142
+  },
+  {
+   "id": 1143,
+   "topic": 17,
+   "tr": "uzunluk",
+   "uz": "uzunlik",
+   "example_tr": "O uzunluğu kontrol ediyor mu?",
+   "example_uz": "U uzunlikni tekshiryaptimi?",
+   "concept": 1143
+  },
+  {
+   "id": 1144,
+   "topic": 17,
+   "tr": "genişlik",
+   "uz": "kenglik",
+   "example_tr": "Onlar genişliği ölçmüyor.",
+   "example_uz": "Ular kenglikni o‘lchamayapti.",
+   "concept": 1144
+  },
+  {
+   "id": 1145,
+   "topic": 17,
+   "tr": "boy, yükseklik",
+   "uz": "balandlik, bo‘y",
+   "example_tr": "Annem boyumu ölçüyor.",
+   "example_uz": "Oyim bo‘yimni o‘lchayapti.",
+   "concept": 1145
+  },
+  {
+   "id": 1146,
+   "topic": 17,
+   "tr": "ağırlık",
+   "uz": "og‘irlik, vazn",
+   "example_tr": "O ağırlığı kontrol ediyor mu?",
+   "example_uz": "U vaznni tekshiryaptimi?",
+   "concept": 1146
+  },
+  {
+   "id": 1147,
+   "topic": 17,
+   "tr": "mesafe",
+   "uz": "masofa",
+   "example_tr": "Mesafeyi hesaplamıyorum.",
+   "example_uz": "Men masofani hisoblamayapman.",
+   "concept": 1147
+  },
+  {
+   "id": 1148,
+   "topic": 17,
+   "tr": "metre",
+   "uz": "metr",
+   "example_tr": "O bir metre ölçüyor.",
+   "example_uz": "U bir metrni o‘lchayapti.",
+   "concept": 1148
+  },
+  {
+   "id": 1149,
+   "topic": 17,
+   "tr": "kilometre",
+   "uz": "kilometr",
+   "example_tr": "Beş kilometre mi koşuyorsun?",
+   "example_uz": "Sen besh kilometr yuguryapsanmi?",
+   "concept": 1149
+  },
+  {
+   "id": 1150,
+   "topic": 17,
+   "tr": "santimetre",
+   "uz": "santimetr",
+   "example_tr": "Kate yirmi santimetre ölçüyor.",
+   "example_uz": "Keyt yigirma santimetrni o‘lchayapti.",
+   "concept": 1150
+  },
+  {
+   "id": 1151,
+   "topic": 17,
+   "tr": "kilo",
+   "uz": "kilogramm",
+   "example_tr": "Babam iki kilo elma alıyor.",
+   "example_uz": "Dadam ikki kilogramm olma sotib olyapti.",
+   "concept": 1151
+  },
+  {
+   "id": 1152,
+   "topic": 17,
+   "tr": "litre",
+   "uz": "litr",
+   "example_tr": "Onlar iki litre su mu içiyor?",
+   "example_uz": "Ular ikki litr suv ichyaptimi?",
+   "concept": 1152
+  },
+  {
+   "id": 1153,
+   "topic": 17,
+   "tr": "derece",
+   "uz": "daraja (gradus)",
+   "example_tr": "Babam dereceyi ölçmüyor.",
+   "example_uz": "Dadam gradusni o‘lchamayapti.",
+   "concept": 1153
+  },
+  {
+   "id": 1154,
+   "topic": 17,
+   "tr": "miktar",
+   "uz": "miqdor",
+   "example_tr": "Kate miktarı saymıyor.",
+   "example_uz": "Keyt miqdorni sanamayapti.",
+   "concept": 1154
+  },
+  {
+   "id": 1155,
+   "topic": 17,
+   "tr": "terazi, tartı",
+   "uz": "tarozi",
+   "example_tr": "Teraziyi mi kullanıyorsun?",
+   "example_uz": "Sen tarozidan foydalanyapsanmi?",
+   "concept": 1155
+  },
+  {
+   "id": 1156,
+   "topic": 18,
+   "tr": "-i dinlemek",
+   "uz": "tinglamoq",
+   "example_tr": "O müziği dinliyor.",
+   "example_uz": "U musiqa tinglaydi.",
+   "concept": 1156
+  },
+  {
+   "id": 1157,
+   "topic": 18,
+   "tr": "-e bakmak",
+   "uz": "qaramoq",
+   "example_tr": "Fotoğrafa mı bakıyorsun?",
+   "example_uz": "Sen suratga qarayapsanmi?",
+   "concept": 1157
+  },
+  {
+   "id": 1158,
+   "topic": 18,
+   "tr": "-i aramak",
+   "uz": "qidirmoq",
+   "example_tr": "O anahtarlarını arıyor.",
+   "example_uz": "U kalitlarini qidiryapti.",
+   "concept": 1158
+  },
+  {
+   "id": 1159,
+   "topic": 18,
+   "tr": "-i beklemek",
+   "uz": "kutmoq",
+   "example_tr": "Otobüsü bekliyoruz.",
+   "example_uz": "Biz avtobus kutyapmiz.",
+   "concept": 1159
+  },
+  {
+   "id": 1160,
+   "topic": 18,
+   "tr": "ile konuşmak",
+   "uz": "… bilan gaplashmoq",
+   "example_tr": "O öğretmenle mi konuşuyor?",
+   "example_uz": "U o‘qituvchi bilan gaplashyaptimi?",
+   "concept": 1160
+  },
+  {
+   "id": 1161,
+   "topic": 18,
+   "tr": "hakkında konuşmak",
+   "uz": "… haqida gaplashmoq",
+   "example_tr": "Onlar okul hakkında konuşmuyor.",
+   "example_uz": "Ular maktab haqida gaplashmayapti.",
+   "concept": 1161
+  },
+  {
+   "id": 1162,
+   "topic": 18,
+   "tr": "istemek",
+   "uz": "so‘ramoq (biror narsani)",
+   "example_tr": "Yardım istiyorum.",
+   "example_uz": "Men yordam so‘rayapman.",
+   "concept": 1162
+  },
+  {
+   "id": 1163,
+   "topic": 18,
+   "tr": "hakkında düşünmek",
+   "uz": "… haqida o‘ylamoq",
+   "example_tr": "O sınavı düşünüyor mu?",
+   "example_uz": "U test haqida o‘ylayaptimi?",
+   "concept": 1163
+  },
+  {
+   "id": 1164,
+   "topic": 18,
+   "tr": "için endişelenmek",
+   "uz": "… haqida xavotirlanmoq",
+   "example_tr": "Annem hava durumu için endişeleniyor.",
+   "example_uz": "Oyim ob-havo haqida xavotirlanyapti.",
+   "concept": 1164
+  },
+  {
+   "id": 1165,
+   "topic": 18,
+   "tr": "için ödemek",
+   "uz": "… uchun to‘lamoq",
+   "example_tr": "Babam biletler için para ödemiyor.",
+   "example_uz": "Dadam chiptalar uchun to‘lamayapti.",
+   "concept": 1165
+  },
+  {
+   "id": 1166,
+   "topic": 18,
+   "tr": "-e ait olmak",
+   "uz": "tegishli bo‘lmoq",
+   "example_tr": "Bu çanta Kate’e ait.",
+   "example_uz": "Bu sumka Keytga tegishli.",
+   "concept": 1166
+  },
+  {
+   "id": 1167,
+   "topic": 18,
+   "tr": "-e varmak (yer)",
+   "uz": "yetib kelmoq (joyga)",
+   "example_tr": "Otobüsümüz istasyona varıyor.",
+   "example_uz": "Avtobusimiz bekatga yetib kelyapti.",
+   "concept": 1167
+  },
+  {
+   "id": 1168,
+   "topic": 18,
+   "tr": "-e varmak (şehir)",
+   "uz": "yetib kelmoq (shaharga)",
+   "example_tr": "Onlar bugün Londra’ya varıyor mu?",
+   "example_uz": "Ular bugun Londonga yetib kelyaptimi?",
+   "concept": 1168
+  },
+  {
+   "id": 1169,
+   "topic": 18,
+   "tr": "-e bağlı olmak",
+   "uz": "… ga bog‘liq bo‘lmoq",
+   "example_tr": "Bu sana bağlı değil.",
+   "example_uz": "Bu senga bog‘liq emas.",
+   "concept": 1169
+  },
+  {
+   "id": 1170,
+   "topic": 18,
+   "tr": "ile aynı fikirde olmak",
+   "uz": "… bilan rozi bo‘lmoq",
+   "example_tr": "Tom benimle aynı fikirde değil.",
+   "example_uz": "Tom men bilan rozi emas.",
+   "concept": 1170
+  },
+  {
+   "id": 1171,
+   "topic": 19,
+   "tr": "dışarı çıkmak",
+   "uz": "tashqariga chiqmoq",
+   "example_tr": "Bugün çok güzel bir gün! Dışarı çık, bizimle oyna.",
+   "example_uz": "Bugun ajoyib kun! Chiq, biz bilan o‘yna.",
+   "concept": 1171
+  },
+  {
+   "id": 1172,
+   "topic": 19,
+   "tr": "geri gelmek",
+   "uz": "qaytmoq",
+   "example_tr": "O yarın geri geliyor.",
+   "example_uz": "U ertaga qaytadi.",
+   "concept": 1172
+  },
+  {
+   "id": 1173,
+   "topic": 19,
+   "tr": "eve gelmek",
+   "uz": "uyga kelmoq",
+   "example_tr": "O bugün eve gelmiyor.",
+   "example_uz": "U bugun uyga kelmayapti.",
+   "concept": 1173
+  },
+  {
+   "id": 1174,
+   "topic": 19,
+   "tr": "-li olmak (memleket)",
+   "uz": "… dan bo‘lmoq (kelib chiqishi)",
+   "example_tr": "Sen nerelisin?",
+   "example_uz": "Sen qayerdansan?",
+   "concept": 1174
+  },
+  {
+   "id": 1175,
+   "topic": 19,
+   "tr": "ile gelmek",
+   "uz": "… bilan birga kelmoq",
+   "example_tr": "Kate bizimle gelmiyor.",
+   "example_uz": "Keyt biz bilan kelmayapti.",
+   "concept": 1175
+  },
+  {
+   "id": 1176,
+   "topic": 19,
+   "tr": "birlikte gelmek",
+   "uz": "birga bormoq",
+   "example_tr": "Sinemaya gidiyoruz. Bizimle gelmek ister misin?",
+   "example_uz": "Biz kinoga ketyapmiz. Biz bilan borasanmi?",
+   "concept": 1176
+  },
+  {
+   "id": 1177,
+   "topic": 19,
+   "tr": "buraya gelmek",
+   "uz": "bu yoqqa kel",
+   "example_tr": "Köpek buraya gelmiyor.",
+   "example_uz": "It bu yoqqa kelmayapti.",
+   "concept": 1177
+  },
+  {
+   "id": 1178,
+   "topic": 19,
+   "tr": "ziyarete gelmek",
+   "uz": "mehmonga kelmoq",
+   "example_tr": "Onlar bu akşam bize geliyor.",
+   "example_uz": "Ular bugun kechqurun mehmonga kelishadi.",
+   "concept": 1178
+  },
+  {
+   "id": 1179,
+   "topic": 19,
+   "tr": "erken gelmek",
+   "uz": "erta kelmoq",
+   "example_tr": "Yarın erken geliyorum.",
+   "example_uz": "Men ertaga erta kelaman.",
+   "concept": 1179
+  },
+  {
+   "id": 1180,
+   "topic": 19,
+   "tr": "geç gelmek",
+   "uz": "kech kelmoq",
+   "example_tr": "Nick bir daha geç gelmeyecek.",
+   "example_uz": "Nik endi kechikib kelmaydi.",
+   "concept": 1180
+  },
+  {
+   "id": 1181,
+   "topic": 19,
+   "tr": "birinci gelmek",
+   "uz": "birinchi bo‘lmoq",
+   "example_tr": "Tom yarışta birinci geliyor.",
+   "example_uz": "Tom poygada birinchi kelyapti.",
+   "concept": 1181
+  },
+  {
+   "id": 1182,
+   "topic": 19,
+   "tr": "sonuncu gelmek",
+   "uz": "oxirgi bo‘lmoq",
+   "example_tr": "O yine sonuncu mu geliyor?",
+   "example_uz": "U yana oxirgi bo‘lib kelyaptimi?",
+   "concept": 1182
+  },
+  {
+   "id": 1183,
+   "topic": 19,
+   "tr": "bir araya gelmek",
+   "uz": "yig‘ilmoq, to‘planmoq",
+   "example_tr": "Arkadaşlarım bir araya geliyor.",
+   "example_uz": "Do‘stlarim yig‘ilyapti.",
+   "concept": 1183
+  },
+  {
+   "id": 1184,
+   "topic": 19,
+   "tr": "gerçek olmak",
+   "uz": "ro‘yobga chiqmoq",
+   "example_tr": "Onun hayali gerçek oluyor.",
+   "example_uz": "Uning orzusi ro‘yobga chiqyapti.",
+   "concept": 1184
+  },
+  {
+   "id": 1185,
+   "topic": 19,
+   "tr": "hadi",
+   "uz": "qani, tezroq",
+   "example_tr": "Hadi, otobüs geliyor!",
+   "example_uz": "Qani, avtobus kelyapti!",
+   "concept": 1185
+  },
+  {
+   "id": 1186,
+   "topic": 20,
+   "tr": "uyarı",
+   "uz": "ogohlantirish",
+   "example_tr": "Öğretmen bir uyarı yapıyor.",
+   "example_uz": "O‘qituvchi ogohlantirish beryapti.",
+   "concept": 1186
+  },
+  {
+   "id": 1187,
+   "topic": 20,
+   "tr": "tehlike",
+   "uz": "xavf",
+   "example_tr": "İşaret tehlikeyi gösteriyor.",
+   "example_uz": "Belgi xavfni ko‘rsatyapti.",
+   "concept": 1187
+  },
+  {
+   "id": 1188,
+   "topic": 20,
+   "tr": "tehlikeli",
+   "uz": "xavfli",
+   "example_tr": "O tehlikeli bir yolda araba sürmüyor.",
+   "example_uz": "U xavfli yo‘lda mashina haydamayapti.",
+   "concept": 1188
+  },
+  {
+   "id": 1189,
+   "topic": 20,
+   "tr": "dikkat etmek",
+   "uz": "ehtiyot bo‘lmoq",
+   "example_tr": "Levhada şöyle yazıyor: “Dikkat, köpek var!”",
+   "example_uz": "Lavhada yozilgan: «Ehtiyot bo‘ling, yovuz it!»",
+   "concept": 1189
+  },
+  {
+   "id": 1190,
+   "topic": 20,
+   "tr": "dikkat",
+   "uz": "diqqat",
+   "example_tr": "Dikkat! Tren geliyor.",
+   "example_uz": "Diqqat! Poyezd kelyapti.",
+   "concept": 1190
+  },
+  {
+   "id": 1191,
+   "topic": 20,
+   "tr": "çıkış",
+   "uz": "chiqish",
+   "example_tr": "Onlar çıkışa mı koşuyor?",
+   "example_uz": "Ular chiqishga qarab yuguryaptimi?",
+   "concept": 1191
+  },
+  {
+   "id": 1192,
+   "topic": 20,
+   "tr": "yavaşlamak",
+   "uz": "tezlikni pasaytirmoq",
+   "example_tr": "Araba yavaşlamıyor.",
+   "example_uz": "Mashina tezligini pasaytirmayapti.",
+   "concept": 1192
+  },
+  {
+   "id": 1193,
+   "topic": 20,
+   "tr": "dokunma",
+   "uz": "tegma",
+   "example_tr": "Annem diyor ki: “Dokunma…”",
+   "example_uz": "Oyim aytyapti: «Tegma…»",
+   "concept": 1193
+  },
+  {
+   "id": 1194,
+   "topic": 20,
+   "tr": "girmeyin",
+   "uz": "kirish mumkin emas",
+   "example_tr": "O “Girmeyin” yazısını mı okuyor?",
+   "example_uz": "U «Kirish mumkin emas» degan so‘zlarni o‘qiyaptimi?",
+   "concept": 1194
+  },
+  {
+   "id": 1195,
+   "topic": 20,
+   "tr": "giriş yasak",
+   "uz": "kirish taqiqlangan",
+   "example_tr": "Tom “Giriş yasak” levhasına bakıyor.",
+   "example_uz": "Tom «Kirish taqiqlangan» belgisiga qarayapti.",
+   "concept": 1195
+  },
+  {
+   "id": 1196,
+   "topic": 20,
+   "tr": "sigara içilmez",
+   "uz": "chekish mumkin emas",
+   "example_tr": "O “Sigara içilmez” levhasını okumuyor.",
+   "example_uz": "U «Chekish mumkin emas» belgisini o‘qimayapti.",
+   "concept": 1196
+  },
+  {
+   "id": 1197,
+   "topic": 20,
+   "tr": "ıslak zemin",
+   "uz": "ho‘l pol",
+   "example_tr": "Çocuklar ıslak zeminde koşuyor.",
+   "example_uz": "Bolalar ho‘l polda yuguryapti.",
+   "concept": 1197
+  },
+  {
+   "id": 1198,
+   "topic": 20,
+   "tr": "yangın",
+   "uz": "yong‘in",
+   "example_tr": "İnsanlar yangından kaçıyor.",
+   "example_uz": "Odamlar yong‘indan qochyapti.",
+   "concept": 1198
+  },
+  {
+   "id": 1199,
+   "topic": 20,
+   "tr": "acil durum",
+   "uz": "favqulodda holat",
+   "example_tr": "Onlar acil bir durum için aramıyor.",
+   "example_uz": "Ular favqulodda holat yuzasidan qo‘ng‘iroq qilmayapti.",
+   "concept": 1199
+  },
+  {
+   "id": 1200,
+   "topic": 20,
+   "tr": "korumak",
+   "uz": "himoya qilmoq",
+   "example_tr": "Köpek evi koruyor.",
+   "example_uz": "It uyni qo‘riqlayapti.",
+   "concept": 1200
+  }
+ ]
+}

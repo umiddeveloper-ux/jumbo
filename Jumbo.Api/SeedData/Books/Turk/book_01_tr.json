@@ -1,0 +1,2940 @@
+{
+ "metadata": {
+  "book": 1,
+  "level": "A1",
+  "language": "tr",
+  "word_count": 300,
+  "id_range": [
+   1,
+   300
+  ],
+  "new_words": 3,
+  "schema": [
+   "id",
+   "topic",
+   "tr",
+   "uz",
+   "example_tr",
+   "example_uz",
+   "concept",
+   "new"
+  ]
+ },
+ "topics": [
+  {
+   "tr": "Merhaba ve Hoşça Kal",
+   "uz": "Salom va xayr"
+  },
+  {
+   "tr": "Zamirler",
+   "uz": "Olmoshlar"
+  },
+  {
+   "tr": "Aile",
+   "uz": "Oila"
+  },
+  {
+   "tr": "İnsanlar",
+   "uz": "Odamlar"
+  },
+  {
+   "tr": "Vücut",
+   "uz": "Tana"
+  },
+  {
+   "tr": "Evcil Hayvanlar",
+   "uz": "Uy hayvonlari"
+  },
+  {
+   "tr": "Renkler",
+   "uz": "Ranglar"
+  },
+  {
+   "tr": "Sayılar",
+   "uz": "Sonlar"
+  },
+  {
+   "tr": "Kıyafetler",
+   "uz": "Kiyim-kechak"
+  },
+  {
+   "tr": "Meyveler",
+   "uz": "Mevalar"
+  },
+  {
+   "tr": "Günler / Takvim",
+   "uz": "Kunlar va taqvim"
+  },
+  {
+   "tr": "Dış Görünüş",
+   "uz": "Tashqi ko‘rinish"
+  },
+  {
+   "tr": "Yiyecekler",
+   "uz": "Ovqat"
+  },
+  {
+   "tr": "İçecekler",
+   "uz": "Ichimliklar"
+  },
+  {
+   "tr": "Yatak Odası",
+   "uz": "Yotoqxona"
+  },
+  {
+   "tr": "Banyo",
+   "uz": "Hammom"
+  },
+  {
+   "tr": "Aylar",
+   "uz": "Oylar"
+  },
+  {
+   "tr": "Sınıf",
+   "uz": "Sinf"
+  },
+  {
+   "tr": "Sayılar 2",
+   "uz": "Sonlar 2"
+  },
+  {
+   "tr": "Sporlar",
+   "uz": "Sport"
+  }
+ ],
+ "words": [
+  {
+   "id": 1,
+   "topic": 1,
+   "tr": "merhaba",
+   "uz": "salom",
+   "example_tr": "Merhaba! Ben Tom.",
+   "example_uz": "Salom! Men Tomman.",
+   "concept": 1
+  },
+  {
+   "id": 2,
+   "topic": 1,
+   "tr": "selam",
+   "uz": "salom (Norasmiy)",
+   "example_tr": "Selam, nasılsın?",
+   "example_uz": "Salom, ishlaring qalay?",
+   "concept": 2
+  },
+  {
+   "id": 3,
+   "topic": 1,
+   "tr": "hoşça kal",
+   "uz": "xayr",
+   "example_tr": "Hoşça kalın, Bay Brown!",
+   "example_uz": "Xayr, mister Braun!",
+   "concept": 3
+  },
+  {
+   "id": 4,
+   "topic": 1,
+   "tr": "görüşürüz",
+   "uz": "xayr (norasmiy)",
+   "example_tr": "Hoşça kal, yarın görüşürüz.",
+   "example_uz": "Xayr, ertaga ko‘rishamiz.",
+   "concept": 4
+  },
+  {
+   "id": 5,
+   "topic": 1,
+   "tr": "hoş geldiniz",
+   "uz": "xush kelibsiz",
+   "example_tr": "Sınıfımıza hoş geldiniz!",
+   "example_uz": "Sinfimizga xush kelibsiz!",
+   "concept": 5
+  },
+  {
+   "id": 6,
+   "topic": 1,
+   "tr": "lütfen",
+   "uz": "iltimos",
+   "example_tr": "Bana bir kalem ver, lütfen.",
+   "example_uz": "Menga ruchka bering, iltimos.",
+   "concept": 6
+  },
+  {
+   "id": 7,
+   "topic": 1,
+   "tr": "teşekkürler",
+   "uz": "rahmat",
+   "example_tr": "Yardımın için teşekkürler!",
+   "example_uz": "Yordamingiz uchun rahmat!",
+   "concept": 7
+  },
+  {
+   "id": 8,
+   "topic": 1,
+   "tr": "özür dilerim",
+   "uz": "kechirasiz",
+   "example_tr": "Özür dilerim, geç kaldım.",
+   "example_uz": "Kechirasiz, men kechikdim.",
+   "concept": 8
+  },
+  {
+   "id": 9,
+   "topic": 1,
+   "tr": "tanışmak",
+   "uz": "Tanishmoq, uchratmoq",
+   "example_tr": "Tanıştığımıza memnun oldum!",
+   "example_uz": "Tanishganimdan xursandman!",
+   "concept": 9
+  },
+  {
+   "id": 10,
+   "topic": 1,
+   "tr": "günaydın",
+   "uz": "xayrli tong",
+   "example_tr": "Günaydın, çocuklar!",
+   "example_uz": "Xayrli tong, bolalar!",
+   "concept": 10
+  },
+  {
+   "id": 11,
+   "topic": 1,
+   "tr": "iyi günler",
+   "uz": "xayrli kun",
+   "example_tr": "İyi günler, Kate!",
+   "example_uz": "Xayrli kun, Keyt!",
+   "concept": 11
+  },
+  {
+   "id": 12,
+   "topic": 1,
+   "tr": "iyi akşamlar",
+   "uz": "xayrli kech",
+   "example_tr": "İyi akşamlar, arkadaşlarım!",
+   "example_uz": "Xayrli kech, do‘stlarim!",
+   "concept": 12
+  },
+  {
+   "id": 13,
+   "topic": 1,
+   "tr": "iyi geceler",
+   "uz": "xayrli tun",
+   "example_tr": "İyi geceler, Anna!",
+   "example_uz": "Xayrli tun, Anna!",
+   "concept": 13
+  },
+  {
+   "id": 14,
+   "topic": 1,
+   "tr": "evet",
+   "uz": "ha",
+   "example_tr": "Evet, bu benim kitabım.",
+   "example_uz": "Ha, bu mening kitobim.",
+   "concept": 14
+  },
+  {
+   "id": 15,
+   "topic": 1,
+   "tr": "hayır",
+   "uz": "yo‘q",
+   "example_tr": "Hayır, o burada değil.",
+   "example_uz": "Yo‘q, u bu yerda emas.",
+   "concept": 15
+  },
+  {
+   "id": 16,
+   "topic": 2,
+   "tr": "ben",
+   "uz": "men",
+   "example_tr": "Ben öğrenciyim.",
+   "example_uz": "Men o‘quvchiman.",
+   "concept": 16
+  },
+  {
+   "id": 17,
+   "topic": 2,
+   "tr": "sen, siz",
+   "uz": "sen, siz",
+   "example_tr": "Sen benim arkadaşımsın.",
+   "example_uz": "Sen mening do‘stimsan.",
+   "concept": 17
+  },
+  {
+   "id": 18,
+   "topic": 2,
+   "tr": "o (erkek)",
+   "uz": "u (o‘g‘il bola, erkak)",
+   "example_tr": "O bir erkek çocuk.",
+   "example_uz": "U o‘g‘il bola.",
+   "concept": 18
+  },
+  {
+   "id": 19,
+   "topic": 2,
+   "tr": "o (kadın)",
+   "uz": "u (qiz bola, ayol)",
+   "example_tr": "O bir kız.",
+   "example_uz": "U qiz bola.",
+   "concept": 19
+  },
+  {
+   "id": 20,
+   "topic": 2,
+   "tr": "o, bu (eşya, hayvan)",
+   "uz": "u, bu (narsa, hayvon)",
+   "example_tr": "Bu bir kedi.",
+   "example_uz": "Bu mushuk.",
+   "concept": 20
+  },
+  {
+   "id": 21,
+   "topic": 2,
+   "tr": "biz",
+   "uz": "biz",
+   "example_tr": "Biz evdeyiz.",
+   "example_uz": "Biz uydamiz.",
+   "concept": 21
+  },
+  {
+   "id": 22,
+   "topic": 2,
+   "tr": "onlar",
+   "uz": "ular",
+   "example_tr": "Onlar öğrenci.",
+   "example_uz": "Ular o‘quvchilar.",
+   "concept": 22
+  },
+  {
+   "id": 23,
+   "topic": 2,
+   "tr": "benim",
+   "uz": "mening",
+   "example_tr": "Benim babam uzun boylu.",
+   "example_uz": "Dadam baland bo‘yli.",
+   "concept": 23
+  },
+  {
+   "id": 24,
+   "topic": 2,
+   "tr": "senin, sizin",
+   "uz": "sening, sizning",
+   "example_tr": "Senin kitabın burada.",
+   "example_uz": "Sening kitobing shu yerda.",
+   "concept": 24
+  },
+  {
+   "id": 25,
+   "topic": 2,
+   "tr": "onun (erkek)",
+   "uz": "uning (erkak)",
+   "example_tr": "Onun saçı kısa.",
+   "example_uz": "Uning sochi kalta.",
+   "concept": 25
+  },
+  {
+   "id": 26,
+   "topic": 2,
+   "tr": "onun (kadın)",
+   "uz": "uning (ayol)",
+   "example_tr": "Onun elbisesi güzel.",
+   "example_uz": "Uning ko‘ylagi chiroyli.",
+   "concept": 26
+  },
+  {
+   "id": 27,
+   "topic": 2,
+   "tr": "bizim",
+   "uz": "bizning",
+   "example_tr": "Bizim evimiz büyük.",
+   "example_uz": "Bizning uyimiz katta.",
+   "concept": 27
+  },
+  {
+   "id": 28,
+   "topic": 2,
+   "tr": "onların",
+   "uz": "ularning",
+   "example_tr": "Onların çocukları küçük.",
+   "example_uz": "Ularning bolalari yosh.",
+   "concept": 28
+  },
+  {
+   "id": 29,
+   "topic": 2,
+   "tr": "bu",
+   "uz": "bu",
+   "example_tr": "Bu benim defterim.",
+   "example_uz": "Bu mening daftarim.",
+   "concept": 29
+  },
+  {
+   "id": 30,
+   "topic": 2,
+   "tr": "şu, o",
+   "uz": "ana u, o‘sha",
+   "example_tr": "Şu adam yaşlı.",
+   "example_uz": "Ana u–– kishi qari.",
+   "concept": 30
+  },
+  {
+   "id": 31,
+   "topic": 3,
+   "tr": "baba",
+   "uz": "dada, ota",
+   "example_tr": "Babam evde.",
+   "example_uz": "Dadam uyda.",
+   "concept": 31
+  },
+  {
+   "id": 32,
+   "topic": 3,
+   "tr": "anne",
+   "uz": "oyi, ona",
+   "example_tr": "Annem çorba yapıyor.",
+   "example_uz": "Oyim sho‘rva pishiradi.",
+   "concept": 32
+  },
+  {
+   "id": 33,
+   "topic": 3,
+   "tr": "oğul",
+   "uz": "O‘g‘il (farzand)",
+   "example_tr": "Onların oğlu on yaşında.",
+   "example_uz": "Ularning o‘g‘li o‘n yoshda.",
+   "concept": 33
+  },
+  {
+   "id": 34,
+   "topic": 3,
+   "tr": "kız (evlat)",
+   "uz": "qiz (farzand)",
+   "example_tr": "Onun kızı küçük.",
+   "example_uz": "Uning qizi kichkina.",
+   "concept": 34
+  },
+  {
+   "id": 35,
+   "topic": 3,
+   "tr": "erkek kardeş, ağabey",
+   "uz": "aka, uka",
+   "example_tr": "Benim bir ağabeyim var.",
+   "example_uz": "Mening bitta akam bor.",
+   "concept": 35
+  },
+  {
+   "id": 36,
+   "topic": 3,
+   "tr": "kız kardeş, abla",
+   "uz": "opa, singil",
+   "example_tr": "Onun bir kız kardeşi var.",
+   "example_uz": "Uning singlisi bor.",
+   "concept": 36
+  },
+  {
+   "id": 37,
+   "topic": 3,
+   "tr": "koca, eş",
+   "uz": "er",
+   "example_tr": "Anna’nın kocası genç.",
+   "example_uz": "Annaning eri yosh.",
+   "concept": 37
+  },
+  {
+   "id": 38,
+   "topic": 3,
+   "tr": "eş, karı",
+   "uz": "xotin, rafiqa",
+   "example_tr": "Benim eşim güzel.",
+   "example_uz": "Mening rafiqam chiroyli.",
+   "concept": 38
+  },
+  {
+   "id": 39,
+   "topic": 3,
+   "tr": "çocuklar",
+   "uz": "bolalar",
+   "example_tr": "Senin çocukların mutlu.",
+   "example_uz": "Sening bolalaring baxtli.",
+   "concept": 39
+  },
+  {
+   "id": 40,
+   "topic": 3,
+   "tr": "anne baba",
+   "uz": "ota-ona",
+   "example_tr": "Biz anne babamızla yaşıyoruz.",
+   "example_uz": "Biz ota-onamiz bilan yashaymiz.",
+   "concept": 40
+  },
+  {
+   "id": 41,
+   "topic": 3,
+   "tr": "büyükanne",
+   "uz": "buvi",
+   "example_tr": "Onun büyükannesi ekmek yapıyor.",
+   "example_uz": "Uning buvisi non yopadi.",
+   "concept": 41
+  },
+  {
+   "id": 42,
+   "topic": 3,
+   "tr": "dede",
+   "uz": "bobo",
+   "example_tr": "Dedemin saçları beyaz.",
+   "example_uz": "Bobomning sochi oq.",
+   "concept": 42
+  },
+  {
+   "id": 43,
+   "topic": 3,
+   "tr": "amca, dayı",
+   "uz": "amaki, tog‘a",
+   "example_tr": "Amcamın ailesi büyük.",
+   "example_uz": "Amakimning oilasi katta.",
+   "concept": 43
+  },
+  {
+   "id": 44,
+   "topic": 3,
+   "tr": "teyze, hala",
+   "uz": "xola, amma",
+   "example_tr": "Teyzenin ailesi küçük.",
+   "example_uz": "Xolangning oilasi kichkina.",
+   "concept": 44
+  },
+  {
+   "id": 45,
+   "topic": 3,
+   "tr": "kuzen",
+   "uz": "amakivachcha, xolavachcha",
+   "example_tr": "Onun kuzeni mutlu.",
+   "example_uz": "Uning amakivachchasi baxtli.",
+   "concept": 45
+  },
+  {
+   "id": 46,
+   "topic": 4,
+   "tr": "adam, erkek",
+   "uz": "erkak, kishi",
+   "example_tr": "Şu adam benim komşum.",
+   "example_uz": "O‘sha kishi — mening qo‘shnim.",
+   "concept": 46
+  },
+  {
+   "id": 47,
+   "topic": 4,
+   "tr": "kadın",
+   "uz": "ayol",
+   "example_tr": "Bu kadın benim annem.",
+   "example_uz": "Bu ayol — mening oyim.",
+   "concept": 47
+  },
+  {
+   "id": 48,
+   "topic": 4,
+   "tr": "oğlan, erkek çocuk",
+   "uz": "o‘g‘il bola",
+   "example_tr": "Oğlanın bir kepi var.",
+   "example_uz": "O‘g‘il bolaning kepkasi bor.",
+   "concept": 48
+  },
+  {
+   "id": 49,
+   "topic": 4,
+   "tr": "kız",
+   "uz": "qiz bola",
+   "example_tr": "O mutlu bir kız.",
+   "example_uz": "U baxtli qiz.",
+   "concept": 49
+  },
+  {
+   "id": 50,
+   "topic": 4,
+   "tr": "ad, isim",
+   "uz": "ism",
+   "example_tr": "Senin adın ne?",
+   "example_uz": "Isming nima?",
+   "concept": 50
+  },
+  {
+   "id": 51,
+   "topic": 4,
+   "tr": "arkadaş",
+   "uz": "do‘st",
+   "example_tr": "Tom benim arkadaşım.",
+   "example_uz": "Tom — mening do‘stim.",
+   "concept": 51
+  },
+  {
+   "id": 52,
+   "topic": 4,
+   "tr": "kişi, insan",
+   "uz": "odam, inson",
+   "example_tr": "O mutlu bir insan.",
+   "example_uz": "U baxtli inson.",
+   "concept": 52
+  },
+  {
+   "id": 53,
+   "topic": 4,
+   "tr": "insanlar",
+   "uz": "odamlar",
+   "example_tr": "Burada çok insan yaşıyor.",
+   "example_uz": "Bu yerda ko‘p odamlar yashaydi.",
+   "concept": 53
+  },
+  {
+   "id": 54,
+   "topic": 4,
+   "tr": "bebek",
+   "uz": "chaqaloq",
+   "example_tr": "Bebek çok uyuyor.",
+   "example_uz": "Chaqaloq ko‘p uxlaydi.",
+   "concept": 54
+  },
+  {
+   "id": 55,
+   "topic": 4,
+   "tr": "yetişkin",
+   "uz": "katta yoshli odam",
+   "example_tr": "Yetişkin, çocuk değil.",
+   "example_uz": "Katta yoshli odam — bola emas.",
+   "concept": 55
+  },
+  {
+   "id": 56,
+   "topic": 4,
+   "tr": "ergen",
+   "uz": "o‘smir",
+   "example_tr": "Onun oğlu ergen.",
+   "example_uz": "Uning o‘g‘li — o‘smir.",
+   "concept": 56
+  },
+  {
+   "id": 57,
+   "topic": 4,
+   "tr": "Bay",
+   "uz": "mister, janob",
+   "example_tr": "Bay Brown’un evi büyük.",
+   "example_uz": "Mister Braunning uyi katta.",
+   "concept": 57
+  },
+  {
+   "id": 58,
+   "topic": 4,
+   "tr": "Bayan",
+   "uz": "missis, xonim",
+   "example_tr": "Bayan Brown güzel.",
+   "example_uz": "Missis Braun chiroyli.",
+   "concept": 58
+  },
+  {
+   "id": 59,
+   "topic": 4,
+   "tr": "Hanım",
+   "uz": "miss",
+   "example_tr": "Smith Hanım genç.",
+   "example_uz": "Miss Smit yosh.",
+   "concept": 59
+  },
+  {
+   "id": 60,
+   "topic": 4,
+   "tr": "komşu",
+   "uz": "qo‘shni",
+   "example_tr": "Onların komşusunun bir kedisi var.",
+   "example_uz": "Ularning qo‘shnisining mushugi bor.",
+   "concept": 60
+  },
+  {
+   "id": 61,
+   "topic": 5,
+   "tr": "baş",
+   "uz": "bosh",
+   "example_tr": "Bugün başım ağrıyor.",
+   "example_uz": "Bugun boshim og‘riyapti.",
+   "concept": 61
+  },
+  {
+   "id": 62,
+   "topic": 5,
+   "tr": "saç",
+   "uz": "soch",
+   "example_tr": "Onun saçı uzun.",
+   "example_uz": "Uning sochi uzun.",
+   "concept": 62
+  },
+  {
+   "id": 63,
+   "topic": 5,
+   "tr": "yüz",
+   "uz": "yuz",
+   "example_tr": "O yüzünü yıkıyor.",
+   "example_uz": "U yuzini yuvadi.",
+   "concept": 63
+  },
+  {
+   "id": 64,
+   "topic": 5,
+   "tr": "gözler",
+   "uz": "ko‘zlar",
+   "example_tr": "Onun gözleri kahverengi.",
+   "example_uz": "Uning ko‘zlari jigarrang.",
+   "concept": 64
+  },
+  {
+   "id": 65,
+   "topic": 5,
+   "tr": "kulak",
+   "uz": "quloq",
+   "example_tr": "Tavşanın kulakları uzun.",
+   "example_uz": "Quyonning qulog‘lari uzun.",
+   "concept": 65
+  },
+  {
+   "id": 66,
+   "topic": 5,
+   "tr": "burun",
+   "uz": "burun",
+   "example_tr": "Kedimizin burnu pembe.",
+   "example_uz": "Mushugimizning burni pushti.",
+   "concept": 66
+  },
+  {
+   "id": 67,
+   "topic": 5,
+   "tr": "ağız",
+   "uz": "og‘iz",
+   "example_tr": "Ağzını aç, lütfen.",
+   "example_uz": "Og‘zingizni oching, iltimos.",
+   "concept": 67
+  },
+  {
+   "id": 68,
+   "topic": 5,
+   "tr": "diş, dişler",
+   "uz": "tish, tishlar",
+   "example_tr": "Çocukların dişleri bembeyaz.",
+   "example_uz": "Bolalarning tishlari oppoq.",
+   "concept": 68
+  },
+  {
+   "id": 69,
+   "topic": 5,
+   "tr": "boyun",
+   "uz": "bo‘yin",
+   "example_tr": "Devenin boynu uzun.",
+   "example_uz": "Tuyaning bo‘yni uzun.",
+   "concept": 69
+  },
+  {
+   "id": 70,
+   "topic": 5,
+   "tr": "el",
+   "uz": "qo‘l (bilak)",
+   "example_tr": "Ellerimi yıkıyorum.",
+   "example_uz": "Men qo‘llarimni yuvaman.",
+   "concept": 70
+  },
+  {
+   "id": 71,
+   "topic": 5,
+   "tr": "kol",
+   "uz": "qo‘l (yelkadan)",
+   "example_tr": "Tom’un kolları güçlü.",
+   "example_uz": "Tomning qo‘llari kuchli.",
+   "concept": 71
+  },
+  {
+   "id": 72,
+   "topic": 5,
+   "tr": "bacak",
+   "uz": "Oyoq",
+   "example_tr": "Kedinin dört bacağı var.",
+   "example_uz": "Mushukning to‘rtta oyog‘i bor.",
+   "concept": 72
+  },
+  {
+   "id": 73,
+   "topic": 5,
+   "tr": "ayak",
+   "uz": "oyoq panjasi",
+   "example_tr": "Bizim iki ayağımız var.",
+   "example_uz": "Bizning ikkita oyoq panjamiz bor.",
+   "concept": 73
+  },
+  {
+   "id": 74,
+   "topic": 5,
+   "tr": "parmak",
+   "uz": "barmoq",
+   "example_tr": "Beş parmağı sayabilirsin.",
+   "example_uz": "Sen beshta barmoqni sanay olasan.",
+   "concept": 74
+  },
+  {
+   "id": 75,
+   "topic": 5,
+   "tr": "vücut",
+   "uz": "Tana",
+   "example_tr": "Vücuda su lazım.",
+   "example_uz": "Tanaga suv kerak.",
+   "concept": 75
+  },
+  {
+   "id": 76,
+   "topic": 6,
+   "tr": "köpek",
+   "uz": "it",
+   "example_tr": "Benim köpeğim siyah.",
+   "example_uz": "Mening itim qora.",
+   "concept": 76
+  },
+  {
+   "id": 77,
+   "topic": 6,
+   "tr": "kedi",
+   "uz": "mushuk",
+   "example_tr": "Onun kedisi burada uyuyor.",
+   "example_uz": "Uning mushugi shu yerda uxlaydi.",
+   "concept": 77
+  },
+  {
+   "id": 78,
+   "topic": 6,
+   "tr": "inek",
+   "uz": "sigir",
+   "example_tr": "İnek süt veriyor.",
+   "example_uz": "Sigir sut beradi.",
+   "concept": 78
+  },
+  {
+   "id": 79,
+   "topic": 6,
+   "tr": "at",
+   "uz": "ot",
+   "example_tr": "Bu at güçlü.",
+   "example_uz": "Bu ot kuchli.",
+   "concept": 79
+  },
+  {
+   "id": 80,
+   "topic": 6,
+   "tr": "koyun",
+   "uz": "qo‘y",
+   "example_tr": "Koyunlar beyaz.",
+   "example_uz": "Qo‘ylar oq.",
+   "concept": 80
+  },
+  {
+   "id": 81,
+   "topic": 6,
+   "tr": "keçi",
+   "uz": "echki",
+   "example_tr": "Bizim keçimiz küçük.",
+   "example_uz": "Bizning echkimiz qora.",
+   "concept": 81
+  },
+  {
+   "id": 82,
+   "topic": 6,
+   "tr": "tavuk",
+   "uz": "tovuq",
+   "example_tr": "Benim on tavuğum var.",
+   "example_uz": "Mening o‘nta tovug‘im bor.",
+   "concept": 82
+  },
+  {
+   "id": 83,
+   "topic": 6,
+   "tr": "ördek",
+   "uz": "o‘rdak",
+   "example_tr": "Ördek suda.",
+   "example_uz": "O‘rdak suvda.",
+   "concept": 83
+  },
+  {
+   "id": 84,
+   "topic": 6,
+   "tr": "kaz",
+   "uz": "g‘oz",
+   "example_tr": "Şu kaz büyük.",
+   "example_uz": "O‘sha g‘oz katta.",
+   "concept": 84
+  },
+  {
+   "id": 85,
+   "topic": 6,
+   "tr": "tavşan",
+   "uz": "quyon",
+   "example_tr": "Onun tavşanı gri.",
+   "example_uz": "Uning quyoni kulrang.",
+   "concept": 85
+  },
+  {
+   "id": 86,
+   "topic": 6,
+   "tr": "boğa",
+   "uz": "buqa",
+   "example_tr": "Boğa çok güçlü.",
+   "example_uz": "Buqa juda kuchli.",
+   "concept": 86
+  },
+  {
+   "id": 87,
+   "topic": 6,
+   "tr": "eşek",
+   "uz": "eshak",
+   "example_tr": "Onların bir eşeği var.",
+   "example_uz": "Ularning eshagi bor.",
+   "concept": 87
+  },
+  {
+   "id": 88,
+   "topic": 6,
+   "tr": "horoz",
+   "uz": "xo‘roz",
+   "example_tr": "Horoz kırmızı.",
+   "example_uz": "Xo‘roz malla rangda.",
+   "concept": 88
+  },
+  {
+   "id": 89,
+   "topic": 6,
+   "tr": "deve",
+   "uz": "tuya",
+   "example_tr": "Deve su içiyor.",
+   "example_uz": "Tuya ko‘p suv ichadi.",
+   "concept": 89
+  },
+  {
+   "id": 90,
+   "topic": 6,
+   "tr": "hindi",
+   "uz": "kurka",
+   "example_tr": "Bizim bir hindimiz var.",
+   "example_uz": "Bizning kurkamiz bor.",
+   "concept": 90
+  },
+  {
+   "id": 91,
+   "topic": 7,
+   "tr": "kırmızı",
+   "uz": "qizil",
+   "example_tr": "Benim elmam kırmızı.",
+   "example_uz": "Mening olmam qizil.",
+   "concept": 91
+  },
+  {
+   "id": 92,
+   "topic": 7,
+   "tr": "yeşil",
+   "uz": "yashil",
+   "example_tr": "Şu fincan yeşil.",
+   "example_uz": "O‘sha piyola yashil.",
+   "concept": 92
+  },
+  {
+   "id": 93,
+   "topic": 7,
+   "tr": "sarı",
+   "uz": "sariq",
+   "example_tr": "Bizim limonumuz sarı.",
+   "example_uz": "Bizning limonimiz sariq.",
+   "concept": 93
+  },
+  {
+   "id": 94,
+   "topic": 7,
+   "tr": "siyah",
+   "uz": "qora",
+   "example_tr": "Benim siyah ayakkabılarım var.",
+   "example_uz": "Mening qora tuflim bor.",
+   "concept": 94
+  },
+  {
+   "id": 95,
+   "topic": 7,
+   "tr": "beyaz",
+   "uz": "oq",
+   "example_tr": "Süt beyaz.",
+   "example_uz": "Sut oq.",
+   "concept": 95
+  },
+  {
+   "id": 96,
+   "topic": 7,
+   "tr": "turuncu",
+   "uz": "to‘q sariq",
+   "example_tr": "Onun atkısı turuncu.",
+   "example_uz": "Uning sharfi to‘q sariq.",
+   "concept": 96
+  },
+  {
+   "id": 97,
+   "topic": 7,
+   "tr": "pembe",
+   "uz": "pushti",
+   "example_tr": "Kate’in pembe bir eteği var.",
+   "example_uz": "Keytning pushti yubkasi bor.",
+   "concept": 97
+  },
+  {
+   "id": 98,
+   "topic": 7,
+   "tr": "mor",
+   "uz": "binafsha",
+   "example_tr": "Bu üzümler mor.",
+   "example_uz": "Bu uzum binafsha rangda.",
+   "concept": 98
+  },
+  {
+   "id": 99,
+   "topic": 7,
+   "tr": "kahverengi",
+   "uz": "jigarrang",
+   "example_tr": "Tom’un gözleri kahverengi.",
+   "example_uz": "Tomning ko‘zlari jigarrang.",
+   "concept": 99
+  },
+  {
+   "id": 100,
+   "topic": 7,
+   "tr": "gri",
+   "uz": "kulrang",
+   "example_tr": "Büyükannemin saçları gri.",
+   "example_uz": "Buvimning sochi kulrang.",
+   "concept": 100
+  },
+  {
+   "id": 101,
+   "topic": 7,
+   "tr": "altın rengi",
+   "uz": "tilla rang, oltin",
+   "example_tr": "Bu saat altın rengi.",
+   "example_uz": "Bu soat tilla rangda.",
+   "concept": 101
+  },
+  {
+   "id": 102,
+   "topic": 7,
+   "tr": "gümüş rengi",
+   "uz": "kumush rang",
+   "example_tr": "Onların aynası gümüş rengi.",
+   "example_uz": "Ularning oynasi kumush rangda.",
+   "concept": 102
+  },
+  {
+   "id": 103,
+   "topic": 7,
+   "tr": "açık mavi",
+   "uz": "havorang",
+   "example_tr": "Senin gömleğin açık mavi.",
+   "example_uz": "Sening ko‘ylaging havorang.",
+   "concept": 103
+  },
+  {
+   "id": 104,
+   "topic": 7,
+   "tr": "mavi",
+   "uz": "ko‘k",
+   "example_tr": "Onun paltosu mavi.",
+   "example_uz": "Uning paltosi to‘q ko‘k.",
+   "concept": 104
+  },
+  {
+   "id": 105,
+   "topic": 7,
+   "tr": "gökkuşağı",
+   "uz": "kamalak",
+   "example_tr": "Bugün gökyüzünde gökkuşağı var.",
+   "example_uz": "Bugun osmonda kamalak bor.",
+   "concept": 105
+  },
+  {
+   "id": 106,
+   "topic": 8,
+   "tr": "bir",
+   "uz": "bir",
+   "example_tr": "Benim bir ağabeyim var.",
+   "example_uz": "Mening bitta akam bor.",
+   "concept": 107,
+   "own": {
+    "example_en": "I have an older brother.",
+    "example_ru": "У меня есть старший брат."
+   }
+  },
+  {
+   "id": 107,
+   "topic": 8,
+   "tr": "iki",
+   "uz": "ikki",
+   "example_tr": "Onun iki çocuğu var.",
+   "example_uz": "Uning ikki farzandi bor.",
+   "concept": 108,
+   "own": {
+    "example_en": "He has two children.",
+    "example_ru": "У него двое детей."
+   }
+  },
+  {
+   "id": 108,
+   "topic": 8,
+   "tr": "üç",
+   "uz": "uch",
+   "example_tr": "Anna’nın üç elması var.",
+   "example_uz": "Annaning uchta olmasi bor.",
+   "concept": 109,
+   "own": {
+    "example_en": "Anna has three apples.",
+    "example_ru": "У Анны три яблока."
+   }
+  },
+  {
+   "id": 109,
+   "topic": 8,
+   "tr": "dört",
+   "uz": "to‘rt",
+   "example_tr": "Evimizde dört pencere var.",
+   "example_uz": "Uyimizda to‘rtta deraza bor.",
+   "concept": 110,
+   "own": {
+    "example_en": "Our house has four windows.",
+    "example_ru": "В нашем доме четыре окна."
+   }
+  },
+  {
+   "id": 110,
+   "topic": 8,
+   "tr": "beş",
+   "uz": "besh",
+   "example_tr": "Bizim beş dersimiz var.",
+   "example_uz": "Bizda beshta dars bor.",
+   "concept": 111,
+   "own": {
+    "example_en": "We have five lessons.",
+    "example_ru": "У нас пять уроков."
+   }
+  },
+  {
+   "id": 111,
+   "topic": 8,
+   "tr": "altı",
+   "uz": "olti",
+   "example_tr": "O altı yaşında.",
+   "example_uz": "U olti yoshda.",
+   "concept": 112,
+   "own": {
+    "example_en": "She is six years old.",
+    "example_ru": "Ей шесть лет."
+   }
+  },
+  {
+   "id": 112,
+   "topic": 8,
+   "tr": "yedi",
+   "uz": "yetti",
+   "example_tr": "Bir haftada yedi gün var.",
+   "example_uz": "Bir haftada yetti kun bor.",
+   "concept": 113,
+   "own": {
+    "example_en": "There are seven days in a week.",
+    "example_ru": "В неделе семь дней."
+   }
+  },
+  {
+   "id": 113,
+   "topic": 8,
+   "tr": "sekiz",
+   "uz": "sakkiz",
+   "example_tr": "Kız kardeşim sekiz yaşında.",
+   "example_uz": "Singlim sakkiz yoshda.",
+   "concept": 114,
+   "own": {
+    "example_en": "My sister is eight years old.",
+    "example_ru": "Моей сестре восемь лет."
+   }
+  },
+  {
+   "id": 114,
+   "topic": 8,
+   "tr": "dokuz",
+   "uz": "to‘qqiz",
+   "example_tr": "Onun oğlu dokuz yaşında.",
+   "example_uz": "Uning o‘g‘li to‘qqiz yoshda.",
+   "concept": 115,
+   "own": {
+    "example_en": "Her son is nine years old.",
+    "example_ru": "Её сыну девять лет."
+   }
+  },
+  {
+   "id": 115,
+   "topic": 8,
+   "tr": "on",
+   "uz": "o‘n",
+   "example_tr": "Kate’in on kitabı var.",
+   "example_uz": "Keytning o‘nta kitobi bor.",
+   "concept": 116,
+   "own": {
+    "example_en": "Kate has ten books.",
+    "example_ru": "У Кейт десять книг."
+   }
+  },
+  {
+   "id": 116,
+   "topic": 8,
+   "tr": "on bir",
+   "uz": "o‘n bir",
+   "example_tr": "Bu çocuk on bir yaşında.",
+   "example_uz": "Bu bola o‘n bir yoshda.",
+   "concept": 117,
+   "own": {
+    "example_en": "This child is eleven years old.",
+    "example_ru": "Этому ребёнку одиннадцать лет."
+   }
+  },
+  {
+   "id": 117,
+   "topic": 8,
+   "tr": "on iki",
+   "uz": "o‘n ikki",
+   "example_tr": "Bir yılda on iki ay var.",
+   "example_uz": "Bir yilda o‘n ikki oy bor.",
+   "concept": 118,
+   "own": {
+    "example_en": "There are twelve months in a year.",
+    "example_ru": "В году двенадцать месяцев."
+   }
+  },
+  {
+   "id": 118,
+   "topic": 8,
+   "tr": "on üç",
+   "uz": "o‘n uch",
+   "example_tr": "Ağabeyim on üç yaşında.",
+   "example_uz": "Akam o‘n uch yoshda.",
+   "concept": null,
+   "new": {
+    "en": "thirteen",
+    "ru": "тринадцать",
+    "example_en": "My brother is thirteen years old.",
+    "example_ru": "Моему брату тринадцать лет.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>on üç</text></svg>"
+   }
+  },
+  {
+   "id": 119,
+   "topic": 8,
+   "tr": "on dört",
+   "uz": "o‘n to‘rt",
+   "example_tr": "Çantamda on dört kurşun kalem var.",
+   "example_uz": "Sumkamda o‘n to‘rtta qalam bor.",
+   "concept": null,
+   "new": {
+    "en": "fourteen",
+    "ru": "четырнадцать",
+    "example_en": "I have fourteen pencils in my bag.",
+    "example_ru": "У меня в сумке четырнадцать карандашей.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='15' fill='#fff'>on dört</text></svg>"
+   }
+  },
+  {
+   "id": 120,
+   "topic": 8,
+   "tr": "on beş",
+   "uz": "o‘n besh",
+   "example_tr": "On beşe kadar sayabilirim.",
+   "example_uz": "Men o‘n beshgacha sanay olaman.",
+   "concept": null,
+   "new": {
+    "en": "fifteen",
+    "ru": "пятнадцать",
+    "example_en": "I can count to fifteen.",
+    "example_ru": "Я умею считать до пятнадцати.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#ed7476'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>on beş</text></svg>"
+   }
+  },
+  {
+   "id": 121,
+   "topic": 9,
+   "tr": "gömlek",
+   "uz": "ko‘ylak (erkaklar)",
+   "example_tr": "Benim gömleğim beyaz.",
+   "example_uz": "Mening ko‘ylagim oq.",
+   "concept": 121
+  },
+  {
+   "id": 122,
+   "topic": 9,
+   "tr": "giymek",
+   "uz": "kiymoq",
+   "example_tr": "Kışın palto giyiyorum.",
+   "example_uz": "Qishda men palto kiyaman.",
+   "concept": 122
+  },
+  {
+   "id": 123,
+   "topic": 9,
+   "tr": "pantolon",
+   "uz": "shim",
+   "example_tr": "Onun pantolonu siyah.",
+   "example_uz": "Uning shimi qora.",
+   "concept": 123
+  },
+  {
+   "id": 124,
+   "topic": 9,
+   "tr": "tişört",
+   "uz": "futbolka",
+   "example_tr": "Onun yeşil bir tişörtü var.",
+   "example_uz": "Uning yashil futbolkasi bor.",
+   "concept": 124
+  },
+  {
+   "id": 125,
+   "topic": 9,
+   "tr": "elbise",
+   "uz": "ko‘ylak (ayollar)",
+   "example_tr": "Onun elbisesi güzel.",
+   "example_uz": "Uning ko‘ylagi chiroyli.",
+   "concept": 125
+  },
+  {
+   "id": 126,
+   "topic": 9,
+   "tr": "etek",
+   "uz": "yubka",
+   "example_tr": "Kate’in uzun bir eteği var.",
+   "example_uz": "Keytning uzun yubkasi bor.",
+   "concept": 126
+  },
+  {
+   "id": 127,
+   "topic": 9,
+   "tr": "palto",
+   "uz": "palto",
+   "example_tr": "Senin palton burada.",
+   "example_uz": "Sening paltong shu yerda.",
+   "concept": 127
+  },
+  {
+   "id": 128,
+   "topic": 9,
+   "tr": "mont, ceket",
+   "uz": "kurtka",
+   "example_tr": "Tom’un kahverengi bir montu var.",
+   "example_uz": "Tomning jigarrang kurtkasi bor.",
+   "concept": 128
+  },
+  {
+   "id": 129,
+   "topic": 9,
+   "tr": "eldiven",
+   "uz": "qo‘lqop",
+   "example_tr": "Kışın çocuklar eldiven giyiyor.",
+   "example_uz": "Qishda bolalar qo‘lqop kiyadi.",
+   "concept": 129
+  },
+  {
+   "id": 130,
+   "topic": 9,
+   "tr": "ayakkabı",
+   "uz": "tufli, botinka (poyabzal)",
+   "example_tr": "Nick’in siyah ayakkabıları var.",
+   "example_uz": "Nikning qora tuflisi bor.",
+   "concept": 130
+  },
+  {
+   "id": 131,
+   "topic": 9,
+   "tr": "çorap",
+   "uz": "paypoq",
+   "example_tr": "Onun gri çorapları var.",
+   "example_uz": "Uning kulrang paypog‘i bor.",
+   "concept": 131
+  },
+  {
+   "id": 132,
+   "topic": 9,
+   "tr": "şapka",
+   "uz": "shlyapa, shapka",
+   "example_tr": "Şu şapka küçük.",
+   "example_uz": "O‘sha shlyapa kichkina.",
+   "concept": 132
+  },
+  {
+   "id": 133,
+   "topic": 9,
+   "tr": "kep",
+   "uz": "kepka",
+   "example_tr": "Sam kepini seviyor.",
+   "example_uz": "Semga kepkasi yoqadi.",
+   "concept": 133
+  },
+  {
+   "id": 134,
+   "topic": 9,
+   "tr": "şort",
+   "uz": "shortik",
+   "example_tr": "Onların kırmızı şortları var.",
+   "example_uz": "Ularning qizil shortiklari bor.",
+   "concept": 134
+  },
+  {
+   "id": 135,
+   "topic": 9,
+   "tr": "atkı",
+   "uz": "sharf",
+   "example_tr": "Bu atkı uzun.",
+   "example_uz": "Bu sharf uzun.",
+   "concept": 135
+  },
+  {
+   "id": 136,
+   "topic": 10,
+   "tr": "elma",
+   "uz": "olma",
+   "example_tr": "Ben elma yiyorum.",
+   "example_uz": "Men olma yeyman.",
+   "concept": 136
+  },
+  {
+   "id": 137,
+   "topic": 10,
+   "tr": "muz",
+   "uz": "banan",
+   "example_tr": "Sam muz yiyor.",
+   "example_uz": "Sem banan yeydi.",
+   "concept": 137
+  },
+  {
+   "id": 138,
+   "topic": 10,
+   "tr": "portakal",
+   "uz": "apelsin",
+   "example_tr": "Bu portakal tatlı.",
+   "example_uz": "Bu apelsin shirin.",
+   "concept": 138
+  },
+  {
+   "id": 139,
+   "topic": 10,
+   "tr": "limon",
+   "uz": "limon",
+   "example_tr": "O limonlu çayı seviyor.",
+   "example_uz": "U limonli choyni yaxshi ko‘radi.",
+   "concept": 139
+  },
+  {
+   "id": 140,
+   "topic": 10,
+   "tr": "üzüm",
+   "uz": "uzum",
+   "example_tr": "Bizim üzümümüz yeşil.",
+   "example_uz": "Bizning uzumimiz yashil.",
+   "concept": 140
+  },
+  {
+   "id": 141,
+   "topic": 10,
+   "tr": "çilek",
+   "uz": "qulupnay",
+   "example_tr": "Çocuklar çilekli pastayı çok seviyor.",
+   "example_uz": "Bolalar qulupnayli tortni juda yaxshi ko‘radi.",
+   "concept": 141
+  },
+  {
+   "id": 142,
+   "topic": 10,
+   "tr": "karpuz",
+   "uz": "tarvuz",
+   "example_tr": "Karpuz çok büyük.",
+   "example_uz": "Tarvuz juda katta.",
+   "concept": 142
+  },
+  {
+   "id": 143,
+   "topic": 10,
+   "tr": "kavun",
+   "uz": "qovun",
+   "example_tr": "Yazın kavun yiyebiliriz.",
+   "example_uz": "Yozda biz qovun yeya olamiz.",
+   "concept": 143
+  },
+  {
+   "id": 144,
+   "topic": 10,
+   "tr": "armut",
+   "uz": "nok",
+   "example_tr": "Anna’nın bir armudu var.",
+   "example_uz": "Annada nok bor.",
+   "concept": 144
+  },
+  {
+   "id": 145,
+   "topic": 10,
+   "tr": "şeftali",
+   "uz": "shaftoli",
+   "example_tr": "O şeftaliyi seviyor.",
+   "example_uz": "U shaftolini yaxshi ko‘radi.",
+   "concept": 145
+  },
+  {
+   "id": 146,
+   "topic": 10,
+   "tr": "erik",
+   "uz": "olxo‘ri",
+   "example_tr": "Büyükannem erik reçeli yapıyor.",
+   "example_uz": "Buvim olxo‘ri murabbosi qiladi.",
+   "concept": 146
+  },
+  {
+   "id": 147,
+   "topic": 10,
+   "tr": "vişne, kiraz",
+   "uz": "olcha, gilos",
+   "example_tr": "Kate vişne suyunu seviyor.",
+   "example_uz": "Keyt olcha sharbatini yaxshi ko‘radi.",
+   "concept": 147
+  },
+  {
+   "id": 148,
+   "topic": 10,
+   "tr": "ananas",
+   "uz": "ananas",
+   "example_tr": "Onların ananası sarı.",
+   "example_uz": "Ularning ananasi sariq.",
+   "concept": 148
+  },
+  {
+   "id": 149,
+   "topic": 10,
+   "tr": "mango",
+   "uz": "mango",
+   "example_tr": "Mango benim en sevdiğim meyve.",
+   "example_uz": "Mango — mening sevimli mevam.",
+   "concept": 149
+  },
+  {
+   "id": 150,
+   "topic": 10,
+   "tr": "kivi",
+   "uz": "kivi",
+   "example_tr": "Kivi yeşil.",
+   "example_uz": "Kivi yashil.",
+   "concept": 150
+  },
+  {
+   "id": 151,
+   "topic": 11,
+   "tr": "pazartesi",
+   "uz": "dushanba",
+   "example_tr": "Pazartesi günü müzik dersim var.",
+   "example_uz": "Dushanba kuni menda musiqa darsi bor.",
+   "concept": 151
+  },
+  {
+   "id": 152,
+   "topic": 11,
+   "tr": "salı",
+   "uz": "seshanba",
+   "example_tr": "Salı günü İngilizce dersimiz var.",
+   "example_uz": "Seshanba kuni bizda ingliz tili bor.",
+   "concept": 152
+  },
+  {
+   "id": 153,
+   "topic": 11,
+   "tr": "çarşamba",
+   "uz": "chorshanba",
+   "example_tr": "Onun dersi çarşamba günü.",
+   "example_uz": "Uning darsi chorshanba kuni.",
+   "concept": 153
+  },
+  {
+   "id": 154,
+   "topic": 11,
+   "tr": "perşembe",
+   "uz": "payshanba",
+   "example_tr": "Perşembe uzun bir gün.",
+   "example_uz": "Payshanba — uzun kun.",
+   "concept": 154
+  },
+  {
+   "id": 155,
+   "topic": 11,
+   "tr": "cuma",
+   "uz": "juma",
+   "example_tr": "Cuma benim en sevdiğim gün.",
+   "example_uz": "Juma — mening sevimli kunim.",
+   "concept": 155
+  },
+  {
+   "id": 156,
+   "topic": 11,
+   "tr": "cumartesi",
+   "uz": "shanba",
+   "example_tr": "Cumartesi günü çocuklar evde.",
+   "example_uz": "Shanba kuni bolalar uyda.",
+   "concept": 156
+  },
+  {
+   "id": 157,
+   "topic": 11,
+   "tr": "pazar",
+   "uz": "yakshanba",
+   "example_tr": "Pazar günü ailemiz evde.",
+   "example_uz": "Yakshanba kuni oilamiz uyda.",
+   "concept": 157
+  },
+  {
+   "id": 158,
+   "topic": 11,
+   "tr": "hafta",
+   "uz": "hafta",
+   "example_tr": "Bir haftada yedi gün var.",
+   "example_uz": "Bir haftada yetti kun bor.",
+   "concept": 158
+  },
+  {
+   "id": 159,
+   "topic": 11,
+   "tr": "ilkbahar",
+   "uz": "bahor",
+   "example_tr": "İlkbahar çok güzel.",
+   "example_uz": "Bahor juda chiroyli.",
+   "concept": 159
+  },
+  {
+   "id": 160,
+   "topic": 11,
+   "tr": "yaz",
+   "uz": "yoz",
+   "example_tr": "Kate yazı çok seviyor.",
+   "example_uz": "Keyt yozni juda yaxshi ko‘radi.",
+   "concept": 160
+  },
+  {
+   "id": 161,
+   "topic": 11,
+   "tr": "sonbahar",
+   "uz": "kuz",
+   "example_tr": "Sonbaharda elmalar kırmızı.",
+   "example_uz": "Kuzda olmalar qizil bo‘ladi.",
+   "concept": 161
+  },
+  {
+   "id": 162,
+   "topic": 11,
+   "tr": "kış",
+   "uz": "qish",
+   "example_tr": "Kışın çocuklar şapka giyiyor.",
+   "example_uz": "Qishda bolalar shapka kiyadi.",
+   "concept": 162
+  },
+  {
+   "id": 163,
+   "topic": 11,
+   "tr": "bugün",
+   "uz": "bugun",
+   "example_tr": "Bugün pazartesi.",
+   "example_uz": "Bugun dushanba.",
+   "concept": 163
+  },
+  {
+   "id": 164,
+   "topic": 11,
+   "tr": "yarın",
+   "uz": "ertaga",
+   "example_tr": "Yarın cumartesi.",
+   "example_uz": "Ertaga shanba.",
+   "concept": 164
+  },
+  {
+   "id": 165,
+   "topic": 11,
+   "tr": "dün",
+   "uz": "kecha",
+   "example_tr": "Dün pazardı.",
+   "example_uz": "Kecha yakshanba edi.",
+   "concept": 165
+  },
+  {
+   "id": 166,
+   "topic": 12,
+   "tr": "uzun boylu",
+   "uz": "baland bo‘yli",
+   "example_tr": "Ağabeyim uzun boylu.",
+   "example_uz": "Akam baland bo‘yli.",
+   "concept": 166
+  },
+  {
+   "id": 167,
+   "topic": 12,
+   "tr": "kısa boylu",
+   "uz": "past bo‘yli",
+   "example_tr": "Nick kısa boylu.",
+   "example_uz": "Nik past bo‘yli.",
+   "concept": 167
+  },
+  {
+   "id": 168,
+   "topic": 12,
+   "tr": "genç",
+   "uz": "yosh",
+   "example_tr": "Babamız genç.",
+   "example_uz": "Dadamiz yosh.",
+   "concept": 168
+  },
+  {
+   "id": 169,
+   "topic": 12,
+   "tr": "eski, yaşlı",
+   "uz": "eski, qari",
+   "example_tr": "Şu ev eski.",
+   "example_uz": "O‘sha uy eski.",
+   "concept": 169
+  },
+  {
+   "id": 170,
+   "topic": 12,
+   "tr": "güzel",
+   "uz": "go‘zal, chiroyli (ayol)",
+   "example_tr": "O çok güzel.",
+   "example_uz": "U juda go‘zal.",
+   "concept": 170
+  },
+  {
+   "id": 171,
+   "topic": 12,
+   "tr": "yakışıklı",
+   "uz": "kelishgan, chiroyli (erkak)",
+   "example_tr": "Ağabeyin yakışıklı.",
+   "example_uz": "Akang kelishgan.",
+   "concept": 171
+  },
+  {
+   "id": 172,
+   "topic": 12,
+   "tr": "sevimli",
+   "uz": "yoqimtoy, chiroyli",
+   "example_tr": "Anna sevimli bir kız.",
+   "example_uz": "Anna — yoqimtoy qiz.",
+   "concept": 172
+  },
+  {
+   "id": 173,
+   "topic": 12,
+   "tr": "düz",
+   "uz": "to‘g‘ri, tekis",
+   "example_tr": "Kate’in saçları düz.",
+   "example_uz": "Keytning sochi tekis.",
+   "concept": 173
+  },
+  {
+   "id": 174,
+   "topic": 12,
+   "tr": "zayıf",
+   "uz": "ozg‘in",
+   "example_tr": "Onun yüzü zayıf.",
+   "example_uz": "Uning yuzi ozg‘in.",
+   "concept": 174
+  },
+  {
+   "id": 175,
+   "topic": 12,
+   "tr": "şişman",
+   "uz": "semiz",
+   "example_tr": "Onların kedisi şişman.",
+   "example_uz": "Ularning mushugi semiz.",
+   "concept": 175
+  },
+  {
+   "id": 176,
+   "topic": 12,
+   "tr": "güçlü",
+   "uz": "kuchli",
+   "example_tr": "Ben güçlüyüm.",
+   "example_uz": "Men kuchliman.",
+   "concept": 176
+  },
+  {
+   "id": 177,
+   "topic": 12,
+   "tr": "güçsüz",
+   "uz": "kuchsiz, zaif",
+   "example_tr": "Dedem güçsüz.",
+   "example_uz": "Bobom zaif.",
+   "concept": 177
+  },
+  {
+   "id": 178,
+   "topic": 12,
+   "tr": "sarışın",
+   "uz": "sariq sochli",
+   "example_tr": "Sam’in kız kardeşi sarışın.",
+   "example_uz": "Semning singlisi sariq sochli.",
+   "concept": 178
+  },
+  {
+   "id": 179,
+   "topic": 12,
+   "tr": "kıvırcık",
+   "uz": "jingalak",
+   "example_tr": "Onun saçları kıvırcık.",
+   "example_uz": "Uning sochi jingalak.",
+   "concept": 179
+  },
+  {
+   "id": 180,
+   "topic": 12,
+   "tr": "benzemek",
+   "uz": "o‘xshamoq",
+   "example_tr": "O babasına benziyor.",
+   "example_uz": "U dadasiga o‘xshaydi.",
+   "concept": 180
+  },
+  {
+   "id": 181,
+   "topic": 13,
+   "tr": "ekmek",
+   "uz": "non",
+   "example_tr": "Bu ekmek taze.",
+   "example_uz": "Bu non yangi.",
+   "concept": 181
+  },
+  {
+   "id": 182,
+   "topic": 13,
+   "tr": "pirinç, pilav",
+   "uz": "guruch",
+   "example_tr": "Pilavı etle yiyoruz.",
+   "example_uz": "Biz guruchni go‘sht bilan yeymiz.",
+   "concept": 182
+  },
+  {
+   "id": 183,
+   "topic": 13,
+   "tr": "et",
+   "uz": "go‘sht",
+   "example_tr": "Tom eti seviyor.",
+   "example_uz": "Tom go‘shtni yaxshi ko‘radi.",
+   "concept": 183
+  },
+  {
+   "id": 184,
+   "topic": 13,
+   "tr": "balık",
+   "uz": "baliq",
+   "example_tr": "Kedimiz balığı çok seviyor.",
+   "example_uz": "Mushugimiz baliqni juda yaxshi ko‘radi.",
+   "concept": 184
+  },
+  {
+   "id": 185,
+   "topic": 13,
+   "tr": "yumurta",
+   "uz": "tuxum",
+   "example_tr": "Ben yumurta yiyorum.",
+   "example_uz": "Men tuxum yeyman.",
+   "concept": 185
+  },
+  {
+   "id": 186,
+   "topic": 13,
+   "tr": "peynir",
+   "uz": "pishloq",
+   "example_tr": "Kate peyniri seviyor.",
+   "example_uz": "Keyt pishloqni yaxshi ko‘radi.",
+   "concept": 186
+  },
+  {
+   "id": 187,
+   "topic": 13,
+   "tr": "çorba",
+   "uz": "sho‘rva",
+   "example_tr": "Annem çorba yapıyor.",
+   "example_uz": "Oyim sho‘rva pishiradi.",
+   "concept": 187
+  },
+  {
+   "id": 188,
+   "topic": 13,
+   "tr": "salata",
+   "uz": "salat",
+   "example_tr": "Onların salatası yeşil.",
+   "example_uz": "Ularning salati yashil.",
+   "concept": 188
+  },
+  {
+   "id": 189,
+   "topic": 13,
+   "tr": "tuz",
+   "uz": "tuz",
+   "example_tr": "Büyükannem çorbaya tuz koyuyor.",
+   "example_uz": "Buvim sho‘rvaga tuz soladi.",
+   "concept": 189
+  },
+  {
+   "id": 190,
+   "topic": 13,
+   "tr": "nefis",
+   "uz": "mazali",
+   "example_tr": "Çikolatalı pasta çok nefis!",
+   "example_uz": "Shokoladli tort juda mazali!",
+   "concept": 190
+  },
+  {
+   "id": 191,
+   "topic": 13,
+   "tr": "iğrenç",
+   "uz": "bemaza, yoqimsiz",
+   "example_tr": "Ekşi süt iğrenç.",
+   "example_uz": "Achigan sut — yoqimsiz.",
+   "concept": 191
+  },
+  {
+   "id": 192,
+   "topic": 13,
+   "tr": "çok lezzetli",
+   "uz": "juda mazali",
+   "example_tr": "Senin salatan çok lezzetli.",
+   "example_uz": "Sening salating juda mazali.",
+   "concept": 192
+  },
+  {
+   "id": 193,
+   "topic": 13,
+   "tr": "sağlıklı",
+   "uz": "foydali",
+   "example_tr": "Meyveler sağlıklı.",
+   "example_uz": "Mevalar foydali.",
+   "concept": 193
+  },
+  {
+   "id": 194,
+   "topic": 13,
+   "tr": "tereyağı",
+   "uz": "sariyog‘",
+   "example_tr": "Kız kardeşim ekmeği tereyağıyla yiyor.",
+   "example_uz": "Singlim nonni sariyog‘ bilan yeydi.",
+   "concept": 194
+  },
+  {
+   "id": 195,
+   "topic": 13,
+   "tr": "yemek yemek",
+   "uz": "yemoq, ovqatlanmoq",
+   "example_tr": "Çocuklar saat yedide yemek yiyor.",
+   "example_uz": "Bolalar soat yettida ovqatlanadi.",
+   "concept": 195
+  },
+  {
+   "id": 196,
+   "topic": 14,
+   "tr": "su",
+   "uz": "suv",
+   "example_tr": "Her sabah su içiyorum.",
+   "example_uz": "Men har kuni ertalab suv ichaman.",
+   "concept": 196
+  },
+  {
+   "id": 197,
+   "topic": 14,
+   "tr": "çay",
+   "uz": "choy",
+   "example_tr": "Büyükannem çayı seviyor.",
+   "example_uz": "Buvim choyni yaxshi ko‘radi.",
+   "concept": 197
+  },
+  {
+   "id": 198,
+   "topic": 14,
+   "tr": "kahve",
+   "uz": "qahva",
+   "example_tr": "O kahve içiyor.",
+   "example_uz": "U qahva ichadi.",
+   "concept": 198
+  },
+  {
+   "id": 199,
+   "topic": 14,
+   "tr": "süt",
+   "uz": "sut",
+   "example_tr": "O sütü seviyor.",
+   "example_uz": "U sutni yaxshi ko‘radi.",
+   "concept": 199
+  },
+  {
+   "id": 200,
+   "topic": 14,
+   "tr": "meyve suyu",
+   "uz": "sharbat",
+   "example_tr": "Tom elma suyu içiyor.",
+   "example_uz": "Tom olma sharbatini ichadi.",
+   "concept": 200
+  },
+  {
+   "id": 201,
+   "topic": 14,
+   "tr": "gazoz",
+   "uz": "gazli suv",
+   "example_tr": "Gazoz sağlıklı değil.",
+   "example_uz": "Gazli suv zararli.",
+   "concept": 201
+  },
+  {
+   "id": 202,
+   "topic": 14,
+   "tr": "sıcak çikolata",
+   "uz": "issiq shokolad",
+   "example_tr": "Kışın sıcak çikolata içiyoruz.",
+   "example_uz": "Qishda biz issiq shokolad ichamiz.",
+   "concept": 202
+  },
+  {
+   "id": 203,
+   "topic": 14,
+   "tr": "şişe",
+   "uz": "shisha, butilka",
+   "example_tr": "Senin şişen burada.",
+   "example_uz": "Sening butilkang shu yerda.",
+   "concept": 203
+  },
+  {
+   "id": 204,
+   "topic": 14,
+   "tr": "fincan",
+   "uz": "piyola, chashka",
+   "example_tr": "Bu fincan küçük.",
+   "example_uz": "Bu chashka kichkina.",
+   "concept": 204
+  },
+  {
+   "id": 205,
+   "topic": 14,
+   "tr": "bardak",
+   "uz": "stakan",
+   "example_tr": "Bardak masanın üstünde.",
+   "example_uz": "Stakan stol ustida.",
+   "concept": 205
+  },
+  {
+   "id": 206,
+   "topic": 14,
+   "tr": "kupa",
+   "uz": "krujka",
+   "example_tr": "Onun kupası büyük.",
+   "example_uz": "Uning krujkasi katta.",
+   "concept": 206
+  },
+  {
+   "id": 207,
+   "topic": 14,
+   "tr": "tatlı",
+   "uz": "shirin",
+   "example_tr": "Onların çayı tatlı.",
+   "example_uz": "Ularning choyi shirin.",
+   "concept": 207
+  },
+  {
+   "id": 208,
+   "topic": 14,
+   "tr": "acı",
+   "uz": "achchiq, taxir",
+   "example_tr": "Sade kahve acı.",
+   "example_uz": "Qora qahva taxir.",
+   "concept": 208
+  },
+  {
+   "id": 209,
+   "topic": 14,
+   "tr": "buzlu",
+   "uz": "muzli",
+   "example_tr": "Kate buzlu çayı seviyor.",
+   "example_uz": "Keyt muzli choyni yaxshi ko‘radi.",
+   "concept": 209
+  },
+  {
+   "id": 210,
+   "topic": 14,
+   "tr": "içmek",
+   "uz": "ichmoq",
+   "example_tr": "Çocuklar süt içiyor.",
+   "example_uz": "Bolalar sut ichadi.",
+   "concept": 210
+  },
+  {
+   "id": 211,
+   "topic": 15,
+   "tr": "yatak",
+   "uz": "karavot",
+   "example_tr": "Benim yatağım büyük.",
+   "example_uz": "Mening karavotim katta.",
+   "concept": 211
+  },
+  {
+   "id": 212,
+   "topic": 15,
+   "tr": "yastık",
+   "uz": "yostiq",
+   "example_tr": "Onun yastığı beyaz.",
+   "example_uz": "Uning yostig‘i oq.",
+   "concept": 212
+  },
+  {
+   "id": 213,
+   "topic": 15,
+   "tr": "battaniye",
+   "uz": "adyol",
+   "example_tr": "Bu battaniye gri.",
+   "example_uz": "Bu adyol kulrang.",
+   "concept": 213
+  },
+  {
+   "id": 214,
+   "topic": 15,
+   "tr": "çarşaf",
+   "uz": "choyshab",
+   "example_tr": "Çarşaf yatağın üstünde.",
+   "example_uz": "Choyshab karavot ustida.",
+   "concept": 214
+  },
+  {
+   "id": 215,
+   "topic": 15,
+   "tr": "perde",
+   "uz": "parda",
+   "example_tr": "Bizim perdelerimiz sarı.",
+   "example_uz": "Bizning pardalarimiz sariq.",
+   "concept": 215
+  },
+  {
+   "id": 216,
+   "topic": 15,
+   "tr": "gardırop",
+   "uz": "shkaf",
+   "example_tr": "Onun kıyafetleri gardıropta.",
+   "example_uz": "Uning kiyimlari shkafda.",
+   "concept": 216
+  },
+  {
+   "id": 217,
+   "topic": 15,
+   "tr": "ayna",
+   "uz": "oyna, ko‘zgu",
+   "example_tr": "Şu ayna eski.",
+   "example_uz": "O‘sha oyna eski.",
+   "concept": 217
+  },
+  {
+   "id": 218,
+   "topic": 15,
+   "tr": "lamba",
+   "uz": "chiroq",
+   "example_tr": "Senin lamban küçük.",
+   "example_uz": "Sening chirog‘ing kichkina.",
+   "concept": 218
+  },
+  {
+   "id": 219,
+   "topic": 15,
+   "tr": "masa",
+   "uz": "stol",
+   "example_tr": "Masa kahverengi.",
+   "example_uz": "Stol jigarrang.",
+   "concept": 219
+  },
+  {
+   "id": 220,
+   "topic": 15,
+   "tr": "çift kişilik yatak",
+   "uz": "ikki kishilik karavot",
+   "example_tr": "Onların çift kişilik bir yatağı var.",
+   "example_uz": "Ularning ikki kishilik karavoti bor.",
+   "concept": 220
+  },
+  {
+   "id": 221,
+   "topic": 15,
+   "tr": "çekmece",
+   "uz": "tortma",
+   "example_tr": "Çoraplar çekmecede.",
+   "example_uz": "Paypoqlar tortmada.",
+   "concept": 221
+  },
+  {
+   "id": 222,
+   "topic": 15,
+   "tr": "halı",
+   "uz": "gilam",
+   "example_tr": "Halı kırmızı.",
+   "example_uz": "Gilam qizil.",
+   "concept": 222
+  },
+  {
+   "id": 223,
+   "topic": 15,
+   "tr": "pencere",
+   "uz": "deraza",
+   "example_tr": "Bizim dört penceremiz var.",
+   "example_uz": "Bizda to‘rtta deraza bor.",
+   "concept": 223
+  },
+  {
+   "id": 224,
+   "topic": 15,
+   "tr": "kapı",
+   "uz": "eshik",
+   "example_tr": "Onların kapısı yeşil.",
+   "example_uz": "Ularning eshigi yashil.",
+   "concept": 224
+  },
+  {
+   "id": 225,
+   "topic": 15,
+   "tr": "saat",
+   "uz": "soat",
+   "example_tr": "Onun altın rengi bir saati var.",
+   "example_uz": "Uning tilla rang soati bor.",
+   "concept": 225
+  },
+  {
+   "id": 226,
+   "topic": 16,
+   "tr": "banyo",
+   "uz": "hammom, vannaxona",
+   "example_tr": "Bizim banyomuz küçük.",
+   "example_uz": "Bizning vannaxonamiz kichkina.",
+   "concept": 226
+  },
+  {
+   "id": 227,
+   "topic": 16,
+   "tr": "küvet",
+   "uz": "vanna",
+   "example_tr": "Bebek küvette.",
+   "example_uz": "Chaqaloq vannada.",
+   "concept": 227
+  },
+  {
+   "id": 228,
+   "topic": 16,
+   "tr": "duş",
+   "uz": "dush",
+   "example_tr": "Her sabah duş alıyorum.",
+   "example_uz": "Men har kuni ertalab dush qabul qilaman.",
+   "concept": 228
+  },
+  {
+   "id": 229,
+   "topic": 16,
+   "tr": "tuvalet",
+   "uz": "hojatxona",
+   "example_tr": "Tuvalet beyaz.",
+   "example_uz": "Unitaz oq.",
+   "concept": 229
+  },
+  {
+   "id": 230,
+   "topic": 16,
+   "tr": "lavabo",
+   "uz": "rakovina",
+   "example_tr": "Bu lavabo gri.",
+   "example_uz": "Bu rakovina kulrang.",
+   "concept": 230
+  },
+  {
+   "id": 231,
+   "topic": 16,
+   "tr": "havlu",
+   "uz": "sochiq",
+   "example_tr": "Onun kırmızı bir havlusu var.",
+   "example_uz": "Uning qizil sochig‘i bor.",
+   "concept": 231
+  },
+  {
+   "id": 232,
+   "topic": 16,
+   "tr": "sabun",
+   "uz": "sovun",
+   "example_tr": "Senin sabunun pembe.",
+   "example_uz": "Sening sovuning pushti.",
+   "concept": 232
+  },
+  {
+   "id": 233,
+   "topic": 16,
+   "tr": "şampuan",
+   "uz": "shampun",
+   "example_tr": "Benim şampuanım burada.",
+   "example_uz": "Mening shampunim shu yerda.",
+   "concept": 233
+  },
+  {
+   "id": 234,
+   "topic": 16,
+   "tr": "diş fırçası",
+   "uz": "tish cho‘tkasi",
+   "example_tr": "Onun diş fırçası yeşil.",
+   "example_uz": "Uning tish cho‘tkasi yashil.",
+   "concept": 234
+  },
+  {
+   "id": 235,
+   "topic": 16,
+   "tr": "diş macunu",
+   "uz": "tish pastasi",
+   "example_tr": "Çocuklar tatlı diş macununu seviyor.",
+   "example_uz": "Bolalarga shirin tish pastasi yoqadi.",
+   "concept": 235
+  },
+  {
+   "id": 236,
+   "topic": 16,
+   "tr": "taramak",
+   "uz": "taramoq",
+   "example_tr": "Her sabah saçımı tarıyorum.",
+   "example_uz": "Men har kuni ertalab sochimni tarayman.",
+   "concept": 236
+  },
+  {
+   "id": 237,
+   "topic": 16,
+   "tr": "raf",
+   "uz": "tokcha, javon",
+   "example_tr": "Şampuanım rafta.",
+   "example_uz": "Mening shampunim javonda.",
+   "concept": 627,
+   "own": {
+    "example_en": "My shampoo is on the shelf.",
+    "example_ru": "Мой шампунь на полке."
+   }
+  },
+  {
+   "id": 238,
+   "topic": 16,
+   "tr": "musluk",
+   "uz": "jumrak",
+   "example_tr": "Musluk gümüş rengi.",
+   "example_uz": "Jumrak kumush rangda.",
+   "concept": 238
+  },
+  {
+   "id": 239,
+   "topic": 16,
+   "tr": "sünger",
+   "uz": "gubka",
+   "example_tr": "Onların sarı bir süngeri var.",
+   "example_uz": "Ularning sariq gubkasi bor.",
+   "concept": 239
+  },
+  {
+   "id": 240,
+   "topic": 16,
+   "tr": "tuvalet kâğıdı",
+   "uz": "hojatxona qog‘ozi",
+   "example_tr": "Tuvalet kâğıdımız var.",
+   "example_uz": "Bizda hojatxona qog‘ozi bor.",
+   "concept": 240
+  },
+  {
+   "id": 241,
+   "topic": 17,
+   "tr": "ocak",
+   "uz": "yanvar",
+   "example_tr": "Ocak ilk ay.",
+   "example_uz": "Yanvar — birinchi oy.",
+   "concept": 241
+  },
+  {
+   "id": 242,
+   "topic": 17,
+   "tr": "şubat",
+   "uz": "fevral",
+   "example_tr": "Şubat çok kısa.",
+   "example_uz": "Fevral juda qisqa.",
+   "concept": 242
+  },
+  {
+   "id": 243,
+   "topic": 17,
+   "tr": "mart",
+   "uz": "mart",
+   "example_tr": "Benim doğum günüm martta.",
+   "example_uz": "Mening tug‘ilgan kunim martda.",
+   "concept": 243
+  },
+  {
+   "id": 244,
+   "topic": 17,
+   "tr": "nisan",
+   "uz": "aprel",
+   "example_tr": "Nisan güzel bir ay.",
+   "example_uz": "Aprel — chiroyli oy.",
+   "concept": 244
+  },
+  {
+   "id": 245,
+   "topic": 17,
+   "tr": "mayıs",
+   "uz": "may",
+   "example_tr": "Mayısta dersimiz yok.",
+   "example_uz": "May oyida bizda dars yo‘q.",
+   "concept": 245
+  },
+  {
+   "id": 246,
+   "topic": 17,
+   "tr": "haziran",
+   "uz": "iyun",
+   "example_tr": "Haziran altıncı ay.",
+   "example_uz": "Iyun — oltinchi oy.",
+   "concept": 246
+  },
+  {
+   "id": 247,
+   "topic": 17,
+   "tr": "temmuz",
+   "uz": "iyul",
+   "example_tr": "Temmuzda kavun yiyorum.",
+   "example_uz": "Iyulda men qovun yeyman.",
+   "concept": 247
+  },
+  {
+   "id": 248,
+   "topic": 17,
+   "tr": "ağustos",
+   "uz": "avgust",
+   "example_tr": "Ağustosta ailemiz evde.",
+   "example_uz": "Avgustda oilamiz uyda.",
+   "concept": 248
+  },
+  {
+   "id": 249,
+   "topic": 17,
+   "tr": "eylül",
+   "uz": "sentabr",
+   "example_tr": "Çocuklar eylülde okula gidiyor.",
+   "example_uz": "Bolalar sentabrda maktabga boradi.",
+   "concept": 249
+  },
+  {
+   "id": 250,
+   "topic": 17,
+   "tr": "ekim",
+   "uz": "oktabr",
+   "example_tr": "Ekimde elmalar kırmızı.",
+   "example_uz": "Oktabrda olmalar qizil bo‘ladi.",
+   "concept": 250
+  },
+  {
+   "id": 251,
+   "topic": 17,
+   "tr": "kasım",
+   "uz": "noyabr",
+   "example_tr": "Onun doğum günü kasımda.",
+   "example_uz": "Uning tug‘ilgan kuni noyabrda.",
+   "concept": 251
+  },
+  {
+   "id": 252,
+   "topic": 17,
+   "tr": "aralık",
+   "uz": "dekabr",
+   "example_tr": "Aralık son ay.",
+   "example_uz": "Dekabr — oxirgi oy.",
+   "concept": 252
+  },
+  {
+   "id": 253,
+   "topic": 17,
+   "tr": "ay",
+   "uz": "oy",
+   "example_tr": "Bir ayda dört hafta var.",
+   "example_uz": "Bir oyda to‘rt hafta bor.",
+   "concept": 253
+  },
+  {
+   "id": 254,
+   "topic": 17,
+   "tr": "yıl",
+   "uz": "yil",
+   "example_tr": "Bir yılda on iki ay var.",
+   "example_uz": "Bir yilda o‘n ikki oy bor.",
+   "concept": 254
+  },
+  {
+   "id": 255,
+   "topic": 17,
+   "tr": "artık yıl",
+   "uz": "kabisa yili",
+   "example_tr": "Bu yıl artık yıl.",
+   "example_uz": "Bu yil kabisa yili.",
+   "concept": 255
+  },
+  {
+   "id": 256,
+   "topic": 18,
+   "tr": "kapıyı çalmak",
+   "uz": "eshikni taqillatmoq",
+   "example_tr": "Lütfen kapıyı çal.",
+   "example_uz": "Eshikni taqillating, iltimos.",
+   "concept": 256
+  },
+  {
+   "id": 257,
+   "topic": 18,
+   "tr": "Girin!",
+   "uz": "Kiring!",
+   "example_tr": "Girin, lütfen!",
+   "example_uz": "Kiring, iltimos!",
+   "concept": 257
+  },
+  {
+   "id": 258,
+   "topic": 18,
+   "tr": "öğrenci",
+   "uz": "o‘quvchi",
+   "example_tr": "O bir öğrenci.",
+   "example_uz": "U o‘quvchi.",
+   "concept": 258
+  },
+  {
+   "id": 259,
+   "topic": 18,
+   "tr": "kitap",
+   "uz": "kitob",
+   "example_tr": "Benim kitabım burada.",
+   "example_uz": "Mening kitobim shu yerda.",
+   "concept": 259
+  },
+  {
+   "id": 260,
+   "topic": 18,
+   "tr": "defter",
+   "uz": "daftar",
+   "example_tr": "Benim yeşil bir defterim var.",
+   "example_uz": "Mening yashil daftarim bor.",
+   "concept": 260
+  },
+  {
+   "id": 261,
+   "topic": 18,
+   "tr": "tükenmez kalem",
+   "uz": "ruchka",
+   "example_tr": "Senin kalemin siyah.",
+   "example_uz": "Sening ruchkang qora.",
+   "concept": 261
+  },
+  {
+   "id": 262,
+   "topic": 18,
+   "tr": "kurşun kalem",
+   "uz": "qalam",
+   "example_tr": "Tom’un uzun bir kurşun kalemi var.",
+   "example_uz": "Tomning uzun qalami bor.",
+   "concept": 262
+  },
+  {
+   "id": 263,
+   "topic": 18,
+   "tr": "cetvel",
+   "uz": "chizg‘ich",
+   "example_tr": "Onun cetveli kırmızı.",
+   "example_uz": "Uning chizg‘ichi qizil.",
+   "concept": 263
+  },
+  {
+   "id": 264,
+   "topic": 18,
+   "tr": "silgi",
+   "uz": "o‘chirg‘ich",
+   "example_tr": "Onun silgisi küçük.",
+   "example_uz": "Uning o‘chirg‘ichi kichkina.",
+   "concept": 264
+  },
+  {
+   "id": 265,
+   "topic": 18,
+   "tr": "sıra",
+   "uz": "parta",
+   "example_tr": "Bizim sıralarımız kahverengi.",
+   "example_uz": "Bizning partalarimiz jigarrang.",
+   "concept": 265
+  },
+  {
+   "id": 266,
+   "topic": 18,
+   "tr": "sandalye",
+   "uz": "stul",
+   "example_tr": "Şu sandalye büyük.",
+   "example_uz": "O‘sha stul katta.",
+   "concept": 266
+  },
+  {
+   "id": 267,
+   "topic": 18,
+   "tr": "tahta",
+   "uz": "doska",
+   "example_tr": "Tahta siyah.",
+   "example_uz": "Doska qora.",
+   "concept": 267
+  },
+  {
+   "id": 268,
+   "topic": 18,
+   "tr": "ders",
+   "uz": "dars",
+   "example_tr": "Onların dersi saat dokuzda.",
+   "example_uz": "Ularning darsi soat to‘qqizda.",
+   "concept": 268
+  },
+  {
+   "id": 269,
+   "topic": 18,
+   "tr": "sormak",
+   "uz": "so‘ramoq",
+   "example_tr": "Çocuklar soru sorabilir.",
+   "example_uz": "Bolalar savol bera oladi.",
+   "concept": 269
+  },
+  {
+   "id": 270,
+   "topic": 18,
+   "tr": "cevap vermek",
+   "uz": "javob bermoq",
+   "example_tr": "Sorulara cevap veriyoruz.",
+   "example_uz": "Biz savollarga javob beramiz.",
+   "concept": 270
+  },
+  {
+   "id": 271,
+   "topic": 19,
+   "tr": "on altı",
+   "uz": "o‘n olti",
+   "example_tr": "Kız kardeşim on altı yaşında.",
+   "example_uz": "Singlim o‘n olti yoshda.",
+   "concept": 1366,
+   "own": {
+    "example_en": "My sister is sixteen years old.",
+    "example_ru": "Моей сестре шестнадцать лет."
+   }
+  },
+  {
+   "id": 272,
+   "topic": 19,
+   "tr": "on yedi",
+   "uz": "o‘n yetti",
+   "example_tr": "Tom on yedi yaşında.",
+   "example_uz": "Tom o‘n yetti yoshda.",
+   "concept": 1367,
+   "own": {
+    "example_en": "Tom is seventeen years old.",
+    "example_ru": "Тому семнадцать лет."
+   }
+  },
+  {
+   "id": 273,
+   "topic": 19,
+   "tr": "on sekiz",
+   "uz": "o‘n sakkiz",
+   "example_tr": "Ağabeyin on sekiz yaşında mı?",
+   "example_uz": "Akang o‘n sakkiz yoshdami?",
+   "concept": 1368,
+   "own": {
+    "example_en": "Is your brother eighteen years old?",
+    "example_ru": "Твоему брату восемнадцать лет?"
+   }
+  },
+  {
+   "id": 274,
+   "topic": 19,
+   "tr": "on dokuz",
+   "uz": "o‘n to‘qqiz",
+   "example_tr": "Onlar on dokuz yaşında değil.",
+   "example_uz": "Ular o‘n to‘qqiz yoshda emas.",
+   "concept": 1369,
+   "own": {
+    "example_en": "They are not nineteen years old.",
+    "example_ru": "Им не девятнадцать лет."
+   }
+  },
+  {
+   "id": 275,
+   "topic": 19,
+   "tr": "yirmi",
+   "uz": "yigirma",
+   "example_tr": "Yirmiye kadar sayabilir misin?",
+   "example_uz": "Sen yigirmagacha sanay olasanmi?",
+   "concept": 1370,
+   "own": {
+    "example_en": "Can you count to twenty?",
+    "example_ru": "Ты умеешь считать до двадцати?"
+   }
+  },
+  {
+   "id": 276,
+   "topic": 19,
+   "tr": "otuz",
+   "uz": "o‘ttiz",
+   "example_tr": "Sınıfımızda otuz öğrenci var.",
+   "example_uz": "Sinfimizda o‘ttizta o‘quvchi bor.",
+   "concept": 1371,
+   "own": {
+    "example_en": "There are thirty students in our class.",
+    "example_ru": "В нашем классе тридцать учеников."
+   }
+  },
+  {
+   "id": 277,
+   "topic": 19,
+   "tr": "kırk",
+   "uz": "qirq",
+   "example_tr": "Babam kırk yaşında.",
+   "example_uz": "Dadam qirq yoshda.",
+   "concept": 1372,
+   "own": {
+    "example_en": "My father is forty years old.",
+    "example_ru": "Моему отцу сорок лет."
+   }
+  },
+  {
+   "id": 278,
+   "topic": 19,
+   "tr": "elli",
+   "uz": "ellik",
+   "example_tr": "Bu kitap elli sayfa.",
+   "example_uz": "Bu kitob ellik betdan iborat.",
+   "concept": 1373,
+   "own": {
+    "example_en": "This book has fifty pages.",
+    "example_ru": "В этой книге пятьдесят страниц."
+   }
+  },
+  {
+   "id": 279,
+   "topic": 19,
+   "tr": "altmış",
+   "uz": "oltmish",
+   "example_tr": "Dedemiz altmış yaşında.",
+   "example_uz": "Bobomiz oltmish yoshda.",
+   "concept": 1374,
+   "own": {
+    "example_en": "Our grandfather is sixty years old.",
+    "example_ru": "Нашему дедушке шестьдесят лет."
+   }
+  },
+  {
+   "id": 280,
+   "topic": 19,
+   "tr": "yetmiş",
+   "uz": "yetmish",
+   "example_tr": "Burada yetmiş kişi çalışıyor.",
+   "example_uz": "Bu yerda yetmish kishi ishlaydi.",
+   "concept": 1375,
+   "own": {
+    "example_en": "Seventy people work here.",
+    "example_ru": "Здесь работает семьдесят человек."
+   }
+  },
+  {
+   "id": 281,
+   "topic": 19,
+   "tr": "seksen",
+   "uz": "sakson",
+   "example_tr": "Onun büyükannesi seksen yaşında.",
+   "example_uz": "Uning buvisi sakson yoshda.",
+   "concept": 1376,
+   "own": {
+    "example_en": "Her grandmother is eighty years old.",
+    "example_ru": "Её бабушке восемьдесят лет."
+   }
+  },
+  {
+   "id": 282,
+   "topic": 19,
+   "tr": "doksan",
+   "uz": "to‘qson",
+   "example_tr": "Film doksan dakika.",
+   "example_uz": "Film to‘qson daqiqa davom etadi.",
+   "concept": 1377,
+   "own": {
+    "example_en": "The film is ninety minutes long.",
+    "example_ru": "Фильм идёт девяносто минут."
+   }
+  },
+  {
+   "id": 283,
+   "topic": 19,
+   "tr": "yüz",
+   "uz": "yuz",
+   "example_tr": "Yüze kadar sayabilirim.",
+   "example_uz": "Men yuzgacha sanay olaman.",
+   "concept": 1378,
+   "own": {
+    "example_en": "I can count to a hundred.",
+    "example_ru": "Я умею считать до ста."
+   }
+  },
+  {
+   "id": 284,
+   "topic": 19,
+   "tr": "bin",
+   "uz": "ming",
+   "example_tr": "Köyümüzde bin kişi yaşıyor.",
+   "example_uz": "Qishlog‘imizda ming kishi yashaydi.",
+   "concept": 1379,
+   "own": {
+    "example_en": "A thousand people live in our village.",
+    "example_ru": "В нашей деревне живёт тысяча человек."
+   }
+  },
+  {
+   "id": 285,
+   "topic": 19,
+   "tr": "milyon",
+   "uz": "million",
+   "example_tr": "Babamın bir milyon doları yok.",
+   "example_uz": "Dadamda million dollar yo‘q.",
+   "concept": 1380,
+   "own": {
+    "example_en": "My father doesn't have a million dollars.",
+    "example_ru": "У моего отца нет миллиона долларов."
+   }
+  },
+  {
+   "id": 286,
+   "topic": 20,
+   "tr": "futbol",
+   "uz": "futbol",
+   "example_tr": "Futbol benim en sevdiğim spor.",
+   "example_uz": "Futbol — mening sevimli sport turim.",
+   "concept": 286
+  },
+  {
+   "id": 287,
+   "topic": 20,
+   "tr": "basketbol",
+   "uz": "basketbol",
+   "example_tr": "Uzun boylu çocuklar basketbolu seviyor.",
+   "example_uz": "Baland bo‘yli bolalar basketbolni yaxshi ko‘radi.",
+   "concept": 287
+  },
+  {
+   "id": 288,
+   "topic": 20,
+   "tr": "tenis",
+   "uz": "tennis",
+   "example_tr": "O tenisi seviyor.",
+   "example_uz": "U tennisni yaxshi ko‘radi.",
+   "concept": 288
+  },
+  {
+   "id": 289,
+   "topic": 20,
+   "tr": "voleybol",
+   "uz": "voleybol",
+   "example_tr": "Bizim kızlarımız voleybolu seviyor.",
+   "example_uz": "Bizning qizlarimiz voleybolni yaxshi ko‘radi.",
+   "concept": 289
+  },
+  {
+   "id": 290,
+   "topic": 20,
+   "tr": "yüzme",
+   "uz": "suzish",
+   "example_tr": "Kate yüzmeyi çok seviyor.",
+   "example_uz": "Keyt suzishni juda yaxshi ko‘radi.",
+   "concept": 290
+  },
+  {
+   "id": 291,
+   "topic": 20,
+   "tr": "koşu",
+   "uz": "yugurish",
+   "example_tr": "Koşu sağlıklı.",
+   "example_uz": "Yugurish foydali.",
+   "concept": 291
+  },
+  {
+   "id": 292,
+   "topic": 20,
+   "tr": "bisiklet sürmek",
+   "uz": "velosiped haydash",
+   "example_tr": "Onların ailesi bisiklet sürmeyi seviyor.",
+   "example_uz": "Ularning oilasi velosiped haydashni yaxshi ko‘radi.",
+   "concept": 292
+  },
+  {
+   "id": 293,
+   "topic": 20,
+   "tr": "boks",
+   "uz": "boks",
+   "example_tr": "Tom boksu seviyor.",
+   "example_uz": "Tom boksni yaxshi ko‘radi.",
+   "concept": 293
+  },
+  {
+   "id": 294,
+   "topic": 20,
+   "tr": "kayak",
+   "uz": "chang‘i uchish",
+   "example_tr": "Kışın çocuklar kayak yapmayı seviyor.",
+   "example_uz": "Qishda bolalar chang‘i uchishni yaxshi ko‘radi.",
+   "concept": 294
+  },
+  {
+   "id": 295,
+   "topic": 20,
+   "tr": "paten",
+   "uz": "konkida uchish",
+   "example_tr": "Anna paten kaymayı çok seviyor.",
+   "example_uz": "Anna konkida uchishni juda yaxshi ko‘radi.",
+   "concept": 295
+  },
+  {
+   "id": 296,
+   "topic": 20,
+   "tr": "golf",
+   "uz": "golf",
+   "example_tr": "Onun babası golfu seviyor.",
+   "example_uz": "Uning dadasi golfni yaxshi ko‘radi.",
+   "concept": 296
+  },
+  {
+   "id": 297,
+   "topic": 20,
+   "tr": "satranç",
+   "uz": "shaxmat",
+   "example_tr": "Ben satrancı seviyorum.",
+   "example_uz": "Men shaxmatni yaxshi ko‘raman.",
+   "concept": 297
+  },
+  {
+   "id": 298,
+   "topic": 20,
+   "tr": "spor yapmak",
+   "uz": "sport bilan shug‘ullanmoq",
+   "example_tr": "Her gün spor yapıyoruz.",
+   "example_uz": "Biz har kuni sport bilan shug‘ullanamiz.",
+   "concept": 298
+  },
+  {
+   "id": 299,
+   "topic": 20,
+   "tr": "dama oynamak",
+   "uz": "shashka o‘ynamoq",
+   "example_tr": "Onlar evde dama oynuyor.",
+   "example_uz": "Ular uyda shashka o‘ynaydi.",
+   "concept": 299
+  },
+  {
+   "id": 300,
+   "topic": 20,
+   "tr": "yarış",
+   "uz": "poyga",
+   "example_tr": "Bu çocuk yarışları seviyor.",
+   "example_uz": "Bu bola poygani yaxshi ko‘radi.",
+   "concept": 300
+  }
+ ]
+}

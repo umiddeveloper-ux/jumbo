@@ -142,7 +142,7 @@ else
 
                 <div class="settings-label">@Loc["TranslationLanguageTitle"]</div>
                 <select class="lp-select" @bind="_transLangId" @bind:after="AutoSaveAsync">
-                    @foreach (var l in _languages)
+                    @foreach (var l in _translationLanguages)
                     {
                         <option value="@l.LanguageId">@l.Name</option>
                     }
@@ -167,7 +167,7 @@ else
             <div class="lp-card">
                 <div class="settings-label">@Loc["AppLanguage"]</div>
                 <select class="lp-select" @bind="_appLangId" @bind:after="AutoSaveAsync">
-                    @foreach (var l in _languages)
+                    @foreach (var l in _translationLanguages)
                     {
                         <option value="@l.LanguageId">@l.Name</option>
                     }
@@ -392,6 +392,8 @@ else
     private int _studyLangId;
     private int _transLangId;
     private List<Language> _languages = new();
+    // Turkish is a language to study only: not offered as the translation language (nor as the app language)
+    private IEnumerable<Language> _translationLanguages => _languages.Where(l => !Jumbo.Shared.LanguageRoles.IsStudyOnly(l.ShorName));
     private string _savedMsg = string.Empty;
     private bool _loaded;
     private bool _saving;

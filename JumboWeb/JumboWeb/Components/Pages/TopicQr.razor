@@ -78,6 +78,8 @@
 
     private Jumbo.Shared.Entities.Subject? _subject;
     private List<WordRow> _rows = new();
+    // the voice of the words: the study language of a signed-in learner, else English
+    private string SpeechCode => UserState.IsRegistered ? Jumbo.Shared.SpeechLanguages.Code(Prefs.StudyLangId) : "en-US";
     private bool _loaded, _playing;
     private int _active = -1;
     private CancellationTokenSource? _cts;
@@ -116,7 +118,7 @@
     {
         await StopAsync();
         _active = index;
-        try { await JS.InvokeVoidAsync("lp.speak", _rows[index].Word, "en-US"); } catch { }
+        try { await JS.InvokeVoidAsync("lp.speak", _rows[index].Word, SpeechCode); } catch { }
     }
 
     // "Listen to all": the words one after another, the one that is read is lit.
@@ -134,7 +136,7 @@
             {
                 _active = i;
                 StateHasChanged();
-                await JS.InvokeVoidAsync("lp.speakWait", _rows[i].Word, "en-US");
+                await JS.InvokeVoidAsync("lp.speakWait", _rows[i].Word, SpeechCode);
                 if (!token.IsCancellationRequested) await Task.Delay(300, token);
             }
         }

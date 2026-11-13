@@ -1,0 +1,2814 @@
+{
+ "metadata": {
+  "book": 9,
+  "level": "B1",
+  "language": "tr",
+  "word_count": 300,
+  "id_range": [
+   2401,
+   2700
+  ],
+  "new_words": 1,
+  "schema": [
+   "id",
+   "topic",
+   "tr",
+   "uz",
+   "example_tr",
+   "example_uz",
+   "concept",
+   "new"
+  ]
+ },
+ "topics": [
+  {
+   "tr": "Evde Güvenlik",
+   "uz": "Uy xavfsizligi"
+  },
+  {
+   "tr": "Acil Durumlar",
+   "uz": "Favqulodda vaziyatlar"
+  },
+  {
+   "tr": "İcatlar",
+   "uz": "Ixtirolar"
+  },
+  {
+   "tr": "Nasıl Yapılır?",
+   "uz": "Bu qanday yasalgan"
+  },
+  {
+   "tr": "Enerji Tasarrufu",
+   "uz": "Resurslarni tejash"
+  },
+  {
+   "tr": "Belirtiler ve Tedavi",
+   "uz": "Alomatlar va davolash"
+  },
+  {
+   "tr": "Hayaller ve Dilekler",
+   "uz": "Orzular va istaklar"
+  },
+  {
+   "tr": "Kararlar",
+   "uz": "Qarorlar"
+  },
+  {
+   "tr": "Tatil Planı",
+   "uz": "Ta’tilga tayyorgarlik"
+  },
+  {
+   "tr": "Şikâyetler ve İadeler",
+   "uz": "Shikoyatlar va qaytarish"
+  },
+  {
+   "tr": "Ev Kiralama",
+   "uz": "Uy-joy ijarasi"
+  },
+  {
+   "tr": "İş Arama",
+   "uz": "Ish qidirish"
+  },
+  {
+   "tr": "Sınavlar ve Sonuçlar",
+   "uz": "Imtihonlar va natijalar"
+  },
+  {
+   "tr": "Yarışmalar",
+   "uz": "Musobaqalar"
+  },
+  {
+   "tr": "Trafik Kuralları",
+   "uz": "Yo‘l harakati qoidalari"
+  },
+  {
+   "tr": "Sağlıklı Beslenme",
+   "uz": "Sog‘lom ovqatlanish"
+  },
+  {
+   "tr": "Kurallar ve Toplum",
+   "uz": "Jamiyat va qonunlar"
+  },
+  {
+   "tr": "Birleşik Fiiller",
+   "uz": "Murakkab fe’llar"
+  },
+  {
+   "tr": "Bağlayıcı Sözler",
+   "uz": "Bog‘lovchi so‘zlar"
+  },
+  {
+   "tr": "Mutfak Fiilleri",
+   "uz": "oshxona fe’llari"
+  }
+ ],
+ "words": [
+  {
+   "id": 2401,
+   "topic": 1,
+   "tr": "hırsız",
+   "uz": "o‘g‘ri (uyga tushadigan)",
+   "example_tr": "Hırsız eve girerse alarm çalar.",
+   "example_uz": "Agar o‘g‘ri uyga kirsa, signalizatsiya chalinadi.",
+   "concept": 2401
+  },
+  {
+   "id": 2402,
+   "topic": 1,
+   "tr": "zorla girmek",
+   "uz": "buzib kirmoq",
+   "example_tr": "Geçen yıl dairemize hırsız girdi.",
+   "example_uz": "O‘tgan yili kvartiramizga o‘g‘ri tushdi.",
+   "concept": 2402
+  },
+  {
+   "id": 2403,
+   "topic": 1,
+   "tr": "duman dedektörü",
+   "uz": "tutun datchigi",
+   "example_tr": "Her odaya duman dedektörü takıldı.",
+   "example_uz": "Har bir xonaga tutun datchigi o‘rnatilgan.",
+   "concept": 2403
+  },
+  {
+   "id": 2404,
+   "topic": 1,
+   "tr": "yangın söndürücü",
+   "uz": "o‘t o‘chirgich",
+   "example_tr": "Yangın çıkarsa yangın söndürücüyü kullan.",
+   "example_uz": "Agar yong‘in chiqsa, o‘t o‘chirgichdan foydalan.",
+   "concept": 2404
+  },
+  {
+   "id": 2405,
+   "topic": 1,
+   "tr": "yedek anahtar",
+   "uz": "zaxira kalit",
+   "example_tr": "Anahtarını kaybedersen yedek anahtarı kullan.",
+   "example_uz": "Agar kalitingni yo‘qotsang, zaxira kalitdan foydalan.",
+   "concept": 2405
+  },
+  {
+   "id": 2406,
+   "topic": 1,
+   "tr": "kaygan",
+   "uz": "sirpanchiq",
+   "example_tr": "Yer kaygansa düşebilirsin.",
+   "example_uz": "Agar pol sirpanchiq bo‘lsa, yiqilib tushishing mumkin.",
+   "concept": 2406
+  },
+  {
+   "id": 2407,
+   "topic": 1,
+   "tr": "keskin",
+   "uz": "o‘tkir (pichoq)",
+   "example_tr": "Keskin bıçaklar yüksek bir çekmecede saklanır.",
+   "example_uz": "O‘tkir pichoqlar yuqoridagi tortmada saqlanadi.",
+   "concept": 2407
+  },
+  {
+   "id": 2408,
+   "topic": 1,
+   "tr": "elektrik çarpması",
+   "uz": "elektr toki urishi",
+   "example_tr": "O kabloya dokunursan elektrik çarpar.",
+   "example_uz": "Agar o‘sha simga tegsang, seni tok uradi.",
+   "concept": 2408
+  },
+  {
+   "id": 2409,
+   "topic": 1,
+   "tr": "kablo, tel",
+   "uz": "sim",
+   "example_tr": "Kablolar bir elektrikçi tarafından kontrol edildi.",
+   "example_uz": "Simlarni elektrik tekshirib chiqdi.",
+   "concept": 2409
+  },
+  {
+   "id": 2410,
+   "topic": 1,
+   "tr": "çocuk kilitli",
+   "uz": "bolalardan himoyalangan",
+   "example_tr": "Kapak çocuk kilitli olmasa çocuklar onu açabilirdi.",
+   "example_uz": "Agar qopqoq bolalardan himoyalanmaganida, bolalar uni ocha olardi.",
+   "concept": 2410
+  },
+  {
+   "id": 2411,
+   "topic": 1,
+   "tr": "güvenlik kamerası",
+   "uz": "kuzatuv kamerasi",
+   "example_tr": "Güvenlik kameraları geçen ay takıldı.",
+   "example_uz": "Kuzatuv kameralari o‘tgan oy o‘rnatildi.",
+   "concept": 2411
+  },
+  {
+   "id": 2412,
+   "topic": 1,
+   "tr": "diyafon",
+   "uz": "domofon",
+   "example_tr": "Biri diyafonu çalarsa kapıyı açma.",
+   "example_uz": "Agar kimdir domofonni chalsa, eshikni ochma.",
+   "concept": 2412
+  },
+  {
+   "id": 2413,
+   "topic": 1,
+   "tr": "yabancı",
+   "uz": "notanish odam",
+   "example_tr": "Bir yabancı ararsa cevap vermem.",
+   "example_uz": "Agar notanish odam qo‘ng‘iroq qilsa, javob bermayman.",
+   "concept": 2413
+  },
+  {
+   "id": 2414,
+   "topic": 1,
+   "tr": "gaz kaçağı",
+   "uz": "gaz sizishi",
+   "example_tr": "Gaz kokusu alırsan gaz kaçağı olabilir.",
+   "example_uz": "Agar gaz hidi kelsa, gaz sizayotgan bo‘lishi mumkin.",
+   "concept": 2414
+  },
+  {
+   "id": 2415,
+   "topic": 1,
+   "tr": "tırabzan",
+   "uz": "tutqich, panjara",
+   "example_tr": "Tırabzana tutunursan düşmezsin.",
+   "example_uz": "Agar tutqichni ushlasang, yiqilmaysan.",
+   "concept": 2415
+  },
+  {
+   "id": 2416,
+   "topic": 2,
+   "tr": "acil durum numarası",
+   "uz": "favqulodda yordam raqami",
+   "example_tr": "Acil durum numarasını ararsan yardım gelir.",
+   "example_uz": "Agar favqulodda yordam raqamiga qo‘ng‘iroq qilsang, yordam keladi.",
+   "concept": 2416
+  },
+  {
+   "id": 2417,
+   "topic": 2,
+   "tr": "itfaiyeci",
+   "uz": "o‘t o‘chiruvchi",
+   "example_tr": "Yangın itfaiyeciler tarafından söndürüldü.",
+   "example_uz": "Yong‘inni o‘t o‘chiruvchilar o‘chirdi.",
+   "concept": 2417
+  },
+  {
+   "id": 2418,
+   "topic": 2,
+   "tr": "sağlık görevlisi",
+   "uz": "tez yordam feldsheri",
+   "example_tr": "Yaralı adama sağlık görevlileri tarafından yardım edildi.",
+   "example_uz": "Jarohatlangan kishiga tez yordam feldsherlari yordam berdi.",
+   "concept": 2418
+  },
+  {
+   "id": 2419,
+   "topic": 2,
+   "tr": "baygın",
+   "uz": "hushsiz",
+   "example_tr": "Biri baygınsa ambulans çağır.",
+   "example_uz": "Agar kimdir hushsiz bo‘lsa, tez yordam chaqir.",
+   "concept": 2419
+  },
+  {
+   "id": 2420,
+   "topic": 2,
+   "tr": "kanamak",
+   "uz": "qon oqmoq",
+   "example_tr": "Kesik kanarsa üzerine bastır.",
+   "example_uz": "Agar kesilgan joydan qon oqsa, uni bosib tur.",
+   "concept": 2420
+  },
+  {
+   "id": 2421,
+   "topic": 2,
+   "tr": "boğazına bir şey kaçmak",
+   "uz": "tiqilib qolmoq (ovqat)",
+   "example_tr": "Bir çocuğun boğazına bir şey kaçarsa hızlı davranmalısın.",
+   "example_uz": "Agar bolaning tomog‘iga biror narsa tiqilib qolsa, tez harakat qilish kerak.",
+   "concept": 2421
+  },
+  {
+   "id": 2422,
+   "topic": 2,
+   "tr": "bayılmak",
+   "uz": "hushdan ketmoq",
+   "example_tr": "Çok kan görsem bayılırdım.",
+   "example_uz": "Agar ko‘p qon ko‘rsam, hushimdan ketardim.",
+   "concept": 2422
+  },
+  {
+   "id": 2423,
+   "topic": 2,
+   "tr": "nefes almak",
+   "uz": "nafas olmoq",
+   "example_tr": "Nefes alamıyorsa yardım çağır.",
+   "example_uz": "Agar u nafas ola olmasa, yordam chaqir.",
+   "concept": 2423
+  },
+  {
+   "id": 2424,
+   "topic": 2,
+   "tr": "mahsur kalmış",
+   "uz": "qamalib qolgan",
+   "example_tr": "İki kişi asansörde mahsur kaldı.",
+   "example_uz": "Ikki kishi liftda qamalib qoldi.",
+   "concept": 2424
+  },
+  {
+   "id": 2425,
+   "topic": 2,
+   "tr": "yangın alarmı",
+   "uz": "yong‘in signalizatsiyasi",
+   "example_tr": "Yangın alarmı her ay test edilir.",
+   "example_uz": "Yong‘in signalizatsiyasi har oy tekshiriladi.",
+   "concept": 2425
+  },
+  {
+   "id": 2426,
+   "topic": 2,
+   "tr": "çalmak (alarm)",
+   "uz": "ishga tushmoq (signalizatsiya)",
+   "example_tr": "Alarm çalarsa beni uyandır.",
+   "example_uz": "Agar signalizatsiya chalinsa, meni uyg‘ot.",
+   "concept": 2426
+  },
+  {
+   "id": 2427,
+   "topic": 2,
+   "tr": "yardım hattı",
+   "uz": "ishonch telefoni",
+   "example_tr": "Yardım hattına gece gündüz cevap verilir.",
+   "example_uz": "Ishonch telefoniga kecha-yu kunduz javob beriladi.",
+   "concept": 2427
+  },
+  {
+   "id": 2428,
+   "topic": 2,
+   "tr": "kalp masajı (CPR)",
+   "uz": "yurak-o‘pka reanimatsiyasi",
+   "example_tr": "Kalp masajı yapmayı bilsem bir hayat kurtarabilirdim.",
+   "example_uz": "Agar men reanimatsiya qilishni bilganimda, inson hayotini qutqara olardim.",
+   "concept": 2428
+  },
+  {
+   "id": 2429,
+   "topic": 2,
+   "tr": "sedye",
+   "uz": "zambil",
+   "example_tr": "Adam sedyeyle taşındı.",
+   "example_uz": "Erkakni zambilda olib ketishdi.",
+   "concept": 2429
+  },
+  {
+   "id": 2430,
+   "topic": 2,
+   "tr": "cankurtaran",
+   "uz": "qutqaruvchi (suvda)",
+   "example_tr": "Burada yüzersen cankurtaran seni izler.",
+   "example_uz": "Agar shu yerda suzsang, qutqaruvchi seni kuzatib turadi.",
+   "concept": 2430
+  },
+  {
+   "id": 2431,
+   "topic": 3,
+   "tr": "icat etmek",
+   "uz": "ixtiro qilmoq",
+   "example_tr": "Telefon Bell tarafından icat edildi.",
+   "example_uz": "Telefonni Bell ixtiro qilgan.",
+   "concept": 2431
+  },
+  {
+   "id": 2432,
+   "topic": 3,
+   "tr": "mucit",
+   "uz": "ixtirochi",
+   "example_tr": "Mucit olsam uçan bir araba yapardım.",
+   "example_uz": "Agar men ixtirochi bo‘lganimda, uchar mashina yasardim.",
+   "concept": 2432
+  },
+  {
+   "id": 2433,
+   "topic": 3,
+   "tr": "icat",
+   "uz": "ixtiro",
+   "example_tr": "Bu icat bütün dünyada kullanıldı.",
+   "example_uz": "Bu ixtirodan butun dunyoda foydalanilgan.",
+   "concept": 2433
+  },
+  {
+   "id": 2434,
+   "topic": 3,
+   "tr": "keşfetmek",
+   "uz": "kashf qilmoq",
+   "example_tr": "Penisilin 1928’de keşfedildi.",
+   "example_uz": "Penitsillin 1928-yilda kashf qilingan.",
+   "concept": 2434
+  },
+  {
+   "id": 2435,
+   "topic": 3,
+   "tr": "yaratmak",
+   "uz": "yaratmoq",
+   "example_tr": "Birçok yeni iş yaratılacak.",
+   "example_uz": "Ko‘plab yangi ish o‘rinlari yaratiladi.",
+   "concept": 2435
+  },
+  {
+   "id": 2436,
+   "topic": 3,
+   "tr": "robot",
+   "uz": "robot",
+   "example_tr": "Ev işlerini robotlar yapsa daha çok vaktimiz olurdu.",
+   "example_uz": "Agar robotlar uy ishlarini qilganida, bizda ko‘proq vaqt bo‘lardi.",
+   "concept": 2436
+  },
+  {
+   "id": 2437,
+   "topic": 3,
+   "tr": "yapay zekâ",
+   "uz": "sun’iy intellekt",
+   "example_tr": "Yapay zekâ birçok uygulamada kullanılıyor.",
+   "example_uz": "Sun’iy intellekt ko‘plab ilovalarda ishlatiladi.",
+   "concept": 2437
+  },
+  {
+   "id": 2438,
+   "topic": 3,
+   "tr": "3D yazıcı",
+   "uz": "3D-printer",
+   "example_tr": "Oyuncaklar 3D yazıcıyla yapılabilir.",
+   "example_uz": "O‘yinchoqlarni 3D-printerda yasash mumkin.",
+   "concept": 2438
+  },
+  {
+   "id": 2439,
+   "topic": 3,
+   "tr": "patent",
+   "uz": "patent",
+   "example_tr": "Fikir bir patentle korundu.",
+   "example_uz": "G‘oya patent bilan himoyalangan.",
+   "concept": 2439
+  },
+  {
+   "id": 2440,
+   "topic": 3,
+   "tr": "buhar",
+   "uz": "bug‘",
+   "example_tr": "Eski trenler buharla çalışırdı.",
+   "example_uz": "Eski poyezdlar bug‘ bilan ishlagan.",
+   "concept": 2440
+  },
+  {
+   "id": 2441,
+   "topic": 3,
+   "tr": "mikroskop",
+   "uz": "mikroskop",
+   "example_tr": "Mikroskop kullansan hücreleri görürdün.",
+   "example_uz": "Agar mikroskopdan foydalansang, hujayralarni ko‘rarding.",
+   "concept": 2441
+  },
+  {
+   "id": 2442,
+   "topic": 3,
+   "tr": "dron",
+   "uz": "dron",
+   "example_tr": "Koliler yakında dronlarla teslim edilecek.",
+   "example_uz": "Tez orada posilkalarni dronlar yetkazib beradi.",
+   "concept": 2442
+  },
+  {
+   "id": 2443,
+   "topic": 3,
+   "tr": "prototip",
+   "uz": "prototip",
+   "example_tr": "İlk prototip bir garajda yapıldı.",
+   "example_uz": "Birinchi prototip garajda yig‘ilgan.",
+   "concept": 2443
+  },
+  {
+   "id": 2444,
+   "topic": 3,
+   "tr": "dâhi",
+   "uz": "daho",
+   "example_tr": "Dâhi olsam bu sorunu çözerdim.",
+   "example_uz": "Agar daho bo‘lganimda, bu masalani yechardim.",
+   "concept": 2444
+  },
+  {
+   "id": 2445,
+   "topic": 3,
+   "tr": "elektrikli araba",
+   "uz": "elektromobil",
+   "example_tr": "Benzin pahalanırsa insanlar elektrikli araba alır.",
+   "example_uz": "Agar benzin qimmatlashsa, odamlar elektromobil sotib oladi.",
+   "concept": 2445
+  },
+  {
+   "id": 2446,
+   "topic": 4,
+   "tr": "üretmek, yetiştirmek",
+   "uz": "ishlab chiqarmoq, yetishtirmoq",
+   "example_tr": "Özbekistan’da pamuk yetiştirilir.",
+   "example_uz": "O‘zbekistonda paxta yetishtiriladi.",
+   "concept": 2446
+  },
+  {
+   "id": 2447,
+   "topic": 4,
+   "tr": "ürün",
+   "uz": "mahsulot",
+   "example_tr": "Ürünlerimiz birçok ülkede satılıyor.",
+   "example_uz": "Mahsulotlarimiz ko‘plab mamlakatlarda sotiladi.",
+   "concept": 2447
+  },
+  {
+   "id": 2448,
+   "topic": 4,
+   "tr": "imal etmek",
+   "uz": "ishlab chiqarmoq (zavodda)",
+   "example_tr": "Bu telefonlar Çin’de imal ediliyor.",
+   "example_uz": "Bu telefonlar Xitoyda ishlab chiqariladi.",
+   "concept": 2448
+  },
+  {
+   "id": 2449,
+   "topic": 4,
+   "tr": "monte etmek",
+   "uz": "yig‘moq (zavodda)",
+   "example_tr": "Arabalar bu fabrikada monte ediliyor.",
+   "example_uz": "Mashinalar shu zavodda yig‘iladi.",
+   "concept": 2449
+  },
+  {
+   "id": 2450,
+   "topic": 4,
+   "tr": "ihraç etmek",
+   "uz": "eksport qilmoq",
+   "example_tr": "Meyve birçok ülkeye ihraç ediliyor.",
+   "example_uz": "Mevalar ko‘plab mamlakatlarga eksport qilinadi.",
+   "concept": 2450
+  },
+  {
+   "id": 2451,
+   "topic": 4,
+   "tr": "ithal etmek",
+   "uz": "import qilmoq",
+   "example_tr": "Kahvemizin çoğu ithal ediliyor.",
+   "example_uz": "Qahvamizning ko‘p qismi import qilinadi.",
+   "concept": 2451
+  },
+  {
+   "id": 2452,
+   "topic": 4,
+   "tr": "elle",
+   "uz": "qo‘lda",
+   "example_tr": "Bu halılar elle yapılır.",
+   "example_uz": "Bu gilamlar qo‘lda to‘qilgan.",
+   "concept": 2452
+  },
+  {
+   "id": 2453,
+   "topic": 4,
+   "tr": "etiket",
+   "uz": "yorliq",
+   "example_tr": "Fiyat etikette yazılı.",
+   "example_uz": "Narx yorliqda yozilgan.",
+   "concept": 2453
+  },
+  {
+   "id": 2454,
+   "topic": 4,
+   "tr": "işçi",
+   "uz": "ishchi",
+   "example_tr": "İşçilere her ay ödeme yapılır.",
+   "example_uz": "Ishchilarga har oy maosh to‘lanadi.",
+   "concept": 2454
+  },
+  {
+   "id": 2455,
+   "topic": 4,
+   "tr": "süreç",
+   "uz": "jarayon",
+   "example_tr": "Pamuk bu süreçte temizlenir.",
+   "example_uz": "Jarayon davomida paxta tozalanadi.",
+   "concept": 2455
+  },
+  {
+   "id": 2456,
+   "topic": 4,
+   "tr": "makineler",
+   "uz": "texnika, uskunalar",
+   "example_tr": "Çiftliklerde ağır makineler kullanılır.",
+   "example_uz": "Fermalarda og‘ir texnika ishlatiladi.",
+   "concept": 2456
+  },
+  {
+   "id": 2457,
+   "topic": 4,
+   "tr": "taşımak",
+   "uz": "tashimoq",
+   "example_tr": "Mallar trenle taşınır.",
+   "example_uz": "Tovarlar poyezdda tashiladi.",
+   "concept": 2457
+  },
+  {
+   "id": 2458,
+   "topic": 4,
+   "tr": "mal, eşya",
+   "uz": "tovarlar",
+   "example_tr": "Mallar yarın teslim edilecek.",
+   "example_uz": "Tovarlar ertaga yetkazib beriladi.",
+   "concept": 2458
+  },
+  {
+   "id": 2459,
+   "topic": 4,
+   "tr": "paket",
+   "uz": "qadoq, posilka",
+   "example_tr": "Paket gümrükte açıldı.",
+   "example_uz": "Posilka bojxonada ochildi.",
+   "concept": 2459
+  },
+  {
+   "id": 2460,
+   "topic": 4,
+   "tr": "… yapımı",
+   "uz": "… da ishlab chiqarilgan",
+   "example_tr": "Bu gömlek Özbekistan yapımı.",
+   "example_uz": "Bu ko‘ylak O‘zbekistonda ishlab chiqarilgan.",
+   "concept": 2460
+  },
+  {
+   "id": 2461,
+   "topic": 5,
+   "tr": "tüketmek",
+   "uz": "iste’mol qilmoq",
+   "example_tr": "Daha az tüketirsek para biriktiririz.",
+   "example_uz": "Agar kamroq iste’mol qilsak, pul tejaymiz.",
+   "concept": 2461
+  },
+  {
+   "id": 2462,
+   "topic": 5,
+   "tr": "azaltmak",
+   "uz": "kamaytirmoq",
+   "example_tr": "Plastik atık azaltılmalı.",
+   "example_uz": "Plastik chiqindilarni kamaytirish shart.",
+   "concept": 2462
+  },
+  {
+   "id": 2463,
+   "topic": 5,
+   "tr": "karbon ayak izi",
+   "uz": "uglerod izi",
+   "example_tr": "Daha az araba kullansak karbon ayak izimiz daha küçük olurdu.",
+   "example_uz": "Agar kamroq mashina haydaganimizda, uglerod izimiz kichikroq bo‘lardi.",
+   "concept": 2463
+  },
+  {
+   "id": 2464,
+   "topic": 5,
+   "tr": "yenilenebilir",
+   "uz": "qayta tiklanadigan",
+   "example_tr": "Yenilenebilir enerji giderek daha çok kullanılıyor.",
+   "example_uz": "Qayta tiklanadigan energiyadan tobora ko‘proq foydalanilmoqda.",
+   "concept": 2464
+  },
+  {
+   "id": 2465,
+   "topic": 5,
+   "tr": "rüzgâr santrali",
+   "uz": "shamol elektr stansiyasi",
+   "example_tr": "Denizin yakınına bir rüzgâr santrali kuruldu.",
+   "example_uz": "Dengiz yonida shamol elektr stansiyasi qurildi.",
+   "concept": 2465
+  },
+  {
+   "id": 2466,
+   "topic": 5,
+   "tr": "musluk suyu",
+   "uz": "vodoprovod suvi",
+   "example_tr": "Musluk suyu içersen para biriktirirsin.",
+   "example_uz": "Agar jumrak suvini ichsang, pul tejaysan.",
+   "concept": 2466
+  },
+  {
+   "id": 2467,
+   "topic": 5,
+   "tr": "açık bırakmak",
+   "uz": "yoqiq qoldirmoq",
+   "example_tr": "Işıkları açık bırakırsan fatura yüksek olur.",
+   "example_uz": "Agar chiroqlarni o‘chirmasang, hisob katta bo‘ladi.",
+   "concept": 2467
+  },
+  {
+   "id": 2468,
+   "topic": 5,
+   "tr": "bekleme modu",
+   "uz": "kutish rejimi",
+   "example_tr": "Televizyon bekleme modundaysa yine elektrik harcar.",
+   "example_uz": "Kutish rejimida ham televizor energiya sarflaydi.",
+   "concept": 2468
+  },
+  {
+   "id": 2469,
+   "topic": 5,
+   "tr": "yalıtım",
+   "uz": "issiqlik izolyatsiyasi",
+   "example_tr": "Evde yalıtım olsa daha sıcak olurdu.",
+   "example_uz": "Agar uy issiqlik izolyatsiyasiga ega bo‘lganida, unda issiqroq bo‘lardi.",
+   "concept": 2469
+  },
+  {
+   "id": 2470,
+   "topic": 5,
+   "tr": "çevre dostu",
+   "uz": "ekologik toza",
+   "example_tr": "Çevre dostu çantalar artık her yerde satılıyor.",
+   "example_uz": "Hozir ekologik toza sumkalar hamma joyda sotiladi.",
+   "concept": 2470
+  },
+  {
+   "id": 2471,
+   "topic": 5,
+   "tr": "toplu taşıma",
+   "uz": "jamoat transporti",
+   "example_tr": "Toplu taşıma kullansak daha az trafik olurdu.",
+   "example_uz": "Agar jamoat transportidan foydalansak, tirbandlik kamroq bo‘lardi.",
+   "concept": 2471
+  },
+  {
+   "id": 2472,
+   "topic": 5,
+   "tr": "ayırmak (çöp)",
+   "uz": "saralamoq",
+   "example_tr": "Çöpler üç kutuya ayrılır.",
+   "example_uz": "Axlat uchta qutiga saralanadi.",
+   "concept": 2472
+  },
+  {
+   "id": 2473,
+   "topic": 5,
+   "tr": "kompost",
+   "uz": "kompost",
+   "example_tr": "Kompost yaparsan bahçen daha iyi büyür.",
+   "example_uz": "Agar kompost qilsang, bog‘ing yaxshiroq o‘sadi.",
+   "concept": 2473
+  },
+  {
+   "id": 2474,
+   "topic": 5,
+   "tr": "sayaç",
+   "uz": "hisoblagich",
+   "example_tr": "Sayaç her ay kontrol edilir.",
+   "example_uz": "Hisoblagich har oy tekshiriladi.",
+   "concept": 2474
+  },
+  {
+   "id": 2475,
+   "topic": 5,
+   "tr": "damlamak",
+   "uz": "tomchilamoq",
+   "example_tr": "Musluk damlarsa çok su boşa gider.",
+   "example_uz": "Agar jumrak tomchilasa, ko‘p suv isrof bo‘ladi.",
+   "concept": 2475
+  },
+  {
+   "id": 2476,
+   "topic": 6,
+   "tr": "döküntü (ciltte)",
+   "uz": "toshma",
+   "example_tr": "Döküntü olursa hapları içmeyi bırak.",
+   "example_uz": "Agar toshma chiqsa, tabletkalarni ichishni to‘xtat.",
+   "concept": 2476
+  },
+  {
+   "id": 2477,
+   "topic": 6,
+   "tr": "kaşıntılı",
+   "uz": "qichishadigan",
+   "example_tr": "Gözlerin kaşınıyorsa alerjin olabilir.",
+   "example_uz": "Agar ko‘zlaring qichisa, senda allergiya bo‘lishi mumkin.",
+   "concept": 2477
+  },
+  {
+   "id": 2478,
+   "topic": 6,
+   "tr": "enfeksiyon",
+   "uz": "infeksiya",
+   "example_tr": "Enfeksiyon antibiyotikle tedavi edildi.",
+   "example_uz": "Infeksiya antibiotiklar bilan davolandi.",
+   "concept": 2478
+  },
+  {
+   "id": 2479,
+   "topic": 6,
+   "tr": "antibiyotik",
+   "uz": "antibiotiklar",
+   "example_tr": "Antibiyotikler doktor tarafından yazılır.",
+   "example_uz": "Antibiotiklarni shifokor yozib beradi.",
+   "concept": 2479
+  },
+  {
+   "id": 2480,
+   "topic": 6,
+   "tr": "tedavi etmek",
+   "uz": "davolamoq",
+   "example_tr": "Bu hastalık kolayca tedavi edilebilir.",
+   "example_uz": "Bu kasallikni oson davolash mumkin.",
+   "concept": 2480
+  },
+  {
+   "id": 2481,
+   "topic": 6,
+   "tr": "ameliyat",
+   "uz": "operatsiya, jarrohlik",
+   "example_tr": "Ameliyat gerekirse yarın yapılacak.",
+   "example_uz": "Agar operatsiya kerak bo‘lsa, ertaga qilinadi.",
+   "concept": 2481
+  },
+  {
+   "id": 2482,
+   "topic": 6,
+   "tr": "iyileşmek (yara)",
+   "uz": "bitmoq (yara)",
+   "example_tr": "Dinlenirsen yara çabuk iyileşir.",
+   "example_uz": "Agar dam olsang, yara tez bitadi.",
+   "concept": 2482
+  },
+  {
+   "id": 2483,
+   "topic": 6,
+   "tr": "burkmak",
+   "uz": "cho‘zmoq (paylarni)",
+   "example_tr": "Ayak bileğini burkarsan üzerine buz koy.",
+   "example_uz": "Agar to‘pig‘ingni cho‘zib olsang, muz qo‘y.",
+   "concept": 2483
+  },
+  {
+   "id": 2484,
+   "topic": 6,
+   "tr": "gıda zehirlenmesi",
+   "uz": "ovqatdan zaharlanish",
+   "example_tr": "Bayat balık yersen gıda zehirlenmesi geçirirsin.",
+   "example_uz": "Agar eski baliq yesang, zaharlanasan.",
+   "concept": 2484
+  },
+  {
+   "id": 2485,
+   "topic": 6,
+   "tr": "damla",
+   "uz": "tomchilar",
+   "example_tr": "Göz damlaları her eczanede satılıyor.",
+   "example_uz": "Ko‘z tomchilari har bir dorixonada sotiladi.",
+   "concept": 2485
+  },
+  {
+   "id": 2486,
+   "topic": 6,
+   "tr": "şurup",
+   "uz": "sirop",
+   "example_tr": "Öksürük kötüleşirse bu şurubu iç.",
+   "example_uz": "Agar yo‘tal kuchaysa, bu siropni ich.",
+   "concept": 2486
+  },
+  {
+   "id": 2487,
+   "topic": 6,
+   "tr": "yan etki",
+   "uz": "nojo‘ya ta’sir",
+   "example_tr": "Yan etkiler kutunun üzerinde yazılı.",
+   "example_uz": "Nojo‘ya ta’sirlar qutida ko‘rsatilgan.",
+   "concept": 2487
+  },
+  {
+   "id": 2488,
+   "topic": 6,
+   "tr": "doz",
+   "uz": "doza, miqdor",
+   "example_tr": "Doz bir doktor tarafından kontrol edilmeli.",
+   "example_uz": "Dozani shifokor tekshirishi shart.",
+   "concept": 2488
+  },
+  {
+   "id": 2489,
+   "topic": 6,
+   "tr": "koltuk değneği",
+   "uz": "qo‘ltiqtayoqlar",
+   "example_tr": "Bacağını kırarsan koltuk değneğine ihtiyacın olur.",
+   "example_uz": "Agar oyog‘ingni sindirsang, senga qo‘ltiqtayoq kerak bo‘ladi.",
+   "concept": 2489
+  },
+  {
+   "id": 2490,
+   "topic": 6,
+   "tr": "cerrah",
+   "uz": "jarroh",
+   "example_tr": "Ameliyat ünlü bir cerrah tarafından yapıldı.",
+   "example_uz": "Operatsiyani mashhur jarroh qildi.",
+   "concept": 2490
+  },
+  {
+   "id": 2491,
+   "topic": 7,
+   "tr": "hayal",
+   "uz": "orzu",
+   "example_tr": "Hayalim gerçek olsa deniz kenarında yaşardım.",
+   "example_uz": "Agar orzuyim ro‘yobga chiqsa, dengiz bo‘yida yashardim.",
+   "concept": 2491
+  },
+  {
+   "id": 2492,
+   "topic": 7,
+   "tr": "piyango",
+   "uz": "lotereya",
+   "example_tr": "Piyangoyu kazansam bir ev alırdım.",
+   "example_uz": "Agar lotereyada yutsam, uy sotib olardim.",
+   "concept": 2492
+  },
+  {
+   "id": 2493,
+   "topic": 7,
+   "tr": "milyoner",
+   "uz": "millioner",
+   "example_tr": "Milyoner olsam insanlara yardım ederdim.",
+   "example_uz": "Agar millioner bo‘lganimda, odamlarga yordam berardim.",
+   "concept": 2493
+  },
+  {
+   "id": 2494,
+   "topic": 7,
+   "tr": "şöhret",
+   "uz": "shon-shuhrat",
+   "example_tr": "Çok çalışırsan çok çabuk şöhrete ulaşırsın.",
+   "example_uz": "Agar astoydil mehnat qilsang, juda tez shuhratga erishasan.",
+   "concept": 2494
+  },
+  {
+   "id": 2495,
+   "topic": 7,
+   "tr": "süper güç",
+   "uz": "g‘ayritabiiy qobiliyat",
+   "example_tr": "Süper gücüm olsa uçardım.",
+   "example_uz": "Agar menda g‘ayritabiiy qobiliyat bo‘lganida, uchardim.",
+   "concept": 2495
+  },
+  {
+   "id": 2496,
+   "topic": 7,
+   "tr": "görünmez",
+   "uz": "ko‘rinmas",
+   "example_tr": "Görünmez olsam bedava seyahat ederdim.",
+   "example_uz": "Agar ko‘rinmas bo‘lganimda, tekinga sayohat qilardim.",
+   "concept": 2496
+  },
+  {
+   "id": 2497,
+   "topic": 7,
+   "tr": "zaman makinesi",
+   "uz": "vaqt mashinasi",
+   "example_tr": "Zaman makinem olsa geçmişe giderdim.",
+   "example_uz": "Agar vaqt mashinam bo‘lganida, o‘tmishga borardim.",
+   "concept": 2497
+  },
+  {
+   "id": 2498,
+   "topic": 7,
+   "tr": "ıssız ada",
+   "uz": "odam yashamaydigan orol",
+   "example_tr": "Issız bir adada olsan yanına ne alırdın?",
+   "example_uz": "Agar odam yashamaydigan orolda qolsang, o‘zing bilan nima olarding?",
+   "concept": 2498
+  },
+  {
+   "id": 2499,
+   "topic": 7,
+   "tr": "hayalimdeki iş",
+   "uz": "orzudagi ish",
+   "example_tr": "Hayalimdeki işi bulsam taşınırdım.",
+   "example_uz": "Agar orzudagi ishimni topsam, ko‘chib ketardim.",
+   "concept": 2499
+  },
+  {
+   "id": 2500,
+   "topic": 7,
+   "tr": "merak etmek",
+   "uz": "qiziqmoq, hayron bo‘lmoq",
+   "example_tr": "Zengin olsam ne yapardım, merak ediyorum.",
+   "example_uz": "Boy bo‘lganimda nima qilardim ekan, qiziq.",
+   "concept": 2500
+  },
+  {
+   "id": 2501,
+   "topic": 7,
+   "tr": "keşke",
+   "uz": "qaniydi",
+   "example_tr": "Keşke daha çok boş vaktim olsa!",
+   "example_uz": "Qaniydi, ko‘proq bo‘sh vaqtim bo‘lsa!",
+   "concept": 2501
+  },
+  {
+   "id": 2502,
+   "topic": 7,
+   "tr": "lüks",
+   "uz": "hashamat",
+   "example_tr": "Zengin olsam lüks içinde yaşardım.",
+   "example_uz": "Agar boy bo‘lganimda, hashamatda yashardim.",
+   "concept": 2502
+  },
+  {
+   "id": 2503,
+   "topic": 7,
+   "tr": "malikâne",
+   "uz": "hashamatli uy",
+   "example_tr": "Param olsa bir malikâne alırdım.",
+   "example_uz": "Agar pulim bo‘lganida, hashamatli uy sotib olardim.",
+   "concept": 2503
+  },
+  {
+   "id": 2504,
+   "topic": 7,
+   "tr": "yat",
+   "uz": "yaxta",
+   "example_tr": "Yatım olsa dünyayı dolaşırdım.",
+   "example_uz": "Agar yaxtam bo‘lganida, dunyo bo‘ylab suzib chiqardim.",
+   "concept": 2504
+  },
+  {
+   "id": 2505,
+   "topic": 7,
+   "tr": "hayır kurumu",
+   "uz": "xayriya",
+   "example_tr": "Zengin olsam hayır kurumlarına para verirdim.",
+   "example_uz": "Agar boy bo‘lganimda, xayriyaga pul berardim.",
+   "concept": 2505
+  },
+  {
+   "id": 2506,
+   "topic": 8,
+   "tr": "karar vermek",
+   "uz": "qarorga kelmoq",
+   "example_tr": "Yakında karar vermezsen ben seçerim.",
+   "example_uz": "Agar tez orada qarorga kelmasang, men tanlayman.",
+   "concept": 2506
+  },
+  {
+   "id": 2507,
+   "topic": 8,
+   "tr": "artılar ve eksiler",
+   "uz": "afzalliklar va kamchiliklar",
+   "example_tr": "Artıları ve eksileri yazarsan daha kolay olur.",
+   "example_uz": "Agar afzallik va kamchiliklarni sanab chiqsang, osonroq bo‘ladi.",
+   "concept": 2507
+  },
+  {
+   "id": 2508,
+   "topic": 8,
+   "tr": "avantaj",
+   "uz": "afzallik",
+   "example_tr": "Merkezde yaşarsan birçok avantajı olur.",
+   "example_uz": "Agar markazda yashasang, ko‘p afzalliklar bo‘ladi.",
+   "concept": 2508
+  },
+  {
+   "id": 2509,
+   "topic": 8,
+   "tr": "dezavantaj",
+   "uz": "kamchilik",
+   "example_tr": "Asıl dezavantaj fiyat olurdu.",
+   "example_uz": "Asosiy kamchilik narx bo‘lardi.",
+   "concept": 2509
+  },
+  {
+   "id": 2510,
+   "topic": 8,
+   "tr": "şüphe",
+   "uz": "shubha",
+   "example_tr": "Şüphen varsa bana sor.",
+   "example_uz": "Agar shubhang bo‘lsa, mendan so‘ra.",
+   "concept": 2510
+  },
+  {
+   "id": 2511,
+   "topic": 8,
+   "tr": "emin",
+   "uz": "ishonchli, aniq",
+   "example_tr": "Emin olsam evet derdim.",
+   "example_uz": "Agar ishonchim komil bo‘lganida, rozi bo‘lardim.",
+   "concept": 2511
+  },
+  {
+   "id": 2512,
+   "topic": 8,
+   "tr": "uzlaşmak",
+   "uz": "murosaga kelmoq",
+   "example_tr": "İkimiz de uzlaşırsak bir çözüm buluruz.",
+   "example_uz": "Agar ikkalamiz murosaga kelsak, yechim topamiz.",
+   "concept": 2512
+  },
+  {
+   "id": 2513,
+   "topic": 8,
+   "tr": "oy vermek",
+   "uz": "ovoz bermoq",
+   "example_tr": "Herkes oy verirse sonuç adil olur.",
+   "example_uz": "Agar hamma ovoz bersa, natija adolatli bo‘ladi.",
+   "concept": 2513
+  },
+  {
+   "id": 2514,
+   "topic": 8,
+   "tr": "çoğunluk",
+   "uz": "ko‘pchilik (ovozlar)",
+   "example_tr": "Plan çoğunluk tarafından kabul edildi.",
+   "example_uz": "Reja ko‘pchilik ovoz bilan qabul qilindi.",
+   "concept": 2514
+  },
+  {
+   "id": 2515,
+   "topic": 8,
+   "tr": "yazı tura atmak",
+   "uz": "tanga tashlamoq",
+   "example_tr": "Karar veremezsek yazı tura atarız.",
+   "example_uz": "Agar qaror qila olmasak, tanga tashlaymiz.",
+   "concept": 2515
+  },
+  {
+   "id": 2516,
+   "topic": 8,
+   "tr": "sonuç (olumsuz)",
+   "uz": "oqibat",
+   "example_tr": "Kuralları çiğnersen bunun sonuçları olur.",
+   "example_uz": "Agar qoidalarni buzsang, oqibatlari bo‘ladi.",
+   "concept": 2516
+  },
+  {
+   "id": 2517,
+   "topic": 8,
+   "tr": "alternatif",
+   "uz": "muqobil",
+   "example_tr": "Bu plan başarısız olursa bir alternatife ihtiyacımız olacak.",
+   "example_uz": "Agar bu reja barbod bo‘lsa, bizga muqobil kerak bo‘ladi.",
+   "concept": 2517
+  },
+  {
+   "id": 2518,
+   "topic": 8,
+   "tr": "fikrini değiştirmek",
+   "uz": "fikridan qaytmoq",
+   "example_tr": "Fikrini değiştirirsen beni ara.",
+   "example_uz": "Agar fikringdan qaytsang, menga qo‘ng‘iroq qil.",
+   "concept": 2518
+  },
+  {
+   "id": 2519,
+   "topic": 8,
+   "tr": "öncelik",
+   "uz": "ustuvor vazifa",
+   "example_tr": "Sağlığım önceliğim olsa daha çok uyurdum.",
+   "example_uz": "Agar sog‘lig‘im ustuvor bo‘lganida, ko‘proq uxlardim.",
+   "concept": 2519
+  },
+  {
+   "id": 2520,
+   "topic": 8,
+   "tr": "içgüdü, sezgi",
+   "uz": "sezgi, intuitsiya",
+   "example_tr": "İçgüdülerime uysam hayır derdim.",
+   "example_uz": "Agar sezgimga quloq solganimda, rad etardim.",
+   "concept": 2520
+  },
+  {
+   "id": 2521,
+   "topic": 9,
+   "tr": "konaklama",
+   "uz": "turar joy (safarda)",
+   "example_tr": "Konaklama önceden ayarlanacak.",
+   "example_uz": "Turar joy oldindan band qilinadi.",
+   "concept": 2521
+  },
+  {
+   "id": 2522,
+   "topic": 9,
+   "tr": "önceden",
+   "uz": "oldindan",
+   "example_tr": "Önceden ayırtırsan daha ucuz olur.",
+   "example_uz": "Agar oldindan band qilsang, arzonroq bo‘ladi.",
+   "concept": 2522
+  },
+  {
+   "id": 2523,
+   "topic": 9,
+   "tr": "her şey dahil",
+   "uz": "«hammasi kiritilgan»",
+   "example_tr": "Her şey dahil seçsek bütün yemekler dahil olurdu.",
+   "example_uz": "Agar «hammasi kiritilgan»ni tanlaganimizda, barcha ovqatlar narxga kirgan bo‘lardi.",
+   "concept": 2523
+  },
+  {
+   "id": 2524,
+   "topic": 9,
+   "tr": "seyahat programı",
+   "uz": "sayohat yo‘nalishi",
+   "example_tr": "Seyahat programımız bir seyahat acentesi tarafından planlandı.",
+   "example_uz": "Sayohat yo‘nalishimizni turistik agent rejalashtirdi.",
+   "concept": 2524
+  },
+  {
+   "id": 2525,
+   "topic": 9,
+   "tr": "sigorta",
+   "uz": "sug‘urta",
+   "example_tr": "Seyahat sigortası yaptırırsan endişelenmezsin.",
+   "example_uz": "Agar sayohat sug‘urtasini rasmiylashtirsang, xavotir olmaysan.",
+   "concept": 2525
+  },
+  {
+   "id": 2526,
+   "topic": 9,
+   "tr": "hostel",
+   "uz": "xostel",
+   "example_tr": "Hostelde kalsak para biriktirirdik.",
+   "example_uz": "Agar xostelda to‘xtaganimizda, pul tejardik.",
+   "concept": 2526
+  },
+  {
+   "id": 2527,
+   "topic": 9,
+   "tr": "tatil köyü",
+   "uz": "kurort, dam olish maskani",
+   "example_tr": "Tatil köyü on yıl önce inşa edildi.",
+   "example_uz": "Kurort o‘n yil oldin qurilgan.",
+   "concept": 2527
+  },
+  {
+   "id": 2528,
+   "topic": 9,
+   "tr": "paket tur",
+   "uz": "paketli tur",
+   "example_tr": "Paket turlar internette satılıyor.",
+   "example_uz": "Paketli turlar onlayn sotiladi.",
+   "concept": 2528
+  },
+  {
+   "id": 2529,
+   "topic": 9,
+   "tr": "el bagajı",
+   "uz": "qo‘l yuki",
+   "example_tr": "Çantan küçükse el bagajı olarak alınabilir.",
+   "example_uz": "Agar sumkang kichik bo‘lsa, uni qo‘l yuki sifatida olsa bo‘ladi.",
+   "concept": 2529
+  },
+  {
+   "id": 2530,
+   "topic": 9,
+   "tr": "fazla kilolu (bagaj)",
+   "uz": "ortiqcha vaznli",
+   "example_tr": "Bavulun fazla kiloluysa ek ücret ödersin.",
+   "example_uz": "Agar chamadoning ortiqcha vaznli bo‘lsa, qo‘shimcha to‘laysan.",
+   "concept": 2530
+  },
+  {
+   "id": 2531,
+   "topic": 9,
+   "tr": "karşılamak (birini)",
+   "uz": "kutib olmoq, olib ketmoq",
+   "example_tr": "Havalimanında karşılanacağız.",
+   "example_uz": "Bizni aeroportda kutib olishadi.",
+   "concept": 2531
+  },
+  {
+   "id": 2532,
+   "topic": 9,
+   "tr": "priz adaptörü",
+   "uz": "adapter (sayohat uchun)",
+   "example_tr": "Priz adaptörünü unutursan telefonunu şarj edemezsin.",
+   "example_uz": "Agar adapterni unutsang, telefoningni zaryadlay olmaysan.",
+   "concept": 2532
+  },
+  {
+   "id": 2533,
+   "topic": 9,
+   "tr": "yüksek sezon",
+   "uz": "yuqori mavsum",
+   "example_tr": "Yüksek sezonda fiyatlar artırılır.",
+   "example_uz": "Yuqori mavsumda narxlar oshiriladi.",
+   "concept": 2533
+  },
+  {
+   "id": 2534,
+   "topic": 9,
+   "tr": "düşük sezon",
+   "uz": "past mavsum",
+   "example_tr": "Düşük sezonda seyahat edersek daha ucuz olur.",
+   "example_uz": "Agar past mavsumda borsak, arzonroq bo‘ladi.",
+   "concept": 2534
+  },
+  {
+   "id": 2535,
+   "topic": 9,
+   "tr": "deniz manzarası",
+   "uz": "dengiz manzarasi",
+   "example_tr": "Daha fazla ödersen deniz manzaralı bir oda alırsın.",
+   "example_uz": "Agar qo‘shimcha to‘lasang, dengiz manzarali xona olasan.",
+   "concept": 2535
+  },
+  {
+   "id": 2536,
+   "topic": 10,
+   "tr": "kusurlu",
+   "uz": "nuqsonli",
+   "example_tr": "Ürün kusurluysa değiştirilir.",
+   "example_uz": "Agar mahsulot nuqsonli bo‘lsa, u almashtiriladi.",
+   "concept": 2536
+  },
+  {
+   "id": 2537,
+   "topic": 10,
+   "tr": "lekeli",
+   "uz": "dog‘li",
+   "example_tr": "Gömlek lekeliyse değiştirilir.",
+   "example_uz": "Agar ko‘ylak dog‘li bo‘lsa, u almashtiriladi.",
+   "concept": 2537
+  },
+  {
+   "id": 2538,
+   "topic": 10,
+   "tr": "iade etmek",
+   "uz": "qaytarmoq (tovarni)",
+   "example_tr": "Ayakkabılar olmazsa onları iade edebilirsin.",
+   "example_uz": "Agar tuflilar to‘g‘ri kelmasa, ularni qaytarish mumkin.",
+   "concept": 2538
+  },
+  {
+   "id": 2539,
+   "topic": 10,
+   "tr": "müşteri hizmetleri",
+   "uz": "mijozlarni qo‘llab-quvvatlash xizmati",
+   "example_tr": "Müşteri hizmetlerini ararsan sana yardım ederler.",
+   "example_uz": "Agar qo‘llab-quvvatlash xizmatiga qo‘ng‘iroq qilsang, senga yordam berishadi.",
+   "concept": 2539
+  },
+  {
+   "id": 2540,
+   "topic": 10,
+   "tr": "tazminat",
+   "uz": "kompensatsiya, tovon",
+   "example_tr": "Uçuş gecikirse sana tazminat verilir.",
+   "example_uz": "Agar reys kechiksa, senga kompensatsiya beriladi.",
+   "concept": 2540
+  },
+  {
+   "id": 2541,
+   "topic": 10,
+   "tr": "çizik",
+   "uz": "tirnalgan joy",
+   "example_tr": "Telefonda çizik varsa yenisini iste.",
+   "example_uz": "Agar telefonda tirnalgan joy bo‘lsa, yangisini so‘ra.",
+   "concept": 2541
+  },
+  {
+   "id": 2542,
+   "topic": 10,
+   "tr": "eksik",
+   "uz": "yetishmayotgan",
+   "example_tr": "Bir şey eksikse sipariş tekrar gönderilir.",
+   "example_uz": "Agar biror narsa yetishmasa, buyurtma qayta yuboriladi.",
+   "concept": 2542
+  },
+  {
+   "id": 2543,
+   "topic": 10,
+   "tr": "yanlış beden",
+   "uz": "noto‘g‘ri o‘lcham",
+   "example_tr": "Yanlış beden gönderseler geri gönderirdim.",
+   "example_uz": "Agar noto‘g‘ri o‘lcham yuborishganida, uni qaytarib yuborardim.",
+   "concept": 2543
+  },
+  {
+   "id": 2544,
+   "topic": 10,
+   "tr": "geri göndermek",
+   "uz": "qaytarib yubormoq",
+   "example_tr": "Koli mağazaya geri gönderildi.",
+   "example_uz": "Posilka do‘konga qaytarib yuborildi.",
+   "concept": 2544
+  },
+  {
+   "id": 2545,
+   "topic": 10,
+   "tr": "hediye çeki",
+   "uz": "vaucher, sertifikat",
+   "example_tr": "İade edersen hediye çeki alırsın.",
+   "example_uz": "Agar uni qaytarsang, vaucher olasan.",
+   "concept": 2545
+  },
+  {
+   "id": 2546,
+   "topic": 10,
+   "tr": "kabul edilemez",
+   "uz": "qabul qilib bo‘lmaydigan",
+   "example_tr": "Yemek soğuksa bu kabul edilemez.",
+   "example_uz": "Agar ovqat sovuq bo‘lsa, bu qabul qilib bo‘lmaydigan holat.",
+   "concept": 2546
+  },
+  {
+   "id": 2547,
+   "topic": 10,
+   "tr": "yorum, değerlendirme",
+   "uz": "sharh, fikr-mulohaza",
+   "example_tr": "Yorumlar birçok müşteri tarafından okunuyor.",
+   "example_uz": "Sharhlarni ko‘plab xaridorlar o‘qiydi.",
+   "concept": 2547
+  },
+  {
+   "id": 2548,
+   "topic": 10,
+   "tr": "puan",
+   "uz": "reyting, baho",
+   "example_tr": "Puan düşükse insanlar onu almaz.",
+   "example_uz": "Agar reyting past bo‘lsa, odamlar sotib olmaydi.",
+   "concept": 2548
+  },
+  {
+   "id": 2549,
+   "topic": 10,
+   "tr": "hata, kusur",
+   "uz": "ayb",
+   "example_tr": "Bu bizim hatamızsa paranız iade edilir.",
+   "example_uz": "Agar bu bizning aybimiz bo‘lsa, pulingiz qaytariladi.",
+   "concept": 2549
+  },
+  {
+   "id": 2550,
+   "topic": 10,
+   "tr": "stokta yok",
+   "uz": "mavjud emas, tugagan",
+   "example_tr": "Stokta yoksa size e-postayla bildirilir.",
+   "example_uz": "Agar mahsulot tugagan bo‘lsa, sizga elektron pochta orqali xabar beriladi.",
+   "concept": 2550
+  },
+  {
+   "id": 2551,
+   "topic": 11,
+   "tr": "ev sahibi",
+   "uz": "uy egasi",
+   "example_tr": "Daire yaşlı bir ev sahibine ait.",
+   "example_uz": "Kvartira keksa uy egasiga tegishli.",
+   "concept": 2551
+  },
+  {
+   "id": 2552,
+   "topic": 11,
+   "tr": "kiracı",
+   "uz": "ijarachi",
+   "example_tr": "Kiracı geç öderse ceza ödemek zorunda kalır.",
+   "example_uz": "Agar ijarachi kechikib to‘lasa, u jarima to‘lashi kerak bo‘ladi.",
+   "concept": 2552
+  },
+  {
+   "id": 2553,
+   "topic": 11,
+   "tr": "depozito",
+   "uz": "garov puli",
+   "example_tr": "Bir şey kırarsan depozito iade edilmez.",
+   "example_uz": "Agar biror narsani sindirsang, garov puli qaytarilmaydi.",
+   "concept": 2553
+  },
+  {
+   "id": 2554,
+   "topic": 11,
+   "tr": "eşyalı",
+   "uz": "jihozlangan",
+   "example_tr": "Daire eşyalı olsa tutardık.",
+   "example_uz": "Agar kvartira jihozlangan bo‘lganida, biz uni ijaraga olardik.",
+   "concept": 2554
+  },
+  {
+   "id": 2555,
+   "topic": 11,
+   "tr": "stüdyo daire",
+   "uz": "studiya kvartira",
+   "example_tr": "Stüdyo daire merkezin dışında olsa daha ucuz olurdu.",
+   "example_uz": "Agar studiya markazdan tashqarida bo‘lganida, arzonroq bo‘lardi.",
+   "concept": 2555
+  },
+  {
+   "id": 2556,
+   "topic": 11,
+   "tr": "emlakçı",
+   "uz": "ko‘chmas mulk agenti",
+   "example_tr": "Daire bize bir emlakçı tarafından gösterildi.",
+   "example_uz": "Kvartirani bizga ko‘chmas mulk agenti ko‘rsatdi.",
+   "concept": 2556
+  },
+  {
+   "id": 2557,
+   "topic": 11,
+   "tr": "ev gösterimi",
+   "uz": "ko‘rish (uy-joyni)",
+   "example_tr": "Fotoğrafları beğenirseniz ev gösterimi ayarlarız.",
+   "example_uz": "Agar suratlar sizga yoqsa, ko‘rishni tashkil qilamiz.",
+   "concept": 2557
+  },
+  {
+   "id": 2558,
+   "topic": 11,
+   "tr": "konum",
+   "uz": "joylashuv",
+   "example_tr": "Konum iyiyse kira yüksek olur.",
+   "example_uz": "Agar joylashuv yaxshi bo‘lsa, ijara qimmat bo‘ladi.",
+   "concept": 2558
+  },
+  {
+   "id": 2559,
+   "topic": 11,
+   "tr": "ferah, geniş",
+   "uz": "keng, sershinam",
+   "example_tr": "Mutfak daha geniş olsa daha çok yemek yapardım.",
+   "example_uz": "Agar oshxona kengroq bo‘lganida, ko‘proq ovqat pishirardim.",
+   "concept": 2559
+  },
+  {
+   "id": 2560,
+   "topic": 11,
+   "tr": "faturalar (su, elektrik, gaz)",
+   "uz": "kommunal xizmatlar",
+   "example_tr": "Faturalar kiraya dahil.",
+   "example_uz": "Kommunal xizmatlar ijara haqiga kiritilgan.",
+   "concept": 2560
+  },
+  {
+   "id": 2561,
+   "topic": 11,
+   "tr": "aylık",
+   "uz": "har oyda",
+   "example_tr": "Kira aylık ödenir.",
+   "example_uz": "Ijara haqi har oyda to‘lanadi.",
+   "concept": 2561
+  },
+  {
+   "id": 2562,
+   "topic": 11,
+   "tr": "kira sözleşmesi",
+   "uz": "ijara shartnomasi",
+   "example_tr": "Kira sözleşmesi yarın imzalanacak.",
+   "example_uz": "Ijara shartnomasi ertaga imzolanadi.",
+   "concept": 2562
+  },
+  {
+   "id": 2563,
+   "topic": 11,
+   "tr": "ev arkadaşı",
+   "uz": "kvartiradosh",
+   "example_tr": "Ev arkadaşım olsa kira daha ucuz olurdu.",
+   "example_uz": "Agar kvartiradoshim bo‘lganida, ijara arzonroq bo‘lardi.",
+   "concept": 2563
+  },
+  {
+   "id": 2564,
+   "topic": 11,
+   "tr": "zemin kat",
+   "uz": "birinchi qavat",
+   "example_tr": "Zemin katta yaşasak asansöre ihtiyacımız olmazdı.",
+   "example_uz": "Agar birinchi qavatda yashaganimizda, bizga lift kerak bo‘lmasdi.",
+   "concept": 2564
+  },
+  {
+   "id": 2565,
+   "topic": 11,
+   "tr": "teslim etmek",
+   "uz": "topshirmoq",
+   "example_tr": "Anahtarlar pazartesi teslim edilecek.",
+   "example_uz": "Kalitlar dushanba kuni topshiriladi.",
+   "concept": 2565
+  },
+  {
+   "id": 2566,
+   "topic": 12,
+   "tr": "boş kadro",
+   "uz": "bo‘sh ish o‘rni",
+   "example_tr": "Boş kadro varsa başvururum.",
+   "example_uz": "Agar bo‘sh ish o‘rni bo‘lsa, ariza beraman.",
+   "concept": 2566
+  },
+  {
+   "id": 2567,
+   "topic": 12,
+   "tr": "iş ilanı",
+   "uz": "ish e’loni",
+   "example_tr": "İş ilanı dün yayımlandı.",
+   "example_uz": "Ish e’loni kecha joylashtirildi.",
+   "concept": 2567
+  },
+  {
+   "id": 2568,
+   "topic": 12,
+   "tr": "aday",
+   "uz": "nomzod",
+   "example_tr": "En iyi aday gelecek hafta seçilecek.",
+   "example_uz": "Eng yaxshi nomzod kelasi hafta tanlanadi.",
+   "concept": 2568
+  },
+  {
+   "id": 2569,
+   "topic": 12,
+   "tr": "şart, gereklilik",
+   "uz": "talab",
+   "example_tr": "Şartları karşılarsanız davet edilirsiniz.",
+   "example_uz": "Agar talablarga javob bersangiz, sizni taklif qilishadi.",
+   "concept": 2569
+  },
+  {
+   "id": 2570,
+   "topic": 12,
+   "tr": "ön yazı",
+   "uz": "ilova xat (ishga)",
+   "example_tr": "Ön yazın iyiyse davet edilirsin.",
+   "example_uz": "Agar ilova xating yaxshi bo‘lsa, seni taklif qilishadi.",
+   "concept": 2570
+  },
+  {
+   "id": 2571,
+   "topic": 12,
+   "tr": "referans",
+   "uz": "tavsiyanoma",
+   "example_tr": "Referanslar işveren tarafından kontrol edilir.",
+   "example_uz": "Tavsiyanomalarni ish beruvchi tekshiradi.",
+   "concept": 2571
+  },
+  {
+   "id": 2572,
+   "topic": 12,
+   "tr": "kısa listeye almak",
+   "uz": "yakuniy ro‘yxatga kiritmoq",
+   "example_tr": "İş için beş kişi kısa listeye alındı.",
+   "example_uz": "Besh kishi yakuniy ro‘yxatga kiritildi.",
+   "concept": 2572
+  },
+  {
+   "id": 2573,
+   "topic": 12,
+   "tr": "pazarlık etmek",
+   "uz": "shartlarni muhokama qilmoq",
+   "example_tr": "Senin yerinde olsam maaş için pazarlık ederdim.",
+   "example_uz": "Sening o‘rningda bo‘lganimda, maosh haqida kelishib olardim.",
+   "concept": 2573
+  },
+  {
+   "id": 2574,
+   "topic": 12,
+   "tr": "deneme süresi",
+   "uz": "sinov muddati",
+   "example_tr": "Yeni çalışanlara deneme süresi verilir.",
+   "example_uz": "Yangi xodimlarga sinov muddati beriladi.",
+   "concept": 2574
+  },
+  {
+   "id": 2575,
+   "topic": 12,
+   "tr": "kariyer fuarı",
+   "uz": "bo‘sh ish o‘rinlari yarmarkasi",
+   "example_tr": "Kariyer fuarına gidersen işverenlerle tanışırsın.",
+   "example_uz": "Agar yarmarkaga borsang, ish beruvchilar bilan uchrashasan.",
+   "concept": 2575
+  },
+  {
+   "id": 2576,
+   "topic": 12,
+   "tr": "kafa avcısı",
+   "uz": "xedxanter, kadrlar ovchisi",
+   "example_tr": "Onunla bir kafa avcısı iletişime geçti.",
+   "example_uz": "U bilan xedxanter bog‘landi.",
+   "concept": 2576
+  },
+  {
+   "id": 2577,
+   "topic": 12,
+   "tr": "eleman almak",
+   "uz": "ishga olmoq (xodimlarni)",
+   "example_tr": "On yeni hemşire işe alınacak.",
+   "example_uz": "O‘nta yangi hamshira ishga olinadi.",
+   "concept": 2577
+  },
+  {
+   "id": 2578,
+   "topic": 12,
+   "tr": "güçlü yön",
+   "uz": "kuchli tomon",
+   "example_tr": "Güçlü yönlerini bilirsen başarılı olursun.",
+   "example_uz": "Agar kuchli tomonlaringni bilsang, hammasi yaxshi bo‘ladi.",
+   "concept": 2578
+  },
+  {
+   "id": 2579,
+   "topic": 12,
+   "tr": "zayıf yön",
+   "uz": "zaif tomon",
+   "example_tr": "Zayıf yönlerimi sorsalar dürüst olurdum.",
+   "example_uz": "Agar zaif tomonlarim haqida so‘rashganida, rostini aytardim.",
+   "concept": 2579
+  },
+  {
+   "id": 2580,
+   "topic": 12,
+   "tr": "işe almak",
+   "uz": "yollamoq",
+   "example_tr": "İşe alınırsan pazartesi başlarsın.",
+   "example_uz": "Agar seni ishga olishsa, dushanbadan boshlaysan.",
+   "concept": 2580
+  },
+  {
+   "id": 2581,
+   "topic": 13,
+   "tr": "değerlendirmek (sınav)",
+   "uz": "tekshirmoq (ishlarni), baholamoq",
+   "example_tr": "Kâğıtlar cumaya kadar değerlendirilecek.",
+   "example_uz": "Ishlar juma kunigacha tekshiriladi.",
+   "concept": 2581
+  },
+  {
+   "id": 2582,
+   "topic": 13,
+   "tr": "sonuç",
+   "uz": "natija",
+   "example_tr": "Sonuçlar yarın açıklanacak.",
+   "example_uz": "Natijalar ertaga e’lon qilinadi.",
+   "concept": 2582
+  },
+  {
+   "id": 2583,
+   "topic": 13,
+   "tr": "tekrar girmek (sınava)",
+   "uz": "qayta topshirmoq",
+   "example_tr": "Kalırsan sınava tekrar girebilirsin.",
+   "example_uz": "Agar o‘tolmasang, imtihonni qayta topshirishing mumkin.",
+   "concept": 2583
+  },
+  {
+   "id": 2584,
+   "topic": 13,
+   "tr": "giriş sınavı",
+   "uz": "kirish imtihoni",
+   "example_tr": "Giriş sınavını geçersem üniversiteye giderim.",
+   "example_uz": "Agar kirish imtihonidan o‘tsam, universitetga kiraman.",
+   "concept": 2584
+  },
+  {
+   "id": 2585,
+   "topic": 13,
+   "tr": "çoktan seçmeli",
+   "uz": "javob variantli test",
+   "example_tr": "Sınav çoktan seçmeli olsa daha kolay olurdu.",
+   "example_uz": "Agar test javob variantli bo‘lganida, osonroq bo‘lardi.",
+   "concept": 2585
+  },
+  {
+   "id": 2586,
+   "topic": 13,
+   "tr": "sınav kâğıdı",
+   "uz": "imtihon varaqasi",
+   "example_tr": "Sınav kâğıtları dün gece basıldı.",
+   "example_uz": "Imtihon varaqalari kecha kechqurun chop etildi.",
+   "concept": 2586
+  },
+  {
+   "id": 2587,
+   "topic": 13,
+   "tr": "geçme notu",
+   "uz": "o‘tish bali",
+   "example_tr": "Geçme notunun üstünde alırsan geçersin.",
+   "example_uz": "Agar o‘tish balidan yuqori ball olsang, imtihondan o‘tasan.",
+   "concept": 2587
+  },
+  {
+   "id": 2588,
+   "topic": 13,
+   "tr": "ortalama",
+   "uz": "o‘rtacha ball",
+   "example_tr": "Ortalamam daha yüksek olsa burs alırdım.",
+   "example_uz": "Agar o‘rtacha balim yuqoriroq bo‘lganida, stipendiya olardim.",
+   "concept": 2588
+  },
+  {
+   "id": 2589,
+   "topic": 13,
+   "tr": "karne",
+   "uz": "baholar varaqasi (tabel)",
+   "example_tr": "Karneler mayısta verilir.",
+   "example_uz": "Tabellar mayda tarqatiladi.",
+   "concept": 2589
+  },
+  {
+   "id": 2590,
+   "topic": 13,
+   "tr": "sözlü",
+   "uz": "og‘zaki",
+   "example_tr": "Sınav sözlüyse heyecanlanırım.",
+   "example_uz": "Agar imtihon og‘zaki bo‘lsa, hayajonlanaman.",
+   "concept": 2590
+  },
+  {
+   "id": 2591,
+   "topic": 13,
+   "tr": "yazılı",
+   "uz": "yozma",
+   "example_tr": "Yazılı bölüm bir bilgisayar tarafından kontrol edilir.",
+   "example_uz": "Yozma qismni kompyuter tekshiradi.",
+   "concept": 2591
+  },
+  {
+   "id": 2592,
+   "topic": 13,
+   "tr": "teslim etmek (ödev)",
+   "uz": "topshirmoq (ishni)",
+   "example_tr": "Kompozisyonlar pazartesiye kadar teslim edilmeli.",
+   "example_uz": "Inshoni dushanbagacha topshirish shart.",
+   "concept": 2592
+  },
+  {
+   "id": 2593,
+   "topic": 13,
+   "tr": "aklı durmak",
+   "uz": "esdan chiqib ketmoq",
+   "example_tr": "Heyecanlanırsam aklım duruyor.",
+   "example_uz": "Hayajonlansam, hamma narsa esimdan chiqib ketadi.",
+   "concept": 2593
+  },
+  {
+   "id": 2594,
+   "topic": 13,
+   "tr": "kazanmak (okulu)",
+   "uz": "o‘qishga kirmoq",
+   "example_tr": "Çok çalışırsam iyi bir üniversiteyi kazanırım.",
+   "example_uz": "Agar astoydil o‘qisam, yaxshi universitetga kiraman.",
+   "concept": 2594
+  },
+  {
+   "id": 2595,
+   "topic": 13,
+   "tr": "özel ders",
+   "uz": "xususiy darslar",
+   "example_tr": "Özel ders alsam daha hızlı ilerlerdim.",
+   "example_uz": "Agar xususiy darslarga borganimda, tezroq rivojlanardim.",
+   "concept": 2595
+  },
+  {
+   "id": 2596,
+   "topic": 14,
+   "tr": "yarışma",
+   "uz": "musobaqa, tanlov",
+   "example_tr": "Yarışmaya katılırsan kazanabilirsin.",
+   "example_uz": "Agar tanlovda qatnashsang, yutishing mumkin.",
+   "concept": 2596
+  },
+  {
+   "id": 2597,
+   "topic": 14,
+   "tr": "katılımcı",
+   "uz": "ishtirokchi",
+   "example_tr": "Bütün katılımcılara bir tişört verilecek.",
+   "example_uz": "Barcha ishtirokchilarga futbolka beriladi.",
+   "concept": 2597
+  },
+  {
+   "id": 2598,
+   "topic": 14,
+   "tr": "final",
+   "uz": "final",
+   "example_tr": "Bugün kazanırsak finalde oynayacağız.",
+   "example_uz": "Agar bugun yutsak, finalda o‘ynaymiz.",
+   "concept": 2598
+  },
+  {
+   "id": 2599,
+   "topic": 14,
+   "tr": "yarı final",
+   "uz": "yarim final",
+   "example_tr": "Yarı final milyonlarca kişi tarafından izlendi.",
+   "example_uz": "Yarim finalni millionlab odamlar tomosha qildi.",
+   "concept": 2599
+  },
+  {
+   "id": 2600,
+   "topic": 14,
+   "tr": "bitiş çizgisi",
+   "uz": "marra chizig‘i",
+   "example_tr": "Bitiş çizgisine ilk sen ulaşırsan kazanırsın.",
+   "example_uz": "Agar marraga birinchi yetib kelsang, g‘olib bo‘lasan.",
+   "concept": 2600
+  },
+  {
+   "id": 2601,
+   "topic": 14,
+   "tr": "birincilik",
+   "uz": "birinchi o‘rin",
+   "example_tr": "Birinciliği Taşkentli bir kız kazandı.",
+   "example_uz": "Birinchi o‘rinni toshkentlik qiz egalladi.",
+   "concept": 2601
+  },
+  {
+   "id": 2602,
+   "topic": 14,
+   "tr": "ikinci (yarışmada)",
+   "uz": "sovrindor, ikkinchi o‘rin",
+   "example_tr": "İkinciye gümüş madalya verildi.",
+   "example_uz": "Ikkinchi o‘rin sohibiga kumush medal topshirildi.",
+   "concept": 2602
+  },
+  {
+   "id": 2603,
+   "topic": 14,
+   "tr": "yenilgi",
+   "uz": "mag‘lubiyat",
+   "example_tr": "Yine kaybederlerse bu üçüncü yenilgileri olacak.",
+   "example_uz": "Agar ular yana yutqazsa, bu ularning uchinchi mag‘lubiyati bo‘ladi.",
+   "concept": 2603
+  },
+  {
+   "id": 2604,
+   "topic": 14,
+   "tr": "zafer",
+   "uz": "g‘alaba",
+   "example_tr": "Kazansak büyük bir zafer olurdu.",
+   "example_uz": "Agar biz yutganimizda, bu katta g‘alaba bo‘lardi.",
+   "concept": 2604
+  },
+  {
+   "id": 2605,
+   "topic": 14,
+   "tr": "jüri üyesi",
+   "uz": "hakam (tanlovda)",
+   "example_tr": "Kazananlar üç jüri üyesi tarafından seçilir.",
+   "example_uz": "G‘oliblarni uchta hakam tanlaydi.",
+   "concept": 2605
+  },
+  {
+   "id": 2606,
+   "topic": 14,
+   "tr": "tezahürat yapmak",
+   "uz": "olqishlab qo‘llab-quvvatlamoq",
+   "example_tr": "Taraftarlar tezahürat yaparsa oyuncular daha hızlı koşar.",
+   "example_uz": "Agar muxlislar olqishlasa, o‘yinchilar tezroq yuguradi.",
+   "concept": 2606
+  },
+  {
+   "id": 2607,
+   "topic": 14,
+   "tr": "hak kazanmak",
+   "uz": "saralashdan o‘tmoq",
+   "example_tr": "Hak kazanırsa Olimpiyatlara gidecek.",
+   "example_uz": "Agar u saralashdan o‘tsa, Olimpiadaga boradi.",
+   "concept": 2607
+  },
+  {
+   "id": 2608,
+   "topic": 14,
+   "tr": "Olimpiyatlar",
+   "uz": "Olimpiya o‘yinlari",
+   "example_tr": "Olimpiyatlar bütün dünyada izlenir.",
+   "example_uz": "Olimpiya o‘yinlarini butun dunyo tomosha qiladi.",
+   "concept": 2608
+  },
+  {
+   "id": 2609,
+   "topic": 14,
+   "tr": "sporcu",
+   "uz": "sportchi",
+   "example_tr": "Sporcu olsam her gün antrenman yapardım.",
+   "example_uz": "Agar sportchi bo‘lganimda, har kuni mashq qilardim.",
+   "concept": 2609
+  },
+  {
+   "id": 2610,
+   "topic": 14,
+   "tr": "centilmenlik",
+   "uz": "halol o‘yin",
+   "example_tr": "Centilmenlik herkes tarafından saygı görür.",
+   "example_uz": "Halol o‘yinni hamma hurmat qiladi.",
+   "concept": 2610
+  },
+  {
+   "id": 2611,
+   "topic": 15,
+   "tr": "hız sınırı",
+   "uz": "tezlik chegarasi",
+   "example_tr": "Hız sınırını aşarsan ceza alırsın.",
+   "example_uz": "Agar tezlik chegarasidan oshsang, jarima olasan.",
+   "concept": 2611
+  },
+  {
+   "id": 2612,
+   "topic": 15,
+   "tr": "hız kamerası",
+   "uz": "tezlikni nazorat qiluvchi kamera",
+   "example_tr": "Arabalar hız kameraları tarafından kontrol edilir.",
+   "example_uz": "Mashinalarni tezlikni nazorat qiluvchi kameralar tekshiradi.",
+   "concept": 2612
+  },
+  {
+   "id": 2613,
+   "topic": 15,
+   "tr": "sollamak",
+   "uz": "quvib o‘tmoq",
+   "example_tr": "Burada sollarsan tehlikeli olur.",
+   "example_uz": "Bu yerda quvib o‘tish xavfli.",
+   "concept": 2613
+  },
+  {
+   "id": 2614,
+   "topic": 15,
+   "tr": "yol vermek",
+   "uz": "yo‘l bermoq",
+   "example_tr": "Yol vermezsen kazaya neden olabilirsin.",
+   "example_uz": "Agar yo‘l bermasang, avariyaga sabab bo‘lishing mumkin.",
+   "concept": 2614
+  },
+  {
+   "id": 2615,
+   "topic": 15,
+   "tr": "sinyal vermek",
+   "uz": "burilish chirog‘ini yoqmoq",
+   "example_tr": "Dönersen sinyal vermelisin.",
+   "example_uz": "Agar burilsang, burilish chirog‘ini yoqishing shart.",
+   "concept": 2615
+  },
+  {
+   "id": 2616,
+   "topic": 15,
+   "tr": "geri gitmek",
+   "uz": "orqaga yurmoq",
+   "example_tr": "Dikkatli geri gidersen arabaya çarpmazsın.",
+   "example_uz": "Agar ehtiyotkorlik bilan orqaga yursang, mashinaga tegib ketmaysan.",
+   "concept": 2616
+  },
+  {
+   "id": 2617,
+   "topic": 15,
+   "tr": "çekiciyle çekmek",
+   "uz": "evakuator bilan olib ketmoq",
+   "example_tr": "Buraya park edersen araban çekiciyle çekilir.",
+   "example_uz": "Agar bu yerda mashina qo‘ysang, uni evakuator olib ketadi.",
+   "concept": 2617
+  },
+  {
+   "id": 2618,
+   "topic": 15,
+   "tr": "trafik polisi",
+   "uz": "yo‘l politsiyasi",
+   "example_tr": "Trafik polisi seni durdurursa ehliyetini göster.",
+   "example_uz": "Agar seni yo‘l politsiyasi to‘xtatsa, guvohnomangni ko‘rsat.",
+   "concept": 2618
+  },
+  {
+   "id": 2619,
+   "topic": 15,
+   "tr": "tek yönlü yol",
+   "uz": "bir tomonlama harakatli ko‘cha",
+   "example_tr": "Tek yönlü yolda ters yöne gidersen ceza yersin.",
+   "example_uz": "Agar bir tomonlama ko‘chada qarama-qarshi yo‘nalishda yursang, jarimaga tortilasan.",
+   "concept": 2619
+  },
+  {
+   "id": 2620,
+   "topic": 15,
+   "tr": "girilmez",
+   "uz": "kirish taqiqlangan",
+   "example_tr": "Arabaların “girilmez” levhasını geçmesine izin verilmez.",
+   "example_uz": "Mashinalarga «kirish taqiqlangan» belgisidan o‘tish mumkin emas.",
+   "concept": 2620
+  },
+  {
+   "id": 2621,
+   "topic": 15,
+   "tr": "U dönüşü",
+   "uz": "orqaga burilish",
+   "example_tr": "Burada U dönüşü yaparsan kuralları çiğnersin.",
+   "example_uz": "Agar bu yerda orqaga burilsang, qoidani buzasan.",
+   "concept": 2621
+  },
+  {
+   "id": 2622,
+   "topic": 15,
+   "tr": "trafik levhası",
+   "uz": "yo‘l belgisi",
+   "example_tr": "Trafik levhaları belediye tarafından konur.",
+   "example_uz": "Yo‘l belgilarini shahar o‘rnatadi.",
+   "concept": 2622
+  },
+  {
+   "id": 2623,
+   "topic": 15,
+   "tr": "farlar",
+   "uz": "faralar",
+   "example_tr": "Hava kararırsa farlarını yak.",
+   "example_uz": "Agar qorong‘i tushsa, faralarni yoq.",
+   "concept": 2623
+  },
+  {
+   "id": 2624,
+   "topic": 15,
+   "tr": "ön cam",
+   "uz": "old oyna",
+   "example_tr": "Ön cam bir taşla kırıldı.",
+   "example_uz": "Old oynani tosh sindirdi.",
+   "concept": 2624
+  },
+  {
+   "id": 2625,
+   "topic": 15,
+   "tr": "acemi sürücü",
+   "uz": "haydashni o‘rganuvchi",
+   "example_tr": "Acemi sürücü olsam yavaş sürerdim.",
+   "example_uz": "Agar haydashni endi o‘rganayotgan bo‘lganimda, sekin haydardim.",
+   "concept": 2625
+  },
+  {
+   "id": 2626,
+   "topic": 16,
+   "tr": "protein",
+   "uz": "oqsil",
+   "example_tr": "Daha çok protein yersen kasların büyür.",
+   "example_uz": "Agar ko‘proq oqsil iste’mol qilsang, mushaklaring o‘sadi.",
+   "concept": 2626
+  },
+  {
+   "id": 2627,
+   "topic": 16,
+   "tr": "karbonhidrat",
+   "uz": "uglevodlar",
+   "example_tr": "Karbonhidratlar ekmekte ve makarnada bulunur.",
+   "example_uz": "Uglevodlar non va makaronda bo‘ladi.",
+   "concept": 2627
+  },
+  {
+   "id": 2628,
+   "topic": 16,
+   "tr": "lif",
+   "uz": "kletchatka",
+   "example_tr": "Lif meyve ve sebzelerde bulunur.",
+   "example_uz": "Kletchatka meva va sabzavotlarda bo‘ladi.",
+   "concept": 2628
+  },
+  {
+   "id": 2629,
+   "topic": 16,
+   "tr": "beslenme",
+   "uz": "ovqatlanish (fan)",
+   "example_tr": "Beslenme okusan daha iyi beslenirdin.",
+   "example_uz": "Agar ovqatlanish ilmini o‘rganganingda, to‘g‘riroq ovqatlanarding.",
+   "concept": 2629
+  },
+  {
+   "id": 2630,
+   "topic": 16,
+   "tr": "tam tahıllı",
+   "uz": "butun donli",
+   "example_tr": "Tam tahıllı ekmek çoğu dükkânda satılır.",
+   "example_uz": "Butun donli non ko‘pchilik do‘konlarda sotiladi.",
+   "concept": 2630
+  },
+  {
+   "id": 2631,
+   "topic": 16,
+   "tr": "organik",
+   "uz": "organik",
+   "example_tr": "Yiyecekler organik olsa daha pahalı olurdu.",
+   "example_uz": "Agar ovqat organik bo‘lganida, qimmatroq bo‘lardi.",
+   "concept": 2631
+  },
+  {
+   "id": 2632,
+   "topic": 16,
+   "tr": "işlenmiş gıda",
+   "uz": "yarim tayyor mahsulotlar",
+   "example_tr": "Daha az işlenmiş gıda yersen kendini daha iyi hissedersin.",
+   "example_uz": "Agar yarim tayyor mahsulotlarni kamroq yesang, o‘zingni yaxshiroq his qilasan.",
+   "concept": 2632
+  },
+  {
+   "id": 2633,
+   "topic": 16,
+   "tr": "malzeme, içerik",
+   "uz": "tarkibiy qism, ingrediyent",
+   "example_tr": "Bütün malzemeler kutunun üzerinde yazılı.",
+   "example_uz": "Barcha ingrediyentlar qutida sanab o‘tilgan.",
+   "concept": 2633
+  },
+  {
+   "id": 2634,
+   "topic": 16,
+   "tr": "süt ürünleri",
+   "uz": "sut mahsulotlari",
+   "example_tr": "Süt ürünleri yiyemiyorsan badem sütü iç.",
+   "example_uz": "Agar senga sut mahsulotlari mumkin bo‘lmasa, bodom sutini ich.",
+   "concept": 2634
+  },
+  {
+   "id": 2635,
+   "topic": 16,
+   "tr": "glütensiz",
+   "uz": "glyutensiz",
+   "example_tr": "Burada her gün glütensiz ekmek pişirilir.",
+   "example_uz": "Bu yerda har kuni glyutensiz non yopiladi.",
+   "concept": 2635
+  },
+  {
+   "id": 2636,
+   "topic": 16,
+   "tr": "susuz kalmış",
+   "uz": "suvsizlangan",
+   "example_tr": "Su içmezsen vücudun susuz kalır.",
+   "example_uz": "Agar suv ichmasang, organizming suvsizlanadi.",
+   "concept": 2636
+  },
+  {
+   "id": 2637,
+   "topic": 16,
+   "tr": "şekerli",
+   "uz": "shakarli, shirin",
+   "example_tr": "Daha az şekerli içecek içersen kilo verirsin.",
+   "example_uz": "Agar shirin ichimliklarni kamroq ichsang, ozasan.",
+   "concept": 2637
+  },
+  {
+   "id": 2638,
+   "topic": 16,
+   "tr": "taze sıkılmış",
+   "uz": "yangi siqilgan",
+   "example_tr": "Burada taze sıkılmış meyve suyu yapılır.",
+   "example_uz": "Bu yerda yangi siqilgan sharbat tayyorlanadi.",
+   "concept": 2638
+  },
+  {
+   "id": 2639,
+   "topic": 16,
+   "tr": "az yağlı",
+   "uz": "yog‘sizlantirilgan",
+   "example_tr": "Az yağlı yoğurt birçok kişi tarafından alınıyor.",
+   "example_uz": "Yog‘siz yogurtni ko‘p odam sotib oladi.",
+   "concept": 2639
+  },
+  {
+   "id": 2640,
+   "topic": 16,
+   "tr": "aşırı yemek",
+   "uz": "haddan tashqari ko‘p yemoq",
+   "example_tr": "Gece aşırı yersen iyi uyuyamazsın.",
+   "example_uz": "Agar kechasi haddan tashqari ko‘p yesang, yaxshi uxlay olmaysan.",
+   "concept": 2640
+  },
+  {
+   "id": 2641,
+   "topic": 17,
+   "tr": "yasal",
+   "uz": "qonuniy",
+   "example_tr": "Yasal olsa birçok kişi bunu yapardı.",
+   "example_uz": "Agar bu qonuniy bo‘lganida, ko‘p odam shunday qilardi.",
+   "concept": 2641
+  },
+  {
+   "id": 2642,
+   "topic": 17,
+   "tr": "yasa dışı",
+   "uz": "noqonuniy",
+   "example_tr": "Yasa dışı bir şey yaparsan cezalandırılırsın.",
+   "example_uz": "Agar noqonuniy ish qilsang, jazolanasan.",
+   "concept": 2642
+  },
+  {
+   "id": 2643,
+   "topic": 17,
+   "tr": "cezalandırmak",
+   "uz": "jazolamoq",
+   "example_tr": "Çocuklar küçük hatalar için cezalandırılmamalı.",
+   "example_uz": "Bolalar kichik xatolari uchun jazolanmasligi kerak.",
+   "concept": 2643
+  },
+  {
+   "id": 2644,
+   "topic": 17,
+   "tr": "vatandaş",
+   "uz": "fuqaro",
+   "example_tr": "Vatandaşsan oy verebilirsin.",
+   "example_uz": "Agar fuqaro bo‘lsang, ovoz bera olasan.",
+   "concept": 2644
+  },
+  {
+   "id": 2645,
+   "topic": 17,
+   "tr": "hükümet",
+   "uz": "hukumat",
+   "example_tr": "Hükümet tarafından yeni okullar yapılacak.",
+   "example_uz": "Hukumat yangi maktablar quradi.",
+   "concept": 2645
+  },
+  {
+   "id": 2646,
+   "topic": 17,
+   "tr": "cumhurbaşkanı",
+   "uz": "prezident",
+   "example_tr": "Cumhurbaşkanı her yedi yılda bir seçilir.",
+   "example_uz": "Prezident har yetti yilda saylanadi.",
+   "concept": 2646
+  },
+  {
+   "id": 2647,
+   "topic": 17,
+   "tr": "seçim",
+   "uz": "saylov",
+   "example_tr": "Yarın seçim olsa kime oy verirdin?",
+   "example_uz": "Agar saylov ertaga bo‘lganida, kimga ovoz berarding?",
+   "concept": 2647
+  },
+  {
+   "id": 2648,
+   "topic": 17,
+   "tr": "haklar",
+   "uz": "huquqlar",
+   "example_tr": "Çocuk hakları kanunla korunur.",
+   "example_uz": "Bolalar huquqlari qonun bilan himoyalangan.",
+   "concept": 2648
+  },
+  {
+   "id": 2649,
+   "topic": 17,
+   "tr": "gönüllü olmak",
+   "uz": "ko‘ngilli bo‘lmoq",
+   "example_tr": "Daha çok vaktim olsa gönüllü olurdum.",
+   "example_uz": "Agar vaqtim ko‘proq bo‘lganida, ko‘ngilli bo‘lardim.",
+   "concept": 2649
+  },
+  {
+   "id": 2650,
+   "topic": 17,
+   "tr": "adalet",
+   "uz": "adolat",
+   "example_tr": "Adalet olmasa insanlar korkardı.",
+   "example_uz": "Agar adolat bo‘lmaganida, odamlar qo‘rqib yashardi.",
+   "concept": 2650
+  },
+  {
+   "id": 2651,
+   "topic": 17,
+   "tr": "kanunu çiğnemek",
+   "uz": "qonunni buzmoq",
+   "example_tr": "Kanunu çiğnersen tutuklanırsın.",
+   "example_uz": "Agar qonunni buzsang, hibsga olinasan.",
+   "concept": 2651
+  },
+  {
+   "id": 2652,
+   "topic": 17,
+   "tr": "kamuya açık yer",
+   "uz": "jamoat joyi",
+   "example_tr": "Kamuya açık yerlerde sigara içmek yasaktır.",
+   "example_uz": "Jamoat joylarida chekish taqiqlangan.",
+   "concept": 2652
+  },
+  {
+   "id": 2653,
+   "topic": 17,
+   "tr": "toplum",
+   "uz": "jamiyat",
+   "example_tr": "Toplum daha nazik olsa hayat daha kolay olurdu.",
+   "example_uz": "Agar jamiyat mehribonroq bo‘lganida, hayot osonroq bo‘lardi.",
+   "concept": 2653
+  },
+  {
+   "id": 2654,
+   "topic": 17,
+   "tr": "bakan",
+   "uz": "vazir",
+   "example_tr": "Yeni kanun bakan tarafından imzalandı.",
+   "example_uz": "Yangi qonunni vazir imzoladi.",
+   "concept": 2654
+  },
+  {
+   "id": 2655,
+   "topic": 17,
+   "tr": "meclis",
+   "uz": "parlament",
+   "example_tr": "Kanun meclis tarafından kabul edildi.",
+   "example_uz": "Qonunni parlament qabul qildi.",
+   "concept": 2655
+  },
+  {
+   "id": 2656,
+   "topic": 18,
+   "tr": "kurmak (iş)",
+   "uz": "ochmoq, tashkil qilmoq (biznes)",
+   "example_tr": "Bir iş kurarsak paraya ihtiyacımız olacak.",
+   "example_uz": "Agar biznes ochsak, bizga pul kerak bo‘ladi.",
+   "concept": 2656
+  },
+  {
+   "id": 2657,
+   "topic": 18,
+   "tr": "bozulmak (araba)",
+   "uz": "buzilib qolmoq (mashina)",
+   "example_tr": "Araba bozulursa beni ara.",
+   "example_uz": "Agar mashina buzilib qolsa, menga qo‘ng‘iroq qil.",
+   "concept": 2657
+  },
+  {
+   "id": 2658,
+   "topic": 18,
+   "tr": "doldurmak (depo)",
+   "uz": "to‘ldirmoq, quymoq (yoqilg‘i)",
+   "example_tr": "Depo benzin istasyonunda dolduruldu.",
+   "example_uz": "Bak yoqilg‘i quyish shoxobchasida to‘ldirildi.",
+   "concept": 2658
+  },
+  {
+   "id": 2659,
+   "topic": 18,
+   "tr": "çıkagelmek",
+   "uz": "paydo bo‘lmoq, kelmoq",
+   "example_tr": "John’u bir partiye davet edersen her zaman geç gelir.",
+   "example_uz": "Jonni ziyofatga taklif qilsang, u doim kech keladi.",
+   "concept": 2659
+  },
+  {
+   "id": 2660,
+   "topic": 18,
+   "tr": "not etmek",
+   "uz": "yozib olmoq",
+   "example_tr": "Not edersen unutmazsın.",
+   "example_uz": "Agar yozib qo‘ysang, unutmaysan.",
+   "concept": 2660
+  },
+  {
+   "id": 2661,
+   "topic": 18,
+   "tr": "azaltmak (tüketimi)",
+   "uz": "kamaytirmoq (iste’molni)",
+   "example_tr": "Şekeri azaltırsan kendini daha iyi hissedersin.",
+   "example_uz": "Agar shakarni kamaytirsang, o‘zingni yaxshiroq his qilasan.",
+   "concept": 2661
+  },
+  {
+   "id": 2662,
+   "topic": 18,
+   "tr": "hayal kırıklığına uğratmak",
+   "uz": "umidini puchga chiqarmoq",
+   "example_tr": "Beni hayal kırıklığına uğratırsan sana bir daha güvenmem.",
+   "example_uz": "Agar umidimni puchga chiqarsang, senga boshqa ishonmayman.",
+   "concept": 2662
+  },
+  {
+   "id": 2663,
+   "topic": 18,
+   "tr": "kapatılmak (tamamen)",
+   "uz": "yopilmoq (butunlay)",
+   "example_tr": "Eski sinema kapatıldı.",
+   "example_uz": "Eski kinoteatr yopildi.",
+   "concept": 2663
+  },
+  {
+   "id": 2664,
+   "topic": 18,
+   "tr": "yetiştirmek (çocuk)",
+   "uz": "tarbiyalamoq",
+   "example_tr": "O büyükannesi tarafından yetiştirildi.",
+   "example_uz": "Uni buvisi tarbiyalagan.",
+   "concept": 2664
+  },
+  {
+   "id": 2665,
+   "topic": 18,
+   "tr": "sesini yükseltmek",
+   "uz": "balandroq gapirmoq",
+   "example_tr": "Sesini yükseltirsen herkes seni duyar.",
+   "example_uz": "Agar balandroq gapirsang, hamma seni eshitadi.",
+   "concept": 2665
+  },
+  {
+   "id": 2666,
+   "topic": 18,
+   "tr": "acele etmek",
+   "uz": "shoshilmoq",
+   "example_tr": "Acele etmezsen geç kalacağız.",
+   "example_uz": "Agar shoshilmasang, kechikamiz.",
+   "concept": 2666
+  },
+  {
+   "id": 2667,
+   "topic": 18,
+   "tr": "oturmak",
+   "uz": "o‘tirmoq (joy egallamoq)",
+   "example_tr": "Oturursan sana çay getiririm.",
+   "example_uz": "Agar o‘tirsang, senga choy olib kelaman.",
+   "concept": 2667
+  },
+  {
+   "id": 2668,
+   "topic": 18,
+   "tr": "kapanmak (cihaz)",
+   "uz": "o‘chib qolmoq",
+   "example_tr": "Bilgisayar çok ısınırsa kapanır.",
+   "example_uz": "Kompyuter qizib ketsa, o‘chib qoladi.",
+   "concept": 2668
+  },
+  {
+   "id": 2669,
+   "topic": 18,
+   "tr": "yıkmak",
+   "uz": "buzib tashlamoq",
+   "example_tr": "Eski bina yıkıldı.",
+   "example_uz": "Eski bino buzib tashlandi.",
+   "concept": 2669
+  },
+  {
+   "id": 2670,
+   "topic": 18,
+   "tr": "tüketmek, bitirmek",
+   "uz": "ishlatib tugatmoq",
+   "example_tr": "Sütü bitirirsen biraz daha al.",
+   "example_uz": "Agar sutni ishlatib tugatsang, yana sotib ol.",
+   "concept": 2670
+  },
+  {
+   "id": 2671,
+   "topic": 19,
+   "tr": "-dığı sürece",
+   "uz": "faqat … sharti bilan",
+   "example_tr": "Ödevini bitirdiğin sürece dışarı çıkabilirsin.",
+   "example_uz": "Uy vazifangni tugatsang, sayr qilishga chiqishing mumkin.",
+   "concept": 2671
+  },
+  {
+   "id": 2672,
+   "topic": 19,
+   "tr": "varsayarsak",
+   "uz": "faraz qilsak",
+   "example_tr": "Havanın güzel olacağını varsayarsak piknik yapacağız.",
+   "example_uz": "Agar ob-havo yaxshi bo‘lsa, piknik qilamiz.",
+   "concept": 2672
+  },
+  {
+   "id": 2673,
+   "topic": 19,
+   "tr": "diye, ihtimaline karşı",
+   "uz": "… bo‘lib qolsa, har ehtimolga qarshi",
+   "example_tr": "Yağmur yağar diye şemsiye al.",
+   "example_uz": "Yomg‘ir yog‘ib qolsa, soyabon olib ol.",
+   "concept": 2673
+  },
+  {
+   "id": 2674,
+   "topic": 19,
+   "tr": "-se bile",
+   "uz": "hatto … bo‘lsa ham",
+   "example_tr": "Yağmur yağsa bile giderim.",
+   "example_uz": "Hatto yomg‘ir yog‘sa ham, men boraman.",
+   "concept": 2674
+  },
+  {
+   "id": 2675,
+   "topic": 19,
+   "tr": "ya … -se?",
+   "uz": "agar … bo‘lsa-chi",
+   "example_tr": "Ya yarın yağmur yağarsa?",
+   "example_uz": "Agar ertaga yomg‘ir yog‘sa-chi?",
+   "concept": 2675
+  },
+  {
+   "id": 2676,
+   "topic": 19,
+   "tr": "sadece … -se",
+   "uz": "faqat … bo‘lsagina",
+   "example_tr": "Sadece beni davet edersen gelirim.",
+   "example_uz": "Faqat sen taklif qilsangina kelaman.",
+   "concept": 2676
+  },
+  {
+   "id": 2677,
+   "topic": 19,
+   "tr": "yoksa",
+   "uz": "aks holda",
+   "example_tr": "Acele et, yoksa geç kalacaksın.",
+   "example_uz": "Shoshil, aks holda kechikasan.",
+   "concept": 2677
+  },
+  {
+   "id": 2678,
+   "topic": 19,
+   "tr": "farz et ki",
+   "uz": "faraz qilaylik",
+   "example_tr": "Farz et ki bir milyon kazandın. Ne yapardın?",
+   "example_uz": "Faraz qilaylik, sen million yutding. Nima qilarding?",
+   "concept": 2678
+  },
+  {
+   "id": 2679,
+   "topic": 19,
+   "tr": "o hâlde",
+   "uz": "unday holda",
+   "example_tr": "Yağmur mu yağıyor? O hâlde evde kalırız.",
+   "example_uz": "Yomg‘ir yog‘yaptimi? Unday holda uyda qolamiz.",
+   "concept": 2679
+  },
+  {
+   "id": 2680,
+   "topic": 19,
+   "tr": "yerine",
+   "uz": "o‘rniga",
+   "example_tr": "Çay yoksa onun yerine kahve içerim.",
+   "example_uz": "Agar choy bo‘lmasa, uning o‘rniga qahva ichaman.",
+   "concept": 2680
+  },
+  {
+   "id": 2681,
+   "topic": 19,
+   "tr": "ancak",
+   "uz": "biroq, ammo",
+   "example_tr": "Ancak meşgulsen daha sonra gelirim.",
+   "example_uz": "Biroq agar band bo‘lsang, keyinroq kelaman.",
+   "concept": 2681
+  },
+  {
+   "id": 2682,
+   "topic": 19,
+   "tr": "ayrıca",
+   "uz": "bundan tashqari",
+   "example_tr": "Ayrıca otobüsle gitsek daha ucuz olurdu.",
+   "example_uz": "Bundan tashqari, avtobusda borsak arzonroq bo‘lardi.",
+   "concept": 2682
+  },
+  {
+   "id": 2683,
+   "topic": 19,
+   "tr": "yine de",
+   "uz": "baribir",
+   "example_tr": "Yağmur yağabilir ama yine de gideceğiz.",
+   "example_uz": "Yomg‘ir yog‘ishi mumkin, lekin baribir boramiz.",
+   "concept": 2683
+  },
+  {
+   "id": 2684,
+   "topic": 19,
+   "tr": "-mek şartıyla",
+   "uz": "… sharti bilan",
+   "example_tr": "Yarın geri getirmek şartıyla arabamı alabilirsin.",
+   "example_uz": "Ertaga qaytarib berish sharti bilan mashinamni olishing mumkin.",
+   "concept": 2684
+  },
+  {
+   "id": 2685,
+   "topic": 19,
+   "tr": "hariç",
+   "uz": "… dan tashqari",
+   "example_tr": "Ben hariç herkes davet edildi.",
+   "example_uz": "Mendan boshqa hammani taklif qilishdi.",
+   "concept": 2685
+  },
+  {
+   "id": 2686,
+   "topic": 20,
+   "tr": "doğramak",
+   "uz": "mayda to‘g‘ramoq",
+   "example_tr": "Önce soğanlar doğranır.",
+   "example_uz": "Avval piyoz mayda to‘g‘raladi.",
+   "concept": 2686
+  },
+  {
+   "id": 2687,
+   "topic": 20,
+   "tr": "dilimlemek",
+   "uz": "tilimlab kesmoq",
+   "example_tr": "Ekmek makine tarafından dilimlenir.",
+   "example_uz": "Nonni mashina tilimlaydi.",
+   "concept": 2687
+  },
+  {
+   "id": 2688,
+   "topic": 20,
+   "tr": "karıştırmak",
+   "uz": "aralashtirib turmoq",
+   "example_tr": "Çorbayı karıştırmazsan dibi tutar.",
+   "example_uz": "Agar sho‘rvani aralashtirib turmasang, u kuyib qoladi.",
+   "concept": 2688
+  },
+  {
+   "id": 2689,
+   "topic": 20,
+   "tr": "rendelemek",
+   "uz": "qirg‘ichdan o‘tkazmoq",
+   "example_tr": "Peynir rendelenir ve en sonda eklenir.",
+   "example_uz": "Pishloq qirg‘ichdan o‘tkaziladi va oxirida qo‘shiladi.",
+   "concept": 2689
+  },
+  {
+   "id": 2690,
+   "topic": 20,
+   "tr": "çırpmak",
+   "uz": "ko‘pirtirmoq",
+   "example_tr": "Yumurtalar şekerle çırpılır.",
+   "example_uz": "Tuxum shakar bilan ko‘pirtiriladi.",
+   "concept": 2690
+  },
+  {
+   "id": 2691,
+   "topic": 20,
+   "tr": "fırında kızartmak",
+   "uz": "dimlab pishirmoq (duxovkada)",
+   "example_tr": "Et iki saat fırında pişirilir.",
+   "example_uz": "Go‘sht duxovkada ikki soat pishiriladi.",
+   "concept": 2691
+  },
+  {
+   "id": 2692,
+   "topic": 20,
+   "tr": "baharatlamak",
+   "uz": "ziravor solmoq",
+   "example_tr": "Eti iyi baharatlarsan lezzetli olur.",
+   "example_uz": "Agar go‘shtga yaxshilab ziravor solsang, mazali bo‘ladi.",
+   "concept": 2692
+  },
+  {
+   "id": 2693,
+   "topic": 20,
+   "tr": "serpmek",
+   "uz": "sepmoq",
+   "example_tr": "Pastanın üstüne şeker serpilir.",
+   "example_uz": "Tort ustiga shakar sepiladi.",
+   "concept": 2693
+  },
+  {
+   "id": 2694,
+   "topic": 20,
+   "tr": "süzmek",
+   "uz": "suvini to‘kmoq",
+   "example_tr": "Makarna süzülür ve sıcak servis edilir.",
+   "example_uz": "Makaronning suvi to‘kiladi va issiq holda tortiladi.",
+   "concept": 2694
+  },
+  {
+   "id": 2695,
+   "topic": 20,
+   "tr": "sıkmak",
+   "uz": "siqmoq",
+   "example_tr": "Balığın üstüne biraz limon sıkarsan daha lezzetli olur.",
+   "example_uz": "Agar baliqqa limon siqsang, u mazaliroq bo‘ladi.",
+   "concept": 2695
+  },
+  {
+   "id": 2696,
+   "topic": 20,
+   "tr": "yoğurmak",
+   "uz": "qorishtirmoq (xamir)",
+   "example_tr": "Hamur on dakika yoğrulur.",
+   "example_uz": "Xamir o‘n daqiqa qoriladi.",
+   "concept": 2696
+  },
+  {
+   "id": 2697,
+   "topic": 20,
+   "tr": "ezmek",
+   "uz": "ezmoq, pyure qilmoq",
+   "example_tr": "Muzları iyice ezersen kek daha yumuşak olur.",
+   "example_uz": "Agar bananlarni yaxshilab ezsang, pirog yumshoqroq bo‘ladi.",
+   "concept": null,
+   "new": {
+    "en": "mash",
+    "ru": "разминать, толочь",
+    "example_en": "If you mash the bananas well, the cake will be softer.",
+    "example_ru": "Если хорошо размять бананы, пирог получится мягче.",
+    "svg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' rx='18' fill='#6fba74'/><text x='50' y='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='22' fill='#fff'>ezmek</text></svg>"
+   }
+  },
+  {
+   "id": 2698,
+   "topic": 20,
+   "tr": "buzunu çözmek",
+   "uz": "muzdan tushirmoq",
+   "example_tr": "Tavuğun buzunu gece boyunca çözersen daha çabuk pişer.",
+   "example_uz": "Agar tovuqni tun bo‘yi muzdan tushirsang, u tezroq pishadi.",
+   "concept": 2698
+  },
+  {
+   "id": 2699,
+   "topic": 20,
+   "tr": "marine etmek",
+   "uz": "marinadlamoq",
+   "example_tr": "Et bütün gece marine edilir.",
+   "example_uz": "Go‘sht tun bo‘yi marinadlanadi.",
+   "concept": 2699
+  },
+  {
+   "id": 2700,
+   "topic": 20,
+   "tr": "kısık ateşte pişirmek",
+   "uz": "past olovda dimlamoq",
+   "example_tr": "Sos kısık ateşte pişirilir.",
+   "example_uz": "Sous past olovda qaynatiladi.",
+   "concept": 2700
+  }
+ ]
+}
