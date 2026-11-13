@@ -55,7 +55,8 @@ public class SeedDataService(AppDbContext db, IHostEnvironment env, ILogger<Seed
         await BackfillWordNumbersAsync();
         await BackfillExamplesAsync();
 
-        await LoadTurkishAsync();
+        // Turkish shares its pictures with the English word of the same number, so it must load from the FINAL English
+        // content: Program.cs calls LoadTurkishAsync itself, after SeedData:ReloadBooks has replaced any changed book.
     }
 
     // Books seeded before example sentences existed: copies the examples from the book JSON into the rows that still have none.

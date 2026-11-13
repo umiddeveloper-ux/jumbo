@@ -81,6 +81,10 @@ using (var scope = app.Services.CreateScope())
         .Select(b => int.TryParse(b, out var n) ? n : 0).Where(n => n > 0).ToList();
     if (removeBooks.Count > 0) await seed.RemoveBooksAsync(removeBooks);
 
+    // Turkish shares its pictures/translations with the English word of the same number, so it loads only now - after the
+    // reload/remove above has put the English books in their final shape. Skips a book whose Turkish words are complete already.
+    await seed.LoadTurkishAsync();
+
     // Platform admins are configured on the server (Admin__Usernames=login1,login2). Listed logins get the Admin role
     // at startup; the role is never granted through the website.
     var adminLogins = (app.Configuration["Admin:Usernames"] ?? "")
