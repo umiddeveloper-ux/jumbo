@@ -86,7 +86,20 @@ public class ExamResultsController(AppDbContext db, ICurrentUserService currentU
                 return Conflict(new { error = "ALREADY_TAKEN" });
         }
 
-        var classId = await db.Users.AsNoTracking().Where(u => u.UserId == userId).Select(u => u.ClassId).SingleAsync();
+        var pupil = await db.Users.SingleAsync(u => u.UserId == userId);
+
+        // The exam by code is taken in the presence of the teacher (only they know the code): a pupil who has picked one of that teacher's teams
+        // (a Director: of that school) and is still waiting for the approval is let into the team now, the teacher does not have to confirm it.
+        if (request.TeacherExamId is { } codeExamId && pupil.Role == UserRole.Learner && pupil.ClassId is { } pickedTeam && !pupil.ClassApproved)
+        {
+            var teacherId = await db.TeacherExams.AsNoTracking().Where(e => e.TeacherExamId == codeExamId).Select(e => e.TeacherId).SingleAsync();
+            var owner = await db.Users.AsNoTracking().SingleOrDefaultAsync(u => u.UserId == teacherId);
+            var team = await db.SchoolClasses.AsNoTracking().SingleOrDefaultAsync(c => c.ClassId == pickedTeam && !c.IsArchived);
+            if (owner?.SchoolId is { } schoolId && team is not null && team.SchoolId == schoolId
+                && (team.TeacherId == owner.UserId || owner.Role == UserRole.Director))
+                pupil.ClassApproved = true;
+        }
+        var classId = pupil.ClassId;
 
         var result = new ExamResult
         {

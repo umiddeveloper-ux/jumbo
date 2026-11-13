@@ -1751,7 +1751,7 @@
     <value>Экзамен учителя</value>
   </data>
   <data name="Exam_BestNote" xml:space="preserve">
-    <value>Под книгой: твой лучший результат свободного экзамена</value>
+    <value>Под книгой: твои лучшие результаты свободного экзамена — ⌨️ ввод и ✅ тест</value>
   </data>
   <data name="Exam_CodeStep" xml:space="preserve">
     <value>Введи код экзамена</value>

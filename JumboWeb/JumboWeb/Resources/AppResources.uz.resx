@@ -1682,7 +1682,7 @@
     <value>O'qituvchi imtihoni</value>
   </data>
   <data name="Exam_BestNote" xml:space="preserve">
-    <value>Kitob ostida: erkin imtihondagi eng yaxshi natijangiz</value>
+    <value>Kitob ostida: erkin imtihondagi eng yaxshi natijalaringiz — ⌨️ yozish va ✅ test</value>
   </data>
   <data name="Exam_CodeStep" xml:space="preserve">
     <value>Imtihon kodini kiriting</value>

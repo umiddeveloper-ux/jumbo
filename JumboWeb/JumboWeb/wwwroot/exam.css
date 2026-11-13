@@ -169,3 +169,9 @@
 .exam-gate-text { margin: 0 0 16px; font-size: 1rem; font-weight: 600; line-height: 1.45; color: var(--lp-muted); }
 .exam-gate .settings-label { margin-top: 2px; }
 .exam-gate .lp-btn-full { margin-top: 6px; padding: 14px; font-size: 1.05rem; }
+
+/* under a book: the best result of each kind of free exam (the icon of the kind, the percent, right / wrong) */
+.exam-book-best { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2px 5px; margin-top: 5px; line-height: 1.15; }
+.exam-best-ico { font-size: 0.85rem; }
+.exam-book-best .exam-book-stats { margin-top: 0; gap: 4px; }
+.exam-book.selected .exam-book-best .exam-book-pct { color: #fff; }

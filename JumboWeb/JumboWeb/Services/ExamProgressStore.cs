@@ -32,6 +32,15 @@ public class ExamResultSnapshot
     public bool Sent { get; set; }
 }
 
+/// <summary>The best result of a free exam in one book and one kind of exam (typing / test).</summary>
+public class ExamBestEntry
+{
+    public int Correct { get; set; }
+    public int Total { get; set; }
+    public DateTime Utc { get; set; }
+    public int Percent => Total > 0 ? (int)Math.Round(Correct * 100.0 / Total) : 0;
+}
+
 /// <summary>
 /// Keeps the exam of the learner in the localStorage of the browser: pressing F5 (or closing and opening the tab) does not throw the exam away.
 /// One exam per browser; it is used only by the same learner, for the same book / number / kind / teacher's code, and for 8 hours.
@@ -41,6 +50,7 @@ public class ExamProgressStore(IJSRuntime js)
 {
     private const string SessionKey = "lp-exam-session";
     private const string ResultKey = "lp-exam-result";
+    private const string BestKey = "lp-exam-best";
     private static readonly TimeSpan Ttl = TimeSpan.FromHours(8);
 
     public async Task SaveSessionAsync(ExamSession s)
@@ -67,6 +77,27 @@ public class ExamProgressStore(IJSRuntime js)
         var r = Parse<ExamResultSnapshot>(await GetAsync(ResultKey));
         return r is not null && r.UserId == userId && r.Answers.Count > 0 ? r : null;
     }
+
+    // ---- the best results of the free exams (a free exam is not stored on the server): per learner, book and kind of exam ----
+    private static string BestId(int userId, int book, string kind) => $"{userId}:{book}:{kind}";
+
+    public async Task<Dictionary<string, ExamBestEntry>> LoadBestAsync() =>
+        Parse<Dictionary<string, ExamBestEntry>>(await GetAsync(BestKey)) ?? new();
+
+    /// <summary>Remembers the result if it is the best so far for this book and kind (the same percent: the newer one stays).</summary>
+    public async Task SaveBestAsync(int userId, int book, string kind, int correct, int total)
+    {
+        if (userId <= 0 || total <= 0) return;
+        var all = await LoadBestAsync();
+        var fresh = new ExamBestEntry { Correct = correct, Total = total, Utc = DateTime.UtcNow };
+        var id = BestId(userId, book, kind);
+        if (all.TryGetValue(id, out var old) && old.Percent > fresh.Percent) return;
+        all[id] = fresh;
+        await SetAsync(BestKey, JsonSerializer.Serialize(all));
+    }
+
+    public static ExamBestEntry? BestFor(Dictionary<string, ExamBestEntry> all, int userId, int book, string kind) =>
+        all.GetValueOrDefault(BestId(userId, book, kind));
 
     private static T? Parse<T>(string? json) where T : class
     {

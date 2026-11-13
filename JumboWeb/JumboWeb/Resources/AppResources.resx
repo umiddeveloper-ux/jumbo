@@ -1751,7 +1751,7 @@
     <value>Teacher's exam</value>
   </data>
   <data name="Exam_BestNote" xml:space="preserve">
-    <value>Under each book: your best result in a free exam</value>
+    <value>Under each book: your best results of the free exam, ⌨️ typing and ✅ test</value>
   </data>
   <data name="Exam_CodeStep" xml:space="preserve">
     <value>Enter the exam code</value>

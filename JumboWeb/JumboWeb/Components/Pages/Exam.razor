@@ -67,19 +67,24 @@
                             @onclick="() => _selectedBook = num">
                         <span class="exam-book-num">@num</span>
                         <span class="exam-book-label">@Loc.Format("Common_BookLabel", num)</span>
-                        @if (!_teacherMode && _results.TryGetValue(num, out var r))
+                        @if (!_teacherMode && _best.Count > 0)
                         {
-                            @* The latest exam in this book: right, wrong, percent. *@
-                            <span class="exam-book-stats">
-                                <span class="ok">✓ @r.CorrectCount</span>
-                                <span class="bad">✗ @r.WrongCount</span>
-                            </span>
-                            <span class="exam-book-pct">@r.Percent%</span>
+                            @* The best result of each kind of free exam in this book (typing, test): the percent and the right / wrong answers. *@
+                            @foreach (var kind in Kinds)
+                            {
+                                var b = ExamProgressStore.BestFor(_best, _userId, num, kind);
+                                if (b is null) continue;
+                                <span class="exam-book-best" title="@Loc[kind == "test" ? "Exam_KindTest" : "Exam_KindType"]">
+                                    <span class="exam-best-ico" aria-hidden="true">@(kind == "test" ? "✅" : "⌨️")</span>
+                                    <span class="exam-book-pct">@b.Percent%</span>
+                                    <span class="exam-book-stats"><span class="ok">✓@b.Correct</span><span class="bad">✗@(b.Total - b.Correct)</span></span>
+                                </span>
+                            }
                         }
                     </button>
                 }
             </div>
-            @if (!_teacherMode && _results.Count > 0)
+            @if (!_teacherMode && _best.Count > 0)
             {
                 <p class="exam-note">@Loc["Exam_BestNote"]</p>
             }
@@ -158,7 +163,10 @@
     private static readonly int[] WordCounts = { 20, 30, 40, 50, 60, 70, 80, 90, 100 };
 
     private List<int> _bookNumbers = new();
-    private Dictionary<int, MyExamBookResultDto> _results = new();
+    // the best results of the free exams (kept in the browser): per book and kind of exam
+    private static readonly string[] Kinds = { "type", "test" };
+    private Dictionary<string, ExamBestEntry> _best = new();
+    private int _userId;
     private int? _selectedBook;
     private int? _selectedCount;
     private bool _loaded;
@@ -221,8 +229,16 @@
         _profileOk = !string.IsNullOrWhiteSpace(_region) && !string.IsNullOrWhiteSpace(_school) && !string.IsNullOrWhiteSpace(_team);
 
         _bookNumbers = (await ApiClient.GetBookNumbersAsync()).OrderBy(b => b).ToList();
-        // free exams are not stored any more: there is no "best result" to show under the books
+        _userId = user?.UserId ?? 0;
         _loaded = true;
+    }
+
+    // The best results are in the localStorage of the browser: they can be read only after the first render.
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        _best = await Progress.LoadBestAsync();
+        if (_best.Count > 0) StateHasChanged();
     }
 
     private void LeaveBlocked() => Nav.NavigateTo("/little-polyglot");

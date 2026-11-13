@@ -342,6 +342,10 @@
         }
         catch { sent = false; }
 
+        // a free exam: its result is a candidate for the best one under the book on the page of the exam
+        if (TeacherExamId is null)
+            await Progress.SaveBestAsync(UserState.CurrentUser?.UserId ?? 0, BookNumber, Kind, _answers.Count(a => a.IsCorrect), _answers.Count);
+
         ExamState.SetResults(_answers, BookNumber, WordCount, TeacherExamId, sent, Kind);
         // the exam is over: it does not go on after F5 any more, the result stays for the page of results
         await Progress.ClearSessionAsync();
