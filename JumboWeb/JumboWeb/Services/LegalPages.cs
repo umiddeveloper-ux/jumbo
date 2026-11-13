@@ -45,7 +45,11 @@ public static class LegalPages
                 sb.Append(line.StartsWith("• ") || (line.Length > 2 && char.IsDigit(line[0]) && line[1] == '.') ? "<p class=\"item\">" : "<p>").Append(E(line)).Append("</p>");
         }
 
+        // open to everybody (Google Play needs the link), but out of the search results: the landing page must be what people find
+        ctx.Response.Headers["X-Robots-Tag"] = "noindex, follow";
+
         sb.Append("<!doctype html><html lang=\"").Append(lang).Append("\"><head><meta charset=\"utf-8\">")
+          .Append("<meta name=\"robots\" content=\"noindex, follow\">")
           .Append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">")
           .Append("<title>").Append(E(T(privacy ? "Privacy_Title" : "Del_Title"))).Append(" — Jumbo.uz</title>")
           .Append("<style>")

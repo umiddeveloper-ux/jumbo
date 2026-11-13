@@ -108,6 +108,35 @@ app.MapGet("/site.css", (HttpContext context, SiteCss css) =>
 
 app.MapLegalPages();     // /privacy and /delete-account: plain HTML, open to everybody
 
+// ── For search engines: what to read and where the main page is. Only the landing and the page for schools are offered; the learner's
+// and the teacher's pages, the API and the legal pages stay out of the search (the landing must be the first answer, not the privacy page).
+app.MapGet("/robots.txt", (HttpContext context) =>
+{
+    context.Response.Headers.CacheControl = "public, max-age=3600";
+    return Results.Text(
+        "User-agent: *\n" +
+        "Allow: /\n" +
+        "Disallow: /api/\n" +
+        "Disallow: /session/\n" +
+        "Disallow: /go/\n" +
+        "Disallow: /admin\n" +
+        "Disallow: /teacher\n" +
+        // /privacy and /delete-account are NOT blocked here on purpose: a robot must be able to read their "noindex" to drop them
+        "\n" +
+        "Sitemap: https://jumbo.uz/sitemap.xml\n", "text/plain; charset=utf-8");
+});
+
+app.MapGet("/sitemap.xml", (HttpContext context) =>
+{
+    context.Response.Headers.CacheControl = "public, max-age=3600";
+    return Results.Text(
+        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+        "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n" +
+        "  <url><loc>https://jumbo.uz/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n" +
+        "  <url><loc>https://jumbo.uz/for-schools</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>\n" +
+        "</urlset>\n", "application/xml; charset=utf-8");
+});
+
 app.MapGet("/session/logout", (HttpContext context) =>
 {
     // Same attributes as when the cookie was set, so every browser really drops it.

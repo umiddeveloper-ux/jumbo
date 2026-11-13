@@ -7,6 +7,11 @@
 @inject LpApiClient ApiClient
 
 <PageTitle>@Loc["SiteHome_PageTitle"]</PageTitle>
+@* for search engines: the address of the main page and what the site is (the name "Jumbo" with the site's own address) *@
+<HeadContent>
+    <link rel="canonical" href="https://jumbo.uz/" />
+    @((MarkupString)SiteJsonLd)
+</HeadContent>
 
 @if (!_loaded)
 {
@@ -158,6 +163,14 @@ else
 }
 
 @code {
+    // schema.org: the site's name and address (so a search shows "Jumbo" with jumbo.uz and the elephant as the logo)
+    private const string SiteJsonLd =
+        "<script type=\"application/ld+json\">" +
+        "{\"@context\":\"https://schema.org\",\"@graph\":[" +
+        "{\"@type\":\"WebSite\",\"@id\":\"https://jumbo.uz/#website\",\"url\":\"https://jumbo.uz/\",\"name\":\"Jumbo\",\"alternateName\":[\"Jumbo.uz\",\"Jumbo — learn English by playing\"],\"inLanguage\":[\"uz\",\"ru\",\"en\"]}," +
+        "{\"@type\":\"Organization\",\"@id\":\"https://jumbo.uz/#org\",\"name\":\"Jumbo\",\"url\":\"https://jumbo.uz/\",\"logo\":\"https://jumbo.uz/jumbo-icon-512.png\"}" +
+        "]}</script>";
+
     private bool _loaded;
     private int _wordsLearned, _wordsTotal, _topicsDone, _gamesWon;
 
