@@ -40,6 +40,8 @@ services:
       SeedData__ReloadBooks: "1,2,3,4,5,6,8,9,10"
 YML
 cd deploy
+echo "Rebuilding the api image (SeedData is baked in at build time, not mounted live)..."
+docker compose -f docker-compose.prod.yml build api < /dev/null 2>&1 | tail -5
 echo "Reloading the changed books (one restart)..."
 docker compose -f docker-compose.prod.yml -f docker-compose.reload.yml up -d --no-deps api < /dev/null 2>&1 | tail -5
 echo "Waiting for the reload to finish (checks word 118 = 'thirteen', only in the new edition)..."
