@@ -10,7 +10,16 @@
 
 <PageTitle>@(_subject?.SubjectName ?? Loc["SubjectDetail_FallbackTitle"]) — Jumbo</PageTitle>
 
-<button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backFromTopic", BookNumber)'>@Loc["SubjectDetail_BackToTopics"]</button>
+<div class="topic-top">
+    <button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backFromTopic", BookNumber)'>@Loc["SubjectDetail_BackToTopics"]</button>
+    @if (_loaded && _subject != null && _needToPass is null)
+    {
+        @* The words of the topic are not a game to pass: they are a reference, one tap away in the corner. *@
+        <button type="button" class="topic-words-btn" @onclick="GoToWords" title="@Loc["Game_WordsTitle"]" aria-label="@Loc["Game_WordsTitle"]">
+            <img src="icons/lesson_words.png" alt="" width="34" height="34" />
+        </button>
+    }
+</div>
 
 @if (!_loaded)
 {
@@ -56,11 +65,6 @@ else
             <div class="lesson-icon"><img src="icons/lesson_phrase.png" alt="" width="56" height="56" /></div>
             <div class="lesson-name">@Loc["Game_PhraseTitle"]</div>
             <div class="lesson-desc">@Loc["Game_PhraseDesc"]</div>
-        </div>
-        <div class="lesson-card" @onclick="GoToWords">
-            <div class="lesson-icon"><img src="icons/lesson_words.png" alt="" width="56" height="56" /></div>
-            <div class="lesson-name">@Loc["Game_WordsTitle"]</div>
-            <div class="lesson-desc">@Loc["Game_WordsDesc"]</div>
         </div>
     </div>
 }

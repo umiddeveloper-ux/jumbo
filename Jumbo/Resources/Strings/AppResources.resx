@@ -1865,4 +1865,13 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="Rating_Privacy" xml:space="preserve">
     <value>We only show the first name, the first letter of the last name and the team.</value>
   </data>
+  <data name="LivesOut_Title" xml:space="preserve">
+    <value>The lives are over</value>
+  </data>
+  <data name="LivesOut_Text" xml:space="preserve">
+    <value>From now on a mistake takes LP points. When the LP are gone too, the game waits 5 hours.</value>
+  </data>
+  <data name="LivesOut_Ok" xml:space="preserve">
+    <value>Got it</value>
+  </data>
 </root>

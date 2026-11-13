@@ -1861,4 +1861,13 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Rating_Privacy" xml:space="preserve">
     <value>Faqat ism, familiyaning birinchi harfi va jamoa ko'rsatiladi.</value>
   </data>
+  <data name="LivesOut_Title" xml:space="preserve">
+    <value>Jonlar tugadi</value>
+  </data>
+  <data name="LivesOut_Text" xml:space="preserve">
+    <value>Endi har bir xato uchun LP ballari yechiladi. Ular ham tugasa, o'yin 5 soatga yopiladi.</value>
+  </data>
+  <data name="LivesOut_Ok" xml:space="preserve">
+    <value>Tushunarli</value>
+  </data>
 </root>

@@ -265,6 +265,7 @@ public partial class ListenAndFindGamePageModel : ObservableObject
                 {
                     await _apiClient.EnsureWordsExistAsync(_allWords.Select(w => w.WordId).ToList());
                     LivesService.Apply(await _apiClient.MarkGameWonAsync(SubjectId, "ListenAndFind"));      // the server gives the LP (LpReward is only what is shown)
+                    _topicDone = await _apiClient.GetBookIfTopicDoneAsync(SubjectId) is not null;      // all three games won: "Continue" goes to the snake
                 }
             }
             else
@@ -308,11 +309,13 @@ public partial class ListenAndFindGamePageModel : ObservableObject
         await LoadGameAsync();
     }
 
+    private bool _topicDone;      // this win finished the topic
+
     [RelayCommand]
     private async Task GoBack()
     {
         _ttsCts?.Cancel();
-        await Shell.Current.GoToAsync("..");
+        await Shell.Current.GoToAsync(IsGameWon && _topicDone ? "../.." : "..");      // "../..": past the topic page to the snake
     }
 
     [RelayCommand] private void NavigatedTo() { }

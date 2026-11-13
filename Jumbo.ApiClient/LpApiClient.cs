@@ -711,6 +711,18 @@ public class LpApiClient(HttpClient http)
         return await response.Content.ReadFromJsonAsync<UserSubjectProgress>();
     }
 
+    /// <summary>The book of a topic whose three games are all won (the learner is then sent to the snake of that book), or null while the topic is not finished.</summary>
+    public async Task<int?> GetBookIfTopicDoneAsync(int subjectId)
+    {
+        try
+        {
+            var p = await GetUserSubjectProgressAsync(subjectId);
+            if (p is null || p.PartsDone < UserSubjectProgress.Parts) return null;
+            return (await GetSubjectByIdAsync(subjectId))?.BookId;
+        }
+        catch { return null; }
+    }
+
     /// <summary>A won game. The server gives the LP for it and answers with the learner's numbers (give them to LivesService.Apply).</summary>
     public async Task<LivesStateDto?> MarkGameWonAsync(int subjectId, string gameType)
     {

@@ -42,6 +42,9 @@ public partial class SubjectDetailPageModel : ObservableObject
     [ObservableProperty]
     private ObservableCollection<LessonItemViewModel> _lessons = [];
 
+    // the accessibility name of the icon with the words of the topic
+    public string WordsTitle => LocalizationManager.Get("Game_WordsTitle");
+
     public SubjectDetailPageModel(LpApiClient apiClient, ModalErrorHandler errorHandler)
     {
         _apiClient = apiClient;
@@ -97,8 +100,7 @@ public partial class SubjectDetailPageModel : ObservableObject
         [
             new() { Type = "FindMe",       Name = LocalizationManager.Get("Game_FindMeTitle"), Desc = LocalizationManager.Get("Game_FindMeDesc"), SvgIcon = "lesson_findme.png", IsPassed = progress?.FindMeWon  ?? false },
             new() { Type = "ListenAndFind",Name = LocalizationManager.Get("Game_ListenTitle"), Desc = LocalizationManager.Get("Game_ListenDesc"), SvgIcon = "lesson_listen.png", IsPassed = progress?.ListenWon   ?? false },
-            new() { Type = "Phrase",       Name = LocalizationManager.Get("Game_PhraseTitle"), Desc = LocalizationManager.Get("Game_PhraseDesc"), SvgIcon = "lesson_phrase.png", IsPassed = progress?.PhraseWon   ?? false },
-            new() { Type = "Words",        Name = LocalizationManager.Get("Game_WordsTitle"), Desc = LocalizationManager.Get("Game_WordsDesc"), SvgIcon = "lesson_words.png", IsPassed = false }
+            new() { Type = "Phrase",       Name = LocalizationManager.Get("Game_PhraseTitle"), Desc = LocalizationManager.Get("Game_PhraseDesc"), SvgIcon = "lesson_phrase.png", IsPassed = progress?.PhraseWon   ?? false }
         ]);
     }
 
@@ -157,6 +159,10 @@ public partial class SubjectDetailPageModel : ObservableObject
         }
         catch { /* no network: no player now, asked again next time */ }
     }
+
+    // The words of the topic are not a game to pass: a reference one tap away (the icon in the top right corner).
+    [RelayCommand]
+    private async Task OpenWords() => await Shell.Current.GoToAsync($"SubjectWordsPage?subjectId={SubjectId}");
 
     [RelayCommand]
     private async Task OpenLesson(LessonItemViewModel lesson)

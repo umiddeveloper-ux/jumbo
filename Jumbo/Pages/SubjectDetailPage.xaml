@@ -93,6 +93,18 @@
             </VerticalStackLayout>
         </ScrollView>
 
+        <!-- The words of the topic: not a game to pass, a reference in the top right corner -->
+        <Border HorizontalOptions="End" VerticalOptions="Start" Margin="0,10,14,0" WidthRequest="48" HeightRequest="48"
+                StrokeShape="RoundRectangle 16" StrokeThickness="2" Padding="0"
+                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                SemanticProperties.Description="{Binding WordsTitle}">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OpenWordsCommand}" />
+            </Border.GestureRecognizers>
+            <Image Source="lesson_words.png" WidthRequest="34" HeightRequest="34" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Border>
+
         <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
                            VerticalOptions="Center" HorizontalOptions="Center" Color="{DynamicResource Primary}"
                            HeightRequest="50" WidthRequest="50" />

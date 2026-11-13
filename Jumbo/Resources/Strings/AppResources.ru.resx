@@ -1861,4 +1861,13 @@
   <data name="Rating_Privacy" xml:space="preserve">
     <value>Показываем только имя, первую букву фамилии и команду.</value>
   </data>
+  <data name="LivesOut_Title" xml:space="preserve">
+    <value>Жизни закончились</value>
+  </data>
+  <data name="LivesOut_Text" xml:space="preserve">
+    <value>Теперь за каждую ошибку будут списываться очки LP. Когда и они закончатся, игра закроется на 5 часов.</value>
+  </data>
+  <data name="LivesOut_Ok" xml:space="preserve">
+    <value>Понятно</value>
+  </data>
 </root>

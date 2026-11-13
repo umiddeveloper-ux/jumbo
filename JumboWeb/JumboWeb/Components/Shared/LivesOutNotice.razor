@@ -1,0 +1,31 @@
+@implements IDisposable
+@using JumboWeb.Services
+@inject LivesService Lives
+@inject AppLocalizer Loc
+
+@* The last life is gone but there is LP left: a window says that from now on a mistake takes LP. Shown once, when it happens. *@
+@if (_open)
+{
+    <div class="confirm-overlay" role="dialog" aria-modal="true" aria-label="@Loc["LivesOut_Title"]" @onclick="Close">
+        <div class="confirm-modal lives-out" @onclick:stopPropagation="true">
+            <Tiger Mood="sad" Size="96" />
+            <p class="confirm-modal-title">💔 @Loc["LivesOut_Title"]</p>
+            <p class="confirm-modal-sub">@Loc["LivesOut_Text"]</p>
+            <div class="confirm-modal-actions">
+                <button type="button" class="lp-btn lp-btn-full" @onclick="Close">@Loc["LivesOut_Ok"]</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private bool _open;
+
+    protected override void OnInitialized() => Lives.LivesRanOut += OnRanOut;
+
+    private void OnRanOut() => InvokeAsync(() => { _open = true; StateHasChanged(); });
+
+    private void Close() => _open = false;
+
+    public void Dispose() => Lives.LivesRanOut -= OnRanOut;
+}

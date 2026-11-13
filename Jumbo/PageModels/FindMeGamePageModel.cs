@@ -234,6 +234,7 @@ public partial class FindMeGamePageModel : ObservableObject
                 {
                     await _apiClient.EnsureWordsExistAsync(_wordSequence.Select(c => c.WordId).ToList());
                     LivesService.Apply(await _apiClient.MarkGameWonAsync(SubjectId, "FindMe"));      // the server gives the LP (LpReward is only what is shown)
+                    _topicDone = await _apiClient.GetBookIfTopicDoneAsync(SubjectId) is not null;      // all three games won: "Continue" goes to the snake
                 }
             }
             else
@@ -266,8 +267,10 @@ public partial class FindMeGamePageModel : ObservableObject
         await LoadGameAsync();
     }
 
+    private bool _topicDone;      // this win finished the topic
+
     [RelayCommand]
-    private async Task GoBack() => await Shell.Current.GoToAsync("..");
+    private async Task GoBack() => await Shell.Current.GoToAsync(IsGameWon && _topicDone ? "../.." : "..");      // "../..": past the topic page to the snake
 
     [RelayCommand]
     private void NavigatedTo() { }

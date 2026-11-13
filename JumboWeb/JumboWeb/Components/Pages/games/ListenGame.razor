@@ -145,6 +145,7 @@ else
     {
         _isBusy = true;
         _isGameOver = _isGameWon = _hasNoData = false;
+        _doneBook = null;
         _showWord = false;
         _allWords.Clear(); _stepTargets.Clear();
         _step = 0; _stepIndex = -1;
@@ -225,6 +226,7 @@ else
                 {
                     await ApiClient.EnsureWordsExistAsync(_allWords.Select(w => w.WordId));
                     Lives.Apply(await ApiClient.MarkGameWonAsync(SubjectId, "ListenAndFind"));      // the server gives the LP (LpReward is only what is shown)
+                    _doneBook = await ApiClient.GetBookIfTopicDoneAsync(SubjectId);                  // all three games won: "Continue" goes to the snake
                 }
                 _isGameWon = true;
             }
@@ -263,9 +265,12 @@ else
         await LoadGame();
     }
 
+    private int? _doneBook;      // set when this win finished the topic
+
     private void GoBack()
     {
         _ = JS.InvokeVoidAsync("lp.stopSpeech");
+        if (_isGameWon && _doneBook is { } book) { Nav.NavigateTo($"/little-polyglot/book/{book}"); return; }
         if (Gate > 0) Nav.NavigateTo(BookGateService.GateUrl(Gate), replace: true);
         else _ = JS.InvokeVoidAsync("lp.goBack", "/little-polyglot");
     }

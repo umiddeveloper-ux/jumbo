@@ -105,8 +105,8 @@ else
     [SupplyParameterFromQuery(Name = "gate")] public int Gate { get; set; }
     private TigerCoach? _coach;
 
-    // On a phone only SlotCount cards are on the screen: a found word is replaced by the next one until all the words of the topic
-    // have come, and the last cards turn into ticks one by one. On a wide screen all the cards are shown at once.
+    // Only SlotCount cards are on the screen (on a phone and on a wide screen alike): a found word is replaced by the next one until all
+    // the words of the topic have come, and the last cards turn into ticks one by one.
     private const int SlotCount = 6;
 
     private List<GameCard> _cards = new();
@@ -132,7 +132,7 @@ else
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (!firstRender) return;
-        try { _slotMode = await JS.InvokeAsync<bool>("lp.isMobile"); } catch { _slotMode = false; }
+        _slotMode = true;      // six cards on every screen (as in the app): a found word gives its place to the next one
         await LoadGame();
         StateHasChanged();
     }
@@ -140,6 +140,7 @@ else
     private async Task LoadGame()
     {
         _isBusy = true;
+        _doneBook = null;
         _isGameOver = _isGameWon = _hasNoData = false;
         _cards.Clear(); _sequence.Clear(); _unseen.Clear(); _target = null;
         _currentIndex = _foundCount = 0;
@@ -236,6 +237,7 @@ else
                 {
                     await ApiClient.EnsureWordsExistAsync(_sequence.Select(c => c.WordId));
                     Lives.Apply(await ApiClient.MarkGameWonAsync(SubjectId, "FindMe"));      // the server gives the LP (LpReward is only what is shown)
+                    _doneBook = await ApiClient.GetBookIfTopicDoneAsync(SubjectId);          // all three games won: "Continue" goes to the snake
                 }
             }
             else if (_slotMode) PickTarget();
@@ -260,8 +262,11 @@ else
         await LoadGame();
     }
 
+    private int? _doneBook;      // set when this win finished the topic
+
     private void GoBack()
     {
+        if (_isGameWon && _doneBook is { } book) { Nav.NavigateTo($"/little-polyglot/book/{book}"); return; }
         if (Gate > 0) Nav.NavigateTo(BookGateService.GateUrl(Gate), replace: true);
         else _ = JS.InvokeVoidAsync("lp.goBack", "/little-polyglot");
     }

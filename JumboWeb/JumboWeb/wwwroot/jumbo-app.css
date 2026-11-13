@@ -221,3 +221,18 @@
     background: var(--lp-primary-soft); color: var(--lp-primary-text); }
 .exam-opt-text { overflow-wrap: anywhere; }
 @media (min-width: 640px) { .exam-test-opts { grid-template-columns: 1fr 1fr; } }
+
+/* ----- a topic: the back button on the left, the "words of the topic" icon in the right corner ----- */
+.topic-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.topic-top .lp-back-btn { margin-bottom: 0; }
+.topic-words-btn {
+    width: 48px; height: 48px; padding: 0; display: grid; place-items: center; cursor: pointer; flex: none;
+    background: var(--lp-surface, transparent); border: 2px solid var(--lp-border); border-bottom-width: 4px; border-radius: 16px;
+    transition: border-color .12s, transform .08s;
+}
+.topic-words-btn:hover { border-color: var(--lp-primary); }
+.topic-words-btn:active { transform: translateY(2px); border-bottom-width: 2px; }
+
+/* "the lives are over, now a mistake takes LP" */
+.confirm-modal.lives-out { text-align: center; }
+.confirm-modal.lives-out .tiger, .confirm-modal.lives-out svg { margin-inline: auto; }

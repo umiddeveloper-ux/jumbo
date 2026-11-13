@@ -71,6 +71,9 @@ public partial class LivesService : ObservableObject
         }
     }
 
+    /// <summary>The last life was lost and the learner has LP left: mistakes now cost LP. The layout shows a notice.</summary>
+    public event Action? LivesRanOut;
+
     public LivesService(LpApiClient apiClient)
     {
         _apiClient = apiClient;
@@ -123,7 +126,10 @@ public partial class LivesService : ObservableObject
         {
             var state = await _apiClient.ReportMistakeAsync(livesOnly);
             if (state is null) return CanPlay;
+            int before = Lives;
             Apply(state);
+            // the last life is gone but there is LP: from now on a mistake takes LP (the learner is told once, when it happens)
+            if (!livesOnly && before > 0 && state.Lives <= 0 && state.LpPoints > 0) LivesRanOut?.Invoke();
             return state.CanPlay;
         }
         catch { return CanPlay; }

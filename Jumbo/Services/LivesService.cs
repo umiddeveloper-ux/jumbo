@@ -159,6 +159,16 @@ public partial class LivesService : ObservableObject
     /// A mistake. The server counts it (a shield, a life, the LP, the block of 5 hours) and answers with the numbers; returns true when the learner
     /// can go on. livesOnly: the check that opens a book - only the lives count there. Without a connection the mistake is not counted.
     /// </summary>
+    private static async Task TellLivesOutAsync()
+    {
+        try
+        {
+            if (Shell.Current is { } shell)
+                await MainThread.InvokeOnMainThreadAsync(() => shell.DisplayAlertAsync("💔 " + LocalizationManager.Get("LivesOut_Title"), LocalizationManager.Get("LivesOut_Text"), LocalizationManager.Get("LivesOut_Ok")));
+        }
+        catch { /* the notice is a help: never break the game */ }
+    }
+
     public async Task<bool> TakeDamageAsync(bool livesOnly = false)
     {
         if (Unlimited) return true;           // silver / gold: nothing is lost
@@ -166,7 +176,10 @@ public partial class LivesService : ObservableObject
         {
             var state = await _apiClient.ReportMistakeAsync(livesOnly);
             if (state is null) return CanPlay;
+            int before = Lives;
             Apply(state);
+            // the last life is gone but there is LP: from now on a mistake takes LP (the learner is told once, when it happens)
+            if (!livesOnly && before > 0 && state.Lives <= 0 && state.LpPoints > 0) await TellLivesOutAsync();
             return state.CanPlay;
         }
         catch { return CanPlay; }
