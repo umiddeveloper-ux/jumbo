@@ -3195,4 +3195,13 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="LivesOut_Ok" xml:space="preserve">
     <value>Got it</value>
   </data>
+  <data name="Nav_Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="RP_AllTeamsTitle" xml:space="preserve">
+    <value>Report on all the teams</value>
+  </data>
+  <data name="RP_PickTeam" xml:space="preserve">
+    <value>Tap a team to open its report.</value>
+  </data>
 </root>

@@ -136,6 +136,17 @@ public class TeacherController(AppDbContext db, ICurrentUserService currentUser,
         return await reports.BuildTeamAsync(cls, period);
     }
 
+    // The figures of all the teams of the teacher (a Director: of the school), one row per team and the total: the page "Reports".
+    [HttpGet("reports/teams")]
+    public async Task<ActionResult<SchoolReportDto>> TeamsReport([FromQuery] string period = "week")
+    {
+        var me = await GetMeAsync();
+        if (me.SchoolId is null) return Conflict(new { error = "NO_SCHOOL" });
+        var school = await db.Schools.AsNoTracking().SingleAsync(s => s.SchoolId == me.SchoolId);
+        var classes = await VisibleClasses(me).Where(c => !c.IsArchived).OrderBy(c => c.Name).ToListAsync();
+        return await reports.BuildTeamsAsync(school, classes, period, withClassIds: true);
+    }
+
     // ── school report link (for the director, who does not log in) ──────────
     [HttpGet("school-report-link")]
     public async Task<ActionResult<ReportLinkDto>> GetSchoolLink()

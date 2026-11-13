@@ -558,6 +558,14 @@ public class LpApiClient(HttpClient http)
         return await response.Content.ReadFromJsonAsync<TeamReportDto>();
     }
 
+    /// <summary>The figures of all the teams of the teacher (a Director: of the school): the page "Reports".</summary>
+    public async Task<SchoolReportDto?> TeacherGetTeamsReportAsync(string period)
+    {
+        var response = await http.GetAsync($"api/teacher/reports/teams?period={Uri.EscapeDataString(period)}");
+        if (!response.IsSuccessStatusCode) return null;
+        return await response.Content.ReadFromJsonAsync<SchoolReportDto>();
+    }
+
     public async Task<ReportLinkDto?> TeacherGetSchoolReportLinkAsync()
     {
         var response = await http.GetAsync("api/teacher/school-report-link");

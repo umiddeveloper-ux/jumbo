@@ -3126,4 +3126,13 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="LivesOut_Ok" xml:space="preserve">
     <value>Tushunarli</value>
   </data>
+  <data name="Nav_Reports" xml:space="preserve">
+    <value>Hisobotlar</value>
+  </data>
+  <data name="RP_AllTeamsTitle" xml:space="preserve">
+    <value>Barcha jamoalar bo‘yicha umumiy hisobot</value>
+  </data>
+  <data name="RP_PickTeam" xml:space="preserve">
+    <value>Hisobotini ochish uchun jamoani bosing.</value>
+  </data>
 </root>

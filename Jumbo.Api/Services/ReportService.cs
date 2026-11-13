@@ -78,11 +78,17 @@ public class ReportService(AppDbContext db)
 
     public async Task<SchoolReportDto> BuildSchoolAsync(School school, string? periodKey)
     {
-        var period = MakePeriod(periodKey);
         var classes = await db.SchoolClasses.AsNoTracking()
             .Where(c => c.SchoolId == school.SchoolId && !c.IsArchived)
             .OrderBy(c => c.Name)
             .ToListAsync();
+        return await BuildTeamsAsync(school, classes, periodKey, withClassIds: false);
+    }
+
+    /// <summary>The figures of the given teams (of a teacher; of the whole school for a director), one row per team and the total.</summary>
+    public async Task<SchoolReportDto> BuildTeamsAsync(School school, IReadOnlyList<SchoolClass> classes, string? periodKey, bool withClassIds)
+    {
+        var period = MakePeriod(periodKey);
         var data = await LoadAsync(classes.Select(c => c.ClassId).ToList(), period);
 
         var teacherIds = classes.Select(c => c.TeacherId).Distinct().ToList();
@@ -95,6 +101,7 @@ public class ReportService(AppDbContext db)
             teachers.TryGetValue(c.TeacherId, out var t);
             return new ReportTeamRowDto
             {
+                ClassId = withClassIds ? c.ClassId : 0,
                 TeamName = c.Name,
                 TeacherName = t is null ? null : $"{t.FirstName} {t.LastName}".Trim(),
                 Totals = Totals(ids, period, data, c.ClassId)

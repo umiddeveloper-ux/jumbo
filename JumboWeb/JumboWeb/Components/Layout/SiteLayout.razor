@@ -63,6 +63,12 @@
                             </NavLink>
                         </li>
                         <li>
+                            <a class="site-nav-link @(StaffReportsActive ? "active" : "")" href="/teacher/reports" @onclick="CloseSidebar">
+                                <span class="site-nav-icon">📊</span>
+                                <span>@Loc["Nav_Reports"]</span>
+                            </a>
+                        </li>
+                        <li>
                             <NavLink class="site-nav-link" href="/little-polyglot/dictionary" @onclick="CloseSidebar">
                                 <span class="site-nav-icon">📖</span>
                                 <span>@Loc["DictionaryTitle"]</span>
@@ -211,8 +217,12 @@
     // The platform administrator: only the admin page and the settings.
     private bool IsAdmin => UserState.IsAdminUser;
 
+    // "Reports": the list of the teams with the common report and the report of a team (teacher/class/{id}/report)
+    private bool StaffReportsActive => _currentPath.Equals("teacher/reports", StringComparison.OrdinalIgnoreCase)
+                                    || (_currentPath.StartsWith("teacher/class/", StringComparison.OrdinalIgnoreCase) && _currentPath.EndsWith("/report", StringComparison.OrdinalIgnoreCase));
+
     private bool StaffHomeActive => _currentPath.Equals("teacher", StringComparison.OrdinalIgnoreCase)
-                                 || _currentPath.StartsWith("teacher/class", StringComparison.OrdinalIgnoreCase)
+                                 || (_currentPath.StartsWith("teacher/class", StringComparison.OrdinalIgnoreCase) && !StaffReportsActive)
                                  || (IsApplicant && _currentPath.Equals("for-schools", StringComparison.OrdinalIgnoreCase));
 
     // Pages of the pupils' world that a teacher never opens: the learning area, the pupils' exam, the level test, the landing.

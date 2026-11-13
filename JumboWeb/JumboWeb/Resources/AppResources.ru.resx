@@ -3195,4 +3195,13 @@
   <data name="LivesOut_Ok" xml:space="preserve">
     <value>Понятно</value>
   </data>
+  <data name="Nav_Reports" xml:space="preserve">
+    <value>Отчёты</value>
+  </data>
+  <data name="RP_AllTeamsTitle" xml:space="preserve">
+    <value>Общий отчёт по командам</value>
+  </data>
+  <data name="RP_PickTeam" xml:space="preserve">
+    <value>Нажмите на команду, чтобы открыть её отчёт.</value>
+  </data>
 </root>

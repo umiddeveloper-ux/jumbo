@@ -68,6 +68,8 @@ public class TeamReportDto
 
 public class ReportTeamRowDto
 {
+    // Filled only in the teacher's own report (to open the report of the team); 0 in the school report that is passed on by link.
+    public int ClassId { get; set; }
     public string TeamName { get; set; } = null!;
     public string? TeacherName { get; set; }
     public ReportTotalsDto Totals { get; set; } = null!;
