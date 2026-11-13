@@ -216,7 +216,8 @@
 .jr-cell:hover { background: var(--lp-primary-soft); }
 .jr-cell.done { background: rgba(88, 204, 2, 0.18); }
 .jr-cell.done:hover { background: rgba(88, 204, 2, 0.30); }
-.jr-date { font-weight: 900; font-size: .78rem; color: var(--lp-success-dark, #3f9e00); }
+.jr-date, .jr-check { font-weight: 900; font-size: .78rem; color: var(--lp-success-dark, #3f9e00); }
+.jr-check { font-size: 1.05rem; line-height: 1; }
 .jr-dot { color: var(--lp-primary-text); font-size: .7rem; opacity: .8; }
 .jr-foot td { background: var(--lp-primary-soft); font-weight: 900; color: var(--lp-text); height: 32px; }
 .jr-legend { margin: 10px 2px 0; font-size: .85rem; color: var(--lp-muted); line-height: 1.5; }
@@ -231,7 +232,7 @@
     .jr-table th, .jr-table td { border: 1px solid #555 !important; background: #fff !important; color: #111 !important; position: static !important; }
     .jr-table thead tr.jr-names th { height: 112px; font-size: 8px; }
     .jr-cell.done { background: #fff !important; }
-    .jr-cell.done .jr-date { color: #111; }
+    .jr-cell.done .jr-date, .jr-cell.done .jr-check { color: #111; }
     .jr-dot { display: none; }
     .jr-name { min-width: 120px; padding: 3px 5px !important; }
     .jr-sheet-head { background: #fff; border: 1px solid #555; border-radius: 0; padding: 6px 8px; }

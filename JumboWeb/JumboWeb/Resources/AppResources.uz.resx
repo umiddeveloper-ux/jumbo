@@ -2968,7 +2968,7 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
     <value>Topshirilgan</value>
   </data>
   <data name="TJ_Legend" xml:space="preserve">
-    <value>mavzu topshirilgan (sana). Bo‘sh katakni bosing — mavzu bugungi sana bilan belgilanadi; sanani bossangiz, uni o‘zgartirish yoki belgini olib tashlash mumkin.</value>
+    <value>mavzu topshirilgan. Bo‘sh katakni bosing — mavzu belgilanadi; belgini bossangiz, u olib tashlanadi (belgi ustida u qo‘yilgan sana ko‘rinadi).</value>
   </data>
   <data name="TJ_LegendApp" xml:space="preserve">
     <value>— o‘quvchi mavzuni ilovada o‘tgan (og‘zaki topshirishdan oldin maslahat)</value>

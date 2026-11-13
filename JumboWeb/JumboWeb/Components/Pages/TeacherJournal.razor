@@ -11,8 +11,8 @@
 
 <PageTitle>@Loc["TJ_Title"]</PageTitle>
 
-@* The journal of topics: a sheet for every book, the pupils of a team in rows, the 20 topics in columns; a mark is the date the pupil said the
-   15 words of the topic to the teacher. Printed on A4 landscape like the paper journal. *@
+@* The journal of topics: a sheet for every book, the pupils of a team in rows, the 20 topics in columns; a mark is a tick: the pupil said the
+   15 words of the topic to the teacher (the day of the tick is in the hint of the cell). Printed on A4 landscape like the paper journal. *@
 <style>@@media print { @@page { size: A4 landscape; margin: 8mm; } }</style>
 
 @if (!_loaded)
@@ -110,7 +110,7 @@ else
                                             var app = AppPassed(p.UserId, t.SubjectId);
                                             <td class="jr-cell @(mark is not null ? "done" : "") @(app ? "app" : "")" @onclick="() => CellClickAsync(p, t, mark)"
                                                 title="@(mark is { } m0 ? m0.PassedOn.ToString("dd.MM.yyyy") : app ? Loc["TJ_AppHint"] : "")">
-                                                @if (mark is { } m) { <span class="jr-date">@m.PassedOn.ToString("dd.MM")</span> }
+                                                @if (mark is not null) { <span class="jr-check">✓</span> }
                                                 else if (app) { <span class="jr-dot">●</span> }
                                             </td>
                                         }
@@ -135,32 +135,13 @@ else
         }
     </div>
 
-    @if (_editing is { } ed)
-    {
-        <div class="jr-pop rp-noprint" role="dialog" aria-modal="true">
-            <div class="jr-pop-card">
-                <h2 class="jr-pop-title">@ed.Pupil.Name</h2>
-                <p class="jr-pop-sub">@ed.Topic.Number.ToString("00") · @ed.Topic.Name · @Loc.Format("TJ_Words", ed.Topic.WordFrom, ed.Topic.WordTo)</p>
-                <label>@Loc["TJ_Date"]<input class="lp-input" type="date" @bind="_editDate" /></label>
-                <div class="jr-pop-actions">
-                    <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="SaveEditAsync">💾 @Loc["TJ_Save"]</button>
-                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" disabled="@_busy" @onclick="ClearEditAsync">✖ @Loc["TJ_Clear"]</button>
-                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _editing = null">@Loc["TJ_Close"]</button>
-                </div>
-            </div>
-        </div>
-    }
 }
 
 @code {
-    private record Editing(JournalPupilDto Pupil, JournalTopicDto Topic);
-
     private bool _loaded, _noSchool, _busy;
     private List<ClassDto> _classes = new();
     private int _classId, _book = 1;
     private JournalDto? _j;
-    private Editing? _editing;
-    private DateOnly _editDate;
     private string _error = string.Empty;
 
     // the day of the app is UTC+5
@@ -203,26 +184,11 @@ else
     private bool AppPassed(int pupil, int subject) => _j?.AppPassed.Any(m => m.UserId == pupil && m.SubjectId == subject) == true;
     private int CountOf(int pupil) => _j?.Marks.Count(m => m.UserId == pupil) ?? 0;
 
-    // an empty cell: passed today; a marked one: the window to change the date or take the mark away
+    // a click on an empty cell puts the tick (the server keeps the day it was put: it is in the hint of the cell); a click on a tick takes it away
     private async Task CellClickAsync(JournalPupilDto pupil, JournalTopicDto topic, JournalMarkDto? mark)
     {
-        if (mark is null) { await SetAsync(pupil.UserId, topic.SubjectId, Today); return; }
-        _editDate = mark.PassedOn;
-        _editing = new Editing(pupil, topic);
-    }
-
-    private async Task SaveEditAsync()
-    {
-        if (_editing is not { } ed) return;
-        await SetAsync(ed.Pupil.UserId, ed.Topic.SubjectId, _editDate);
-        _editing = null;
-    }
-
-    private async Task ClearEditAsync()
-    {
-        if (_editing is not { } ed) return;
-        await SetAsync(ed.Pupil.UserId, ed.Topic.SubjectId, null);
-        _editing = null;
+        if (_busy) return;
+        await SetAsync(pupil.UserId, topic.SubjectId, mark is null ? Today : null);
     }
 
     private async Task SetAsync(int pupilId, int subjectId, DateOnly? date)
@@ -255,7 +221,7 @@ else
             var p = j.Pupils[i];
             var row = new List<object?> { i + 1, p.Name };
             foreach (var t in j.Topics)
-                row.Add(j.Marks.FirstOrDefault(m => m.UserId == p.UserId && m.SubjectId == t.SubjectId)?.PassedOn.ToString("dd.MM.yyyy") ?? "");
+                row.Add(j.Marks.Any(m => m.UserId == p.UserId && m.SubjectId == t.SubjectId) ? "✓" : "");
             row.Add(j.Marks.Count(m => m.UserId == p.UserId));
             rows.Add(row);
         }

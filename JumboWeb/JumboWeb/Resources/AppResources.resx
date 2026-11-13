@@ -3037,7 +3037,7 @@ We do not use the data for advertising and we do not sell it.</value>
     <value>Passed</value>
   </data>
   <data name="TJ_Legend" xml:space="preserve">
-    <value>topic passed (the date). Click an empty cell to mark the topic with today’s date; click a date to change it or to take the mark away.</value>
+    <value>topic passed. Click an empty cell to mark the topic; click a tick to take the mark away (the hint of a tick shows the day it was put).</value>
   </data>
   <data name="TJ_LegendApp" xml:space="preserve">
     <value>— the pupil has passed the topic in the app (a hint before the oral test)</value>
