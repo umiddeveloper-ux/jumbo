@@ -115,7 +115,7 @@
         <!-- The Next button stays at the bottom of the screen -->
         <Border Grid.Row="1" IsVisible="{Binding IsPlaying}" StrokeThickness="0" Padding="16,8,16,12"
                 BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
-            <ctl:ChunkyButton Text="{u:Tr Key=PhraseGame_Next}" IsEnabled="{Binding CanCheck}" Command="{Binding CheckCommand}" />
+            <ctl:ChunkyButton Kind="neutral" Text="{u:Tr Key=PhraseGame_Next}" IsEnabled="{Binding CanCheck}" Command="{Binding CheckCommand}" />
         </Border>
 
         <ctl:GameOverlay Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding HasNoData}" Kind="lose" Title="{u:Tr Key=PhraseGame_NoPhrases}"

@@ -236,3 +236,7 @@
 /* "the lives are over, now a mistake takes LP" */
 .confirm-modal.lives-out { text-align: center; }
 .confirm-modal.lives-out .tiger, .confirm-modal.lives-out svg { margin-inline: auto; }
+
+/* the phrase game: "Next" is always the neutral yellow, whatever the level colour is (it must not look like a verdict) */
+.phr-next { --lp-primary: #FFD45F; --lp-primary-dark: #F5C84D; --lp-primary-shadow: #D9B44D; --lp-primary-edge: #FFEBAD; --lp-on-primary: #3B2A00; }
+:root[data-theme="dark"] .phr-next { --lp-primary: #FFD54A; --lp-primary-dark: #FFD54A; --lp-primary-shadow: #C99400; --lp-primary-edge: #8A7020; --lp-on-primary: #17171A; }

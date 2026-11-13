@@ -8,7 +8,7 @@ public partial class ChunkyButton : ContentView
     public static readonly BindableProperty TextProperty = BindableProperty.Create(
         nameof(Text), typeof(string), typeof(ChunkyButton), string.Empty, propertyChanged: (b, _, n) => ((ChunkyButton)b).Caption.Text = (string?)n);
 
-    /// <summary>primary | success | accent | danger | outline</summary>
+    /// <summary>primary | success | accent | danger | outline | neutral (always the yellow, whatever the level colour is)</summary>
     public static readonly BindableProperty KindProperty = BindableProperty.Create(
         nameof(Kind), typeof(string), typeof(ChunkyButton), "primary", propertyChanged: (b, _, _) => ((ChunkyButton)b).ApplyColors());
 
@@ -68,6 +68,7 @@ public partial class ChunkyButton : ContentView
                 "success" => (Res("Success"), Res("SuccessEdge"), Colors.White),
                 "accent" => (Res("Accent"), Res("AccentEdge"), Colors.White),
                 "danger" => (Res("Danger"), Res("DangerEdge"), Colors.White),
+                "neutral" => dark ? (Color.FromArgb("#FFD54A"), Color.FromArgb("#C99400"), Color.FromArgb("#17171A")) : (Color.FromArgb("#FFD45F"), Color.FromArgb("#D9B44D"), Color.FromArgb("#3B2A00")),
                 "outline" => (Res(dark ? "SurfaceDark" : "SurfaceLight"), Res(dark ? "BorderDark" : "BorderLight"), Res("PrimaryText")),
                 _ => (Res("Primary"), Res("PrimaryEdge"), Res("OnPrimary"))
             };
