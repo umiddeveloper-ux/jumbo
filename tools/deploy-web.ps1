@@ -37,7 +37,9 @@ docker exec jumbo-nginx nginx -s reload < /dev/null
 docker ps --format "{{.Names}} {{.Status}}"
 '@
 Write-Host 'Deploying on the server...' -ForegroundColor Cyan
-($remote -replace "`r`n", "`n") | ssh -i $key -o BatchMode=yes $server "bash -s"
+# the script goes as base64 (piping text puts a byte-order mark in front of it and the quotes survive)
+$b64 = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes(($remote -replace "`r`n", "`n")))
+ssh -i $key -o BatchMode=yes $server "echo $b64 | base64 -d | bash"
 if ($LASTEXITCODE -ne 0) { throw 'the deploy on the server failed' }
 
 Start-Sleep -Seconds 4
