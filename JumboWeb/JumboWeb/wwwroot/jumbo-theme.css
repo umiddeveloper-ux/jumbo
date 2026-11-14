@@ -813,12 +813,13 @@ span[style*="0.85rem"] { font-size: 0.95rem !important; }
 .reg-help { margin: -6px 0 6px; font-size: 0.82rem; font-weight: 600; color: var(--lp-muted); }
 .reg-error { margin: 4px 0 8px; font-weight: 800; }
 
-.reg-actions { display: flex; gap: 10px; margin-top: 10px; }
-.reg-actions .lp-btn { flex: 1; }
-.reg-actions .reg-next { flex: 1.6; padding-top: 14px; padding-bottom: 14px; font-size: 1rem; }
-@media (max-width: 380px) {
-    .reg-actions { flex-wrap: wrap; }
-    .reg-actions .reg-next { flex-basis: 100%; order: -1; }
+.reg-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.reg-actions .lp-btn { flex: 1; min-width: 0; }
+.reg-actions .reg-next { flex: 1.6; flex-basis: 100%; order: -1; padding-top: 14px; padding-bottom: 14px; font-size: 1rem; }
+/* On step 3 three buttons share the row (Back, Skip, Start): long Uzbek labels ("O'tkazib yuborish", "O'rganishni boshlash") overflow a
+   phone's width well above the old 380px cut-off, so the row always wraps - the Start button on its own full-width line, Back/Skip below it. */
+@media (max-width: 420px) {
+    .reg-actions .lp-btn:not(.reg-next) { font-size: 0.88rem; padding-left: 6px; padding-right: 6px; }
 }
 
 /* ===== The check that opens a book ===== */
