@@ -609,8 +609,11 @@ else
         user.TranslationLanguageId = _transLangId;
 
         var langChanged = _appLangId != Prefs.AppLangId;
-        await UserState.UpdateUserAsync(user);
+        // Updated before the server round-trip, not after: the save to the API can take a moment, and a learner who picks a
+        // study language and taps straight into a game (same circuit, no reload) must not land on the game with the OLD
+        // language still in Prefs while the save is still in flight.
         Prefs.Update(_appLangId, _studyLangId, _transLangId);
+        await UserState.UpdateUserAsync(user);
         if (langChanged)
         {
             await JS.InvokeVoidAsync("lp.setLang", AppLanguages.ToCode(_appLangId));

@@ -13,6 +13,7 @@ public partial class SettingsPageModel : ObservableObject
     private readonly ModalErrorHandler _errorHandler;
     private readonly LivesService _livesService;
     private User? _currentUser;
+    private List<Jumbo.Shared.Entities.Language> _languages = [];   // fetched once in LoadSettingsAsync, reused in SaveSettings (no extra round-trip, no delay before UserLanguagePrefs.Save)
     private bool _dataLoaded;
     private bool _loading;                  // while the form is filled from the server, changes are not "edits"
 
@@ -450,6 +451,7 @@ public partial class SettingsPageModel : ObservableObject
             _loading = true;
 
             var dbLanguages = await _apiClient.GetLanguagesAsync();
+            _languages = dbLanguages;
             AvailableLanguages.Clear();
             AvailableTargetLanguages.Clear();
             foreach (var lang in dbLanguages)
@@ -608,8 +610,7 @@ public partial class SettingsPageModel : ObservableObject
             _currentUser.HideName = HideName;
             _currentUser.HideTooltips = HideTooltips;
 
-            var languages = await _apiClient.GetLanguagesAsync();
-            var appLang = languages.FirstOrDefault(l => l.ShorName == AppLanguageKey);
+            var appLang = _languages.FirstOrDefault(l => l.ShorName == AppLanguageKey);
             if (appLang != null) _currentUser.AppLanguageId = appLang.LanguageId;
             if (SelectedTargetLanguage != null) _currentUser.TranslationLanguageId = SelectedTargetLanguage.Id;
             if (SelectedStudyLanguage != null) _currentUser.StudyLanguageId = SelectedStudyLanguage.Id;
@@ -618,9 +619,12 @@ public partial class SettingsPageModel : ObservableObject
             // The region is editable only while the learner has no team (the server ignores it otherwise).
             if (_currentUser.ClassId is null && !string.IsNullOrEmpty(PickedRegion)) _currentUser.Region = PickedRegion;
 
-            await _apiClient.UpdateCurrentUserAsync(UpdateUserRequest.FromUser(_currentUser));
-
+            // Written before the server round-trip, not after: saving to the API can take a moment, and a learner who picks a
+            // study language and taps straight into a game (no restart) must not land on the game with the OLD language still
+            // in Preferences while the save is still in flight (PageModels of the games read UserLanguagePrefs fresh on open).
             UserLanguagePrefs.Save(_currentUser.AppLanguageId, _currentUser.StudyLanguageId, _currentUser.TranslationLanguageId);
+
+            await _apiClient.UpdateCurrentUserAsync(UpdateUserRequest.FromUser(_currentUser));
 
             ShowHeader();
             if (!silent) await AppShell.DisplayToastAsync(LocalizationManager.Get("Settings_Saved"));
