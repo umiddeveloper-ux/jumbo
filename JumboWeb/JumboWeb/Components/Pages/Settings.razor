@@ -141,12 +141,13 @@ else
                 </select>
 
                 <div class="settings-label">@Loc["TranslationLanguageTitle"]</div>
-                <select class="lp-select" @bind="_transLangId" @bind:after="AutoSaveAsync">
+                <select class="lp-select" @bind="_transLangId" @bind:after="OnTransLangSelected">
                     @foreach (var l in _translationLanguages)
                     {
                         <option value="@l.LanguageId">@l.Name</option>
                     }
                 </select>
+                <p class="reg-help">@Loc["Settings_AppTransLinkedHint"]</p>
             </div>
 
             <div class="lp-card">
@@ -166,12 +167,13 @@ else
         case "look":
             <div class="lp-card">
                 <div class="settings-label">@Loc["AppLanguage"]</div>
-                <select class="lp-select" @bind="_appLangId" @bind:after="AutoSaveAsync">
+                <select class="lp-select" @bind="_appLangId" @bind:after="OnAppLangSelected">
                     @foreach (var l in _translationLanguages)
                     {
                         <option value="@l.LanguageId">@l.Name</option>
                     }
                 </select>
+                <p class="reg-help">@Loc["Settings_AppTransLinkedHint"]</p>
             </div>
             <p class="reg-help">@Loc["Settings_AutoSaved"]</p>
             break;
@@ -335,6 +337,21 @@ else
     private async Task AutoSaveAsync()
     {
         if (await SaveCoreAsync()) await FlashSavedAsync();
+    }
+
+    // The interface language and the translation language are kept the same, whichever of the two is changed (a learner who sees
+    // Turkish translations but a Russian interface finds that confusing). The pickers share one list (_translationLanguages), so
+    // any value either one offers is valid for the other too.
+    private async Task OnAppLangSelected()
+    {
+        _transLangId = _appLangId;
+        await AutoSaveAsync();
+    }
+
+    private async Task OnTransLangSelected()
+    {
+        _appLangId = _transLangId;
+        await AutoSaveAsync();
     }
 
     private async Task SaveProfile()

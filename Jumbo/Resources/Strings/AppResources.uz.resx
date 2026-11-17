@@ -1870,4 +1870,7 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="LivesOut_Ok" xml:space="preserve">
     <value>Tushunarli</value>
   </data>
+  <data name="Settings_AppTransLinkedHint" xml:space="preserve">
+    <value>Ilova tili tarjima tili bilan birga o'zgaradi</value>
+  </data>
 </root>

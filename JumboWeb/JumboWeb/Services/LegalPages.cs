@@ -20,7 +20,7 @@ public static class LegalPages
 
     private static IResult Render(HttpContext ctx, IStringLocalizer<AppResources> loc, IConfiguration cfg, bool privacy)
     {
-        var lang = ctx.Request.Query["lang"].ToString() is "ru" or "en" or "uz" ? ctx.Request.Query["lang"].ToString() : AppLanguages.Resolve(ctx);
+        var lang = ctx.Request.Query["lang"].ToString() is "ru" or "en" or "uz" or "tr" ? ctx.Request.Query["lang"].ToString() : AppLanguages.Resolve(ctx);
         string T(string key)
         {
             var saved = CultureInfo.CurrentUICulture;
@@ -62,7 +62,7 @@ public static class LegalPages
           .Append("</style></head><body>");
 
         sb.Append("<div class=\"top\"><a href=\"/\">").Append(E(T("Tq_GoSite"))).Append(" →</a><span class=\"lang\">");
-        foreach (var code in new[] { "ru", "en", "uz" })
+        foreach (var code in new[] { "ru", "en", "uz", "tr" })
             sb.Append("<a href=\"").Append(path).Append("?lang=").Append(code).Append("\"").Append(code == lang ? " class=\"on\"" : "").Append(">").Append(code.ToUpperInvariant()).Append("</a>");
         sb.Append("</span></div>");
 

@@ -322,7 +322,7 @@ public partial class DashboardPageModel : ObservableObject
             UserLanguagePrefs.Save(user.AppLanguageId, user.StudyLanguageId, user.TranslationLanguageId);
 
             // The account language wins (it may have been changed on another device).
-            var code = user.AppLanguageId switch { 1 => "en", 2 => "ru", 3 => "uz", _ => null };
+            var code = user.AppLanguageId switch { 1 => "en", 2 => "ru", 3 => "uz", 4 => "tr", _ => null };
             if (code is not null && code != LocalizationService.CurrentCode) LocalizationService.SetLanguage(code);
         }
 

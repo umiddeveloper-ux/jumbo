@@ -48,6 +48,7 @@
         // switch ("jumbo-lang" cookie) or saved in the profile always wins.
         (function () {
             var UZ = { 'Asia/Tashkent': 1, 'Asia/Samarkand': 1 };
+            var TR = { 'Europe/Istanbul': 1, 'Asia/Istanbul': 1 };
             var RU = {};
             ('Europe/Kaliningrad Europe/Moscow Europe/Simferopol Europe/Kirov Europe/Volgograd Europe/Astrakhan Europe/Saratov Europe/Ulyanovsk Europe/Samara ' +
              'Asia/Yekaterinburg Asia/Omsk Asia/Novosibirsk Asia/Barnaul Asia/Tomsk Asia/Novokuznetsk Asia/Krasnoyarsk Asia/Irkutsk Asia/Chita Asia/Yakutsk ' +
@@ -57,11 +58,13 @@
 
             window.lpDetectLang = function (tz, langs) {
                 if (UZ[tz]) return 'uz';
+                if (TR[tz]) return 'tr';
                 if (RU[tz]) return 'ru';
                 for (var i = 0; i < (langs || []).length; i++) {
                     var l = String(langs[i]).toLowerCase();
                     if (l.indexOf('uz') === 0) return 'uz';
                     if (l.indexOf('ru') === 0) return 'ru';
+                    if (l.indexOf('tr') === 0) return 'tr';
                     if (l.indexOf('en') === 0) return 'en';
                 }
                 return 'en';
@@ -623,6 +626,7 @@
     {
         "uz" => ("Jumbo — o‘ynab inglizcha o‘rganamiz", "Jumbo — bolalar uchun bepul sayt va ilova: ingliz tilidagi so‘zlar, o‘yinlar, alifbo va fil Jumbo. Maktabda, uyda va yo‘lda o‘qing."),
         "ru" => ("Jumbo — учим английский играя", "Jumbo — бесплатный сайт и приложение для детей: английские слова, игры, алфавит и слонёнок Jumbo. Занимайтесь в школе, дома и в дороге."),
+        "tr" => ("Jumbo — oynayarak İngilizce öğren", "Jumbo — çocuklar için ücretsiz site ve uygulama: İngilizce kelimeler, oyunlar, alfabe ve fil Jumbo. Okulda, evde ve yolda çalışın."),
         _ => ("Jumbo — learn English by playing", "Jumbo is a free site and app for kids: English words, games, the alphabet and Jumbo the elephant. Study at school, at home or on the go.")
     };
 }

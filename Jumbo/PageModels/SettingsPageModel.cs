@@ -14,6 +14,7 @@ public partial class SettingsPageModel : ObservableObject
     private readonly LivesService _livesService;
     private User? _currentUser;
     private List<Jumbo.Shared.Entities.Language> _languages = [];   // fetched once in LoadSettingsAsync, reused in SaveSettings (no extra round-trip, no delay before UserLanguagePrefs.Save)
+    private bool _syncingLanguage;   // guards AppLanguageKey <-> SelectedTargetLanguage against re-entering each other
     private bool _dataLoaded;
     private bool _loading;                  // while the form is filled from the server, changes are not "edits"
 
@@ -57,7 +58,22 @@ public partial class SettingsPageModel : ObservableObject
 
     partial void OnSelectedStudyLanguageChanged(LanguageModel? value) => _ = AutoSaveAsync();
 
-    partial void OnSelectedTargetLanguageChanged(LanguageModel? value) => _ = AutoSaveAsync();
+    // The interface language and the translation language are kept the same (a learner who sees Turkish translations but a
+    // Russian interface finds that confusing) - whichever of the two the learner changes, the other follows. _syncingLanguage
+    // stops the two change-handlers from calling each other forever.
+    partial void OnSelectedTargetLanguageChanged(LanguageModel? value)
+    {
+        if (_loading || _syncingLanguage || value is null) return;
+        var code = _languages.FirstOrDefault(l => l.LanguageId == value.Id)?.ShorName;
+        if (code is not null && code != AppLanguageKey)
+        {
+            _syncingLanguage = true;
+            AppLanguageKey = code;      // triggers OnAppLanguageKeyChanged, which live-switches the UI and saves
+            _syncingLanguage = false;
+            return;
+        }
+        _ = AutoSaveAsync();
+    }
 
     // ── profile ──
     [ObservableProperty]
@@ -517,7 +533,18 @@ public partial class SettingsPageModel : ObservableObject
 
     partial void OnAppLanguageKeyChanged(string value)
     {
-        if (_loading || value == LocalizationService.CurrentCode) return;
+        if (_loading) return;
+        if (!_syncingLanguage)
+        {
+            var match = _languages.FirstOrDefault(l => l.ShorName == value);
+            if (match != null && SelectedTargetLanguage?.Id != match.LanguageId)
+            {
+                _syncingLanguage = true;
+                SelectedTargetLanguage = AvailableTargetLanguages.FirstOrDefault(l => l.Id == match.LanguageId);
+                _syncingLanguage = false;
+            }
+        }
+        if (value == LocalizationService.CurrentCode) return;
         LocalizationService.SetLanguage(value);   // every {u:Tr} text refreshes
         _ = SaveSettings(silent: true);
     }

@@ -3060,6 +3060,9 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Settings_AutoSaved" xml:space="preserve">
     <value>Avtomatik saqlanadi</value>
   </data>
+  <data name="Settings_AppTransLinkedHint" xml:space="preserve">
+    <value>Ilova tili tarjima tili bilan birga o'zgaradi</value>
+  </data>
   <data name="Dl_Title" xml:space="preserve">
     <value>Jumbo bilan istalgan joyda va istalgan vaqtda o‘qing</value>
   </data>

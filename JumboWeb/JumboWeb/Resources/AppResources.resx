@@ -3129,6 +3129,9 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="Settings_AutoSaved" xml:space="preserve">
     <value>Saved automatically</value>
   </data>
+  <data name="Settings_AppTransLinkedHint" xml:space="preserve">
+    <value>The interface language changes together with the translation language</value>
+  </data>
   <data name="Dl_Title" xml:space="preserve">
     <value>Learn with Jumbo anywhere, anytime</value>
   </data>

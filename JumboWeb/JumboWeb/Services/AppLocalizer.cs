@@ -23,7 +23,7 @@ public class AppLocalizer
     {
         get
         {
-            var langCode = _prefs.AppLangId switch { 2 => "ru", 3 => "uz", _ => "en" };
+            var langCode = _prefs.AppLangId switch { 2 => "ru", 3 => "uz", 4 => "tr", _ => "en" };
             var saved = CultureInfo.CurrentUICulture;
             try
             {

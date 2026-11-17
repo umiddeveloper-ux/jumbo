@@ -1,10 +1,11 @@
 namespace Jumbo.Shared;
 
 /// <summary>
-/// Turkish ("tr") is a language to study only: the app has no Turkish texts and the words of the Turkish books are never shown as a
-/// translation, so the lists of the app language and of the translation language leave it out (the list of the study languages does not).
+/// Every language in the Languages table can now be the app's interface language, the translation language, or the one being
+/// studied - Turkish included, since the site and the app both have a Turkish interface (AppResources.tr.resx). Kept as a hook
+/// in case a future language is ever added as study-only before its interface text exists.
 /// </summary>
 public static class LanguageRoles
 {
-    public static bool IsStudyOnly(string? shortName) => string.Equals(shortName, "tr", StringComparison.OrdinalIgnoreCase);
+    public static bool IsStudyOnly(string? shortName) => false;
 }

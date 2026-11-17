@@ -34,6 +34,7 @@
                                         ItemsSource="{Binding AvailableLanguages}" SelectedItem="{Binding SelectedStudyLanguage, Mode=TwoWay}" />
                         <ctl:FormPicker Caption="{u:Tr Key=TranslationLanguageTitle}" DisplayMember="Name"
                                         ItemsSource="{Binding AvailableTargetLanguages}" SelectedItem="{Binding SelectedTargetLanguage, Mode=TwoWay}" />
+                        <Label Text="{u:Tr Key=Settings_AppTransLinkedHint}" Style="{StaticResource Hint}" />
                     </VerticalStackLayout>
                 </Border>
                 <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">

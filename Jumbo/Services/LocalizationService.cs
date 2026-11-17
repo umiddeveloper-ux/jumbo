@@ -7,8 +7,8 @@ public static class LocalizationService
 {
     private const string LanguageKey = "selected_language";
 
-    /// <summary>Language codes of the app UI, in the order of the Language table (1=en, 2=ru, 3=uz).</summary>
-    public static readonly (string Code, string Name)[] Languages = [("ru", "Русский"), ("en", "English"), ("uz", "O'zbekcha")];
+    /// <summary>Language codes of the app UI, in the order of the Language table (1=en, 2=ru, 3=uz, 4=tr).</summary>
+    public static readonly (string Code, string Name)[] Languages = [("ru", "Русский"), ("en", "English"), ("uz", "O'zbekcha"), ("tr", "Türkçe")];
 
     public static string CurrentCode => Preferences.Default.Get(LanguageKey, "ru");
 
@@ -42,12 +42,14 @@ public static class LocalizationService
     {
         var country = PhoneHints.Country;
         if (country == "UZ") return "uz";
+        if (country == "TR") return "tr";
         if (country is "RU" or "BY" or "KZ" or "KG" or "TJ" or "TM" or "UA" or "AM" or "AZ" or "MD") return "ru";
 
         return CultureInfo.CurrentUICulture.TwoLetterISOLanguageName switch
         {
             "uz" => "uz",
             "ru" => "ru",
+            "tr" => "tr",
             _ => "en"
         };
     }

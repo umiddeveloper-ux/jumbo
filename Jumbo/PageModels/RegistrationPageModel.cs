@@ -15,9 +15,9 @@ public partial class RegistrationPageModel : ObservableObject
 
     private readonly LpApiClient _api;
 
-    public List<LanguageOption> Languages { get; } = [new("en", "English"), new("ru", "Русский"), new("uz", "O'zbekcha")];
-    // Turkish is a language to study only: it is in the list of the study languages, not of the translation languages
-    public List<LanguageOption> StudyLanguages { get; } = [new("en", "English"), new("ru", "Русский"), new("uz", "O'zbekcha"), new("tr", "Türkçe")];
+    // The interface/translation languages and the study languages are the same four now that the app has a Turkish interface too.
+    public List<LanguageOption> Languages { get; } = [new("en", "English"), new("ru", "Русский"), new("uz", "O'zbekcha"), new("tr", "Türkçe")];
+    public List<LanguageOption> StudyLanguages => Languages;
 
     [ObservableProperty] [NotifyPropertyChangedFor(nameof(IsStep1), nameof(IsStep2), nameof(IsStep3), nameof(CanGoBack), nameof(IsLastStep), nameof(Progress), nameof(StepTitle), nameof(StepOfText))]
     private int _step = 1;
@@ -34,6 +34,14 @@ public partial class RegistrationPageModel : ObservableObject
     }
     [ObservableProperty] private LanguageOption? _studyLanguage;
     [ObservableProperty] private LanguageOption? _translationLanguage;
+
+    // The interface switches to match, right away (no page reload needed here, unlike the website - every {u:Tr} text just
+    // rebinds), so a learner who picks Turkish as the translation language is not left reading the rest of the wizard in Russian.
+    partial void OnTranslationLanguageChanged(LanguageOption? value)
+    {
+        if (value is null || value.Code == LocalizationService.CurrentCode) return;
+        LocalizationService.SetLanguage(value.Code);
+    }
 
     [ObservableProperty] private string _username = string.Empty;
     [ObservableProperty] private string _password = string.Empty;
@@ -63,7 +71,8 @@ public partial class RegistrationPageModel : ObservableObject
     {
         _api = api;
         StudyLanguage = StudyLanguages[0];
-        TranslationLanguage = Languages[1];
+        // Starts as whatever language the app is already showing, so this picker and the interface agree from the first screen.
+        TranslationLanguage = Languages.FirstOrDefault(l => l.Code == LocalizationService.CurrentCode) ?? Languages[1];
 #if DEBUG
         // Screenshots / manual checks: JUMBO_STEP=3 opens the wizard on that step.
         if (int.TryParse(Environment.GetEnvironmentVariable("JUMBO_STEP"), out var debugStep) && debugStep is >= 1 and <= TotalSteps) Step = debugStep;

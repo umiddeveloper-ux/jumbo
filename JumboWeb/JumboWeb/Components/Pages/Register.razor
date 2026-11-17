@@ -71,6 +71,7 @@
                             }
                         </InputSelect>
                         <p class="reg-help">@Loc["Reg_StudyLangHelp"]</p>
+                        <p class="reg-help">@Loc["Settings_AppTransLinkedHint"]</p>
                     }
                 }
                 else if (_step == 2)
@@ -204,7 +205,9 @@
         if (_languages.Count >= 2)
         {
             _model.StudyLangId = _languages[0].LanguageId;
-            _model.TransLangId = _languages[1].LanguageId;
+            // The translation language starts as whatever language this page is already shown in (so a visitor who sees the
+            // form in Turkish is not surprised by a Russian default here) - the Study language picker is unaffected.
+            _model.TransLangId = _translationLanguages.FirstOrDefault(l => l.LanguageId == Prefs.AppLangId)?.LanguageId ?? _languages[1].LanguageId;
         }
         _model.AvatarSvg = PresetAvatars.All[0];
     }
@@ -336,7 +339,7 @@
                 _model.AvatarSvg,
                 skipProfile ? null : Blank(_model.Region),
                 skipProfile ? null : _classId,
-                Prefs.AppLangId,
+                _model.TransLangId,     // the interface language matches whatever translation language was chosen on this form
                 asTeacher: ReturnUrl == "/for-schools");     // came through "For teachers": a teacher in waiting
 
             if (response is null)

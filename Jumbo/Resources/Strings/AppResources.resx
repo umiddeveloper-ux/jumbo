@@ -1874,4 +1874,7 @@ We do not use the data for advertising and we do not sell it.</value>
   <data name="LivesOut_Ok" xml:space="preserve">
     <value>Got it</value>
   </data>
+  <data name="Settings_AppTransLinkedHint" xml:space="preserve">
+    <value>The interface language changes together with the translation language</value>
+  </data>
 </root>

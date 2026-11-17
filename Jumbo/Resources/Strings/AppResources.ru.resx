@@ -1870,4 +1870,7 @@
   <data name="LivesOut_Ok" xml:space="preserve">
     <value>Понятно</value>
   </data>
+  <data name="Settings_AppTransLinkedHint" xml:space="preserve">
+    <value>Язык интерфейса меняется вместе с языком перевода</value>
+  </data>
 </root>

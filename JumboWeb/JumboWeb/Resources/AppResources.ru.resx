@@ -3129,6 +3129,9 @@
   <data name="Settings_AutoSaved" xml:space="preserve">
     <value>Сохраняется автоматически</value>
   </data>
+  <data name="Settings_AppTransLinkedHint" xml:space="preserve">
+    <value>Язык интерфейса меняется вместе с языком перевода</value>
+  </data>
   <data name="Dl_Title" xml:space="preserve">
     <value>Учитесь с Jumbo в любом месте и в любое время</value>
   </data>

@@ -1,0 +1,3212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlphabetSection" xml:space="preserve">
+    <value>Kelimeleri tekrar et</value>
+  </data>
+  <data name="AwardsSectionTitle" xml:space="preserve">
+    <value>Ödüllerin</value>
+  </data>
+  <data name="AwardsTitle" xml:space="preserve">
+    <value>Ödüller</value>
+  </data>
+  <data name="AZ" xml:space="preserve">
+    <value>ABCDEFGHIJKLMNOPQRSTUVWXYZ</value>
+  </data>
+  <data name="BooksSection" xml:space="preserve">
+    <value>Kitaplar</value>
+  </data>
+  <data name="DashboardTitle" xml:space="preserve">
+    <value>Ana sayfa</value>
+  </data>
+  <data name="DictionaryTitle" xml:space="preserve">
+    <value>Sözlük</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Soyad</value>
+  </data>
+  <data name="NoWordsFound" xml:space="preserve">
+    <value>Kelime yok</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Telefon numarası</value>
+  </data>
+  <data name="RegistrationTitle" xml:space="preserve">
+    <value>Kayıt</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="StartTrainingButton" xml:space="preserve">
+    <value>Öğrenmeye başla</value>
+  </data>
+  <data name="StudyLanguage" xml:space="preserve">
+    <value>Öğrenim dilini seç</value>
+  </data>
+  <data name="TotalProgress" xml:space="preserve">
+    <value>İlerlemen</value>
+  </data>
+  <data name="TranslationLanguage" xml:space="preserve">
+    <value>Çeviri dilini seç</value>
+  </data>
+  <data name="SubjectsTitle" xml:space="preserve">
+    <value>Kitap konuları</value>
+  </data>
+  <data name="NoSubjectsFound" xml:space="preserve">
+    <value>Bu kitapta henüz konu yok</value>
+  </data>
+  <data name="GameLessons" xml:space="preserve">
+    <value>Oyunlu dersler</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Kişisel bilgiler</value>
+  </data>
+  <data name="EnterFirstName" xml:space="preserve">
+    <value>Adını gir</value>
+  </data>
+  <data name="EnterLastName" xml:space="preserve">
+    <value>Soyadını gir</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Tercihler</value>
+  </data>
+  <data name="AppLanguage" xml:space="preserve">
+    <value>Uygulama dili</value>
+  </data>
+  <data name="AppLanguageDescription" xml:space="preserve">
+    <value>Menü arayüzü dili</value>
+  </data>
+  <data name="TranslationLanguageTitle" xml:space="preserve">
+    <value>Çeviri dili</value>
+  </data>
+  <data name="TranslationLanguageDescription" xml:space="preserve">
+    <value>Kelime ve ipucu çeviri dili</value>
+  </data>
+  <data name="ThemeTitle" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="ThemeDescription" xml:space="preserve">
+    <value>Aydınlık ya da Karanlık mod</value>
+  </data>
+  <data name="HideTooltipsTitle" xml:space="preserve">
+    <value>İpuçlarını gizle</value>
+  </data>
+  <data name="HideTooltipsDescription" xml:space="preserve">
+    <value>Öğretici mesajları kapatır</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Ayarları kaydet</value>
+  </data>
+  <data name="LpMarket" xml:space="preserve">
+    <value>LP Market</value>
+  </data>
+  <data name="AchievementReceived" xml:space="preserve">
+    <value>Ödül kazanıldı</value>
+  </data>
+  <data name="BuyButton" xml:space="preserve">
+    <value>Satın al</value>
+  </data>
+  <data name="NotEnoughLp" xml:space="preserve">
+    <value>Yeterli LP yok</value>
+  </data>
+  <data name="NeedMoreLpMessage" xml:space="preserve">
+    <value>Marketin kilidini açmak için 1000 LP veya daha fazlasını kazan!</value>
+  </data>
+  <data name="SiteHome_PageTitle" xml:space="preserve">
+    <value>Jumbo — oynayarak İngilizce öğren</value>
+  </data>
+  <data name="SiteHome_Welcome" xml:space="preserve">
+    <value>Jumbo.uz'a hoş geldin</value>
+  </data>
+  <data name="SiteHome_Subtitle" xml:space="preserve">
+    <value>Senin öğrenme platformun</value>
+  </data>
+  <data name="SiteHome_LpCardTitle" xml:space="preserve">
+    <value>Jumbo</value>
+  </data>
+  <data name="SiteHome_LpCardDesc" xml:space="preserve">
+    <value>Etkileşimli oyunlar, alfabe alıştırmaları ve aralıklı tekrarla İngilizce kelimeler öğren.</value>
+  </data>
+  <data name="SiteHome_TestCardTitle" xml:space="preserve">
+    <value>Seviyemi test et</value>
+  </data>
+  <data name="SiteHome_TestCardDesc" xml:space="preserve">
+    <value>Hızlı bir seviye testiyle şu anki İngilizce seviyeni öğren.</value>
+  </data>
+  <data name="SiteHome_ExamCardTitle" xml:space="preserve">
+    <value>Sınav</value>
+  </data>
+  <data name="SiteHome_ExamCardDesc" xml:space="preserve">
+    <value>Seçtiğin kitaptaki kelime bilgini test et.</value>
+  </data>
+  <data name="Common_LogoAlt" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Common_BrandName" xml:space="preserve">
+    <value>Jumbo.uz</value>
+  </data>
+  <data name="Common_LpBrand" xml:space="preserve">
+    <value>Jumbo</value>
+  </data>
+  <data name="Common_Exit" xml:space="preserve">
+    <value>Çıkış yap</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Common_Loading" xml:space="preserve">
+    <value>Yükleniyor…</value>
+  </data>
+  <data name="SiteLayout_HomeNav" xml:space="preserve">
+    <value>Ana sayfa</value>
+  </data>
+  <data name="SiteLayout_TestNav" xml:space="preserve">
+    <value>Seviyemi test et</value>
+  </data>
+  <data name="SiteLayout_LogoutConfirmTitle" xml:space="preserve">
+    <value>Hesabından çıkış yapılsın mı?</value>
+  </data>
+  <data name="SiteLayout_LogoutConfirmSub" xml:space="preserve">
+    <value>Devam etmek için tekrar giriş yapman gerekecek.</value>
+  </data>
+  <data name="LpLayout_MenuTitle" xml:space="preserve">
+    <value>Menü</value>
+  </data>
+  <data name="LpLayout_HomeTab" xml:space="preserve">
+    <value>Ana sayfa</value>
+  </data>
+  <data name="LpLayout_ErrorBanner" xml:space="preserve">
+    <value>Bir hata oluştu.</value>
+  </data>
+  <data name="LpLayout_ReloadLink" xml:space="preserve">
+    <value>Yeniden yükle</value>
+  </data>
+  <data name="TestMyLevel_ComingSoon" xml:space="preserve">
+    <value>Yakında geliyor — bizi takip et!</value>
+  </data>
+  <data name="LpHome_PageTitle" xml:space="preserve">
+    <value>Ana sayfa — Jumbo</value>
+  </data>
+  <data name="Common_BookLabel" xml:space="preserve">
+    <value>Kitap {0}</value>
+  </data>
+  <data name="Dictionary_PageTitle" xml:space="preserve">
+    <value>Sözlük — Jumbo</value>
+  </data>
+  <data name="Dictionary_Heading" xml:space="preserve">
+    <value>📖 Sözlük</value>
+  </data>
+  <data name="Dictionary_SearchPlaceholder" xml:space="preserve">
+    <value>Kelime veya numaraya göre ara…</value>
+  </data>
+  <data name="Common_NoWordsFound" xml:space="preserve">
+    <value>Kelime bulunamadı</value>
+  </data>
+  <data name="Dictionary_PrevPage" xml:space="preserve">
+    <value>‹ Geri</value>
+  </data>
+  <data name="Dictionary_PageLabel" xml:space="preserve">
+    <value>Sayfa {0}</value>
+  </data>
+  <data name="Dictionary_NextPage" xml:space="preserve">
+    <value>İleri ›</value>
+  </data>
+  <data name="Awards_PageTitle" xml:space="preserve">
+    <value>Ödüller — Jumbo</value>
+  </data>
+  <data name="Awards_Heading" xml:space="preserve">
+    <value>🏆 Ödüllerim</value>
+  </data>
+  <data name="Awards_AchievementsSection" xml:space="preserve">
+    <value>Kazanılan ödüller</value>
+  </data>
+  <data name="Awards_NoAwards" xml:space="preserve">
+    <value>Henüz ödül kazanılmadı</value>
+  </data>
+  <data name="Awards_MarketSection" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="Awards_MarketLocked" xml:space="preserve">
+    <value>Marketin kilidini açmak için 💰 1000 LP gerekiyor</value>
+  </data>
+  <data name="Awards_CurrentLp" xml:space="preserve">
+    <value>Şu anda {0} LP'n var</value>
+  </data>
+  <data name="Awards_MarketPrice" xml:space="preserve">
+    <value>💰 {0} LP</value>
+  </data>
+  <data name="Settings_PageTitle" xml:space="preserve">
+    <value>Ayarlar — Jumbo</value>
+  </data>
+  <data name="Settings_Heading" xml:space="preserve">
+    <value>⚙️ Ayarlar</value>
+  </data>
+  <data name="Settings_ProfileSection" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Settings_FirstNamePlaceholder" xml:space="preserve">
+    <value>Adın</value>
+  </data>
+  <data name="Settings_LastNamePlaceholder" xml:space="preserve">
+    <value>Soyadın</value>
+  </data>
+  <data name="Settings_PhoneLabel" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="Common_PhonePlaceholder" xml:space="preserve">
+    <value>+7 000 000 00 00</value>
+  </data>
+  <data name="Settings_LanguagesSection" xml:space="preserve">
+    <value>Diller</value>
+  </data>
+  <data name="Settings_StudyLangLabel" xml:space="preserve">
+    <value>Öğrenim dili</value>
+  </data>
+  <data name="Settings_Saving" xml:space="preserve">
+    <value>Kaydediliyor…</value>
+  </data>
+  <data name="Settings_SaveButton" xml:space="preserve">
+    <value>Değişiklikleri kaydet</value>
+  </data>
+  <data name="Settings_SavedMessage" xml:space="preserve">
+    <value>✓ Kaydedildi</value>
+  </data>
+  <data name="Common_BackArrow" xml:space="preserve">
+    <value>← Geri</value>
+  </data>
+  <data name="Game_FindMeTitle" xml:space="preserve">
+    <value>Beni bul</value>
+  </data>
+  <data name="Game_FindMeDesc" xml:space="preserve">
+    <value>Kelimeyi resme göre bul</value>
+  </data>
+  <data name="Game_SequenceTitle" xml:space="preserve">
+    <value>Sırayı hatırla</value>
+  </data>
+  <data name="Game_SequenceDesc" xml:space="preserve">
+    <value>Kelimeleri hatırla ve resimleri aynı sırayla seç</value>
+  </data>
+  <data name="Game_ListenTitle" xml:space="preserve">
+    <value>Dinle ve bul</value>
+  </data>
+  <data name="Game_ListenDesc" xml:space="preserve">
+    <value>Kelimeyi duyarak bul</value>
+  </data>
+  <data name="Game_StepsTitle" xml:space="preserve">
+    <value>Adım adım</value>
+  </data>
+  <data name="Game_StepsDesc" xml:space="preserve">
+    <value>Adım adım ezberleme</value>
+  </data>
+  <data name="Subjects_PageTitle" xml:space="preserve">
+    <value>Kitap {0} — Jumbo</value>
+  </data>
+  <data name="Subjects_Heading" xml:space="preserve">
+    <value>📚 Kitap {0}</value>
+  </data>
+  <data name="Subjects_NoTopics" xml:space="preserve">
+    <value>Bu kitabın konuları henüz yüklenmedi</value>
+  </data>
+  <data name="Subjects_Passed" xml:space="preserve">
+    <value>✓ Geçildi</value>
+  </data>
+  <data name="SubjectDetail_FallbackTitle" xml:space="preserve">
+    <value>Konu</value>
+  </data>
+  <data name="SubjectDetail_BackToTopics" xml:space="preserve">
+    <value>← Konular</value>
+  </data>
+  <data name="SubjectDetail_NotFound" xml:space="preserve">
+    <value>Konu bulunamadı</value>
+  </data>
+  <data name="Common_Back" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="Common_Continue" xml:space="preserve">
+    <value>Devam et</value>
+  </data>
+  <data name="Common_NoWordsOnLetter" xml:space="preserve">
+    <value>«{0}» için henüz kelime yok</value>
+  </data>
+  <data name="LetterSelection_PageTitle" xml:space="preserve">
+    <value>{0} Harfi</value>
+  </data>
+  <data name="LetterSelection_BackHome" xml:space="preserve">
+    <value>← Ana sayfa</value>
+  </data>
+  <data name="LetterSelection_WordsOnLetter" xml:space="preserve">
+    <value>«{0}» için kelimeler</value>
+  </data>
+  <data name="LetterSelection_TestTitle" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="LetterSelection_TestDesc" xml:space="preserve">
+    <value>Doğru çeviriyi seç</value>
+  </data>
+  <data name="LetterSelection_RecallTitle" xml:space="preserve">
+    <value>Hatırla</value>
+  </data>
+  <data name="LetterSelection_RecallDesc" xml:space="preserve">
+    <value>Kelimeyi hatırlamaya çalış</value>
+  </data>
+  <data name="LetterTest_PageTitle" xml:space="preserve">
+    <value>Test: {0}</value>
+  </data>
+  <data name="LetterTest_NotEnoughWords" xml:space="preserve">
+    <value>«{0}» için test yapmaya yetecek kadar kelime yok</value>
+  </data>
+  <data name="LetterTest_Completed" xml:space="preserve">
+    <value>Test tamamlandı!</value>
+  </data>
+  <data name="LetterTest_Summary" xml:space="preserve">
+    <value>Tüm {0} kelime kontrol edildi</value>
+  </data>
+  <data name="LetterRecall_PageTitle" xml:space="preserve">
+    <value>Hatırla: {0}</value>
+  </data>
+  <data name="LetterRecall_Done" xml:space="preserve">
+    <value>Bitti!</value>
+  </data>
+  <data name="LetterRecall_Summary" xml:space="preserve">
+    <value>{1} kelimeden {0} tanesini hatırladın</value>
+  </data>
+  <data name="LetterRecall_ShowWord" xml:space="preserve">
+    <value>👁 Kelimeyi göster</value>
+  </data>
+  <data name="LetterRecall_Know" xml:space="preserve">
+    <value>✓ Biliyorum</value>
+  </data>
+  <data name="LetterRecall_DontKnow" xml:space="preserve">
+    <value>✗ Bilmiyorum</value>
+  </data>
+  <data name="Common_GameOver" xml:space="preserve">
+    <value>Oyun bitti</value>
+  </data>
+  <data name="Common_TryAgainLong" xml:space="preserve">
+    <value>Tekrar dene</value>
+  </data>
+  <data name="Common_Again" xml:space="preserve">
+    <value>Tekrar</value>
+  </data>
+  <data name="Common_LpEarned" xml:space="preserve">
+    <value>+{0} LP kazanıldı</value>
+  </data>
+  <data name="FindMeGame_NoWords" xml:space="preserve">
+    <value>Bu konu için kelime bulunamadı</value>
+  </data>
+  <data name="FindMeGame_OutOfLives" xml:space="preserve">
+    <value>Canlar bitti</value>
+  </data>
+  <data name="FindMeGame_Great" xml:space="preserve">
+    <value>Harika iş!</value>
+  </data>
+  <data name="FindMeGame_FindLabel" xml:space="preserve">
+    <value>Bul:</value>
+  </data>
+  <data name="FindMeGame_FoundCount" xml:space="preserve">
+    <value>{0} / {1} bulundu</value>
+  </data>
+  <data name="ListenGame_Won" xml:space="preserve">
+    <value>Harika! Tüm adımlar tamamlandı</value>
+  </data>
+  <data name="ListenGame_SpeakTitle" xml:space="preserve">
+    <value>Sesi çal</value>
+  </data>
+  <data name="SequenceGame_Won" xml:space="preserve">
+    <value>Tüm turlar tamamlandı!</value>
+  </data>
+  <data name="SequenceGame_RoundLabel" xml:space="preserve">
+    <value>Tur {0} / {1}</value>
+  </data>
+  <data name="SequenceGame_ChooseOrder" xml:space="preserve">
+    <value>Sıra nasıl?</value>
+  </data>
+  <data name="StepsGame_LostAtStep" xml:space="preserve">
+    <value>{1} adımdan {0}. adıma kadar geldin</value>
+  </data>
+  <data name="StepsGame_Won" xml:space="preserve">
+    <value>Tüm {0} adım tamamlandı!</value>
+  </data>
+  <data name="StepsGame_Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Common_LoginAction" xml:space="preserve">
+    <value>Giriş yap</value>
+  </data>
+  <data name="Common_EnterCredentials" xml:space="preserve">
+    <value>Kullanıcı adını ve şifreni gir</value>
+  </data>
+  <data name="Common_ErrorPrefix" xml:space="preserve">
+    <value>Hata: </value>
+  </data>
+  <data name="Register_PageTitle" xml:space="preserve">
+    <value>Kayıt — Jumbo</value>
+  </data>
+  <data name="Register_Subtitle" xml:space="preserve">
+    <value>Dil yolculuğuna başla</value>
+  </data>
+  <data name="Register_FirstNameLabel" xml:space="preserve">
+    <value>Ad *</value>
+  </data>
+  <data name="Register_UsernameLabel" xml:space="preserve">
+    <value>Kullanıcı adı *</value>
+  </data>
+  <data name="Register_UsernamePlaceholder" xml:space="preserve">
+    <value>Bir kullanıcı adı seç</value>
+  </data>
+  <data name="Register_PasswordLabel" xml:space="preserve">
+    <value>Şifre *</value>
+  </data>
+  <data name="Register_PasswordPlaceholder" xml:space="preserve">
+    <value>Bir şifre seç</value>
+  </data>
+  <data name="Register_Registering" xml:space="preserve">
+    <value>Kayıt oluyor…</value>
+  </data>
+  <data name="Register_StartButton" xml:space="preserve">
+    <value>Öğrenmeye başla 🚀</value>
+  </data>
+  <data name="Register_HaveAccount" xml:space="preserve">
+    <value>Zaten hesabın var mı? </value>
+  </data>
+  <data name="Register_Failed" xml:space="preserve">
+    <value>Kayıt olunamadı. Sunucu bağlantını kontrol et.</value>
+  </data>
+  <data name="Register_AvatarLabel" xml:space="preserve">
+    <value>Bir avatar seç</value>
+  </data>
+  <data name="Register_AvatarUploadLabel" xml:space="preserve">
+    <value>Fotoğraf yükle</value>
+  </data>
+  <data name="Register_AvatarInvalidType" xml:space="preserve">
+    <value>Lütfen bir resim dosyası seç.</value>
+  </data>
+  <data name="Register_AvatarTooLarge" xml:space="preserve">
+    <value>Resim çok büyük (en fazla 1 MB).</value>
+  </data>
+  <data name="Login_PageTitle" xml:space="preserve">
+    <value>Giriş — Jumbo</value>
+  </data>
+  <data name="Login_WelcomeBack" xml:space="preserve">
+    <value>Tekrar hoş geldin!</value>
+  </data>
+  <data name="Login_PasswordTab" xml:space="preserve">
+    <value>Kullanıcı adı &amp; şifre</value>
+  </data>
+  <data name="Login_QrTab" xml:space="preserve">
+    <value>QR kod</value>
+  </data>
+  <data name="Login_UsernameLabel" xml:space="preserve">
+    <value>Kullanıcı adı</value>
+  </data>
+  <data name="Login_UsernamePlaceholder" xml:space="preserve">
+    <value>Kullanıcı adın</value>
+  </data>
+  <data name="Login_PasswordLabel" xml:space="preserve">
+    <value>Şifre</value>
+  </data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve">
+    <value>Şifren</value>
+  </data>
+  <data name="Login_RememberMe" xml:space="preserve">
+    <value>Beni hatırla</value>
+  </data>
+  <data name="Login_LoggingIn" xml:space="preserve">
+    <value>Giriş yapılıyor…</value>
+  </data>
+  <data name="Login_QrAlt" xml:space="preserve">
+    <value>Giriş için QR kod</value>
+  </data>
+  <data name="Login_QrHint" xml:space="preserve">
+    <value>Telefonunda Jumbo'yu aç → Ayarlar → "Sitede QR ile giriş yap" ve kamerayı koda tut</value>
+  </data>
+  <data name="Login_QrLoading" xml:space="preserve">
+    <value>QR kod yükleniyor…</value>
+  </data>
+  <data name="Login_NoAccount" xml:space="preserve">
+    <value>Hesabın yok mu? </value>
+  </data>
+  <data name="Login_RegisterLink" xml:space="preserve">
+    <value>Kayıt ol</value>
+  </data>
+  <data name="Login_InvalidCredentials" xml:space="preserve">
+    <value>Kullanıcı adı veya şifre hatalı</value>
+  </data>
+  <data name="Login_QrCreateFailed" xml:space="preserve">
+    <value>QR kod oluşturulamadı</value>
+  </data>
+  <data name="Exam_Heading" xml:space="preserve">
+    <value>📋 Sınav</value>
+  </data>
+  <data name="Exam_ChooseBook" xml:space="preserve">
+    <value>Bir kitap seç</value>
+  </data>
+  <data name="Exam_WordCount" xml:space="preserve">
+    <value>Kelime sayısı</value>
+  </data>
+  <data name="Exam_StartButton" xml:space="preserve">
+    <value>▶ Başla</value>
+  </data>
+  <data name="ExamQuiz_NoWords" xml:space="preserve">
+    <value>Bu kitapta henüz kelime yok</value>
+  </data>
+  <data name="ExamQuiz_InputPlaceholder" xml:space="preserve">
+    <value>Kelimeyi yaz…</value>
+  </data>
+  <data name="ExamQuiz_Finish" xml:space="preserve">
+    <value>Bitir</value>
+  </data>
+  <data name="ExamQuiz_Next" xml:space="preserve">
+    <value>Sonraki</value>
+  </data>
+  <data name="ExamResults_PageTitle" xml:space="preserve">
+    <value>Sınav sonucu</value>
+  </data>
+  <data name="ExamResults_NotFound" xml:space="preserve">
+    <value>Sınav sonucu bulunamadı</value>
+  </data>
+  <data name="ExamResults_BackToExam" xml:space="preserve">
+    <value>Sınava dön</value>
+  </data>
+  <data name="ExamResults_Summary" xml:space="preserve">
+    <value>Doğru: {1} içinden {0} · Yanlış: {2}</value>
+  </data>
+  <data name="ExamResults_Retry" xml:space="preserve">
+    <value>Tekrar çöz</value>
+  </data>
+  <data name="ExamResults_MistakesTitle" xml:space="preserve">
+    <value>Hatalar</value>
+  </data>
+  <data name="ExamResults_EmptyAnswer" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="NotFound_Title" xml:space="preserve">
+    <value>Sayfa bulunamadı</value>
+  </data>
+  <data name="NotFound_Message" xml:space="preserve">
+    <value>Üzgünüz, aradığın sayfa mevcut değil.</value>
+  </data>
+  <data name="TestLevel_NoWords" xml:space="preserve">
+    <value>Test için henüz kelime yok</value>
+  </data>
+  <data name="TestLevel_ResultsPageTitle" xml:space="preserve">
+    <value>Test sonucu</value>
+  </data>
+  <data name="TestLevel_ResultsNotFound" xml:space="preserve">
+    <value>Test sonucu bulunamadı</value>
+  </data>
+  <data name="TestLevel_BackToTest" xml:space="preserve">
+    <value>Teste dön</value>
+  </data>
+  <data name="LpHome_OverallProgressTitle" xml:space="preserve">
+    <value>Genel ilerleme</value>
+  </data>
+  <data name="Game_WordsTitle" xml:space="preserve">
+    <value>Konu kelimeleri</value>
+  </data>
+  <data name="Game_WordsDesc" xml:space="preserve">
+    <value>Bu konuda öğreneceğin kelimeler</value>
+  </data>
+  <data name="Settings_AccountSection" xml:space="preserve">
+    <value>Kullanıcı adı ve şifre</value>
+  </data>
+  <data name="Settings_UsernameLabel" xml:space="preserve">
+    <value>Kullanıcı adı</value>
+  </data>
+  <data name="Settings_CurrentPasswordLabel" xml:space="preserve">
+    <value>Mevcut şifre</value>
+  </data>
+  <data name="Settings_NewPasswordLabel" xml:space="preserve">
+    <value>Yeni şifre</value>
+  </data>
+  <data name="Settings_NewPasswordHint" xml:space="preserve">
+    <value>Değiştirmemek için boş bırak</value>
+  </data>
+  <data name="Settings_ConfirmPasswordLabel" xml:space="preserve">
+    <value>Yeni şifreyi tekrar gir</value>
+  </data>
+  <data name="Settings_AccountSaveButton" xml:space="preserve">
+    <value>Kullanıcı adını / şifreyi değiştir</value>
+  </data>
+  <data name="Settings_AccountSaved" xml:space="preserve">
+    <value>Kullanıcı adı ve şifre güncellendi</value>
+  </data>
+  <data name="Settings_PasswordsMismatch" xml:space="preserve">
+    <value>Yeni şifreler eşleşmiyor</value>
+  </data>
+  <data name="Settings_UsernameRequired" xml:space="preserve">
+    <value>Kullanıcı adı boş olamaz</value>
+  </data>
+  <data name="Settings_AccountNothingToChange" xml:space="preserve">
+    <value>Yeni bir kullanıcı adı ya da şifre gir</value>
+  </data>
+  <data name="Alphabet_Subtitle" xml:space="preserve">
+    <value>Bir harf seç ve onunla başlayan kelimeleri öğren</value>
+  </data>
+  <data name="Alphabet_CtaHint" xml:space="preserve">
+    <value>Harf seç, kelime öğren</value>
+  </data>
+  <data name="Theme_Toggle" xml:space="preserve">
+    <value>Temayı değiştir</value>
+  </data>
+  <data name="Path_Continue" xml:space="preserve">
+    <value>Devam et</value>
+  </data>
+  <data name="Path_Start" xml:space="preserve">
+    <value>Başla</value>
+  </data>
+  <data name="Path_Play" xml:space="preserve">
+    <value>Oyna</value>
+  </data>
+  <data name="Path_AllDone" xml:space="preserve">
+    <value>Tüm konular tamamlandı! 🎉</value>
+  </data>
+  <data name="Path_HintStartWith" xml:space="preserve">
+    <value>Önce "{0}" konusunu bitir</value>
+  </data>
+  <data name="Path_OpenAnyway" xml:space="preserve">
+    <value>Yine de aç</value>
+  </data>
+  <data name="Path_GoCurrent" xml:space="preserve">
+    <value>Şu anki konuya git</value>
+  </data>
+  <data name="Daily_Title" xml:space="preserve">
+    <value>Günlük hedef</value>
+  </data>
+  <data name="Daily_Progress" xml:space="preserve">
+    <value>{1} kelimeden {0}</value>
+  </data>
+  <data name="Daily_StreakLabel" xml:space="preserve">
+    <value>günlük seri</value>
+  </data>
+  <data name="Daily_GoalDone" xml:space="preserve">
+    <value>Bugünün hedefi tamamlandı! 🎉</value>
+  </data>
+  <data name="Daily_AtRisk" xml:space="preserve">
+    <value>Serini korumak için hedefine ulaş 🔥</value>
+  </data>
+  <data name="Daily_StartPrompt" xml:space="preserve">
+    <value>Bugün ilk kelimelerini öğren!</value>
+  </data>
+  <data name="Settings_DailyGoalSection" xml:space="preserve">
+    <value>Günlük hedef</value>
+  </data>
+  <data name="Settings_DailyGoalLabel" xml:space="preserve">
+    <value>Günde kelime sayısı</value>
+  </data>
+  <data name="Settings_DailyGoalSaved" xml:space="preserve">
+    <value>Günlük hedef kaydedildi</value>
+  </data>
+  <data name="Day_Monday" xml:space="preserve">
+    <value>Pzt</value>
+  </data>
+  <data name="Day_Tuesday" xml:space="preserve">
+    <value>Sal</value>
+  </data>
+  <data name="Day_Wednesday" xml:space="preserve">
+    <value>Çar</value>
+  </data>
+  <data name="Day_Thursday" xml:space="preserve">
+    <value>Per</value>
+  </data>
+  <data name="Day_Friday" xml:space="preserve">
+    <value>Cum</value>
+  </data>
+  <data name="Day_Saturday" xml:space="preserve">
+    <value>Cmt</value>
+  </data>
+  <data name="Day_Sunday" xml:space="preserve">
+    <value>Paz</value>
+  </data>
+  <data name="Tiger_Cheer1" xml:space="preserve">
+    <value>Harika iş!</value>
+  </data>
+  <data name="Tiger_Cheer2" xml:space="preserve">
+    <value>Süper!</value>
+  </data>
+  <data name="Tiger_Cheer3" xml:space="preserve">
+    <value>Böyle devam!</value>
+  </data>
+  <data name="Tiger_Oops1" xml:space="preserve">
+    <value>Az kaldı! Tekrar dene</value>
+  </data>
+  <data name="Tiger_Oops2" xml:space="preserve">
+    <value>Pes etme!</value>
+  </data>
+  <data name="Tiger_Oops3" xml:space="preserve">
+    <value>Sorun değil, dene!</value>
+  </data>
+  <data name="Reg_StepOf" xml:space="preserve">
+    <value>Adım {0}/{1}</value>
+  </data>
+  <data name="Reg_Step1" xml:space="preserve">
+    <value>Senin hakkında</value>
+  </data>
+  <data name="Reg_Step2" xml:space="preserve">
+    <value>Hesap</value>
+  </data>
+  <data name="Reg_Step3" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Reg_Step1Title" xml:space="preserve">
+    <value>Bize kendinden bahset</value>
+  </data>
+  <data name="Reg_Step2Title" xml:space="preserve">
+    <value>Kullanıcı adı, şifre ve avatar</value>
+  </data>
+  <data name="Reg_Step3Title" xml:space="preserve">
+    <value>Okul ve sınıf</value>
+  </data>
+  <data name="Reg_Optional" xml:space="preserve">
+    <value>İsteğe bağlı — bu adımı geçebilirsin</value>
+  </data>
+  <data name="Reg_Next" xml:space="preserve">
+    <value>İleri</value>
+  </data>
+  <data name="Reg_Back" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="Reg_Skip" xml:space="preserve">
+    <value>Geç</value>
+  </data>
+  <data name="Reg_ConfirmPasswordLabel" xml:space="preserve">
+    <value>Şifreyi tekrar gir</value>
+  </data>
+  <data name="Reg_PasswordsMismatch" xml:space="preserve">
+    <value>Şifreler eşleşmiyor</value>
+  </data>
+  <data name="Reg_PasswordTooShort" xml:space="preserve">
+    <value>Şifre en az 6 karakter olmalı</value>
+  </data>
+  <data name="Reg_UsernameTaken" xml:space="preserve">
+    <value>Bu kullanıcı adı alınmış, başka bir tane seç</value>
+  </data>
+  <data name="Reg_RegionLabel" xml:space="preserve">
+    <value>Bölge</value>
+  </data>
+  <data name="Reg_RegionPlaceholder" xml:space="preserve">
+    <value>Seçilmedi</value>
+  </data>
+  <data name="Reg_SchoolLabel" xml:space="preserve">
+    <value>Okul</value>
+  </data>
+  <data name="Reg_SchoolPlaceholder" xml:space="preserve">
+    <value>Örneğin: 12 Numaralı Okul ya da Lingva Merkezi</value>
+  </data>
+  <data name="Reg_TeamLabel" xml:space="preserve">
+    <value>Sınıf</value>
+  </data>
+  <data name="Reg_TeamPlaceholder" xml:space="preserve">
+    <value>Sınıf adı</value>
+  </data>
+  <data name="Reg_StudyLangHelp" xml:space="preserve">
+    <value>Hangi dili öğrendiğin ve hangi dile çevirileceği</value>
+  </data>
+  <data name="Region_tashkent-city" xml:space="preserve">
+    <value>Taşkent şehri</value>
+  </data>
+  <data name="Region_tashkent-region" xml:space="preserve">
+    <value>Taşkent bölgesi</value>
+  </data>
+  <data name="Region_samarkand" xml:space="preserve">
+    <value>Semerkant bölgesi</value>
+  </data>
+  <data name="Region_bukhara" xml:space="preserve">
+    <value>Buhara bölgesi</value>
+  </data>
+  <data name="Region_fergana" xml:space="preserve">
+    <value>Fergana bölgesi</value>
+  </data>
+  <data name="Region_andijan" xml:space="preserve">
+    <value>Andican bölgesi</value>
+  </data>
+  <data name="Region_namangan" xml:space="preserve">
+    <value>Namangan bölgesi</value>
+  </data>
+  <data name="Region_kashkadarya" xml:space="preserve">
+    <value>Kaşkaderya bölgesi</value>
+  </data>
+  <data name="Region_surkhandarya" xml:space="preserve">
+    <value>Surhanderya bölgesi</value>
+  </data>
+  <data name="Region_khorezm" xml:space="preserve">
+    <value>Harezm bölgesi</value>
+  </data>
+  <data name="Region_navoi" xml:space="preserve">
+    <value>Nevoiy bölgesi</value>
+  </data>
+  <data name="Region_jizzakh" xml:space="preserve">
+    <value>Cizzah bölgesi</value>
+  </data>
+  <data name="Region_sirdarya" xml:space="preserve">
+    <value>Sirderya bölgesi</value>
+  </data>
+  <data name="Region_karakalpakstan" xml:space="preserve">
+    <value>Karakalpakistan Cumhuriyeti</value>
+  </data>
+  <data name="Region_other" xml:space="preserve">
+    <value>Diğer</value>
+  </data>
+  <data name="Land_Login" xml:space="preserve">
+    <value>Giriş yap</value>
+  </data>
+  <data name="Land_Register" xml:space="preserve">
+    <value>Ücretsiz başla</value>
+  </data>
+  <data name="Land_HeroTitle" xml:space="preserve">
+    <value>Oynayarak İngilizce öğren</value>
+  </data>
+  <data name="Land_HeroSub" xml:space="preserve">
+    <value>Konulara göre kelimeler, eğlenceli oyunlar ve fil yavrusu Jumbo ile 10 ülkeye yolculuk.</value>
+  </data>
+  <data name="Land_HowTitle" xml:space="preserve">
+    <value>Nasıl çalışır</value>
+  </data>
+  <data name="Land_How1Title" xml:space="preserve">
+    <value>Bir konu seç</value>
+  </data>
+  <data name="Land_How1Desc" xml:space="preserve">
+    <value>Her konu, ülke haritasındaki bir şehirde yaşar.</value>
+  </data>
+  <data name="Land_How2Title" xml:space="preserve">
+    <value>Oyna ve hatırla</value>
+  </data>
+  <data name="Land_How2Desc" xml:space="preserve">
+    <value>Kelimeleri dinle, resimleri bul, harflerden kelime oluştur.</value>
+  </data>
+  <data name="Land_How3Title" xml:space="preserve">
+    <value>Her gün büyü</value>
+  </data>
+  <data name="Land_How3Desc" xml:space="preserve">
+    <value>Günlük hedefine ulaş, 🔥 serini koru ve yeni ülkelerin kilidini aç.</value>
+  </data>
+  <data name="Land_FeatTitle" xml:space="preserve">
+    <value>İçinde neler var</value>
+  </data>
+  <data name="Land_Feat1Title" xml:space="preserve">
+    <value>Konulara göre kelimeler</value>
+  </data>
+  <data name="Land_Feat1Desc" xml:space="preserve">
+    <value>Her kelime için resim, çeviri ve ses.</value>
+  </data>
+  <data name="Land_Feat2Title" xml:space="preserve">
+    <value>4 eğlenceli oyun</value>
+  </data>
+  <data name="Land_Feat2Desc" xml:space="preserve">
+    <value>Beni bul, Sırayı hatırla, Dinle ve bul, Adım adım.</value>
+  </data>
+  <data name="Land_Feat3Title" xml:space="preserve">
+    <value>Alfabe</value>
+  </data>
+  <data name="Land_Feat3Desc" xml:space="preserve">
+    <value>Bir harf seç ve onunla başlayan kelimeleri öğren.</value>
+  </data>
+  <data name="Land_Feat4Title" xml:space="preserve">
+    <value>Tekrar</value>
+  </data>
+  <data name="Land_Feat4Desc" xml:space="preserve">
+    <value>Kelimeler, sen onları iyice öğrenene kadar tekrar tekrar karşına çıkar.</value>
+  </data>
+  <data name="Land_AppTitle" xml:space="preserve">
+    <value>Telefonunda Jumbo</value>
+  </data>
+  <data name="Land_AppSub" xml:space="preserve">
+    <value>Her yerde öğren: yolda, okulda, evde.</value>
+  </data>
+  <data name="Land_Android" xml:space="preserve">
+    <value>Android için indir</value>
+  </data>
+  <data name="Land_Ios" xml:space="preserve">
+    <value>iPhone için</value>
+  </data>
+  <data name="Land_Soon" xml:space="preserve">
+    <value>Yakında</value>
+  </data>
+  <data name="Land_ScanQr" xml:space="preserve">
+    <value>İndirmek için tara</value>
+  </data>
+  <data name="Land_CtaTitle" xml:space="preserve">
+    <value>İlk adıma hazır mısın?</value>
+  </data>
+  <data name="Land_CtaSub" xml:space="preserve">
+    <value>Kayıt olmak bir dakikadan az sürer.</value>
+  </data>
+  <data name="Dash_Hello" xml:space="preserve">
+    <value>Merhaba, {0}!</value>
+  </data>
+  <data name="Dash_Sub" xml:space="preserve">
+    <value>Yolculuğa devam etmeye hazır mısın?</value>
+  </data>
+  <data name="Dash_Continue" xml:space="preserve">
+    <value>Öğrenmeye devam et</value>
+  </data>
+  <data name="Dash_ResultsTitle" xml:space="preserve">
+    <value>Sonuçlarım</value>
+  </data>
+  <data name="Dash_Words" xml:space="preserve">
+    <value>Öğrenilen kelime</value>
+  </data>
+  <data name="Dash_Topics" xml:space="preserve">
+    <value>Tamamlanan konu</value>
+  </data>
+  <data name="Dash_Games" xml:space="preserve">
+    <value>Kazanılan oyun</value>
+  </data>
+  <data name="Dash_Lp" xml:space="preserve">
+    <value>LP puanı</value>
+  </data>
+  <data name="Dash_QuickTitle" xml:space="preserve">
+    <value>Hızlı başlangıç</value>
+  </data>
+  <data name="Nav_Rating" xml:space="preserve">
+    <value>Sıralama</value>
+  </data>
+  <data name="Rating_Title" xml:space="preserve">
+    <value>Sıralama</value>
+  </data>
+  <data name="Rating_Subtitle" xml:space="preserve">
+    <value>En çok kelimeyi kim öğrendi</value>
+  </data>
+  <data name="Rating_Week" xml:space="preserve">
+    <value>Bu hafta</value>
+  </data>
+  <data name="Rating_AllTime" xml:space="preserve">
+    <value>Tüm zamanlar</value>
+  </data>
+  <data name="Rating_ScopeTeam" xml:space="preserve">
+    <value>Sınıfım</value>
+  </data>
+  <data name="Rating_ScopeSchool" xml:space="preserve">
+    <value>Okulum</value>
+  </data>
+  <data name="Rating_ScopeRegion" xml:space="preserve">
+    <value>Bölgem</value>
+  </data>
+  <data name="Rating_ScopeAll" xml:space="preserve">
+    <value>Herkes</value>
+  </data>
+  <data name="Rating_Words" xml:space="preserve">
+    <value>kelime</value>
+  </data>
+  <data name="Rating_Hidden" xml:space="preserve">
+    <value>Gizli oyuncu</value>
+  </data>
+  <data name="Rating_You" xml:space="preserve">
+    <value>sen</value>
+  </data>
+  <data name="Rating_MyPlace" xml:space="preserve">
+    <value>Sıran: {0}</value>
+  </data>
+  <data name="Rating_Points" xml:space="preserve">
+    <value>{0} kelime</value>
+  </data>
+  <data name="Rating_NoPlace" xml:space="preserve">
+    <value>Henüz puanın yok. Sıralamaya girmek için oyna!</value>
+  </data>
+  <data name="Rating_Empty" xml:space="preserve">
+    <value>Burada henüz kimse yok</value>
+  </data>
+  <data name="Rating_MissingTeam" xml:space="preserve">
+    <value>Sınıf sıralamasını görmek için profiline sınıfını ekle</value>
+  </data>
+  <data name="Rating_MissingSchool" xml:space="preserve">
+    <value>Okul sıralamasını görmek için profiline okulunu ekle</value>
+  </data>
+  <data name="Rating_MissingRegion" xml:space="preserve">
+    <value>Bölge sıralamasını görmek için profilinde bölgeni seç</value>
+  </data>
+  <data name="Rating_GoSettings" xml:space="preserve">
+    <value>Profili aç</value>
+  </data>
+  <data name="Rating_Privacy" xml:space="preserve">
+    <value>Sadece adını, soyadının ilk harfini ve sınıfını gösteriyoruz.</value>
+  </data>
+  <data name="Rating_SeeAll" xml:space="preserve">
+    <value>Tüm sıralama</value>
+  </data>
+  <data name="Rating_MiniTitle" xml:space="preserve">
+    <value>Bu haftanın sıralaması</value>
+  </data>
+  <data name="Settings_PrivacySection" xml:space="preserve">
+    <value>Gizlilik</value>
+  </data>
+  <data name="Settings_HideNameLabel" xml:space="preserve">
+    <value>Sıralamada adımı gizle</value>
+  </data>
+  <data name="Settings_HideNameHint" xml:space="preserve">
+    <value>Adın yerine "Gizli oyuncu" yazar. Sıran ve puanların kalır.</value>
+  </data>
+  <data name="Top_Title" xml:space="preserve">
+    <value>En iyi 10 oyuncu</value>
+  </data>
+  <data name="Top_Sub" xml:space="preserve">
+    <value>öğrenilen kelimeye göre</value>
+  </data>
+  <data name="Top_GuestCta" xml:space="preserve">
+    <value>Bu listede olmak ister misin? Kayıt ol ve kelime öğren!</value>
+  </data>
+  <data name="Lang_Switch" xml:space="preserve">
+    <value>Dil</value>
+  </data>
+  <data name="Exam_Intro" xml:space="preserve">
+    <value>Ne kadar hatırladığını kontrol et: her çeviri için öğrendiğin dildeki kelimeyi yaz.</value>
+  </data>
+  <data name="Exam_Hint" xml:space="preserve">
+    <value>Bir kitap ve kelime sayısı seç</value>
+  </data>
+  <data name="Exam_Selected" xml:space="preserve">
+    <value>Kitap {0} · {1} kelime</value>
+  </data>
+  <data name="Exam_GateTitle" xml:space="preserve">
+    <value>Önce bize kendinden bahset</value>
+  </data>
+  <data name="Exam_GateText" xml:space="preserve">
+    <value>Sınava girmek için bölgeni, okulunu ve sınıfını gir. Bu birkaç saniye sürer ve sınav hemen başlar.</value>
+  </data>
+  <data name="Exam_GateSave" xml:space="preserve">
+    <value>Kaydet ve başla</value>
+  </data>
+  <data name="Exam_GateRequired" xml:space="preserve">
+    <value>Lütfen bölge, okul ve sınıf bilgilerini doldur</value>
+  </data>
+  <data name="FS_Nav" xml:space="preserve">
+    <value>Öğretmenler için</value>
+  </data>
+  <data name="FS_Title" xml:space="preserve">
+    <value>Öğretmenler ve okullar için</value>
+  </data>
+  <data name="FS_Sub" xml:space="preserve">
+    <value>Öğrencilerinin ilerlemesini takip et, onları sınıflara ayır ve net raporlar al.</value>
+  </data>
+  <data name="FS_B1T" xml:space="preserve">
+    <value>Sınıflar</value>
+  </data>
+  <data name="FS_B1D" xml:space="preserve">
+    <value>Bir sınıf oluştur, öğrencilere bir kod ver, kendileri katılsın.</value>
+  </data>
+  <data name="FS_B2T" xml:space="preserve">
+    <value>Raporlar</value>
+  </data>
+  <data name="FS_B2D" xml:space="preserve">
+    <value>Öğrenilen kelimeler, sınav sonuçları ve günlük etkinlik.</value>
+  </data>
+  <data name="FS_B3T" xml:space="preserve">
+    <value>Müdürler için</value>
+  </data>
+  <data name="FS_B3D" xml:space="preserve">
+    <value>Okul genelinde genel bakış: sınıflar, öğretmenler, karşılaştırma.</value>
+  </data>
+  <data name="FS_NeedLogin" xml:space="preserve">
+    <value>Öğretmen olarak başlamak için giriş yap veya kayıt ol.</value>
+  </data>
+  <data name="FS_FormTitle" xml:space="preserve">
+    <value>Öğretmen olarak başla</value>
+  </data>
+  <data name="FS_RoleLabel" xml:space="preserve">
+    <value>Rolün</value>
+  </data>
+  <data name="FS_Teacher" xml:space="preserve">
+    <value>Öğretmen</value>
+  </data>
+  <data name="FS_Director" xml:space="preserve">
+    <value>Müdür</value>
+  </data>
+  <data name="FS_Comment" xml:space="preserve">
+    <value>Yorum (isteğe bağlı)</value>
+  </data>
+  <data name="FS_CommentPh" xml:space="preserve">
+    <value>Örneğin: İngilizce öğretmeni, 5-9. sınıflar</value>
+  </data>
+  <data name="FS_Send" xml:space="preserve">
+    <value>Paneli aç</value>
+  </data>
+  <data name="FS_Required" xml:space="preserve">
+    <value>Bir rol ve bölge seç, okulu gir</value>
+  </data>
+  <data name="FS_Sent" xml:space="preserve">
+    <value>İstek gönderildi. Bilgileri kontrol edip sana haber vereceğiz.</value>
+  </data>
+  <data name="FS_PendingTitle" xml:space="preserve">
+    <value>İstek inceleniyor</value>
+  </data>
+  <data name="FS_PendingText" xml:space="preserve">
+    <value>Bilgileri kontrol edip rolünü onaylayacağız. Bu birkaç gün sürebilir.</value>
+  </data>
+  <data name="FS_RejectedTitle" xml:space="preserve">
+    <value>İstek reddedildi</value>
+  </data>
+  <data name="FS_Reapply" xml:space="preserve">
+    <value>Aşağıdan yeni bir istek gönderebilirsin.</value>
+  </data>
+  <data name="FS_ApprovedTitle" xml:space="preserve">
+    <value>Rol onaylandı: {0}</value>
+  </data>
+  <data name="FS_ApprovedSchool" xml:space="preserve">
+    <value>Okul: {0}</value>
+  </data>
+  <data name="FS_CabinetSoon" xml:space="preserve">
+    <value>Sınıflar ve raporlarla panel yakında geliyor.</value>
+  </data>
+  <data name="FS_ErrPending" xml:space="preserve">
+    <value>Zaten incelenen bir isteğin var</value>
+  </data>
+  <data name="FS_ErrStaff" xml:space="preserve">
+    <value>Bu role zaten sahipsin</value>
+  </data>
+  <data name="Role_Teacher" xml:space="preserve">
+    <value>Öğretmen</value>
+  </data>
+  <data name="Role_Director" xml:space="preserve">
+    <value>Müdür</value>
+  </data>
+  <data name="Role_Admin" xml:space="preserve">
+    <value>Yönetici</value>
+  </data>
+  <data name="Nav_Admin" xml:space="preserve">
+    <value>Yönetim</value>
+  </data>
+  <data name="Admin_Title" xml:space="preserve">
+    <value>Yönetim</value>
+  </data>
+  <data name="Admin_TabRequests" xml:space="preserve">
+    <value>İstekler</value>
+  </data>
+  <data name="Admin_TabSchools" xml:space="preserve">
+    <value>Okullar</value>
+  </data>
+  <data name="Admin_Pending" xml:space="preserve">
+    <value>Bekliyor</value>
+  </data>
+  <data name="Admin_Approved" xml:space="preserve">
+    <value>Onaylandı</value>
+  </data>
+  <data name="Admin_Rejected" xml:space="preserve">
+    <value>Reddedildi</value>
+  </data>
+  <data name="Admin_Empty" xml:space="preserve">
+    <value>Burada henüz bir şey yok</value>
+  </data>
+  <data name="Admin_Approve" xml:space="preserve">
+    <value>Onayla</value>
+  </data>
+  <data name="Admin_Reject" xml:space="preserve">
+    <value>Reddet</value>
+  </data>
+  <data name="Admin_ChooseSchool" xml:space="preserve">
+    <value>Okul</value>
+  </data>
+  <data name="Admin_CreateNew" xml:space="preserve">
+    <value>Yeni okul oluştur</value>
+  </data>
+  <data name="Admin_NewName" xml:space="preserve">
+    <value>Yeni okul adı</value>
+  </data>
+  <data name="Admin_Note" xml:space="preserve">
+    <value>Başvuru sahibi için not (isteğe bağlı)</value>
+  </data>
+  <data name="Admin_Confirm" xml:space="preserve">
+    <value>Onayla</value>
+  </data>
+  <data name="Admin_AllRegions" xml:space="preserve">
+    <value>Tüm bölgeler</value>
+  </data>
+  <data name="Admin_AddSchool" xml:space="preserve">
+    <value>Okul ekle</value>
+  </data>
+  <data name="Admin_Verified" xml:space="preserve">
+    <value>Doğrulandı</value>
+  </data>
+  <data name="Admin_Unverified" xml:space="preserve">
+    <value>Doğrulanmadı</value>
+  </data>
+  <data name="Admin_Staff" xml:space="preserve">
+    <value>Personel: {0}</value>
+  </data>
+  <data name="Admin_Applicant" xml:space="preserve">
+    <value>Başvuru sahibi</value>
+  </data>
+  <data name="Admin_Typed" xml:space="preserve">
+    <value>Başvuru sahibi tarafından girildi</value>
+  </data>
+  <data name="Admin_Decision" xml:space="preserve">
+    <value>Karar</value>
+  </data>
+  <data name="Admin_Done" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="FS_OpenCabinet" xml:space="preserve">
+    <value>Öğretmen panelini aç</value>
+  </data>
+  <data name="TC_Nav" xml:space="preserve">
+    <value>Öğretmen paneli</value>
+  </data>
+  <data name="TC_Title" xml:space="preserve">
+    <value>Sınıflarım</value>
+  </data>
+  <data name="TC_DirectorTitle" xml:space="preserve">
+    <value>Okul sınıfları</value>
+  </data>
+  <data name="TC_NoSchool" xml:space="preserve">
+    <value>Hesabın henüz bir okula bağlı değil. Lütfen yöneticiyle iletişime geç.</value>
+  </data>
+  <data name="TC_NewClass" xml:space="preserve">
+    <value>Yeni sınıf</value>
+  </data>
+  <data name="TC_ClassNamePh" xml:space="preserve">
+    <value>Örneğin, A_2020</value>
+  </data>
+  <data name="TC_NameHint" xml:space="preserve">
+    <value>Sınıfa bir harf ve başladığı yılı vererek isim ver, örneğin A_2020. Böylece isim gelecek yıl da geçerli kalır.</value>
+  </data>
+  <data name="TC_Create" xml:space="preserve">
+    <value>Oluştur</value>
+  </data>
+  <data name="TC_NoClasses" xml:space="preserve">
+    <value>Henüz sınıf yok. İlkini oluştur, öğrenciler listeden seçebilsin.</value>
+  </data>
+  <data name="TC_Students" xml:space="preserve">
+    <value>Öğrenciler</value>
+  </data>
+  <data name="TC_Active" xml:space="preserve">
+    <value>Bu hafta aktif</value>
+  </data>
+  <data name="TC_AvgExam" xml:space="preserve">
+    <value>Ortalama sınav puanı</value>
+  </data>
+  <data name="TC_PendingTotal" xml:space="preserve">
+    <value>Kararını bekleyen: {0}</value>
+  </data>
+  <data name="TC_PendingTitle" xml:space="preserve">
+    <value>Katılmak istiyor</value>
+  </data>
+  <data name="TC_PendingHint" xml:space="preserve">
+    <value>Bu öğrenciler senin sınıfını seçti. Onları onaylayana kadar raporlarda görünmezler. Reddedersen okul ve sınıf bilgileri silinir.</value>
+  </data>
+  <data name="TC_Approve" xml:space="preserve">
+    <value>Onayla</value>
+  </data>
+  <data name="TC_Reject" xml:space="preserve">
+    <value>Reddet</value>
+  </data>
+  <data name="TC_ApproveAll" xml:space="preserve">
+    <value>Tümünü onayla</value>
+  </data>
+  <data name="TC_Archive" xml:space="preserve">
+    <value>Arşivle</value>
+  </data>
+  <data name="TC_Unarchive" xml:space="preserve">
+    <value>Geri yükle</value>
+  </data>
+  <data name="TC_Archived" xml:space="preserve">
+    <value>Arşivlendi</value>
+  </data>
+  <data name="TC_ArchiveHint" xml:space="preserve">
+    <value>Arşivlenen sınıf artık seçim listesinde görünmez; öğrencileri kalır.</value>
+  </data>
+  <data name="TC_Back" xml:space="preserve">
+    <value>Tüm sınıflar</value>
+  </data>
+  <data name="TC_Teacher" xml:space="preserve">
+    <value>Öğretmen: {0}</value>
+  </data>
+  <data name="TC_StudentsTitle" xml:space="preserve">
+    <value>Öğrenciler</value>
+  </data>
+  <data name="TC_NoStudents" xml:space="preserve">
+    <value>Henüz onaylanmış öğrenci yok.</value>
+  </data>
+  <data name="TC_ColName" xml:space="preserve">
+    <value>Öğrenci</value>
+  </data>
+  <data name="TC_ColLp" xml:space="preserve">
+    <value>LP</value>
+  </data>
+  <data name="TC_ColStreak" xml:space="preserve">
+    <value>Seri</value>
+  </data>
+  <data name="TC_ColWords" xml:space="preserve">
+    <value>Bu haftaki kelime</value>
+  </data>
+  <data name="TC_ColLast" xml:space="preserve">
+    <value>Son aktiflik</value>
+  </data>
+  <data name="TC_ColExam" xml:space="preserve">
+    <value>Sınav</value>
+  </data>
+  <data name="TC_Today" xml:space="preserve">
+    <value>bugün</value>
+  </data>
+  <data name="TC_Yesterday" xml:space="preserve">
+    <value>dün</value>
+  </data>
+  <data name="TC_DaysAgo" xml:space="preserve">
+    <value>{0} gün önce</value>
+  </data>
+  <data name="TC_NeverActive" xml:space="preserve">
+    <value>hiç</value>
+  </data>
+  <data name="TC_ExamNone" xml:space="preserve">
+    <value>henüz yok</value>
+  </data>
+  <data name="TC_ExamFmt" xml:space="preserve">
+    <value>%{0} · ort. %{1} · toplam {2}</value>
+  </data>
+  <data name="TC_WordsDays" xml:space="preserve">
+    <value>{0} kelime · {1}/7 gün</value>
+  </data>
+  <data name="TC_Remove" xml:space="preserve">
+    <value>Sınıftan çıkar</value>
+  </data>
+  <data name="TC_RemoveConfirm" xml:space="preserve">
+    <value>“{0}” sınıftan çıkarılsın mı? Okul ve sınıf bilgileri silinecek.</value>
+  </data>
+  <data name="TC_Confirm" xml:space="preserve">
+    <value>Evet</value>
+  </data>
+  <data name="TC_Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="TC_Err_NAME_EXISTS" xml:space="preserve">
+    <value>Okulunda bu isimde bir sınıf zaten var.</value>
+  </data>
+  <data name="TC_Err_TOO_MANY_CLASSES" xml:space="preserve">
+    <value>Çok fazla sınıf var. Eskilerini arşivle.</value>
+  </data>
+  <data name="TC_Err_NO_SCHOOL" xml:space="preserve">
+    <value>Hesap bir okula bağlı değil.</value>
+  </data>
+  <data name="TC_NameRequired" xml:space="preserve">
+    <value>Bir sınıf adı gir.</value>
+  </data>
+  <data name="TC_ClassMissing" xml:space="preserve">
+    <value>Sınıf bulunamadı.</value>
+  </data>
+  <data name="Pick_SchoolPh" xml:space="preserve">
+    <value>Bir okul seç</value>
+  </data>
+  <data name="Pick_TeamPh" xml:space="preserve">
+    <value>Bir sınıf seç</value>
+  </data>
+  <data name="Pick_NoSchools" xml:space="preserve">
+    <value>Bu bölge için listede henüz okul yok. Öğretmeninden "Öğretmenler için" sayfasında okulu kaydetmesini iste.</value>
+  </data>
+  <data name="Pick_NoTeams" xml:space="preserve">
+    <value>Bu okulda henüz sınıf yok. Öğretmeninden sınıfını oluşturmasını iste.</value>
+  </data>
+  <data name="Pick_Hint" xml:space="preserve">
+    <value>Seçimini öğretmenin onaylayacak. Onaylayana kadar okulun raporlarında görünmezsin.</value>
+  </data>
+  <data name="Team_Section" xml:space="preserve">
+    <value>Okul ve sınıf</value>
+  </data>
+  <data name="Team_Is" xml:space="preserve">
+    <value>“{0}” sınıfı, {1}</value>
+  </data>
+  <data name="Team_Approved" xml:space="preserve">
+    <value>Öğretmen tarafından onaylandı</value>
+  </data>
+  <data name="Team_Pending" xml:space="preserve">
+    <value>Öğretmenin onayını bekliyor</value>
+  </data>
+  <data name="Team_Leave" xml:space="preserve">
+    <value>Sınıftan ayrıl</value>
+  </data>
+  <data name="Team_Submit" xml:space="preserve">
+    <value>Onay için öğretmene gönder</value>
+  </data>
+  <data name="Team_Sent" xml:space="preserve">
+    <value>Gönderildi. Öğretmen onaylayınca raporlarda görüneceksin.</value>
+  </data>
+  <data name="Team_Left" xml:space="preserve">
+    <value>Sınıftan ayrıldın.</value>
+  </data>
+  <data name="Team_Legacy" xml:space="preserve">
+    <value>Daha önce şunu girmiştin: {0} · {1}. Öğretmenin onaylayabilmesi için okulunu ve sınıfını listeden seç.</value>
+  </data>
+  <data name="Team_Err_TEAM_NOT_FOUND" xml:space="preserve">
+    <value>Böyle bir sınıf yok.</value>
+  </data>
+  <data name="Team_Err_TEAM_ARCHIVED" xml:space="preserve">
+    <value>Bu sınıf arşivlenmiş.</value>
+  </data>
+  <data name="Team_Err_STAFF_CANNOT_JOIN" xml:space="preserve">
+    <value>Öğretmenler ve müdürler sınıflara katılamaz.</value>
+  </data>
+  <data name="RP_TeamTitle" xml:space="preserve">
+    <value>Sınıf raporu</value>
+  </data>
+  <data name="RP_SchoolTitle" xml:space="preserve">
+    <value>Okul raporu</value>
+  </data>
+  <data name="RP_Week" xml:space="preserve">
+    <value>Hafta</value>
+  </data>
+  <data name="RP_Month" xml:space="preserve">
+    <value>Ay</value>
+  </data>
+  <data name="RP_VsPrev" xml:space="preserve">
+    <value>şununla karşılaştırma</value>
+  </data>
+  <data name="RP_Print" xml:space="preserve">
+    <value>PDF indir / yazdır</value>
+  </data>
+  <data name="RP_Students" xml:space="preserve">
+    <value>Öğrenciler</value>
+  </data>
+  <data name="RP_Active" xml:space="preserve">
+    <value>Çalıştı</value>
+  </data>
+  <data name="RP_Words" xml:space="preserve">
+    <value>Dönemdeki kelimeler</value>
+  </data>
+  <data name="RP_Exams" xml:space="preserve">
+    <value>Sınavlar</value>
+  </data>
+  <data name="RP_AvgExam" xml:space="preserve">
+    <value>Ortalama puan</value>
+  </data>
+  <data name="RP_Attention" xml:space="preserve">
+    <value>Çalışmadı</value>
+  </data>
+  <data name="RP_AttentionHint" xml:space="preserve">
+    <value>Bu öğrenciler seçilen dönemde tek bir kelime bile çalışmadı.</value>
+  </data>
+  <data name="RP_ColStatus" xml:space="preserve">
+    <value>Etkinlik</value>
+  </data>
+  <data name="RP_ColWords" xml:space="preserve">
+    <value>Kelime</value>
+  </data>
+  <data name="RP_ColDays" xml:space="preserve">
+    <value>Gün</value>
+  </data>
+  <data name="RP_ColTeam" xml:space="preserve">
+    <value>Sınıf</value>
+  </data>
+  <data name="RP_Status_active" xml:space="preserve">
+    <value>aktif</value>
+  </data>
+  <data name="RP_Status_slow" xml:space="preserve">
+    <value>az</value>
+  </data>
+  <data name="RP_Status_absent" xml:space="preserve">
+    <value>pasif</value>
+  </data>
+  <data name="RP_ExamCell" xml:space="preserve">
+    <value>%{0} ({1})</value>
+  </data>
+  <data name="RP_Missed" xml:space="preserve">
+    <value>En çok hata yapılan kelimeler</value>
+  </data>
+  <data name="RP_NoMissed" xml:space="preserve">
+    <value>Bu dönemde sınav hatası kaydedilmedi.</value>
+  </data>
+  <data name="RP_Times" xml:space="preserve">
+    <value>{0}×</value>
+  </data>
+  <data name="RP_Teams" xml:space="preserve">
+    <value>Sınıflar</value>
+  </data>
+  <data name="RP_NoTeams" xml:space="preserve">
+    <value>Okulda henüz sınıf yok.</value>
+  </data>
+  <data name="RP_Generated" xml:space="preserve">
+    <value>Oluşturuldu: {0}</value>
+  </data>
+  <data name="RP_Scope" xml:space="preserve">
+    <value>Sadece öğretmen tarafından onaylanmış öğrenciler. Bu raporda isimler var: başkalarına iletme.</value>
+  </data>
+  <data name="RP_ScopeSchool" xml:space="preserve">
+    <value>Sadece öğretmenleri tarafından onaylanmış öğrenciler. Raporda öğrenci isimleri yok.</value>
+  </data>
+  <data name="RP_NotFound" xml:space="preserve">
+    <value>Bu bağlantı geçerli değil ya da iptal edilmiş.</value>
+  </data>
+  <data name="RP_OpenTeamReport" xml:space="preserve">
+    <value>Sınıf raporu</value>
+  </data>
+  <data name="RP_SchoolLinkTitle" xml:space="preserve">
+    <value>Müdür için okul raporu</value>
+  </data>
+  <data name="RP_LinkHint" xml:space="preserve">
+    <value>Bu bağlantıyı müdüre gönder: giriş yapmadan açılır, sınıflara göre sayıları gösterir ve öğrenci ismi içermez.</value>
+  </data>
+  <data name="RP_LinkCreate" xml:space="preserve">
+    <value>Bağlantı oluştur</value>
+  </data>
+  <data name="RP_LinkOpen" xml:space="preserve">
+    <value>Raporu aç</value>
+  </data>
+  <data name="RP_LinkCopy" xml:space="preserve">
+    <value>Bağlantıyı kopyala</value>
+  </data>
+  <data name="RP_LinkRevoke" xml:space="preserve">
+    <value>Bağlantıyı iptal et</value>
+  </data>
+  <data name="Stats_Level" xml:space="preserve">
+    <value>Seviyen</value>
+  </data>
+  <data name="Stats_LevelHint" xml:space="preserve">
+    <value>Hangi kitapta olduğuna göre değişir</value>
+  </data>
+  <data name="Stats_Place" xml:space="preserve">
+    <value>#{0}</value>
+  </data>
+  <data name="Stats_OutOf" xml:space="preserve">
+    <value>{0} içinden</value>
+  </data>
+  <data name="Stats_ScopeTeam" xml:space="preserve">
+    <value>Sınıfım</value>
+  </data>
+  <data name="Stats_ScopeSchool" xml:space="preserve">
+    <value>Okulum</value>
+  </data>
+  <data name="Stats_ScopeRegion" xml:space="preserve">
+    <value>Bölgem</value>
+  </data>
+  <data name="Stats_ScopeAll" xml:space="preserve">
+    <value>Herkes</value>
+  </data>
+  <data name="Stats_Words" xml:space="preserve">
+    <value>Bu hafta {0} kelime</value>
+  </data>
+  <data name="Stats_NoPlace" xml:space="preserve">
+    <value>Sıralamaya girmek için oyna!</value>
+  </data>
+  <data name="Stats_RatingTitle" xml:space="preserve">
+    <value>Sıralama</value>
+  </data>
+  <data name="Stats_OpenRating" xml:space="preserve">
+    <value>Sıralamayı sitede aç</value>
+  </data>
+  <data name="TC_Copied" xml:space="preserve">
+    <value>Kopyalandı</value>
+  </data>
+  <data name="TG_Title" xml:space="preserve">
+    <value>Müdür için Telegram botu</value>
+  </data>
+  <data name="TG_Hint" xml:space="preserve">
+    <value>Müdürün giriş yapmasına gerek yok: okul raporu her pazartesi Telegram'a gelir. Bir bağlantı oluştur, müdüre gönder; o da açıp "Start" tuşuna bassın.</value>
+  </data>
+  <data name="TG_Add" xml:space="preserve">
+    <value>Alıcı ekle</value>
+  </data>
+  <data name="TG_Waiting" xml:space="preserve">
+    <value>Müdür bekleniyor: bu bağlantıyı ona gönder</value>
+  </data>
+  <data name="TG_Open" xml:space="preserve">
+    <value>Telegram'da aç</value>
+  </data>
+  <data name="TG_Connected" xml:space="preserve">
+    <value>raporları alıyor</value>
+  </data>
+  <data name="TG_Someone" xml:space="preserve">
+    <value>Alıcı</value>
+  </data>
+  <data name="TG_Disconnect" xml:space="preserve">
+    <value>Bağlantıyı kes</value>
+  </data>
+  <data name="TG_Cancel" xml:space="preserve">
+    <value>Bağlantıyı iptal et</value>
+  </data>
+  <data name="TG_Err_TOO_MANY" xml:space="preserve">
+    <value>Çok fazla alıcı (en fazla 10).</value>
+  </data>
+  <data name="TG_Err_TELEGRAM_OFF" xml:space="preserve">
+    <value>Bot sunucuda henüz bağlı değil.</value>
+  </data>
+  <data name="TG_MineTitle" xml:space="preserve">
+    <value>Telegram'ım</value>
+  </data>
+  <data name="TG_MineHint" xml:space="preserve">
+    <value>Kendi Telegram'ını bağla: öğrencilerin sınıflarına katılma istekleri Kabul / Reddet düğmeleriyle oraya gelir, ayrıca bir süredir çalışmayanlar için hatırlatma alırsın.</value>
+  </data>
+  <data name="TG_AddMine" xml:space="preserve">
+    <value>Telegram'ımı bağla</value>
+  </data>
+  <data name="TG_MineWaiting" xml:space="preserve">
+    <value>Bağlantıyı Telegram'da aç ve "Start" tuşuna bas</value>
+  </data>
+  <data name="TG_MineConnected" xml:space="preserve">
+    <value>istekleri ve hatırlatmaları alıyor</value>
+  </data>
+  <data name="PupilBot_Title" xml:space="preserve">
+    <value>Telegram botu</value>
+  </data>
+  <data name="PupilBot_Hint" xml:space="preserve">
+    <value>Botu bağla: sana çalışman için hatırlatır, ilerlemeni ve sıralamanı gösterir ve seninle mini bir yarışma oynar.</value>
+  </data>
+  <data name="PupilBot_Connect" xml:space="preserve">
+    <value>Botu bağla</value>
+  </data>
+  <data name="PupilBot_Open" xml:space="preserve">
+    <value>Botu Telegram'da aç</value>
+  </data>
+  <data name="PupilBot_Waiting" xml:space="preserve">
+    <value>Botta "Start" tuşuna bas, sonra geri dön ve bağlantıyı kontrol et.</value>
+  </data>
+  <data name="PupilBot_Check" xml:space="preserve">
+    <value>Bağlantıyı kontrol et</value>
+  </data>
+  <data name="PupilBot_Connected" xml:space="preserve">
+    <value>Bot bağlandı ✅</value>
+  </data>
+  <data name="PupilBot_Disconnect" xml:space="preserve">
+    <value>Bot bağlantısını kes</value>
+  </data>
+  <data name="ListenGame_ShowWord" xml:space="preserve">
+    <value>Kelimeyi göster</value>
+  </data>
+  <data name="ListenGame_HideWord" xml:space="preserve">
+    <value>Kelimeyi gizle</value>
+  </data>
+  <data name="Games_Title" xml:space="preserve">
+    <value>Oyunlar</value>
+  </data>
+  <data name="Games_Sub" xml:space="preserve">
+    <value>Önce oyunu, sonra konuyu seç</value>
+  </data>
+  <data name="Games_Pick" xml:space="preserve">
+    <value>Bir konu seç</value>
+  </data>
+  <data name="Games_Next" xml:space="preserve">
+    <value>Sıradaki: {0}</value>
+  </data>
+  <data name="Games_MoreName" xml:space="preserve">
+    <value>Bu konunun oyunları</value>
+  </data>
+  <data name="Games_MoreDesc" xml:space="preserve">
+    <value>Bu konunun diğer oyunları Oyunlar sekmesinde</value>
+  </data>
+  <data name="ExamResults_ChooseAnother" xml:space="preserve">
+    <value>Başka bir kitap seç</value>
+  </data>
+  <data name="Exam_ModeFree" xml:space="preserve">
+    <value>Serbest sınav</value>
+  </data>
+  <data name="Exam_ModeTeacher" xml:space="preserve">
+    <value>Öğretmen sınavı</value>
+  </data>
+  <data name="Exam_BestNote" xml:space="preserve">
+    <value>Her kitabın altında: serbest sınavdaki en iyi sonuçların, ⌨️ yazma ve ✅ test</value>
+  </data>
+  <data name="Exam_CodeStep" xml:space="preserve">
+    <value>Sınav kodunu gir</value>
+  </data>
+  <data name="Exam_CodeHint" xml:space="preserve">
+    <value>Kodu öğretmen gösterir. 5 dakika geçerlidir.</value>
+  </data>
+  <data name="Exam_HintTeacher" xml:space="preserve">
+    <value>Bir kitap seç ve 6 haneli kodu gir</value>
+  </data>
+  <data name="Exam_TeacherSelected" xml:space="preserve">
+    <value>Kitap {0} · öğretmen sınavı</value>
+  </data>
+  <data name="Exam_CodeErr_CODE_INVALID" xml:space="preserve">
+    <value>Kod hatalı</value>
+  </data>
+  <data name="Exam_CodeErr_CODE_EXPIRED" xml:space="preserve">
+    <value>Kodun süresi doldu. Öğretmenden yeni bir sınav başlatmasını iste</value>
+  </data>
+  <data name="Exam_CodeErr_ALREADY_TAKEN" xml:space="preserve">
+    <value>Bu sınava zaten girdin</value>
+  </data>
+  <data name="Exam_CodeErr_TOO_MANY" xml:space="preserve">
+    <value>Çok fazla deneme yaptın, bir dakika bekle</value>
+  </data>
+  <data name="ExamResults_SentToTeacher" xml:space="preserve">
+    <value>✓ Sonuç öğretmene gönderildi</value>
+  </data>
+  <data name="ExamResults_NotSent" xml:space="preserve">
+    <value>Sonuç öğretmene gönderilemedi</value>
+  </data>
+  <data name="TE_CardTitle" xml:space="preserve">
+    <value>Öğrenciler için sınav</value>
+  </data>
+  <data name="TE_CardHint" xml:space="preserve">
+    <value>Bir sınav başlat: öğrenciler kodu girip sınava katılır</value>
+  </data>
+  <data name="TE_Title" xml:space="preserve">
+    <value>Öğrenciler için sınav</value>
+  </data>
+  <data name="TE_Intro" xml:space="preserve">
+    <value>Soru sayısını seç ve sınavı başlat. Kodu öğrencilerine göster: Sınav sekmesinde kodu girip kitabı seçsinler ve sınava katılsınlar.</value>
+  </data>
+  <data name="TE_Count" xml:space="preserve">
+    <value>Soru sayısı</value>
+  </data>
+  <data name="TE_Start" xml:space="preserve">
+    <value>Sınavı başlat</value>
+  </data>
+  <data name="TE_Code" xml:space="preserve">
+    <value>Sınav kodu</value>
+  </data>
+  <data name="TE_Left" xml:space="preserve">
+    <value>Kodun süresi: {0}</value>
+  </data>
+  <data name="TE_ShowCode" xml:space="preserve">
+    <value>Kodu öğrencilere göster. Yeni sonuçlar aşağıda kendiliğinden görünür.</value>
+  </data>
+  <data name="TE_Expired" xml:space="preserve">
+    <value>Kodun süresi doldu</value>
+  </data>
+  <data name="TE_NewExam" xml:space="preserve">
+    <value>Yeni sınav</value>
+  </data>
+  <data name="TE_AllExams" xml:space="preserve">
+    <value>Tüm sınavlar</value>
+  </data>
+  <data name="TE_Questions" xml:space="preserve">
+    <value>{0} soru</value>
+  </data>
+  <data name="TE_Participants" xml:space="preserve">
+    <value>Katılan: {0}</value>
+  </data>
+  <data name="TE_Avg" xml:space="preserve">
+    <value>ortalama %{0}</value>
+  </data>
+  <data name="TE_Results" xml:space="preserve">
+    <value>Sonuçlar</value>
+  </data>
+  <data name="TE_NoResults" xml:space="preserve">
+    <value>Henüz kimse teslim etmedi</value>
+  </data>
+  <data name="TE_History" xml:space="preserve">
+    <value>Önceki sınavlar</value>
+  </data>
+  <data name="TE_ColPupil" xml:space="preserve">
+    <value>Öğrenci</value>
+  </data>
+  <data name="TE_ColTeam" xml:space="preserve">
+    <value>Sınıf</value>
+  </data>
+  <data name="TE_ColBook" xml:space="preserve">
+    <value>Kitap</value>
+  </data>
+  <data name="TE_ColWhen" xml:space="preserve">
+    <value>Tarih</value>
+  </data>
+  <data name="TE_Err_INVALID_COUNT" xml:space="preserve">
+    <value>Soru sayısını seç</value>
+  </data>
+  <data name="TE_Err_NO_SCHOOL" xml:space="preserve">
+    <value>Hesabın henüz bir okula bağlı değil</value>
+  </data>
+  <data name="TE_Err_TRY_AGAIN" xml:space="preserve">
+    <value>Kod oluşturulamadı, tekrar dene</value>
+  </data>
+  <data name="Dictionary_NumberHint" xml:space="preserve">
+    <value>Kelimenin kitaptaki numarası</value>
+  </data>
+  <data name="Game_PhraseTitle" xml:space="preserve">
+    <value>Cümleyi kur</value>
+  </data>
+  <data name="Game_PhraseDesc" xml:space="preserve">
+    <value>Çeviriyi kullanarak İngilizce örnek cümleyi kelimelerinden kur</value>
+  </data>
+  <data name="PhraseGame_Won" xml:space="preserve">
+    <value>Tüm cümleler kuruldu!</value>
+  </data>
+  <data name="PhraseGame_Hint" xml:space="preserve">
+    <value>Bu cümleyi İngilizce kur</value>
+  </data>
+  <data name="PhraseGame_NoPhrases" xml:space="preserve">
+    <value>Bu konu için henüz cümle yok</value>
+  </data>
+  <data name="PhraseGame_Next" xml:space="preserve">
+    <value>Sonraki</value>
+  </data>
+  <data name="PhraseGame_Help" xml:space="preserve">
+    <value>Kelimelere dokun ya da onları hücrelere sürükle. Bir kelimeyi dolu bir hücreye bırakırsan diğerleri sağa kayar.</value>
+  </data>
+  <data name="PhraseGame_SlotsLabel" xml:space="preserve">
+    <value>Cümle</value>
+  </data>
+  <data name="BookPage_Passed" xml:space="preserve">
+    <value>Geçilen: {1} içinden {0}</value>
+  </data>
+  <data name="Rating_TeacherAll" xml:space="preserve">
+    <value>Tüm öğrencilerim</value>
+  </data>
+  <data name="Rating_TeacherEmpty" xml:space="preserve">
+    <value>Sınıflarında henüz öğrenci yok</value>
+  </data>
+  <data name="Rating_TeacherCount" xml:space="preserve">
+    <value>Listedeki öğrenci sayısı: {0}</value>
+  </data>
+  <data name="FS_PendingNext" xml:space="preserve">
+    <value>İstek onaylandığında panelin burada açılır: sınıflar ve öğrenciler, müdür için rapor bağlantısı, Telegram bağlantısı ve sınavlar.</value>
+  </data>
+  <data name="TC_ColBook" xml:space="preserve">
+    <value>Kitap</value>
+  </data>
+  <data name="TS_Missing" xml:space="preserve">
+    <value>Öğrenci bulunamadı.</value>
+  </data>
+  <data name="TS_Title" xml:space="preserve">
+    <value>Kitaplara göre ilerleme</value>
+  </data>
+  <data name="TS_CurrentBook" xml:space="preserve">
+    <value>Şu anki kitap</value>
+  </data>
+  <data name="TS_TopicsDone" xml:space="preserve">
+    <value>Tamamlanan konu</value>
+  </data>
+  <data name="TS_WordsLearned" xml:space="preserve">
+    <value>Çalışılan kelime</value>
+  </data>
+  <data name="TS_NoProgress" xml:space="preserve">
+    <value>Bu öğrenci henüz öğrenmeye başlamadı.</value>
+  </data>
+  <data name="TS_BookN" xml:space="preserve">
+    <value>Kitap {0}</value>
+  </data>
+  <data name="TS_Now" xml:space="preserve">
+    <value>Şimdi</value>
+  </data>
+  <data name="TS_Topics" xml:space="preserve">
+    <value>konu</value>
+  </data>
+  <data name="TS_Words" xml:space="preserve">
+    <value>kelime</value>
+  </data>
+  <data name="TS_ExamBest" xml:space="preserve">
+    <value>en iyi · {0} kez girildi</value>
+  </data>
+  <data name="TS_NoExam" xml:space="preserve">
+    <value>Henüz sınav yok</value>
+  </data>
+  <data name="TS_ColTopic" xml:space="preserve">
+    <value>Konu</value>
+  </data>
+  <data name="TS_GameFindMe" xml:space="preserve">
+    <value>Bul</value>
+  </data>
+  <data name="TS_GameSequence" xml:space="preserve">
+    <value>Sıra</value>
+  </data>
+  <data name="TS_GameListen" xml:space="preserve">
+    <value>Dinle</value>
+  </data>
+  <data name="TS_GameSteps" xml:space="preserve">
+    <value>Adımlar</value>
+  </data>
+  <data name="TS_GamePhrase" xml:space="preserve">
+    <value>Cümle</value>
+  </data>
+  <data name="TE_AllTitle" xml:space="preserve">
+    <value>Öğrencilerin sınav sonuçları</value>
+  </data>
+  <data name="TE_AllCount" xml:space="preserve">
+    <value>{0} sınav · ortalama %{1}</value>
+  </data>
+  <data name="TE_AllTeams" xml:space="preserve">
+    <value>Tüm sınıflar</value>
+  </data>
+  <data name="TE_AllNone" xml:space="preserve">
+    <value>Henüz kimse sınava girmedi.</value>
+  </data>
+  <data name="TE_ColKind" xml:space="preserve">
+    <value>Tür</value>
+  </data>
+  <data name="TE_KindCode" xml:space="preserve">
+    <value>Kodla</value>
+  </data>
+  <data name="TE_KindFree" xml:space="preserve">
+    <value>Serbest</value>
+  </data>
+  <data name="Gate_Title" xml:space="preserve">
+    <value>Kitap {0} açılıyor</value>
+  </data>
+  <data name="Gate_Sub" xml:space="preserve">
+    <value>Kitap {1} üzerinden 3 adımı geç: kelimeler onun tüm konularından gelir. Sonra kitap {0} açılır.</value>
+  </data>
+  <data name="Gate_Step" xml:space="preserve">
+    <value>Adım {0}</value>
+  </data>
+  <data name="Gate_Start" xml:space="preserve">
+    <value>Başla</value>
+  </data>
+  <data name="Gate_Next" xml:space="preserve">
+    <value>Sonraki adım</value>
+  </data>
+  <data name="Gate_Passed" xml:space="preserve">
+    <value>Geçildi</value>
+  </data>
+  <data name="Gate_Opened" xml:space="preserve">
+    <value>Kitap {0} açıldı!</value>
+  </data>
+  <data name="Gate_LockedTitle" xml:space="preserve">
+    <value>Önce kitap {0}</value>
+  </data>
+  <data name="Gate_LockedText" xml:space="preserve">
+    <value>Önce kitap {0}'ı geçmen gerekiyor.</value>
+  </data>
+  <data name="Gate_Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Gate_Error" xml:space="preserve">
+    <value>Kitap açılamadı. Tekrar dene.</value>
+  </data>
+  <data name="Strip_Lives" xml:space="preserve">
+    <value>Canlar</value>
+  </data>
+  <data name="Strip_Book" xml:space="preserve">
+    <value>Kitap</value>
+  </data>
+  <data name="Strip_Level" xml:space="preserve">
+    <value>Seviye</value>
+  </data>
+  <data name="Strip_Days" xml:space="preserve">
+    <value>gün</value>
+  </data>
+  <data name="Strip_BookHint" xml:space="preserve">
+    <value>Kitap {0}'dasın</value>
+  </data>
+  <data name="Strip_StreakHint" xml:space="preserve">
+    <value>{0} gün arka arkaya</value>
+  </data>
+  <data name="Pw_Show" xml:space="preserve">
+    <value>Şifreyi göster</value>
+  </data>
+  <data name="Pw_Hide" xml:space="preserve">
+    <value>Şifreyi gizle</value>
+  </data>
+  <data name="Block_Title" xml:space="preserve">
+    <value>5 saatlik engel</value>
+  </data>
+  <data name="Block_SubAll" xml:space="preserve">
+    <value>Canların ve LP'n bitti. Süre dolunca {0} canın geri gelir; LP 0 kalır.</value>
+  </data>
+  <data name="Block_SubLives" xml:space="preserve">
+    <value>Canların bitti. Süre dolunca {0} canın geri gelir.</value>
+  </data>
+  <data name="Block_GateFailed" xml:space="preserve">
+    <value>Kontrol geçilemedi: canlar bitti.</value>
+  </data>
+  <data name="Zero_Title" xml:space="preserve">
+    <value>Alfabe ve sayılar</value>
+  </data>
+  <data name="Zero_Hint" xml:space="preserve">
+    <value>Duymak için bir harfe ya da sayıya dokun.</value>
+  </data>
+  <data name="Zero_Alphabet" xml:space="preserve">
+    <value>Alfabe</value>
+  </data>
+  <data name="Zero_Numbers" xml:space="preserve">
+    <value>0–20 sayıları</value>
+  </data>
+  <data name="Zero_PlayAll" xml:space="preserve">
+    <value>Hepsini dinle</value>
+  </data>
+  <data name="Zero_Stop" xml:space="preserve">
+    <value>Durdur</value>
+  </data>
+  <data name="Zero_VowelsHint" xml:space="preserve">
+    <value>Sesli harfler renkli gösterilir</value>
+  </data>
+  <data name="Tq_GoSite" xml:space="preserve">
+    <value>Siteye git</value>
+  </data>
+  <data name="Tq_TopicNo" xml:space="preserve">
+    <value>Konu {0}</value>
+  </data>
+  <data name="TE_TeamsTitle" xml:space="preserve">
+    <value>Sınıflar</value>
+  </data>
+  <data name="TE_TeamsHint" xml:space="preserve">
+    <value>Öğrencilerin en iyi sınav sonuçlarının ortalaması. Sadece senin kodunla girilen sınavlar sayılır, serbest sınavlar sayılmaz.</value>
+  </data>
+  <data name="TE_TeamAvg" xml:space="preserve">
+    <value>Ort. en iyi sonuç</value>
+  </data>
+  <data name="TE_TeamExamined" xml:space="preserve">
+    <value>Sınava girdi</value>
+  </data>
+  <data name="TE_TeamSub" xml:space="preserve">
+    <value>Her kitaptaki öğrenilen kelime = {0} kelime x öğrencinin o kitaptaki en iyi sınav sonucu. Sadece senin kodunla girilen sınavlar sayılır. Yüzdeyi görmek için bir sayının üzerine gel.</value>
+  </data>
+  <data name="TE_TeamNoPupils" xml:space="preserve">
+    <value>Bu sınıfta henüz onaylanmış öğrenci yok.</value>
+  </data>
+  <data name="TE_BookCol" xml:space="preserve">
+    <value>Kitap {0}</value>
+  </data>
+  <data name="BookCard_Words" xml:space="preserve">
+    <value>{0} / {1} kelime</value>
+  </data>
+  <data name="BookCard_Current" xml:space="preserve">
+    <value>Şimdi: {0}</value>
+  </data>
+  <data name="BookCard_Done" xml:space="preserve">
+    <value>Kitap tamamlandı</value>
+  </data>
+  <data name="BookCard_Locked" xml:space="preserve">
+    <value>Kitap kilitli</value>
+  </data>
+  <data name="Topic_LockedTitle" xml:space="preserve">
+    <value>Konu kilitli</value>
+  </data>
+  <data name="Topic_LockedText" xml:space="preserve">
+    <value>Önce şu konuyu geç: "{0}".</value>
+  </data>
+  <data name="Topic_Understood" xml:space="preserve">
+    <value>Anladım</value>
+  </data>
+  <data name="Topic_Go" xml:space="preserve">
+    <value>Git</value>
+  </data>
+  <data name="ZG_Section" xml:space="preserve">
+    <value>Oyunlar</value>
+  </data>
+  <data name="ZG_ListenTitle" xml:space="preserve">
+    <value>Dinle ve dokun</value>
+  </data>
+  <data name="ZG_ListenDesc" xml:space="preserve">
+    <value>Ses bir harf ya da sayı söyler. Doğru olana dokun.</value>
+  </data>
+  <data name="ZG_TrainTitle" xml:space="preserve">
+    <value>Kayıp vagon</value>
+  </data>
+  <data name="ZG_TrainDesc" xml:space="preserve">
+    <value>Eksik harfleri ya da sayıları sırayla trene yerleştir.</value>
+  </data>
+  <data name="ZG_Letters" xml:space="preserve">
+    <value>Harfler</value>
+  </data>
+  <data name="ZG_Numbers" xml:space="preserve">
+    <value>Sayılar</value>
+  </data>
+  <data name="ZG_Repeat" xml:space="preserve">
+    <value>Tekrar söyle</value>
+  </data>
+  <data name="ZG_ListenHint" xml:space="preserve">
+    <value>Dinle ve bul</value>
+  </data>
+  <data name="ZG_TrainHint" xml:space="preserve">
+    <value>Trene yerleştir</value>
+  </data>
+  <data name="ZG_Result" xml:space="preserve">
+    <value>Aferin!</value>
+  </data>
+  <data name="ZG_Mistakes" xml:space="preserve">
+    <value>Hata: {0}</value>
+  </data>
+  <data name="Award_New" xml:space="preserve">
+    <value>Yeni ödül!</value>
+  </data>
+  <data name="Award_Congrats" xml:space="preserve">
+    <value>Harika iş, böyle devam!</value>
+  </data>
+  <data name="Award_Open" xml:space="preserve">
+    <value>Ödüller</value>
+  </data>
+  <data name="Award_Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Strip_Shield" xml:space="preserve">
+    <value>Hata kalkanları: bir sonraki hata hiçbir şey götürmez</value>
+  </data>
+  <data name="Strip_Freeze" xml:space="preserve">
+    <value>Seri dondurucuları: kaçırılan bir günde seriyi korur</value>
+  </data>
+  <data name="Market_Useful" xml:space="preserve">
+    <value>Faydalı</value>
+  </data>
+  <data name="Market_Style" xml:space="preserve">
+    <value>Görünüm</value>
+  </data>
+  <data name="Market_Buy" xml:space="preserve">
+    <value>Satın al</value>
+  </data>
+  <data name="Market_NotEnough" xml:space="preserve">
+    <value>Yeterli LP yok</value>
+  </data>
+  <data name="Market_Equip" xml:space="preserve">
+    <value>Tak</value>
+  </data>
+  <data name="Market_Unequip" xml:space="preserve">
+    <value>Çıkar</value>
+  </data>
+  <data name="Market_Worn" xml:space="preserve">
+    <value>Takılı</value>
+  </data>
+  <data name="Market_Bought" xml:space="preserve">
+    <value>Satın alındı!</value>
+  </data>
+  <data name="Market_Eff_life" xml:space="preserve">
+    <value>Hemen +1 can</value>
+  </data>
+  <data name="Market_Eff_refill" xml:space="preserve">
+    <value>Hemen 5 canın tamamı</value>
+  </data>
+  <data name="Market_Eff_shield" xml:space="preserve">
+    <value>Oyundaki bir sonraki hata hiçbir şey götürmez</value>
+  </data>
+  <data name="Market_Eff_freeze" xml:space="preserve">
+    <value>Seri, kaçırılan bir günde bozulmaz</value>
+  </data>
+  <data name="Market_Eff_frame" xml:space="preserve">
+    <value>Avatarının etrafında bir çerçeve</value>
+  </data>
+  <data name="Market_Eff_avatar" xml:space="preserve">
+    <value>Her yerde yeni bir avatar</value>
+  </data>
+  <data name="Market_Eff_badge" xml:space="preserve">
+    <value>Sıralamada adının yanında bir rozet</value>
+  </data>
+  <data name="Market_Eff_theme" xml:space="preserve">
+    <value>Sitenin yeni renkleri</value>
+  </data>
+  <data name="Market_Eff_pet" xml:space="preserve">
+    <value>Oyunlarda Jumbo'nun yanında bir evcil hayvan</value>
+  </data>
+  <data name="Market_Err_NOT_ENOUGH" xml:space="preserve">
+    <value>Yeterli LP yok.</value>
+  </data>
+  <data name="Market_Err_OWNED" xml:space="preserve">
+    <value>Bu zaten sende var.</value>
+  </data>
+  <data name="Market_Err_NOT_OWNED" xml:space="preserve">
+    <value>Önce onu satın al.</value>
+  </data>
+  <data name="Market_Err_LIVES_FULL" xml:space="preserve">
+    <value>Canların zaten dolu.</value>
+  </data>
+  <data name="Market_Err_LIMIT" xml:space="preserve">
+    <value>Zaten sahip olabileceğinin en fazlasına sahipsin.</value>
+  </data>
+  <data name="Market_Err_WOULD_BLOCK" xml:space="preserve">
+    <value>Şimdi olmaz: canların ve LP'n sıfır kalır, 5 saatlik engel başlar.</value>
+  </data>
+  <data name="Market_WebNote" xml:space="preserve">
+    <value>Sitede görünür</value>
+  </data>
+  <data name="Error_Title" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="Error_Network" xml:space="preserve">
+    <value>Sunucuyla bağlantı yok. İnterneti kontrol et ve tekrar dene.</value>
+  </data>
+  <data name="Error_Generic" xml:space="preserve">
+    <value>Bir şeyler ters gitti. Lütfen tekrar dene.</value>
+  </data>
+  <data name="Session_Expired" xml:space="preserve">
+    <value>Oturumun sona erdi. Lütfen tekrar giriş yap.</value>
+  </data>
+  <data name="Settings_DeleteSection" xml:space="preserve">
+    <value>Hesabı sil</value>
+  </data>
+  <data name="Settings_DeleteHint" xml:space="preserve">
+    <value>Hesabın ve tüm ilerlemen, kelimelerin, ödüllerin ve satın alımların kalıcı olarak silinecek. Bu geri alınamaz.</value>
+  </data>
+  <data name="Settings_DeleteButton" xml:space="preserve">
+    <value>Hesabı sil</value>
+  </data>
+  <data name="Settings_DeleteConfirmTitle" xml:space="preserve">
+    <value>Hesap kalıcı olarak silinsin mi?</value>
+  </data>
+  <data name="Settings_DeleteConfirmSub" xml:space="preserve">
+    <value>Onaylamak için şifreni gir.</value>
+  </data>
+  <data name="Settings_DeleteNeedPassword" xml:space="preserve">
+    <value>Şifreni gir.</value>
+  </data>
+  <data name="Legal_Privacy_Link" xml:space="preserve">
+    <value>Gizlilik politikası</value>
+  </data>
+  <data name="Privacy_Title" xml:space="preserve">
+    <value>Gizlilik politikası</value>
+  </data>
+  <data name="Privacy_Updated" xml:space="preserve">
+    <value>Son güncelleme: 18 Ekim 2026</value>
+  </data>
+  <data name="Privacy_Contact" xml:space="preserve">
+    <value>Veriler hakkında sorular için iletişim: {0}</value>
+  </data>
+  <data name="Privacy_H1" xml:space="preserve">
+    <value>Biz kimiz</value>
+  </data>
+  <data name="Privacy_P1" xml:space="preserve">
+    <value>Jumbo (jumbo.uz sitesi ve Jumbo mobil uygulaması), çocuklar dahil olmak üzere İngilizce öğrenmek için bir platformdur. Bu belge, hangi verileri topladığımızı ve bunları nasıl kullandığımızı açıklar.</value>
+  </data>
+  <data name="Privacy_H2" xml:space="preserve">
+    <value>Hangi verileri topluyoruz</value>
+  </data>
+  <data name="Privacy_P2" xml:space="preserve">
+    <value>• Hesap: ad, soyad, kullanıcı adı, şifre (sadece hash olarak saklanır) ve isteğe bağlı olarak telefon numarası ve avatar.
+• Listelerden seçilen bölge, okul ve sınıf.
+• Öğrenme: öğrenilen kelimeler, tamamlanan konular ve oyunlar, LP puanları, ödüller, oyun içi puanlarla yapılan market satın alımları, günlük hedef ve seri, sınav sonuçları.
+• Ayarlar: dil, tema, öğrenim dilleri.
+• İsteğe bağlı olarak Telegram hatırlatma botu bağlantısı (Telegram'daki sohbet kimliğini ve adını alırız).
+• Güvenlik ve hizmetin çalışması için, sıradan günlüklerdeki teknik sunucu verileri (adres, istek zamanı).
+• İsteğe bağlı olarak, sitenin altbilgisindeki geri bildirim formunda bırakılan e-posta adresi ve mesaj: bunlar sadece sana cevap vermek ve (işaretlediysen) Jumbo haberlerini göndermek için kullanılır; istediğin zaman silinmelerini isteyebilirsin.</value>
+  </data>
+  <data name="Privacy_H3" xml:space="preserve">
+    <value>Verilere neden ihtiyacımız var</value>
+  </data>
+  <data name="Privacy_P3" xml:space="preserve">
+    <value>• Giriş yapabilmen ve kaldığın yerden devam edebilmen için.
+• Sınıfının, okulunun ya da bölgenin haftalık sıralamasındaki yerini göstermek için.
+• Okulunun öğretmeni ve müdürü sınıfın ilerlemesini ve sınav sonuçlarını görebilsin diye.
+• Telegram'ı bağladıysan hatırlatma göndermek için.
+Verileri reklam için kullanmıyoruz ve satmıyoruz.</value>
+  </data>
+  <data name="Privacy_H4" xml:space="preserve">
+    <value>Çocuklar</value>
+  </data>
+  <data name="Privacy_P4" xml:space="preserve">
+    <value>Jumbo, çocuklar dahil her yaş için uygundur. Sadece öğrenme için gerekli olanı isteriz: telefon numarası isteğe bağlıdır. Reklam göstermiyoruz, reklam ya da analiz hizmetleri kullanmıyoruz ve çocukların verilerini pazarlama amacıyla üçüncü taraflara vermiyoruz. Bir çocuğun bir ebeveyn ya da öğretmenle birlikte kayıt olması en iyisidir. Bir ebeveyn, istediği zaman çocuğun verilerini görmek ya da sildirmek isteyebilir: bunun için hesabı silmek (aşağıya bak) ya da bize yazmak yeterlidir.</value>
+  </data>
+  <data name="Privacy_H5" xml:space="preserve">
+    <value>Verileri kim görüyor</value>
+  </data>
+  <data name="Privacy_P5" xml:space="preserve">
+    <value>• Diğer öğrenciler sıralamada adını ve yerini görür. Adını gizlemek için Ayarlar'da "Sıralamada adımı gizle" seçeneğini aç.
+• Katıldığın sınıfın öğretmeni ve müdürü ilerlemeni ve sınav sonuçlarını görür.
+• Veriler sunucularımızda saklanır. Kanun gerektirmedikçe üçüncü taraflara vermiyoruz. Telegram'ı bağladıysan mesajlar Telegram üzerinden geçer.</value>
+  </data>
+  <data name="Privacy_H6" xml:space="preserve">
+    <value>Saklama ve koruma</value>
+  </data>
+  <data name="Privacy_P6" xml:space="preserve">
+    <value>Veriler güvenli bir bağlantı (HTTPS) üzerinden gider. Şifreler hash olarak saklanır. Veriler hesap var olduğu sürece saklanır.</value>
+  </data>
+  <data name="Privacy_H7" xml:space="preserve">
+    <value>Verilerin silinmesi</value>
+  </data>
+  <data name="Privacy_P7" xml:space="preserve">
+    <value>Hesabını kendin silebilirsin: "Ayarlar" → "Hesabı sil" (hem uygulamada hem sitede). Profil, ilerleme, kelimeler, ödüller, satın alımlar ve sınav sonuçları kalıcı olarak silinir. Daha fazlası: jumbo.uz/delete-account. Veritabanının yedek kopyaları verileri sınırlı bir süre tutabilir, ardından silinir.</value>
+  </data>
+  <data name="Privacy_H8" xml:space="preserve">
+    <value>İletişim ve değişiklikler</value>
+  </data>
+  <data name="Privacy_P8" xml:space="preserve">
+    <value>Veriler hakkındaki sorular aşağıdaki iletişim bilgisine gönderilebilir. Bu belgeyi değiştirirsek yeni sürüm bu sayfada yeni bir tarihle görünür.</value>
+  </data>
+  <data name="Del_Title" xml:space="preserve">
+    <value>Jumbo hesabını sil</value>
+  </data>
+  <data name="Del_Intro" xml:space="preserve">
+    <value>Hesabını ve tüm verilerini istediğin zaman kendin silebilirsin. Bu bir dakika sürer.</value>
+  </data>
+  <data name="Del_StepsTitle" xml:space="preserve">
+    <value>Nasıl yapılır</value>
+  </data>
+  <data name="Del_Steps" xml:space="preserve">
+    <value>1. Hesabına giriş yap (Jumbo uygulamasında ya da jumbo.uz'da).
+2. "Ayarlar"ı aç ve en alttaki "Hesabı sil" bölümüne kaydır.
+3. Şifreni gir ve onayla.</value>
+  </data>
+  <data name="Del_WhatTitle" xml:space="preserve">
+    <value>Ne silinir</value>
+  </data>
+  <data name="Del_What" xml:space="preserve">
+    <value>Profil (ad, kullanıcı adı, şifre, telefon, avatar), ilerleme, öğrenilen kelimeler, ödüller, satın alımlar ve sınav sonuçları, Telegram bağlantısı. Bu geri alınamaz. Veritabanının yedek kopyaları verileri sınırlı bir süre tutabilir, ardından silinir.</value>
+  </data>
+  <data name="Del_Staff" xml:space="preserve">
+    <value>Öğretmen ve müdür hesaplarını yönetici siler: gizlilik politikası sayfasındaki iletişim bilgisine yaz.</value>
+  </data>
+  <data name="Del_Login" xml:space="preserve">
+    <value>Giriş yap ve hesabı sil</value>
+  </data>
+  <data name="Land_Shot1" xml:space="preserve">
+    <value>Günlük hedef ve günlük seri</value>
+  </data>
+  <data name="Land_Shot2" xml:space="preserve">
+    <value>Kitap boyunca konu konu bir yol</value>
+  </data>
+  <data name="Land_Shot3" xml:space="preserve">
+    <value>Her konuda kelimeler, video ve oyunlar</value>
+  </data>
+  <data name="Land_Shot4" xml:space="preserve">
+    <value>Oyunlar: kelimeyi resme göre bul</value>
+  </data>
+  <data name="Land_Shot5" xml:space="preserve">
+    <value>Bir oyun ve konu seç</value>
+  </data>
+  <data name="Land_Shot6" xml:space="preserve">
+    <value>Ödüller ve puanların için bir market</value>
+  </data>
+  <data name="Land_Shot7" xml:space="preserve">
+    <value>Sesli bir sözlük</value>
+  </data>
+  <data name="Land_ShotsPrev" xml:space="preserve">
+    <value>Önceki</value>
+  </data>
+  <data name="Land_ShotsNext" xml:space="preserve">
+    <value>Sonraki</value>
+  </data>
+  <data name="Foot_Tagline" xml:space="preserve">
+    <value>Oynayarak İngilizce öğren: kelimeler, oyunlar ve fil Jumbo.</value>
+  </data>
+  <data name="Foot_Get" xml:space="preserve">
+    <value>Uygulamayı indir</value>
+  </data>
+  <data name="Foot_Android" xml:space="preserve">
+    <value>Android</value>
+  </data>
+  <data name="Foot_Ios" xml:space="preserve">
+    <value>iOS · App Store</value>
+  </data>
+  <data name="Foot_Windows" xml:space="preserve">
+    <value>Windows</value>
+  </data>
+  <data name="Foot_Mac" xml:space="preserve">
+    <value>macOS</value>
+  </data>
+  <data name="Foot_Site" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="Foot_Subscribe" xml:space="preserve">
+    <value>Geri bildirim ve haberler</value>
+  </data>
+  <data name="Foot_SubscribeHint" xml:space="preserve">
+    <value>Bize yaz ya da e-postanı bırak: cevap veririz ve sadece Jumbo haberlerini göndeririz.</value>
+  </data>
+  <data name="Foot_EmailPlaceholder" xml:space="preserve">
+    <value>E-postan</value>
+  </data>
+  <data name="Foot_SubscribeButton" xml:space="preserve">
+    <value>Gönder</value>
+  </data>
+  <data name="Foot_Sending" xml:space="preserve">
+    <value>Gönderiliyor…</value>
+  </data>
+  <data name="Foot_Subscribed" xml:space="preserve">
+    <value>Teşekkürler! Aldık.</value>
+  </data>
+  <data name="Foot_BadEmail" xml:space="preserve">
+    <value>Lütfen e-posta adresini kontrol et.</value>
+  </data>
+  <data name="Foot_Failed" xml:space="preserve">
+    <value>Şu an abone olunamadı. Lütfen daha sonra tekrar dene.</value>
+  </data>
+  <data name="Foot_Consent" xml:space="preserve">
+    <value>Abone olarak şunu kabul ediyorsun:</value>
+  </data>
+  <data name="Foot_Privacy" xml:space="preserve">
+    <value>gizlilik politikası</value>
+  </data>
+  <data name="Foot_Schools" xml:space="preserve">
+    <value>Okullar ve öğretmenler için</value>
+  </data>
+  <data name="Foot_Delete" xml:space="preserve">
+    <value>Hesabı sil</value>
+  </data>
+  <data name="Admin_TabSubscribers" xml:space="preserve">
+    <value>Geri bildirim ve aboneler</value>
+  </data>
+  <data name="Admin_SubscribersCount" xml:space="preserve">
+    <value>Toplam: {0}</value>
+  </data>
+  <data name="Nav_App" xml:space="preserve">
+    <value>Uygulama</value>
+  </data>
+  <data name="Nav_Top" xml:space="preserve">
+    <value>İlk 10</value>
+  </data>
+  <data name="Nav_How" xml:space="preserve">
+    <value>Nasıl çalışır</value>
+  </data>
+  <data name="Nav_Feat" xml:space="preserve">
+    <value>Özellikler</value>
+  </data>
+  <data name="Nav_Get" xml:space="preserve">
+    <value>İndir</value>
+  </data>
+  <data name="Nav_Contact" xml:space="preserve">
+    <value>Geri bildirim</value>
+  </data>
+  <data name="Foot_MessagePlaceholder" xml:space="preserve">
+    <value>Mesajın (isteğe bağlı)</value>
+  </data>
+  <data name="Foot_NewsCheck" xml:space="preserve">
+    <value>Bana Jumbo haberlerini gönder</value>
+  </data>
+  <data name="Foot_NeedSomething" xml:space="preserve">
+    <value>Bir mesaj yaz ya da haberleri işaretle.</value>
+  </data>
+  <data name="Admin_FeedbackTitle" xml:space="preserve">
+    <value>Mesajlar</value>
+  </data>
+  <data name="Update_Title" xml:space="preserve">
+    <value>Yeni bir sürüm çıktı</value>
+  </data>
+  <data name="Update_Text" xml:space="preserve">
+    <value>Yeni konular ve düzeltmeler için Jumbo'yu güncelle.</value>
+  </data>
+  <data name="Update_Now" xml:space="preserve">
+    <value>Güncelle</value>
+  </data>
+  <data name="Update_Later" xml:space="preserve">
+    <value>Sonra</value>
+  </data>
+  <data name="Update_Required_Title" xml:space="preserve">
+    <value>Lütfen uygulamayı güncelle</value>
+  </data>
+  <data name="Update_Required_Text" xml:space="preserve">
+    <value>Jumbo'nun bu sürümü artık desteklenmiyor. Devam etmek için uygulamayı güncelle.</value>
+  </data>
+  <data name="Admin_TabVersions" xml:space="preserve">
+    <value>Uygulama sürümleri</value>
+  </data>
+  <data name="Ver_Hint" xml:space="preserve">
+    <value>"Son sürüm"ü sadece yeni sürüm mağazada herkese açık olduğunda değiştir. "Minimum"un altındaki sürümler güncellemek zorunda ve bunu atlayamaz. 0 = kapalı.</value>
+  </data>
+  <data name="Ver_Latest" xml:space="preserve">
+    <value>Son sürüm (numara)</value>
+  </data>
+  <data name="Ver_Min" xml:space="preserve">
+    <value>Minimum sürüm (numara)</value>
+  </data>
+  <data name="Ver_Url" xml:space="preserve">
+    <value>"Güncelle" düğmesinin bağlantısı</value>
+  </data>
+  <data name="Ver_NotesRu" xml:space="preserve">
+    <value>Yenilikler (Rusça)</value>
+  </data>
+  <data name="Ver_NotesEn" xml:space="preserve">
+    <value>Yenilikler (İngilizce)</value>
+  </data>
+  <data name="Ver_NotesUz" xml:space="preserve">
+    <value>Yenilikler (Özbekçe)</value>
+  </data>
+  <data name="Ver_Save" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="Ver_Saved" xml:space="preserve">
+    <value>Kaydedildi</value>
+  </data>
+  <data name="Plan_Bronze" xml:space="preserve">
+    <value>Bronz</value>
+  </data>
+  <data name="Plan_Silver" xml:space="preserve">
+    <value>Gümüş</value>
+  </data>
+  <data name="Plan_Gold" xml:space="preserve">
+    <value>Altın</value>
+  </data>
+  <data name="Plan_Yours" xml:space="preserve">
+    <value>Sürümün: {0}</value>
+  </data>
+  <data name="Plan_PaidUntil" xml:space="preserve">
+    <value>{0} tarihine kadar ödenmiş</value>
+  </data>
+  <data name="Plan_FreeVersion" xml:space="preserve">
+    <value>Ücretsiz sürüm</value>
+  </data>
+  <data name="Plan_See" xml:space="preserve">
+    <value>Sürümler ve fiyatlar</value>
+  </data>
+  <data name="Plan_Nav" xml:space="preserve">
+    <value>Sürümler ve fiyatlar</value>
+  </data>
+  <data name="PP_Title" xml:space="preserve">
+    <value>Sürümünü seç</value>
+  </data>
+  <data name="PP_Sub" xml:space="preserve">
+    <value>Bronz her zaman ücretsizdir. Gümüş ve Altın aylık ya da yıllık olarak ödenebilir.</value>
+  </data>
+  <data name="PP_Free" xml:space="preserve">
+    <value>Ücretsiz</value>
+  </data>
+  <data name="PP_PriceSoon" xml:space="preserve">
+    <value>Fiyat yakında</value>
+  </data>
+  <data name="PP_PerMonth" xml:space="preserve">
+    <value>ayda</value>
+  </data>
+  <data name="PP_B1" xml:space="preserve">
+    <value>Tüm kitaplar, konular ve oyunlar</value>
+  </data>
+  <data name="PP_B2" xml:space="preserve">
+    <value>5 can: hatalar önce canları, sonra LP'yi azaltır</value>
+  </data>
+  <data name="PP_B3" xml:space="preserve">
+    <value>Sıralama, ödüller ve market</value>
+  </data>
+  <data name="PP_S1" xml:space="preserve">
+    <value>Bronz'daki her şey</value>
+  </data>
+  <data name="PP_S2" xml:space="preserve">
+    <value>Sınırsız: hatalar ne can ne de LP azaltır</value>
+  </data>
+  <data name="PP_S3" xml:space="preserve">
+    <value>Molasız öğren ve oyna</value>
+  </data>
+  <data name="PP_G1" xml:space="preserve">
+    <value>Gümüş'teki her şey</value>
+  </data>
+  <data name="PP_G2" xml:space="preserve">
+    <value>Danışman: verilerine dayalı kişisel öğrenme önerileri (yakında)</value>
+  </data>
+  <data name="PP_G3" xml:space="preserve">
+    <value>Veriler sunucumuzda kalır</value>
+  </data>
+  <data name="PP_Current" xml:space="preserve">
+    <value>Sürümün</value>
+  </data>
+  <data name="PP_Buy" xml:space="preserve">
+    <value>Ödeme yakında</value>
+  </data>
+  <data name="PP_BuyHint" xml:space="preserve">
+    <value>Ücretli sürüm, satın aldığına göre bir ay ya da bir yıl sürer. Yenilenmezse hesap Bronz'a döner — ilerleme ve ödüller kalır.</value>
+  </data>
+  <data name="PP_NeedLogin" xml:space="preserve">
+    <value>Bir sürüm almak için giriş yap ya da kayıt ol.</value>
+  </data>
+  <data name="Admin_TabPlans" xml:space="preserve">
+    <value>Kullanıcı sürümleri</value>
+  </data>
+  <data name="PA_Hint" xml:space="preserve">
+    <value>Henüz ödeme yok — sürümü yönetici elle verir. Tarih geçince kullanıcı kendiliğinden Bronz'a döner.</value>
+  </data>
+  <data name="PA_User" xml:space="preserve">
+    <value>Kullanıcı adı ya da ID</value>
+  </data>
+  <data name="PA_Plan" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+  <data name="PA_Until" xml:space="preserve">
+    <value>Geçerlilik tarihi</value>
+  </data>
+  <data name="PA_Save" xml:space="preserve">
+    <value>Ayarla</value>
+  </data>
+  <data name="PA_Saved" xml:space="preserve">
+    <value>Kaydedildi</value>
+  </data>
+  <data name="PA_Err_NO_USER" xml:space="preserve">
+    <value>Bu kullanıcı adıyla bir kullanıcı yok</value>
+  </data>
+  <data name="PA_Err_BAD_DATE" xml:space="preserve">
+    <value>Tarih gelecekte olmalı</value>
+  </data>
+  <data name="PA_List" xml:space="preserve">
+    <value>Ücretli kullanıcı sayısı: {0}</value>
+  </data>
+  <data name="FS_Instant" xml:space="preserve">
+    <value>Öğretmenler kontrol olmadan hemen katılır: okulunu gir, panel açılsın.</value>
+  </data>
+  <data name="RP_Excel" xml:space="preserve">
+    <value>Excel indir</value>
+  </data>
+  <data name="TE_ColTotal" xml:space="preserve">
+    <value>Toplam kelime</value>
+  </data>
+  <data name="Admin_TabVideos" xml:space="preserve">
+    <value>Konu videoları</value>
+  </data>
+  <data name="VD_Hint" xml:space="preserve">
+    <value>Bir video bir öğrenim diline, kitaba ve konuya aittir. Öğrenci kendi öğrenim dilinin videosunu görür. Dosya mp4 olmalı (en iyisi 720p, en fazla 500 MB).</value>
+  </data>
+  <data name="VD_Lang" xml:space="preserve">
+    <value>Öğrenim dili</value>
+  </data>
+  <data name="VD_Book" xml:space="preserve">
+    <value>Kitap</value>
+  </data>
+  <data name="VD_Topic" xml:space="preserve">
+    <value>Konu</value>
+  </data>
+  <data name="VD_File" xml:space="preserve">
+    <value>Video dosyası (mp4)</value>
+  </data>
+  <data name="VD_Big" xml:space="preserve">
+    <value>dosya büyük: 720p'ye sıkıştırman daha iyi olur</value>
+  </data>
+  <data name="VD_WillReplace" xml:space="preserve">
+    <value>mevcut videonun yerini alacak</value>
+  </data>
+  <data name="VD_Uploading" xml:space="preserve">
+    <value>Yükleniyor…</value>
+  </data>
+  <data name="VD_Upload" xml:space="preserve">
+    <value>Yükle</value>
+  </data>
+  <data name="VD_Status" xml:space="preserve">
+    <value>{0}, kitap {1}: {3} konudan {2} tanesinde video var</value>
+  </data>
+  <data name="VD_Watch" xml:space="preserve">
+    <value>İzle</value>
+  </data>
+  <data name="VD_Replace" xml:space="preserve">
+    <value>Değiştir</value>
+  </data>
+  <data name="VD_None" xml:space="preserve">
+    <value>video yok</value>
+  </data>
+  <data name="VD_Err_NOT_MP4" xml:space="preserve">
+    <value>Bu bir mp4 video değil. Bir mp4 dosyası seç.</value>
+  </data>
+  <data name="VD_Err_TOO_BIG" xml:space="preserve">
+    <value>Dosya 500 MB'dan büyük. Videoyu 720p'ye sıkıştır.</value>
+  </data>
+  <data name="VD_Saved" xml:space="preserve">
+    <value>Video kaydedildi: {0}, kitap {1}, konu {2}</value>
+  </data>
+  <data name="VD_ConfirmDelete" xml:space="preserve">
+    <value>Video silinsin mi ({0}, kitap {1}, konu {2})?</value>
+  </data>
+  <data name="VD_Deleted" xml:space="preserve">
+    <value>Video silindi</value>
+  </data>
+  <data name="Settings_MyId" xml:space="preserve">
+    <value>ID'n</value>
+  </data>
+  <data name="Settings_MyIdHint" xml:space="preserve">
+    <value>Bu ID ödemeler için kullanılır: bir sürüm için öderken bu ID'yi söyle ya da gir.</value>
+  </data>
+  <data name="Settings_CopyId" xml:space="preserve">
+    <value>Kopyala</value>
+  </data>
+  <data name="Settings_IdCopied" xml:space="preserve">
+    <value>Kopyalandı</value>
+  </data>
+  <data name="Money_Balance" xml:space="preserve">
+    <value>Bakiye</value>
+  </data>
+  <data name="Money_Currency" xml:space="preserve">
+    <value>UZS</value>
+  </data>
+  <data name="PP_Monthly" xml:space="preserve">
+    <value>Aylık</value>
+  </data>
+  <data name="PP_Yearly" xml:space="preserve">
+    <value>Yıllık</value>
+  </data>
+  <data name="PP_PerYear" xml:space="preserve">
+    <value>yılda</value>
+  </data>
+  <data name="PP_Period_month" xml:space="preserve">
+    <value>bir ay</value>
+  </data>
+  <data name="PP_Period_year" xml:space="preserve">
+    <value>bir yıl</value>
+  </data>
+  <data name="PP_TopUpHint" xml:space="preserve">
+    <value>Bakiyeyi öğrenci ya da herkes yükleyebilir: sadece ID'yi söylemek yeterli. Payme, Click ve Paynet ile yükleme yakında geliyor; şimdilik bakiyeyi yönetici yüklüyor.</value>
+  </data>
+  <data name="PP_BuyFor" xml:space="preserve">
+    <value>{0} UZS'ye satın al</value>
+  </data>
+  <data name="PP_Extend" xml:space="preserve">
+    <value>{0} UZS'ye uzat</value>
+  </data>
+  <data name="PP_NotEnough" xml:space="preserve">
+    <value>{0} UZS eksik</value>
+  </data>
+  <data name="PP_Soon" xml:space="preserve">
+    <value>Yakında</value>
+  </data>
+  <data name="PP_HigherActive" xml:space="preserve">
+    <value>Şu anda daha yüksek bir sürüm geçerli</value>
+  </data>
+  <data name="PP_Confirm" xml:space="preserve">
+    <value>{0} sürümü {1} için {2} UZS'ye satın alınsın mı? Para bakiyeden düşülür.</value>
+  </data>
+  <data name="PP_ConfirmReplace" xml:space="preserve">
+    <value>«{0}» şu anda geçerli: yenisiyle değiştirilecek ve kalan süresi kaybolacak.</value>
+  </data>
+  <data name="PP_Yes" xml:space="preserve">
+    <value>Onayla</value>
+  </data>
+  <data name="PP_Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="PP_Bought" xml:space="preserve">
+    <value>Tamam! {0}, {1} tarihine kadar geçerli. Kalan bakiye: {2} UZS.</value>
+  </data>
+  <data name="PP_Err_NOT_ENOUGH" xml:space="preserve">
+    <value>Bakiyede yeterli para yok.</value>
+  </data>
+  <data name="PP_Err_NO_PRICE" xml:space="preserve">
+    <value>Bu sürümün fiyatı henüz belirlenmedi.</value>
+  </data>
+  <data name="PP_Err_HIGHER_ACTIVE" xml:space="preserve">
+    <value>Şu anda daha yüksek bir sürüm geçerli.</value>
+  </data>
+  <data name="PP_Err_BAD_PLAN" xml:space="preserve">
+    <value>Bilinmeyen sürüm.</value>
+  </data>
+  <data name="PP_Err_BAD_PERIOD" xml:space="preserve">
+    <value>Bilinmeyen süre.</value>
+  </data>
+  <data name="PP_History" xml:space="preserve">
+    <value>Son işlemler</value>
+  </data>
+  <data name="PP_TxPurchase" xml:space="preserve">
+    <value>Satın alma: {0}, {1}</value>
+  </data>
+  <data name="PP_TxTopUp" xml:space="preserve">
+    <value>Bakiye yükleme ({0})</value>
+  </data>
+  <data name="PP_TxAdmin" xml:space="preserve">
+    <value>yönetici</value>
+  </data>
+  <data name="Admin_TabPrices" xml:space="preserve">
+    <value>Sürüm fiyatları</value>
+  </data>
+  <data name="Admin_TabBalance" xml:space="preserve">
+    <value>Bakiye yükleme</value>
+  </data>
+  <data name="PR_Hint" xml:space="preserve">
+    <value>Dönem için UZS cinsinden fiyat. Boş ya da 0: bu sürüm bu dönem için henüz satın alınamaz.</value>
+  </data>
+  <data name="PR_Save" xml:space="preserve">
+    <value>Fiyatları kaydet</value>
+  </data>
+  <data name="PR_Saved" xml:space="preserve">
+    <value>Fiyatlar kaydedildi</value>
+  </data>
+  <data name="PR_Err_BAD_PRICE" xml:space="preserve">
+    <value>Hatalı fiyat</value>
+  </data>
+  <data name="BA_Hint" xml:space="preserve">
+    <value>Ödeme hizmetleri bağlanana kadar bakiyeyi yönetici elle yükler (kullanıcı adı ya da ID ile). Payme, Click ve Paynet de aynı şekilde, öğrencinin ID'siyle yükleyecek.</value>
+  </data>
+  <data name="BA_Amount" xml:space="preserve">
+    <value>Miktar</value>
+  </data>
+  <data name="BA_Note" xml:space="preserve">
+    <value>Not (isteğe bağlı)</value>
+  </data>
+  <data name="BA_Do" xml:space="preserve">
+    <value>Yükle</value>
+  </data>
+  <data name="BA_Done" xml:space="preserve">
+    <value>{0} kullanıcısının bakiyesi yüklendi. Şimdi: {1} UZS</value>
+  </data>
+  <data name="BA_Err_NO_USER" xml:space="preserve">
+    <value>Böyle bir kullanıcı yok</value>
+  </data>
+  <data name="BA_Err_BAD_AMOUNT" xml:space="preserve">
+    <value>Hatalı miktar</value>
+  </data>
+  <data name="BA_History" xml:space="preserve">
+    <value>Son yüklemeler ve satın almalar</value>
+  </data>
+  <data name="Login_TooMany" xml:space="preserve">
+    <value>Çok fazla yanlış deneme. {0} dakika bekle ve tekrar dene.</value>
+  </data>
+  <data name="Ad_Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Admin_TabAds" xml:space="preserve">
+    <value>Reklamlar</value>
+  </data>
+  <data name="Admin_Ad_Hint" xml:space="preserve">
+    <value>Ücretsiz sürümün (Bronz) kayıtlı öğrencileri, zamanı gelince sitede ve uygulamalarda reklam penceresini görür. Herhangi iki reklam arasında öğrenciye 10 dakikalık bir ara verilir; oyun ya da sınav sırasında hiçbir şey gösterilmez. Saatler Taşkent saatine (UTC+5) göredir.</value>
+  </data>
+  <data name="Admin_Ad_New" xml:space="preserve">
+    <value>Yeni reklam</value>
+  </data>
+  <data name="Admin_Ad_Empty" xml:space="preserve">
+    <value>Henüz reklam yok</value>
+  </data>
+  <data name="Admin_Ad_Title" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="Admin_Ad_Text" xml:space="preserve">
+    <value>Reklam metni (HTML)</value>
+  </data>
+  <data name="Admin_Ad_TextHint" xml:space="preserve">
+    <value>İzin verilenler: &lt;p&gt;, &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;br&gt;, &lt;ul&gt;/&lt;ol&gt;/&lt;li&gt;, &lt;h3&gt;, &lt;a href="https://…"&gt;. Diğer her şey kaldırılır.</value>
+  </data>
+  <data name="Admin_Ad_Image" xml:space="preserve">
+    <value>Resim (isteğe bağlı, en fazla 1 MB)</value>
+  </data>
+  <data name="Admin_Ad_ImageRemove" xml:space="preserve">
+    <value>Resmi kaldır</value>
+  </data>
+  <data name="Admin_Ad_Mode" xml:space="preserve">
+    <value>Ne zaman gösterilir</value>
+  </data>
+  <data name="Admin_Ad_ModeFixed" xml:space="preserve">
+    <value>Sabit: ayarlanan andan itibaren bir kez</value>
+  </data>
+  <data name="Admin_Ad_ModePeriodic" xml:space="preserve">
+    <value>Periyodik: belirli aralıklarla tekrar tekrar</value>
+  </data>
+  <data name="Admin_Ad_Starts" xml:space="preserve">
+    <value>Başlangıç</value>
+  </data>
+  <data name="Admin_Ad_Ends" xml:space="preserve">
+    <value>Bitiş (isteğe bağlı)</value>
+  </data>
+  <data name="Admin_Ad_Every" xml:space="preserve">
+    <value>Şu aralıkla tekrarla</value>
+  </data>
+  <data name="Admin_Ad_Minutes" xml:space="preserve">
+    <value>dk</value>
+  </data>
+  <data name="Admin_Ad_Hours" xml:space="preserve">
+    <value>sa</value>
+  </data>
+  <data name="Admin_Ad_Days" xml:space="preserve">
+    <value>gün</value>
+  </data>
+  <data name="Admin_Ad_Lang" xml:space="preserve">
+    <value>Dil için</value>
+  </data>
+  <data name="Admin_Ad_LangAll" xml:space="preserve">
+    <value>herkes için</value>
+  </data>
+  <data name="Admin_Ad_Active" xml:space="preserve">
+    <value>Göster (açık)</value>
+  </data>
+  <data name="Admin_Ad_On" xml:space="preserve">
+    <value>açık</value>
+  </data>
+  <data name="Admin_Ad_Off" xml:space="preserve">
+    <value>kapalı</value>
+  </data>
+  <data name="Admin_Ad_Save" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="Admin_Ad_Preview" xml:space="preserve">
+    <value>Önizleme</value>
+  </data>
+  <data name="Admin_Ad_Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Admin_Ad_Edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="Admin_Ad_Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Admin_Ad_Reset" xml:space="preserve">
+    <value>Herkese tekrar göster</value>
+  </data>
+  <data name="Admin_Ad_Saved" xml:space="preserve">
+    <value>Kaydedildi</value>
+  </data>
+  <data name="Admin_Ad_Deleted" xml:space="preserve">
+    <value>Silindi</value>
+  </data>
+  <data name="Admin_Ad_ResetDone" xml:space="preserve">
+    <value>Gösterimler sıfırlandı: reklam herkese tekrar gösterilecek</value>
+  </data>
+  <data name="Admin_Ad_Stats" xml:space="preserve">
+    <value>Gören: {0} · gösterim: {1}</value>
+  </data>
+  <data name="Admin_Ad_Never" xml:space="preserve">
+    <value>henüz gösterilmedi</value>
+  </data>
+  <data name="Admin_Ad_ConfirmDelete" xml:space="preserve">
+    <value>"{0}" reklamı silinsin mi?</value>
+  </data>
+  <data name="Admin_Ad_SummaryFixed" xml:space="preserve">
+    <value>bir kez, {0} itibariyle</value>
+  </data>
+  <data name="Admin_Ad_SummaryPeriodic" xml:space="preserve">
+    <value>her {0}'da bir, {1} itibariyle</value>
+  </data>
+  <data name="Admin_Ad_Err_NO_TITLE" xml:space="preserve">
+    <value>Bir başlık gir</value>
+  </data>
+  <data name="Admin_Ad_Err_NO_TEXT" xml:space="preserve">
+    <value>Reklam metnini gir</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_MODE" xml:space="preserve">
+    <value>Gösterim zamanı hatalı</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_INTERVAL" xml:space="preserve">
+    <value>Aralık en az 5 dakika olmalı</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_LANG" xml:space="preserve">
+    <value>Dil hatalı</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_DATES" xml:space="preserve">
+    <value>Bitiş, başlangıçtan sonra olmalı</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_IMAGE" xml:space="preserve">
+    <value>Resim uygun değil (en fazla 1 MB png, jpeg, webp ya da gif)</value>
+  </data>
+  <data name="Admin_Ad_ModeDaily" xml:space="preserve">
+    <value>Her gün: ayarlanan saatten itibaren günde bir kez</value>
+  </data>
+  <data name="Admin_Ad_DailyAt" xml:space="preserve">
+    <value>Şu saatten göster (Taşkent saati)</value>
+  </data>
+  <data name="Admin_Ad_SummaryDaily" xml:space="preserve">
+    <value>her gün {0}'dan itibaren, {1} tarihinden başlayarak</value>
+  </data>
+  <data name="Admin_Ad_HtmlSource" xml:space="preserve">
+    <value>HTML kodu</value>
+  </data>
+  <data name="Admin_Ad_Visual" xml:space="preserve">
+    <value>Düzenleyici</value>
+  </data>
+  <data name="Admin_Ad_Err_BAD_TIME" xml:space="preserve">
+    <value>Günün saati hatalı</value>
+  </data>
+  <data name="Nav_Journal" xml:space="preserve">
+    <value>Defter</value>
+  </data>
+  <data name="TJ_Title" xml:space="preserve">
+    <value>Geçilen konular defteri</value>
+  </data>
+  <data name="TJ_Class" xml:space="preserve">
+    <value>Grup</value>
+  </data>
+  <data name="TJ_Teacher" xml:space="preserve">
+    <value>Öğretmen</value>
+  </data>
+  <data name="TJ_School" xml:space="preserve">
+    <value>Okul</value>
+  </data>
+  <data name="TJ_Year" xml:space="preserve">
+    <value>Eğitim yılı</value>
+  </data>
+  <data name="TJ_Words" xml:space="preserve">
+    <value>kelime {0}–{1}</value>
+  </data>
+  <data name="TJ_Topics" xml:space="preserve">
+    <value>{0} konu</value>
+  </data>
+  <data name="TJ_Pupil" xml:space="preserve">
+    <value>Öğrencinin soyadı ve adı</value>
+  </data>
+  <data name="TJ_Passed" xml:space="preserve">
+    <value>Geçildi</value>
+  </data>
+  <data name="TJ_Legend" xml:space="preserve">
+    <value>konu geçildi. Konuyu işaretlemek için boş bir hücreye tıkla; işareti kaldırmak için bir onay işaretine tıkla (onay işaretinin ipucu, konulduğu günü gösterir).</value>
+  </data>
+  <data name="TJ_LegendApp" xml:space="preserve">
+    <value>— öğrenci konuyu uygulamada geçti (sözlü sınavdan önceki bir ipucu)</value>
+  </data>
+  <data name="TJ_AppHint" xml:space="preserve">
+    <value>Uygulamada geçildi</value>
+  </data>
+  <data name="TJ_NoPupils" xml:space="preserve">
+    <value>Grupta henüz onaylanmış öğrenci yok. Sınıfa katılma isteklerini onayladığında burada görünürler.</value>
+  </data>
+  <data name="TJ_Excel" xml:space="preserve">
+    <value>Excel: bu kitap</value>
+  </data>
+  <data name="TJ_ExcelAll" xml:space="preserve">
+    <value>Excel: tüm kitaplar</value>
+  </data>
+  <data name="TJ_Date" xml:space="preserve">
+    <value>Geçilme tarihi</value>
+  </data>
+  <data name="TJ_Save" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="TJ_Clear" xml:space="preserve">
+    <value>İşareti kaldır</value>
+  </data>
+  <data name="TJ_Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="TJ_Err_BAD_DATE" xml:space="preserve">
+    <value>Hatalı tarih</value>
+  </data>
+  <data name="TJ_Err_NO_PUPIL" xml:space="preserve">
+    <value>Öğrenci bu grupta değil</value>
+  </data>
+  <data name="TJ_Err_NO_TOPIC" xml:space="preserve">
+    <value>Konu bulunamadı</value>
+  </data>
+  <data name="Settings_Back" xml:space="preserve">
+    <value>← Ayarlar</value>
+  </data>
+  <data name="Settings_Saved" xml:space="preserve">
+    <value>Kaydedildi ✓</value>
+  </data>
+  <data name="Settings_SecProfile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Settings_SecProfileSub" xml:space="preserve">
+    <value>Ad, soyad, telefon</value>
+  </data>
+  <data name="Settings_SecTeam" xml:space="preserve">
+    <value>Okul ve sınıf</value>
+  </data>
+  <data name="Settings_SecTeamSub" xml:space="preserve">
+    <value>Öğretmeninin onayladığı grup</value>
+  </data>
+  <data name="Settings_SecLearning" xml:space="preserve">
+    <value>Öğrenme</value>
+  </data>
+  <data name="Settings_SecLearningSub" xml:space="preserve">
+    <value>Öğrenim ve çeviri dilleri, günlük hedef</value>
+  </data>
+  <data name="Settings_SecLook" xml:space="preserve">
+    <value>Görünüm ve dil</value>
+  </data>
+  <data name="Settings_SecLookSub" xml:space="preserve">
+    <value>Tema, uygulama dili</value>
+  </data>
+  <data name="Settings_SecBotSub" xml:space="preserve">
+    <value>Telegram'da hatırlatmalar ve ilerleme</value>
+  </data>
+  <data name="Settings_SecSecurity" xml:space="preserve">
+    <value>Güvenlik</value>
+  </data>
+  <data name="Settings_SecSecuritySub" xml:space="preserve">
+    <value>Kullanıcı adı, şifre, adımı gizle</value>
+  </data>
+  <data name="Settings_SecAbout" xml:space="preserve">
+    <value>Uygulama hakkında</value>
+  </data>
+  <data name="Settings_SecAboutSub" xml:space="preserve">
+    <value>Gizlilik politikası, QR ile giriş</value>
+  </data>
+  <data name="Settings_Version" xml:space="preserve">
+    <value>Uygulama sürümü {0}</value>
+  </data>
+  <data name="Settings_SecDeleteSub" xml:space="preserve">
+    <value>Hesabı ve verileri kalıcı olarak sil</value>
+  </data>
+  <data name="Settings_AutoSaved" xml:space="preserve">
+    <value>Otomatik olarak kaydedilir</value>
+  </data>
+  <data name="Settings_AppTransLinkedHint" xml:space="preserve">
+    <value>Arayüz dili, çeviri diliyle birlikte değişir</value>
+  </data>
+  <data name="Dl_Title" xml:space="preserve">
+    <value>Jumbo ile her yerde, her zaman öğren</value>
+  </data>
+  <data name="Dl_Text" xml:space="preserve">
+    <value>Telefonundaki uygulama: okulda, evde ya da yolda çalış — ilerlemen hep seninle.</value>
+  </data>
+  <data name="Dl_Get" xml:space="preserve">
+    <value>İndir:</value>
+  </data>
+  <data name="Dl_Avail" xml:space="preserve">
+    <value>Şuradan edin:</value>
+  </data>
+  <data name="Dl_For" xml:space="preserve">
+    <value>Şunun için indir:</value>
+  </data>
+  <data name="Foot_Bot" xml:space="preserve">
+    <value>Telegram botumuz</value>
+  </data>
+  <data name="Foot_Share" xml:space="preserve">
+    <value>Paylaş:</value>
+  </data>
+  <data name="Foot_Copy" xml:space="preserve">
+    <value>Bağlantıyı kopyala</value>
+  </data>
+  <data name="Foot_Copied" xml:space="preserve">
+    <value>Bağlantı kopyalandı</value>
+  </data>
+  <data name="Foot_IgHint" xml:space="preserve">
+    <value>Instagram'da paylaş düğmesi yok: bağlantı kopyalandı, bir hikayeye ya da mesaja yapıştır.</value>
+  </data>
+  <data name="Foot_ShareText" xml:space="preserve">
+    <value>Jumbo — oynayarak İngilizce öğren</value>
+  </data>
+  <data name="Exam_KindTitle" xml:space="preserve">
+    <value>Sınav türü</value>
+  </data>
+  <data name="Exam_KindType" xml:space="preserve">
+    <value>Yazma</value>
+  </data>
+  <data name="Exam_KindTypeHint" xml:space="preserve">
+    <value>Gördüğün çeviri için kelimeyi yaz.</value>
+  </data>
+  <data name="Exam_KindTest" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Exam_KindTestHint" xml:space="preserve">
+    <value>Dört kelimeden doğru olanı seç.</value>
+  </data>
+  <data name="ExamQuiz_TestHint" xml:space="preserve">
+    <value>Doğru kelimeyi seç</value>
+  </data>
+  <data name="ExamQuiz_Resumed" xml:space="preserve">
+    <value>Sınav kaldığın yerden devam ediyor.</value>
+  </data>
+  <data name="Nav_Learn" xml:space="preserve">
+    <value>Öğrenme</value>
+  </data>
+  <data name="LivesOut_Title" xml:space="preserve">
+    <value>Canlar bitti</value>
+  </data>
+  <data name="LivesOut_Text" xml:space="preserve">
+    <value>Artık bir hata LP puanlarını azaltır. LP de bitince oyun 5 saat bekler.</value>
+  </data>
+  <data name="LivesOut_Ok" xml:space="preserve">
+    <value>Anladım</value>
+  </data>
+  <data name="Nav_Reports" xml:space="preserve">
+    <value>Raporlar</value>
+  </data>
+  <data name="RP_AllTeamsTitle" xml:space="preserve">
+    <value>Tüm sınıfların raporu</value>
+  </data>
+  <data name="RP_PickTeam" xml:space="preserve">
+    <value>Raporunu açmak için bir sınıfa dokun.</value>
+  </data>
+</root>
+
+

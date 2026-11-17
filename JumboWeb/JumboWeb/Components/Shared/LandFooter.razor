@@ -103,7 +103,7 @@
         try
         {
             await Prefs.EnsureLoadedAsync();
-            var lang = Prefs.AppLangId switch { 2 => "ru", 3 => "uz", _ => "en" };
+            var lang = Prefs.AppLangId switch { 2 => "ru", 3 => "uz", 4 => "tr", _ => "en" };
             _state = await ApiClient.SubscribeAsync(_email, lang, _message, _news) ? "done" : "bad";
         }
         catch { _state = "fail"; }

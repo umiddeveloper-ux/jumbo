@@ -34,6 +34,7 @@
                         <ctl:ChipGroup Items="{Binding ThemeChips}" SelectedKey="{Binding ThemeKey, Mode=TwoWay}" />
                         <Label Text="{u:Tr Key=AppLanguage}" FontFamily="NunitoExtraBold" FontSize="14" Margin="0,6,0,0" />
                         <ctl:ChipGroup Items="{Binding LanguageChips}" SelectedKey="{Binding AppLanguageKey, Mode=TwoWay}" />
+                        <Label Text="{u:Tr Key=Settings_AppTransLinkedHint}" Style="{StaticResource Hint}" />
                     </VerticalStackLayout>
                 </Border>
                 <Border Style="{StaticResource CardStyle}" StrokeShape="RoundRectangle 22" Padding="16">

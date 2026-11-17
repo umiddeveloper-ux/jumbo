@@ -31,7 +31,7 @@ public class SubscribeController(AppDbContext db) : ControllerBase
             if (++_inWindow > MaxPerHour) return StatusCode(429, new { error = "TOO_MANY" });
         }
 
-        var lang = request.Lang is "ru" or "en" or "uz" ? request.Lang : "ru";
+        var lang = request.Lang is "ru" or "en" or "uz" or "tr" ? request.Lang : "ru";
         var message = (request.Message ?? string.Empty).Trim();
         if (message.Length > 1000) message = message[..1000];
         bool news = request.Subscribe ?? true;
