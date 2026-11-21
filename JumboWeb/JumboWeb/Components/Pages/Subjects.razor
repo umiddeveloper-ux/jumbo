@@ -40,7 +40,7 @@ else
                     </svg>
                     <div class="subject-svg"><span class="subject-num">@s.SequenceNumber</span></div>
                 </div>
-                <div class="subject-name">@s.SubjectName</div>
+                <div class="subject-name">@Loc.Topic(s)</div>
                 @if (pct >= 100)
                 {
                     <div class="subject-passed">@Loc["Subjects_Passed"]</div>

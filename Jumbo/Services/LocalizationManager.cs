@@ -22,6 +22,10 @@ public sealed class LocalizationManager : INotifyPropertyChanged
 
     public static string Format(string key, params object[] args) => string.Format(Get(key), args);
 
+    // The name of a topic in the app's language (the books keep one English name; Turkish has its own).
+    public static string Topic(Jumbo.Shared.Entities.Subject s) =>
+        Jumbo.Shared.TopicNames.Localize(LocalizationService.CurrentCode, s.BookId, s.SequenceNumber, s.SubjectName);
+
     // An empty property name means "everything changed": MAUI re-reads every [key] indexer binding
     // (naming "Item[]" is not enough on Android, so most captions kept the old language).
     public void Refresh() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(string.Empty));

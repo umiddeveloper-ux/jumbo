@@ -67,7 +67,7 @@ public partial class SubjectDetailPageModel : ObservableObject
             var subject = await subjectTask;
             if (subject != null)
             {
-                SubjectName = subject.SubjectName;
+                SubjectName = LocalizationManager.Topic(subject);
                 TopicNumber = subject.SequenceNumber;
                 _ = PrepareVideoAsync(subject.BookId, subject.SequenceNumber);     // does not hold the page back
             }
@@ -119,7 +119,7 @@ public partial class SubjectDetailPageModel : ObservableObject
             IsBusy = false;
             bool go = await Shell.Current.DisplayAlertAsync(
                 "🔒 " + LocalizationManager.Get("Topic_LockedTitle"),
-                LocalizationManager.Format("Topic_LockedText", cur.SubjectName),
+                LocalizationManager.Format("Topic_LockedText", LocalizationManager.Topic(cur)),
                 LocalizationManager.Get("Topic_Go"),
                 LocalizationManager.Get("Topic_Understood"));
             await Shell.Current.GoToAsync("..");

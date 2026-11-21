@@ -24,7 +24,7 @@ else
             <span class="continue-tiger"><Tiger Head="true" Size="68" /></span>
             <span class="continue-text">
                 <span class="continue-label">@Loc[ProgressOf(_current) > 0 ? "Path_Continue" : "Path_Start"]</span>
-                <span class="continue-topic">@Loc.Format("Common_BookLabel", _current.BookId) · @_current.SubjectName</span>
+                <span class="continue-topic">@Loc.Format("Common_BookLabel", _current.BookId) · @Loc.Topic(_current)</span>
             </span>
             <span class="continue-play">@Loc["Path_Play"]</span>
         </a>
@@ -244,7 +244,7 @@ else
         if (!unlocked) return Loc["BookCard_Locked"];
         if (progress >= 100) return Loc["BookCard_Done"];
         var cur = _subjectsByBook.TryGetValue(bn, out var subs) ? subs.FirstOrDefault(s => ProgressOf(s) < 100) : null;
-        return cur is null ? string.Empty : Loc.Format("BookCard_Current", cur.SubjectName);
+        return cur is null ? string.Empty : Loc.Format("BookCard_Current", Loc.Topic(cur));
     }
 
     private static double SubjectWonFraction(int subjectId, Dictionary<int, UserSubjectProgress> progressMap)

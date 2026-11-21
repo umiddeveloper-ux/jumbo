@@ -13,7 +13,7 @@ public class TopicRow
 {
     public int Index { get; init; }
     public Subject Subject { get; init; } = null!;
-    public string Name => Subject.SubjectName;
+    public string Name => LocalizationManager.Topic(Subject);
     public string State { get; init; } = "future";      // done | current | started | future
     public int Pct { get; init; }
     public int Parts { get; init; }                     // 0..3: how many of the three counted games are won

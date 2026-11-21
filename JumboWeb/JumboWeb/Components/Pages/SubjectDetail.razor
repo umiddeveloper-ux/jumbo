@@ -8,7 +8,7 @@
 @inject NavigationManager Nav
 @inject IJSRuntime JS
 
-<PageTitle>@(_subject?.SubjectName ?? Loc["SubjectDetail_FallbackTitle"]) — Jumbo</PageTitle>
+<PageTitle>@(_subject is null ? Loc["SubjectDetail_FallbackTitle"] : Loc.Topic(_subject)) — Jumbo</PageTitle>
 
 <div class="topic-top">
     <button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backFromTopic", BookNumber)'>@Loc["SubjectDetail_BackToTopics"]</button>
@@ -32,7 +32,7 @@ else if (_subject == null)
 else if (_needToPass is not null)
 {
     @* the topic before this one is not passed yet *@
-    <TopicLockedDialog CurrentName="@_needToPass.SubjectName" OnClose="BackToBook" OnGo="GoToNeeded" />
+    <TopicLockedDialog CurrentName="@Loc.Topic(_needToPass)" OnClose="BackToBook" OnGo="GoToNeeded" />
 }
 else
 {
@@ -43,7 +43,7 @@ else
         </div>
     </div>
 
-    <p class="lp-page-title" style="text-align:center">@_subject.SubjectName</p>
+    <p class="lp-page-title" style="text-align:center">@Loc.Topic(_subject)</p>
 
     <TopicVideo Book="BookNumber" Seq="_subject.SequenceNumber" Lang="@Jumbo.Shared.TopicVideoPaths.LanguageCode(Prefs.StudyLangId)" />
 

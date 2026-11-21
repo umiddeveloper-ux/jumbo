@@ -35,7 +35,7 @@ public partial class SubjectWordsPageModel : ObservableObject
             IsBusy = true;
 
             var subject = await _apiClient.GetSubjectByIdAsync(SubjectId);
-            SubjectName = subject?.SubjectName ?? string.Empty;
+            SubjectName = subject is null ? string.Empty : LocalizationManager.Topic(subject);
 
             var words = await _apiClient.GetAllWordsBySubjectAndLanguageAsync(SubjectId, UserLanguagePrefs.StudyLangId);
             var ordered = words.OrderBy(w => w.WordNumber).ThenBy(w => w.WordId).ToList();

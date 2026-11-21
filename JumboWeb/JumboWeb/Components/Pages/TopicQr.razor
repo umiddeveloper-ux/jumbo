@@ -8,7 +8,7 @@
 @inject IJSRuntime JS
 @inject AppLocalizer Loc
 
-<PageTitle>@(_subject?.SubjectName ?? "Jumbo") — Jumbo.uz</PageTitle>
+<PageTitle>@(_subject is null ? "Jumbo" : Loc.Topic(_subject)) — Jumbo.uz</PageTitle>
 
 @* The page a QR code of a topic opens: the words of the topic with their numbers, translation and sound. Open to everybody (no sign-in);
    instead of "Back" there is "Go to the website". *@
@@ -32,7 +32,7 @@
             <div class="tq-icon tq-num">@Seq</div>
             <div class="tq-hero-text">
                 <div class="tq-book">@Loc.Format("Common_BookLabel", BookNumber) · @Loc.Format("Tq_TopicNo", Seq)</div>
-                <h1 class="tq-title">@_subject.SubjectName</h1>
+                <h1 class="tq-title">@Loc.Topic(_subject)</h1>
                 @if (_rows.Count > 0)
                 {
                     <button type="button" class="lp-btn lp-btn-sm @(_playing ? "lp-btn-outline" : "")" @onclick="PlayAllAsync">

@@ -39,4 +39,7 @@ public class AppLocalizer
     }
 
     public string Format(string key, params object[] args) => string.Format(this[key], args);
+
+    // The name of a topic in the user's language (the books keep one English name; Turkish has its own).
+    public string Topic(Jumbo.Shared.Entities.Subject s) => Jumbo.Shared.TopicNames.Localize(_prefs.AppLangId, s.BookId, s.SequenceNumber, s.SubjectName);
 }

@@ -19,7 +19,7 @@
 }
 else
 {
-    <p class="lp-page-title" style="text-align:center">@(_subject?.SubjectName ?? Loc["Game_WordsTitle"])</p>
+    <p class="lp-page-title" style="text-align:center">@(_subject is null ? Loc["Game_WordsTitle"] : Loc.Topic(_subject))</p>
 
     @if (_rows.Count == 0)
     {

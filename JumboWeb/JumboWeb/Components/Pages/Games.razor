@@ -34,7 +34,7 @@ else
         @if (NextTopic(_game) is { } next)
         {
             <button type="button" class="lp-btn lp-btn-full games-next" @onclick="() => Play(_game, next.SubjectId)">
-                ▶ @Loc.Format("Games_Next", next.SubjectName)
+                ▶ @Loc.Format("Games_Next", Loc.Topic(next))
             </button>
         }
 
@@ -69,7 +69,7 @@ else
                         </svg>
                         <div class="subject-svg"><span class="subject-num">@s.SequenceNumber</span></div>
                     </div>
-                    <div class="subject-name">@s.SubjectName</div>
+                    <div class="subject-name">@Loc.Topic(s)</div>
                     @if (won)
                     {
                         <div class="subject-passed">@Loc["Subjects_Passed"]</div>

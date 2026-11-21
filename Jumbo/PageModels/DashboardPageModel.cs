@@ -262,7 +262,7 @@ public partial class DashboardPageModel : ObservableObject
             HasContinue = true;
             IsAllDone = false;
             ContinueLabel = LocalizationManager.Get(PctOf(cur) > 0 ? "Path_Continue" : "Path_Start");
-            ContinueTopic = $"{LocalizationManager.Format("Common_BookLabel", cur.BookId)} · {cur.SubjectName}";
+            ContinueTopic = $"{LocalizationManager.Format("Common_BookLabel", cur.BookId)} · {LocalizationManager.Topic(cur)}";
         }
         else
         {

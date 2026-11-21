@@ -128,7 +128,7 @@ public partial class GamesPageModel : ObservableObject
     {
         var next = _game is null ? null : NextTopic(_game.Key);
         HasNext = next is not null;
-        NextText = next is null ? string.Empty : "▶ " + LocalizationManager.Format("Games_Next", next.SubjectName);
+        NextText = next is null ? string.Empty : "▶ " + LocalizationManager.Format("Games_Next", LocalizationManager.Topic(next));
     }
 
     private async Task RefreshListAsync()
@@ -141,7 +141,7 @@ public partial class GamesPageModel : ObservableObject
         TopicsHeight = Math.Max(1, (int)Math.Ceiling(subs.Count / 3.0)) * 144;
         Topics = new ObservableCollection<GameTopicCard>(subs.Select(s => new GameTopicCard
         {
-            Id = s.SubjectId, Number = s.SequenceNumber, Name = s.SubjectName, Won = Won(_game?.Key, s.SubjectId),
+            Id = s.SubjectId, Number = s.SequenceNumber, Name = LocalizationManager.Topic(s), Won = Won(_game?.Key, s.SubjectId),
         }));
     }
 

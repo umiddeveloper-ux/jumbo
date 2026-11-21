@@ -56,7 +56,7 @@ public partial class SubjectsPageModel : ObservableObject
                 Subjects.Add(new SubjectItemViewModel
                 {
                     Id = subject.SubjectId,
-                    Name = subject.SubjectName,
+                    Name = LocalizationManager.Topic(subject),
                     Number = subject.SequenceNumber,
                     IsPassed = allWon
                 });
