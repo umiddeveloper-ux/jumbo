@@ -8,9 +8,9 @@
 @inject AppLocalizer Loc
 @inject IJSRuntime JS
 
-<PageTitle>@Loc["Dictionary_PageTitle"]</PageTitle>
+<PageTitle>@(UserState.IsStaffUser ? Loc["Nav_Dictionary"] + " — Jumbo" : Loc["Dictionary_PageTitle"])</PageTitle>
 
-<p class="lp-page-title">@Loc["Dictionary_Heading"]</p>
+<p class="lp-page-title">@(UserState.IsStaffUser ? "📖 " + Loc["Nav_Dictionary"] : Loc["Dictionary_Heading"])</p>
 
 <input class="lp-search" type="search" placeholder="@Loc["Dictionary_SearchPlaceholder"]"
        value="@_search" @oninput="OnSearchInput" />

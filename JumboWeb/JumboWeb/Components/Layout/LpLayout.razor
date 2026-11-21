@@ -60,7 +60,7 @@
                 <button class="lp-tab @(IsActive("little-polyglot/dictionary") ? "active" : "")"
                         @onclick='() => Go("/little-polyglot/dictionary")'>
                     <span class="tab-icon"><img src="icons/tab_dict.svg" alt="" /></span>
-                    <span class="tab-label">@Loc["DictionaryTitle"]</span>
+                    <span class="tab-label">@Loc[UserState.IsStaffUser ? "Nav_Dictionary" : "DictionaryTitle"]</span>
                 </button>
                 <button class="lp-tab @(IsActive("little-polyglot/awards") ? "active" : "")"
                         @onclick='() => Go("/little-polyglot/awards")'>

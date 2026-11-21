@@ -76,6 +76,9 @@
   <data name="DashboardTitle" xml:space="preserve">
     <value>Asosy</value>
   </data>
+  <data name="Nav_Dictionary" xml:space="preserve">
+    <value>Lug'at</value>
+  </data>
   <data name="DictionaryTitle" xml:space="preserve">
     <value>Tarjimalar</value>
   </data>

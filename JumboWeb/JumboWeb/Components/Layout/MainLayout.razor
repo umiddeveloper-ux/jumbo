@@ -43,7 +43,7 @@
                 </button>
                 <button class="lp-tab @(IsActive("dictionary") ? "active" : "")" @onclick='() => Go("/dictionary")'>
                     <span class="tab-icon">📖</span>
-                    <span class="tab-label">@Loc["DictionaryTitle"]</span>
+                    <span class="tab-label">@Loc[UserState.IsStaffUser ? "Nav_Dictionary" : "DictionaryTitle"]</span>
                     @if (IsActive("dictionary")) { <div class="lp-tab-indicator"></div> }
                 </button>
                 <button class="lp-tab @(IsActive("awards") ? "active" : "")" @onclick='() => Go("/awards")'>

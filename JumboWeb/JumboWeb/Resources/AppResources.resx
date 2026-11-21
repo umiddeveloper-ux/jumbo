@@ -76,6 +76,9 @@
   <data name="DashboardTitle" xml:space="preserve">
     <value>Dashboard</value>
   </data>
+  <data name="Nav_Dictionary" xml:space="preserve">
+    <value>Dictionary</value>
+  </data>
   <data name="DictionaryTitle" xml:space="preserve">
     <value>Dictionary</value>
   </data>
