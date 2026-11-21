@@ -1429,6 +1429,18 @@
   <data name="TC_Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
+  <data name="TC_Rename" xml:space="preserve">
+    <value>Переименовать</value>
+  </data>
+  <data name="TC_Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="TC_DeleteClass" xml:space="preserve">
+    <value>Удалить команду</value>
+  </data>
+  <data name="TC_DeleteClassConfirm" xml:space="preserve">
+    <value>Удалить команду «{0}» навсегда? Ученики потеряют команду и учебное заведение, а результаты их экзаменов пропадут из отчётов. Это нельзя отменить.</value>
+  </data>
   <data name="TC_Err_NAME_EXISTS" xml:space="preserve">
     <value>Команда с таким названием в вашем учебном заведении уже есть.</value>
   </data>

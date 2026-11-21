@@ -34,6 +34,26 @@ else
             <a class="lp-btn lp-btn-sm" href="/teacher/class/@Id/report">📊 @Loc["RP_OpenTeamReport"]</a>
             <button type="button" class="tc-link" disabled="@_busy" @onclick="ToggleArchiveAsync">@(_cls.IsArchived ? Loc["TC_Unarchive"] : Loc["TC_Archive"])</button>
             <p class="tc-hint">@Loc["TC_ArchiveHint"]</p>
+
+            @if (_editing)
+            {
+                <div class="tc-new-row">
+                    <input class="lp-input" type="text" maxlength="60" @bind="_editName" @bind:event="oninput" @onkeydown="OnEditKey" />
+                    <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="SaveNameAsync">@Loc["TC_Save"]</button>
+                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _editing = false">@Loc["TC_Cancel"]</button>
+                </div>
+            }
+            else if (_confirmDelete)
+            {
+                <span class="tc-confirm">@Loc.Format("TC_DeleteClassConfirm", _cls.Name)</span>
+                <button type="button" class="lp-btn lp-btn-sm adm-danger" disabled="@_busy" @onclick="DeleteClassAsync">@Loc["TC_Confirm"]</button>
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _confirmDelete = false">@Loc["TC_Cancel"]</button>
+            }
+            else
+            {
+                <button type="button" class="tc-link" disabled="@_busy" @onclick="StartEdit">✎ @Loc["TC_Rename"]</button>
+                <button type="button" class="tc-link" disabled="@_busy" @onclick="() => _confirmDelete = true">🗑 @Loc["TC_DeleteClass"]</button>
+            }
         </div>
 
         @if (!string.IsNullOrEmpty(_error))
@@ -144,6 +164,8 @@ else
     private List<PendingStudentDto> _pending = new();
     private string _error = string.Empty;
     private int _confirmRemove;
+    private bool _editing, _confirmDelete;
+    private string _editName = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
@@ -169,6 +191,43 @@ else
     private async Task ToggleArchiveAsync()
     {
         await RunAsync(async () => _cls = await ApiClient.TeacherSetArchivedAsync(Id, !_cls!.IsArchived) ?? _cls);
+    }
+
+    private void StartEdit()
+    {
+        _editName = _cls!.Name;
+        _editing = true;
+    }
+
+    private async Task OnEditKey(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter") await SaveNameAsync();
+        else if (e.Key == "Escape") _editing = false;
+    }
+
+    private async Task SaveNameAsync()
+    {
+        if (string.IsNullOrWhiteSpace(_editName))
+        {
+            _error = Loc["TC_NameRequired"];
+            return;
+        }
+
+        await RunAsync(async () =>
+        {
+            _cls = await ApiClient.TeacherRenameClassAsync(Id, _editName.Trim()) ?? _cls;
+            _editing = false;
+            await LoadAsync();
+        });
+    }
+
+    private async Task DeleteClassAsync()
+    {
+        await RunAsync(async () =>
+        {
+            await ApiClient.TeacherDeleteClassAsync(Id);
+            Nav.NavigateTo("/teacher");
+        });
     }
 
     private async Task ApproveAsync(PendingStudentDto student)

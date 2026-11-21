@@ -30,25 +30,6 @@
         @* No lives and no LP: the 5-hour block, and the exam is closed until it is over (the same notice as in the games). *@
         <BlockNotice OnBack="LeaveBlocked" OnUnlocked="Unblocked" />
     }
-    else if (!_profileOk)
-    {
-        @* The exam needs the player's school and team: ask for them here, then go straight on to the exam. *@
-        <section class="exam-card exam-gate">
-            <h2 class="exam-gate-title">@Loc["Exam_GateTitle"]</h2>
-            <p class="exam-gate-text">@Loc["Exam_GateText"]</p>
-
-            <TeamPicker @bind-Region="_region" @bind-ClassId="_pickedClassId" />
-
-            @if (!string.IsNullOrEmpty(_gateError))
-            {
-                <p class="validation-message">@_gateError</p>
-            }
-
-            <button type="button" class="lp-btn lp-btn-full" disabled="@_saving" @onclick="SaveProfile">
-                @Loc["Exam_GateSave"] →
-            </button>
-        </section>
-    }
     else
     {
         <div class="exam-modes" role="tablist">
@@ -56,6 +37,27 @@
             <button type="button" role="tab" aria-selected="@(_teacherMode ? "true" : "false")" class="exam-mode @(_teacherMode ? "on" : "")" @onclick="() => SetMode(true)">🧑‍🏫 @Loc["Exam_ModeTeacher"]</button>
         </div>
 
+        @if (_teacherMode && !_profileOk)
+        {
+            @* The exam by a teacher's code feeds the team's report, so it needs the player's school and team (the free exam does not). *@
+            <section class="exam-card exam-gate">
+                <h2 class="exam-gate-title">@Loc["Exam_GateTitle"]</h2>
+                <p class="exam-gate-text">@Loc["Exam_GateText"]</p>
+
+                <TeamPicker @bind-Region="_region" @bind-ClassId="_pickedClassId" />
+
+                @if (!string.IsNullOrEmpty(_gateError))
+                {
+                    <p class="validation-message">@_gateError</p>
+                }
+
+                <button type="button" class="lp-btn lp-btn-full" disabled="@_saving" @onclick="SaveProfile">
+                    @Loc["Exam_GateSave"] →
+                </button>
+            </section>
+        }
+        else
+        {
         <section class="exam-card">
             <h2 class="exam-step"><span class="exam-step-num">1</span>@Loc["Exam_ChooseBook"]</h2>
             <div class="exam-books">
@@ -156,6 +158,7 @@
                 @Loc["Exam_StartButton"]
             </button>
         </div>
+        }
     }
 </div>
 

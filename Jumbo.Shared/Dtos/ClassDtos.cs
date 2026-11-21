@@ -10,6 +10,11 @@ public class SetArchivedRequest
     public bool IsArchived { get; set; }
 }
 
+public class RenameClassRequest
+{
+    public string Name { get; set; } = null!;
+}
+
 // A learner picks a team from the school's list (the school comes with the team).
 public class SelectTeamRequest
 {

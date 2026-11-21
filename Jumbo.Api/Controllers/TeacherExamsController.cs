@@ -107,7 +107,9 @@ public class TeacherExamsController(AppDbContext db, ICurrentUserService current
         return new TeacherExamDetailDto
         {
             Exam = Summary(exam, rows.Select(r => (r.TotalCount, r.CorrectCount)).ToList()),
-            Results = rows
+            // the best result first
+            Results = rows.OrderByDescending(r => r.Percent).ThenByDescending(r => r.CorrectCount)
+                .ThenBy(r => r.Name, StringComparer.CurrentCultureIgnoreCase).ToList()
         };
     }
 
@@ -209,6 +211,9 @@ public class TeacherExamsController(AppDbContext db, ICurrentUserService current
             }
             report.Pupils.Add(row);
         }
+        // the pupil with the most words learned (the "total" column) first
+        report.Pupils = report.Pupils.OrderByDescending(p => p.Words.Sum(w => w ?? 0))
+            .ThenBy(p => p.Name, StringComparer.CurrentCultureIgnoreCase).ToList();
         return report;
     }
 

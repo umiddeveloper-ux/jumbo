@@ -168,22 +168,14 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
         };
     }
 
-    // The exam is only for players who have told us their region, school and team (profile): the data
-    // behind the reports for teachers and school principals.
+    // The words of an exam. The free exam needs no team; an exam by a teacher's code asks for the team on the exam page
+    // (its result is what feeds the team's report).
     [HttpGet("exam")]
     [RequireAccessToken]
     public async Task<ActionResult<List<ExamWordItem>>> GetExamWords(
         [FromQuery] int bookNumber, [FromQuery] int studyLanguageId,
         [FromQuery] int transLanguageId, [FromQuery] int count)
     {
-        var userId = (await currentUser.GetUserIdAsync())!.Value;
-        var profile = await db.Users.AsNoTracking()
-            .Where(u => u.UserId == userId)
-            .Select(u => new { u.Region, u.School, u.Team })
-            .SingleAsync();
-        if (string.IsNullOrWhiteSpace(profile.Region) || string.IsNullOrWhiteSpace(profile.School) || string.IsNullOrWhiteSpace(profile.Team))
-            return StatusCode(StatusCodes.Status403Forbidden, new { error = "PROFILE_INCOMPLETE" });
-
         var subjectIds = await db.Subjects.AsNoTracking()
             .Where(s => s.BookId == bookNumber)
             .Select(s => s.SubjectId)

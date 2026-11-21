@@ -1360,6 +1360,18 @@
   <data name="TC_Cancel" xml:space="preserve">
     <value>Bekor qilish</value>
   </data>
+  <data name="TC_Rename" xml:space="preserve">
+    <value>Nomini o'zgartirish</value>
+  </data>
+  <data name="TC_Save" xml:space="preserve">
+    <value>Saqlash</value>
+  </data>
+  <data name="TC_DeleteClass" xml:space="preserve">
+    <value>Jamoani o'chirish</value>
+  </data>
+  <data name="TC_DeleteClassConfirm" xml:space="preserve">
+    <value>“{0}” jamoasi butunlay o'chirilsinmi? O'quvchilar jamoa va ta'lim muassasasidan ajraladi, imtihon natijalari esa hisobotlardan yo'qoladi. Buni bekor qilib bo'lmaydi.</value>
+  </data>
   <data name="TC_Err_NAME_EXISTS" xml:space="preserve">
     <value>Ta'lim muassasangizda bunday nomdagi jamoa allaqachon bor.</value>
   </data>

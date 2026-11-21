@@ -146,16 +146,16 @@
             return;
         }
 
-        // Direct links to the quiz need the same region + school + team as the setup page.
+        // Only an exam by a teacher's code needs the player's region + school + team (the free exam does not): direct links get the same check as the setup page.
         var user = UserState.CurrentUser;
-        if (string.IsNullOrWhiteSpace(user?.Region) || string.IsNullOrWhiteSpace(user?.School) || string.IsNullOrWhiteSpace(user?.Team))
+        if (TeacherExamId is not null && (string.IsNullOrWhiteSpace(user?.Region) || string.IsNullOrWhiteSpace(user?.School) || string.IsNullOrWhiteSpace(user?.Team)))
         {
             Nav.NavigateTo("/exam", replace: true);
             return;
         }
 
         // F5 / the tab was opened again: the same exam goes on (the same words, the answers so far, what was typed).
-        var saved = await Progress.LoadSessionAsync(user.UserId, BookNumber, WordCount, Kind, TeacherExamId);
+        var saved = await Progress.LoadSessionAsync(user?.UserId ?? 0, BookNumber, WordCount, Kind, TeacherExamId);
         if (saved is not null && (saved.BatchStart < saved.Words.Count || (IsTest && saved.Answers.Count < saved.Words.Count)))
         {
             _words = saved.Words;

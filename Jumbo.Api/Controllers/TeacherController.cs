@@ -127,6 +127,43 @@ public class TeacherController(AppDbContext db, ICurrentUserService currentUser,
         return (await stats.GetClassesAsync([cls]))[0];
     }
 
+    [HttpPut("classes/{id:int}/name")]
+    public async Task<ActionResult<ClassDto>> Rename(int id, RenameClassRequest request)
+    {
+        var cls = await FindOwnedAsync(id, track: true);
+        if (cls is null) return NotFound();
+
+        var name = request.Name?.Trim();
+        if (string.IsNullOrEmpty(name)) return BadRequest(new { error = "Team name is required." });
+        if (name.Length > 60) name = name[..60];
+
+        if (!cls.IsArchived && await NameTakenAsync(cls.SchoolId, name, exceptId: cls.ClassId))
+            return Conflict(new { error = "NAME_EXISTS" });
+
+        cls.Name = name;
+        await db.SaveChangesAsync();
+        // each learner keeps a copy of the team's name in their profile
+        await db.Users.Where(u => u.ClassId == id).ExecuteUpdateAsync(s => s.SetProperty(u => u.Team, name));
+        return (await stats.GetClassesAsync([cls]))[0];
+    }
+
+    // Deleting a team is for good: its members lose the team and the institution (as in "remove from the team"), and the exam results
+    // they took in it stay in the database but belong to no team any more (so they are gone from the reports).
+    [HttpDelete("classes/{id:int}")]
+    public async Task<IActionResult> DeleteClass(int id)
+    {
+        var cls = await FindOwnedAsync(id);
+        if (cls is null) return NotFound();
+
+        await db.Users.Where(u => u.ClassId == id).ExecuteUpdateAsync(s => s
+            .SetProperty(u => u.ClassId, (int?)null)
+            .SetProperty(u => u.ClassApproved, false)
+            .SetProperty(u => u.School, (string?)null)
+            .SetProperty(u => u.Team, (string?)null));
+        await db.SchoolClasses.Where(c => c.ClassId == id).ExecuteDeleteAsync();
+        return NoContent();
+    }
+
     // Team report with pupil names: only for the team's teacher (or the school's director).
     [HttpGet("classes/{id:int}/report")]
     public async Task<ActionResult<TeamReportDto>> TeamReport(int id, [FromQuery] string period = "week")

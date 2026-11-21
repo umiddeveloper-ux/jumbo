@@ -551,6 +551,19 @@ public class LpApiClient(HttpClient http)
         return await response.Content.ReadFromJsonAsync<ClassDto>();
     }
 
+    public async Task<ClassDto?> TeacherRenameClassAsync(int id, string name)
+    {
+        var response = await http.PutAsJsonAsync($"api/teacher/classes/{id}/name", new RenameClassRequest { Name = name });
+        await EnsureOkAsync(response);
+        return await response.Content.ReadFromJsonAsync<ClassDto>();
+    }
+
+    public async Task TeacherDeleteClassAsync(int id)
+    {
+        var response = await http.DeleteAsync($"api/teacher/classes/{id}");
+        await EnsureOkAsync(response);
+    }
+
     public async Task<TeamReportDto?> TeacherGetTeamReportAsync(int classId, string period)
     {
         var response = await http.GetAsync($"api/teacher/classes/{classId}/report?period={Uri.EscapeDataString(period)}");

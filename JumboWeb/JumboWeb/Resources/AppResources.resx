@@ -1429,6 +1429,18 @@
   <data name="TC_Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="TC_Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="TC_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TC_DeleteClass" xml:space="preserve">
+    <value>Delete the team</value>
+  </data>
+  <data name="TC_DeleteClassConfirm" xml:space="preserve">
+    <value>Delete the team “{0}” for good? Its learners lose the team and the institution, and its exam results leave the reports. This cannot be undone.</value>
+  </data>
   <data name="TC_Err_NAME_EXISTS" xml:space="preserve">
     <value>Your institution already has a team with this name.</value>
   </data>
