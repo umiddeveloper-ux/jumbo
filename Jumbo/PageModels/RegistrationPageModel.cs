@@ -37,9 +37,11 @@ public partial class RegistrationPageModel : ObservableObject
 
     // The interface switches to match, right away (no page reload needed here, unlike the website - every {u:Tr} text just
     // rebinds), so a learner who picks Turkish as the translation language is not left reading the rest of the wizard in Russian.
+    private bool _initializing;
+
     partial void OnTranslationLanguageChanged(LanguageOption? value)
     {
-        if (value is null || value.Code == LocalizationService.CurrentCode) return;
+        if (_initializing || value is null || value.Code == LocalizationService.CurrentCode) return;
         LocalizationService.SetLanguage(value.Code);
     }
 
@@ -70,9 +72,12 @@ public partial class RegistrationPageModel : ObservableObject
     public RegistrationPageModel(LpApiClient api)
     {
         _api = api;
-        StudyLanguage = StudyLanguages[0];
-        // Starts as whatever language the app is already showing, so this picker and the interface agree from the first screen.
-        TranslationLanguage = Languages.FirstOrDefault(l => l.Code == LocalizationService.CurrentCode) ?? Languages[1];
+        // The defaults: study English, translate to Uzbek. The screen keeps its language until the learner picks a translation language
+        // (or finishes: the account's interface language is the translation language).
+        _initializing = true;
+        StudyLanguage = StudyLanguages.First(l => l.Code == "en");
+        TranslationLanguage = Languages.First(l => l.Code == "uz");
+        _initializing = false;
 #if DEBUG
         // Screenshots / manual checks: JUMBO_STEP=3 opens the wizard on that step.
         if (int.TryParse(Environment.GetEnvironmentVariable("JUMBO_STEP"), out var debugStep) && debugStep is >= 1 and <= TotalSteps) Step = debugStep;
@@ -146,7 +151,7 @@ public partial class RegistrationPageModel : ObservableObject
         Error = string.Empty;
         try
         {
-            var appCode = LocalizationService.CurrentCode;
+            var appCode = TranslationLanguage!.Code;       // the interface language is always the translation language
             var appLang = await _api.GetLanguageByShortNameAsync(appCode);
             var studyLang = await _api.GetLanguageByShortNameAsync(StudyLanguage!.Code);
             var transLang = await _api.GetLanguageByShortNameAsync(TranslationLanguage!.Code);

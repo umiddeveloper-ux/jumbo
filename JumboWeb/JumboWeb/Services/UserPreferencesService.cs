@@ -15,7 +15,7 @@ public class UserPreferencesService
 
     public int AppLangId   { get; private set; } = 1;
     public int StudyLangId { get; private set; } = 1;
-    public int TransLangId { get; private set; } = 2;
+    public int TransLangId { get; private set; } = 3;
 
     public UserPreferencesService(LpApiClient apiClient)
     {
@@ -36,7 +36,7 @@ public class UserPreferencesService
         {
             AppLangId   = user.AppLanguageId > 0    ? user.AppLanguageId    : 1;
             StudyLangId = user.StudyLanguageId > 0  ? user.StudyLanguageId  : 1;
-            TransLangId = user.TranslationLanguageId > 0 ? user.TranslationLanguageId : 2;
+            TransLangId = user.TranslationLanguageId > 0 ? user.TranslationLanguageId : 3;
         }
         _loaded = true;
     }

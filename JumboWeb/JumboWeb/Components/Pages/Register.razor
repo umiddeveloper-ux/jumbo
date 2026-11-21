@@ -204,10 +204,9 @@
         _languages = await ApiClient.GetLanguagesAsync();
         if (_languages.Count >= 2)
         {
-            _model.StudyLangId = _languages[0].LanguageId;
-            // The translation language starts as whatever language this page is already shown in (so a visitor who sees the
-            // form in Turkish is not surprised by a Russian default here) - the Study language picker is unaffected.
-            _model.TransLangId = _translationLanguages.FirstOrDefault(l => l.LanguageId == Prefs.AppLangId)?.LanguageId ?? _languages[1].LanguageId;
+            // The defaults: study English, translate to Uzbek (the account's interface language follows the translation language).
+            _model.StudyLangId = (_languages.FirstOrDefault(l => l.ShorName == "en") ?? _languages[0]).LanguageId;
+            _model.TransLangId = (_translationLanguages.FirstOrDefault(l => l.ShorName == "uz") ?? _languages[1]).LanguageId;
         }
         _model.AvatarSvg = PresetAvatars.All[0];
     }

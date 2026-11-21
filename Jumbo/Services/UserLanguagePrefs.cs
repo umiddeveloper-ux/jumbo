@@ -12,7 +12,7 @@ public static class UserLanguagePrefs
     // Language 2: the language being learned (words shown as questions)
     public static int StudyLangId => Preferences.Default.Get("study_lang_id", 1); // default: English
     // Language 3: translation shown as hints/answers
-    public static int TransLangId => Preferences.Default.Get("trans_lang_id", 2); // default: Russian
+    public static int TransLangId => Preferences.Default.Get("trans_lang_id", 3); // default: Uzbek
 
     public static void Save(int appLangId, int studyLangId, int transLangId)
     {
