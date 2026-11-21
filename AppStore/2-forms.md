@@ -24,7 +24,7 @@
 | Поле | Значение |
 |---|---|
 | Цена | Бесплатно |
-| Покупки внутри приложения | Нет (все «покупки» идут за внутренние очки LP, не за деньги) |
+| Покупки внутри приложения | Нет (все «покупки» идут за внутренние очки JO, не за деньги) |
 | Страны | Все, где вы хотите. Узбекистан и страны СНГ обязательно |
 
 ## 3. Возрастной рейтинг (анкета Apple)
@@ -34,7 +34,7 @@
 | Сексуальный или откровенный контент, нагота | Нет |
 | Ненормативная лексика | Нет |
 | Алкоголь, табак, наркотики | Нет |
-| Азартные игры, имитация азартных игр | Нет (очки LP не покупаются за деньги) |
+| Азартные игры, имитация азартных игр | Нет (очки JO не покупаются за деньги) |
 | Медицинские и оздоровительные темы | Нет |
 | Контент, созданный пользователями | Нет (нет чата, постов, загрузки файлов) |
 | Обмен сообщениями / общение между пользователями | Нет |
@@ -80,7 +80,7 @@
 ```
 Everything inside the app needs an account (learning progress is saved per account). Please sign in with the test account above. Registration is also free and takes three short steps; a phone number is optional.
 
-What to look at: the home screen shows the books; open Book 1, then a topic: three games, a video lesson and a "Topic words" icon in the top right corner. The Awards tab has awards and the game market: the market is paid with in-game points (LP) only, never with money; there are no in-app purchases and no ads.
+What to look at: the home screen shows the books; open Book 1, then a topic: three games, a video lesson and a "Topic words" icon in the top right corner. The Awards tab has awards and the game market: the market is paid with in-game points (JO) only, never with money; there are no in-app purchases and no ads.
 
 Camera: used only for scanning a QR code to sign in on the website (optional, Settings). The app has no ads, no analytics and no third-party trackers.
 

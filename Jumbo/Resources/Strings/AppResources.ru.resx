@@ -220,7 +220,7 @@
     <value>Сохранить настройки</value>
   </data>
   <data name="LpMarket" xml:space="preserve">
-    <value>LP Маркет</value>
+    <value>JO Маркет</value>
   </data>
   <data name="AchievementReceived" xml:space="preserve">
     <value>Достижение получено</value>
@@ -229,10 +229,10 @@
     <value>Купить</value>
   </data>
   <data name="NotEnoughLp" xml:space="preserve">
-    <value>Не хватает LP</value>
+    <value>Не хватает JO</value>
   </data>
   <data name="NeedMoreLpMessage" xml:space="preserve">
-    <value>Наберите 1000 LP, чтобы открыть Маркет!</value>
+    <value>Наберите 1000 JO, чтобы открыть Маркет!</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Логин</value>
@@ -343,13 +343,13 @@
     <value>Магазин</value>
   </data>
   <data name="Awards_MarketLocked" xml:space="preserve">
-    <value>Для доступа к магазину нужно 💰 1000 LP</value>
+    <value>Для доступа к магазину нужно 💰 1000 JO</value>
   </data>
   <data name="Awards_CurrentLp" xml:space="preserve">
-    <value>У вас сейчас {0} LP</value>
+    <value>У вас сейчас {0} JO</value>
   </data>
   <data name="Awards_MarketPrice" xml:space="preserve">
-    <value>💰 {0} LP</value>
+    <value>💰 {0} JO</value>
   </data>
   <data name="Settings_PageTitle" xml:space="preserve">
     <value>Настройки — Jumbo</value>
@@ -505,7 +505,7 @@
     <value>Снова</value>
   </data>
   <data name="Common_LpEarned" xml:space="preserve">
-    <value>+{0} LP заработано</value>
+    <value>+{0} JO заработано</value>
   </data>
   <data name="FindMeGame_NoWords" xml:space="preserve">
     <value>Слова для этой темы не найдены</value>
@@ -994,7 +994,7 @@
     <value>Все слова найдены!</value>
   </data>
   <data name="Game_Locked" xml:space="preserve">
-    <value>Жизни и LP закончились!</value>
+    <value>Жизни и JO закончились!</value>
   </data>
   <data name="Game_LockedRegen" xml:space="preserve">
     <value>Жизни восстановятся через {0}</value>
@@ -1063,7 +1063,7 @@
     <value>Вы вспомнили {0} из {1} слов!</value>
   </data>
   <data name="Awards_Balance" xml:space="preserve">
-    <value>Баланс: {0} LP</value>
+    <value>Баланс: {0} JO</value>
   </data>
   <data name="Awards_Bought" xml:space="preserve">
     <value>Успешно куплено: {0}!</value>
@@ -1246,7 +1246,7 @@
     <value>Блокировка на 5 часов</value>
   </data>
   <data name="Block_SubAll" xml:space="preserve">
-    <value>Жизни и LP закончились. Когда время выйдет, вернутся {0} жизней, а LP останется 0.</value>
+    <value>Жизни и JO закончились. Когда время выйдет, вернутся {0} жизней, а JO останется 0.</value>
   </data>
   <data name="Block_SubLives" xml:space="preserve">
     <value>Жизни закончились. Когда время выйдет, вернутся {0} жизней.</value>
@@ -1363,7 +1363,7 @@
     <value>Купить</value>
   </data>
   <data name="Market_NotEnough" xml:space="preserve">
-    <value>Не хватает LP</value>
+    <value>Не хватает JO</value>
   </data>
   <data name="Market_Equip" xml:space="preserve">
     <value>Надеть</value>
@@ -1405,7 +1405,7 @@
     <value>Питомец рядом со слонёнком в играх</value>
   </data>
   <data name="Market_Err_NOT_ENOUGH" xml:space="preserve">
-    <value>Не хватает LP.</value>
+    <value>Не хватает JO.</value>
   </data>
   <data name="Market_Err_OWNED" xml:space="preserve">
     <value>Это уже у вас есть.</value>
@@ -1420,7 +1420,7 @@
     <value>У вас уже максимум.</value>
   </data>
   <data name="Market_Err_WOULD_BLOCK" xml:space="preserve">
-    <value>Сейчас нельзя: у вас останется 0 жизней и 0 LP, и начнётся блокировка на 5 часов.</value>
+    <value>Сейчас нельзя: у вас останется 0 жизней и 0 JO, и начнётся блокировка на 5 часов.</value>
   </data>
   <data name="Market_WebNote" xml:space="preserve">
     <value>Видно на сайте</value>
@@ -1865,7 +1865,7 @@
     <value>Жизни закончились</value>
   </data>
   <data name="LivesOut_Text" xml:space="preserve">
-    <value>Теперь за каждую ошибку будут списываться очки LP. Когда и они закончатся, игра закроется на 5 часов.</value>
+    <value>Теперь за каждую ошибку будут списываться очки JO. Когда и они закончатся, игра закроется на 5 часов.</value>
   </data>
   <data name="LivesOut_Ok" xml:space="preserve">
     <value>Понятно</value>

@@ -220,7 +220,7 @@
     <value>Sozlanmalarni saqlash</value>
   </data>
   <data name="LpMarket" xml:space="preserve">
-    <value>LP Market</value>
+    <value>JO Market</value>
   </data>
   <data name="AchievementReceived" xml:space="preserve">
     <value>Yutuq qo'lga kiritildi</value>
@@ -229,10 +229,10 @@
     <value>Sotib olish</value>
   </data>
   <data name="NotEnoughLp" xml:space="preserve">
-    <value>Yetarli LP yo'q</value>
+    <value>Yetarli JO yo'q</value>
   </data>
   <data name="NeedMoreLpMessage" xml:space="preserve">
-    <value>1000 LP to'plab Marketni oching!</value>
+    <value>1000 JO to'plab Marketni oching!</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Login</value>
@@ -343,13 +343,13 @@
     <value>Market</value>
   </data>
   <data name="Awards_MarketLocked" xml:space="preserve">
-    <value>Marketga kirish uchun 💰 1000 LP kerak</value>
+    <value>Marketga kirish uchun 💰 1000 JO kerak</value>
   </data>
   <data name="Awards_CurrentLp" xml:space="preserve">
-    <value>Sizda hozir {0} LP bor</value>
+    <value>Sizda hozir {0} JO bor</value>
   </data>
   <data name="Awards_MarketPrice" xml:space="preserve">
-    <value>💰 {0} LP</value>
+    <value>💰 {0} JO</value>
   </data>
   <data name="Settings_PageTitle" xml:space="preserve">
     <value>Sozlanmalar — Jumbo</value>
@@ -505,7 +505,7 @@
     <value>Yana</value>
   </data>
   <data name="Common_LpEarned" xml:space="preserve">
-    <value>+{0} LP qo'lga kiritildi</value>
+    <value>+{0} JO qo'lga kiritildi</value>
   </data>
   <data name="FindMeGame_NoWords" xml:space="preserve">
     <value>Bu mavzu uchun so'zlar topilmadi</value>
@@ -994,7 +994,7 @@
     <value>Barcha so'zlar topildi!</value>
   </data>
   <data name="Game_Locked" xml:space="preserve">
-    <value>Jonlar va LP tugadi!</value>
+    <value>Jonlar va JO tugadi!</value>
   </data>
   <data name="Game_LockedRegen" xml:space="preserve">
     <value>Jonlar {0} dan keyin tiklanadi</value>
@@ -1063,7 +1063,7 @@
     <value>Siz {1} ta so'zdan {0} tasini esladingiz!</value>
   </data>
   <data name="Awards_Balance" xml:space="preserve">
-    <value>Balans: {0} LP</value>
+    <value>Balans: {0} JO</value>
   </data>
   <data name="Awards_Bought" xml:space="preserve">
     <value>Sotib olindi: {0}!</value>
@@ -1246,7 +1246,7 @@
     <value>5 soatlik blok</value>
   </data>
   <data name="Block_SubAll" xml:space="preserve">
-    <value>Jonlar va LP tugadi. Vaqt tugagach {0} ta jon qaytadi, LP esa 0 bo'lib qoladi.</value>
+    <value>Jonlar va JO tugadi. Vaqt tugagach {0} ta jon qaytadi, JO esa 0 bo'lib qoladi.</value>
   </data>
   <data name="Block_SubLives" xml:space="preserve">
     <value>Jonlar tugadi. Vaqt tugagach {0} ta jon qaytadi.</value>
@@ -1363,7 +1363,7 @@
     <value>Sotib olish</value>
   </data>
   <data name="Market_NotEnough" xml:space="preserve">
-    <value>LP yetmaydi</value>
+    <value>JO yetmaydi</value>
   </data>
   <data name="Market_Equip" xml:space="preserve">
     <value>Kiyish</value>
@@ -1405,7 +1405,7 @@
     <value>O'yinlarda fil bolasi yonida uy hayvoni</value>
   </data>
   <data name="Market_Err_NOT_ENOUGH" xml:space="preserve">
-    <value>LP yetmaydi.</value>
+    <value>JO yetmaydi.</value>
   </data>
   <data name="Market_Err_OWNED" xml:space="preserve">
     <value>Bu sizda allaqachon bor.</value>
@@ -1420,7 +1420,7 @@
     <value>Sizda allaqachon eng ko'pi bor.</value>
   </data>
   <data name="Market_Err_WOULD_BLOCK" xml:space="preserve">
-    <value>Hozir bo'lmaydi: jon ham, LP ham qolmaydi va 5 soatlik blokirovka boshlanadi.</value>
+    <value>Hozir bo'lmaydi: jon ham, JO ham qolmaydi va 5 soatlik blokirovka boshlanadi.</value>
   </data>
   <data name="Market_WebNote" xml:space="preserve">
     <value>Saytda ko'rinadi</value>
@@ -1865,7 +1865,7 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
     <value>Jonlar tugadi</value>
   </data>
   <data name="LivesOut_Text" xml:space="preserve">
-    <value>Endi har bir xato uchun LP ballari yechiladi. Ular ham tugasa, o'yin 5 soatga yopiladi.</value>
+    <value>Endi har bir xato uchun JO ballari yechiladi. Ular ham tugasa, o'yin 5 soatga yopiladi.</value>
   </data>
   <data name="LivesOut_Ok" xml:space="preserve">
     <value>Tushunarli</value>

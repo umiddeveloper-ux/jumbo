@@ -220,7 +220,7 @@
     <value>Ayarları kaydet</value>
   </data>
   <data name="LpMarket" xml:space="preserve">
-    <value>LP Market</value>
+    <value>JO Market</value>
   </data>
   <data name="AchievementReceived" xml:space="preserve">
     <value>Ödül kazanıldı</value>
@@ -229,10 +229,10 @@
     <value>Satın al</value>
   </data>
   <data name="NotEnoughLp" xml:space="preserve">
-    <value>Yeterli LP yok</value>
+    <value>Yeterli JO yok</value>
   </data>
   <data name="NeedMoreLpMessage" xml:space="preserve">
-    <value>Marketin kilidini açmak için 1000 LP veya daha fazlasını kazan!</value>
+    <value>Marketin kilidini açmak için 1000 JO veya daha fazlasını kazan!</value>
   </data>
   <data name="Common_LogoAlt" xml:space="preserve">
     <value>Logo</value>
@@ -307,13 +307,13 @@
     <value>Market</value>
   </data>
   <data name="Awards_MarketLocked" xml:space="preserve">
-    <value>Marketin kilidini açmak için 💰 1000 LP gerekiyor</value>
+    <value>Marketin kilidini açmak için 💰 1000 JO gerekiyor</value>
   </data>
   <data name="Awards_CurrentLp" xml:space="preserve">
-    <value>Şu anda {0} LP'n var</value>
+    <value>Şu anda {0} JO'n var</value>
   </data>
   <data name="Awards_MarketPrice" xml:space="preserve">
-    <value>💰 {0} LP</value>
+    <value>💰 {0} JO</value>
   </data>
   <data name="Settings_PageTitle" xml:space="preserve">
     <value>Ayarlar — Jumbo</value>
@@ -469,7 +469,7 @@
     <value>Tekrar</value>
   </data>
   <data name="Common_LpEarned" xml:space="preserve">
-    <value>+{0} LP kazanıldı</value>
+    <value>+{0} JO kazanıldı</value>
   </data>
   <data name="FindMeGame_NoWords" xml:space="preserve">
     <value>Bu konu için kelime bulunamadı</value>
@@ -1144,7 +1144,7 @@
     <value>5 saatlik engel</value>
   </data>
   <data name="Block_SubAll" xml:space="preserve">
-    <value>Canların ve LP'n bitti. Süre dolunca {0} canın geri gelir; LP 0 kalır.</value>
+    <value>Canların ve JO'n bitti. Süre dolunca {0} canın geri gelir; JO 0 kalır.</value>
   </data>
   <data name="Block_SubLives" xml:space="preserve">
     <value>Canların bitti. Süre dolunca {0} canın geri gelir.</value>
@@ -1261,7 +1261,7 @@
     <value>Satın al</value>
   </data>
   <data name="Market_NotEnough" xml:space="preserve">
-    <value>Yeterli LP yok</value>
+    <value>Yeterli JO yok</value>
   </data>
   <data name="Market_Equip" xml:space="preserve">
     <value>Tak</value>
@@ -1303,7 +1303,7 @@
     <value>Oyunlarda Jumbo'nun yanında bir evcil hayvan</value>
   </data>
   <data name="Market_Err_NOT_ENOUGH" xml:space="preserve">
-    <value>Yeterli LP yok.</value>
+    <value>Yeterli JO yok.</value>
   </data>
   <data name="Market_Err_OWNED" xml:space="preserve">
     <value>Bu zaten sende var.</value>
@@ -1318,7 +1318,7 @@
     <value>Zaten sahip olabileceğinin en fazlasına sahipsin.</value>
   </data>
   <data name="Market_Err_WOULD_BLOCK" xml:space="preserve">
-    <value>Şimdi olmaz: canların ve LP'n sıfır kalır, 5 saatlik engel başlar.</value>
+    <value>Şimdi olmaz: canların ve JO'n sıfır kalır, 5 saatlik engel başlar.</value>
   </data>
   <data name="Market_WebNote" xml:space="preserve">
     <value>Sitede görünür</value>
@@ -1641,7 +1641,7 @@ Verileri reklam için kullanmıyoruz ve satmıyoruz.</value>
     <value>Canlar bitti</value>
   </data>
   <data name="LivesOut_Text" xml:space="preserve">
-    <value>Artık bir hata LP puanlarını azaltır. LP de bitince oyun 5 saat bekler.</value>
+    <value>Artık bir hata JO puanlarını azaltır. JO de bitince oyun 5 saat bekler.</value>
   </data>
   <data name="LivesOut_Ok" xml:space="preserve">
     <value>Anladım</value>
@@ -1674,7 +1674,7 @@ Verileri reklam için kullanmıyoruz ve satmıyoruz.</value>
     <value>Tüm kelimeler bulundu!</value>
   </data>
   <data name="Game_Locked" xml:space="preserve">
-    <value>Canlar ve LP bitti!</value>
+    <value>Canlar ve JO bitti!</value>
   </data>
   <data name="Game_LockedRegen" xml:space="preserve">
     <value>Canlar {0} sonra geri gelir</value>
@@ -1743,7 +1743,7 @@ Verileri reklam için kullanmıyoruz ve satmıyoruz.</value>
     <value>{1} kelimeden {0} tanesini hatırladın!</value>
   </data>
   <data name="Awards_Balance" xml:space="preserve">
-    <value>Bakiye: {0} LP</value>
+    <value>Bakiye: {0} JO</value>
   </data>
   <data name="Awards_Bought" xml:space="preserve">
     <value>Satın alındı: {0}!</value>

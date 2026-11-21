@@ -41,7 +41,7 @@ public partial class LivesService : ObservableObject
         ? $"❤️ {Lives}"
         : LpPoints > 0 ? $"🖤 0  💰{PointsFormat.Compact(LpPoints)}" : "🖤 0";
 
-    public string LpDisplay => $"💰 {PointsFormat.Compact(LpPoints)} LP";
+    public string LpDisplay => $"💰 {PointsFormat.Compact(LpPoints)} JO";
 
     // Full number for tooltips (the header shows the compact form once points pass 1000).
     public string LpExact => PointsFormat.Exact(LpPoints);

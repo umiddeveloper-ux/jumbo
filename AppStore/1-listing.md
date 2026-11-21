@@ -60,8 +60,8 @@ Jumbo — это английский язык в игре, для детей и
 
 МОТИВАЦИЯ
 • Цель дня и серия дней подряд.
-• Жизни в играх: ошибся — потерял жизнь. Когда жизни кончились, ошибки списывают очки LP.
-• Награды за книги и уровни, очки LP.
+• Жизни в играх: ошибся — потерял жизнь. Когда жизни кончились, ошибки списывают очки JO.
+• Награды за книги и уровни, очки JO.
 • Игровой магазин: тратьте очки на рамки, значки и полезные вещи (щит, заморозка серии). Всё за очки внутри игры, не за деньги.
 • Недельный рейтинг команды, школы и региона. Своё имя в рейтинге можно скрыть.
 
@@ -131,8 +131,8 @@ THE WHOLE ALPHABET AND A DICTIONARY
 
 MOTIVATION
 • A daily goal and a streak of days in a row.
-• Lives in the games: a mistake costs a life. When the lives run out, mistakes take LP points.
-• Awards for books and levels, LP points.
+• Lives in the games: a mistake costs a life. When the lives run out, mistakes take JO points.
+• Awards for books and levels, JO points.
 • A game market: spend points on frames, badges and useful things (a shield, a streak freeze). Everything is paid with points inside the game, never with money.
 • A weekly rating of your team, school and region. You can hide your name in the rating.
 
@@ -202,8 +202,8 @@ BUTUN ALIFBO VA LUG'AT
 
 MOTIVATSIYA
 • Kunlik maqsad va ketma-ket kunlar seriyasi.
-• O'yinlardagi jonlar: xato qilsangiz, bitta jon yo'qoladi. Jonlar tugagach, xatolar LP ballarini oladi.
-• Kitoblar va darajalar uchun mukofotlar, LP ballari.
+• O'yinlardagi jonlar: xato qilsangiz, bitta jon yo'qoladi. Jonlar tugagach, xatolar JO ballarini oladi.
+• Kitoblar va darajalar uchun mukofotlar, JO ballari.
 • O'yin do'koni: ballarni ramkalar, nishonlar va foydali narsalarga (qalqon, seriyani muzlatish) sarflang. Hammasi o'yin ichidagi ballar bilan, pul bilan emas.
 • Jamoa, maktab va hudud haftalik reytingi. Reytingda ismingizni yashirish mumkin.
 

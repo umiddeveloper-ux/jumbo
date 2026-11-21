@@ -224,7 +224,7 @@
     <value>Save settings</value>
   </data>
   <data name="LpMarket" xml:space="preserve">
-    <value>LP Market</value>
+    <value>JO Market</value>
   </data>
   <data name="AchievementReceived" xml:space="preserve">
     <value>Achievement received</value>
@@ -233,10 +233,10 @@
     <value>Buy</value>
   </data>
   <data name="NotEnoughLp" xml:space="preserve">
-    <value>Not enough LP yet</value>
+    <value>Not enough JO yet</value>
   </data>
   <data name="NeedMoreLpMessage" xml:space="preserve">
-    <value>Earn 1000 LP or more to unlock the Market!</value>
+    <value>Earn 1000 JO or more to unlock the Market!</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
@@ -347,13 +347,13 @@
     <value>Market</value>
   </data>
   <data name="Awards_MarketLocked" xml:space="preserve">
-    <value>You need 💰 1000 LP to unlock the Market</value>
+    <value>You need 💰 1000 JO to unlock the Market</value>
   </data>
   <data name="Awards_CurrentLp" xml:space="preserve">
-    <value>You currently have {0} LP</value>
+    <value>You currently have {0} JO</value>
   </data>
   <data name="Awards_MarketPrice" xml:space="preserve">
-    <value>💰 {0} LP</value>
+    <value>💰 {0} JO</value>
   </data>
   <data name="Settings_PageTitle" xml:space="preserve">
     <value>Settings — Jumbo</value>
@@ -509,7 +509,7 @@
     <value>Again</value>
   </data>
   <data name="Common_LpEarned" xml:space="preserve">
-    <value>+{0} LP earned</value>
+    <value>+{0} JO earned</value>
   </data>
   <data name="FindMeGame_NoWords" xml:space="preserve">
     <value>No words found for this topic</value>
@@ -998,7 +998,7 @@
     <value>All the words found!</value>
   </data>
   <data name="Game_Locked" xml:space="preserve">
-    <value>Out of lives and LP!</value>
+    <value>Out of lives and JO!</value>
   </data>
   <data name="Game_LockedRegen" xml:space="preserve">
     <value>Lives come back in {0}</value>
@@ -1067,7 +1067,7 @@
     <value>You remembered {0} of {1} words!</value>
   </data>
   <data name="Awards_Balance" xml:space="preserve">
-    <value>Balance: {0} LP</value>
+    <value>Balance: {0} JO</value>
   </data>
   <data name="Awards_Bought" xml:space="preserve">
     <value>Bought: {0}!</value>
@@ -1250,7 +1250,7 @@
     <value>5-hour block</value>
   </data>
   <data name="Block_SubAll" xml:space="preserve">
-    <value>Your lives and LP are over. When the time is up you get {0} lives back; the LP stays 0.</value>
+    <value>Your lives and JO are over. When the time is up you get {0} lives back; the JO stays 0.</value>
   </data>
   <data name="Block_SubLives" xml:space="preserve">
     <value>Your lives are over. When the time is up you get {0} lives back.</value>
@@ -1367,7 +1367,7 @@
     <value>Buy</value>
   </data>
   <data name="Market_NotEnough" xml:space="preserve">
-    <value>Not enough LP</value>
+    <value>Not enough JO</value>
   </data>
   <data name="Market_Equip" xml:space="preserve">
     <value>Put on</value>
@@ -1409,7 +1409,7 @@
     <value>A pet next to Jumbo in the games</value>
   </data>
   <data name="Market_Err_NOT_ENOUGH" xml:space="preserve">
-    <value>Not enough LP.</value>
+    <value>Not enough JO.</value>
   </data>
   <data name="Market_Err_OWNED" xml:space="preserve">
     <value>You already have it.</value>
@@ -1424,7 +1424,7 @@
     <value>You already have the most you can keep.</value>
   </data>
   <data name="Market_Err_WOULD_BLOCK" xml:space="preserve">
-    <value>Not now: you would be left with no lives and no LP, and the 5-hour block would start.</value>
+    <value>Not now: you would be left with no lives and no JO, and the 5-hour block would start.</value>
   </data>
   <data name="Market_WebNote" xml:space="preserve">
     <value>Visible on the website</value>
@@ -1869,7 +1869,7 @@ We do not use the data for advertising and we do not sell it.</value>
     <value>The lives are over</value>
   </data>
   <data name="LivesOut_Text" xml:space="preserve">
-    <value>From now on a mistake takes LP points. When the LP are gone too, the game waits 5 hours.</value>
+    <value>From now on a mistake takes JO points. When the JO are gone too, the game waits 5 hours.</value>
   </data>
   <data name="LivesOut_Ok" xml:space="preserve">
     <value>Got it</value>

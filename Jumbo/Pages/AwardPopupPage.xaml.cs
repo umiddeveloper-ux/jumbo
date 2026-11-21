@@ -18,7 +18,7 @@ public partial class AwardPopupPage : ContentPage
     {
         InitializeComponent();
         NameLabel.Text = award.Title;
-        BonusLabel.Text = $"+{award.LpBonus} LP";
+        BonusLabel.Text = $"+{award.LpBonus} JO";
         BonusLabel.IsVisible = award.LpBonus > 0;
         MedalPicture.Source = new HtmlWebViewSource { Html = SvgHtmlWrapper.Wrap(award.SvgImage).Replace("background:transparent", "background:#FFF0B3") };
     }

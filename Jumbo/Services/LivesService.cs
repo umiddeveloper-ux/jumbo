@@ -48,7 +48,7 @@ public partial class LivesService : ObservableObject
         ? $"❤️ {Lives}"
         : LpPoints > 0 ? $"🖤 0  💰{LpPoints}" : "🖤 0";
 
-    public string LpDisplay => $"💎 {PointsFormat.Compact(LpPoints)} LP";
+    public string LpDisplay => $"💎 {PointsFormat.Compact(LpPoints)} JO";
 
     // Time left of the block (zero when there is none) and the same as a clock: 4:59:32.
     public TimeSpan RegenRemaining => LifeRegenAt == default ? TimeSpan.Zero : (LifeRegenAt - DateTime.UtcNow is var r && r > TimeSpan.Zero ? r : TimeSpan.Zero);

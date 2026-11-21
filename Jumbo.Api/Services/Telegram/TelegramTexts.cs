@@ -107,7 +107,7 @@ public static class TelegramTexts
         ["me_level"] = ["🎓 Уровень: {0}", "🎓 Daraja: {0}", "🎓 Level: {0}"],
         ["me_streak"] = ["🔥 Серия: {0} дн.", "🔥 Seriya: {0} kun", "🔥 Streak: {0} d"],
         ["me_today"] = ["📅 Сегодня: {0} из {1} слов{2}", "📅 Bugun: {0} / {1} so'z{2}", "📅 Today: {0} of {1} words{2}"],
-        ["me_lp"] = ["💎 LP: {0}", "💎 LP: {0}", "💎 LP: {0}"],
+        ["me_lp"] = ["💎 JO: {0}", "💎 JO: {0}", "💎 JO: {0}"],
         ["me_rank"] = ["🏆 Рейтинг недели ({0}): {1} место из {2}", "🏆 Haftalik reyting ({0}): {2} tadan {1}-o'rin", "🏆 Weekly rating ({0}): place {1} of {2}"],
         ["me_norank"] = ["🏆 Рейтинг недели: пока без места — позанимайся!", "🏆 Haftalik reyting: hozircha o'rin yo'q — shug'ullan!", "🏆 Weekly rating: no place yet — go practise!"],
         ["top_title"] = ["🏆 <b>Лучшие за неделю</b> ({0})", "🏆 <b>Hafta yetakchilari</b> ({0})", "🏆 <b>Top of the week</b> ({0})"],

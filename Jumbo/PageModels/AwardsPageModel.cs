@@ -127,7 +127,7 @@ public partial class AwardsPageModel : ObservableObject
             Kind = m.Kind,
             Name = m.Name,
             SvgHtml = SvgHtmlWrapper.Wrap(m.SvgImage),
-            PriceText = $"💎 {m.Price} LP",
+            PriceText = $"💎 {m.Price} JO",
             EffectText = LocalizationManager.Get($"Market_Eff_{m.Kind}"),
             NoteText = note ? LocalizationManager.Get("Market_WebNote") : string.Empty,
             ButtonText = button,

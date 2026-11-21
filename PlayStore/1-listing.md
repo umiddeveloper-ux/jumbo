@@ -40,7 +40,7 @@ Jumbo — это английский язык в игре, для детей и
 
 МОТИВАЦИЯ
 • Цель дня и серия дней подряд.
-• Награды за книги и уровни, очки LP.
+• Награды за книги и уровни, очки JO.
 • Игровой магазин: тратьте очки на рамки, значки и полезные вещи (щит, заморозка серии).
 • Недельный рейтинг команды, школы и региона. Своё имя в рейтинге можно скрыть.
 
@@ -95,7 +95,7 @@ THE WHOLE ALPHABET AND A DICTIONARY
 
 MOTIVATION
 • A daily goal and a streak of days in a row.
-• Awards for books and levels, LP points.
+• Awards for books and levels, JO points.
 • A game market: spend points on frames, badges and useful things (a shield, a streak freeze).
 • A weekly rating of your team, school and region. You can hide your name in the rating.
 
@@ -150,7 +150,7 @@ BUTUN ALIFBO VA LUG'AT
 
 MOTIVATSIYA
 • Kunlik maqsad va ketma-ket kunlar seriyasi.
-• Kitoblar va darajalar uchun mukofotlar, LP ballari.
+• Kitoblar va darajalar uchun mukofotlar, JO ballari.
 • O'yin do'koni: ballarni ramkalar, nishonlar va foydali narsalarga (qalqon, seriyani muzlatish) sarflang.
 • Jamoa, maktab va hudud haftalik reytingi. Reytingda ismingizni yashirish mumkin.
 

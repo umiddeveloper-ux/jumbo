@@ -36,7 +36,7 @@
             <span class="stat-chip lives @(Lives.Lives <= 0 ? "empty" : "")" title="@Loc["Strip_Lives"]">
                 <img class="stat-ico" src="icons/ic_heart.svg" alt="" /><b>@(Lives.Unlimited ? "∞" : Lives.Lives.ToString())</b>
             </span>
-            <span class="stat-chip lp" title="@Lives.LpExact LP"><img class="stat-ico" src="icons/ic_gem.svg" alt="" /><b>@PointsFormat.Compact(Lives.LpPoints)</b></span>
+            <span class="stat-chip lp" title="@Lives.LpExact JO"><img class="stat-ico" src="icons/ic_gem.svg" alt="" /><b>@PointsFormat.Compact(Lives.LpPoints)</b></span>
         }
     </div>
 }
