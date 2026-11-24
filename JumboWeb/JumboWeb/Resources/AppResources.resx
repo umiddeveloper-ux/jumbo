@@ -1444,6 +1444,21 @@
   <data name="TC_DeleteClassConfirm" xml:space="preserve">
     <value>Delete the team “{0}” for good? Its learners lose the team and the institution, and its exam results leave the reports. This cannot be undone.</value>
   </data>
+  <data name="TC_ResetPassword" xml:space="preserve">
+    <value>Reset the password</value>
+  </data>
+  <data name="TC_ResetPasswordConfirm" xml:space="preserve">
+    <value>Reset the password of “{0}”? The old password stops working and the pupil is signed out on every device.</value>
+  </data>
+  <data name="TC_ResetPasswordDone" xml:space="preserve">
+    <value>New password of {0}</value>
+  </data>
+  <data name="TC_CopyPassword" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="TC_ResetPasswordHint" xml:space="preserve">
+    <value>Give it to the pupil: they sign in with it and can change it in Settings. It is shown only now; a copy also went to your Telegram if it is connected.</value>
+  </data>
   <data name="TC_Err_NAME_EXISTS" xml:space="preserve">
     <value>Your institution already has a team with this name.</value>
   </data>

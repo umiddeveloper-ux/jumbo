@@ -16,7 +16,7 @@ namespace Jumbo.Api.Controllers;
 [ApiController]
 [Route("api/teacher")]
 [RequireRole(UserRole.Teacher, UserRole.Director)]
-public class TeacherController(AppDbContext db, ICurrentUserService currentUser, ClassStatsService stats, RatingService ratings, ReportService reports, IOptions<TelegramOptions> telegram, TelegramNotifier telegramNotifier) : ControllerBase
+public class TeacherController(AppDbContext db, ICurrentUserService currentUser, ClassStatsService stats, RatingService ratings, ReportService reports, IOptions<TelegramOptions> telegram, TelegramNotifier telegramNotifier, PupilPasswordService passwords) : ControllerBase
 {
     private const int MaxClassesPerTeacher = 30;
 
@@ -342,6 +342,22 @@ public class TeacherController(AppDbContext db, ICurrentUserService currentUser,
             .ExecuteUpdateAsync(s => s.SetProperty(u => u.ClassApproved, true));
         foreach (var pupilId in waiting) await telegramNotifier.NotifyPupilDecisionAsync(pupilId, "ok", cls.Name);
         return count;
+    }
+
+    // A pupil forgot the password: a new random one is set (the pupil is signed out everywhere) and shown to the teacher once;
+    // a copy goes to the teacher's own Telegram, if connected.
+    [HttpPost("classes/{id:int}/students/{userId:int}/reset-password")]
+    public async Task<ActionResult<ResetPasswordResponse>> ResetPassword(int id, int userId)
+    {
+        var cls = await FindOwnedAsync(id);
+        if (cls is null) return NotFound();
+
+        var reset = await passwords.ResetAsync(cls, userId);
+        if (reset is null) return NotFound();
+
+        var me = await GetMeAsync();
+        await telegramNotifier.NotifyPasswordResetAsync(me.UserId, reset);
+        return new ResetPasswordResponse { Password = reset.Password, Name = reset.Name, Username = reset.Username };
     }
 
     // Rejecting a pending learner and removing an approved one are the same: the team and school text

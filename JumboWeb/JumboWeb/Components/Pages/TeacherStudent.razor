@@ -6,6 +6,7 @@
 @inject UserStateService UserState
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
+@inject IJSRuntime JS
 
 <PageTitle>@(_p?.Name ?? Loc["TC_Nav"])</PageTitle>
 
@@ -36,6 +37,32 @@ else
                 <span class="ts-chip"><span>@Loc["TC_ColLast"]</span><b>@LastActive()</b></span>
             </div>
         </header>
+
+        <section class="tc-card ts-pw">
+            @if (_pwResult is { } pw)
+            {
+                <div class="settings-label">@Loc.Format("TC_ResetPasswordDone", pw.Name)</div>
+                <div class="ts-pw-code">@pw.Password</div>
+                <div class="tc-link-actions">
+                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="CopyPasswordAsync">@(_pwCopied ? "✓ " + Loc["TC_Copied"] : Loc["TC_CopyPassword"])</button>
+                </div>
+                <p class="tc-hint">@Loc["TC_ResetPasswordHint"]</p>
+            }
+            else if (_pwConfirm)
+            {
+                <span class="tc-confirm">@Loc.Format("TC_ResetPasswordConfirm", _p.Name)</span>
+                <button type="button" class="lp-btn lp-btn-sm adm-danger" disabled="@_pwBusy" @onclick="ResetPasswordAsync">@Loc["TC_Confirm"]</button>
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _pwConfirm = false">@Loc["TC_Cancel"]</button>
+            }
+            else
+            {
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _pwConfirm = true">🔑 @Loc["TC_ResetPassword"]</button>
+            }
+            @if (!string.IsNullOrEmpty(_pwError))
+            {
+                <p class="validation-message">@_pwError</p>
+            }
+        </section>
 
         <h2 class="tc-sub">@Loc["TS_Title"]</h2>
         @if (_p.CurrentBook is null)
@@ -106,6 +133,33 @@ else
 
     private bool _loaded;
     private Jumbo.Shared.Dtos.StudentProgressDto? _p;
+    private Jumbo.Shared.Dtos.ResetPasswordResponse? _pwResult;
+    private bool _pwConfirm, _pwBusy, _pwCopied;
+    private string _pwError = string.Empty;
+
+    // The pupil forgot the password: a random one is set; the teacher sees it here once (and in their Telegram, if connected).
+    private async Task ResetPasswordAsync()
+    {
+        if (_pwBusy) return;
+        _pwBusy = true;
+        _pwError = string.Empty;
+        try
+        {
+            _pwResult = await ApiClient.TeacherResetStudentPasswordAsync(Id, UserId);
+            _pwConfirm = false;
+        }
+        catch (Exception ex) { _pwError = ex.Message; }
+        finally { _pwBusy = false; }
+    }
+
+    private async Task CopyPasswordAsync()
+    {
+        try { await JS.InvokeVoidAsync("lp.copyText", _pwResult?.Password ?? string.Empty); } catch { }
+        _pwCopied = true;
+        StateHasChanged();
+        await Task.Delay(2000);
+        _pwCopied = false;
+    }
 
     protected override async Task OnInitializedAsync()
     {

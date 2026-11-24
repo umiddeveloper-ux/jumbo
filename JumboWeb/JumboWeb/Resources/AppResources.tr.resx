@@ -1444,6 +1444,21 @@
   <data name="TC_DeleteClassConfirm" xml:space="preserve">
     <value>“{0}” sınıfı kalıcı olarak silinsin mi? Öğrenciler sınıfı ve okulu kaybeder, sınav sonuçları raporlardan çıkar. Bu geri alınamaz.</value>
   </data>
+  <data name="TC_ResetPassword" xml:space="preserve">
+    <value>Şifreyi sıfırla</value>
+  </data>
+  <data name="TC_ResetPasswordConfirm" xml:space="preserve">
+    <value>“{0}” öğrencisinin şifresi sıfırlansın mı? Eski şifre çalışmaz, öğrenci tüm cihazlardan çıkış yapar.</value>
+  </data>
+  <data name="TC_ResetPasswordDone" xml:space="preserve">
+    <value>{0} için yeni şifre</value>
+  </data>
+  <data name="TC_CopyPassword" xml:space="preserve">
+    <value>Kopyala</value>
+  </data>
+  <data name="TC_ResetPasswordHint" xml:space="preserve">
+    <value>Öğrenciye verin: bu şifreyle giriş yapar ve Ayarlar'dan değiştirebilir. Şifre yalnızca şimdi gösterilir; Telegram'ınız bağlıysa bir kopyası oraya da gönderildi.</value>
+  </data>
   <data name="TC_Err_NAME_EXISTS" xml:space="preserve">
     <value>Okulunda bu isimde bir sınıf zaten var.</value>
   </data>

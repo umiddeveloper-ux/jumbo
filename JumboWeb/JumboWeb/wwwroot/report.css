@@ -46,6 +46,10 @@
 .tc-school-report .tc-sub { margin-top: 0; }
 .tc-linkbox { margin: 10px 0; padding: 10px 12px; border-radius: 14px; font-family: ui-monospace, Consolas, monospace; font-size: 0.85rem; font-weight: 700; word-break: break-all; color: var(--lp-text); background: var(--lp-bg); border: 2px solid var(--lp-border); }
 .tc-link-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+
+/* the new password of a pupil (shown to the teacher once) */
+.ts-pw-code { margin: 10px 0; padding: 12px 16px; border-radius: 14px; font-family: ui-monospace, Consolas, monospace; font-size: 2rem; font-weight: 800; letter-spacing: 0.25em; text-align: center; user-select: all; color: var(--lp-text); background: var(--lp-bg); border: 2px dashed var(--lp-border); }
+.ts-pw { margin: 12px 0; }
 .tc-link-actions .lp-btn { text-decoration: none; display: inline-flex; }
 
 @media (max-width: 820px) {

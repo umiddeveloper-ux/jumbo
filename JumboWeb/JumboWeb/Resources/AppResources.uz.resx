@@ -1375,6 +1375,21 @@
   <data name="TC_DeleteClassConfirm" xml:space="preserve">
     <value>“{0}” jamoasi butunlay o'chirilsinmi? O'quvchilar jamoa va ta'lim muassasasidan ajraladi, imtihon natijalari esa hisobotlardan yo'qoladi. Buni bekor qilib bo'lmaydi.</value>
   </data>
+  <data name="TC_ResetPassword" xml:space="preserve">
+    <value>Parolni tiklash</value>
+  </data>
+  <data name="TC_ResetPasswordConfirm" xml:space="preserve">
+    <value>“{0}” o'quvchisining parolini tiklaysizmi? Eski parol ishlamay qoladi, o'quvchi barcha qurilmalarda hisobdan chiqadi.</value>
+  </data>
+  <data name="TC_ResetPasswordDone" xml:space="preserve">
+    <value>{0}ning yangi paroli</value>
+  </data>
+  <data name="TC_CopyPassword" xml:space="preserve">
+    <value>Nusxalash</value>
+  </data>
+  <data name="TC_ResetPasswordHint" xml:space="preserve">
+    <value>Uni o'quvchiga bering: u shu parol bilan kiradi va Sozlamalarda almashtira oladi. Parol faqat hozir ko'rsatiladi; Telegramingiz ulangan bo'lsa, nusxasi o'sha yerga ham yuborildi.</value>
+  </data>
   <data name="TC_Err_NAME_EXISTS" xml:space="preserve">
     <value>Ta'lim muassasangizda bunday nomdagi jamoa allaqachon bor.</value>
   </data>

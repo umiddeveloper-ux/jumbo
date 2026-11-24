@@ -37,6 +37,21 @@ public class TelegramNotifier(AppDbContext db, TelegramClient telegram, ClassSta
         catch (Exception ex) { log.LogWarning("Telegram pending notification failed: {Type}", ex.GetType().Name); }
     }
 
+    // The new password of a pupil, as the teacher reads it in Telegram (after a reset in the cabinet, or in the bot itself).
+    public static string PasswordResetText(string lang, PupilPasswordService.Reset r) =>
+        TelegramTexts.Get(lang, "pw_done", WebUtility.HtmlEncode(r.Name), WebUtility.HtmlEncode(r.Username ?? "—"), WebUtility.HtmlEncode(r.ClassName), r.Password);
+
+    // A pupil's password was reset in the cabinet: the teacher who did it gets the password in every chat they connected.
+    public async Task NotifyPasswordResetAsync(int staffUserId, PupilPasswordService.Reset reset)
+    {
+        try
+        {
+            var chats = await db.TelegramConnections.AsNoTracking().Where(c => c.UserId == staffUserId && c.ChatId != null).ToListAsync();
+            foreach (var c in chats) await telegram.SendAsync(c.ChatId!.Value, PasswordResetText(c.Lang, reset));
+        }
+        catch (Exception ex) { log.LogWarning("Telegram password notification failed: {Type}", ex.GetType().Name); }
+    }
+
     public static (string Text, object Keyboard) PendingMessage(string lang, string learnerName, string teamName, int classId, int learnerId) =>
     (
         TelegramTexts.Get(lang, "pending_new", WebUtility.HtmlEncode(learnerName), WebUtility.HtmlEncode(teamName)),

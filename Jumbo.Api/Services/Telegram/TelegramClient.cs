@@ -79,7 +79,7 @@ public class TelegramClient(HttpClient http, IOptions<TelegramOptions> options, 
     }
 
     // Replaces the text of a message the bot sent (and drops its buttons): used to show the result of a decision.
-    public async Task EditAsync(long chatId, long messageId, string html)
+    public async Task EditAsync(long chatId, long messageId, string html, object? replyMarkup = null)
     {
         if (!_o.Enabled) return;
         if (_o.DryRun)
@@ -87,11 +87,13 @@ public class TelegramClient(HttpClient http, IOptions<TelegramOptions> options, 
             log.LogInformation("[telegram dry-run] edit {Chat}/{Msg}: {Text}", chatId, messageId, html);
             return;
         }
-        await PostAsync("editMessageText", new Dictionary<string, object?>
+        var payload = new Dictionary<string, object?>
         {
             ["chat_id"] = chatId, ["message_id"] = messageId, ["text"] = html, ["parse_mode"] = "HTML",
             ["link_preview_options"] = new { is_disabled = true }
-        });
+        };
+        if (replyMarkup is not null) payload["reply_markup"] = replyMarkup;      // without it the buttons of the message are dropped
+        await PostAsync("editMessageText", payload);
     }
 
     public async Task<bool> SetWebhookAsync(string url)

@@ -1444,6 +1444,21 @@
   <data name="TC_DeleteClassConfirm" xml:space="preserve">
     <value>Удалить команду «{0}» навсегда? Ученики потеряют команду и учебное заведение, а результаты их экзаменов пропадут из отчётов. Это нельзя отменить.</value>
   </data>
+  <data name="TC_ResetPassword" xml:space="preserve">
+    <value>Сбросить пароль</value>
+  </data>
+  <data name="TC_ResetPasswordConfirm" xml:space="preserve">
+    <value>Сбросить пароль ученика «{0}»? Старый пароль перестанет работать, ученик выйдет из аккаунта на всех устройствах.</value>
+  </data>
+  <data name="TC_ResetPasswordDone" xml:space="preserve">
+    <value>Новый пароль: {0}</value>
+  </data>
+  <data name="TC_CopyPassword" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="TC_ResetPasswordHint" xml:space="preserve">
+    <value>Передайте его ученику: он войдёт с этим паролем и сможет сменить его в Настройках. Пароль показан только сейчас; копия также ушла вам в Telegram, если он подключён.</value>
+  </data>
   <data name="TC_Err_NAME_EXISTS" xml:space="preserve">
     <value>Команда с таким названием в вашем учебном заведении уже есть.</value>
   </data>

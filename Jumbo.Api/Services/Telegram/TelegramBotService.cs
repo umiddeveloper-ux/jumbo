@@ -12,7 +12,7 @@ namespace Jumbo.Api.Services.Telegram;
 
 // What the bot does: connects a chat to a school (/start <code>), sends the report on request (/report) and every
 // Monday (WeeklyDigest), switches the language (/lang) and disconnects (/stop).
-public class TelegramBotService(AppDbContext db, TelegramClient telegram, ReportService reports, ClassStatsService stats, TelegramNotifier notifier, TelegramPupilService pupils, IOptions<TelegramOptions> options, ILogger<TelegramBotService> log)
+public class TelegramBotService(AppDbContext db, TelegramClient telegram, ReportService reports, ClassStatsService stats, TelegramNotifier notifier, TelegramPupilService pupils, PupilPasswordService passwords, IOptions<TelegramOptions> options, ILogger<TelegramBotService> log)
 {
     private static readonly TimeSpan CodeLifetime = TimeSpan.FromDays(7);
     private readonly TelegramOptions _o = options.Value;
@@ -47,6 +47,7 @@ public class TelegramBotService(AppDbContext db, TelegramClient telegram, Report
             case "/pending": await PendingAsync(chatId); break;
             case "/exams": await ExamsAsync(chatId); break;
             case "/absent": await AbsentAsync(chatId); break;
+            case "/password": await PasswordAsync(chatId); break;
             case "/month": await ReportAsync(chatId, "month"); break;
             case "/id": await telegram.SendAsync(chatId, $"Chat ID: {chatId}"); break;      // the owner needs it to get the alerts of the server
             case "/me": await pupils.MeAsync(chatId); break;
@@ -183,6 +184,11 @@ public class TelegramBotService(AppDbContext db, TelegramClient telegram, Report
             if (data == "play") { await telegram.AnswerCallbackAsync(info.CallbackId); await pupils.PlayAsync(info.ChatId); return; }
             if (data == "quiz") { await telegram.AnswerCallbackAsync(info.CallbackId); await pupils.QuizAsync(info.ChatId); return; }
         }
+        if (data is not null && (data == "pw" || data.StartsWith("pwc:") || data.StartsWith("pwp:") || data.StartsWith("pwy:")))
+        {
+            await PasswordCallbackAsync(cb, id, data);
+            return;
+        }
         if (data is not null && (data.StartsWith("sa:") || data.StartsWith("sr:")))
         {
             await DecideStaffAsync(cb, id, approve: data.StartsWith("sa:"), data[3..]);
@@ -259,6 +265,111 @@ public class TelegramBotService(AppDbContext db, TelegramClient telegram, Report
         if (me is null) { await telegram.SendAsync(chatId, TelegramTexts.Get(lang, "staff_only")); return; }
 
         await telegram.SendAsync(chatId, await notifier.BuildAbsentAsync(lang, me) ?? TelegramTexts.Get(lang, "absent_none"));
+    }
+
+    // /password: a teacher (a director: of the school) resets the password of a pupil who forgot it. Buttons: team -> pupil -> confirm -> the
+    // new password in the same message. The same rules as the cabinet (PupilPasswordService): only approved pupils of the caller's teams.
+    private async Task PasswordAsync(long chatId)
+    {
+        var lang = await LangOfAsync(chatId);
+        var me = await StaffOfChatAsync(chatId);
+        if (me is null) { await telegram.SendAsync(chatId, TelegramTexts.Get(lang, "staff_only")); return; }
+
+        var (text, keyboard) = await PasswordTeamsAsync(lang, me);
+        await telegram.SendAsync(chatId, text, keyboard);
+    }
+
+    private async Task<(string Text, object? Keyboard)> PasswordTeamsAsync(string lang, User me)
+    {
+        var classes = await notifier.VisibleClasses(me).Where(c => !c.IsArchived).OrderBy(c => c.Name).Take(40).ToListAsync();
+        if (classes.Count == 0) return (TelegramTexts.Get(lang, "team_none"), null);
+        var rows = classes.Select(c => new[] { new { text = c.Name, callback_data = $"pwc:{c.ClassId}" } }).ToArray();
+        return (TelegramTexts.Get(lang, "pw_pick_team"), new { inline_keyboard = rows });
+    }
+
+    private async Task PasswordCallbackAsync(JsonElement cb, string? callbackId, string data)
+    {
+        async Task Answer(string? text = null, bool alert = false) { if (callbackId is not null) await telegram.AnswerCallbackAsync(callbackId, text, alert); }
+
+        if (!cb.TryGetProperty("message", out var msg)) { await Answer(); return; }
+        var chatId = msg.GetProperty("chat").GetProperty("id").GetInt64();
+        var messageId = msg.GetProperty("message_id").GetInt64();
+        var lang = await LangOfAsync(chatId);
+
+        var me = await StaffOfChatAsync(chatId);
+        if (me is null) { await Answer(TelegramTexts.Get(lang, "toast_denied"), alert: true); return; }
+
+        var parts = data.Split(':');
+        if (parts[0] == "pw")
+        {
+            var (text, keyboard) = await PasswordTeamsAsync(lang, me);
+            await telegram.EditAsync(chatId, messageId, text, keyboard);
+            await Answer();
+            return;
+        }
+
+        if (parts.Length < 2 || !int.TryParse(parts[1], out var classId)) { await Answer(); return; }
+        var cls = await notifier.VisibleClasses(me).SingleOrDefaultAsync(c => c.ClassId == classId);
+        if (cls is null) { await Answer(TelegramTexts.Get(lang, "toast_denied"), alert: true); return; }
+
+        var back = new[] { new { text = TelegramTexts.Get(lang, "btn_back"), callback_data = "pw" } };
+
+        if (parts[0] == "pwc")
+        {
+            var pupilsOfTeam = (await stats.GetStudentsAsync(classId)).OrderBy(s => s.Name, StringComparer.CurrentCultureIgnoreCase).Take(60).ToList();
+            if (pupilsOfTeam.Count == 0)
+            {
+                await telegram.EditAsync(chatId, messageId, TelegramTexts.Get(lang, "pw_no_pupils", Esc(cls.Name)), new { inline_keyboard = new[] { back } });
+            }
+            else
+            {
+                var rows = new List<object[]>();
+                for (var i = 0; i < pupilsOfTeam.Count; i += 2)
+                    rows.Add(pupilsOfTeam.Skip(i).Take(2).Select(s => (object)new { text = s.Name, callback_data = $"pwp:{classId}:{s.UserId}" }).ToArray());
+                rows.Add(back);
+                await telegram.EditAsync(chatId, messageId, TelegramTexts.Get(lang, "pw_pick_pupil", Esc(cls.Name)), new { inline_keyboard = rows });
+            }
+            await Answer();
+            return;
+        }
+
+        if (parts.Length < 3 || !int.TryParse(parts[2], out var pupilId)) { await Answer(); return; }
+        var pupil = (await stats.GetStudentsAsync(classId)).FirstOrDefault(s => s.UserId == pupilId);
+        if (pupil is null)
+        {
+            await telegram.EditAsync(chatId, messageId, TelegramTexts.Get(lang, "pw_missing"), new { inline_keyboard = new[] { back } });
+            await Answer();
+            return;
+        }
+
+        if (parts[0] == "pwp")
+        {
+            var keyboard = new
+            {
+                inline_keyboard = new[]
+                {
+                    new[]
+                    {
+                        new { text = TelegramTexts.Get(lang, "btn_pw_reset"), callback_data = $"pwy:{classId}:{pupilId}" },
+                        new { text = TelegramTexts.Get(lang, "btn_cancel"), callback_data = $"pwc:{classId}" }
+                    }
+                }
+            };
+            await telegram.EditAsync(chatId, messageId, TelegramTexts.Get(lang, "pw_confirm", Esc(pupil.Name), Esc(pupil.Username ?? "—")), keyboard);
+            await Answer();
+            return;
+        }
+
+        // pwy: do it. The password is in this message only (and in nobody's database).
+        var reset = await passwords.ResetAsync(cls, pupilId);
+        if (reset is null)
+        {
+            await telegram.EditAsync(chatId, messageId, TelegramTexts.Get(lang, "pw_missing"), new { inline_keyboard = new[] { back } });
+            await Answer();
+            return;
+        }
+        await telegram.EditAsync(chatId, messageId, TelegramNotifier.PasswordResetText(lang, reset));
+        await Answer(TelegramTexts.Get(lang, "toast_pw_done"));
     }
 
     // /pending: each waiting pupil as its own message with Accept / Decline buttons (the first few).

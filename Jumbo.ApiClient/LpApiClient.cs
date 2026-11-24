@@ -558,6 +558,13 @@ public class LpApiClient(HttpClient http)
         return await response.Content.ReadFromJsonAsync<ClassDto>();
     }
 
+    public async Task<ResetPasswordResponse?> TeacherResetStudentPasswordAsync(int classId, int userId)
+    {
+        var response = await http.PostAsync($"api/teacher/classes/{classId}/students/{userId}/reset-password", null);
+        await EnsureOkAsync(response);
+        return await response.Content.ReadFromJsonAsync<ResetPasswordResponse>();
+    }
+
     public async Task TeacherDeleteClassAsync(int id)
     {
         var response = await http.DeleteAsync($"api/teacher/classes/{id}");

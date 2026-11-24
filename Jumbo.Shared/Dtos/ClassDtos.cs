@@ -15,6 +15,14 @@ public class RenameClassRequest
     public string Name { get; set; } = null!;
 }
 
+// The new password the teacher gives to a pupil who forgot theirs (shown once, never stored).
+public class ResetPasswordResponse
+{
+    public string Password { get; set; } = null!;
+    public string Name { get; set; } = null!;
+    public string? Username { get; set; }
+}
+
 // A learner picks a team from the school's list (the school comes with the team).
 public class SelectTeamRequest
 {
