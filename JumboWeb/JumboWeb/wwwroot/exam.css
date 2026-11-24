@@ -103,6 +103,9 @@
 
 /* ----- quiz ----- */
 .exam-counter { font-size: 0.95rem; font-weight: 800; color: var(--lp-muted); }
+.game-topbar .exam-timer { margin-left: auto; margin-right: 12px; font-size: 1.05rem; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--lp-text); }
+.exam-timer.low { color: #e5484d; animation: exam-timer-pulse 1s ease-in-out infinite; }
+@keyframes exam-timer-pulse { 50% { opacity: 0.55; } }
 .exam-quiz-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 0; }
 .exam-quiz-row {
     display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 14px; align-items: center;

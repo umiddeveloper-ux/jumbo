@@ -1849,6 +1849,33 @@
   <data name="TE_AllExams" xml:space="preserve">
     <value>Все экзамены</value>
   </data>
+  <data name="TE_Seconds" xml:space="preserve">
+    <value>Время на каждый вопрос, секунд</value>
+  </data>
+  <data name="TE_SecondsHint" xml:space="preserve">
+    <value>У ученика на экране идёт обратный отсчёт. Когда время выходит, вопрос засчитывается как неверный и экзамен идёт дальше. По умолчанию 30 секунд.</value>
+  </data>
+  <data name="TE_SecondsFmt" xml:space="preserve">
+    <value>{0} с на вопрос</value>
+  </data>
+  <data name="ExamQuiz_LeaveTitle" xml:space="preserve">
+    <value>Выйти из экзамена?</value>
+  </data>
+  <data name="ExamQuiz_LeaveText" xml:space="preserve">
+    <value>Если выйти сейчас, экзамен сорвётся и придётся начать его заново, с самого начала.</value>
+  </data>
+  <data name="ExamQuiz_LeaveStay" xml:space="preserve">
+    <value>Остаться в экзамене</value>
+  </data>
+  <data name="ExamQuiz_LeaveGo" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="Exam_TimeNote" xml:space="preserve">
+    <value>⏱ На каждое слово 30 секунд. Когда время выходит, ответ засчитывается как неверный. Не уходите со страницы: экзамен сорвётся.</value>
+  </data>
+  <data name="Exam_TimeNoteTeacher" xml:space="preserve">
+    <value>⏱ Время на каждое слово задаёт учитель. Когда оно выходит, ответ засчитывается как неверный. Не уходите со страницы: экзамен сорвётся.</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>

@@ -20,12 +20,19 @@ public class TeacherExamsController(AppDbContext db, ICurrentUserService current
     private const int MinQuestions = 5;
     private const int MaxQuestions = 100;
     private const int HistoryLimit = 30;
+    public const int DefaultSecondsPerWord = 30;
+    private const int MinSeconds = 5;
+    private const int MaxSeconds = 600;
 
     [HttpPost]
     public async Task<ActionResult<TeacherExamSummaryDto>> Create(CreateTeacherExamRequest request)
     {
         if (request.WordCount < MinQuestions || request.WordCount > MaxQuestions)
             return BadRequest(new { error = "INVALID_COUNT" });
+
+        var seconds = request.SecondsPerWord <= 0 ? DefaultSecondsPerWord : request.SecondsPerWord;
+        if (seconds < MinSeconds || seconds > MaxSeconds)
+            return BadRequest(new { error = "INVALID_SECONDS" });
 
         var me = await GetMeAsync();
         if (me.SchoolId is null) return Conflict(new { error = "NO_SCHOOL" });
@@ -47,6 +54,7 @@ public class TeacherExamsController(AppDbContext db, ICurrentUserService current
             TeacherId = me.UserId,
             Code = code,
             WordCount = request.WordCount,
+            SecondsPerWord = seconds,
             CreatedAt = now,
             ExpiresAt = now.Add(CodeLifetime)
         };
@@ -242,6 +250,7 @@ public class TeacherExamsController(AppDbContext db, ICurrentUserService current
         TeacherExamId = e.TeacherExamId,
         Code = e.Code,
         WordCount = e.WordCount,
+        SecondsPerWord = e.SecondsPerWord,
         CreatedAt = e.CreatedAt,
         ExpiresAt = e.ExpiresAt,
         ParticipantCount = results.Count,

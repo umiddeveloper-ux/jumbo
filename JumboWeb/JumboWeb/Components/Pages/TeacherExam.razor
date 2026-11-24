@@ -40,6 +40,16 @@ else
                                 aria-pressed="@(_count == c ? "true" : "false")" @onclick="() => _count = c">@c</button>
                     }
                 </div>
+                <div class="settings-label">@Loc["TE_Seconds"]</div>
+                <div class="exam-counts te-counts">
+                    @foreach (var s in SecondsOptions)
+                    {
+                        var sec = s;
+                        <button type="button" class="exam-count @(_seconds == sec ? "selected" : "")"
+                                aria-pressed="@(_seconds == sec ? "true" : "false")" @onclick="() => _seconds = sec">@sec</button>
+                    }
+                </div>
+                <p class="tc-hint">@Loc["TE_SecondsHint"]</p>
                 @if (!string.IsNullOrEmpty(_error))
                 {
                     <p class="validation-message">@_error</p>
@@ -81,7 +91,7 @@ else
                         var ex = e;
                         <button type="button" class="te-hist-row" @onclick="() => OpenAsync(ex.TeacherExamId)">
                             <span class="te-hist-date">@When(ex.CreatedAt)</span>
-                            <span class="te-hist-main">@Loc.Format("TE_Questions", ex.WordCount) · @Loc.Format("TE_Participants", ex.ParticipantCount)</span>
+                            <span class="te-hist-main">@Loc.Format("TE_Questions", ex.WordCount) · @Loc.Format("TE_SecondsFmt", ex.SecondsPerWord) · @Loc.Format("TE_Participants", ex.ParticipantCount)</span>
                             <span class="te-hist-avg">@(ex.AvgPercent is { } p ? $"{p}%" : "—")</span>
                         </button>
                     }
@@ -104,7 +114,7 @@ else
                 {
                     <div class="te-timer over">@Loc["TE_Expired"]</div>
                 }
-                <div class="te-meta">@Loc.Format("TE_Questions", exam.WordCount) · @When(exam.CreatedAt)</div>
+                <div class="te-meta">@Loc.Format("TE_Questions", exam.WordCount) · @Loc.Format("TE_SecondsFmt", exam.SecondsPerWord) · @When(exam.CreatedAt)</div>
                 <button type="button" class="lp-btn lp-btn-sm lp-btn-outline te-newbtn" @onclick="BackAsync">
                     @(Active ? Loc["TE_AllExams"] : Loc["TE_NewExam"])
                 </button>
@@ -166,6 +176,10 @@ else
 
 @code {
     private static readonly int[] Counts = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+
+    // Seconds for each question (the pupil's page counts them down); 30 unless the teacher picks another.
+    private static readonly int[] SecondsOptions = { 10, 15, 20, 30, 45, 60, 90, 120 };
+    private int _seconds = 30;
 
     // Pupils may hand in an exam for a while after it was created (the server accepts it for 3 hours).
     private static readonly TimeSpan WatchWindow = TimeSpan.FromHours(3);
@@ -265,7 +279,7 @@ else
         _error = string.Empty;
         try
         {
-            var created = await ApiClient.TeacherCreateExamAsync(_count);
+            var created = await ApiClient.TeacherCreateExamAsync(_count, _seconds);
             if (created is not null)
             {
                 _now = DateTime.UtcNow;

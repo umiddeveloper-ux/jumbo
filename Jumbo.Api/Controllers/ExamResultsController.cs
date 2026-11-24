@@ -54,7 +54,17 @@ public class ExamResultsController(AppDbContext db, ICurrentUserService currentU
         if (await db.ExamResults.AnyAsync(r => r.UserId == userId && r.TeacherExamId == exam.TeacherExamId))
             return Conflict(new { error = "ALREADY_TAKEN" });
 
-        return new JoinTeacherExamResponse { TeacherExamId = exam.TeacherExamId, WordCount = exam.WordCount };
+        return new JoinTeacherExamResponse { TeacherExamId = exam.TeacherExamId, WordCount = exam.WordCount, SecondsPerWord = exam.SecondsPerWord };
+    }
+
+    // The exam page of a pupil who is taking a teacher's exam asks for its settings (the time per question is the teacher's choice and must
+    // not come from the address line). Open for as long as the result may be handed in.
+    [HttpGet("teacher-exam/{id:int}")]
+    public async Task<ActionResult<TeacherExamInfoDto>> TeacherExamInfo(int id)
+    {
+        var exam = await db.TeacherExams.AsNoTracking().SingleOrDefaultAsync(e => e.TeacherExamId == id);
+        if (exam is null || DateTime.UtcNow > exam.CreatedAt + FinishWindow) return NotFound();
+        return new TeacherExamInfoDto { WordCount = exam.WordCount, SecondsPerWord = exam.SecondsPerWord };
     }
 
     // Free exams are no longer stored (the pupil sees the result at the end and that is all), so there is nothing to show here any more.

@@ -1,0 +1,51 @@
+@implements IDisposable
+
+@* The countdown of an exam question (or of a set of questions). It ticks and redraws only itself, so the answer fields of the page are not
+   touched while a pupil types. When the time is over it tells the page once per deadline; the page then takes the answers as they are. *@
+<span class="exam-timer @(_left <= 10 ? "low" : "")" role="timer">⏱ @Format(_left)</span>
+
+@code {
+    [Parameter] public DateTime Deadline { get; set; }
+    [Parameter] public EventCallback OnTimeUp { get; set; }
+
+    private int _left;
+    private DateTime _firedFor;
+    private readonly CancellationTokenSource _cts = new();
+
+    protected override void OnInitialized()
+    {
+        _left = Left();
+        _ = TickAsync(_cts.Token);
+    }
+
+    protected override void OnParametersSet() => _left = Left();
+
+    private int Left() => Math.Max(0, (int)Math.Ceiling((Deadline - DateTime.UtcNow).TotalSeconds));
+
+    private static string Format(int seconds) => $"{seconds / 60}:{seconds % 60:D2}";
+
+    private async Task TickAsync(CancellationToken ct)
+    {
+        using var timer = new PeriodicTimer(TimeSpan.FromMilliseconds(250));
+        try
+        {
+            while (await timer.WaitForNextTickAsync(ct))
+            {
+                var left = Left();
+                if (left != _left)
+                {
+                    _left = left;
+                    await InvokeAsync(StateHasChanged);
+                }
+                if (DateTime.UtcNow >= Deadline && _firedFor != Deadline)
+                {
+                    _firedFor = Deadline;
+                    await InvokeAsync(() => OnTimeUp.InvokeAsync());
+                }
+            }
+        }
+        catch (OperationCanceledException) { }
+    }
+
+    public void Dispose() => _cts.Cancel();
+}

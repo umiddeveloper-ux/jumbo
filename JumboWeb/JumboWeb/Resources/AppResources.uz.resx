@@ -1780,6 +1780,33 @@
   <data name="TE_AllExams" xml:space="preserve">
     <value>Barcha imtihonlar</value>
   </data>
+  <data name="TE_Seconds" xml:space="preserve">
+    <value>Har bir savol uchun vaqt, soniya</value>
+  </data>
+  <data name="TE_SecondsHint" xml:space="preserve">
+    <value>O'quvchining ekranida vaqt sanab turiladi. Vaqt tugasa, savol noto'g'ri deb hisoblanadi va imtihon davom etadi. Odatda 30 soniya.</value>
+  </data>
+  <data name="TE_SecondsFmt" xml:space="preserve">
+    <value>savolga {0} soniya</value>
+  </data>
+  <data name="ExamQuiz_LeaveTitle" xml:space="preserve">
+    <value>Imtihondan chiqasizmi?</value>
+  </data>
+  <data name="ExamQuiz_LeaveText" xml:space="preserve">
+    <value>Hozir chiqsangiz, imtihon buziladi va uni boshidan qaytadan boshlashga to'g'ri keladi.</value>
+  </data>
+  <data name="ExamQuiz_LeaveStay" xml:space="preserve">
+    <value>Imtihonda qolish</value>
+  </data>
+  <data name="ExamQuiz_LeaveGo" xml:space="preserve">
+    <value>Chiqish</value>
+  </data>
+  <data name="Exam_TimeNote" xml:space="preserve">
+    <value>⏱ Har bir so'z uchun 30 soniya. Vaqt tugasa, javob noto'g'ri deb hisoblanadi. Sahifadan chiqmang: imtihon buziladi.</value>
+  </data>
+  <data name="Exam_TimeNoteTeacher" xml:space="preserve">
+    <value>⏱ Har bir so'z uchun vaqtni o'qituvchi belgilaydi. Vaqt tugasa, javob noto'g'ri deb hisoblanadi. Sahifadan chiqmang: imtihon buziladi.</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Savollar: {0}</value>
   </data>

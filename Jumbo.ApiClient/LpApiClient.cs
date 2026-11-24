@@ -458,9 +458,17 @@ public class LpApiClient(HttpClient http)
         return await response.Content.ReadFromJsonAsync<RatingDto>();
     }
 
-    public async Task<TeacherExamSummaryDto?> TeacherCreateExamAsync(int wordCount)
+    // The settings of a teacher's exam a pupil is taking (null when the exam is gone or too old).
+    public async Task<TeacherExamInfoDto?> GetTeacherExamInfoAsync(int teacherExamId)
     {
-        var response = await http.PostAsJsonAsync("api/teacher/exams", new CreateTeacherExamRequest { WordCount = wordCount });
+        var response = await http.GetAsync($"api/exam-results/teacher-exam/{teacherExamId}");
+        if (!response.IsSuccessStatusCode) return null;
+        return await response.Content.ReadFromJsonAsync<TeacherExamInfoDto>();
+    }
+
+    public async Task<TeacherExamSummaryDto?> TeacherCreateExamAsync(int wordCount, int secondsPerWord = 30)
+    {
+        var response = await http.PostAsJsonAsync("api/teacher/exams", new CreateTeacherExamRequest { WordCount = wordCount, SecondsPerWord = secondsPerWord });
         await EnsureOkAsync(response);
         return await response.Content.ReadFromJsonAsync<TeacherExamSummaryDto>();
     }

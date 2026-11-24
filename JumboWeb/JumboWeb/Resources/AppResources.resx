@@ -1849,6 +1849,33 @@
   <data name="TE_AllExams" xml:space="preserve">
     <value>All exams</value>
   </data>
+  <data name="TE_Seconds" xml:space="preserve">
+    <value>Time for each question, seconds</value>
+  </data>
+  <data name="TE_SecondsHint" xml:space="preserve">
+    <value>The pupil's screen counts the time down. When it runs out, the question is counted as wrong and the exam goes on. 30 seconds by default.</value>
+  </data>
+  <data name="TE_SecondsFmt" xml:space="preserve">
+    <value>{0} s per question</value>
+  </data>
+  <data name="ExamQuiz_LeaveTitle" xml:space="preserve">
+    <value>Leave the exam?</value>
+  </data>
+  <data name="ExamQuiz_LeaveText" xml:space="preserve">
+    <value>If you leave now, the exam fails and you will have to start it again from the beginning.</value>
+  </data>
+  <data name="ExamQuiz_LeaveStay" xml:space="preserve">
+    <value>Stay in the exam</value>
+  </data>
+  <data name="ExamQuiz_LeaveGo" xml:space="preserve">
+    <value>Leave</value>
+  </data>
+  <data name="Exam_TimeNote" xml:space="preserve">
+    <value>⏱ 30 seconds for each word. When the time runs out, the answer is counted as wrong. Do not leave the page: the exam would fail.</value>
+  </data>
+  <data name="Exam_TimeNoteTeacher" xml:space="preserve">
+    <value>⏱ The time for each word is set by the teacher. When it runs out, the answer is counted as wrong. Do not leave the page: the exam would fail.</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} questions</value>
   </data>

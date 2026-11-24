@@ -14,6 +14,9 @@ public class TeacherExam
     // Number of questions, set by the teacher.
     public int WordCount { get; set; }
 
+    // Seconds a pupil has for each question, set by the teacher (30 by default).
+    public int SecondsPerWord { get; set; } = 30;
+
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public DateTime ExpiresAt { get; set; }

@@ -184,6 +184,16 @@ public class SubmitExamResultRequest
 public class CreateTeacherExamRequest
 {
     public int WordCount { get; set; }
+
+    // Seconds for each question (0 or missing = the default, 30).
+    public int SecondsPerWord { get; set; }
+}
+
+// What a pupil's exam page needs to run an exam by a teacher's code (the time per question is the teacher's choice).
+public class TeacherExamInfoDto
+{
+    public int WordCount { get; set; }
+    public int SecondsPerWord { get; set; } = 30;
 }
 
 public class TeacherExamSummaryDto
@@ -191,6 +201,7 @@ public class TeacherExamSummaryDto
     public int TeacherExamId { get; set; }
     public string Code { get; set; } = null!;
     public int WordCount { get; set; }
+    public int SecondsPerWord { get; set; } = 30;
     public DateTime CreatedAt { get; set; }
     public DateTime ExpiresAt { get; set; }
     public int ParticipantCount { get; set; }
@@ -228,6 +239,7 @@ public class JoinTeacherExamResponse
 {
     public int TeacherExamId { get; set; }
     public int WordCount { get; set; }
+    public int SecondsPerWord { get; set; } = 30;
 }
 
 // The exam report of the teacher: the teams, and in a team every pupil with the words learned in each book.

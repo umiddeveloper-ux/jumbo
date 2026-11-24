@@ -889,6 +889,10 @@ namespace Jumbo.Api.Data.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("expires_at");
 
+                    b.Property<int>("SecondsPerWord")
+                        .HasColumnType("integer")
+                        .HasColumnName("seconds_per_word");
+
                     b.Property<int>("TeacherId")
                         .HasColumnType("integer")
                         .HasColumnName("teacher_id");

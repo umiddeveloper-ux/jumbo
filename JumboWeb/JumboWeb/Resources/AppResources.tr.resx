@@ -1849,6 +1849,33 @@
   <data name="TE_AllExams" xml:space="preserve">
     <value>Tüm sınavlar</value>
   </data>
+  <data name="TE_Seconds" xml:space="preserve">
+    <value>Her soru için süre, saniye</value>
+  </data>
+  <data name="TE_SecondsHint" xml:space="preserve">
+    <value>Öğrencinin ekranında geri sayım yapılır. Süre dolunca soru yanlış sayılır ve sınav devam eder. Varsayılan 30 saniye.</value>
+  </data>
+  <data name="TE_SecondsFmt" xml:space="preserve">
+    <value>soru başına {0} sn</value>
+  </data>
+  <data name="ExamQuiz_LeaveTitle" xml:space="preserve">
+    <value>Sınavdan çıkılsın mı?</value>
+  </data>
+  <data name="ExamQuiz_LeaveText" xml:space="preserve">
+    <value>Şimdi çıkarsan sınav bozulur ve en baştan yeniden başlaman gerekir.</value>
+  </data>
+  <data name="ExamQuiz_LeaveStay" xml:space="preserve">
+    <value>Sınavda kal</value>
+  </data>
+  <data name="ExamQuiz_LeaveGo" xml:space="preserve">
+    <value>Çık</value>
+  </data>
+  <data name="Exam_TimeNote" xml:space="preserve">
+    <value>⏱ Her kelime için 30 saniye. Süre dolunca cevap yanlış sayılır. Sayfadan çıkma: sınav bozulur.</value>
+  </data>
+  <data name="Exam_TimeNoteTeacher" xml:space="preserve">
+    <value>⏱ Her kelime için süreyi öğretmen belirler. Süre dolunca cevap yanlış sayılır. Sayfadan çıkma: sınav bozulur.</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>
