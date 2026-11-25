@@ -227,7 +227,7 @@
     private string? StaffRedirect()
     {
         if (!IsStaff && !IsApplicant && !IsAdmin) return null;
-        if (IsTopicPath || IsBookZeroPath) return null;
+        if (IsTopicPath || IsBookZeroPath || IsTestPath) return null;       // the level test is open to teachers and admins too (they look at it)
         var p = _currentPath;
         if (IsAdmin)
             return p.Equals("admin", StringComparison.OrdinalIgnoreCase) || p.StartsWith("admin/", StringComparison.OrdinalIgnoreCase) || p.StartsWith("little-polyglot/settings", StringComparison.OrdinalIgnoreCase)

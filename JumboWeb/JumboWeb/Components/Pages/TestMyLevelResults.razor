@@ -25,17 +25,21 @@
             <div class="game-result-sub">@Loc["Placement_Stage_" + r.Stage + "_Text"]</div>
         </div>
 
-        <section class="exam-card pl-recommend">
-            <h2 class="exam-step">📘 @Loc.Format("Placement_Recommend", r.RecommendedBook)</h2>
-            @if (UserState.IsRegistered)
-            {
-                <button type="button" class="lp-btn lp-btn-full" @onclick='() => Nav.NavigateTo($"/little-polyglot/subjects/{r.RecommendedBook}")'>@Loc.Format("Placement_OpenBook", r.RecommendedBook) →</button>
-            }
-            else
-            {
-                <button type="button" class="lp-btn lp-btn-full" @onclick='() => Nav.NavigateTo("/register")'>@Loc["Placement_RegisterFirst"] →</button>
-            }
-        </section>
+        @* Teachers and admins have no lessons: the book to start with is for learners. *@
+        @if (!UserState.HidesLessons)
+        {
+            <section class="exam-card pl-recommend">
+                <h2 class="exam-step">📘 @Loc.Format("Placement_Recommend", r.RecommendedBook)</h2>
+                @if (UserState.IsRegistered)
+                {
+                    <button type="button" class="lp-btn lp-btn-full" @onclick='() => Nav.NavigateTo($"/little-polyglot/subjects/{r.RecommendedBook}")'>@Loc.Format("Placement_OpenBook", r.RecommendedBook) →</button>
+                }
+                else
+                {
+                    <button type="button" class="lp-btn lp-btn-full" @onclick='() => Nav.NavigateTo("/register")'>@Loc["Placement_RegisterFirst"] →</button>
+                }
+            </section>
+        }
 
         <section class="exam-card">
             <h2 class="exam-step">@Loc["Placement_BySkill"]</h2>
