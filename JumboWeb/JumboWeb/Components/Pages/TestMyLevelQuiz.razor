@@ -49,7 +49,10 @@
     }
     else if (_question is { } q)
     {
-        <p class="pl-skill">@Loc["Placement_Skill_" + q.Skill] <span>@Loc[q.Skill == PlacementSkill.Vocabulary && q.SvgImageId is null ? "Placement_Do_grammar" : "Placement_Do_" + q.Skill]</span></p>
+        <div class="pl-instruction">
+            <span class="pl-skill">@Loc["Placement_Skill_" + q.Skill]</span>
+            <span class="pl-do">@Loc[q.Skill == PlacementSkill.Vocabulary && q.SvgImageId is null ? "Placement_Do_vocabularytext" : "Placement_Do_" + q.Skill]</span>
+        </div>
 
         @if (q.Skill == PlacementSkill.Reading)
         {
@@ -61,7 +64,7 @@
 
         @if (q.Skill == PlacementSkill.Vocabulary && q.SvgImageId is not null)
         {
-            <div class="letter-test-card">
+            <div class="letter-test-card pl-picture">
                 <div class="letter-test-svg">@((MarkupString)_svg)</div>
             </div>
         }

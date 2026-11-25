@@ -1889,10 +1889,10 @@
   <data name="Placement_Skill_grammar" xml:space="preserve"><value>Dil bilgisi</value></data>
   <data name="Placement_Skill_reading" xml:space="preserve"><value>Okuma</value></data>
   <data name="Placement_Skill_listening" xml:space="preserve"><value>Dinleme</value></data>
-  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>Bu nedir?</value></data>
-  <data name="Placement_Do_grammar" xml:space="preserve"><value>Doğru cevabı seç.</value></data>
-  <data name="Placement_Do_reading" xml:space="preserve"><value>Metni oku ve soruyu cevapla.</value></data>
-  <data name="Placement_Do_listening" xml:space="preserve"><value>Dinle ve cevabı seç.</value></data>
+  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>Resme bak ve ona uyan İngilizce kelimeyi seç.</value></data>
+  <data name="Placement_Do_grammar" xml:space="preserve"><value>Boşluğa (___) uyan kelimeyi ya da ifadeyi seç.</value></data>
+  <data name="Placement_Do_reading" xml:space="preserve"><value>Metni oku, sonra doğru cevabı seç.</value></data>
+  <data name="Placement_Do_listening" xml:space="preserve"><value>“Dinle” düğmesine bas, sonra doğru cevabı seç.</value></data>
   <data name="Placement_Listen" xml:space="preserve"><value>▶ Dinle</value></data>
   <data name="Placement_ListenAgain" xml:space="preserve"><value>▶ Tekrar dinle</value></data>
   <data name="Placement_Playing" xml:space="preserve"><value>Çalıyor…</value></data>
@@ -1931,6 +1931,8 @@
   <data name="Placement_Stage_b2_Text" xml:space="preserve"><value>İngilizcen kitaplarımızın seviyesinin üstünde. 10. kitap sonuncusu: onu deyimleri, öbek fiilleri ve bağlaçları tekrar etmek için kullan.</value></data>
   <data name="Placement_Stage_b2plus_Title" xml:space="preserve"><value>B2: güçlü</value></data>
   <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>B2 sorularını kendinden emin yanıtladın. Kitaplarımız B1'de bitiyor, bu yüzden 10. kitabı tekrar ve henüz bilmediğin kelimeler için kullan.</value></data>
+  <data name="Placement_Do_vocabularytext" xml:space="preserve"><value>Anlama uyan kelimeyi seç.</value></data>
+  <data name="Placement_HowTo" xml:space="preserve"><value>Her soruda TEK bir cevap seç ve “İleri”ye bas. Süre sınırı yok, bilmediğin bir soruda en uygun görünen cevabı seç.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>

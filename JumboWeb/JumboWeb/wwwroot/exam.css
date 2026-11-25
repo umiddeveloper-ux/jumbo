@@ -182,8 +182,10 @@
 /* ===== the level test ("Test my level") ===== */
 .pl-parts { list-style: none; margin: 8px 0 4px; padding: 0; display: grid; gap: 8px; }
 .pl-parts li { padding: 10px 12px; border-radius: 14px; font-weight: 700; background: var(--lp-bg); border: 2px solid var(--lp-border); }
-.pl-skill { margin: 6px 0 10px; font-weight: 800; color: var(--lp-text); }
-.pl-skill span { margin-left: 8px; font-weight: 600; color: var(--lp-muted); }
+.pl-instruction { margin: 8px 0 14px; padding: 12px 14px; border-radius: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; background: var(--lp-primary-soft); border: 2px solid var(--lp-primary); }
+.pl-skill { padding: 3px 10px; border-radius: 99px; font-size: 0.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; color: #fff; background: var(--lp-primary); }
+.pl-do { font-size: 1.1rem; font-weight: 800; color: var(--lp-text); }
+.pl-picture .letter-test-svg, .pl-picture .letter-test-svg svg { width: min(200px, 55vw); height: min(200px, 55vw); }
 .pl-passage { margin: 0 0 12px; padding: 14px 16px; border-radius: 16px; line-height: 1.55; background: var(--lp-bg); border: 2px solid var(--lp-border); }
 .pl-passage p { margin: 6px 0 0; }
 .pl-prompt { margin: 0 0 12px; padding: 16px; border-radius: 16px; font-size: 1.15rem; font-weight: 800; background: var(--lp-bg); border: 2px solid var(--lp-border); }

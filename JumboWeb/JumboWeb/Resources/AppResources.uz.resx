@@ -1820,10 +1820,10 @@
   <data name="Placement_Skill_grammar" xml:space="preserve"><value>Grammatika</value></data>
   <data name="Placement_Skill_reading" xml:space="preserve"><value>O'qish</value></data>
   <data name="Placement_Skill_listening" xml:space="preserve"><value>Tinglash</value></data>
-  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>Bu nima?</value></data>
-  <data name="Placement_Do_grammar" xml:space="preserve"><value>To'g'ri javobni tanlang.</value></data>
-  <data name="Placement_Do_reading" xml:space="preserve"><value>Matnni o'qing va savolga javob bering.</value></data>
-  <data name="Placement_Do_listening" xml:space="preserve"><value>Tinglang va javobni tanlang.</value></data>
+  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>Rasmga qarang va unga mos inglizcha so'zni tanlang.</value></data>
+  <data name="Placement_Do_grammar" xml:space="preserve"><value>Bo'sh joyga (___) mos so'z yoki iborani tanlang.</value></data>
+  <data name="Placement_Do_reading" xml:space="preserve"><value>Matnni o'qing va to'g'ri javobni tanlang.</value></data>
+  <data name="Placement_Do_listening" xml:space="preserve"><value>«Tinglash» tugmasini bosing, keyin to'g'ri javobni tanlang.</value></data>
   <data name="Placement_Listen" xml:space="preserve"><value>▶ Tinglash</value></data>
   <data name="Placement_ListenAgain" xml:space="preserve"><value>▶ Yana tinglash</value></data>
   <data name="Placement_Playing" xml:space="preserve"><value>Eshittirilmoqda…</value></data>
@@ -1862,6 +1862,8 @@
   <data name="Placement_Stage_b2_Text" xml:space="preserve"><value>Inglizchangiz kitoblarimiz darajasidan yuqori. 10-kitob oxirgisi: undan frazali fe'llar, idiomalar va bog'lovchi so'zlarni takrorlash uchun foydalaning.</value></data>
   <data name="Placement_Stage_b2plus_Title" xml:space="preserve"><value>B2: kuchli</value></data>
   <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>Siz B2 savollariga ishonch bilan javob berdingiz. Kitoblarimiz B1 da tugaydi, shuning uchun 10-kitobdan takrorlash va hali bilmagan so'zlaringiz uchun foydalaning.</value></data>
+  <data name="Placement_Do_vocabularytext" xml:space="preserve"><value>Ma'nosiga mos keladigan so'zni tanlang.</value></data>
+  <data name="Placement_HowTo" xml:space="preserve"><value>Har bir savolda BITTA javobni tanlang va «Keyingi» tugmasini bosing. Vaqt cheklanmagan, bilmasangiz eng mos ko'ringan variantni tanlang.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Savollar: {0}</value>
   </data>

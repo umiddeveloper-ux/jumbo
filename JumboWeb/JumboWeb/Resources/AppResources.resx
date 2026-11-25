@@ -1889,10 +1889,10 @@
   <data name="Placement_Skill_grammar" xml:space="preserve"><value>Grammar</value></data>
   <data name="Placement_Skill_reading" xml:space="preserve"><value>Reading</value></data>
   <data name="Placement_Skill_listening" xml:space="preserve"><value>Listening</value></data>
-  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>What is this?</value></data>
-  <data name="Placement_Do_grammar" xml:space="preserve"><value>Choose the correct answer.</value></data>
-  <data name="Placement_Do_reading" xml:space="preserve"><value>Read the text and answer the question.</value></data>
-  <data name="Placement_Do_listening" xml:space="preserve"><value>Listen and choose the answer.</value></data>
+  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>Look at the picture and choose the English word for it.</value></data>
+  <data name="Placement_Do_grammar" xml:space="preserve"><value>Choose the word or phrase that fits the gap (___).</value></data>
+  <data name="Placement_Do_reading" xml:space="preserve"><value>Read the text, then choose the right answer.</value></data>
+  <data name="Placement_Do_listening" xml:space="preserve"><value>Press “Listen”, then choose the right answer.</value></data>
   <data name="Placement_Listen" xml:space="preserve"><value>▶ Listen</value></data>
   <data name="Placement_ListenAgain" xml:space="preserve"><value>▶ Listen again</value></data>
   <data name="Placement_Playing" xml:space="preserve"><value>Listening…</value></data>
@@ -1931,6 +1931,8 @@
   <data name="Placement_Stage_b2_Text" xml:space="preserve"><value>Your English is above the level of our books. Book 10 is the last one: use it to revise phrasal verbs, idioms and linking words.</value></data>
   <data name="Placement_Stage_b2plus_Title" xml:space="preserve"><value>B2: strong</value></data>
   <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>You answered the B2 questions confidently. Our books end at B1, so use Book 10 for revision and for words you may not know yet.</value></data>
+  <data name="Placement_Do_vocabularytext" xml:space="preserve"><value>Choose the word that fits the meaning.</value></data>
+  <data name="Placement_HowTo" xml:space="preserve"><value>In every question choose ONE answer and press “Next”. There is no time limit, and you can leave a question you do not know: just choose the answer that seems best.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} questions</value>
   </data>

@@ -1889,10 +1889,10 @@
   <data name="Placement_Skill_grammar" xml:space="preserve"><value>Грамматика</value></data>
   <data name="Placement_Skill_reading" xml:space="preserve"><value>Чтение</value></data>
   <data name="Placement_Skill_listening" xml:space="preserve"><value>Слух</value></data>
-  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>Что это?</value></data>
-  <data name="Placement_Do_grammar" xml:space="preserve"><value>Выберите правильный ответ.</value></data>
-  <data name="Placement_Do_reading" xml:space="preserve"><value>Прочитайте текст и ответьте на вопрос.</value></data>
-  <data name="Placement_Do_listening" xml:space="preserve"><value>Послушайте и выберите ответ.</value></data>
+  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>Посмотрите на картинку и выберите английское слово, которое ей подходит.</value></data>
+  <data name="Placement_Do_grammar" xml:space="preserve"><value>Выберите слово или фразу, которые подходят на место пропуска (___).</value></data>
+  <data name="Placement_Do_reading" xml:space="preserve"><value>Прочитайте текст и выберите правильный ответ.</value></data>
+  <data name="Placement_Do_listening" xml:space="preserve"><value>Нажмите «Слушать», затем выберите правильный ответ.</value></data>
   <data name="Placement_Listen" xml:space="preserve"><value>▶ Слушать</value></data>
   <data name="Placement_ListenAgain" xml:space="preserve"><value>▶ Послушать ещё раз</value></data>
   <data name="Placement_Playing" xml:space="preserve"><value>Звучит…</value></data>
@@ -1931,6 +1931,8 @@
   <data name="Placement_Stage_b2_Text" xml:space="preserve"><value>Ваш английский выше уровня наших книг. Книга 10 — последняя: используйте её, чтобы повторить фразовые глаголы, идиомы и связующие слова.</value></data>
   <data name="Placement_Stage_b2plus_Title" xml:space="preserve"><value>B2: сильный</value></data>
   <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>Вопросы B2 вы прошли уверенно. Наши книги заканчиваются на B1, поэтому книга 10 подойдёт для повторения и для слов, которых вы могли не знать.</value></data>
+  <data name="Placement_Do_vocabularytext" xml:space="preserve"><value>Выберите слово, которое подходит по смыслу.</value></data>
+  <data name="Placement_HowTo" xml:space="preserve"><value>В каждом вопросе выберите ОДИН ответ и нажмите «Далее». Времени на ответ не ограничено, а если не знаете — выберите вариант, который кажется самым подходящим.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>
