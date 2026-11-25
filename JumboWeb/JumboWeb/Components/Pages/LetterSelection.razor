@@ -72,7 +72,7 @@ else
         _previews = new();
         foreach (var w in words)
         {
-            var svg = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
+            var svg = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
             _previews.Add(new Preview { WordName = w.WordName, Svg = svg });
         }
         _isBusy = false;

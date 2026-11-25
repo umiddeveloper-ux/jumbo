@@ -161,7 +161,7 @@ else
         foreach (var w in sorted)
         {
             var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
-            var svg   = await ApiClient.GetSvgByIdAsync(w.SvgImageId);
+            var svg   = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
             allCards.Add(new SeqCard
             {
                 WordId = w.WordId, SvgImageId = w.SvgImageId,

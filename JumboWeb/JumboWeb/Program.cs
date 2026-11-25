@@ -187,6 +187,17 @@ if (app.Environment.IsDevelopment() && builder.Configuration["Media:VideosRoot"]
         RequestPath = "/videos"
     });
 }
+if (app.Environment.IsDevelopment() && builder.Configuration["Media:PicturesRoot"] is { Length: > 0 } devPictures)
+{
+    // the pictures of the words as files (/pics/{name}.webp): on the server nginx serves them from the media folder, here the site does it
+    Directory.CreateDirectory(devPictures);
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(devPictures),
+        RequestPath = "/pics",
+        OnPrepareResponse = ctx => ctx.Context.Response.Headers.CacheControl = "public, max-age=31536000, immutable"
+    });
+}
 app.MapStaticAssets();
 
 // The recorded voice of a listening question of the level test: the site hands out what the API keeps (so no nginx setting is needed).

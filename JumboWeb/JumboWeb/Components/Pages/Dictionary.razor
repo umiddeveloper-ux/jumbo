@@ -105,7 +105,7 @@ else
         {
             if (!_svgMap.ContainsKey(word.SvgImageId))
             {
-                var svg = await ApiClient.GetSvgByIdAsync(word.SvgImageId);
+                var svg = await ApiClient.GetPictureHtmlAsync(word.SvgImageId);
                 if (!string.IsNullOrEmpty(svg)) _svgMap[word.SvgImageId] = svg;
             }
 

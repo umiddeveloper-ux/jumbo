@@ -167,7 +167,7 @@
         _svg = string.Empty;
         if (_question is { SvgImageId: { } svgId })
         {
-            try { _svg = await ApiClient.GetSvgByIdAsync(svgId); } catch { }
+            try { _svg = await ApiClient.GetPictureHtmlAsync(svgId); } catch { }
         }
     }
 
