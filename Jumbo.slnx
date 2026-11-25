@@ -2,6 +2,7 @@
   <Project Path="Jumbo.Api/Jumbo.Api.csproj" />
   <Project Path="Jumbo.ApiClient/Jumbo.ApiClient.csproj" />
   <Project Path="Jumbo.Shared/Jumbo.Shared.csproj" />
+  <Project Path="Jumbo.Tests/Jumbo.Tests.csproj" />
   <Project Path="Jumbo/Jumbo.csproj">
     <Deploy Solution="Debug|*" />
   </Project>

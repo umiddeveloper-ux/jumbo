@@ -106,3 +106,6 @@ using (var scope = app.Services.CreateScope())
 
 app.Run();
 return 0;
+
+// The tests start the API in memory (Jumbo.Tests).
+public partial class Program;

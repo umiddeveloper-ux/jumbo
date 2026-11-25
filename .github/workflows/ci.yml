@@ -1,0 +1,56 @@
+name: CI
+
+# Every push and every pull request: build the API and the website, run the tests on a real PostgreSQL database.
+# The mobile app (MAUI) is built by hand with Jumbo/build-release.ps1: it needs the Android workloads and the signing key.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: jumbo
+          POSTGRES_PASSWORD: jumbo_ci
+          POSTGRES_DB: jumbo_tests
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U jumbo"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      JUMBO_TEST_DB: Host=localhost;Port=5432;Database=jumbo_tests;Username=jumbo;Password=jumbo_ci
+      DOTNET_NOLOGO: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Build the API
+        run: dotnet build Jumbo.Api/Jumbo.Api.csproj -c Release
+
+      - name: Build the website
+        run: dotnet build JumboWeb/JumboWeb/JumboWeb.csproj -c Release
+
+      - name: Test
+        run: dotnet test Jumbo.Tests/Jumbo.Tests.csproj -c Release --logger "trx;LogFileName=test-results.trx"
+
+      - name: Keep the test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: "**/test-results.trx"
