@@ -42,7 +42,49 @@
     { "id": "g-a2-17", "level": "A2", "q": "I didn't go out ___ it was raining.", "options": ["because", "so", "but", "or"], "answer": 0 },
     { "id": "g-a2-18", "level": "A2", "q": "There isn't ___ milk in the fridge.", "options": ["some", "any", "a", "many"], "answer": 1 },
     { "id": "g-a2-19", "level": "A2", "q": "Look at those black clouds! It ___ rain.", "options": ["will", "is going to", "going to", "does"], "answer": 1 },
-    { "id": "g-a2-20", "level": "A2", "q": "I ___ TV when the phone rang.", "options": ["watched", "was watching", "am watching", "watch"], "answer": 1 }
+    { "id": "g-a2-20", "level": "A2", "q": "I ___ TV when the phone rang.", "options": ["watched", "was watching", "am watching", "watch"], "answer": 1 },
+
+    { "id": "g-b1-01", "level": "B1", "q": "She has worked in this hospital ___ ten years.", "options": ["since", "for", "during", "from"], "answer": 1 },
+    { "id": "g-b1-02", "level": "B1", "q": "If I ___ more money, I would buy a bigger flat.", "options": ["have", "had", "would have", "will have"], "answer": 1 },
+    { "id": "g-b1-03", "level": "B1", "q": "The bridge ___ in 1998.", "options": ["built", "was built", "has built", "is building"], "answer": 1 },
+    { "id": "g-b1-04", "level": "B1", "q": "The report ___ by Friday.", "options": ["must finish", "must be finished", "must finished", "must have finish"], "answer": 1 },
+    { "id": "g-b1-05", "level": "B1", "q": "The lights are on, so they ___ be at home.", "options": ["must", "can't", "mustn't", "needn't"], "answer": 0 },
+    { "id": "g-b1-06", "level": "B1", "q": "When I was a child, I ___ play in the river every summer.", "options": ["use to", "used to", "was used to", "am used to"], "answer": 1 },
+    { "id": "g-b1-07", "level": "B1", "q": "I'm not used to ___ up so early.", "options": ["get", "getting", "got", "gets"], "answer": 1 },
+    { "id": "g-b1-08", "level": "B1", "q": "She suggested ___ to the cinema.", "options": ["to go", "going", "go", "went"], "answer": 1 },
+    { "id": "g-b1-09", "level": "B1", "q": "This is the man ___ car was stolen.", "options": ["who", "whose", "which", "whom"], "answer": 1 },
+    { "id": "g-b1-10", "level": "B1", "q": "It was ___ a boring film that we left early.", "options": ["so", "such", "too", "very"], "answer": 1 },
+    { "id": "g-b1-11", "level": "B1", "q": "How ___ people came to the party? \"About twenty.\"", "options": ["much", "many", "few", "a lot"], "answer": 1 },
+    { "id": "g-b1-12", "level": "B1", "q": "I haven't seen him ___ last week.", "options": ["for", "since", "from", "during"], "answer": 1 },
+    { "id": "g-b1-13", "level": "B1", "q": "We ___ dinner when the lights went out.", "options": ["have", "were having", "had", "are having"], "answer": 1 },
+    { "id": "g-b1-14", "level": "B1", "q": "If it ___ tomorrow, we'll cancel the picnic.", "options": ["rains", "will rain", "rained", "would rain"], "answer": 0 },
+    { "id": "g-b1-15", "level": "B1", "q": "He is ___ person I have ever met.", "options": ["more interesting", "most interesting", "the most interesting", "interestinger"], "answer": 2 },
+    { "id": "g-b1-16", "level": "B1", "q": "I'd like to know where ___.", "options": ["is the station", "the station is", "does the station is", "the station does"], "answer": 1 },
+    { "id": "g-b1-17", "level": "B1", "q": "She is looking forward ___ you.", "options": ["to see", "to seeing", "seeing", "see"], "answer": 1 },
+    { "id": "g-b1-18", "level": "B1", "q": "Neither Ali ___ his sister likes spicy food.", "options": ["or", "nor", "and", "but"], "answer": 1 },
+    { "id": "g-b1-19", "level": "B1", "q": "I will call you as soon as I ___ home.", "options": ["get", "will get", "got", "am getting"], "answer": 0 },
+    { "id": "g-b1-20", "level": "B1", "q": "The film wasn't as good ___ I expected.", "options": ["than", "that", "as", "like"], "answer": 2 },
+
+    { "id": "g-b2-01", "level": "B2", "q": "If I had known about the traffic, I ___ earlier.", "options": ["would leave", "would have left", "had left", "left"], "answer": 1 },
+    { "id": "g-b2-02", "level": "B2", "q": "I wish I ___ the exam last year.", "options": ["didn't fail", "hadn't failed", "wouldn't fail", "haven't failed"], "answer": 1 },
+    { "id": "g-b2-03", "level": "B2", "q": "By the time we arrive, the film ___.", "options": ["will start", "will have started", "starts", "has started"], "answer": 1 },
+    { "id": "g-b2-04", "level": "B2", "q": "She denied ___ the money.", "options": ["to take", "taking", "take", "to have take"], "answer": 1 },
+    { "id": "g-b2-05", "level": "B2", "q": "He is said ___ a fortune on the stock market last year.", "options": ["to make", "making", "to have made", "to be making"], "answer": 2 },
+    { "id": "g-b2-06", "level": "B2", "q": "Not only ___ late, but he also forgot the documents.", "options": ["he arrived", "did he arrive", "arrived he", "he did arrive"], "answer": 1 },
+    { "id": "g-b2-07", "level": "B2", "q": "The manager had the engineers ___ the system.", "options": ["to check", "checked", "check", "checking"], "answer": 2 },
+    { "id": "g-b2-08", "level": "B2", "q": "I'd rather you ___ smoke in here.", "options": ["don't", "didn't", "won't", "wouldn't"], "answer": 1 },
+    { "id": "g-b2-09", "level": "B2", "q": "___ the heavy rain, the match went ahead.", "options": ["Although", "Despite", "However", "Because"], "answer": 1 },
+    { "id": "g-b2-10", "level": "B2", "q": "The company, ___ headquarters are in Madrid, employs five thousand people.", "options": ["which", "whose", "who", "where"], "answer": 1 },
+    { "id": "g-b2-11", "level": "B2", "q": "It is high time we ___ a decision.", "options": ["make", "made", "would make", "are making"], "answer": 1 },
+    { "id": "g-b2-12", "level": "B2", "q": "She can't ___ the message, or she would have replied.", "options": ["receive", "be receiving", "have received", "having received"], "answer": 2 },
+    { "id": "g-b2-13", "level": "B2", "q": "Hardly ___ the room when the phone rang.", "options": ["he had entered", "had he entered", "he entered", "did he enter"], "answer": 1 },
+    { "id": "g-b2-14", "level": "B2", "q": "The new law is expected ___ into effect next month.", "options": ["coming", "to come", "to be coming", "come"], "answer": 1 },
+    { "id": "g-b2-15", "level": "B2", "q": "If it ___ for your help, I would have failed.", "options": ["wasn't", "hadn't been", "weren't", "hasn't been"], "answer": 1 },
+    { "id": "g-b2-16", "level": "B2", "q": "The film was good, ___ the book was far better.", "options": ["whereas", "despite", "because", "unless"], "answer": 0 },
+    { "id": "g-b2-17", "level": "B2", "q": "You ___ have told me earlier! Now it is too late.", "options": ["needn't", "should", "mustn't", "can't"], "answer": 1 },
+    { "id": "g-b2-18", "level": "B2", "q": "The meeting was cancelled, ___ was a relief to everyone.", "options": ["that", "which", "what", "it"], "answer": 1 },
+    { "id": "g-b2-19", "level": "B2", "q": "I'll lend you the car provided that you ___ it back by six.", "options": ["bring", "will bring", "brought", "would bring"], "answer": 0 },
+    { "id": "g-b2-20", "level": "B2", "q": "Little ___ she know that the decision would change her life.", "options": ["does", "did", "had", "was"], "answer": 1 }
   ],
   "reading": [
     {
@@ -116,6 +158,78 @@
         { "q": "Why are many elephants in danger?", "options": ["They cannot find water", "People hunt them", "They are too heavy", "They eat too much"], "answer": 1 },
         { "q": "What is true about elephants' sounds?", "options": ["They are very loud", "People cannot hear some of them", "They are only for babies", "They are the same as dogs' sounds"], "answer": 1 }
       ]
+    },
+    {
+      "id": "r-b1-01", "level": "B1", "title": "Learning to cook",
+      "text": "When I moved to a new city for university, I could hardly boil an egg. Eating in restaurants was too expensive, so I decided to learn to cook. At first, my dinners were a disaster: I burnt the rice, and my soup tasted like water. Then my roommate, who works part-time in a café, showed me some simple recipes. Now I cook three or four times a week and even invite friends for dinner. Cooking has also helped me save money, because I spend about half of what I used to spend on food. The best thing, though, is that I enjoy it.",
+      "questions": [
+        { "q": "Why did the writer start cooking?", "options": ["To impress friends", "Restaurants were too expensive", "The roommate asked", "To get a job in a café"], "answer": 1 },
+        { "q": "Who showed the writer some simple recipes?", "options": ["A teacher", "The roommate", "A chef", "The writer's mother"], "answer": 1 },
+        { "q": "How does the writer feel about cooking now?", "options": ["It takes too much time", "It is useful but boring", "The writer enjoys it", "It is too expensive"], "answer": 2 }
+      ]
+    },
+    {
+      "id": "r-b1-02", "level": "B1", "title": "City bikes",
+      "text": "From 1 March, the city council is introducing a bike-sharing scheme. There will be forty bike stations across the centre, and the first thirty minutes of each ride are free. After that, the price is 2,000 sum for every 15 minutes. To use the bikes, you need to download the app and register with your phone number. Helmets are not provided, but the council recommends wearing one. Bikes must be returned to a station; if you leave one anywhere else, you will have to pay a fine of 50,000 sum. The scheme will operate every day from 6 a.m. until midnight.",
+      "questions": [
+        { "q": "How much do you pay for a ride of 20 minutes?", "options": ["Nothing", "2,000 sum", "4,000 sum", "50,000 sum"], "answer": 0 },
+        { "q": "What happens if you leave a bike away from a station?", "options": ["Nothing", "You pay a fine", "The app stops working", "You lose your registration"], "answer": 1 },
+        { "q": "Which statement is true?", "options": ["The council provides helmets", "You must register in the app", "The bikes are available all night", "The scheme starts in the summer"], "answer": 1 }
+      ]
+    },
+    {
+      "id": "r-b1-03", "level": "B1", "title": "A letter from a friend",
+      "text": "Dear Kamola, I hope you are well. We finally moved to our new flat last weekend, and it is a bit of a mess, with boxes everywhere! The flat is on the fifth floor, and luckily there is a lift, because my brother's piano was really heavy. I like the area: there is a park five minutes away and a small market where I bought fresh bread this morning. The only problem is the neighbours upstairs, who play loud music at night. I am going to talk to them politely this week. Please come and visit when everything is tidy. Love, Nigora",
+      "questions": [
+        { "q": "What was really heavy?", "options": ["The boxes", "The piano", "The lift", "The bread"], "answer": 1 },
+        { "q": "What does Nigora like about the area?", "options": ["The neighbours", "The nightlife", "The park and the market", "The lift"], "answer": 2 },
+        { "q": "What is Nigora going to do about the noise?", "options": ["Move again", "Call the police", "Talk to the neighbours", "Buy earplugs"], "answer": 2 }
+      ]
+    },
+    {
+      "id": "r-b1-04", "level": "B1", "title": "Chess",
+      "text": "Chess is one of the oldest games in the world. Many historians believe it started in India about 1,500 years ago, and from there it travelled to Persia and then to Europe. In the past, only rich people played it, but today millions of people play online. Studies show that regular chess practice can improve memory and concentration, which is why many schools now teach it as a subject. However, experts also say that chess alone does not make you more intelligent: it is the thinking habits you develop that matter.",
+      "questions": [
+        { "q": "Where did chess probably start?", "options": ["In Europe", "In Persia", "In India", "In China"], "answer": 2 },
+        { "q": "Why do some schools teach chess?", "options": ["It is cheap", "It may improve memory and concentration", "It is an Olympic sport", "Children ask for it"], "answer": 1 },
+        { "q": "What do experts say?", "options": ["Chess makes you much smarter", "Chess is not useful", "The thinking habits you develop are what matter", "Only rich people can learn it"], "answer": 2 }
+      ]
+    },
+    {
+      "id": "r-b2-01", "level": "B2", "title": "Working from home",
+      "text": "Since the pandemic, remote working has moved from a rare perk to a mainstream option. Supporters argue that it saves commuting time and gives employees more control over their day. Yet the picture is more complicated. Several surveys suggest that people who work from home tend to put in longer hours, partly because the boundary between work and leisure fades. Managers, meanwhile, worry that spontaneous conversations, which often generate new ideas, are lost. Some companies have therefore adopted a hybrid model, asking staff to come to the office two or three days a week. Whether this compromise will last remains to be seen.",
+      "questions": [
+        { "q": "According to the text, why might remote workers work longer hours?", "options": ["They are paid by the hour", "The line between work and free time becomes blurred", "Their managers demand it", "They have more meetings"], "answer": 1 },
+        { "q": "What concern do managers have?", "options": ["Employees are less loyal", "Informal talk that produces ideas is lost", "Salaries are too high", "Offices are too expensive"], "answer": 1 },
+        { "q": "What does the writer say about the hybrid model?", "options": ["It has failed", "It is certain to last", "It is a compromise whose future is uncertain", "It is cheaper than remote work"], "answer": 2 }
+      ]
+    },
+    {
+      "id": "r-b2-02", "level": "B2", "title": "Bees in the city",
+      "text": "In recent years, rooftop beehives have appeared in cities from Paris to New York. Beekeepers point out that urban bees often do better than their rural cousins: cities offer a wide variety of flowering plants, and there are fewer pesticides than on intensive farms. But the trend has its critics. Some scientists warn that a large number of honeybees can compete for food with wild pollinators, such as bumblebees, which are already in decline. Their advice is to plant more flowers rather than to install more hives. Ironically, an initiative that was meant to help nature may, in some places, be harming it.",
+      "questions": [
+        { "q": "Why can bees do well in cities?", "options": ["There are no predators", "There are many kinds of flowers and fewer pesticides", "There is more rain", "The air is warmer"], "answer": 1 },
+        { "q": "What do some scientists fear?", "options": ["Honeybees will leave the cities", "Honeybees will take food from wild pollinators", "Hives are dangerous for people", "Honey will become polluted"], "answer": 1 },
+        { "q": "What is the irony the writer mentions?", "options": ["A project to help nature may harm it", "Beekeepers earn less than expected", "Cities are cleaner than farms", "Wild bees are stronger than honeybees"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "r-b2-03", "level": "B2", "title": "A letter of complaint",
+      "text": "Dear Sir or Madam, I am writing to complain about the laptop I bought from your online shop on 3 March (order number 4471). When it arrived, the screen had a visible crack, although the box was undamaged. I contacted your customer service twice, and on both occasions I was promised a call back within 24 hours, which never happened. Under these circumstances I would like a full refund. I am prepared to return the laptop at my own expense, but I expect you to confirm the refund in writing by 20 March. Otherwise, I shall have no choice but to contact the consumer protection agency. Yours faithfully, Dilshod Rakhimov",
+      "questions": [
+        { "q": "What is the main problem with the laptop?", "options": ["It does not turn on", "The screen is cracked", "It is the wrong model", "The box was damaged"], "answer": 1 },
+        { "q": "What does the writer want?", "options": ["A replacement", "A discount", "A full refund", "A repair"], "answer": 2 },
+        { "q": "What will he do if he receives no answer by 20 March?", "options": ["Go to the shop", "Write a review online", "Contact the consumer protection agency", "Buy another laptop"], "answer": 2 }
+      ]
+    },
+    {
+      "id": "r-b2-04", "level": "B2", "title": "Teenagers and sleep",
+      "text": "Teenagers are often described as lazy because they find it hard to get up in the morning. Research, however, suggests that the cause is biological: during adolescence the body's internal clock shifts, so teenagers naturally fall asleep later and need to wake up later. Unfortunately, most schools start early, which means many students are chronically short of sleep. A few schools in Britain and the United States have experimented with starting an hour later, and the results were encouraging: attendance improved and students reported feeling less anxious. Critics, however, point out that later starts create difficulties for parents who need to leave for work early.",
+      "questions": [
+        { "q": "What does research say about teenagers' difficulty getting up?", "options": ["They are lazy", "Their internal clock shifts later", "They play too many games", "They sleep too much"], "answer": 1 },
+        { "q": "What happened in the schools that started later?", "options": ["Attendance improved", "Marks fell", "Fewer students came", "Parents were happier"], "answer": 0 },
+        { "q": "What do critics say?", "options": ["Later starts are too expensive", "Later starts cause problems for working parents", "Teenagers need less sleep", "Teachers dislike late starts"], "answer": 1 }
+      ]
     }
   ],
   "listening": [
@@ -143,6 +257,54 @@
     { "id": "l-a2-09", "level": "A2", "audio": ["I usually take the bus to work, but today my car is back from the garage, so I am driving for the first time this week."], "q": "How is the speaker going to work today?", "options": ["By bus", "By car", "On foot", "By train"], "answer": 1 },
     { "id": "l-a2-10", "level": "A2", "audio": ["Our new teacher is very kind. She gives us interesting homework, but she never lets us use our phones in class."], "q": "What is NOT allowed in class?", "options": ["Asking questions", "Using phones", "Doing homework", "Speaking English"], "answer": 1 },
     { "id": "l-a2-11", "level": "A2", "audio": ["Sorry, I can't talk now. I am cooking dinner and my guests are arriving in half an hour. Can I call you back at nine?"], "q": "Why can't the speaker talk now?", "options": ["He is driving", "He is cooking dinner", "He is sleeping", "He is at work"], "answer": 1 },
-    { "id": "l-a2-12", "level": "A2", "audio": ["Two tickets to Samarkand, please. One adult and one student.", "That is forty thousand for the adult and twenty thousand for the student."], "q": "How much is the student ticket?", "options": ["Twenty thousand", "Forty thousand", "Sixty thousand", "Fourteen thousand"], "answer": 0 }
+    { "id": "l-a2-12", "level": "A2", "audio": ["Two tickets to Samarkand, please. One adult and one student.", "That is forty thousand for the adult and twenty thousand for the student."], "q": "How much is the student ticket?", "options": ["Twenty thousand", "Forty thousand", "Sixty thousand", "Fourteen thousand"], "answer": 0 },
+
+    { "id": "l-b1-01", "level": "B1", "audio": ["Hello, this is Doctor Karimova's office. I am calling to remind you about your appointment tomorrow at ten fifteen. Please arrive ten minutes early to fill in a form."], "q": "What should the patient do?", "options": ["Bring some documents", "Arrive ten minutes early", "Call the office tomorrow", "Come at ten minutes past ten"], "answer": 1 },
+    { "id": "l-b1-02", "level": "B1", "audio": ["I used to live in a small village, but I moved to the capital five years ago for work. I miss the quiet, but I don't miss the long walk to the shop."], "q": "Why did the speaker move to the capital?", "options": ["For work", "To study", "To be near family", "To find peace and quiet"], "answer": 0 },
+    { "id": "l-b1-03", "level": "B1", "audio": ["Excuse me, is this the right platform for the Samarkand train?", "No, that is platform four. This one is for Bukhara. You had better hurry, because it leaves in five minutes."], "q": "What should the first speaker do?", "options": ["Wait on this platform", "Go to platform four", "Buy a ticket for Bukhara", "Ask at the office"], "answer": 1 },
+    { "id": "l-b1-04", "level": "B1", "audio": ["I would like to book a table for six people on Friday evening, at about half past seven, if possible. We would prefer a table near the window."], "q": "What does the speaker prefer?", "options": ["A quiet corner", "A table near the window", "An earlier time", "A table outside"], "answer": 1 },
+    { "id": "l-b1-05", "level": "B1", "audio": ["The shop is closed on Sundays, but on weekdays it opens at nine. Today is a holiday, so it will open two hours later than usual."], "q": "What time will the shop open today?", "options": ["At nine", "At ten", "At eleven", "It will stay closed"], "answer": 2 },
+    { "id": "l-b1-06", "level": "B1", "audio": ["My brother and I are very different. He is quiet and loves reading, whereas I am more outgoing and prefer sports."], "q": "What is the speaker like?", "options": ["Quiet", "Shy", "Sporty and outgoing", "Lazy"], "answer": 2 },
+    { "id": "l-b1-07", "level": "B1", "audio": ["Did you see the match last night?", "No, I missed it. I had to finish my project. Did we win?", "Yes, two one, with a goal in the last minute!"], "q": "Why did the second speaker miss the match?", "options": ["He was ill", "He had to finish a project", "He forgot about it", "He was at work"], "answer": 1 },
+    { "id": "l-b1-08", "level": "B1", "audio": ["Passengers travelling to Tashkent, please note that flight two one four has been delayed by forty minutes because of fog. The new departure time is five fifty."], "q": "What is the new departure time?", "options": ["5:15", "5:50", "6:40", "4:50"], "answer": 1 },
+    { "id": "l-b1-09", "level": "B1", "audio": ["I have been learning the guitar for about six months. At first my fingers hurt a lot, but now I can play three songs."], "q": "How long has the speaker been learning the guitar?", "options": ["Three months", "Six months", "One year", "Three years"], "answer": 1 },
+    { "id": "l-b1-10", "level": "B1", "audio": ["Could you tell me how to get to the museum?", "Sure. Go along this street until you see a big supermarket, then turn right. The museum is opposite the park. You cannot miss it."], "q": "Where is the museum?", "options": ["Next to the supermarket", "Opposite the park", "Behind the park", "At the end of this street"], "answer": 1 },
+    { "id": "l-b1-11", "level": "B1", "audio": ["If the weather is good tomorrow, we are going to have a picnic by the lake. If it rains, we will watch a film at home instead."], "q": "What will they do if it rains?", "options": ["Have a picnic", "Watch a film at home", "Go to the lake", "Stay at school"], "answer": 1 },
+    { "id": "l-b1-12", "level": "B1", "audio": ["The course costs one hundred and fifty dollars, but students get a twenty percent discount."], "q": "How much does a student pay?", "options": ["30 dollars", "120 dollars", "130 dollars", "150 dollars"], "answer": 1 },
+
+    { "id": "l-b2-01", "level": "B2", "audio": ["I was hoping to get the job, but they told me they had chosen someone with more experience. To be honest, I am not that disappointed. The salary was not great anyway."], "q": "How does the speaker feel?", "options": ["Furious", "Only slightly disappointed", "Deeply upset", "Proud"], "answer": 1 },
+    { "id": "l-b2-02", "level": "B2", "audio": ["Our flight was cancelled at the last minute, so we were put on a later one. We reached the hotel at three in the morning, and, to make matters worse, they had given our room to someone else."], "q": "What was the final problem?", "options": ["The flight was cancelled", "They arrived very late", "Their room had been given to someone else", "They lost their luggage"], "answer": 2 },
+    { "id": "l-b2-03", "level": "B2", "audio": ["The museum has extended its opening hours until nine o'clock on Thursdays, but only until the end of the month. After that, it will go back to closing at six."], "q": "When will the museum close at six on Thursdays again?", "options": ["From today", "After the end of the month", "From next week", "Never"], "answer": 1 },
+    { "id": "l-b2-04", "level": "B2", "audio": ["Honestly, I would rather work from home. I get far more done without the interruptions, although I do miss chatting with my colleagues at lunch."], "q": "What does the speaker miss about the office?", "options": ["The interruptions", "The salary", "Talking with colleagues at lunch", "The journey to work"], "answer": 2 },
+    { "id": "l-b2-05", "level": "B2", "audio": ["I am afraid the report will not be ready until Wednesday. The data from the second survey was incomplete, so we had to ask the participants to fill it in again."], "q": "Why is the report late?", "options": ["Nobody has started it", "The data was incomplete", "The manager is away", "The survey was lost"], "answer": 1 },
+    { "id": "l-b2-06", "level": "B2", "audio": ["She is the sort of person who never says no. Consequently, she ends up with twice as much work as anyone else, and she is always exhausted."], "q": "Why does she have so much work?", "options": ["She is the manager", "She never refuses a request", "She works very slowly", "She likes working late"], "answer": 1 },
+    { "id": "l-b2-07", "level": "B2", "audio": ["Prices in the area have risen by almost fifteen percent in two years, which has made it very difficult for young families to buy their first home."], "q": "What is the effect of the rise in prices?", "options": ["More families are moving in", "Young families find it hard to buy a home", "Houses have become cheaper", "Fewer people rent flats"], "answer": 1 },
+    { "id": "l-b2-08", "level": "B2", "audio": ["I am not saying the film was bad. It is just that, after all the praise it received, I expected something much more original."], "q": "What does the speaker think about the film?", "options": ["It was terrible", "It was disappointing compared with what he expected", "It was surprisingly original", "It was the best he had ever seen"], "answer": 1 },
+    { "id": "l-b2-09", "level": "B2", "audio": ["The lecture covers three topics: first, how the internet changed shopping; second, the rise of online banking; and finally, concerns about privacy. Questions are welcome at the end."], "q": "What is the last topic of the lecture?", "options": ["Shopping", "Banking", "Privacy", "Questions from the audience"], "answer": 2 },
+    { "id": "l-b2-10", "level": "B2", "audio": ["I would have called you earlier, but my phone died on the way home, and I had no charger with me."], "q": "Why didn't the speaker call earlier?", "options": ["He forgot", "His phone ran out of battery", "He was too busy", "He lost the number"], "answer": 1 },
+    { "id": "l-b2-11", "level": "B2", "audio": ["Although the team trained hard all season, they lost the final by a single point. The coach said afterwards that he was proud of them anyway."], "q": "How did the coach react?", "options": ["He was angry", "He was proud of the team", "He blamed the players", "He resigned"], "answer": 1 },
+    { "id": "l-b2-12", "level": "B2", "audio": ["Unless the council changes its plans, the old market will be demolished next spring and replaced by a car park, which has upset many local residents."], "q": "What will happen to the market if nothing changes?", "options": ["It will be repaired", "It will be moved", "It will be demolished", "It will stay open"], "answer": 2 }
+  ],
+  "vocabulary": [
+    { "id": "v-b2-01", "level": "B2", "q": "She was ___ to speak in public because she had been very shy as a child.", "options": ["reluctant", "generous", "ancient", "humble"], "answer": 0 },
+    { "id": "v-b2-02", "level": "B2", "q": "The new regulations will ___ into force on the first of January.", "options": ["come", "take", "make", "put"], "answer": 0 },
+    { "id": "v-b2-03", "level": "B2", "q": "He is a very ___ person: he always keeps his promises and never lets anyone down.", "options": ["reliable", "flexible", "fragile", "hostile"], "answer": 0 },
+    { "id": "v-b2-04", "level": "B2", "q": "The scientists carried out an ___ to test their theory.", "options": ["experiment", "expedition", "exhibition", "expression"], "answer": 0 },
+    { "id": "v-b2-05", "level": "B2", "q": "After the long meeting, we finally ___ an agreement.", "options": ["reached", "arrived", "entered", "climbed"], "answer": 0 },
+    { "id": "v-b2-06", "level": "B2", "q": "I am sorry, I didn't ___ it was your birthday. I had no idea.", "options": ["realise", "remind", "regret", "reply"], "answer": 0 },
+    { "id": "v-b2-07", "level": "B2", "q": "Her speech was so ___ that many people in the audience were moved to tears.", "options": ["touching", "boring", "ordinary", "harmful"], "answer": 0 },
+    { "id": "v-b2-08", "level": "B2", "q": "The police are ___ the cause of the fire.", "options": ["investigating", "inventing", "introducing", "imagining"], "answer": 0 },
+    { "id": "v-b2-09", "level": "B2", "q": "It is an ___ decision: once you have made it, you cannot change it.", "options": ["irreversible", "invisible", "incredible", "irregular"], "answer": 0 },
+    { "id": "v-b2-10", "level": "B2", "q": "Prices have ___ sharply since the beginning of the year.", "options": ["risen", "raised", "arisen", "lifted"], "answer": 0 },
+    { "id": "v-b2-11", "level": "B2", "q": "The two companies decided to ___ and form a single, larger business.", "options": ["merge", "melt", "mix", "meet"], "answer": 0 },
+    { "id": "v-b2-12", "level": "B2", "q": "I can't ___ with this noise any longer. It is driving me mad.", "options": ["put up", "put on", "put off", "put away"], "answer": 0 },
+    { "id": "v-b2-13", "level": "B2", "q": "He has a very ___ attitude to life: he always sees the bright side.", "options": ["optimistic", "pessimistic", "hostile", "reluctant"], "answer": 0 },
+    { "id": "v-b2-14", "level": "B2", "q": "The hotel was cheap, but the rooms were rather ___, with old furniture and damp walls.", "options": ["shabby", "spacious", "luxurious", "elegant"], "answer": 0 },
+    { "id": "v-b2-15", "level": "B2", "q": "Which word means 'happening once a year'?", "options": ["annual", "monthly", "daily", "ancient"], "answer": 0 },
+    { "id": "v-b2-16", "level": "B2", "q": "Which word means 'to make something less severe'?", "options": ["alleviate", "accelerate", "accumulate", "accuse"], "answer": 0 },
+    { "id": "v-b2-17", "level": "B2", "q": "She gave a very ___ account of the accident, so we understood exactly what had happened.", "options": ["detailed", "doubtful", "distant", "dull"], "answer": 0 },
+    { "id": "v-b2-18", "level": "B2", "q": "The government has promised to ___ the problem of unemployment.", "options": ["tackle", "tumble", "tighten", "trample"], "answer": 0 },
+    { "id": "v-b2-19", "level": "B2", "q": "We need to ___ a decision before the end of the day.", "options": ["take", "do", "bring", "set"], "answer": 0 },
+    { "id": "v-b2-20", "level": "B2", "q": "Despite the ___ weather forecast, we decided to go hiking.", "options": ["gloomy", "glorious", "gradual", "gentle"], "answer": 0 }
   ]
 }

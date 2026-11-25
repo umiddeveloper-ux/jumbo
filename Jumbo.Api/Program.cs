@@ -33,6 +33,7 @@ builder.Services.AddHttpClient<TelegramClient>(c => { c.BaseAddress = new Uri("h
     .RemoveAllLoggers();   // the request URL contains the bot token: it must never reach the logs
 builder.Services.AddScoped<PupilPasswordService>();
 builder.Services.AddScoped<PlacementService>();
+builder.Services.AddScoped<PlacementSeeder>();
 builder.Services.AddScoped<TelegramNotifier>();
 builder.Services.AddScoped<WebLinkService>();
 builder.Services.AddScoped<LearnerStatsService>();
@@ -68,6 +69,9 @@ using (var scope = app.Services.CreateScope())
 
     var seed = scope.ServiceProvider.GetRequiredService<SeedDataService>();
     await seed.LoadSeedDataAsync();
+
+    // The first set of level test questions goes into the database (only what is missing; the database is the source of truth afterwards).
+    await scope.ServiceProvider.GetRequiredService<PlacementSeeder>().SeedAsync();
 
     // New edition of some books: SeedData__ReloadBooks=1,2,3 replaces them with their SeedData files (learners' progress in
     // those books is deleted; a book that already matches its file is left alone).

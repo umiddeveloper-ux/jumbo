@@ -49,7 +49,7 @@
     }
     else if (_question is { } q)
     {
-        <p class="pl-skill">@Loc["Placement_Skill_" + q.Skill] <span>@Loc["Placement_Do_" + q.Skill]</span></p>
+        <p class="pl-skill">@Loc["Placement_Skill_" + q.Skill] <span>@Loc[q.Skill == PlacementSkill.Vocabulary && q.SvgImageId is null ? "Placement_Do_grammar" : "Placement_Do_" + q.Skill]</span></p>
 
         @if (q.Skill == PlacementSkill.Reading)
         {
@@ -59,7 +59,7 @@
             </div>
         }
 
-        @if (q.Skill == PlacementSkill.Vocabulary)
+        @if (q.Skill == PlacementSkill.Vocabulary && q.SvgImageId is not null)
         {
             <div class="letter-test-card">
                 <div class="letter-test-svg">@((MarkupString)_svg)</div>
@@ -108,12 +108,13 @@
     private const int MaxPlays = 2;
 
     private PlacementBlockDto? _block;
-    private int _part = 1;                  // 1 = the A1 block, 2 = the A2 block
+    private int _level;                     // the index of the block in PlacementScoring.Levels (0 = A1)
+    private int _part => _level + 1;
     private int _index;
     private int _selected = -1;
     private string _svg = string.Empty;
     private readonly List<PlacementAnswer> _answers = new();
-    private double _a1Share;
+    private readonly List<double> _shares = new();      // the share of right answers in each block taken so far
     private bool _busy = true, _failed, _interlude;
 
     // listening
@@ -135,10 +136,11 @@
         _busy = true;
         _failed = false;
         _answers.Clear();
-        _part = 1;
+        _shares.Clear();
+        _level = 0;
         try
         {
-            if (!await LoadBlockAsync("A1")) _failed = true;
+            if (!await LoadBlockAsync(PlacementScoring.Levels[0])) _failed = true;
         }
         catch { _failed = true; }
         _busy = false;
@@ -189,42 +191,39 @@
             return;
         }
 
-        // The end of a block: the A1 block goes on to A2 only when it went well.
+        // The end of a block: the next level follows only when this one went well (and there is a next one).
         var mine = _answers.Where(a => a.Question.Level == _block.Level).ToList();
-        var share = mine.Count(a => a.IsCorrect) / (double)mine.Count;
-        if (_part == 1)
+        _shares.Add(mine.Count(a => a.IsCorrect) / (double)mine.Count);
+        if (PlacementScoring.GoesOn(_shares[^1]) && _level + 1 < PlacementScoring.Levels.Length)
         {
-            _a1Share = share;
-            if (PlacementScoring.GoesOn(share)) { _interlude = true; _index = _block.Questions.Count; return; }
-            Finish(null);
+            _interlude = true;
+            _index = _block.Questions.Count;
+            return;
         }
-        else
-        {
-            Finish(share);
-        }
+        Finish();
     }
 
     private async Task ContinueAsync()
     {
         _interlude = false;
         _busy = true;
-        _part = 2;
+        _level++;
         try
         {
-            if (!await LoadBlockAsync("A2"))
+            if (!await LoadBlockAsync(PlacementScoring.Levels[_level]))
             {
-                // The A2 block could not be loaded: the result is what the A1 block showed.
-                Finish(null);
+                // The next block could not be loaded: the result is what the blocks before it showed.
+                Finish();
                 return;
             }
         }
-        catch { Finish(null); return; }
+        catch { Finish(); return; }
         _busy = false;
     }
 
-    private void Finish(double? a2Share)
+    private void Finish()
     {
-        TestState.SetResults(_answers.ToList(), _a1Share, a2Share);
+        TestState.SetResults(_answers.ToList(), _shares.ToList());
         Nav.NavigateTo("/test-my-level/results", replace: true);
     }
 

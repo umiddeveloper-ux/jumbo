@@ -1877,14 +1877,14 @@
     <value>⏱ Her kelime için süreyi öğretmen belirler. Süre dolunca cevap yanlış sayılır. Sayfadan çıkma: sınav bozulur.</value>
   </data>
   <data name="Placement_Title" xml:space="preserve"><value>Seviyeni öğren</value></data>
-  <data name="Placement_Intro" xml:space="preserve"><value>Kısa bir İngilizce testi: yaklaşık 15 dakika, kayıt gerekmez. Kolay sorularla başlar ve yalnızca iyi gittiğin sürece daha zorlarına geçer. Sonunda seviyeni ve hangi Jumbo kitabıyla başlaman gerektiğini görürsün.</value></data>
+  <data name="Placement_Intro" xml:space="preserve"><value>Kısa bir İngilizce testi: 15 ila 25 dakika, kayıt gerekmez. Kolay sorularla başlar ve yalnızca iyi gittiğin sürece daha zorlarına geçer. Sonunda seviyeni (A1'den B2'ye kadar) ve hangi Jumbo kitabıyla başlaman gerektiğini görürsün.</value></data>
   <data name="Placement_Parts" xml:space="preserve"><value>Testte neler var</value></data>
   <data name="Placement_PartVocab" xml:space="preserve"><value>Kelimeler: resimde ne var</value></data>
   <data name="Placement_PartGrammar" xml:space="preserve"><value>Dil bilgisi: doğru kelimeyi seç</value></data>
   <data name="Placement_PartReading" xml:space="preserve"><value>Okuma: kısa bir metin ve sorular</value></data>
   <data name="Placement_PartListening" xml:space="preserve"><value>Dinleme: sesi aç</value></data>
   <data name="Placement_Start" xml:space="preserve"><value>Teste başla</value></data>
-  <data name="Placement_LevelsNote" xml:space="preserve"><value>Bu test A1 ve A2 seviyelerini gösterir. Daha yüksek seviyeler sonra eklenecek.</value></data>
+  <data name="Placement_LevelsNote" xml:space="preserve"><value>Test A1'den B2'ye kadar seviyeleri gösterir. Kitaplarımız A1–B1'i kapsar.</value></data>
   <data name="Placement_Skill_vocabulary" xml:space="preserve"><value>Kelimeler</value></data>
   <data name="Placement_Skill_grammar" xml:space="preserve"><value>Dil bilgisi</value></data>
   <data name="Placement_Skill_reading" xml:space="preserve"><value>Okuma</value></data>
@@ -1912,7 +1912,7 @@
   <data name="Placement_Stage_a2_Title" xml:space="preserve"><value>A2: temel</value></data>
   <data name="Placement_Stage_a2_Text" xml:space="preserve"><value>Günlük İngilizceyi ve basit metinleri anlıyorsun. A2 kitapları konuşurken ve okurken daha emin olmana yardım edecek.</value></data>
   <data name="Placement_Stage_a2plus_Title" xml:space="preserve"><value>A2: güçlü</value></data>
-  <data name="Placement_Stage_a2plus_Text" xml:space="preserve"><value>A2 sorularını iyi yaptın. Bu test şimdilik daha yukarı çıkmıyor, bu yüzden A2'nin son kitabını al ve B1'e hazır olup olmadığını gör.</value></data>
+  <data name="Placement_Stage_a2plus_Text" xml:space="preserve"><value>A2 sorularını iyi yaptın, ama B1 henüz zor. A2'nin son kitabını al, sonra B1'e geç.</value></data>
   <data name="Placement_Recommend" xml:space="preserve"><value>{0}. kitapla başla</value></data>
   <data name="Placement_OpenBook" xml:space="preserve"><value>{0}. kitabı aç</value></data>
   <data name="Placement_RegisterFirst" xml:space="preserve"><value>Kayıt ol ve başla</value></data>
@@ -1923,6 +1923,14 @@
   <data name="Placement_NoAnswer" xml:space="preserve"><value>cevap yok</value></data>
   <data name="Placement_Retake" xml:space="preserve"><value>Testi tekrar çöz</value></data>
   <data name="Placement_NoResult" xml:space="preserve"><value>Henüz sonuç yok. Önce testi çöz.</value></data>
+  <data name="Placement_Stage_b1_Title" xml:space="preserve"><value>B1: orta</value></data>
+  <data name="Placement_Stage_b1_Text" xml:space="preserve"><value>Günlük durumların çoğuyla başa çıkabilir ve açık metinlerin ana fikrini anlarsın. B1 kitapları İngilizceni daha akıcı yapacak.</value></data>
+  <data name="Placement_Stage_b1plus_Title" xml:space="preserve"><value>B1: güçlü</value></data>
+  <data name="Placement_Stage_b1plus_Text" xml:space="preserve"><value>B1'i iyi biliyorsun ve ondan yukarısını da epey anlıyorsun. Daha ileri gitmeden önce eksikleri kapatmak için B1'in sonraki kitaplarından başla.</value></data>
+  <data name="Placement_Stage_b2_Title" xml:space="preserve"><value>B2: orta üstü</value></data>
+  <data name="Placement_Stage_b2_Text" xml:space="preserve"><value>İngilizcen kitaplarımızın seviyesinin üstünde. 10. kitap sonuncusu: onu deyimleri, öbek fiilleri ve bağlaçları tekrar etmek için kullan.</value></data>
+  <data name="Placement_Stage_b2plus_Title" xml:space="preserve"><value>B2: güçlü</value></data>
+  <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>B2 sorularını kendinden emin yanıtladın. Kitaplarımız B1'de bitiyor, bu yüzden 10. kitabı tekrar ve henüz bilmediğin kelimeler için kullan.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>

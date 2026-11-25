@@ -1877,14 +1877,14 @@
     <value>⏱ Время на каждое слово задаёт учитель. Когда оно выходит, ответ засчитывается как неверный. Не уходите со страницы: экзамен сорвётся.</value>
   </data>
   <data name="Placement_Title" xml:space="preserve"><value>Узнай свой уровень</value></data>
-  <data name="Placement_Intro" xml:space="preserve"><value>Короткий тест по английскому: около 15 минут, регистрация не нужна. Он начинается с лёгких вопросов и переходит к более сложным, только пока у вас получается. В конце вы увидите свой уровень и книгу Jumbo, с которой лучше начать.</value></data>
+  <data name="Placement_Intro" xml:space="preserve"><value>Короткий тест по английскому: от 15 до 25 минут, регистрация не нужна. Он начинается с лёгких вопросов и переходит к более сложным, только пока у вас получается. В конце вы увидите свой уровень (от A1 до B2) и книгу Jumbo, с которой лучше начать.</value></data>
   <data name="Placement_Parts" xml:space="preserve"><value>Что в тесте</value></data>
   <data name="Placement_PartVocab" xml:space="preserve"><value>Слова: что на картинке</value></data>
   <data name="Placement_PartGrammar" xml:space="preserve"><value>Грамматика: выберите нужное слово</value></data>
   <data name="Placement_PartReading" xml:space="preserve"><value>Чтение: короткий текст и вопросы</value></data>
   <data name="Placement_PartListening" xml:space="preserve"><value>Слух: включите звук</value></data>
   <data name="Placement_Start" xml:space="preserve"><value>Начать тест</value></data>
-  <data name="Placement_LevelsNote" xml:space="preserve"><value>Тест показывает уровни A1 и A2. Более высокие уровни появятся позже.</value></data>
+  <data name="Placement_LevelsNote" xml:space="preserve"><value>Тест показывает уровни от A1 до B2. Наши книги охватывают A1–B1.</value></data>
   <data name="Placement_Skill_vocabulary" xml:space="preserve"><value>Слова</value></data>
   <data name="Placement_Skill_grammar" xml:space="preserve"><value>Грамматика</value></data>
   <data name="Placement_Skill_reading" xml:space="preserve"><value>Чтение</value></data>
@@ -1912,7 +1912,7 @@
   <data name="Placement_Stage_a2_Title" xml:space="preserve"><value>A2: элементарный</value></data>
   <data name="Placement_Stage_a2_Text" xml:space="preserve"><value>Вы понимаете повседневный английский и простые тексты. Книги уровня A2 помогут говорить и читать увереннее.</value></data>
   <data name="Placement_Stage_a2plus_Title" xml:space="preserve"><value>A2: сильный</value></data>
-  <data name="Placement_Stage_a2plus_Text" xml:space="preserve"><value>Вопросы уровня A2 вам удались. Этот тест пока не идёт выше, поэтому возьмите последнюю книгу A2 и проверьте, готовы ли вы к B1.</value></data>
+  <data name="Placement_Stage_a2plus_Text" xml:space="preserve"><value>Вопросы уровня A2 вам удались, но B1 пока даётся трудно. Возьмите последнюю книгу A2, а затем переходите к B1.</value></data>
   <data name="Placement_Recommend" xml:space="preserve"><value>Начните с книги {0}</value></data>
   <data name="Placement_OpenBook" xml:space="preserve"><value>Открыть книгу {0}</value></data>
   <data name="Placement_RegisterFirst" xml:space="preserve"><value>Зарегистрироваться и начать</value></data>
@@ -1923,6 +1923,14 @@
   <data name="Placement_NoAnswer" xml:space="preserve"><value>нет ответа</value></data>
   <data name="Placement_Retake" xml:space="preserve"><value>Пройти тест ещё раз</value></data>
   <data name="Placement_NoResult" xml:space="preserve"><value>Результата пока нет. Сначала пройдите тест.</value></data>
+  <data name="Placement_Stage_b1_Title" xml:space="preserve"><value>B1: средний</value></data>
+  <data name="Placement_Stage_b1_Text" xml:space="preserve"><value>Вы справляетесь с большинством повседневных ситуаций и понимаете главное в ясных текстах. Книги B1 сделают ваш английский более свободным.</value></data>
+  <data name="Placement_Stage_b1plus_Title" xml:space="preserve"><value>B1: сильный</value></data>
+  <data name="Placement_Stage_b1plus_Text" xml:space="preserve"><value>Вы хорошо знаете B1 и многое понимаете выше этого уровня. Начните с поздних книг B1, чтобы закрыть пробелы, прежде чем идти дальше.</value></data>
+  <data name="Placement_Stage_b2_Title" xml:space="preserve"><value>B2: выше среднего</value></data>
+  <data name="Placement_Stage_b2_Text" xml:space="preserve"><value>Ваш английский выше уровня наших книг. Книга 10 — последняя: используйте её, чтобы повторить фразовые глаголы, идиомы и связующие слова.</value></data>
+  <data name="Placement_Stage_b2plus_Title" xml:space="preserve"><value>B2: сильный</value></data>
+  <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>Вопросы B2 вы прошли уверенно. Наши книги заканчиваются на B1, поэтому книга 10 подойдёт для повторения и для слов, которых вы могли не знать.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>

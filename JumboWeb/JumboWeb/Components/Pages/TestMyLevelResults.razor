@@ -81,7 +81,7 @@
     private string Describe(PlacementQuestionDto q) => q.Skill switch
     {
         PlacementSkill.Listening => "🎧 " + string.Join(" ", q.Audio) + " — " + q.Prompt,
-        PlacementSkill.Vocabulary => "🖼️ " + Loc["Placement_Do_vocabulary"],
+        PlacementSkill.Vocabulary => q.SvgImageId is null ? q.Prompt : "🖼️ " + Loc["Placement_Do_vocabulary"],
         _ => q.Prompt
     };
 }

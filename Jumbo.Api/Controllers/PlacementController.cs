@@ -10,7 +10,7 @@ namespace Jumbo.Api.Controllers;
 [Route("api/placement")]
 public class PlacementController(PlacementService placement) : ControllerBase
 {
-    // One block of the test: level = A1 | A2.
+    // One block of the test: level = A1 | A2 | B1 | B2.
     [HttpGet("block/{level}")]
     public async Task<ActionResult<PlacementBlockDto>> Block(string level)
     {

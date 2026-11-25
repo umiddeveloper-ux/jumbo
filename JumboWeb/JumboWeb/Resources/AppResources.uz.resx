@@ -1808,14 +1808,14 @@
     <value>⏱ Har bir so'z uchun vaqtni o'qituvchi belgilaydi. Vaqt tugasa, javob noto'g'ri deb hisoblanadi. Sahifadan chiqmang: imtihon buziladi.</value>
   </data>
   <data name="Placement_Title" xml:space="preserve"><value>Darajangizni biling</value></data>
-  <data name="Placement_Intro" xml:space="preserve"><value>Qisqa ingliz tili testi: taxminan 15 daqiqa, ro'yxatdan o'tish shart emas. U oson savollardan boshlanadi va faqat yaxshi javob berayotganingizda qiyinroqlariga o'tadi. Oxirida darajangizni va Jumbo kitoblaridan qaysi biridan boshlashni ko'rasiz.</value></data>
+  <data name="Placement_Intro" xml:space="preserve"><value>Qisqa ingliz tili testi: 15 dan 25 daqiqagacha, ro'yxatdan o'tish shart emas. U oson savollardan boshlanadi va faqat yaxshi javob berayotganingizda qiyinroqlariga o'tadi. Oxirida darajangizni (A1 dan B2 gacha) va Jumbo kitoblaridan qaysi biridan boshlashni ko'rasiz.</value></data>
   <data name="Placement_Parts" xml:space="preserve"><value>Testda nimalar bor</value></data>
   <data name="Placement_PartVocab" xml:space="preserve"><value>So'zlar: rasmda nima bor</value></data>
   <data name="Placement_PartGrammar" xml:space="preserve"><value>Grammatika: to'g'ri so'zni tanlang</value></data>
   <data name="Placement_PartReading" xml:space="preserve"><value>O'qish: qisqa matn va savollar</value></data>
   <data name="Placement_PartListening" xml:space="preserve"><value>Tinglash: ovozni yoqing</value></data>
   <data name="Placement_Start" xml:space="preserve"><value>Testni boshlash</value></data>
-  <data name="Placement_LevelsNote" xml:space="preserve"><value>Test A1 va A2 darajalarini ko'rsatadi. Yuqoriroq darajalar keyinroq qo'shiladi.</value></data>
+  <data name="Placement_LevelsNote" xml:space="preserve"><value>Test A1 dan B2 gacha darajalarni ko'rsatadi. Kitoblarimiz A1–B1 ni qamrab oladi.</value></data>
   <data name="Placement_Skill_vocabulary" xml:space="preserve"><value>So'zlar</value></data>
   <data name="Placement_Skill_grammar" xml:space="preserve"><value>Grammatika</value></data>
   <data name="Placement_Skill_reading" xml:space="preserve"><value>O'qish</value></data>
@@ -1843,7 +1843,7 @@
   <data name="Placement_Stage_a2_Title" xml:space="preserve"><value>A2: elementar</value></data>
   <data name="Placement_Stage_a2_Text" xml:space="preserve"><value>Siz kundalik inglizcha va oddiy matnlarni tushunasiz. A2 kitoblari gapirish va o'qishda ishonchingizni oshiradi.</value></data>
   <data name="Placement_Stage_a2plus_Title" xml:space="preserve"><value>A2: kuchli</value></data>
-  <data name="Placement_Stage_a2plus_Text" xml:space="preserve"><value>Siz A2 savollarini yaxshi uddaladingiz. Bu test hozircha undan yuqoriga bormaydi, shuning uchun A2 ning oxirgi kitobini oling va B1 ga tayyor-tayyor emasligingizni tekshiring.</value></data>
+  <data name="Placement_Stage_a2plus_Text" xml:space="preserve"><value>Siz A2 savollarini yaxshi uddaladingiz, lekin B1 hali qiyin. A2 ning oxirgi kitobini oling, keyin B1 ga o'ting.</value></data>
   <data name="Placement_Recommend" xml:space="preserve"><value>{0}-kitobdan boshlang</value></data>
   <data name="Placement_OpenBook" xml:space="preserve"><value>{0}-kitobni ochish</value></data>
   <data name="Placement_RegisterFirst" xml:space="preserve"><value>Ro'yxatdan o'tish va boshlash</value></data>
@@ -1854,6 +1854,14 @@
   <data name="Placement_NoAnswer" xml:space="preserve"><value>javob yo'q</value></data>
   <data name="Placement_Retake" xml:space="preserve"><value>Testni qayta topshirish</value></data>
   <data name="Placement_NoResult" xml:space="preserve"><value>Hozircha natija yo'q. Avval testni topshiring.</value></data>
+  <data name="Placement_Stage_b1_Title" xml:space="preserve"><value>B1: o'rta</value></data>
+  <data name="Placement_Stage_b1_Text" xml:space="preserve"><value>Siz ko'pchilik kundalik vaziyatlarda ishlay olasiz va aniq matnlarning asosiy fikrini tushunasiz. B1 kitoblari inglizchangizni ravonroq qiladi.</value></data>
+  <data name="Placement_Stage_b1plus_Title" xml:space="preserve"><value>B1: kuchli</value></data>
+  <data name="Placement_Stage_b1plus_Text" xml:space="preserve"><value>Siz B1 ni yaxshi bilasiz va undan yuqorini ham ancha tushunasiz. Oldinga borishdan oldin kamchiliklarni to'ldirish uchun B1 ning keyingi kitoblaridan boshlang.</value></data>
+  <data name="Placement_Stage_b2_Title" xml:space="preserve"><value>B2: o'rtadan yuqori</value></data>
+  <data name="Placement_Stage_b2_Text" xml:space="preserve"><value>Inglizchangiz kitoblarimiz darajasidan yuqori. 10-kitob oxirgisi: undan frazali fe'llar, idiomalar va bog'lovchi so'zlarni takrorlash uchun foydalaning.</value></data>
+  <data name="Placement_Stage_b2plus_Title" xml:space="preserve"><value>B2: kuchli</value></data>
+  <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>Siz B2 savollariga ishonch bilan javob berdingiz. Kitoblarimiz B1 da tugaydi, shuning uchun 10-kitobdan takrorlash va hali bilmagan so'zlaringiz uchun foydalaning.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Savollar: {0}</value>
   </data>

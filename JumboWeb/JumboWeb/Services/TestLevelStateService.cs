@@ -8,16 +8,15 @@ namespace JumboWeb.Services;
 public class TestLevelStateService
 {
     public List<PlacementAnswer> Answers { get; private set; } = new();
-    public double A1Share { get; private set; }
-    public double? A2Share { get; private set; }
+    public List<double> Shares { get; private set; } = new();
     public PlacementResult? Result { get; private set; }
 
-    public void SetResults(List<PlacementAnswer> answers, double a1Share, double? a2Share)
+    // shares: the share of right answers in each block that was taken (A1, then A2, B1, B2 as far as the learner got).
+    public void SetResults(List<PlacementAnswer> answers, List<double> shares)
     {
         Answers = answers;
-        A1Share = a1Share;
-        A2Share = a2Share;
-        Result = PlacementScoring.Evaluate(a1Share, a2Share);
+        Shares = shares;
+        Result = PlacementScoring.Evaluate(shares);
     }
 
     // The share of right answers (0..1) in one skill over all the blocks taken; null when the skill had no questions.

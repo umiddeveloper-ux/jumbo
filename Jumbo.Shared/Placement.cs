@@ -1,6 +1,7 @@
 namespace Jumbo.Shared;
 
-// The level test ("Test my level"): two blocks of questions, A1 and then (only if the A1 block went well) A2.
+// The level test ("Test my level"): blocks of questions, one block per level (A1, A2, B1, B2). The next block follows only when the
+// block before it went well.
 
 public static class PlacementSkill
 {
@@ -18,7 +19,7 @@ public class PlacementQuestionDto
     public string Skill { get; set; } = string.Empty;
     public string Level { get; set; } = string.Empty;
 
-    // Grammar / reading / listening: the question text. Vocabulary: empty (the page says "What is this?").
+    // Grammar / reading / listening and the text vocabulary questions: the question. Picture vocabulary: empty (the page says "What is this?").
     public string Prompt { get; set; } = string.Empty;
 
     // Reading: the text (the same for the questions of one text).
@@ -28,7 +29,7 @@ public class PlacementQuestionDto
     // Listening: what is said (only the speech of the browser says it; the text is shown on the page only when speech is missing, and in the review).
     public List<string> Audio { get; set; } = [];
 
-    // Vocabulary: the picture of the word.
+    // Vocabulary with a picture: the picture of the word.
     public int? SvgImageId { get; set; }
 
     public List<string> Options { get; set; } = [];
@@ -41,24 +42,40 @@ public class PlacementBlockDto
     public List<PlacementQuestionDto> Questions { get; set; } = [];
 }
 
-// What the learner is told at the end. Stage: starter | a1 | a1plus | a2 | a2plus (the texts of the page are by stage).
+// What the learner is told at the end. Stage: starter | a1 | a1plus | a2 | a2plus | b1 | b1plus | b2 | b2plus (the texts of the page are by stage).
 public record PlacementResult(string Stage, string Level, int RecommendedBook);
 
 public static class PlacementScoring
 {
+    public static readonly string[] Levels = ["A1", "A2", "B1", "B2"];
+
     // The share of right answers in a block that counts as "this level is known" (go on to the next block) and as "some of it is known".
     public const double Known = 0.70;
     public const double Some = 0.40;
 
-    // a1 / a2: the share of right answers (0..1) in the A1 and A2 blocks; a2 is null when the A2 block was not taken.
-    // The books: 1-3 are A1, 4-6 are A2 (7-10 are B1, which this test does not reach yet).
-    public static PlacementResult Evaluate(double a1, double? a2)
+    // shares[i]: the share of right answers (0..1) in the block of Levels[i]; only the blocks that were taken.
+    // The books: 1-3 are A1, 4-6 are A2, 7-10 are B1 (the course has no B2 books: the last book is the one to revise from).
+    public static PlacementResult Evaluate(IReadOnlyList<double> shares)
     {
-        if (a1 < Some) return new("starter", "A1", 1);
-        if (a1 < Known || a2 is null) return new("a1", "A1", 1);
-        if (a2 < Some) return new("a1plus", "A1", 3);
-        if (a2 < Known) return new("a2", "A2", 4);
-        return new("a2plus", "A2", 6);
+        if (shares.Count == 0 || shares[0] < Some) return new("starter", "A1", 1);
+
+        var known = 0;                                    // how many levels in a row are known
+        while (known < shares.Count && shares[known] >= Known) known++;
+
+        if (known == 0) return new("a1", "A1", 1);
+        if (known == Levels.Length) return new("b2plus", "B2", 10);
+
+        // The next level was tried: some of it is known (the learner is at that level), or not yet (strong at the level just passed).
+        var some = known < shares.Count && shares[known] >= Some;
+        return (known, some) switch
+        {
+            (1, false) => new("a1plus", "A1", 3),
+            (1, true) => new("a2", "A2", 4),
+            (2, false) => new("a2plus", "A2", 6),
+            (2, true) => new("b1", "B1", 7),
+            (3, false) => new("b1plus", "B1", 9),
+            _ => new("b2", "B2", 10),
+        };
     }
 
     public static bool GoesOn(double share) => share >= Known;
