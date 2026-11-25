@@ -43,7 +43,12 @@ public partial class AwardsPageModel : ObservableObject
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(CanAccessMarket))]
+    [NotifyPropertyChangedFor(nameof(BalanceText))]
     private int _userLp;
+
+    // "Balance: 480 JO" in the app's language. A converter in the XAML did not follow a language change (the text stayed in the old language
+    // until the app was restarted), so the model builds the text and raises it again when the language changes.
+    public string BalanceText => LocalizationManager.Format("Awards_Balance", UserLp);
 
     // The width of an award tile: three in a row (the page sets it from its own width).
     [ObservableProperty]
@@ -75,6 +80,7 @@ public partial class AwardsPageModel : ObservableObject
         _apiClient = apiClient;
         _errorHandler = errorHandler;
         _livesService = livesService;
+        LocalizationManager.Instance.PropertyChanged += (_, _) => OnPropertyChanged(nameof(BalanceText));
     }
 
     private async Task LoadData()

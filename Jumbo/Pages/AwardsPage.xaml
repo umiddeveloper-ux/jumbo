@@ -84,7 +84,7 @@
                     <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,0">
                         <Label Text="{u:Tr Key=LpMarket}" Style="{StaticResource Title2}" SemanticProperties.HeadingLevel="Level1"/>
                         <Label Grid.Column="1"
-                               Text="{Binding UserLp, Converter={StaticResource TrFormat}, ConverterParameter=Awards_Balance}"
+                               Text="{Binding BalanceText}"
                                Style="{StaticResource LabelMedium}"
                                TextColor="{DynamicResource PrimaryText}"
                                FontAttributes="Bold"

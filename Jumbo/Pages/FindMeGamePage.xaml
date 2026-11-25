@@ -65,13 +65,13 @@
         <!-- Six cards, three in a row. Each card has an explicit width (the model computes it from the page width): in a grid collection
              the translation under the picture was measured for a narrower width and long words were cut ("пожалуйст"). -->
         <ScrollView Grid.Row="1">
-            <FlexLayout Margin="15" Wrap="Wrap" JustifyContent="Start" AlignItems="Start" AlignContent="Start" BindableLayout.ItemsSource="{Binding Cards}">
+            <FlexLayout Margin="15" Wrap="Wrap" JustifyContent="Center" AlignItems="Start" AlignContent="Start" BindableLayout.ItemsSource="{Binding Cards}">
             <BindableLayout.ItemTemplate>
                 <DataTemplate x:DataType="pageModels:GameCardViewModel">
                     <Border StrokeShape="RoundRectangle 12" Padding="0"
                             StrokeThickness="0"
                             HeightRequest="205"
-                            Margin="0,0,8,12"
+                            Margin="4,0,4,12"
                             WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type pageModels:FindMeGamePageModel}}, Path=CardWidth}">
 
                         <!-- Фон карточки: зелёный (matched), красный (wrong), нейтральный -->

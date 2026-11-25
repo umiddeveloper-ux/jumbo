@@ -108,10 +108,10 @@
                     </ScrollView>
 
                     <!-- the topics of the book -->
-                    <FlexLayout BindableLayout.ItemsSource="{Binding Topics}" HeightRequest="{Binding TopicsHeight}" Wrap="Wrap" JustifyContent="Start" AlignItems="Start" AlignContent="Start">
+                    <FlexLayout BindableLayout.ItemsSource="{Binding Topics}" HeightRequest="{Binding TopicsHeight}" Wrap="Wrap" JustifyContent="Center" AlignItems="Start" AlignContent="Start">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate x:DataType="pageModels:GameTopicCard">
-                                <Border WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type pageModels:GamesPageModel}}, Path=CardWidth}" HeightRequest="134" Margin="0,0,8,10" StrokeShape="RoundRectangle 18" StrokeThickness="2" Padding="6,10"
+                                <Border WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type pageModels:GamesPageModel}}, Path=CardWidth}" HeightRequest="134" Margin="4,0,4,10" StrokeShape="RoundRectangle 18" StrokeThickness="2" Padding="6,10"
                                         Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
                                         BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}">
                                     <Border.Triggers>

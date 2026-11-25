@@ -12,10 +12,10 @@ public partial class GamesPage : ContentPage
 
     private readonly GamesPageModel _model;
 
-    // three cards in a row, whatever the width of the screen (16 on each side, 8 between the cards)
+    // three cards in a row, whatever the width of the screen (16 on each side, 4 on each side of a card, 4 spare so that the flex layout does not push the first column out to the left)
     protected override void OnSizeAllocated(double width, double height)
     {
         base.OnSizeAllocated(width, height);
-        if (width > 0) _model.CardWidth = Math.Floor((width - 32 - 24) / 3);
+        if (width > 0) _model.CardWidth = Math.Floor((width - 32 - 24 - 4) / 3);
     }
 }
