@@ -36,7 +36,7 @@
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>39</ApplicationVersion>
+		<ApplicationVersion>41</ApplicationVersion>
 
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
 		<WindowsPackageType>None</WindowsPackageType>
@@ -69,6 +69,9 @@
 	  <AndroidPackageFormat>aab</AndroidPackageFormat>
 	  <!-- the texts of system exceptions stay (they are not shown to a learner, but they are in the logs) -->
 	  <UseSystemResourceKeys>false</UseSystemResourceKeys>
+	  <!-- Google Play wants at least 25 % of the Java/DEX code obfuscated (it was 1 %): R8 shrinks and renames it. Try a release build on a phone (QR scanner, video, all screens) before publishing. -->
+	  <AndroidLinkTool>r8</AndroidLinkTool>
+	  <AndroidR8ObfuscationMode>private-members</AndroidR8ObfuscationMode>
 	</PropertyGroup>
 
 	<!-- Signing with the release key (the "upload key" of Google Play). The key file lies in Jumbo/signing/ (it is NOT part of the sources) and its
