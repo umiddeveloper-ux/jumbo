@@ -130,8 +130,8 @@ public class LpApiClient(HttpClient http)
             foreach (var c in cards)
             {
                 if (c.SvgImageId <= 0) continue;
-                if (!string.IsNullOrEmpty(c.Svg))
-                    ApiCache.Seed($"svg/{c.SvgImageId}", ApiCache.Long, new SvgImageResponse { Svg = c.Svg });
+                if (!string.IsNullOrEmpty(c.Svg) || !string.IsNullOrEmpty(c.ImageUrl))
+                    ApiCache.Seed($"svg/{c.SvgImageId}", ApiCache.Long, new SvgImageResponse { Svg = c.Svg, ImageUrl = c.ImageUrl });
                 if (c.TranslationWordId > 0 && c.TranslationWord is not null)
                     ApiCache.Seed($"word/by-svg/{c.SvgImageId}/{translationLanguageId}", ApiCache.Long, (Word?)new Word
                     {
@@ -148,6 +148,15 @@ public class LpApiClient(HttpClient http)
     {
         var response = await ApiCache.GetAsync($"svg/{id}", ApiCache.Long, () => http.GetFromJsonAsync<SvgImageResponse>($"api/svg-images/{id}"));
         return response?.Svg ?? string.Empty;
+    }
+
+    // For the website: what to put in the page for the picture of a word. A picture that has a file becomes a tiny svg that shows the file
+    // (the browser keeps the file; nothing big travels through the page), otherwise the text of the svg as before.
+    public async Task<string> GetPictureHtmlAsync(int id)
+    {
+        var response = await ApiCache.GetAsync($"svg/{id}", ApiCache.Long, () => http.GetFromJsonAsync<SvgImageResponse>($"api/svg-images/{id}"));
+        if (response is null) return string.Empty;
+        return string.IsNullOrEmpty(response.ImageUrl) ? response.Svg : PictureFiles.SvgFor(response.ImageUrl);
     }
 
     // Awards

@@ -10,5 +10,6 @@ public class SvgImageConfiguration : IEntityTypeConfiguration<SvgImage>
     {
         builder.HasKey(x => x.SvgImageId);
         builder.Property(x => x.SVG).HasColumnType("text");
+        builder.Property(x => x.ImageFile).HasMaxLength(64);
     }
 }

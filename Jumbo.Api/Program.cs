@@ -91,6 +91,9 @@ using (var scope = app.Services.CreateScope())
     // reload/remove above has put the English books in their final shape. Skips a book whose Turkish words are complete already.
     await seed.LoadTurkishAsync();
 
+    // The pictures of the words also exist as files (/pics/{name}.webp): every picture gets the name of its file.
+    await PictureBackfill.RunAsync(db, app.Logger);
+
     // Platform admins are configured on the server (Admin__Usernames=login1,login2). Listed logins get the Admin role
     // at startup; the role is never granted through the website.
     var adminLogins = (app.Configuration["Admin:Usernames"] ?? "")

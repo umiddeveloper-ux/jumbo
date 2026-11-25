@@ -10,7 +10,7 @@ namespace Jumbo.Api.Controllers;
 
 [ApiController]
 [Route("api/words")]
-public class WordsController(AppDbContext db, SeedDataService seedDataService, ICurrentUserService currentUser) : ControllerBase
+public class WordsController(AppDbContext db, SeedDataService seedDataService, ICurrentUserService currentUser, IConfiguration config) : ControllerBase
 {
     private const string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     // The Turkish alphabet (29 letters); its upper case of i / ı is I-with-dot / I, which the invariant culture does not know
@@ -104,6 +104,7 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
     [HttpGet("by-subject/cards")]
     public async Task<ActionResult<List<WordCardDto>>> GetCardsBySubject([FromQuery] int subjectId, [FromQuery] int languageId, [FromQuery] int translationLanguageId)
     {
+        var omitSvg = config.GetValue<bool>("Pictures:OmitSvg");
         var cards = await (
             from w in db.Words.AsNoTracking().Where(w => w.SubjectId == subjectId && w.LanguageId == languageId)
             join t in db.Words.AsNoTracking().Where(x => x.LanguageId == translationLanguageId) on w.SvgImageId equals t.SvgImageId into translations
@@ -121,7 +122,9 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
                 TranslationWordId = t == null ? 0 : t.WordId,
                 TranslationWord = t == null ? null : t.WordName,
                 TranslationExample = t == null ? null : t.Example,
-                Svg = s == null ? string.Empty : s.SVG
+                // Pictures:OmitSvg: a picture that has a file is not sent as text (for clients that use ImageUrl; the old apps need the text)
+                Svg = s == null ? string.Empty : (omitSvg && s.ImageFile != null ? string.Empty : s.SVG),
+                ImageUrl = s == null || s.ImageFile == null ? null : Jumbo.Shared.PictureFiles.UrlPrefix + s.ImageFile
             }).ToListAsync();
 
         var missing = cards.Where(c => c.TranslationWord is null).Select(c => c.SvgImageId).ToList();

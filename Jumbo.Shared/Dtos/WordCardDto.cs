@@ -15,4 +15,8 @@ public class WordCardDto
     public string? TranslationExample { get; set; }
 
     public string Svg { get; set; } = string.Empty;
+
+    // The picture as a file (relative address, e.g. "/pics/0f3a9c21b7d4e8a6.webp") when it exists; Svg is empty then only when the server setting
+    // Pictures:OmitSvg is on. Old clients use Svg.
+    public string? ImageUrl { get; set; }
 }

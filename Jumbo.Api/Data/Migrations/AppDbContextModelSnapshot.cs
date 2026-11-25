@@ -996,6 +996,11 @@ namespace Jumbo.Api.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("SvgImageId"));
 
+                    b.Property<string>("ImageFile")
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)")
+                        .HasColumnName("image_file");
+
                     b.Property<string>("SVG")
                         .IsRequired()
                         .HasColumnType("text")
