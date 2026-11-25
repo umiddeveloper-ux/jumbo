@@ -104,7 +104,8 @@ namespace Jumbo
                 if (((IView)BrandLabel).Measure(double.PositiveInfinity, double.PositiveInfinity).Width <= room) break;
             }
             BrandLabel.FontSize = size;
-            BrandLabel.IsVisible = true;
+            // On a very narrow screen (about 320 dp) even the smallest word does not fit next to all the numbers: the numbers and the avatar win, the word goes.
+            BrandLabel.IsVisible = ((IView)BrandLabel).Measure(double.PositiveInfinity, double.PositiveInfinity).Width <= room;
         }
 
         // A number of the title bar that changes jumps for a moment (not on the first fill).

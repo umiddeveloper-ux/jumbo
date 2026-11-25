@@ -50,8 +50,8 @@ public partial class GamesPageModel : ObservableObject
     private bool _loaded;
 
     [ObservableProperty] private bool _isBusy;
-    // The height of the grid of topic cards: three in a row, 134 + 10 each row (a wrapping layout gave itself far too much height: an empty tail).
-    [ObservableProperty] private double _topicsHeight = 144;
+    // The height of the grid of topic cards: three in a row, 148 + 10 each row (a wrapping layout gave itself far too much height: an empty tail).
+    [ObservableProperty] private double _topicsHeight = 158;
     [ObservableProperty] private double _cardWidth = 108;      // set by the page: three cards in a row
     [ObservableProperty] private bool _hasGame;
     [ObservableProperty] private bool _hasNext;
@@ -138,7 +138,7 @@ public partial class GamesPageModel : ObservableObject
         BookChips = new ObservableCollection<GameBookChip>(_books.Select(b => new GameBookChip { Number = b, Percent = BookPercent(_game?.Key, b), IsSelected = b == _book }));
 
         var subs = _subjectsByBook.TryGetValue(_book, out var l) ? l : [];
-        TopicsHeight = Math.Max(1, (int)Math.Ceiling(subs.Count / 3.0)) * 144;
+        TopicsHeight = Math.Max(1, (int)Math.Ceiling(subs.Count / 3.0)) * 158;
         Topics = new ObservableCollection<GameTopicCard>(subs.Select(s => new GameTopicCard
         {
             Id = s.SubjectId, Number = s.SequenceNumber, Name = LocalizationManager.Topic(s), Won = Won(_game?.Key, s.SubjectId),
