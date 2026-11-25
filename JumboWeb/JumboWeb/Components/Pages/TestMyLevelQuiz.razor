@@ -1,8 +1,9 @@
-@page "/test-my-level/quiz/{WordCount:int}"
+@page "/test-my-level/quiz"
 @rendermode InteractiveServer
 @using JumboWeb.Services
+@using Jumbo.Shared
+@implements IDisposable
 @inject LpApiClient ApiClient
-@inject UserPreferencesService Prefs
 @inject TestLevelStateService TestState
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
@@ -12,14 +13,14 @@
 
 <div class="exam-page">
     <div class="game-topbar">
-        <button class="lp-back-btn" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/test-my-level")'>@Loc["Common_BackArrow"]</button>
-        @if (!_isBusy && !_hasNoData)
+        <button class="lp-back-btn" @onclick='() => Nav.NavigateTo("/test-my-level")'>@Loc["Common_BackArrow"]</button>
+        @if (_question is not null)
         {
-            <span style="font-size:0.85rem;color:var(--lp-muted)">@(_index + 1) / @_words.Count</span>
+            <span class="exam-counter">@Loc.Format("Placement_PartN", _part, _index + 1, _block!.Questions.Count)</span>
         }
     </div>
 
-    @if (!_isBusy && !_hasNoData)
+    @if (_question is not null)
     {
         <div class="listen-progress-wrap">
             <div class="listen-progress-bar">
@@ -28,134 +29,209 @@
         </div>
     }
 
-    @if (_isBusy)
+    @if (_busy)
     {
         <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
     }
-    else if (_hasNoData)
+    else if (_failed)
     {
-        <div class="lp-empty-state">@Loc["TestLevel_NoWords"]</div>
-        <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick='() => JS.InvokeVoidAsync("lp.backTo", "/test-my-level")'>@Loc["Common_Back"]</button>
+        <div class="lp-empty-state">@Loc["Placement_Error"]</div>
+        <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick="StartAsync">@Loc["ExamResults_Retry"]</button>
     }
-    else
+    else if (_interlude)
     {
-        <div class="letter-test-card">
-            <div class="letter-test-svg">@((MarkupString)_currentSvg)</div>
-            <div class="letter-test-word">@_currentWord</div>
+        <div class="game-result-card">
+            <div class="game-result-icon"><Tiger Mood="cheer" Size="130" /></div>
+            <div class="game-result-title">@Loc["Placement_GoodTitle"]</div>
+            <div class="game-result-sub">@Loc["Placement_GoodText"]</div>
+            <button class="lp-btn lp-btn-full" @onclick="ContinueAsync">@Loc["Placement_Continue"] →</button>
         </div>
+    }
+    else if (_question is { } q)
+    {
+        <p class="pl-skill">@Loc["Placement_Skill_" + q.Skill] <span>@Loc["Placement_Do_" + q.Skill]</span></p>
+
+        @if (q.Skill == PlacementSkill.Reading)
+        {
+            <div class="pl-passage">
+                <b>@q.PassageTitle</b>
+                <p>@q.Passage</p>
+            </div>
+        }
+
+        @if (q.Skill == PlacementSkill.Vocabulary)
+        {
+            <div class="letter-test-card">
+                <div class="letter-test-svg">@((MarkupString)_svg)</div>
+            </div>
+        }
+        else
+        {
+            @if (q.Skill == PlacementSkill.Listening)
+            {
+                @if (_speechOk)
+                {
+                    <button type="button" class="lp-btn pl-listen" disabled="@(_speaking || _plays >= MaxPlays)" @onclick="PlayAsync">
+                        @(_speaking ? Loc["Placement_Playing"] : _plays == 0 ? Loc["Placement_Listen"] : Loc["Placement_ListenAgain"])
+                    </button>
+                }
+                else
+                {
+                    @* No speech in this browser: the text is read instead. *@
+                    <div class="pl-passage"><i>@Loc["Placement_NoSpeech"]</i><p>@string.Join(" ", q.Audio)</p></div>
+                }
+            }
+            @if (!string.IsNullOrEmpty(q.Prompt))
+            {
+                <div class="pl-prompt">@q.Prompt</div>
+            }
+        }
 
         <div class="letter-options-list">
-            @foreach (var opt in _options)
+            @for (var i = 0; i < q.Options.Count; i++)
             {
-                var o = opt;
-                <button class="answer-option @(_selected == o ? "selected" : "")" @onclick="() => Select(o)">
-                    <span class="answer-letter">@o.Letter</span>
-                    <span class="answer-word">@o.Translation</span>
+                var idx = i;
+                <button class="answer-option @(_selected == idx ? "selected" : "")" @onclick="() => _selected = idx">
+                    <span class="answer-letter">@((char)('A' + idx))</span>
+                    <span class="answer-word">@q.Options[idx]</span>
                 </button>
             }
         </div>
 
-        <button class="lp-btn-primary" style="margin-top:14px" disabled="@(_selected is null)" @onclick="NextQuestion">
-            @(IsLastQuestion ? Loc["ExamQuiz_Finish"] : Loc["ExamQuiz_Next"])
+        <button class="lp-btn lp-btn-full" style="margin-top:14px" disabled="@(_selected < 0)" @onclick="NextAsync">
+            @(IsLastOfBlock ? Loc["ExamQuiz_Finish"] : Loc["ExamQuiz_Next"])
         </button>
     }
 </div>
 
 @code {
-    [Parameter] public int WordCount { get; set; }
+    private const int MaxPlays = 2;
 
-    private List<ExamWordItem> _words = new();
-    private List<TestLevelAnswer> _answers = new();
-    private List<AnswerOpt> _options = new();
-    private AnswerOpt? _selected;
+    private PlacementBlockDto? _block;
+    private int _part = 1;                  // 1 = the A1 block, 2 = the A2 block
     private int _index;
-    private string _currentSvg = string.Empty;
-    private string _currentWord = string.Empty;
-    private bool _isBusy = true;
-    private bool _hasNoData;
+    private int _selected = -1;
+    private string _svg = string.Empty;
+    private readonly List<PlacementAnswer> _answers = new();
+    private double _a1Share;
+    private bool _busy = true, _failed, _interlude;
 
-    private bool IsLastQuestion => _index + 1 >= _words.Count;
-    private double _progressPct => _words.Count > 0 ? _index * 100.0 / _words.Count : 0;
+    // listening
+    private bool _speechOk = true, _speaking;
+    private int _plays;
+
+    private PlacementQuestionDto? _question => _block is not null && _index < _block.Questions.Count ? _block.Questions[_index] : null;
+    private bool IsLastOfBlock => _block is not null && _index + 1 >= _block.Questions.Count;
+    private double _progressPct => _block is { Questions.Count: > 0 } ? _index * 100.0 / _block.Questions.Count : 0;
 
     protected override async Task OnInitializedAsync()
     {
-        await Prefs.EnsureLoadedAsync();
+        try { _speechOk = await JS.InvokeAsync<bool>("lp.speechAvailable"); } catch { _speechOk = false; }
+        await StartAsync();
+    }
 
-        _words = await ApiClient.GetTestLevelWordsAsync(Prefs.StudyLangId, Prefs.TransLangId, WordCount);
-        if (_words.Count < 4)
+    private async Task StartAsync()
+    {
+        _busy = true;
+        _failed = false;
+        _answers.Clear();
+        _part = 1;
+        try
         {
-            _hasNoData = true;
-            _isBusy = false;
+            if (!await LoadBlockAsync("A1")) _failed = true;
+        }
+        catch { _failed = true; }
+        _busy = false;
+    }
+
+    private async Task<bool> LoadBlockAsync(string level)
+    {
+        var block = await ApiClient.GetPlacementBlockAsync(level);
+        if (block is null || block.Questions.Count == 0) return false;
+        _block = block;
+        _index = 0;
+        await ShowQuestionAsync();
+        return true;
+    }
+
+    private async Task ShowQuestionAsync()
+    {
+        _selected = -1;
+        _plays = 0;
+        _speaking = false;
+        _svg = string.Empty;
+        if (_question is { SvgImageId: { } svgId })
+        {
+            try { _svg = await ApiClient.GetSvgByIdAsync(svgId); } catch { }
+        }
+    }
+
+    private async Task PlayAsync()
+    {
+        if (_speaking || _plays >= MaxPlays || _question is not { } q) return;
+        _plays++;
+        _speaking = true;
+        StateHasChanged();
+        try { await JS.InvokeAsync<bool>("lp.speakLines", q.Audio, "en-US"); } catch { }
+        _speaking = false;
+    }
+
+    private async Task NextAsync()
+    {
+        if (_selected < 0 || _question is not { } q || _block is null) return;
+        await CancelSpeechAsync();
+        _answers.Add(new PlacementAnswer { Question = q, Selected = _selected });
+        _index++;
+
+        if (_index < _block.Questions.Count)
+        {
+            await ShowQuestionAsync();
             return;
         }
 
-        _index = 0;
-        await LoadQuestion();
-        _isBusy = false;
-    }
-
-    private async Task LoadQuestion()
-    {
-        _selected = null;
-        var target = _words[_index];
-        _currentWord = target.StudyWord;
-        _currentSvg = await ApiClient.GetSvgByIdAsync(target.SvgImageId);
-
-        var distractors = _words
-            .Where(w => w.SvgImageId != target.SvgImageId && !Jumbo.Shared.WordMatch.SameMeaning(w.TranslationWord, target.TranslationWord))
-            .OrderBy(_ => Random.Shared.Next()).Take(3).ToList();
-        while (distractors.Count < 3)
-            distractors.Add(_words.First(w => w != target));
-
-        var raw = new List<(string Translation, bool IsTarget)>
+        // The end of a block: the A1 block goes on to A2 only when it went well.
+        var mine = _answers.Where(a => a.Question.Level == _block.Level).ToList();
+        var share = mine.Count(a => a.IsCorrect) / (double)mine.Count;
+        if (_part == 1)
         {
-            (target.TranslationWord, true),
-            (distractors[0].TranslationWord, false),
-            (distractors[1].TranslationWord, false),
-            (distractors[2].TranslationWord, false),
-        };
-
-        string[] letters = ["A", "B", "C", "D"];
-        var shuffled = raw.OrderBy(_ => Random.Shared.Next()).ToList();
-        _options = shuffled.Select((x, i) => new AnswerOpt
-        {
-            Letter = letters[i],
-            Translation = x.Translation,
-            IsTarget = x.IsTarget
-        }).ToList();
-    }
-
-    private void Select(AnswerOpt opt) => _selected = opt;
-
-    private async Task NextQuestion()
-    {
-        if (_selected is null) return;
-
-        var target = _words[_index];
-        _answers.Add(new TestLevelAnswer
-        {
-            StudyWord = target.StudyWord,
-            CorrectTranslation = target.TranslationWord,
-            SelectedTranslation = _selected.Translation,
-            IsCorrect = _selected.IsTarget
-        });
-
-        _index++;
-        if (_index >= _words.Count)
-        {
-            TestState.SetResults(_answers);
-            Nav.NavigateTo("/test-my-level/results", replace: true);
+            _a1Share = share;
+            if (PlacementScoring.GoesOn(share)) { _interlude = true; _index = _block.Questions.Count; return; }
+            Finish(null);
         }
         else
         {
-            await LoadQuestion();
+            Finish(share);
         }
     }
 
-    private class AnswerOpt
+    private async Task ContinueAsync()
     {
-        public string Letter { get; set; } = string.Empty;
-        public string Translation { get; set; } = string.Empty;
-        public bool IsTarget { get; set; }
+        _interlude = false;
+        _busy = true;
+        _part = 2;
+        try
+        {
+            if (!await LoadBlockAsync("A2"))
+            {
+                // The A2 block could not be loaded: the result is what the A1 block showed.
+                Finish(null);
+                return;
+            }
+        }
+        catch { Finish(null); return; }
+        _busy = false;
     }
+
+    private void Finish(double? a2Share)
+    {
+        TestState.SetResults(_answers.ToList(), _a1Share, a2Share);
+        Nav.NavigateTo("/test-my-level/results", replace: true);
+    }
+
+    private async Task CancelSpeechAsync()
+    {
+        try { await JS.InvokeVoidAsync("lp.cancelLines"); } catch { }
+    }
+
+    public void Dispose() => _ = CancelSpeechAsync();
 }

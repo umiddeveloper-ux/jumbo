@@ -99,14 +99,12 @@
                             </NavLink>
                         </li>
                     }
-                    @* "Test my level" temporarily hidden from the menu; pages/routes under /test-my-level are kept for later.
                     <li>
                         <NavLink class="site-nav-link" href="/test-my-level" @onclick="CloseSidebar">
                             <span class="site-nav-icon">📝</span>
                             <span>@Loc["SiteLayout_TestNav"]</span>
                         </NavLink>
                     </li>
-                    *@
                     @* Only for visitors: a registered user (pupil) has no use for it; teachers and directors get their own cabinet below. *@
                     @if (!UserState.IsRegistered)
                     {
@@ -264,7 +262,9 @@
                             || _currentPath.Equals("login", StringComparison.OrdinalIgnoreCase)
                             || ((_isHome || _isForSchools || _isPlans) && (!_userLoaded || !UserState.IsRegistered));
     private bool _isLpPage => _currentPath.StartsWith("little-polyglot", StringComparison.OrdinalIgnoreCase);
-    private bool _isPublicPath => IsTopicPath || IsBookZeroPath || PublicPaths.Contains(_currentPath, StringComparer.OrdinalIgnoreCase);
+    // The level test is open to everybody: a visitor can try it before registering.
+    private bool IsTestPath => _currentPath.StartsWith("test-my-level", StringComparison.OrdinalIgnoreCase);
+    private bool _isPublicPath => IsTopicPath || IsBookZeroPath || IsTestPath || PublicPaths.Contains(_currentPath, StringComparer.OrdinalIgnoreCase);
 
     // A guest who opens a page inside (a QR code of a book, a shared link) signs in and then lands on that page.
     private string LoginUrl() => _currentPath.Length == 0 ? "/login" : "/login?returnUrl=" + Uri.EscapeDataString("/" + _currentPath);

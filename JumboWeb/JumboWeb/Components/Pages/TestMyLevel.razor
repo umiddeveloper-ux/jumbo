@@ -1,45 +1,30 @@
 @page "/test-my-level"
 @rendermode InteractiveServer
 @using JumboWeb.Services
-@inject UserPreferencesService Prefs
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
 
 <PageTitle>@Loc["SiteLayout_TestNav"]</PageTitle>
 
 <div class="exam-page">
-    <p class="lp-page-title">📝 @Loc["SiteLayout_TestNav"]</p>
+    <header class="exam-hero">
+        <Tiger Head="true" Mood="idle" Size="76" />
+        <div class="exam-hero-text">
+            <h1 class="exam-title">@Loc["Placement_Title"]</h1>
+            <p class="exam-intro">@Loc["Placement_Intro"]</p>
+        </div>
+    </header>
 
-    <p class="lp-section-title">@Loc["Exam_WordCount"]</p>
-    <div class="exam-count-grid">
-        @foreach (var count in WordCounts)
-        {
-            var c = count;
-            <button class="exam-count-btn @(_selectedCount == c ? "selected" : "")"
-                    @onclick="() => _selectedCount = c">
-                @c
-            </button>
-        }
-    </div>
+    <section class="exam-card">
+        <h2 class="exam-step">@Loc["Placement_Parts"]</h2>
+        <ul class="pl-parts">
+            <li><span aria-hidden="true">🖼️</span> @Loc["Placement_PartVocab"]</li>
+            <li><span aria-hidden="true">✏️</span> @Loc["Placement_PartGrammar"]</li>
+            <li><span aria-hidden="true">📖</span> @Loc["Placement_PartReading"]</li>
+            <li><span aria-hidden="true">🎧</span> @Loc["Placement_PartListening"]</li>
+        </ul>
+        <p class="exam-note">@Loc["Placement_LevelsNote"]</p>
+    </section>
 
-    <button class="lp-btn-primary" disabled="@(!_selectedCount.HasValue)" @onclick="Start">
-        @Loc["Exam_StartButton"]
-    </button>
+    <button type="button" class="lp-btn lp-btn-full" @onclick='() => Nav.NavigateTo("/test-my-level/quiz")'>@Loc["Placement_Start"] →</button>
 </div>
-
-@code {
-    private static readonly int[] WordCounts = { 20, 30, 40, 50, 60, 70, 80, 90, 100 };
-
-    private int? _selectedCount;
-
-    protected override async Task OnInitializedAsync()
-    {
-        await Prefs.EnsureLoadedAsync();
-    }
-
-    private void Start()
-    {
-        if (!_selectedCount.HasValue) return;
-        Nav.NavigateTo($"/test-my-level/quiz/{_selectedCount}");
-    }
-}

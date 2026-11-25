@@ -32,6 +32,7 @@ builder.Services.Configure<TelegramOptions>(builder.Configuration.GetSection("Te
 builder.Services.AddHttpClient<TelegramClient>(c => { c.BaseAddress = new Uri("https://api.telegram.org/"); c.Timeout = TimeSpan.FromSeconds(10); })
     .RemoveAllLoggers();   // the request URL contains the bot token: it must never reach the logs
 builder.Services.AddScoped<PupilPasswordService>();
+builder.Services.AddScoped<PlacementService>();
 builder.Services.AddScoped<TelegramNotifier>();
 builder.Services.AddScoped<WebLinkService>();
 builder.Services.AddScoped<LearnerStatsService>();

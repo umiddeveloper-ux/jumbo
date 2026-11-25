@@ -47,3 +47,6 @@ node_modules/
 
 # the archives of the printed cards (big): tools/import-card-images.mjs reads them
 Jumbo.Api/SeedData/Images/*.zip
+
+# --- third-party exam books kept only as a reference for the format of the level test (not ours: never commit or ship them)
+Jumbo.Api/SeedData/CEFR/

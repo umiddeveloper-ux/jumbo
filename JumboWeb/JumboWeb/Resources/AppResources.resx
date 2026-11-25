@@ -1876,6 +1876,53 @@
   <data name="Exam_TimeNoteTeacher" xml:space="preserve">
     <value>⏱ The time for each word is set by the teacher. When it runs out, the answer is counted as wrong. Do not leave the page: the exam would fail.</value>
   </data>
+  <data name="Placement_Title" xml:space="preserve"><value>Find out your level</value></data>
+  <data name="Placement_Intro" xml:space="preserve"><value>A short English test: about 15 minutes, no registration needed. It starts with easy questions and goes on to harder ones only while you are doing well. At the end you see your level and the Jumbo book to start with.</value></data>
+  <data name="Placement_Parts" xml:space="preserve"><value>What is in the test</value></data>
+  <data name="Placement_PartVocab" xml:space="preserve"><value>Words: what is in the picture</value></data>
+  <data name="Placement_PartGrammar" xml:space="preserve"><value>Grammar: choose the right word</value></data>
+  <data name="Placement_PartReading" xml:space="preserve"><value>Reading: a short text and questions</value></data>
+  <data name="Placement_PartListening" xml:space="preserve"><value>Listening: turn the sound on</value></data>
+  <data name="Placement_Start" xml:space="preserve"><value>Start the test</value></data>
+  <data name="Placement_LevelsNote" xml:space="preserve"><value>This test shows levels A1 and A2. Higher levels will come later.</value></data>
+  <data name="Placement_Skill_vocabulary" xml:space="preserve"><value>Words</value></data>
+  <data name="Placement_Skill_grammar" xml:space="preserve"><value>Grammar</value></data>
+  <data name="Placement_Skill_reading" xml:space="preserve"><value>Reading</value></data>
+  <data name="Placement_Skill_listening" xml:space="preserve"><value>Listening</value></data>
+  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>What is this?</value></data>
+  <data name="Placement_Do_grammar" xml:space="preserve"><value>Choose the correct answer.</value></data>
+  <data name="Placement_Do_reading" xml:space="preserve"><value>Read the text and answer the question.</value></data>
+  <data name="Placement_Do_listening" xml:space="preserve"><value>Listen and choose the answer.</value></data>
+  <data name="Placement_Listen" xml:space="preserve"><value>▶ Listen</value></data>
+  <data name="Placement_ListenAgain" xml:space="preserve"><value>▶ Listen again</value></data>
+  <data name="Placement_Playing" xml:space="preserve"><value>Listening…</value></data>
+  <data name="Placement_NoSpeech" xml:space="preserve"><value>Your browser cannot play the sound, so read the text instead:</value></data>
+  <data name="Placement_PartN" xml:space="preserve"><value>Part {0} · {1} / {2}</value></data>
+  <data name="Placement_GoodTitle" xml:space="preserve"><value>Good! Now a little harder</value></data>
+  <data name="Placement_GoodText" xml:space="preserve"><value>You did well in the first part. The next questions are of a higher level.</value></data>
+  <data name="Placement_Continue" xml:space="preserve"><value>Continue</value></data>
+  <data name="Placement_Error" xml:space="preserve"><value>The test could not be loaded. Please try again.</value></data>
+  <data name="Placement_ResultTitle" xml:space="preserve"><value>Your level</value></data>
+  <data name="Placement_Stage_starter_Title" xml:space="preserve"><value>Just starting</value></data>
+  <data name="Placement_Stage_starter_Text" xml:space="preserve"><value>You know only the first words of English, and that is a perfectly good place to begin. Start from the very first book and the words will come quickly.</value></data>
+  <data name="Placement_Stage_a1_Title" xml:space="preserve"><value>A1: beginner</value></data>
+  <data name="Placement_Stage_a1_Text" xml:space="preserve"><value>You know the basic words and simple sentences, but not everything yet. The first books will make your base firm.</value></data>
+  <data name="Placement_Stage_a1plus_Title" xml:space="preserve"><value>A1: confident</value></data>
+  <data name="Placement_Stage_a1plus_Text" xml:space="preserve"><value>You know the basics well. You can skip to the last book of level A1 and then go on to A2.</value></data>
+  <data name="Placement_Stage_a2_Title" xml:space="preserve"><value>A2: elementary</value></data>
+  <data name="Placement_Stage_a2_Text" xml:space="preserve"><value>You understand everyday English and simple texts. The A2 books will help you speak and read with more confidence.</value></data>
+  <data name="Placement_Stage_a2plus_Title" xml:space="preserve"><value>A2: strong</value></data>
+  <data name="Placement_Stage_a2plus_Text" xml:space="preserve"><value>You handled the A2 questions well. This test does not go higher yet, so take the last book of A2 and see whether you are ready for B1.</value></data>
+  <data name="Placement_Recommend" xml:space="preserve"><value>Start with Book {0}</value></data>
+  <data name="Placement_OpenBook" xml:space="preserve"><value>Open Book {0}</value></data>
+  <data name="Placement_RegisterFirst" xml:space="preserve"><value>Register and start</value></data>
+  <data name="Placement_BySkill" xml:space="preserve"><value>Your result by skill</value></data>
+  <data name="Placement_Review" xml:space="preserve"><value>Questions to look at again</value></data>
+  <data name="Placement_YourAnswer" xml:space="preserve"><value>Your answer</value></data>
+  <data name="Placement_RightAnswer" xml:space="preserve"><value>Right answer</value></data>
+  <data name="Placement_NoAnswer" xml:space="preserve"><value>no answer</value></data>
+  <data name="Placement_Retake" xml:space="preserve"><value>Take the test again</value></data>
+  <data name="Placement_NoResult" xml:space="preserve"><value>There is no result yet. Take the test first.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} questions</value>
   </data>

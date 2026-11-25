@@ -29,6 +29,10 @@
     <Content Update="SeedData\**\*.docx">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
+    <!-- Third-party exam books (a format reference for the level test): never shipped. -->
+    <Content Update="SeedData\CEFR\**">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

@@ -1876,6 +1876,53 @@
   <data name="Exam_TimeNoteTeacher" xml:space="preserve">
     <value>⏱ Her kelime için süreyi öğretmen belirler. Süre dolunca cevap yanlış sayılır. Sayfadan çıkma: sınav bozulur.</value>
   </data>
+  <data name="Placement_Title" xml:space="preserve"><value>Seviyeni öğren</value></data>
+  <data name="Placement_Intro" xml:space="preserve"><value>Kısa bir İngilizce testi: yaklaşık 15 dakika, kayıt gerekmez. Kolay sorularla başlar ve yalnızca iyi gittiğin sürece daha zorlarına geçer. Sonunda seviyeni ve hangi Jumbo kitabıyla başlaman gerektiğini görürsün.</value></data>
+  <data name="Placement_Parts" xml:space="preserve"><value>Testte neler var</value></data>
+  <data name="Placement_PartVocab" xml:space="preserve"><value>Kelimeler: resimde ne var</value></data>
+  <data name="Placement_PartGrammar" xml:space="preserve"><value>Dil bilgisi: doğru kelimeyi seç</value></data>
+  <data name="Placement_PartReading" xml:space="preserve"><value>Okuma: kısa bir metin ve sorular</value></data>
+  <data name="Placement_PartListening" xml:space="preserve"><value>Dinleme: sesi aç</value></data>
+  <data name="Placement_Start" xml:space="preserve"><value>Teste başla</value></data>
+  <data name="Placement_LevelsNote" xml:space="preserve"><value>Bu test A1 ve A2 seviyelerini gösterir. Daha yüksek seviyeler sonra eklenecek.</value></data>
+  <data name="Placement_Skill_vocabulary" xml:space="preserve"><value>Kelimeler</value></data>
+  <data name="Placement_Skill_grammar" xml:space="preserve"><value>Dil bilgisi</value></data>
+  <data name="Placement_Skill_reading" xml:space="preserve"><value>Okuma</value></data>
+  <data name="Placement_Skill_listening" xml:space="preserve"><value>Dinleme</value></data>
+  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>Bu nedir?</value></data>
+  <data name="Placement_Do_grammar" xml:space="preserve"><value>Doğru cevabı seç.</value></data>
+  <data name="Placement_Do_reading" xml:space="preserve"><value>Metni oku ve soruyu cevapla.</value></data>
+  <data name="Placement_Do_listening" xml:space="preserve"><value>Dinle ve cevabı seç.</value></data>
+  <data name="Placement_Listen" xml:space="preserve"><value>▶ Dinle</value></data>
+  <data name="Placement_ListenAgain" xml:space="preserve"><value>▶ Tekrar dinle</value></data>
+  <data name="Placement_Playing" xml:space="preserve"><value>Çalıyor…</value></data>
+  <data name="Placement_NoSpeech" xml:space="preserve"><value>Tarayıcın sesi çalamıyor, bu yüzden metni oku:</value></data>
+  <data name="Placement_PartN" xml:space="preserve"><value>Bölüm {0} · {1} / {2}</value></data>
+  <data name="Placement_GoodTitle" xml:space="preserve"><value>Güzel! Şimdi biraz daha zor</value></data>
+  <data name="Placement_GoodText" xml:space="preserve"><value>İlk bölümü iyi yaptın. Sonraki sorular daha yüksek seviyede.</value></data>
+  <data name="Placement_Continue" xml:space="preserve"><value>Devam et</value></data>
+  <data name="Placement_Error" xml:space="preserve"><value>Test yüklenemedi. Lütfen tekrar dene.</value></data>
+  <data name="Placement_ResultTitle" xml:space="preserve"><value>Seviyen</value></data>
+  <data name="Placement_Stage_starter_Title" xml:space="preserve"><value>Yeni başlıyorsun</value></data>
+  <data name="Placement_Stage_starter_Text" xml:space="preserve"><value>İngilizcenin yalnızca ilk kelimelerini biliyorsun, bu başlamak için çok iyi bir yer. En ilk kitaptan başla, kelimeler hızla gelecek.</value></data>
+  <data name="Placement_Stage_a1_Title" xml:space="preserve"><value>A1: başlangıç</value></data>
+  <data name="Placement_Stage_a1_Text" xml:space="preserve"><value>Temel kelimeleri ve basit cümleleri biliyorsun, ama henüz hepsini değil. İlk kitaplar temelini sağlamlaştıracak.</value></data>
+  <data name="Placement_Stage_a1plus_Title" xml:space="preserve"><value>A1: kendinden emin</value></data>
+  <data name="Placement_Stage_a1plus_Text" xml:space="preserve"><value>Temelleri iyi biliyorsun. A1 seviyesinin son kitabına, sonra A2'ye geçebilirsin.</value></data>
+  <data name="Placement_Stage_a2_Title" xml:space="preserve"><value>A2: temel</value></data>
+  <data name="Placement_Stage_a2_Text" xml:space="preserve"><value>Günlük İngilizceyi ve basit metinleri anlıyorsun. A2 kitapları konuşurken ve okurken daha emin olmana yardım edecek.</value></data>
+  <data name="Placement_Stage_a2plus_Title" xml:space="preserve"><value>A2: güçlü</value></data>
+  <data name="Placement_Stage_a2plus_Text" xml:space="preserve"><value>A2 sorularını iyi yaptın. Bu test şimdilik daha yukarı çıkmıyor, bu yüzden A2'nin son kitabını al ve B1'e hazır olup olmadığını gör.</value></data>
+  <data name="Placement_Recommend" xml:space="preserve"><value>{0}. kitapla başla</value></data>
+  <data name="Placement_OpenBook" xml:space="preserve"><value>{0}. kitabı aç</value></data>
+  <data name="Placement_RegisterFirst" xml:space="preserve"><value>Kayıt ol ve başla</value></data>
+  <data name="Placement_BySkill" xml:space="preserve"><value>Becerilere göre sonucun</value></data>
+  <data name="Placement_Review" xml:space="preserve"><value>Tekrar bakılması gereken sorular</value></data>
+  <data name="Placement_YourAnswer" xml:space="preserve"><value>Cevabın</value></data>
+  <data name="Placement_RightAnswer" xml:space="preserve"><value>Doğru cevap</value></data>
+  <data name="Placement_NoAnswer" xml:space="preserve"><value>cevap yok</value></data>
+  <data name="Placement_Retake" xml:space="preserve"><value>Testi tekrar çöz</value></data>
+  <data name="Placement_NoResult" xml:space="preserve"><value>Henüz sonuç yok. Önce testi çöz.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>

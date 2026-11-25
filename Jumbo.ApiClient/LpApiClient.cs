@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using Jumbo.Shared;
 using Jumbo.Shared.Dtos;
 using Jumbo.Shared.Entities;
 
@@ -457,6 +458,10 @@ public class LpApiClient(HttpClient http)
         if (!response.IsSuccessStatusCode) return null;
         return await response.Content.ReadFromJsonAsync<RatingDto>();
     }
+
+    // One block (A1 or A2) of the level test.
+    public async Task<PlacementBlockDto?> GetPlacementBlockAsync(string level) =>
+        await http.GetFromJsonAsync<PlacementBlockDto>($"api/placement/block/{level}");
 
     // The settings of a teacher's exam a pupil is taking (null when the exam is gone or too old).
     public async Task<TeacherExamInfoDto?> GetTeacherExamInfoAsync(int teacherExamId)

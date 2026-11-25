@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "note": "Original questions written for Jumbo (not taken from any exam book). answer = index of the right option; options are shuffled when a test is served. Vocabulary questions are not here: they are built from the words and pictures of the books.",
+  "grammar": [
+    { "id": "g-a1-01", "level": "A1", "q": "I ___ from Uzbekistan.", "options": ["am", "is", "are"], "answer": 0 },
+    { "id": "g-a1-02", "level": "A1", "q": "She ___ a teacher.", "options": ["am", "is", "are"], "answer": 1 },
+    { "id": "g-a1-03", "level": "A1", "q": "They ___ at school now.", "options": ["is", "are", "am"], "answer": 1 },
+    { "id": "g-a1-04", "level": "A1", "q": "He ___ two brothers.", "options": ["have", "has", "haves"], "answer": 1 },
+    { "id": "g-a1-05", "level": "A1", "q": "We ___ English on Mondays.", "options": ["has", "have", "having"], "answer": 1 },
+    { "id": "g-a1-06", "level": "A1", "q": "This is ___ apple.", "options": ["a", "an", "two"], "answer": 1 },
+    { "id": "g-a1-07", "level": "A1", "q": "There ___ three books on the table.", "options": ["is", "are", "am"], "answer": 1 },
+    { "id": "g-a1-08", "level": "A1", "q": "___ is your name?", "options": ["What", "Where", "Who"], "answer": 0 },
+    { "id": "g-a1-09", "level": "A1", "q": "My brother ___ football every day.", "options": ["play", "plays", "playing"], "answer": 1 },
+    { "id": "g-a1-10", "level": "A1", "q": "I ___ like milk.", "options": ["don't", "doesn't", "isn't"], "answer": 0 },
+    { "id": "g-a1-11", "level": "A1", "q": "Can you ___ me, please?", "options": ["help", "helps", "helping"], "answer": 0 },
+    { "id": "g-a1-12", "level": "A1", "q": "These are ___ books.", "options": ["I", "my", "me"], "answer": 1 },
+    { "id": "g-a1-13", "level": "A1", "q": "She lives ___ Tashkent.", "options": ["in", "on", "at"], "answer": 0 },
+    { "id": "g-a1-14", "level": "A1", "q": "How ___ are you?", "options": ["old", "years", "age"], "answer": 0 },
+    { "id": "g-a1-15", "level": "A1", "q": "I get up ___ seven o'clock.", "options": ["in", "at", "on"], "answer": 1 },
+    { "id": "g-a1-16", "level": "A1", "q": "Is ___ your pen?", "options": ["this", "these", "they"], "answer": 0 },
+    { "id": "g-a1-17", "level": "A1", "q": "Look! The children ___ in the park.", "options": ["play", "plays", "are playing"], "answer": 2 },
+    { "id": "g-a1-18", "level": "A1", "q": "We ___ a big family.", "options": ["has", "have", "are"], "answer": 1 },
+    { "id": "g-a1-19", "level": "A1", "q": "\"Do you like tea?\" \"Yes, I ___.\"", "options": ["do", "am", "like"], "answer": 0 },
+    { "id": "g-a1-20", "level": "A1", "q": "How many ___ are there in the picture?", "options": ["child", "childs", "children"], "answer": 2 },
+
+    { "id": "g-a2-01", "level": "A2", "q": "Yesterday I ___ to the market with my mother.", "options": ["go", "went", "goes", "gone"], "answer": 1 },
+    { "id": "g-a2-02", "level": "A2", "q": "She ___ her homework last night.", "options": ["don't finish", "didn't finish", "didn't finished", "doesn't finish"], "answer": 1 },
+    { "id": "g-a2-03", "level": "A2", "q": "This phone is ___ than that one.", "options": ["more cheap", "cheaper", "cheapest", "the cheaper"], "answer": 1 },
+    { "id": "g-a2-04", "level": "A2", "q": "Mount Everest is ___ mountain in the world.", "options": ["high", "higher", "the highest", "more high"], "answer": 2 },
+    { "id": "g-a2-05", "level": "A2", "q": "I have never ___ sushi.", "options": ["eat", "ate", "eaten", "eating"], "answer": 2 },
+    { "id": "g-a2-06", "level": "A2", "q": "We ___ visit our grandparents next Sunday. We have already bought the tickets.", "options": ["are going to", "went to", "have", "used"], "answer": 0 },
+    { "id": "g-a2-07", "level": "A2", "q": "You ___ wear a seat belt in the car. It is the law.", "options": ["must", "might", "can", "would"], "answer": 0 },
+    { "id": "g-a2-08", "level": "A2", "q": "How ___ water do you drink every day?", "options": ["many", "much", "few", "a lot"], "answer": 1 },
+    { "id": "g-a2-09", "level": "A2", "q": "If it rains tomorrow, we ___ at home.", "options": ["stay", "stayed", "will stay", "would stay"], "answer": 2 },
+    { "id": "g-a2-10", "level": "A2", "q": "He ___ late for work. He always comes on time.", "options": ["is never", "never is", "does never be", "never be"], "answer": 0 },
+    { "id": "g-a2-11", "level": "A2", "q": "The woman ___ lives next door is a doctor.", "options": ["who", "which", "whose", "what"], "answer": 0 },
+    { "id": "g-a2-12", "level": "A2", "q": "I want ___ a new bike for my birthday.", "options": ["buy", "buying", "to buy", "bought"], "answer": 2 },
+    { "id": "g-a2-13", "level": "A2", "q": "She enjoys ___ pictures of animals.", "options": ["draw", "to draw", "drawing", "drew"], "answer": 2 },
+    { "id": "g-a2-14", "level": "A2", "q": "It is too cold ___ swim today.", "options": ["for", "to", "enough", "so"], "answer": 1 },
+    { "id": "g-a2-15", "level": "A2", "q": "I have lived in this city ___ 2019.", "options": ["for", "since", "from", "during"], "answer": 1 },
+    { "id": "g-a2-16", "level": "A2", "q": "We arrived ___ the airport two hours early.", "options": ["at", "in", "on", "to"], "answer": 0 },
+    { "id": "g-a2-17", "level": "A2", "q": "I didn't go out ___ it was raining.", "options": ["because", "so", "but", "or"], "answer": 0 },
+    { "id": "g-a2-18", "level": "A2", "q": "There isn't ___ milk in the fridge.", "options": ["some", "any", "a", "many"], "answer": 1 },
+    { "id": "g-a2-19", "level": "A2", "q": "Look at those black clouds! It ___ rain.", "options": ["will", "is going to", "going to", "does"], "answer": 1 },
+    { "id": "g-a2-20", "level": "A2", "q": "I ___ TV when the phone rang.", "options": ["watched", "was watching", "am watching", "watch"], "answer": 1 }
+  ],
+  "reading": [
+    {
+      "id": "r-a1-01", "level": "A1", "title": "My family",
+      "text": "My name is Dilnoza. I am ten years old. I live in Samarkand with my mother, my father and my little brother. My brother's name is Azizbek. He is four. We have a cat. Its name is Mushuk. I love my family.",
+      "questions": [
+        { "q": "How old is Dilnoza?", "options": ["Ten", "Four", "Twelve"], "answer": 0 },
+        { "q": "Who is Azizbek?", "options": ["Her brother", "Her father", "Her cat"], "answer": 0 },
+        { "q": "What is the cat's name?", "options": ["Dilnoza", "Mushuk", "Azizbek"], "answer": 1 }
+      ]
+    },
+    {
+      "id": "r-a1-02", "level": "A1", "title": "A day at school",
+      "text": "Tom gets up at seven o'clock. He has breakfast with his sister. He goes to school by bus. School starts at half past eight. In the morning he has English and maths. At twelve o'clock he has lunch. He goes home at three.",
+      "questions": [
+        { "q": "How does Tom go to school?", "options": ["By bus", "On foot", "By car"], "answer": 0 },
+        { "q": "When does school start?", "options": ["At seven o'clock", "At half past eight", "At twelve o'clock"], "answer": 1 },
+        { "q": "What does Tom do at twelve o'clock?", "options": ["He has lunch", "He goes home", "He has English"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "r-a1-03", "level": "A1", "title": "My room",
+      "text": "This is my room. It is small but nice. There is a bed next to the window. There is a desk and a chair near the door. On the desk there are some books and a lamp. I like reading in my room in the evening.",
+      "questions": [
+        { "q": "Where is the bed?", "options": ["Next to the window", "Near the door", "On the desk"], "answer": 0 },
+        { "q": "What is on the desk?", "options": ["A cat", "Books and a lamp", "A chair"], "answer": 1 },
+        { "q": "When does the writer read in the room?", "options": ["In the morning", "In the evening", "At school"], "answer": 1 }
+      ]
+    },
+    {
+      "id": "r-a1-04", "level": "A1", "title": "Food I like",
+      "text": "I like fruit. I eat an apple every morning. My favourite fruit is the banana. I don't like fish, but my sister likes it. For dinner we often have rice and chicken. We drink tea after dinner.",
+      "questions": [
+        { "q": "What does the writer eat every morning?", "options": ["A banana", "An apple", "Rice"], "answer": 1 },
+        { "q": "Who likes fish?", "options": ["The writer", "The writer's sister", "Nobody"], "answer": 1 },
+        { "q": "What do they drink after dinner?", "options": ["Tea", "Milk", "Water"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "r-a2-01", "level": "A2", "title": "A weekend trip",
+      "text": "Last Saturday, Madina and her friends took the train to a small town near the mountains. The journey took two hours. It was cloudy in the morning, but the sun came out at noon, so they had a picnic by the river. In the afternoon they walked to an old castle. Madina wanted to buy a postcard, but the shop was closed. They got home late and very tired, but they all agreed it was the best day of the month.",
+      "questions": [
+        { "q": "How long was the train journey?", "options": ["One hour", "Two hours", "Three hours", "All day"], "answer": 1 },
+        { "q": "Why did Madina not buy a postcard?", "options": ["She had no money", "The shop was closed", "She forgot", "It was too expensive"], "answer": 1 },
+        { "q": "How did the friends feel at the end of the day?", "options": ["Bored", "Angry", "Tired but happy", "Sad"], "answer": 2 }
+      ]
+    },
+    {
+      "id": "r-a2-02", "level": "A2", "title": "A new reading room",
+      "text": "The city library has a new reading room for children. It is open from Monday to Saturday, from 9 a.m. to 6 p.m. Children under seven must come with an adult. There are more than two thousand books, and on Saturdays at 11 a.m. a teacher reads a story. Membership is free, but you need your passport or school card to borrow books. Please be quiet and do not eat in the room.",
+      "questions": [
+        { "q": "When can children listen to a story?", "options": ["Every day", "On Saturdays at 11 a.m.", "On Monday morning", "After 6 p.m."], "answer": 1 },
+        { "q": "What do you need to borrow books?", "options": ["Some money", "An adult", "A passport or school card", "A story"], "answer": 2 },
+        { "q": "Which thing is NOT allowed in the room?", "options": ["Reading", "Eating", "Listening to stories", "Borrowing books"], "answer": 1 }
+      ]
+    },
+    {
+      "id": "r-a2-03", "level": "A2", "title": "An email to a friend",
+      "text": "Hi Jasur, thanks for your message! I'm sorry I didn't write earlier. I was ill last week and stayed in bed for three days. Now I feel much better. On Friday I'm going to start a new English course. It's twice a week, on Tuesdays and Thursdays, and the teacher is from England. Do you want to join me? We could go together after school. Let me know by Wednesday. Best wishes, Sardor",
+      "questions": [
+        { "q": "Why didn't Sardor write earlier?", "options": ["He was busy at school", "He was ill", "He was on holiday", "He lost his phone"], "answer": 1 },
+        { "q": "How often is the course?", "options": ["Every day", "Twice a week", "Once a week", "Three times a week"], "answer": 1 },
+        { "q": "What does Sardor want Jasur to do?", "options": ["Call his teacher", "Join the course", "Visit England", "Reply on Friday"], "answer": 1 }
+      ]
+    },
+    {
+      "id": "r-a2-04", "level": "A2", "title": "Elephants",
+      "text": "Elephants are the largest animals that live on land. An adult elephant can weigh more than five thousand kilograms and eats up to 150 kilograms of food a day. Elephants live in groups, and the oldest female is usually the leader. They can talk to each other with low sounds that people cannot hear. Sadly, many elephants are in danger because people hunt them for their tusks.",
+      "questions": [
+        { "q": "Who usually leads a group of elephants?", "options": ["The youngest male", "The oldest female", "The biggest male", "A baby elephant"], "answer": 1 },
+        { "q": "Why are many elephants in danger?", "options": ["They cannot find water", "People hunt them", "They are too heavy", "They eat too much"], "answer": 1 },
+        { "q": "What is true about elephants' sounds?", "options": ["They are very loud", "People cannot hear some of them", "They are only for babies", "They are the same as dogs' sounds"], "answer": 1 }
+      ]
+    }
+  ],
+  "listening": [
+    { "id": "l-a1-01", "level": "A1", "audio": ["My name is Sara. I am eleven."], "q": "How old is Sara?", "options": ["Ten", "Eleven", "Twelve"], "answer": 1 },
+    { "id": "l-a1-02", "level": "A1", "audio": ["Look at this picture. A dog is under the table."], "q": "Where is the dog?", "options": ["On the table", "Under the table", "Behind the table"], "answer": 1 },
+    { "id": "l-a1-03", "level": "A1", "audio": ["Excuse me. How much is this bag?", "It is twenty dollars."], "q": "How much is the bag?", "options": ["Twelve dollars", "Twenty dollars", "Two dollars"], "answer": 1 },
+    { "id": "l-a1-04", "level": "A1", "audio": ["What time is it?", "It is half past three."], "q": "What time is it?", "options": ["3:30", "3:15", "4:30"], "answer": 0 },
+    { "id": "l-a1-05", "level": "A1", "audio": ["I like tea with milk, but I don't like coffee."], "q": "What does the speaker like?", "options": ["Coffee", "Tea with milk", "Tea with sugar"], "answer": 1 },
+    { "id": "l-a1-06", "level": "A1", "audio": ["Today is Wednesday. Tomorrow we have a test."], "q": "When is the test?", "options": ["Today", "Tomorrow", "On Friday"], "answer": 1 },
+    { "id": "l-a1-07", "level": "A1", "audio": ["Where does your brother work?", "He works in a hospital. He is a doctor."], "q": "What is the brother's job?", "options": ["Teacher", "Doctor", "Driver"], "answer": 1 },
+    { "id": "l-a1-08", "level": "A1", "audio": ["It is cold today. Put on your coat and your hat."], "q": "What should you put on?", "options": ["A coat and a hat", "A T-shirt and shorts", "A scarf and gloves"], "answer": 0 },
+    { "id": "l-a1-09", "level": "A1", "audio": ["Can you swim?", "No, I can't. But I can ride a bike."], "q": "What can the second speaker do?", "options": ["Swim", "Ride a bike", "Run"], "answer": 1 },
+    { "id": "l-a1-10", "level": "A1", "audio": ["There are five people in my family: my mother, my father, my two sisters and me."], "q": "How many people are in the family?", "options": ["Four", "Five", "Six"], "answer": 1 },
+    { "id": "l-a1-11", "level": "A1", "audio": ["I go to school by bus. My friend walks."], "q": "How does the friend go to school?", "options": ["By bus", "On foot", "By bike"], "answer": 1 },
+    { "id": "l-a1-12", "level": "A1", "audio": ["Is this your pen?", "No, it is Ali's. Mine is blue."], "q": "What colour is the speaker's pen?", "options": ["Red", "Blue", "Black"], "answer": 1 },
+
+    { "id": "l-a2-01", "level": "A2", "audio": ["Excuse me, how do I get to the post office?", "Go straight, then turn left at the bank. It is on the right, next to the pharmacy."], "q": "Where is the post office?", "options": ["Opposite the bank", "Next to the pharmacy", "Behind the bank", "Next to the school"], "answer": 1 },
+    { "id": "l-a2-02", "level": "A2", "audio": ["I was going to play tennis today, but it started to rain, so we went to the cinema instead."], "q": "What did they do?", "options": ["Played tennis", "Went to the cinema", "Stayed at home", "Went swimming"], "answer": 1 },
+    { "id": "l-a2-03", "level": "A2", "audio": ["The train to Bukhara leaves at ten forty from platform two. It is twenty minutes late today."], "q": "What time will the train probably leave?", "options": ["10:20", "10:40", "11:00", "11:20"], "answer": 2 },
+    { "id": "l-a2-04", "level": "A2", "audio": ["Would you like to come to my birthday party on Saturday?", "I would love to, but I have to visit my grandmother."], "q": "Why can't the second speaker come?", "options": ["She is ill", "She has to visit her grandmother", "She has an exam", "She doesn't like parties"], "answer": 1 },
+    { "id": "l-a2-05", "level": "A2", "audio": ["I can't find my keys anywhere. I had them this morning when I left the house, and now they are gone."], "q": "What is the problem?", "options": ["He is late", "He has lost his keys", "He has lost his bag", "He forgot his phone"], "answer": 1 },
+    { "id": "l-a2-06", "level": "A2", "audio": ["This week's weather: Monday will be sunny and warm, Tuesday cloudy, and from Wednesday it will rain until the weekend."], "q": "When will it start to rain?", "options": ["On Monday", "On Tuesday", "On Wednesday", "On Saturday"], "answer": 2 },
+    { "id": "l-a2-07", "level": "A2", "audio": ["How was your holiday?", "Great! We stayed in a small hotel near the sea and swam every morning. The only problem was the food. I didn't like it very much."], "q": "What didn't the speaker like?", "options": ["The hotel", "The sea", "The food", "The weather"], "answer": 2 },
+    { "id": "l-a2-08", "level": "A2", "audio": ["The film starts at seven thirty, so let's meet at the cinema at seven. I will buy the tickets, and you can get the popcorn."], "q": "What will the second person do?", "options": ["Buy the tickets", "Buy the popcorn", "Be late", "Drive the car"], "answer": 1 },
+    { "id": "l-a2-09", "level": "A2", "audio": ["I usually take the bus to work, but today my car is back from the garage, so I am driving for the first time this week."], "q": "How is the speaker going to work today?", "options": ["By bus", "By car", "On foot", "By train"], "answer": 1 },
+    { "id": "l-a2-10", "level": "A2", "audio": ["Our new teacher is very kind. She gives us interesting homework, but she never lets us use our phones in class."], "q": "What is NOT allowed in class?", "options": ["Asking questions", "Using phones", "Doing homework", "Speaking English"], "answer": 1 },
+    { "id": "l-a2-11", "level": "A2", "audio": ["Sorry, I can't talk now. I am cooking dinner and my guests are arriving in half an hour. Can I call you back at nine?"], "q": "Why can't the speaker talk now?", "options": ["He is driving", "He is cooking dinner", "He is sleeping", "He is at work"], "answer": 1 },
+    { "id": "l-a2-12", "level": "A2", "audio": ["Two tickets to Samarkand, please. One adult and one student.", "That is forty thousand for the adult and twenty thousand for the student."], "q": "How much is the student ticket?", "options": ["Twenty thousand", "Forty thousand", "Sixty thousand", "Fourteen thousand"], "answer": 0 }
+  ]
+}

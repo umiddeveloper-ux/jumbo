@@ -277,6 +277,32 @@
                 u.rate = 0.85;
                 window.speechSynthesis.speak(u);
             },
+            speechAvailable: function () { return 'speechSynthesis' in window; },
+            // The level test: says the lines one after another (a short pause between them); true when the last one was said.
+            // cancelLines() (or a new call) stops it.
+            speakLines: async function (lines, lang) {
+                if (!('speechSynthesis' in window)) return false;
+                window.speechSynthesis.cancel();
+                var token = lp._linesToken = (lp._linesToken || 0) + 1;
+                for (var i = 0; i < lines.length; i++) {
+                    if (lp._linesToken !== token) return false;
+                    await new Promise(function (resolve) {
+                        var u = new SpeechSynthesisUtterance(lines[i]);
+                        u.lang = lang || 'en-US';
+                        u.rate = 0.9;
+                        var done = false, finish = function () { if (!done) { done = true; resolve(); } };
+                        u.onend = finish; u.onerror = finish;
+                        setTimeout(finish, 2500 + 110 * lines[i].length);      // never wait for ever (a voice that does not tell when it is done)
+                        window.speechSynthesis.speak(u);
+                    });
+                    if (i < lines.length - 1) await new Promise(function (r) { setTimeout(r, 500); });
+                }
+                return lp._linesToken === token;
+            },
+            cancelLines: function () {
+                lp._linesToken = (lp._linesToken || 0) + 1;
+                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            },
             // Like speak, but the promise is kept until the word has been said ("listen to all" reads one after another).
             speakWait: function (word, lang, letter) {
                 if (!letter) return lp.speakWaitVoice(word, lang);

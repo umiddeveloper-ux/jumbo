@@ -1876,6 +1876,53 @@
   <data name="Exam_TimeNoteTeacher" xml:space="preserve">
     <value>⏱ Время на каждое слово задаёт учитель. Когда оно выходит, ответ засчитывается как неверный. Не уходите со страницы: экзамен сорвётся.</value>
   </data>
+  <data name="Placement_Title" xml:space="preserve"><value>Узнай свой уровень</value></data>
+  <data name="Placement_Intro" xml:space="preserve"><value>Короткий тест по английскому: около 15 минут, регистрация не нужна. Он начинается с лёгких вопросов и переходит к более сложным, только пока у вас получается. В конце вы увидите свой уровень и книгу Jumbo, с которой лучше начать.</value></data>
+  <data name="Placement_Parts" xml:space="preserve"><value>Что в тесте</value></data>
+  <data name="Placement_PartVocab" xml:space="preserve"><value>Слова: что на картинке</value></data>
+  <data name="Placement_PartGrammar" xml:space="preserve"><value>Грамматика: выберите нужное слово</value></data>
+  <data name="Placement_PartReading" xml:space="preserve"><value>Чтение: короткий текст и вопросы</value></data>
+  <data name="Placement_PartListening" xml:space="preserve"><value>Слух: включите звук</value></data>
+  <data name="Placement_Start" xml:space="preserve"><value>Начать тест</value></data>
+  <data name="Placement_LevelsNote" xml:space="preserve"><value>Тест показывает уровни A1 и A2. Более высокие уровни появятся позже.</value></data>
+  <data name="Placement_Skill_vocabulary" xml:space="preserve"><value>Слова</value></data>
+  <data name="Placement_Skill_grammar" xml:space="preserve"><value>Грамматика</value></data>
+  <data name="Placement_Skill_reading" xml:space="preserve"><value>Чтение</value></data>
+  <data name="Placement_Skill_listening" xml:space="preserve"><value>Слух</value></data>
+  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>Что это?</value></data>
+  <data name="Placement_Do_grammar" xml:space="preserve"><value>Выберите правильный ответ.</value></data>
+  <data name="Placement_Do_reading" xml:space="preserve"><value>Прочитайте текст и ответьте на вопрос.</value></data>
+  <data name="Placement_Do_listening" xml:space="preserve"><value>Послушайте и выберите ответ.</value></data>
+  <data name="Placement_Listen" xml:space="preserve"><value>▶ Слушать</value></data>
+  <data name="Placement_ListenAgain" xml:space="preserve"><value>▶ Послушать ещё раз</value></data>
+  <data name="Placement_Playing" xml:space="preserve"><value>Звучит…</value></data>
+  <data name="Placement_NoSpeech" xml:space="preserve"><value>Браузер не может воспроизвести звук, поэтому прочитайте текст:</value></data>
+  <data name="Placement_PartN" xml:space="preserve"><value>Часть {0} · {1} / {2}</value></data>
+  <data name="Placement_GoodTitle" xml:space="preserve"><value>Хорошо! Теперь чуть сложнее</value></data>
+  <data name="Placement_GoodText" xml:space="preserve"><value>Первая часть удалась. Следующие вопросы — более высокого уровня.</value></data>
+  <data name="Placement_Continue" xml:space="preserve"><value>Продолжить</value></data>
+  <data name="Placement_Error" xml:space="preserve"><value>Не удалось загрузить тест. Попробуйте ещё раз.</value></data>
+  <data name="Placement_ResultTitle" xml:space="preserve"><value>Ваш уровень</value></data>
+  <data name="Placement_Stage_starter_Title" xml:space="preserve"><value>Самое начало</value></data>
+  <data name="Placement_Stage_starter_Text" xml:space="preserve"><value>Вы знаете только первые слова английского, и это отличное место для старта. Начните с самой первой книги, слова пойдут быстро.</value></data>
+  <data name="Placement_Stage_a1_Title" xml:space="preserve"><value>A1: начальный</value></data>
+  <data name="Placement_Stage_a1_Text" xml:space="preserve"><value>Вы знаете базовые слова и простые предложения, но не всё. Первые книги укрепят вашу основу.</value></data>
+  <data name="Placement_Stage_a1plus_Title" xml:space="preserve"><value>A1: уверенный</value></data>
+  <data name="Placement_Stage_a1plus_Text" xml:space="preserve"><value>Вы хорошо знаете основы. Можно перейти к последней книге уровня A1, а затем к A2.</value></data>
+  <data name="Placement_Stage_a2_Title" xml:space="preserve"><value>A2: элементарный</value></data>
+  <data name="Placement_Stage_a2_Text" xml:space="preserve"><value>Вы понимаете повседневный английский и простые тексты. Книги уровня A2 помогут говорить и читать увереннее.</value></data>
+  <data name="Placement_Stage_a2plus_Title" xml:space="preserve"><value>A2: сильный</value></data>
+  <data name="Placement_Stage_a2plus_Text" xml:space="preserve"><value>Вопросы уровня A2 вам удались. Этот тест пока не идёт выше, поэтому возьмите последнюю книгу A2 и проверьте, готовы ли вы к B1.</value></data>
+  <data name="Placement_Recommend" xml:space="preserve"><value>Начните с книги {0}</value></data>
+  <data name="Placement_OpenBook" xml:space="preserve"><value>Открыть книгу {0}</value></data>
+  <data name="Placement_RegisterFirst" xml:space="preserve"><value>Зарегистрироваться и начать</value></data>
+  <data name="Placement_BySkill" xml:space="preserve"><value>Результат по навыкам</value></data>
+  <data name="Placement_Review" xml:space="preserve"><value>Вопросы, которые стоит повторить</value></data>
+  <data name="Placement_YourAnswer" xml:space="preserve"><value>Ваш ответ</value></data>
+  <data name="Placement_RightAnswer" xml:space="preserve"><value>Правильный ответ</value></data>
+  <data name="Placement_NoAnswer" xml:space="preserve"><value>нет ответа</value></data>
+  <data name="Placement_Retake" xml:space="preserve"><value>Пройти тест ещё раз</value></data>
+  <data name="Placement_NoResult" xml:space="preserve"><value>Результата пока нет. Сначала пройдите тест.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>

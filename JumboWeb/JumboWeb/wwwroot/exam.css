@@ -178,3 +178,24 @@
 .exam-best-ico { font-size: 0.85rem; }
 .exam-book-best .exam-book-stats { margin-top: 0; gap: 4px; }
 .exam-book.selected .exam-book-best .exam-book-pct { color: #fff; }
+
+/* ===== the level test ("Test my level") ===== */
+.pl-parts { list-style: none; margin: 8px 0 4px; padding: 0; display: grid; gap: 8px; }
+.pl-parts li { padding: 10px 12px; border-radius: 14px; font-weight: 700; background: var(--lp-bg); border: 2px solid var(--lp-border); }
+.pl-skill { margin: 6px 0 10px; font-weight: 800; color: var(--lp-text); }
+.pl-skill span { margin-left: 8px; font-weight: 600; color: var(--lp-muted); }
+.pl-passage { margin: 0 0 12px; padding: 14px 16px; border-radius: 16px; line-height: 1.55; background: var(--lp-bg); border: 2px solid var(--lp-border); }
+.pl-passage p { margin: 6px 0 0; }
+.pl-prompt { margin: 0 0 12px; padding: 16px; border-radius: 16px; font-size: 1.15rem; font-weight: 800; background: var(--lp-bg); border: 2px solid var(--lp-border); }
+.pl-listen { margin: 0 0 12px; }
+.pl-level { margin: 2px 0 6px; font-size: 3.4rem; font-weight: 900; line-height: 1; color: var(--lp-primary); }
+.pl-result-label { font-weight: 800; color: var(--lp-muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.8rem; }
+.pl-recommend .exam-step { margin-bottom: 10px; }
+.pl-bar-row { display: grid; grid-template-columns: 7.5rem 1fr 3rem; align-items: center; gap: 10px; margin: 8px 0; }
+.pl-bar-name { font-weight: 700; }
+.pl-bar { height: 12px; border-radius: 99px; overflow: hidden; background: var(--lp-border); }
+.pl-bar i { display: block; height: 100%; border-radius: 99px; }
+.pl-bar i.good { background: #3fb950; }
+.pl-bar i.mid { background: #f0a030; }
+.pl-bar i.low { background: #e5484d; }
+.pl-bar-pct { text-align: right; font-variant-numeric: tabular-nums; }

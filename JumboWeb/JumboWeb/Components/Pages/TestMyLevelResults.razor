@@ -1,45 +1,87 @@
 @page "/test-my-level/results"
 @rendermode InteractiveServer
 @using JumboWeb.Services
+@using Jumbo.Shared
 @inject TestLevelStateService TestState
+@inject UserStateService UserState
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
 
-<PageTitle>@Loc["TestLevel_ResultsPageTitle"]</PageTitle>
+<PageTitle>@Loc["Placement_ResultTitle"]</PageTitle>
 
 <div class="exam-page">
-    @if (TestState.TotalCount == 0)
+    @if (TestState.Result is not { } r)
     {
-        <div class="lp-empty-state">@Loc["TestLevel_ResultsNotFound"]</div>
-        <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick='() => Nav.NavigateTo("/test-my-level")'>@Loc["TestLevel_BackToTest"]</button>
+        <div class="lp-empty-state">@Loc["Placement_NoResult"]</div>
+        <button class="lp-btn lp-btn-full" style="margin-top:12px" @onclick='() => Nav.NavigateTo("/test-my-level")'>@Loc["Placement_Start"]</button>
     }
     else
     {
         <div class="game-result-card">
-            <div class="game-result-icon"><Tiger Mood="@(TestState.Percentage >= 70 ? "cheer" : "wave")" Size="150" /></div>
-            <div class="game-result-title">@TestState.Percentage%</div>
-            <div class="game-result-sub">
-                @Loc.Format("ExamResults_Summary", TestState.CorrectCount, TestState.TotalCount, TestState.IncorrectCount)
-            </div>
-            <button class="lp-btn lp-btn-full" @onclick='() => Nav.NavigateTo("/test-my-level")'>@Loc["ExamResults_Retry"]</button>
+            <div class="game-result-icon"><Tiger Mood="@(r.Stage is "a2" or "a2plus" ? "cheer" : "wave")" Size="140" /></div>
+            <div class="pl-result-label">@Loc["Placement_ResultTitle"]</div>
+            <div class="pl-level">@r.Level</div>
+            <div class="game-result-title">@Loc["Placement_Stage_" + r.Stage + "_Title"]</div>
+            <div class="game-result-sub">@Loc["Placement_Stage_" + r.Stage + "_Text"]</div>
         </div>
 
-        @if (TestState.IncorrectAnswers.Count > 0)
+        <section class="exam-card pl-recommend">
+            <h2 class="exam-step">📘 @Loc.Format("Placement_Recommend", r.RecommendedBook)</h2>
+            @if (UserState.IsRegistered)
+            {
+                <button type="button" class="lp-btn lp-btn-full" @onclick='() => Nav.NavigateTo($"/little-polyglot/subjects/{r.RecommendedBook}")'>@Loc.Format("Placement_OpenBook", r.RecommendedBook) →</button>
+            }
+            else
+            {
+                <button type="button" class="lp-btn lp-btn-full" @onclick='() => Nav.NavigateTo("/register")'>@Loc["Placement_RegisterFirst"] →</button>
+            }
+        </section>
+
+        <section class="exam-card">
+            <h2 class="exam-step">@Loc["Placement_BySkill"]</h2>
+            @foreach (var skill in PlacementSkill.All)
+            {
+                var share = TestState.Share(skill);
+                if (share is null) continue;
+                var pct = (int)Math.Round(share.Value * 100);
+                <div class="pl-bar-row">
+                    <span class="pl-bar-name">@Loc["Placement_Skill_" + skill]</span>
+                    <span class="pl-bar"><i class="@(pct >= 70 ? "good" : pct >= 40 ? "mid" : "low")" style="width:@(pct)%"></i></span>
+                    <b class="pl-bar-pct">@pct%</b>
+                </div>
+            }
+        </section>
+
+        @if (TestState.Mistakes.Count > 0)
         {
-            <p class="lp-section-title">@Loc["ExamResults_MistakesTitle"]</p>
+            <p class="lp-section-title">@Loc["Placement_Review"]</p>
             <div class="exam-mistakes-list">
-                @foreach (var a in TestState.IncorrectAnswers)
+                @foreach (var a in TestState.Mistakes)
                 {
                     <div class="exam-mistake-row">
-                        <div class="exam-mistake-translation">@a.StudyWord</div>
+                        <div class="exam-mistake-translation">@Describe(a.Question)</div>
                         <div class="exam-mistake-answers">
-                            <span class="exam-mistake-entered">@(string.IsNullOrEmpty(a.SelectedTranslation) ? Loc["ExamResults_EmptyAnswer"] : a.SelectedTranslation)</span>
+                            <span class="exam-mistake-entered">@(a.Selected >= 0 ? a.Question.Options[a.Selected] : Loc["Placement_NoAnswer"])</span>
                             <span class="exam-mistake-arrow">→</span>
-                            <span class="exam-mistake-correct">@a.CorrectTranslation</span>
+                            <span class="exam-mistake-correct">@a.Question.Options[a.Question.Answer]</span>
                         </div>
                     </div>
                 }
             </div>
         }
+
+        <button class="lp-btn lp-btn-full lp-btn-outline" style="margin-top:16px" @onclick='() => Nav.NavigateTo("/test-my-level")'>@Loc["Placement_Retake"]</button>
     }
 </div>
+
+@code {
+    protected override async Task OnInitializedAsync() => await UserState.EnsureLoadedAsync();
+
+    // What the question was, for the review: the text, or what was said, or "what is in the picture".
+    private string Describe(PlacementQuestionDto q) => q.Skill switch
+    {
+        PlacementSkill.Listening => "🎧 " + string.Join(" ", q.Audio) + " — " + q.Prompt,
+        PlacementSkill.Vocabulary => "🖼️ " + Loc["Placement_Do_vocabulary"],
+        _ => q.Prompt
+    };
+}

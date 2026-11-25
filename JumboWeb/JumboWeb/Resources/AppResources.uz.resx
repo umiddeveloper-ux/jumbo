@@ -1807,6 +1807,53 @@
   <data name="Exam_TimeNoteTeacher" xml:space="preserve">
     <value>⏱ Har bir so'z uchun vaqtni o'qituvchi belgilaydi. Vaqt tugasa, javob noto'g'ri deb hisoblanadi. Sahifadan chiqmang: imtihon buziladi.</value>
   </data>
+  <data name="Placement_Title" xml:space="preserve"><value>Darajangizni biling</value></data>
+  <data name="Placement_Intro" xml:space="preserve"><value>Qisqa ingliz tili testi: taxminan 15 daqiqa, ro'yxatdan o'tish shart emas. U oson savollardan boshlanadi va faqat yaxshi javob berayotganingizda qiyinroqlariga o'tadi. Oxirida darajangizni va Jumbo kitoblaridan qaysi biridan boshlashni ko'rasiz.</value></data>
+  <data name="Placement_Parts" xml:space="preserve"><value>Testda nimalar bor</value></data>
+  <data name="Placement_PartVocab" xml:space="preserve"><value>So'zlar: rasmda nima bor</value></data>
+  <data name="Placement_PartGrammar" xml:space="preserve"><value>Grammatika: to'g'ri so'zni tanlang</value></data>
+  <data name="Placement_PartReading" xml:space="preserve"><value>O'qish: qisqa matn va savollar</value></data>
+  <data name="Placement_PartListening" xml:space="preserve"><value>Tinglash: ovozni yoqing</value></data>
+  <data name="Placement_Start" xml:space="preserve"><value>Testni boshlash</value></data>
+  <data name="Placement_LevelsNote" xml:space="preserve"><value>Test A1 va A2 darajalarini ko'rsatadi. Yuqoriroq darajalar keyinroq qo'shiladi.</value></data>
+  <data name="Placement_Skill_vocabulary" xml:space="preserve"><value>So'zlar</value></data>
+  <data name="Placement_Skill_grammar" xml:space="preserve"><value>Grammatika</value></data>
+  <data name="Placement_Skill_reading" xml:space="preserve"><value>O'qish</value></data>
+  <data name="Placement_Skill_listening" xml:space="preserve"><value>Tinglash</value></data>
+  <data name="Placement_Do_vocabulary" xml:space="preserve"><value>Bu nima?</value></data>
+  <data name="Placement_Do_grammar" xml:space="preserve"><value>To'g'ri javobni tanlang.</value></data>
+  <data name="Placement_Do_reading" xml:space="preserve"><value>Matnni o'qing va savolga javob bering.</value></data>
+  <data name="Placement_Do_listening" xml:space="preserve"><value>Tinglang va javobni tanlang.</value></data>
+  <data name="Placement_Listen" xml:space="preserve"><value>▶ Tinglash</value></data>
+  <data name="Placement_ListenAgain" xml:space="preserve"><value>▶ Yana tinglash</value></data>
+  <data name="Placement_Playing" xml:space="preserve"><value>Eshittirilmoqda…</value></data>
+  <data name="Placement_NoSpeech" xml:space="preserve"><value>Brauzer ovozni chala olmaydi, shuning uchun matnni o'qing:</value></data>
+  <data name="Placement_PartN" xml:space="preserve"><value>{0}-qism · {1} / {2}</value></data>
+  <data name="Placement_GoodTitle" xml:space="preserve"><value>Yaxshi! Endi biroz qiyinroq</value></data>
+  <data name="Placement_GoodText" xml:space="preserve"><value>Birinchi qism yaxshi chiqdi. Keyingi savollar yuqoriroq darajada.</value></data>
+  <data name="Placement_Continue" xml:space="preserve"><value>Davom etish</value></data>
+  <data name="Placement_Error" xml:space="preserve"><value>Testni yuklab bo'lmadi. Qayta urinib ko'ring.</value></data>
+  <data name="Placement_ResultTitle" xml:space="preserve"><value>Darajangiz</value></data>
+  <data name="Placement_Stage_starter_Title" xml:space="preserve"><value>Endi boshlayapsiz</value></data>
+  <data name="Placement_Stage_starter_Text" xml:space="preserve"><value>Siz ingliz tilining faqat birinchi so'zlarini bilasiz, bu boshlash uchun juda yaxshi joy. Eng birinchi kitobdan boshlang, so'zlar tez yodlanadi.</value></data>
+  <data name="Placement_Stage_a1_Title" xml:space="preserve"><value>A1: boshlang'ich</value></data>
+  <data name="Placement_Stage_a1_Text" xml:space="preserve"><value>Siz asosiy so'zlar va oddiy gaplarni bilasiz, lekin hammasini emas. Birinchi kitoblar poydevoringizni mustahkamlaydi.</value></data>
+  <data name="Placement_Stage_a1plus_Title" xml:space="preserve"><value>A1: ishonchli</value></data>
+  <data name="Placement_Stage_a1plus_Text" xml:space="preserve"><value>Siz asoslarni yaxshi bilasiz. A1 darajasining oxirgi kitobiga, keyin A2 ga o'tishingiz mumkin.</value></data>
+  <data name="Placement_Stage_a2_Title" xml:space="preserve"><value>A2: elementar</value></data>
+  <data name="Placement_Stage_a2_Text" xml:space="preserve"><value>Siz kundalik inglizcha va oddiy matnlarni tushunasiz. A2 kitoblari gapirish va o'qishda ishonchingizni oshiradi.</value></data>
+  <data name="Placement_Stage_a2plus_Title" xml:space="preserve"><value>A2: kuchli</value></data>
+  <data name="Placement_Stage_a2plus_Text" xml:space="preserve"><value>Siz A2 savollarini yaxshi uddaladingiz. Bu test hozircha undan yuqoriga bormaydi, shuning uchun A2 ning oxirgi kitobini oling va B1 ga tayyor-tayyor emasligingizni tekshiring.</value></data>
+  <data name="Placement_Recommend" xml:space="preserve"><value>{0}-kitobdan boshlang</value></data>
+  <data name="Placement_OpenBook" xml:space="preserve"><value>{0}-kitobni ochish</value></data>
+  <data name="Placement_RegisterFirst" xml:space="preserve"><value>Ro'yxatdan o'tish va boshlash</value></data>
+  <data name="Placement_BySkill" xml:space="preserve"><value>Ko'nikmalar bo'yicha natija</value></data>
+  <data name="Placement_Review" xml:space="preserve"><value>Qayta ko'rib chiqish kerak bo'lgan savollar</value></data>
+  <data name="Placement_YourAnswer" xml:space="preserve"><value>Sizning javobingiz</value></data>
+  <data name="Placement_RightAnswer" xml:space="preserve"><value>To'g'ri javob</value></data>
+  <data name="Placement_NoAnswer" xml:space="preserve"><value>javob yo'q</value></data>
+  <data name="Placement_Retake" xml:space="preserve"><value>Testni qayta topshirish</value></data>
+  <data name="Placement_NoResult" xml:space="preserve"><value>Hozircha natija yo'q. Avval testni topshiring.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Savollar: {0}</value>
   </data>
