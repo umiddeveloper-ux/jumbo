@@ -29,6 +29,9 @@ public class PlacementQuestionDto
     // Listening: what is said (only the speech of the browser says it; the text is shown on the page only when speech is missing, and in the review).
     public List<string> Audio { get; set; } = [];
 
+    // Listening: when a recorded voice exists, the id of the question it is kept under (the page plays /placement-audio/{AudioId}).
+    public int? AudioId { get; set; }
+
     // Vocabulary with a picture: the picture of the word.
     public int? SvgImageId { get; set; }
 

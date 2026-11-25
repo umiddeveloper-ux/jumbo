@@ -281,6 +281,60 @@ public class LpApiClient(HttpClient http)
 
     public async Task AdminDeleteAdAsync(int id) => (await http.DeleteAsync($"api/admin/ads/{id}")).EnsureSuccessStatusCode();
 
+    // ── the level test (admin): questions, reading texts, recorded voices. Errors come as the API's code (BAD_OPTIONS, NOT_AUDIO ...) in the message.
+    private static async Task EnsureOrCodeAsync(HttpResponseMessage response)
+    {
+        if (response.IsSuccessStatusCode) return;
+        string? code = null;
+        try { code = (await response.Content.ReadFromJsonAsync<ErrorResponse>())?.Error; } catch { }
+        throw new InvalidOperationException(code ?? response.StatusCode.ToString());
+    }
+
+    public async Task<List<PlacementAdminQuestionDto>> AdminGetPlacementQuestionsAsync() =>
+        await http.GetFromJsonAsync<List<PlacementAdminQuestionDto>>("api/admin/placement/questions") ?? [];
+
+    public async Task<List<PlacementAdminPassageDto>> AdminGetPlacementPassagesAsync() =>
+        await http.GetFromJsonAsync<List<PlacementAdminPassageDto>>("api/admin/placement/passages") ?? [];
+
+    // id 0 = a new question; returns the id.
+    public async Task<int> AdminSavePlacementQuestionAsync(int id, SavePlacementQuestionRequest request)
+    {
+        var response = id == 0 ? await http.PostAsJsonAsync("api/admin/placement/questions", request) : await http.PutAsJsonAsync($"api/admin/placement/questions/{id}", request);
+        await EnsureOrCodeAsync(response);
+        return id == 0 ? await response.Content.ReadFromJsonAsync<int>() : id;
+    }
+
+    public async Task AdminDeletePlacementQuestionAsync(int id) =>
+        await EnsureOrCodeAsync(await http.DeleteAsync($"api/admin/placement/questions/{id}"));
+
+    public async Task<int> AdminSavePlacementPassageAsync(int id, SavePlacementPassageRequest request)
+    {
+        var response = id == 0 ? await http.PostAsJsonAsync("api/admin/placement/passages", request) : await http.PutAsJsonAsync($"api/admin/placement/passages/{id}", request);
+        await EnsureOrCodeAsync(response);
+        return id == 0 ? await response.Content.ReadFromJsonAsync<int>() : id;
+    }
+
+    public async Task AdminDeletePlacementPassageAsync(int id) =>
+        await EnsureOrCodeAsync(await http.DeleteAsync($"api/admin/placement/passages/{id}"));
+
+    public async Task AdminUploadPlacementAudioAsync(int questionId, Stream file)
+    {
+        using var content = new StreamContent(file);
+        content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+        await EnsureOrCodeAsync(await http.PutAsync($"api/admin/placement/questions/{questionId}/audio", content));
+    }
+
+    public async Task AdminDeletePlacementAudioAsync(int questionId) =>
+        await EnsureOrCodeAsync(await http.DeleteAsync($"api/admin/placement/questions/{questionId}/audio"));
+
+    // The recorded voice of a listening question, for the page of the test (null when there is none).
+    public async Task<(byte[] Data, string ContentType)?> GetPlacementAudioAsync(int questionId)
+    {
+        var response = await http.GetAsync($"api/placement/audio/{questionId}");
+        if (!response.IsSuccessStatusCode) return null;
+        return (await response.Content.ReadAsByteArrayAsync(), response.Content.Headers.ContentType?.MediaType ?? "audio/mpeg");
+    }
+
     public async Task AdminResetAdViewsAsync(int id) => (await http.PostAsync($"api/admin/ads/{id}/reset-views", null)).EnsureSuccessStatusCode();
 
     // Prices of the versions, balance

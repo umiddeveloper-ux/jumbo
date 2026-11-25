@@ -74,12 +74,14 @@ public class PlacementService(AppDbContext db)
                 }));
         }
 
+        var recorded = (await db.PlacementAudios.AsNoTracking().Select(a => a.PlacementQuestionId).ToListAsync()).ToHashSet();
         questions.AddRange((await active.Where(q => q.Skill == PlacementSkill.Listening).ToListAsync())
             .OrderBy(_ => rnd.Next()).Take(ListeningCount)
             .Select(q =>
             {
                 var d = Dto(q, PlacementSkill.Listening);
                 d.Audio = q.Audio;
+                d.AudioId = recorded.Contains(q.PlacementQuestionId) ? q.PlacementQuestionId : null;
                 return d;
             }));
 

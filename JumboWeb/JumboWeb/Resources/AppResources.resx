@@ -1933,6 +1933,71 @@
   <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>You answered the B2 questions confidently. Our books end at B1, so use Book 10 for revision and for words you may not know yet.</value></data>
   <data name="Placement_Do_vocabularytext" xml:space="preserve"><value>Choose the word that fits the meaning.</value></data>
   <data name="Placement_HowTo" xml:space="preserve"><value>In every question choose ONE answer and press “Next”. There is no time limit, and you can leave a question you do not know: just choose the answer that seems best.</value></data>
+  <data name="Admin_TabPlacement" xml:space="preserve"><value>Level test</value></data>
+  <data name="PQ_Hint" xml:space="preserve"><value>The questions of the level test "Find out your level": look at them, edit, add new ones, switch one off if it is unclear, and upload a recorded voice for a listening question. Changes work at once. The picture questions ("What is this?") are made from the books and are not here.</value></data>
+  <data name="PQ_ViewQuestions" xml:space="preserve"><value>Questions</value></data>
+  <data name="PQ_ViewPassages" xml:space="preserve"><value>Reading texts</value></data>
+  <data name="PQ_New" xml:space="preserve"><value>New question</value></data>
+  <data name="PQ_NewPassage" xml:space="preserve"><value>New reading text</value></data>
+  <data name="PQ_Editing" xml:space="preserve"><value>Question {0}</value></data>
+  <data name="PQ_Skill" xml:space="preserve"><value>Part</value></data>
+  <data name="PQ_Level" xml:space="preserve"><value>Level</value></data>
+  <data name="PQ_Status" xml:space="preserve"><value>Status</value></data>
+  <data name="PQ_AllLevels" xml:space="preserve"><value>All levels</value></data>
+  <data name="PQ_AllSkills" xml:space="preserve"><value>All parts</value></data>
+  <data name="PQ_AllStatus" xml:space="preserve"><value>Any</value></data>
+  <data name="PQ_StatusActive" xml:space="preserve"><value>In the test</value></data>
+  <data name="PQ_StatusOff" xml:space="preserve"><value>Switched off</value></data>
+  <data name="PQ_Search" xml:space="preserve"><value>Search in the questions…</value></data>
+  <data name="PQ_Showing" xml:space="preserve"><value>Showing {0} of {1}</value></data>
+  <data name="PQ_Prompt" xml:space="preserve"><value>The question</value></data>
+  <data name="PQ_PromptHint" xml:space="preserve"><value>Grammar: write the sentence with ___ in place of the gap.</value></data>
+  <data name="PQ_Options" xml:space="preserve"><value>The answers (mark the right one)</value></data>
+  <data name="PQ_Correct" xml:space="preserve"><value>The right answer</value></data>
+  <data name="PQ_CorrectHint" xml:space="preserve"><value>The round button on the left marks the right answer. The order of the answers is mixed when the test is shown.</value></data>
+  <data name="PQ_AddOption" xml:space="preserve"><value>Add an answer</value></data>
+  <data name="PQ_RemoveOption" xml:space="preserve"><value>Remove this answer</value></data>
+  <data name="PQ_Passage" xml:space="preserve"><value>The text it is about</value></data>
+  <data name="PQ_ChoosePassage" xml:space="preserve"><value>choose a text</value></data>
+  <data name="PQ_AudioLines" xml:space="preserve"><value>What is said (one line per voice or sentence)</value></data>
+  <data name="PQ_AudioLinesHint" xml:space="preserve"><value>This text is read by the browser when there is no recording, and it is shown in the review of mistakes.</value></data>
+  <data name="PQ_Voice" xml:space="preserve"><value>Recorded voice</value></data>
+  <data name="PQ_VoiceNone" xml:space="preserve"><value>No recording: the browser voice is used.</value></data>
+  <data name="PQ_VoiceHave" xml:space="preserve"><value>Recording uploaded ({0}). Learners hear it instead of the browser voice.</value></data>
+  <data name="PQ_VoiceUpload" xml:space="preserve"><value>Upload the recording</value></data>
+  <data name="PQ_VoiceDelete" xml:space="preserve"><value>Delete the recording</value></data>
+  <data name="PQ_VoiceFile" xml:space="preserve"><value>Audio file (mp3, m4a, ogg, wav; up to 5 MB)</value></data>
+  <data name="PQ_VoiceSaveFirst" xml:space="preserve"><value>Save the question first, then you can upload the recording.</value></data>
+  <data name="PQ_VoicePreview" xml:space="preserve"><value>Hear the browser voice</value></data>
+  <data name="PQ_VoiceDeleted" xml:space="preserve"><value>The recording is deleted.</value></data>
+  <data name="PQ_Uploaded" xml:space="preserve"><value>The recording is uploaded.</value></data>
+  <data name="PQ_Active" xml:space="preserve"><value>Use this question in the test</value></data>
+  <data name="PQ_Save" xml:space="preserve"><value>Save</value></data>
+  <data name="PQ_Delete" xml:space="preserve"><value>Delete</value></data>
+  <data name="PQ_DeleteConfirm" xml:space="preserve"><value>Delete this question for good (with its recording)? Switching it off instead keeps it.</value></data>
+  <data name="PQ_Saved" xml:space="preserve"><value>Saved.</value></data>
+  <data name="PQ_Deleted" xml:space="preserve"><value>Deleted.</value></data>
+  <data name="PQ_Edit" xml:space="preserve"><value>Edit</value></data>
+  <data name="PQ_Off" xml:space="preserve"><value>off</value></data>
+  <data name="PQ_TooMany" xml:space="preserve"><value>Only the first 200 are shown: narrow the search.</value></data>
+  <data name="PQ_PassageTitle" xml:space="preserve"><value>Title</value></data>
+  <data name="PQ_PassageText" xml:space="preserve"><value>The text</value></data>
+  <data name="PQ_QuestionsCount" xml:space="preserve"><value>{0} questions</value></data>
+  <data name="PQ_AddQuestionToText" xml:space="preserve"><value>Add a question to this text</value></data>
+  <data name="PQ_PassageDeleteConfirm" xml:space="preserve"><value>Delete the text and its {0} questions for good?</value></data>
+  <data name="PQ_Err_BAD_SKILL" xml:space="preserve"><value>Choose the part of the test.</value></data>
+  <data name="PQ_Err_BAD_LEVEL" xml:space="preserve"><value>Choose the level.</value></data>
+  <data name="PQ_Err_BAD_PROMPT" xml:space="preserve"><value>Write the question (up to 1000 characters).</value></data>
+  <data name="PQ_Err_BAD_OPTIONS" xml:space="preserve"><value>Fill in 2 to 6 answers, none of them empty.</value></data>
+  <data name="PQ_Err_DUPLICATE_OPTIONS" xml:space="preserve"><value>Two answers are the same.</value></data>
+  <data name="PQ_Err_BAD_ANSWER" xml:space="preserve"><value>Mark the right answer.</value></data>
+  <data name="PQ_Err_BAD_PASSAGE" xml:space="preserve"><value>Choose the text this question is about.</value></data>
+  <data name="PQ_Err_BAD_AUDIO_TEXT" xml:space="preserve"><value>Write what is said: 1 to 6 lines.</value></data>
+  <data name="PQ_Err_NOT_AUDIO" xml:space="preserve"><value>This file is not an audio file (mp3, m4a, ogg, wav, webm).</value></data>
+  <data name="PQ_Err_NOT_LISTENING" xml:space="preserve"><value>Only a listening question can have a recording.</value></data>
+  <data name="PQ_Err_TOO_BIG" xml:space="preserve"><value>The file is too big (up to 5 MB).</value></data>
+  <data name="PQ_Err_BAD_TITLE" xml:space="preserve"><value>Write the title of the text.</value></data>
+  <data name="PQ_Err_BAD_TEXT" xml:space="preserve"><value>Write the text (up to 5000 characters).</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} questions</value>
   </data>

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Jumbo.Api.Services;
 
-// Puts the first set of level test questions (the file SeedData/Placement/questions.json, built into the API) into the database.
+// Puts the first set of level test questions (the file Data/PlacementQuestions.json, built into the API) into the database.
 // Only what is missing is added, by Code: a question that is already in the database is never overwritten (the database is the source of
 // truth: a question edited or switched off there stays so), and a new question added to the file arrives with the next start.
 public class PlacementSeeder(AppDbContext db, ILogger<PlacementSeeder> log)

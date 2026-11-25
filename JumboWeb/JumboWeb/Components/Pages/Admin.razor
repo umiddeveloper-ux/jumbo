@@ -104,6 +104,10 @@ else
                 </article>
             }
         }
+        else if (_tab == "placement")
+        {
+            <AdminPlacement />
+        }
         else if (_tab == "videos")
         {
             <p class="reg-help">@Loc["VD_Hint"]</p>
@@ -663,17 +667,17 @@ else
     /// <summary>The section of the page (the left menu of the admin): requests, schools, subscribers, versions, plans, videos.</summary>
     [Parameter] public string? Section { get; set; }
 
-    private static readonly string[] Sections = ["requests", "schools", "subscribers", "versions", "plans", "prices", "balance", "ads", "videos"];
+    private static readonly string[] Sections = ["requests", "schools", "subscribers", "versions", "plans", "prices", "balance", "ads", "videos", "placement"];
 
     private string SectionLabel => _tab switch
     {
         "schools" => "Admin_TabSchools", "subscribers" => "Admin_TabSubscribers", "versions" => "Admin_TabVersions",
-        "plans" => "Admin_TabPlans", "videos" => "Admin_TabVideos", "prices" => "Admin_TabPrices", "balance" => "Admin_TabBalance", "ads" => "Admin_TabAds", _ => "Admin_TabRequests"
+        "plans" => "Admin_TabPlans", "videos" => "Admin_TabVideos", "placement" => "Admin_TabPlacement", "prices" => "Admin_TabPrices", "balance" => "Admin_TabBalance", "ads" => "Admin_TabAds", _ => "Admin_TabRequests"
     };
 
     private string SectionIcon => _tab switch
     {
-        "schools" => "🏫", "subscribers" => "💬", "versions" => "📱", "plans" => "🪙", "videos" => "🎬", "prices" => "🏷", "balance" => "💳", "ads" => "📣", _ => "📨"
+        "schools" => "🏫", "subscribers" => "💬", "versions" => "📱", "plans" => "🪙", "videos" => "🎬", "placement" => "🧪", "prices" => "🏷", "balance" => "💳", "ads" => "📣", _ => "📨"
     };
 
     protected override async Task OnParametersSetAsync()

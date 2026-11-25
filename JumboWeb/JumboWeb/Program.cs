@@ -189,6 +189,15 @@ if (app.Environment.IsDevelopment() && builder.Configuration["Media:VideosRoot"]
 }
 app.MapStaticAssets();
 
+// The recorded voice of a listening question of the level test: the site hands out what the API keeps (so no nginx setting is needed).
+app.MapGet("/placement-audio/{id:int}", async (int id, IHttpClientFactory factory, HttpContext context) =>
+{
+    var audio = await new LpApiClient(factory.CreateClient("Api")).GetPlacementAudioAsync(id);
+    if (audio is null) return Results.NotFound();
+    context.Response.Headers.CacheControl = "public, max-age=600";
+    return Results.File(audio.Value.Data, audio.Value.ContentType, enableRangeProcessing: true);
+});
+
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()

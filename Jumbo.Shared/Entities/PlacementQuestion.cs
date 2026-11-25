@@ -1,7 +1,7 @@
 namespace Jumbo.Shared.Entities;
 
 // The questions of the level test ("Test my level"). They live in the database (the first set is loaded from the file
-// SeedData/Placement/questions.json when a question with that Code does not exist yet; after that the database is the source of truth).
+// Data/PlacementQuestions.json when a question with that Code does not exist yet; after that the database is the source of truth).
 // The picture questions ("what is this?") are not here: they are built from the words of the books.
 
 // A text for reading questions (several questions point to one text).
@@ -49,4 +49,19 @@ public class PlacementQuestion
 
     // A question that is switched off is never served (for one that turned out to be unclear or wrong).
     public bool IsActive { get; set; } = true;
+}
+
+// A recorded voice for a listening question (uploaded by the admin). When it exists the test plays it; otherwise the browser's speech
+// reads the lines of the question.
+public class PlacementAudio
+{
+    // The same id as the question (one recording per question).
+    public int PlacementQuestionId { get; set; }
+
+    // audio/mpeg, audio/mp4, audio/ogg, audio/wav, audio/webm
+    public string ContentType { get; set; } = null!;
+
+    public byte[] Data { get; set; } = [];
+
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 }

@@ -1,0 +1,503 @@
+@using Jumbo.Shared
+@using Jumbo.Shared.Dtos
+@using JumboWeb.Services
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+@inject IJSRuntime JS
+
+@* The admin page of the level test: the questions (look, filter, edit, add, switch off, delete), the reading texts, and the recorded
+   voice of a listening question. The picture questions ("what is this?") are made from the books and are not here. *@
+
+<p class="reg-help">@Loc["PQ_Hint"]</p>
+
+@if (!string.IsNullOrEmpty(_message)) { <div class="lp-success-msg">@_message</div> }
+@if (!string.IsNullOrEmpty(_error)) { <p class="validation-message">@_error</p> }
+
+<div class="rate-period adm-status">
+    <button type="button" class="@(_view == "questions" ? "active" : "")" @onclick='() => SetView("questions")'>@Loc["PQ_ViewQuestions"] (@_questions.Count)</button>
+    <button type="button" class="@(_view == "passages" ? "active" : "")" @onclick='() => SetView("passages")'>@Loc["PQ_ViewPassages"] (@_passages.Count)</button>
+</div>
+
+@if (_view == "questions")
+{
+    @if (_q is not null)
+    {
+        <section class="adm-card pq-form">
+            <div class="settings-label">@(_q.Id == 0 ? Loc["PQ_New"] : Loc.Format("PQ_Editing", _q.Code))</div>
+
+            <div class="adm-ver-grid">
+                <label>@Loc["PQ_Skill"]
+                    <select class="lp-select" @bind="_q.Skill">
+                        @foreach (var s in EditableSkills)
+                        {
+                            <option value="@s">@SkillName(s)</option>
+                        }
+                    </select>
+                </label>
+                @if (_q.Skill != PlacementSkill.Reading)
+                {
+                    <label>@Loc["PQ_Level"]
+                        <select class="lp-select" @bind="_q.Level">
+                            @foreach (var l in PlacementScoring.Levels) { <option value="@l">@l</option> }
+                        </select>
+                    </label>
+                }
+            </div>
+
+            @if (_q.Skill == PlacementSkill.Reading)
+            {
+                <label>@Loc["PQ_Passage"]
+                    <select class="lp-select" @bind="_q.PassageId">
+                        <option value="">— @Loc["PQ_ChoosePassage"] —</option>
+                        @foreach (var p in _passages)
+                        {
+                            <option value="@p.Id">@p.Level · @p.Title</option>
+                        }
+                    </select>
+                </label>
+                @if (_passages.FirstOrDefault(p => p.Id == _q.PassageId) is { } chosen)
+                {
+                    <p class="pq-passage">@chosen.Text</p>
+                }
+            }
+
+            <label>@Loc["PQ_Prompt"]
+                <textarea class="lp-input" rows="2" maxlength="1000" @bind="_q.Prompt" @bind:event="oninput"></textarea>
+            </label>
+            @if (_q.Skill == PlacementSkill.Grammar) { <p class="reg-help">@Loc["PQ_PromptHint"]</p> }
+
+            <div class="settings-label">@Loc["PQ_Options"]</div>
+            @for (var i = 0; i < _q.Options.Count; i++)
+            {
+                var idx = i;
+                <div class="pq-option">
+                    <input type="radio" name="pq-correct" id="pq-c-@idx" checked="@(_q.Answer == idx)" @onchange="() => _q.Answer = idx" title="@Loc["PQ_Correct"]" />
+                    <input class="lp-input" type="text" maxlength="300" placeholder="@((char)('A' + idx))" value="@_q.Options[idx]" @oninput="e => _q.Options[idx] = e.Value?.ToString() ?? string.Empty" />
+                    @if (_q.Options.Count > 2)
+                    {
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" title="@Loc["PQ_RemoveOption"]" @onclick="() => RemoveOption(idx)">✕</button>
+                    }
+                </div>
+            }
+            <p class="reg-help">@Loc["PQ_CorrectHint"]</p>
+            @if (_q.Options.Count < 6)
+            {
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="AddOption">➕ @Loc["PQ_AddOption"]</button>
+            }
+
+            @if (_q.Skill == PlacementSkill.Listening)
+            {
+                <label>@Loc["PQ_AudioLines"]
+                    <textarea class="lp-input" rows="3" maxlength="1500" @bind="_q.AudioText" @bind:event="oninput"></textarea>
+                </label>
+                <p class="reg-help">@Loc["PQ_AudioLinesHint"]</p>
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="PreviewSpeechAsync">▶ @Loc["PQ_VoicePreview"]</button>
+
+                <div class="settings-label">🎙 @Loc["PQ_Voice"]</div>
+                @if (_q.Id == 0)
+                {
+                    <p class="reg-help">@Loc["PQ_VoiceSaveFirst"]</p>
+                }
+                else
+                {
+                    @if (_q.AudioSize is { } size)
+                    {
+                        <p class="reg-help">✓ @Loc.Format("PQ_VoiceHave", FormatSize(size))</p>
+                        <audio controls preload="none" src="/placement-audio/@_q.Id?v=@_audioVersion"></audio>
+                        <div>
+                            <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" disabled="@_busy" @onclick="DeleteAudioAsync">🗑 @Loc["PQ_VoiceDelete"]</button>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="reg-help">— @Loc["PQ_VoiceNone"]</p>
+                    }
+                    <label>@Loc["PQ_VoiceFile"]
+                        <InputFile class="lp-input" accept="audio/*,.mp3,.m4a,.ogg,.wav,.webm" OnChange="OnAudioPicked" />
+                    </label>
+                    <button type="button" class="lp-btn lp-btn-sm" disabled="@(_busy || _audioFile is null)" @onclick="UploadAudioAsync">⬆ @Loc["PQ_VoiceUpload"]</button>
+                }
+            }
+
+            <label class="pq-check"><input type="checkbox" @bind="_q.IsActive" /> @Loc["PQ_Active"]</label>
+
+            <div class="pq-actions">
+                <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="SaveQuestionAsync">💾 @Loc["PQ_Save"]</button>
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="CloseForm">@Loc["TC_Cancel"]</button>
+                @if (_q.Id != 0)
+                {
+                    @if (_confirmDelete)
+                    {
+                        <span class="tc-confirm">@Loc["PQ_DeleteConfirm"]</span>
+                        <button type="button" class="lp-btn lp-btn-sm adm-danger" disabled="@_busy" @onclick="DeleteQuestionAsync">@Loc["TC_Confirm"]</button>
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _confirmDelete = false">@Loc["TC_Cancel"]</button>
+                    }
+                    else
+                    {
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _confirmDelete = true">🗑 @Loc["PQ_Delete"]</button>
+                    }
+                }
+            </div>
+        </section>
+    }
+
+    <section class="adm-card">
+        <div class="adm-ver-grid">
+            <label>@Loc["PQ_Level"]
+                <select class="lp-select" @bind="_fLevel">
+                    <option value="">@Loc["PQ_AllLevels"]</option>
+                    @foreach (var l in PlacementScoring.Levels) { <option value="@l">@l</option> }
+                </select>
+            </label>
+            <label>@Loc["PQ_Skill"]
+                <select class="lp-select" @bind="_fSkill">
+                    <option value="">@Loc["PQ_AllSkills"]</option>
+                    @foreach (var s in EditableSkills) { <option value="@s">@SkillName(s)</option> }
+                </select>
+            </label>
+            <label>@Loc["PQ_Status"]
+                <select class="lp-select" @bind="_fStatus">
+                    <option value="">@Loc["PQ_AllStatus"]</option>
+                    <option value="on">@Loc["PQ_StatusActive"]</option>
+                    <option value="off">@Loc["PQ_StatusOff"]</option>
+                </select>
+            </label>
+        </div>
+        <input class="lp-input" type="search" placeholder="@Loc["PQ_Search"]" @bind="_fSearch" @bind:event="oninput" />
+        <div class="pq-bar">
+            <span class="reg-help">@Loc.Format("PQ_Showing", Filtered.Count, _questions.Count)</span>
+            <button type="button" class="lp-btn lp-btn-sm" @onclick="() => NewQuestion(null)">➕ @Loc["PQ_New"]</button>
+        </div>
+
+        @foreach (var q in Filtered.Take(200))
+        {
+            var row = q;
+            <div class="adm-row pq-row @(row.IsActive ? "" : "off")">
+                <span class="pq-level">@row.Level</span>
+                <span class="pq-skill">@SkillName(row.Skill)</span>
+                <span class="pq-prompt">@Shorten(row.Prompt)</span>
+                @if (row.AudioFileSize is not null) { <span title="@Loc["PQ_Voice"]">🎙</span> }
+                @if (!row.IsActive) { <span class="tc-badge">@Loc["PQ_Off"]</span> }
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => EditQuestion(row)">✎ @Loc["PQ_Edit"]</button>
+            </div>
+        }
+        @if (Filtered.Count > 200) { <p class="reg-help">@Loc["PQ_TooMany"]</p> }
+    </section>
+}
+else
+{
+    @if (_p is not null)
+    {
+        <section class="adm-card pq-form">
+            <div class="settings-label">@(_p.Id == 0 ? Loc["PQ_NewPassage"] : Loc.Format("PQ_Editing", _p.Code))</div>
+            <label>@Loc["PQ_Level"]
+                <select class="lp-select" @bind="_p.Level">
+                    @foreach (var l in PlacementScoring.Levels) { <option value="@l">@l</option> }
+                </select>
+            </label>
+            <label>@Loc["PQ_PassageTitle"]
+                <input class="lp-input" type="text" maxlength="200" @bind="_p.Title" @bind:event="oninput" />
+            </label>
+            <label>@Loc["PQ_PassageText"]
+                <textarea class="lp-input" rows="8" maxlength="5000" @bind="_p.Text" @bind:event="oninput"></textarea>
+            </label>
+            <div class="pq-actions">
+                <button type="button" class="lp-btn lp-btn-sm" disabled="@_busy" @onclick="SavePassageAsync">💾 @Loc["PQ_Save"]</button>
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _p = null">@Loc["TC_Cancel"]</button>
+                @if (_p.Id != 0)
+                {
+                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="AddQuestionToPassage">➕ @Loc["PQ_AddQuestionToText"]</button>
+                    @if (_confirmDelete)
+                    {
+                        <span class="tc-confirm">@Loc.Format("PQ_PassageDeleteConfirm", _p.QuestionCount)</span>
+                        <button type="button" class="lp-btn lp-btn-sm adm-danger" disabled="@_busy" @onclick="DeletePassageAsync">@Loc["TC_Confirm"]</button>
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _confirmDelete = false">@Loc["TC_Cancel"]</button>
+                    }
+                    else
+                    {
+                        <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _confirmDelete = true">🗑 @Loc["PQ_Delete"]</button>
+                    }
+                }
+            </div>
+        </section>
+    }
+
+    <section class="adm-card">
+        <div class="pq-bar">
+            <span class="reg-help">@Loc.Format("PQ_Showing", _passages.Count, _passages.Count)</span>
+            <button type="button" class="lp-btn lp-btn-sm" @onclick="NewPassage">➕ @Loc["PQ_NewPassage"]</button>
+        </div>
+        @foreach (var p in _passages)
+        {
+            var row = p;
+            <div class="adm-row pq-row">
+                <span class="pq-level">@row.Level</span>
+                <span class="pq-prompt"><b>@row.Title</b> · @Loc.Format("PQ_QuestionsCount", row.QuestionCount)</span>
+                <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => EditPassage(row)">✎ @Loc["PQ_Edit"]</button>
+            </div>
+        }
+    </section>
+}
+
+@code {
+    private static readonly string[] EditableSkills = [PlacementSkill.Vocabulary, PlacementSkill.Grammar, PlacementSkill.Reading, PlacementSkill.Listening];
+
+    private string _view = "questions";
+    private List<PlacementAdminQuestionDto> _questions = new();
+    private List<PlacementAdminPassageDto> _passages = new();
+    private string _fLevel = string.Empty, _fSkill = string.Empty, _fStatus = string.Empty, _fSearch = string.Empty;
+
+    private QuestionForm? _q;
+    private PassageForm? _p;
+    private bool _busy, _confirmDelete;
+    private string _message = string.Empty, _error = string.Empty;
+    private IBrowserFile? _audioFile;
+    private int _audioVersion;
+
+    private class QuestionForm
+    {
+        public int Id;
+        public string Code = string.Empty;
+        public string Skill = PlacementSkill.Grammar;
+        public string Level = "A1";
+        public string Prompt = string.Empty;
+        public List<string> Options = new() { "", "", "" };
+        public int Answer;
+        public int? PassageId;
+        public string AudioText = string.Empty;
+        public bool IsActive = true;
+        public int? AudioSize;
+    }
+
+    private class PassageForm
+    {
+        public int Id;
+        public string Code = string.Empty;
+        public string Level = "A1";
+        public string Title = string.Empty;
+        public string Text = string.Empty;
+        public int QuestionCount;
+    }
+
+    protected override async Task OnInitializedAsync() => await LoadAsync();
+
+    private async Task LoadAsync()
+    {
+        try
+        {
+            _questions = await ApiClient.AdminGetPlacementQuestionsAsync();
+            _passages = await ApiClient.AdminGetPlacementPassagesAsync();
+        }
+        catch (Exception ex) { _error = ex.Message; }
+    }
+
+    private void SetView(string view)
+    {
+        _view = view;
+        _q = null; _p = null; _confirmDelete = false;
+        _message = _error = string.Empty;
+    }
+
+    private List<PlacementAdminQuestionDto> Filtered => _questions
+        .Where(q => (_fLevel.Length == 0 || q.Level == _fLevel)
+                    && (_fSkill.Length == 0 || q.Skill == _fSkill)
+                    && (_fStatus.Length == 0 || (_fStatus == "on") == q.IsActive)
+                    && (string.IsNullOrWhiteSpace(_fSearch) || q.Prompt.Contains(_fSearch.Trim(), StringComparison.OrdinalIgnoreCase)
+                        || q.Options.Any(o => o.Contains(_fSearch.Trim(), StringComparison.OrdinalIgnoreCase))
+                        || q.Audio.Any(a => a.Contains(_fSearch.Trim(), StringComparison.OrdinalIgnoreCase))))
+        .ToList();
+
+    private string SkillName(string skill) => Loc["Placement_Skill_" + skill];
+
+    private static string Shorten(string s) => s.Length > 110 ? s[..110] + "…" : s;
+
+    private static string FormatSize(long bytes) => bytes >= 1024 * 1024 ? $"{bytes / 1048576.0:0.#} MB" : $"{Math.Max(1, bytes / 1024)} KB";
+
+    private string Explain(Exception ex)
+    {
+        var key = "PQ_Err_" + ex.Message;
+        var text = Loc[key];
+        return text == key ? ex.Message : text;
+    }
+
+    // ── questions ───────────────────────────────────────────────────────────
+    private void NewQuestion(PlacementAdminPassageDto? passage)
+    {
+        _message = _error = string.Empty;
+        _confirmDelete = false;
+        _audioFile = null;
+        _q = new QuestionForm
+        {
+            Skill = passage is null ? (string.IsNullOrEmpty(_fSkill) ? PlacementSkill.Grammar : _fSkill) : PlacementSkill.Reading,
+            Level = passage?.Level ?? (string.IsNullOrEmpty(_fLevel) ? "A1" : _fLevel),
+            PassageId = passage?.Id,
+        };
+        _view = "questions";
+    }
+
+    private void EditQuestion(PlacementAdminQuestionDto q)
+    {
+        _message = _error = string.Empty;
+        _confirmDelete = false;
+        _audioFile = null;
+        _q = new QuestionForm
+        {
+            Id = q.Id, Code = q.Code, Skill = q.Skill, Level = q.Level, Prompt = q.Prompt, Options = q.Options.ToList(), Answer = q.Answer,
+            PassageId = q.PassageId, AudioText = string.Join("\n", q.Audio), IsActive = q.IsActive, AudioSize = q.AudioFileSize
+        };
+    }
+
+    private void CloseForm() { _q = null; _confirmDelete = false; _audioFile = null; }
+
+    private void AddOption() => _q!.Options.Add(string.Empty);
+
+    private void RemoveOption(int idx)
+    {
+        _q!.Options.RemoveAt(idx);
+        if (_q.Answer >= _q.Options.Count) _q.Answer = _q.Options.Count - 1;
+        else if (_q.Answer > idx) _q.Answer--;
+    }
+
+    private async Task SaveQuestionAsync()
+    {
+        if (_q is null || _busy) return;
+        _busy = true;
+        _message = _error = string.Empty;
+        try
+        {
+            var f = _q;
+            var request = new SavePlacementQuestionRequest
+            {
+                Skill = f.Skill, Level = f.Level, Prompt = f.Prompt, Options = f.Options.Select(o => o.Trim()).ToList(), Answer = f.Answer,
+                PassageId = f.Skill == PlacementSkill.Reading ? f.PassageId : null,
+                Audio = f.AudioText.Split('\n').Select(l => l.Trim()).Where(l => l.Length > 0).ToList(), IsActive = f.IsActive
+            };
+            var id = await ApiClient.AdminSavePlacementQuestionAsync(f.Id, request);
+            await LoadAsync();
+            // the form stays open on the saved question: a new listening question can get its voice right away
+            EditQuestion(_questions.First(x => x.Id == id));
+            _message = Loc["PQ_Saved"];
+        }
+        catch (Exception ex) { _error = Explain(ex); }
+        finally { _busy = false; }
+    }
+
+    private async Task DeleteQuestionAsync()
+    {
+        if (_q is null || _busy) return;
+        _busy = true;
+        try
+        {
+            await ApiClient.AdminDeletePlacementQuestionAsync(_q.Id);
+            _q = null;
+            _confirmDelete = false;
+            await LoadAsync();
+            _message = Loc["PQ_Deleted"];
+        }
+        catch (Exception ex) { _error = Explain(ex); }
+        finally { _busy = false; }
+    }
+
+    // ── recorded voice ──────────────────────────────────────────────────────
+    private const long MaxAudio = 5L * 1024 * 1024;
+
+    private void OnAudioPicked(InputFileChangeEventArgs e) { _audioFile = e.File; _message = _error = string.Empty; }
+
+    private async Task UploadAudioAsync()
+    {
+        if (_q is null || _q.Id == 0 || _audioFile is null || _busy) return;
+        if (_audioFile.Size > MaxAudio) { _error = Loc["PQ_Err_TOO_BIG"]; return; }
+        _busy = true;
+        _message = _error = string.Empty;
+        try
+        {
+            await using var stream = _audioFile.OpenReadStream(MaxAudio);
+            await ApiClient.AdminUploadPlacementAudioAsync(_q.Id, stream);
+            _audioFile = null;
+            _audioVersion++;
+            await LoadAsync();
+            _q.AudioSize = _questions.FirstOrDefault(x => x.Id == _q.Id)?.AudioFileSize;
+            _message = Loc["PQ_Uploaded"];
+        }
+        catch (Exception ex) { _error = Explain(ex); }
+        finally { _busy = false; }
+    }
+
+    private async Task DeleteAudioAsync()
+    {
+        if (_q is null || _q.Id == 0 || _busy) return;
+        _busy = true;
+        try
+        {
+            await ApiClient.AdminDeletePlacementAudioAsync(_q.Id);
+            _q.AudioSize = null;
+            _audioVersion++;
+            await LoadAsync();
+            _message = Loc["PQ_VoiceDeleted"];
+        }
+        catch (Exception ex) { _error = Explain(ex); }
+        finally { _busy = false; }
+    }
+
+    // What the browser's own voice would say (the fallback when there is no recording).
+    private async Task PreviewSpeechAsync()
+    {
+        var lines = _q?.AudioText.Split('\n').Select(l => l.Trim()).Where(l => l.Length > 0).ToList() ?? new();
+        if (lines.Count == 0) return;
+        try { await JS.InvokeAsync<bool>("lp.speakLines", lines, "en-US"); } catch { }
+    }
+
+    // ── reading texts ───────────────────────────────────────────────────────
+    private void NewPassage()
+    {
+        _message = _error = string.Empty;
+        _confirmDelete = false;
+        _p = new PassageForm { Level = string.IsNullOrEmpty(_fLevel) ? "A1" : _fLevel };
+    }
+
+    private void EditPassage(PlacementAdminPassageDto p)
+    {
+        _message = _error = string.Empty;
+        _confirmDelete = false;
+        _p = new PassageForm { Id = p.Id, Code = p.Code, Level = p.Level, Title = p.Title, Text = p.Text, QuestionCount = p.QuestionCount };
+    }
+
+    private async Task SavePassageAsync()
+    {
+        if (_p is null || _busy) return;
+        _busy = true;
+        _message = _error = string.Empty;
+        try
+        {
+            var id = await ApiClient.AdminSavePlacementPassageAsync(_p.Id, new SavePlacementPassageRequest { Level = _p.Level, Title = _p.Title, Text = _p.Text });
+            await LoadAsync();
+            EditPassage(_passages.First(x => x.Id == id));
+            _message = Loc["PQ_Saved"];
+        }
+        catch (Exception ex) { _error = Explain(ex); }
+        finally { _busy = false; }
+    }
+
+    private async Task DeletePassageAsync()
+    {
+        if (_p is null || _busy) return;
+        _busy = true;
+        try
+        {
+            await ApiClient.AdminDeletePlacementPassageAsync(_p.Id);
+            _p = null;
+            _confirmDelete = false;
+            await LoadAsync();
+            _message = Loc["PQ_Deleted"];
+        }
+        catch (Exception ex) { _error = Explain(ex); }
+        finally { _busy = false; }
+    }
+
+    private void AddQuestionToPassage()
+    {
+        if (_p is null || _p.Id == 0) return;
+        NewQuestion(_passages.First(x => x.Id == _p.Id));
+        _p = null;
+    }
+}

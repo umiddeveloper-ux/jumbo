@@ -34,3 +34,17 @@ public class PlacementQuestionConfiguration : IEntityTypeConfiguration<Placement
             .OnDelete(DeleteBehavior.Cascade);
     }
 }
+
+public class PlacementAudioConfiguration : IEntityTypeConfiguration<PlacementAudio>
+{
+    public void Configure(EntityTypeBuilder<PlacementAudio> builder)
+    {
+        builder.HasKey(x => x.PlacementQuestionId);
+        builder.Property(x => x.ContentType).HasMaxLength(60);
+
+        builder.HasOne<PlacementQuestion>()
+            .WithOne()
+            .HasForeignKey<PlacementAudio>(x => x.PlacementQuestionId)
+            .OnDelete(DeleteBehavior.Cascade);
+    }
+}

@@ -1933,6 +1933,71 @@
   <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>Вопросы B2 вы прошли уверенно. Наши книги заканчиваются на B1, поэтому книга 10 подойдёт для повторения и для слов, которых вы могли не знать.</value></data>
   <data name="Placement_Do_vocabularytext" xml:space="preserve"><value>Выберите слово, которое подходит по смыслу.</value></data>
   <data name="Placement_HowTo" xml:space="preserve"><value>В каждом вопросе выберите ОДИН ответ и нажмите «Далее». Времени на ответ не ограничено, а если не знаете — выберите вариант, который кажется самым подходящим.</value></data>
+  <data name="Admin_TabPlacement" xml:space="preserve"><value>Тест уровня</value></data>
+  <data name="PQ_Hint" xml:space="preserve"><value>Вопросы теста «Узнай свой уровень»: смотрите, правьте, добавляйте новые, отключайте неудачные и загружайте озвучку для вопросов на слух. Изменения действуют сразу. Вопросы с картинками («Что это?») строятся из книг и здесь не показаны.</value></data>
+  <data name="PQ_ViewQuestions" xml:space="preserve"><value>Вопросы</value></data>
+  <data name="PQ_ViewPassages" xml:space="preserve"><value>Тексты для чтения</value></data>
+  <data name="PQ_New" xml:space="preserve"><value>Новый вопрос</value></data>
+  <data name="PQ_NewPassage" xml:space="preserve"><value>Новый текст для чтения</value></data>
+  <data name="PQ_Editing" xml:space="preserve"><value>Вопрос {0}</value></data>
+  <data name="PQ_Skill" xml:space="preserve"><value>Раздел</value></data>
+  <data name="PQ_Level" xml:space="preserve"><value>Уровень</value></data>
+  <data name="PQ_Status" xml:space="preserve"><value>Статус</value></data>
+  <data name="PQ_AllLevels" xml:space="preserve"><value>Все уровни</value></data>
+  <data name="PQ_AllSkills" xml:space="preserve"><value>Все разделы</value></data>
+  <data name="PQ_AllStatus" xml:space="preserve"><value>Любой</value></data>
+  <data name="PQ_StatusActive" xml:space="preserve"><value>В тесте</value></data>
+  <data name="PQ_StatusOff" xml:space="preserve"><value>Отключены</value></data>
+  <data name="PQ_Search" xml:space="preserve"><value>Поиск по вопросам…</value></data>
+  <data name="PQ_Showing" xml:space="preserve"><value>Показано {0} из {1}</value></data>
+  <data name="PQ_Prompt" xml:space="preserve"><value>Вопрос</value></data>
+  <data name="PQ_PromptHint" xml:space="preserve"><value>Грамматика: напишите предложение, а на месте пропуска поставьте ___.</value></data>
+  <data name="PQ_Options" xml:space="preserve"><value>Варианты ответа (отметьте правильный)</value></data>
+  <data name="PQ_Correct" xml:space="preserve"><value>Правильный ответ</value></data>
+  <data name="PQ_CorrectHint" xml:space="preserve"><value>Круглая кнопка слева отмечает правильный ответ. Порядок вариантов перемешивается, когда показывается тест.</value></data>
+  <data name="PQ_AddOption" xml:space="preserve"><value>Добавить вариант</value></data>
+  <data name="PQ_RemoveOption" xml:space="preserve"><value>Убрать вариант</value></data>
+  <data name="PQ_Passage" xml:space="preserve"><value>Текст, к которому относится</value></data>
+  <data name="PQ_ChoosePassage" xml:space="preserve"><value>выберите текст</value></data>
+  <data name="PQ_AudioLines" xml:space="preserve"><value>Что звучит (по одной строке на реплику)</value></data>
+  <data name="PQ_AudioLinesHint" xml:space="preserve"><value>Этот текст читает браузер, если записи нет, и он показывается в разборе ошибок.</value></data>
+  <data name="PQ_Voice" xml:space="preserve"><value>Озвучка (запись)</value></data>
+  <data name="PQ_VoiceNone" xml:space="preserve"><value>Записи нет: используется голос браузера.</value></data>
+  <data name="PQ_VoiceHave" xml:space="preserve"><value>Запись загружена ({0}). Ученики слышат её вместо голоса браузера.</value></data>
+  <data name="PQ_VoiceUpload" xml:space="preserve"><value>Загрузить запись</value></data>
+  <data name="PQ_VoiceDelete" xml:space="preserve"><value>Удалить запись</value></data>
+  <data name="PQ_VoiceFile" xml:space="preserve"><value>Аудиофайл (mp3, m4a, ogg, wav; до 5 МБ)</value></data>
+  <data name="PQ_VoiceSaveFirst" xml:space="preserve"><value>Сначала сохраните вопрос, потом можно загрузить запись.</value></data>
+  <data name="PQ_VoicePreview" xml:space="preserve"><value>Послушать голос браузера</value></data>
+  <data name="PQ_VoiceDeleted" xml:space="preserve"><value>Запись удалена.</value></data>
+  <data name="PQ_Uploaded" xml:space="preserve"><value>Запись загружена.</value></data>
+  <data name="PQ_Active" xml:space="preserve"><value>Использовать этот вопрос в тесте</value></data>
+  <data name="PQ_Save" xml:space="preserve"><value>Сохранить</value></data>
+  <data name="PQ_Delete" xml:space="preserve"><value>Удалить</value></data>
+  <data name="PQ_DeleteConfirm" xml:space="preserve"><value>Удалить вопрос навсегда (вместе с записью)? Если просто отключить его, он сохранится.</value></data>
+  <data name="PQ_Saved" xml:space="preserve"><value>Сохранено.</value></data>
+  <data name="PQ_Deleted" xml:space="preserve"><value>Удалено.</value></data>
+  <data name="PQ_Edit" xml:space="preserve"><value>Правка</value></data>
+  <data name="PQ_Off" xml:space="preserve"><value>выкл.</value></data>
+  <data name="PQ_TooMany" xml:space="preserve"><value>Показаны первые 200: уточните поиск.</value></data>
+  <data name="PQ_PassageTitle" xml:space="preserve"><value>Заголовок</value></data>
+  <data name="PQ_PassageText" xml:space="preserve"><value>Текст</value></data>
+  <data name="PQ_QuestionsCount" xml:space="preserve"><value>вопросов: {0}</value></data>
+  <data name="PQ_AddQuestionToText" xml:space="preserve"><value>Добавить вопрос к этому тексту</value></data>
+  <data name="PQ_PassageDeleteConfirm" xml:space="preserve"><value>Удалить текст и его вопросы ({0}) навсегда?</value></data>
+  <data name="PQ_Err_BAD_SKILL" xml:space="preserve"><value>Выберите раздел теста.</value></data>
+  <data name="PQ_Err_BAD_LEVEL" xml:space="preserve"><value>Выберите уровень.</value></data>
+  <data name="PQ_Err_BAD_PROMPT" xml:space="preserve"><value>Напишите вопрос (до 1000 символов).</value></data>
+  <data name="PQ_Err_BAD_OPTIONS" xml:space="preserve"><value>Заполните от 2 до 6 вариантов, пустых быть не должно.</value></data>
+  <data name="PQ_Err_DUPLICATE_OPTIONS" xml:space="preserve"><value>Два варианта совпадают.</value></data>
+  <data name="PQ_Err_BAD_ANSWER" xml:space="preserve"><value>Отметьте правильный ответ.</value></data>
+  <data name="PQ_Err_BAD_PASSAGE" xml:space="preserve"><value>Выберите текст, к которому относится вопрос.</value></data>
+  <data name="PQ_Err_BAD_AUDIO_TEXT" xml:space="preserve"><value>Напишите, что звучит: от 1 до 6 строк.</value></data>
+  <data name="PQ_Err_NOT_AUDIO" xml:space="preserve"><value>Это не аудиофайл (mp3, m4a, ogg, wav, webm).</value></data>
+  <data name="PQ_Err_NOT_LISTENING" xml:space="preserve"><value>Запись можно загрузить только для вопроса на слух.</value></data>
+  <data name="PQ_Err_TOO_BIG" xml:space="preserve"><value>Файл слишком большой (до 5 МБ).</value></data>
+  <data name="PQ_Err_BAD_TITLE" xml:space="preserve"><value>Напишите заголовок текста.</value></data>
+  <data name="PQ_Err_BAD_TEXT" xml:space="preserve"><value>Напишите текст (до 5000 символов).</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>

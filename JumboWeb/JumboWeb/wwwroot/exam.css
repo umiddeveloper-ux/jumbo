@@ -201,3 +201,18 @@
 .pl-bar i.mid { background: #f0a030; }
 .pl-bar i.low { background: #e5484d; }
 .pl-bar-pct { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ===== admin: the questions of the level test ===== */
+.pq-form label { display: block; margin: 10px 0; font-weight: 700; }
+.pq-form textarea.lp-input { width: 100%; resize: vertical; }
+.pq-option { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.pq-option .lp-input { flex: 1; }
+.pq-passage { margin: 6px 0 10px; padding: 10px 12px; border-radius: 12px; line-height: 1.5; font-weight: 500; background: var(--lp-bg); border: 2px solid var(--lp-border); }
+.pq-check { display: flex; align-items: center; gap: 8px; }
+.pq-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 14px; }
+.pq-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 10px 0; }
+.pq-row { display: flex; align-items: center; gap: 10px; }
+.pq-row.off { opacity: 0.55; }
+.pq-level { min-width: 2.2rem; text-align: center; padding: 2px 8px; border-radius: 99px; font-weight: 900; font-size: 0.8rem; color: #fff; background: var(--lp-primary); }
+.pq-skill { min-width: 5.5rem; font-size: 0.85rem; font-weight: 800; color: var(--lp-muted); }
+.pq-prompt { flex: 1; min-width: 0; }

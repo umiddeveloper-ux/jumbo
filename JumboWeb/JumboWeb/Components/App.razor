@@ -302,6 +302,20 @@
             cancelLines: function () {
                 lp._linesToken = (lp._linesToken || 0) + 1;
                 if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+                if (lp._file) { try { lp._file.pause(); } catch (e) { } lp._file = null; }
+            },
+            // Plays a recorded file; true when it was played to the end, false when it could not be played at all.
+            playFile: function (url) {
+                return new Promise(function (resolve) {
+                    try {
+                        if (lp._file) { try { lp._file.pause(); } catch (e) { } }
+                        var a = lp._file = new Audio(url);
+                        a.onended = function () { resolve(true); };
+                        a.onerror = function () { resolve(false); };
+                        var p = a.play();
+                        if (p && p.catch) p.catch(function () { resolve(false); });
+                    } catch (e) { resolve(false); }
+                });
             },
             // Like speak, but the promise is kept until the word has been said ("listen to all" reads one after another).
             speakWait: function (word, lang, letter) {

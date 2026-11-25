@@ -508,6 +508,33 @@ namespace Jumbo.Api.Data.Migrations
                     b.ToTable("markets", (string)null);
                 });
 
+            modelBuilder.Entity("Jumbo.Shared.Entities.PlacementAudio", b =>
+                {
+                    b.Property<int>("PlacementQuestionId")
+                        .HasColumnType("integer")
+                        .HasColumnName("placement_question_id");
+
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)")
+                        .HasColumnName("content_type");
+
+                    b.Property<byte[]>("Data")
+                        .IsRequired()
+                        .HasColumnType("bytea")
+                        .HasColumnName("data");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("updated_at");
+
+                    b.HasKey("PlacementQuestionId")
+                        .HasName("pk_placement_audios");
+
+                    b.ToTable("placement_audios", (string)null);
+                });
+
             modelBuilder.Entity("Jumbo.Shared.Entities.PlacementPassage", b =>
                 {
                     b.Property<int>("PlacementPassageId")
@@ -1817,6 +1844,16 @@ namespace Jumbo.Api.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("fk_markets_svg_images_svg_image_id");
+                });
+
+            modelBuilder.Entity("Jumbo.Shared.Entities.PlacementAudio", b =>
+                {
+                    b.HasOne("Jumbo.Shared.Entities.PlacementQuestion", null)
+                        .WithOne()
+                        .HasForeignKey("Jumbo.Shared.Entities.PlacementAudio", "PlacementQuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_placement_audios_placement_questions_placement_question_id");
                 });
 
             modelBuilder.Entity("Jumbo.Shared.Entities.PlacementQuestion", b =>

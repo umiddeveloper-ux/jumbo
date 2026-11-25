@@ -1933,6 +1933,71 @@
   <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>B2 sorularını kendinden emin yanıtladın. Kitaplarımız B1'de bitiyor, bu yüzden 10. kitabı tekrar ve henüz bilmediğin kelimeler için kullan.</value></data>
   <data name="Placement_Do_vocabularytext" xml:space="preserve"><value>Anlama uyan kelimeyi seç.</value></data>
   <data name="Placement_HowTo" xml:space="preserve"><value>Her soruda TEK bir cevap seç ve “İleri”ye bas. Süre sınırı yok, bilmediğin bir soruda en uygun görünen cevabı seç.</value></data>
+  <data name="Admin_TabPlacement" xml:space="preserve"><value>Seviye testi</value></data>
+  <data name="PQ_Hint" xml:space="preserve"><value>"Seviyeni öğren" testinin soruları: bak, düzenle, yenisini ekle, belirsiz olanı kapat ve dinleme soruları için kayıtlı ses yükle. Değişiklikler hemen geçerli olur. Resimli sorular ("Bu nedir?") kitaplardan oluşturulur ve burada yoktur.</value></data>
+  <data name="PQ_ViewQuestions" xml:space="preserve"><value>Sorular</value></data>
+  <data name="PQ_ViewPassages" xml:space="preserve"><value>Okuma metinleri</value></data>
+  <data name="PQ_New" xml:space="preserve"><value>Yeni soru</value></data>
+  <data name="PQ_NewPassage" xml:space="preserve"><value>Yeni okuma metni</value></data>
+  <data name="PQ_Editing" xml:space="preserve"><value>Soru {0}</value></data>
+  <data name="PQ_Skill" xml:space="preserve"><value>Bölüm</value></data>
+  <data name="PQ_Level" xml:space="preserve"><value>Seviye</value></data>
+  <data name="PQ_Status" xml:space="preserve"><value>Durum</value></data>
+  <data name="PQ_AllLevels" xml:space="preserve"><value>Tüm seviyeler</value></data>
+  <data name="PQ_AllSkills" xml:space="preserve"><value>Tüm bölümler</value></data>
+  <data name="PQ_AllStatus" xml:space="preserve"><value>Hepsi</value></data>
+  <data name="PQ_StatusActive" xml:space="preserve"><value>Testte</value></data>
+  <data name="PQ_StatusOff" xml:space="preserve"><value>Kapalı</value></data>
+  <data name="PQ_Search" xml:space="preserve"><value>Sorularda ara…</value></data>
+  <data name="PQ_Showing" xml:space="preserve"><value>{1} sorudan {0} tanesi gösteriliyor</value></data>
+  <data name="PQ_Prompt" xml:space="preserve"><value>Soru</value></data>
+  <data name="PQ_PromptHint" xml:space="preserve"><value>Dil bilgisi: cümleyi yaz, boşluk yerine ___ koy.</value></data>
+  <data name="PQ_Options" xml:space="preserve"><value>Cevap seçenekleri (doğru olanı işaretle)</value></data>
+  <data name="PQ_Correct" xml:space="preserve"><value>Doğru cevap</value></data>
+  <data name="PQ_CorrectHint" xml:space="preserve"><value>Soldaki yuvarlak düğme doğru cevabı işaretler. Test gösterilirken seçeneklerin sırası karıştırılır.</value></data>
+  <data name="PQ_AddOption" xml:space="preserve"><value>Seçenek ekle</value></data>
+  <data name="PQ_RemoveOption" xml:space="preserve"><value>Seçeneği kaldır</value></data>
+  <data name="PQ_Passage" xml:space="preserve"><value>Hangi metne ait</value></data>
+  <data name="PQ_ChoosePassage" xml:space="preserve"><value>metin seç</value></data>
+  <data name="PQ_AudioLines" xml:space="preserve"><value>Ne söyleniyor (her cümle için ayrı satır)</value></data>
+  <data name="PQ_AudioLinesHint" xml:space="preserve"><value>Kayıt yoksa bu metni tarayıcı okur ve hatalar incelemesinde gösterilir.</value></data>
+  <data name="PQ_Voice" xml:space="preserve"><value>Kayıtlı ses</value></data>
+  <data name="PQ_VoiceNone" xml:space="preserve"><value>Kayıt yok: tarayıcı sesi kullanılır.</value></data>
+  <data name="PQ_VoiceHave" xml:space="preserve"><value>Kayıt yüklendi ({0}). Öğrenciler tarayıcı sesi yerine bunu duyar.</value></data>
+  <data name="PQ_VoiceUpload" xml:space="preserve"><value>Kaydı yükle</value></data>
+  <data name="PQ_VoiceDelete" xml:space="preserve"><value>Kaydı sil</value></data>
+  <data name="PQ_VoiceFile" xml:space="preserve"><value>Ses dosyası (mp3, m4a, ogg, wav; en çok 5 MB)</value></data>
+  <data name="PQ_VoiceSaveFirst" xml:space="preserve"><value>Önce soruyu kaydet, sonra kaydı yükleyebilirsin.</value></data>
+  <data name="PQ_VoicePreview" xml:space="preserve"><value>Tarayıcı sesini dinle</value></data>
+  <data name="PQ_VoiceDeleted" xml:space="preserve"><value>Kayıt silindi.</value></data>
+  <data name="PQ_Uploaded" xml:space="preserve"><value>Kayıt yüklendi.</value></data>
+  <data name="PQ_Active" xml:space="preserve"><value>Bu soruyu testte kullan</value></data>
+  <data name="PQ_Save" xml:space="preserve"><value>Kaydet</value></data>
+  <data name="PQ_Delete" xml:space="preserve"><value>Sil</value></data>
+  <data name="PQ_DeleteConfirm" xml:space="preserve"><value>Bu soru (kaydıyla birlikte) kalıcı olarak silinsin mi? Sadece kapatırsan saklanır.</value></data>
+  <data name="PQ_Saved" xml:space="preserve"><value>Kaydedildi.</value></data>
+  <data name="PQ_Deleted" xml:space="preserve"><value>Silindi.</value></data>
+  <data name="PQ_Edit" xml:space="preserve"><value>Düzenle</value></data>
+  <data name="PQ_Off" xml:space="preserve"><value>kapalı</value></data>
+  <data name="PQ_TooMany" xml:space="preserve"><value>İlk 200 gösteriliyor: aramayı daralt.</value></data>
+  <data name="PQ_PassageTitle" xml:space="preserve"><value>Başlık</value></data>
+  <data name="PQ_PassageText" xml:space="preserve"><value>Metin</value></data>
+  <data name="PQ_QuestionsCount" xml:space="preserve"><value>{0} soru</value></data>
+  <data name="PQ_AddQuestionToText" xml:space="preserve"><value>Bu metne soru ekle</value></data>
+  <data name="PQ_PassageDeleteConfirm" xml:space="preserve"><value>Metin ve {0} sorusu kalıcı olarak silinsin mi?</value></data>
+  <data name="PQ_Err_BAD_SKILL" xml:space="preserve"><value>Testin bölümünü seç.</value></data>
+  <data name="PQ_Err_BAD_LEVEL" xml:space="preserve"><value>Seviyeyi seç.</value></data>
+  <data name="PQ_Err_BAD_PROMPT" xml:space="preserve"><value>Soruyu yaz (en çok 1000 karakter).</value></data>
+  <data name="PQ_Err_BAD_OPTIONS" xml:space="preserve"><value>2 ila 6 seçeneği doldur, boş olmasın.</value></data>
+  <data name="PQ_Err_DUPLICATE_OPTIONS" xml:space="preserve"><value>İki seçenek aynı.</value></data>
+  <data name="PQ_Err_BAD_ANSWER" xml:space="preserve"><value>Doğru cevabı işaretle.</value></data>
+  <data name="PQ_Err_BAD_PASSAGE" xml:space="preserve"><value>Sorunun ait olduğu metni seç.</value></data>
+  <data name="PQ_Err_BAD_AUDIO_TEXT" xml:space="preserve"><value>Ne söylendiğini yaz: 1 ila 6 satır.</value></data>
+  <data name="PQ_Err_NOT_AUDIO" xml:space="preserve"><value>Bu bir ses dosyası değil (mp3, m4a, ogg, wav, webm).</value></data>
+  <data name="PQ_Err_NOT_LISTENING" xml:space="preserve"><value>Kayıt yalnızca dinleme sorusuna yüklenebilir.</value></data>
+  <data name="PQ_Err_TOO_BIG" xml:space="preserve"><value>Dosya çok büyük (en çok 5 MB).</value></data>
+  <data name="PQ_Err_BAD_TITLE" xml:space="preserve"><value>Metnin başlığını yaz.</value></data>
+  <data name="PQ_Err_BAD_TEXT" xml:space="preserve"><value>Metni yaz (en çok 5000 karakter).</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>

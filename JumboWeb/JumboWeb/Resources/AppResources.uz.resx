@@ -1864,6 +1864,71 @@
   <data name="Placement_Stage_b2plus_Text" xml:space="preserve"><value>Siz B2 savollariga ishonch bilan javob berdingiz. Kitoblarimiz B1 da tugaydi, shuning uchun 10-kitobdan takrorlash va hali bilmagan so'zlaringiz uchun foydalaning.</value></data>
   <data name="Placement_Do_vocabularytext" xml:space="preserve"><value>Ma'nosiga mos keladigan so'zni tanlang.</value></data>
   <data name="Placement_HowTo" xml:space="preserve"><value>Har bir savolda BITTA javobni tanlang va «Keyingi» tugmasini bosing. Vaqt cheklanmagan, bilmasangiz eng mos ko'ringan variantni tanlang.</value></data>
+  <data name="Admin_TabPlacement" xml:space="preserve"><value>Daraja testi</value></data>
+  <data name="PQ_Hint" xml:space="preserve"><value>«Darajangizni biling» testining savollari: ko'ring, tahrirlang, yangilarini qo'shing, noaniqlarini o'chirib qo'ying va tinglash savollari uchun ovoz yozuvini yuklang. O'zgarishlar darhol kuchga kiradi. Rasmli savollar («Bu nima?») kitoblardan tuziladi va bu yerda yo'q.</value></data>
+  <data name="PQ_ViewQuestions" xml:space="preserve"><value>Savollar</value></data>
+  <data name="PQ_ViewPassages" xml:space="preserve"><value>O'qish matnlari</value></data>
+  <data name="PQ_New" xml:space="preserve"><value>Yangi savol</value></data>
+  <data name="PQ_NewPassage" xml:space="preserve"><value>Yangi o'qish matni</value></data>
+  <data name="PQ_Editing" xml:space="preserve"><value>{0} savoli</value></data>
+  <data name="PQ_Skill" xml:space="preserve"><value>Bo'lim</value></data>
+  <data name="PQ_Level" xml:space="preserve"><value>Daraja</value></data>
+  <data name="PQ_Status" xml:space="preserve"><value>Holat</value></data>
+  <data name="PQ_AllLevels" xml:space="preserve"><value>Barcha darajalar</value></data>
+  <data name="PQ_AllSkills" xml:space="preserve"><value>Barcha bo'limlar</value></data>
+  <data name="PQ_AllStatus" xml:space="preserve"><value>Istalgan</value></data>
+  <data name="PQ_StatusActive" xml:space="preserve"><value>Testda</value></data>
+  <data name="PQ_StatusOff" xml:space="preserve"><value>O'chirilgan</value></data>
+  <data name="PQ_Search" xml:space="preserve"><value>Savollardan qidirish…</value></data>
+  <data name="PQ_Showing" xml:space="preserve"><value>{1} tadan {0} tasi ko'rsatilgan</value></data>
+  <data name="PQ_Prompt" xml:space="preserve"><value>Savol</value></data>
+  <data name="PQ_PromptHint" xml:space="preserve"><value>Grammatika: gapni yozing, bo'sh joyga ___ qo'ying.</value></data>
+  <data name="PQ_Options" xml:space="preserve"><value>Javob variantlari (to'g'risini belgilang)</value></data>
+  <data name="PQ_Correct" xml:space="preserve"><value>To'g'ri javob</value></data>
+  <data name="PQ_CorrectHint" xml:space="preserve"><value>Chapdagi doira to'g'ri javobni belgilaydi. Test ko'rsatilganda variantlar tartibi aralashtiriladi.</value></data>
+  <data name="PQ_AddOption" xml:space="preserve"><value>Variant qo'shish</value></data>
+  <data name="PQ_RemoveOption" xml:space="preserve"><value>Variantni olib tashlash</value></data>
+  <data name="PQ_Passage" xml:space="preserve"><value>Qaysi matnga tegishli</value></data>
+  <data name="PQ_ChoosePassage" xml:space="preserve"><value>matnni tanlang</value></data>
+  <data name="PQ_AudioLines" xml:space="preserve"><value>Nima eshittiriladi (har bir gap uchun alohida qator)</value></data>
+  <data name="PQ_AudioLinesHint" xml:space="preserve"><value>Yozuv bo'lmasa bu matnni brauzer o'qiydi, xatolar tahlilida ham ko'rsatiladi.</value></data>
+  <data name="PQ_Voice" xml:space="preserve"><value>Ovoz yozuvi</value></data>
+  <data name="PQ_VoiceNone" xml:space="preserve"><value>Yozuv yo'q: brauzer ovozi ishlatiladi.</value></data>
+  <data name="PQ_VoiceHave" xml:space="preserve"><value>Yozuv yuklangan ({0}). O'quvchilar brauzer ovozi o'rniga uni eshitadi.</value></data>
+  <data name="PQ_VoiceUpload" xml:space="preserve"><value>Yozuvni yuklash</value></data>
+  <data name="PQ_VoiceDelete" xml:space="preserve"><value>Yozuvni o'chirish</value></data>
+  <data name="PQ_VoiceFile" xml:space="preserve"><value>Audio fayl (mp3, m4a, ogg, wav; 5 MB gacha)</value></data>
+  <data name="PQ_VoiceSaveFirst" xml:space="preserve"><value>Avval savolni saqlang, keyin yozuvni yuklashingiz mumkin.</value></data>
+  <data name="PQ_VoicePreview" xml:space="preserve"><value>Brauzer ovozini tinglash</value></data>
+  <data name="PQ_VoiceDeleted" xml:space="preserve"><value>Yozuv o'chirildi.</value></data>
+  <data name="PQ_Uploaded" xml:space="preserve"><value>Yozuv yuklandi.</value></data>
+  <data name="PQ_Active" xml:space="preserve"><value>Bu savoldan testda foydalanish</value></data>
+  <data name="PQ_Save" xml:space="preserve"><value>Saqlash</value></data>
+  <data name="PQ_Delete" xml:space="preserve"><value>O'chirish</value></data>
+  <data name="PQ_DeleteConfirm" xml:space="preserve"><value>Savol butunlay o'chirilsinmi (yozuvi bilan)? Shunchaki o'chirib qo'ysangiz, saqlanib qoladi.</value></data>
+  <data name="PQ_Saved" xml:space="preserve"><value>Saqlandi.</value></data>
+  <data name="PQ_Deleted" xml:space="preserve"><value>O'chirildi.</value></data>
+  <data name="PQ_Edit" xml:space="preserve"><value>Tahrirlash</value></data>
+  <data name="PQ_Off" xml:space="preserve"><value>o'chiq</value></data>
+  <data name="PQ_TooMany" xml:space="preserve"><value>Dastlabki 200 tasi ko'rsatilgan: qidiruvni aniqlashtiring.</value></data>
+  <data name="PQ_PassageTitle" xml:space="preserve"><value>Sarlavha</value></data>
+  <data name="PQ_PassageText" xml:space="preserve"><value>Matn</value></data>
+  <data name="PQ_QuestionsCount" xml:space="preserve"><value>{0} ta savol</value></data>
+  <data name="PQ_AddQuestionToText" xml:space="preserve"><value>Shu matnga savol qo'shish</value></data>
+  <data name="PQ_PassageDeleteConfirm" xml:space="preserve"><value>Matn va uning {0} ta savoli butunlay o'chirilsinmi?</value></data>
+  <data name="PQ_Err_BAD_SKILL" xml:space="preserve"><value>Test bo'limini tanlang.</value></data>
+  <data name="PQ_Err_BAD_LEVEL" xml:space="preserve"><value>Darajani tanlang.</value></data>
+  <data name="PQ_Err_BAD_PROMPT" xml:space="preserve"><value>Savolni yozing (1000 belgigacha).</value></data>
+  <data name="PQ_Err_BAD_OPTIONS" xml:space="preserve"><value>2 dan 6 tagacha variantni to'ldiring, bo'shlari bo'lmasin.</value></data>
+  <data name="PQ_Err_DUPLICATE_OPTIONS" xml:space="preserve"><value>Ikkita variant bir xil.</value></data>
+  <data name="PQ_Err_BAD_ANSWER" xml:space="preserve"><value>To'g'ri javobni belgilang.</value></data>
+  <data name="PQ_Err_BAD_PASSAGE" xml:space="preserve"><value>Savol tegishli bo'lgan matnni tanlang.</value></data>
+  <data name="PQ_Err_BAD_AUDIO_TEXT" xml:space="preserve"><value>Nima eshittirilishini yozing: 1 dan 6 qatorgacha.</value></data>
+  <data name="PQ_Err_NOT_AUDIO" xml:space="preserve"><value>Bu audio fayl emas (mp3, m4a, ogg, wav, webm).</value></data>
+  <data name="PQ_Err_NOT_LISTENING" xml:space="preserve"><value>Yozuv faqat tinglash savoli uchun yuklanadi.</value></data>
+  <data name="PQ_Err_TOO_BIG" xml:space="preserve"><value>Fayl juda katta (5 MB gacha).</value></data>
+  <data name="PQ_Err_BAD_TITLE" xml:space="preserve"><value>Matn sarlavhasini yozing.</value></data>
+  <data name="PQ_Err_BAD_TEXT" xml:space="preserve"><value>Matnni yozing (5000 belgigacha).</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Savollar: {0}</value>
   </data>

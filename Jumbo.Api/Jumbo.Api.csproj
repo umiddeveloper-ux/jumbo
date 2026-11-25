@@ -33,11 +33,11 @@
     <Content Update="SeedData\CEFR\**">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <!-- The first set of the level test questions travels inside the API (a deploy does not upload SeedData); the questions live in the database. -->
-    <Content Update="SeedData\Placement\**">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    <EmbeddedResource Include="SeedData\Placement\questions.json" LogicalName="placement-questions.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The first set of the level test questions travels inside the API (the database holds the questions afterwards). -->
+    <EmbeddedResource Include="Data\PlacementQuestions.json" LogicalName="placement-questions.json" />
   </ItemGroup>
 
 </Project>

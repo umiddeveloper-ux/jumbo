@@ -39,6 +39,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<WordTranslation> WordTranslations => Set<WordTranslation>();
     public DbSet<PlacementPassage> PlacementPassages => Set<PlacementPassage>();
     public DbSet<PlacementQuestion> PlacementQuestions => Set<PlacementQuestion>();
+    public DbSet<PlacementAudio> PlacementAudios => Set<PlacementAudio>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

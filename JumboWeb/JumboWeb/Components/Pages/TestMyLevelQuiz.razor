@@ -72,7 +72,7 @@
         {
             @if (q.Skill == PlacementSkill.Listening)
             {
-                @if (_speechOk)
+                @if (_speechOk || _question?.AudioId is not null)
                 {
                     <button type="button" class="lp-btn pl-listen" disabled="@(_speaking || _plays >= MaxPlays)" @onclick="PlayAsync">
                         @(_speaking ? Loc["Placement_Playing"] : _plays == 0 ? Loc["Placement_Listen"] : Loc["Placement_ListenAgain"])
@@ -177,7 +177,13 @@
         _plays++;
         _speaking = true;
         StateHasChanged();
-        try { await JS.InvokeAsync<bool>("lp.speakLines", q.Audio, "en-US"); } catch { }
+        try
+        {
+            // the recorded voice when the admin uploaded one (the browser reads the text when there is none, or when the file cannot be played)
+            var played = q.AudioId is { } audioId && await JS.InvokeAsync<bool>("lp.playFile", $"/placement-audio/{audioId}");
+            if (!played) await JS.InvokeAsync<bool>("lp.speakLines", q.Audio, "en-US");
+        }
+        catch { }
         _speaking = false;
     }
 
