@@ -103,6 +103,7 @@ else
                     <div class="tc-linkbox">@LinkUrl</div>
                     <div class="tc-link-actions">
                         <a class="lp-btn lp-btn-sm" href="/r/@_link.Token" target="_blank" rel="noopener">@Loc["RP_LinkOpen"]</a>
+                        <a class="lp-btn lp-btn-sm" href="/r/@_link.Token/exams" target="_blank" rel="noopener">@Loc["XR_LinkOpen"]</a>
                         <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="CopyLinkAsync">@(_copied ? "✓ " + Loc["TC_Copied"] : Loc["RP_LinkCopy"])</button>
                         <button type="button" class="tc-link" disabled="@_busy" @onclick="RevokeLinkAsync">@Loc["RP_LinkRevoke"]</button>
                     </div>

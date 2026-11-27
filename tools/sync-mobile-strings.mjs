@@ -9,7 +9,7 @@ const webDir = path.join(root, 'JumboWeb/JumboWeb/Resources');
 const appDir = path.join(root, 'Jumbo/Resources/Strings');
 
 // Website-only areas stay out of the app.
-const EXCLUDE = /^(Placement|PQ|TJ|VD|PP|PA|TC|RP|Land|FS|Admin|Dl|Foot|Top|Exam|ExamResults|ExamQuiz|SiteHome|SiteLayout|NotFound|Nav|Role|Dash|TestLevel|TestMyLevel|TG|TS|TE|Strip|Tq|PM)(_|$)/;
+const EXCLUDE = /^(Placement|PQ|TJ|VD|PP|PA|TC|RP|Land|FS|Admin|Dl|Foot|Top|Exam|ExamResults|ExamQuiz|SiteHome|SiteLayout|NotFound|Nav|Role|Dash|TestLevel|TestMyLevel|TG|TS|TE|Strip|Tq|PM|XR)(_|$)/;
 
 // ...but the rating page of the app uses the rating strings, except the teacher's and the landing ones.
 const RATING_SKIP = /^Rating_(Teacher|SeeAll|MiniTitle)/;

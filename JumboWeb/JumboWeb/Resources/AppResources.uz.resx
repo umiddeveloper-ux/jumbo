@@ -1947,6 +1947,72 @@
   <data name="PM_Order_NotFound" xml:space="preserve"><value>Buyurtma topilmadi.</value></data>
   <data name="PM_AdminTitle" xml:space="preserve"><value>Payme to‘lovlari (buyurtmalar)</value></data>
   <data name="PM_AdminEmpty" xml:space="preserve"><value>Hozircha to‘lovlar yo‘q.</value></data>
+  <data name="XR_Title" xml:space="preserve">
+    <value>Imtihonlar hisoboti</value>
+  </data>
+  <data name="XR_Term" xml:space="preserve">
+    <value>O'quv yili</value>
+  </data>
+  <data name="XR_ExamsHeld" xml:space="preserve">
+    <value>O'tkazilgan imtihonlar</value>
+  </data>
+  <data name="XR_Attempts" xml:space="preserve">
+    <value>Urinishlar</value>
+  </data>
+  <data name="XR_Participation" xml:space="preserve">
+    <value>Qatnashdi</value>
+  </data>
+  <data name="XR_AvgResult" xml:space="preserve">
+    <value>O'rtacha natija</value>
+  </data>
+  <data name="XR_Teams" xml:space="preserve">
+    <value>Jamoalar</value>
+  </data>
+  <data name="XR_ColTeacher" xml:space="preserve">
+    <value>O'qituvchi</value>
+  </data>
+  <data name="XR_ColPupils" xml:space="preserve">
+    <value>O'quvchilar</value>
+  </data>
+  <data name="XR_ColExams" xml:space="preserve">
+    <value>Imtihon</value>
+  </data>
+  <data name="XR_ColBest" xml:space="preserve">
+    <value>Eng yaxshi</value>
+  </data>
+  <data name="XR_ColLast" xml:space="preserve">
+    <value>Oxirgi</value>
+  </data>
+  <data name="XR_ColDate" xml:space="preserve">
+    <value>Sana</value>
+  </data>
+  <data name="XR_ColQuestions" xml:space="preserve">
+    <value>Savollar</value>
+  </data>
+  <data name="XR_ExamsList" xml:space="preserve">
+    <value>Jamoa imtihonlari</value>
+  </data>
+  <data name="XR_PupilsList" xml:space="preserve">
+    <value>O'quvchilar natijalari</value>
+  </data>
+  <data name="XR_NoExams" xml:space="preserve">
+    <value>Bu davrda imtihon bo'lmagan.</value>
+  </data>
+  <data name="XR_NoPupils" xml:space="preserve">
+    <value>Bu jamoada hali o'quvchilar yo'q.</value>
+  </data>
+  <data name="XR_Scope" xml:space="preserve">
+    <value>O'qituvchi kodi bilan topshirilgan imtihonlar, o'qituvchi tasdiqlagan o'quvchilar. «Jami so'z» — barcha kitoblar bo'yicha o'rganilgan so'zlar (har bir kitobning eng yaxshi natijasi × 300), butun vaqt uchun.</value>
+  </data>
+  <data name="XR_ToActivity" xml:space="preserve">
+    <value>← Faollik hisoboti</value>
+  </data>
+  <data name="XR_ToExams" xml:space="preserve">
+    <value>Jamoalar bo‘yicha imtihon hisoboti →</value>
+  </data>
+  <data name="XR_LinkOpen" xml:space="preserve">
+    <value>Imtihon hisobotini ochish</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Savollar: {0}</value>
   </data>

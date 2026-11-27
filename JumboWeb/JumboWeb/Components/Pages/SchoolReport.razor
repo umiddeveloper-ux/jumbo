@@ -37,6 +37,7 @@ else
                     <button type="button" class="rate-chip @(_period == "month" ? "on" : "")" @onclick='() => SetPeriodAsync("month")'>@Loc["RP_Month"]</button>
                 </div>
                 <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="Print">🖨 @Loc["RP_Print"]</button>
+                <a class="xr-link" href="/r/@Token/exams?period=@_period">@Loc["XR_ToExams"]</a>
             </div>
         </header>
 

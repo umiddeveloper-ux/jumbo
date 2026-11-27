@@ -110,6 +110,13 @@ app.MapLegalPages();     // /privacy and /delete-account: plain HTML, open to ev
 
 // ── For search engines: what to read and where the main page is. Only the landing and the page for schools are offered; the learner's
 // and the teacher's pages, the API and the legal pages stay out of the search (the landing must be the first answer, not the privacy page).
+// The school report pages behind the secret links (/r/<token>, /r/<token>/exams) show a school's figures and pupil names: never indexed.
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path.StartsWithSegments("/r")) context.Response.Headers["X-Robots-Tag"] = "noindex, nofollow";
+    await next();
+});
+
 app.MapGet("/robots.txt", (HttpContext context) =>
 {
     context.Response.Headers.CacheControl = "public, max-age=3600";
@@ -121,6 +128,7 @@ app.MapGet("/robots.txt", (HttpContext context) =>
         "Disallow: /go/\n" +
         "Disallow: /admin\n" +
         "Disallow: /teacher\n" +
+        "Disallow: /r/\n" +
         // /privacy and /delete-account are NOT blocked here on purpose: a robot must be able to read their "noindex" to drop them
         "\n" +
         "Sitemap: https://jumbo.uz/sitemap.xml\n", "text/plain; charset=utf-8");

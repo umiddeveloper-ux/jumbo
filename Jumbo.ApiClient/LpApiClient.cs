@@ -785,6 +785,14 @@ public class LpApiClient(HttpClient http)
         return await response.Content.ReadFromJsonAsync<SchoolReportDto>();
     }
 
+    // Public: the director's exam report of the school by teams (with pupil names) behind the same secret link. null = unknown or revoked token.
+    public async Task<SchoolExamReportDto?> GetPublicSchoolExamReportAsync(string token, string period)
+    {
+        var response = await http.GetAsync($"api/reports/{Uri.EscapeDataString(token)}/exams?period={Uri.EscapeDataString(period)}");
+        if (!response.IsSuccessStatusCode) return null;
+        return await response.Content.ReadFromJsonAsync<SchoolExamReportDto>();
+    }
+
     public async Task TeacherApproveStudentAsync(int classId, int userId)
     {
         var response = await http.PostAsync($"api/teacher/classes/{classId}/students/{userId}/approve", null);

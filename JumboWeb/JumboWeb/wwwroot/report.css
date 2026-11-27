@@ -98,3 +98,26 @@
 
 /* a link styled as a full-width button (e.g. "Open the bot in Telegram" in the pupil's settings) */
 a.lp-btn.lp-btn-full { display: flex; align-items: center; justify-content: center; width: 100%; text-decoration: none; text-align: center; box-sizing: border-box; }
+
+/* the exam report of the school by teams (/r/<token>/exams) */
+.xr-link { align-self: center; font-weight: 900; text-decoration: none; color: var(--lp-primary-text); }
+.xr-link:hover { text-decoration: underline; }
+.xr-teacher { margin-left: 6px; font-weight: 700; color: var(--lp-muted); }
+.xr-h3 { margin: 14px 0 6px; font-size: 1rem; font-weight: 900; color: var(--lp-text); }
+.xr-table td.name { white-space: normal; }
+.xr-scope { margin-top: 14px; }
+@media (max-width: 820px) {
+    .xr-table th, .xr-table td { padding: 8px 8px; font-size: 0.85rem; }
+    .xr-table th { white-space: normal; }
+}
+/* print: every team starts on a new page, the table head repeats and a row is never split */
+@media print {
+    .xr-team { break-before: page; page-break-before: always; }
+    .xr-table thead { display: table-header-group; }
+    .xr-table tr { break-inside: avoid; page-break-inside: avoid; }
+    .xr-teacher, .xr-h3, .xr-table .tc-exam { color: #111 !important; }
+    /* the page keeps its dark theme colours on screen: on paper everything is dark on white */
+    .xr .rp-note, .xr .rp-sub, .xr .rp-brand, .xr .rp-h2, .xr .rp-kpi-label, .xr .te-none, .xr b { color: #111 !important; }
+    .xr .te-table th { color: #333 !important; }
+    .xr-scope { color: #555 !important; }
+}

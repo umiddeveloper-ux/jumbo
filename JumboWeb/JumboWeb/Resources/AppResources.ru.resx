@@ -2016,6 +2016,72 @@
   <data name="PM_Order_NotFound" xml:space="preserve"><value>Заказ не найден.</value></data>
   <data name="PM_AdminTitle" xml:space="preserve"><value>Платежи Payme (заказы)</value></data>
   <data name="PM_AdminEmpty" xml:space="preserve"><value>Платежей пока нет.</value></data>
+  <data name="XR_Title" xml:space="preserve">
+    <value>Отчёт по экзаменам</value>
+  </data>
+  <data name="XR_Term" xml:space="preserve">
+    <value>Учебный год</value>
+  </data>
+  <data name="XR_ExamsHeld" xml:space="preserve">
+    <value>Проведено экзаменов</value>
+  </data>
+  <data name="XR_Attempts" xml:space="preserve">
+    <value>Попыток</value>
+  </data>
+  <data name="XR_Participation" xml:space="preserve">
+    <value>Участвовали</value>
+  </data>
+  <data name="XR_AvgResult" xml:space="preserve">
+    <value>Средний результат</value>
+  </data>
+  <data name="XR_Teams" xml:space="preserve">
+    <value>Команды</value>
+  </data>
+  <data name="XR_ColTeacher" xml:space="preserve">
+    <value>Учитель</value>
+  </data>
+  <data name="XR_ColPupils" xml:space="preserve">
+    <value>Учеников</value>
+  </data>
+  <data name="XR_ColExams" xml:space="preserve">
+    <value>Экзаменов</value>
+  </data>
+  <data name="XR_ColBest" xml:space="preserve">
+    <value>Лучший</value>
+  </data>
+  <data name="XR_ColLast" xml:space="preserve">
+    <value>Последний</value>
+  </data>
+  <data name="XR_ColDate" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="XR_ColQuestions" xml:space="preserve">
+    <value>Вопросов</value>
+  </data>
+  <data name="XR_ExamsList" xml:space="preserve">
+    <value>Экзамены команды</value>
+  </data>
+  <data name="XR_PupilsList" xml:space="preserve">
+    <value>Результаты учеников</value>
+  </data>
+  <data name="XR_NoExams" xml:space="preserve">
+    <value>За этот период экзаменов не было.</value>
+  </data>
+  <data name="XR_NoPupils" xml:space="preserve">
+    <value>В этой команде пока нет учеников.</value>
+  </data>
+  <data name="XR_Scope" xml:space="preserve">
+    <value>Экзамены по коду учителя, ученики подтверждены учителем. «Итого слов» — выученные слова по всем книгам (лучший результат каждой книги × 300) за всё время.</value>
+  </data>
+  <data name="XR_ToActivity" xml:space="preserve">
+    <value>← Отчёт об активности</value>
+  </data>
+  <data name="XR_ToExams" xml:space="preserve">
+    <value>Отчёт по экзаменам по командам →</value>
+  </data>
+  <data name="XR_LinkOpen" xml:space="preserve">
+    <value>Открыть отчёт по экзаменам</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>

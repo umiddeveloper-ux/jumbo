@@ -2016,6 +2016,72 @@
   <data name="PM_Order_NotFound" xml:space="preserve"><value>Sipariş bulunamadı.</value></data>
   <data name="PM_AdminTitle" xml:space="preserve"><value>Payme ödemeleri (siparişler)</value></data>
   <data name="PM_AdminEmpty" xml:space="preserve"><value>Henüz ödeme yok.</value></data>
+  <data name="XR_Title" xml:space="preserve">
+    <value>Sınav raporu</value>
+  </data>
+  <data name="XR_Term" xml:space="preserve">
+    <value>Eğitim yılı</value>
+  </data>
+  <data name="XR_ExamsHeld" xml:space="preserve">
+    <value>Yapılan sınavlar</value>
+  </data>
+  <data name="XR_Attempts" xml:space="preserve">
+    <value>Denemeler</value>
+  </data>
+  <data name="XR_Participation" xml:space="preserve">
+    <value>Katılan</value>
+  </data>
+  <data name="XR_AvgResult" xml:space="preserve">
+    <value>Ortalama sonuç</value>
+  </data>
+  <data name="XR_Teams" xml:space="preserve">
+    <value>Takımlar</value>
+  </data>
+  <data name="XR_ColTeacher" xml:space="preserve">
+    <value>Öğretmen</value>
+  </data>
+  <data name="XR_ColPupils" xml:space="preserve">
+    <value>Öğrenci</value>
+  </data>
+  <data name="XR_ColExams" xml:space="preserve">
+    <value>Sınav</value>
+  </data>
+  <data name="XR_ColBest" xml:space="preserve">
+    <value>En iyi</value>
+  </data>
+  <data name="XR_ColLast" xml:space="preserve">
+    <value>Son</value>
+  </data>
+  <data name="XR_ColDate" xml:space="preserve">
+    <value>Tarih</value>
+  </data>
+  <data name="XR_ColQuestions" xml:space="preserve">
+    <value>Soru</value>
+  </data>
+  <data name="XR_ExamsList" xml:space="preserve">
+    <value>Takımın sınavları</value>
+  </data>
+  <data name="XR_PupilsList" xml:space="preserve">
+    <value>Öğrenci sonuçları</value>
+  </data>
+  <data name="XR_NoExams" xml:space="preserve">
+    <value>Bu dönemde sınav yapılmadı.</value>
+  </data>
+  <data name="XR_NoPupils" xml:space="preserve">
+    <value>Bu takımda henüz öğrenci yok.</value>
+  </data>
+  <data name="XR_Scope" xml:space="preserve">
+    <value>Öğretmenin koduyla yapılan sınavlar, öğretmenin onayladığı öğrenciler. «Toplam kelime» — tüm kitaplarda öğrenilen kelimeler (her kitabın en iyi sonucu × 300), tüm zamanlar.</value>
+  </data>
+  <data name="XR_ToActivity" xml:space="preserve">
+    <value>← Etkinlik raporu</value>
+  </data>
+  <data name="XR_ToExams" xml:space="preserve">
+    <value>Takımlara göre sınav raporu →</value>
+  </data>
+  <data name="XR_LinkOpen" xml:space="preserve">
+    <value>Sınav raporunu aç</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>
