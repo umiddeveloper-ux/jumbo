@@ -247,7 +247,8 @@
         return null;
     }
     // The page a topic's QR code opens: open to everybody, no menu, "Go to the website" instead of "Back".
-    private bool IsTopicPath => _currentPath.StartsWith("topic/", StringComparison.OrdinalIgnoreCase);
+    // topic/{book}/{n} (the words of a topic) and topics/{book}[/{box}] (the list a QR code of a box or a book opens) are open to everybody
+    private bool IsTopicPath => _currentPath.StartsWith("topic/", StringComparison.OrdinalIgnoreCase) || _currentPath.StartsWith("topics/", StringComparison.OrdinalIgnoreCase);
     // Book 0 (the alphabet and the numbers) is a reference open to everybody: a QR code of it works without signing in. The books are not.
     private bool IsBookZeroPath => _currentPath.Equals("little-polyglot/book-zero", StringComparison.OrdinalIgnoreCase)
                                 || _currentPath.StartsWith("little-polyglot/book-zero/", StringComparison.OrdinalIgnoreCase);

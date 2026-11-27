@@ -2184,6 +2184,21 @@
   <data name="Tq_TopicNo" xml:space="preserve">
     <value>{0}-mavzu</value>
   </data>
+  <data name="Tq_BoxLabel" xml:space="preserve">
+    <value>{0}-quti</value>
+  </data>
+  <data name="Tq_BoxTopics" xml:space="preserve">
+    <value>{0}–{1}-mavzular</value>
+  </data>
+  <data name="Tq_PickTopic" xml:space="preserve">
+    <value>So‘zlarni tinglash uchun mavzuni tanlang.</value>
+  </data>
+  <data name="Tq_AllTopics" xml:space="preserve">
+    <value>Kitobning barcha mavzulari</value>
+  </data>
+  <data name="Tq_BackTopics" xml:space="preserve">
+    <value>Mavzular</value>
+  </data>
   <data name="TE_TeamsTitle" xml:space="preserve">
     <value>Jamoalar</value>
   </data>

@@ -8,6 +8,7 @@ using ZXing.Common;
 // QR codes of jumbo.uz.
 //   dotnet run -- <folder>                the site and the books (0 = alphabet and numbers):     <folder>/*.png
 //   dotnet run -- --subjects <folder>     every topic of every book, a folder per book:          <folder>/Book-01/05-body.png ...
+//   dotnet run -- --boxes <folder>        every box of cards (4 topics) of every book:          <folder>/Book-01/book-01-box-1.png ...
 // Each code is read back and compared with its address.
 const string Site = "https://jumbo.uz";
 var reader = new BarcodeReaderGeneric { Options = new DecodingOptions { TryHarder = true, PossibleFormats = [BarcodeFormat.QR_CODE] } };
@@ -48,7 +49,21 @@ void Make(string path, string url)
     if (!ok) { bad++; Console.WriteLine($"BAD {path} -> {result?.Text}"); }
 }
 
-if (args.Contains("--subjects"))
+if (args.Contains("--boxes"))
+{
+    // A box of cards holds 60 words = 4 topics (Jumbo.Shared.CardBoxes): box K of a book = topics 4K-3 .. 4K. Its code opens the list of those 4 topics.
+    var outDir = args.Last(a => a != "--boxes");
+    using var http = new HttpClient();
+    for (int book = 1; book <= 10; book++)
+    {
+        var topics = (await http.GetFromJsonAsync<List<SubjectDto>>($"{Site}/api/subjects/by-book/{book}") ?? []).Count;
+        int boxes = (topics + 3) / 4;
+        for (int box = 1; box <= boxes; box++)
+            Make(Path.Combine(outDir, $"Book-{book:D2}", $"book-{book:D2}-box-{box}.png"), $"{Site}/topics/{book}/{box}");
+        Console.WriteLine($"book {book}: {topics} topics, {boxes} boxes");
+    }
+}
+else if (args.Contains("--subjects"))
 {
     var outDir = args.Last(a => a != "--subjects");
     using var http = new HttpClient();
@@ -71,7 +86,8 @@ else
     var outDir = args.Length > 0 ? args[0] : "out";
     Make(Path.Combine(outDir, "site-jumbo-uz.png"), Site + "/");
     Make(Path.Combine(outDir, "book-0-alphabet-abc-123.png"), Site + "/little-polyglot/book-zero");
-    for (int b = 1; b <= 10; b++) Make(Path.Combine(outDir, $"book-{b:D2}.png"), $"{Site}/little-polyglot/book/{b}");
+    // the code of a book opens the list of ALL its topics (a topic then opens its words with the sound)
+    for (int b = 1; b <= 10; b++) Make(Path.Combine(outDir, $"book-{b:D2}.png"), $"{Site}/topics/{b}");
 }
 Console.WriteLine(bad == 0 ? $"all {total} codes read back correctly" : $"{bad} of {total} codes failed");
 

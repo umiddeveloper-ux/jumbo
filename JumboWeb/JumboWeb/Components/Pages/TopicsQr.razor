@@ -1,0 +1,129 @@
+@page "/topics/{BookNumber:int}"
+@page "/topics/{BookNumber:int}/{Box:int}"
+@rendermode InteractiveServer
+@using JumboWeb.Services
+@using Jumbo.Shared
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+
+<PageTitle>@Title — Jumbo.uz</PageTitle>
+
+@* The page the QR code of a box of cards (4 topics) or of a whole book (all its topics) opens: the topics to pick from; a topic opens its
+   words with their sound (TopicQr). Open to everybody (no sign-in). *@
+<div class="tq">
+    <header class="tq-top">
+        <a class="tq-go" href="/">@Loc["Tq_GoSite"] →</a>
+        <div class="tq-tools"><LanguageSwitcher /><ThemeToggle /></div>
+    </header>
+
+    @if (!_loaded)
+    {
+        <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+    }
+    else if (_topics.Count == 0)
+    {
+        <div class="lp-empty-state">@Loc["SubjectDetail_NotFound"]</div>
+    }
+    else
+    {
+        <div class="tq-hero">
+            <div class="tq-icon tq-num">@(Box is { } b ? b : BookNumber)</div>
+            <div class="tq-hero-text">
+                @if (Box is not null)
+                {
+                    <div class="tq-book">@Loc.Format("Common_BookLabel", BookNumber)</div>
+                }
+                <h1 class="tq-title">
+                    @if (Box is { } box)
+                    {
+                        @Loc.Format("Tq_BoxLabel", box)
+                    }
+                    else
+                    {
+                        @Loc.Format("Common_BookLabel", BookNumber)
+                    }
+                </h1>
+                @if (Box is not null)
+                {
+                    <div class="tq-book">@Loc.Format("Tq_BoxTopics", _topics[0].SequenceNumber, _topics[^1].SequenceNumber)</div>
+                }
+            </div>
+        </div>
+
+        <p class="tq-hint">@Loc["Tq_PickTopic"]</p>
+
+        <div class="tq-topics">
+            @foreach (var s in _topics)
+            {
+                <a class="tq-topic" href="/topic/@BookNumber/@s.SequenceNumber?from=@Uri.EscapeDataString(Self)">
+                    <span class="tq-topic-pic">
+                        @if (_pictures.TryGetValue(s.SubjectId, out var pic) && !string.IsNullOrEmpty(pic))
+                        {
+                            @((MarkupString)pic)
+                        }
+                        else
+                        {
+                            <span class="tq-topic-n">@s.SequenceNumber</span>
+                        }
+                    </span>
+                    <span class="tq-topic-text">
+                        <span class="tq-topic-no">@Loc.Format("Tq_TopicNo", s.SequenceNumber)</span>
+                        <span class="tq-topic-name">@Loc.Topic(s)</span>
+                    </span>
+                    <span class="tq-topic-play" aria-hidden="true">▶</span>
+                </a>
+            }
+        </div>
+
+        @if (Box is not null)
+        {
+            <a class="lp-btn lp-btn-outline lp-btn-full tq-go-bottom" href="/topics/@BookNumber">@Loc["Tq_AllTopics"]</a>
+        }
+        <a class="lp-btn lp-btn-full tq-go-bottom" href="/">@Loc["Tq_GoSite"] →</a>
+    }
+</div>
+
+@code {
+    [Parameter] public int BookNumber { get; set; }
+    [Parameter] public int? Box { get; set; }
+
+    private List<Jumbo.Shared.Entities.Subject> _topics = new();
+    private readonly Dictionary<int, string> _pictures = new();
+    private bool _loaded;
+
+    // where the topic page sends the learner back to
+    private string Self => Box is { } b ? $"/topics/{BookNumber}/{b}" : $"/topics/{BookNumber}";
+    private string Title => Box is { } b ? $"{Loc.Format("Common_BookLabel", BookNumber)} · {Loc.Format("Tq_BoxLabel", b)}" : Loc.Format("Common_BookLabel", BookNumber);
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _loaded = false;
+        _topics = new();
+        _pictures.Clear();
+        try
+        {
+            var all = (await ApiClient.GetSubjectsByBookAsync(BookNumber)).OrderBy(s => s.SequenceNumber).ToList();
+            if (Box is { } box)
+            {
+                // a box holds 4 topics; a number that is not a box of this book shows "not found"
+                if (CardBoxes.Range(box, all.Count) is { } r)
+                    _topics = all.Where(s => s.SequenceNumber >= r.First && s.SequenceNumber <= r.Last).ToList();
+            }
+            else
+            {
+                _topics = all;
+            }
+
+            // the picture of a topic (the same as on the card): a few requests at once, a missing one shows the number
+            var loaded = await Task.WhenAll(_topics.Where(s => s.SvgImageId > 0).Select(async s =>
+            {
+                try { return (s.SubjectId, Html: await ApiClient.GetPictureHtmlAsync(s.SvgImageId)); }
+                catch { return (s.SubjectId, Html: string.Empty); }
+            }));
+            foreach (var (id, html) in loaded) _pictures[id] = html;
+        }
+        catch (HttpRequestException) { /* shown as "not found" */ }
+
+        _loaded = true;
+    }
+}

@@ -988,6 +988,24 @@ span[style*="0.85rem"] { font-size: 0.95rem !important; }
 .tq-list .topic-word-row.tq-on { background: var(--lp-primary-soft); border-color: var(--lp-primary); }
 .tq-go-bottom { display: flex; justify-content: center; margin-top: 18px; text-decoration: none; }
 .tq-hero-text .lp-btn { width: auto; align-self: flex-start; }
+.tq-back { display: inline-flex; align-items: center; margin-bottom: 10px; font-weight: 900; text-decoration: none; color: var(--lp-primary-text); }
+.tq-back:hover { text-decoration: underline; }
+
+/* the list of topics a QR code of a box (4) or of a book (all) opens */
+.tq-hint { margin: 0 0 12px; color: var(--lp-muted); font-weight: 700; }
+.tq-topics { display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 640px) { .tq-topics { grid-template-columns: 1fr 1fr; } }
+.tq-topic { display: flex; align-items: center; gap: 12px; padding: 10px 14px 10px 10px; border-radius: 18px; text-decoration: none;
+            color: var(--lp-text); background: var(--lp-surface); border: 2px solid var(--lp-border); }
+.tq-topic:hover, .tq-topic:focus-visible { border-color: var(--lp-primary); background: var(--lp-primary-soft); }
+.tq-topic-pic { flex-shrink: 0; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; }
+.tq-topic-pic svg { width: 100%; height: 100%; }
+.tq-topic-n { font-size: 1.6rem; font-weight: 900; color: var(--lp-primary-text); }
+.tq-topic-text { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.tq-topic-no { font-size: 0.78rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; color: var(--lp-muted); }
+.tq-topic-name { font-size: 1.1rem; font-weight: 900; line-height: 1.2; overflow-wrap: anywhere; }
+.tq-topic-play { flex-shrink: 0; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 50%;
+                 background: var(--lp-primary); color: var(--lp-on-primary); font-size: 0.95rem; }
 
 /* ===== The video of a topic ===== */
 .topic-video { max-width: 560px; margin: 0 auto 16px; border-radius: 22px; overflow: hidden; background: #000; border: 2px solid var(--lp-border); border-bottom-width: 5px; }

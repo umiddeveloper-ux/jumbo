@@ -2253,6 +2253,21 @@
   <data name="Tq_TopicNo" xml:space="preserve">
     <value>Topic {0}</value>
   </data>
+  <data name="Tq_BoxLabel" xml:space="preserve">
+    <value>Box {0}</value>
+  </data>
+  <data name="Tq_BoxTopics" xml:space="preserve">
+    <value>Topics {0}–{1}</value>
+  </data>
+  <data name="Tq_PickTopic" xml:space="preserve">
+    <value>Choose a topic to listen to its words.</value>
+  </data>
+  <data name="Tq_AllTopics" xml:space="preserve">
+    <value>All topics of the book</value>
+  </data>
+  <data name="Tq_BackTopics" xml:space="preserve">
+    <value>Topics</value>
+  </data>
   <data name="TE_TeamsTitle" xml:space="preserve">
     <value>Teams</value>
   </data>

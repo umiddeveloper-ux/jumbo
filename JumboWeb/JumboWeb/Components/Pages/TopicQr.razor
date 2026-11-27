@@ -18,6 +18,8 @@
         <div class="tq-tools"><LanguageSwitcher /><ThemeToggle /></div>
     </header>
 
+    <a class="tq-back" href="@BackUrl">← @Loc["Tq_BackTopics"]</a>
+
     @if (!_loaded)
     {
         <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
@@ -73,6 +75,12 @@
 @code {
     [Parameter] public int BookNumber { get; set; }
     [Parameter] public int Seq { get; set; }
+
+    // The list the learner came from (the page of a box or of a whole book adds it); a topic that was opened directly goes back to the box it belongs to.
+    [SupplyParameterFromQuery(Name = "from")] public string? From { get; set; }
+    private string BackUrl => From is { } f && f.StartsWith("/topics/", StringComparison.Ordinal) && !f.Contains("//") && !f.Contains(':')
+        ? f
+        : $"/topics/{BookNumber}/{Jumbo.Shared.CardBoxes.BoxOf(Seq)}";
 
     private record WordRow(int Number, string Word, string Translation);
 

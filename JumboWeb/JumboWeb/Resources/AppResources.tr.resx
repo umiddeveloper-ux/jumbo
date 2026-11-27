@@ -2253,6 +2253,21 @@
   <data name="Tq_TopicNo" xml:space="preserve">
     <value>Konu {0}</value>
   </data>
+  <data name="Tq_BoxLabel" xml:space="preserve">
+    <value>Kutu {0}</value>
+  </data>
+  <data name="Tq_BoxTopics" xml:space="preserve">
+    <value>Konular {0}–{1}</value>
+  </data>
+  <data name="Tq_PickTopic" xml:space="preserve">
+    <value>Kelimeleri dinlemek için bir konu seçin.</value>
+  </data>
+  <data name="Tq_AllTopics" xml:space="preserve">
+    <value>Kitabın tüm konuları</value>
+  </data>
+  <data name="Tq_BackTopics" xml:space="preserve">
+    <value>Konular</value>
+  </data>
   <data name="TE_TeamsTitle" xml:space="preserve">
     <value>Sınıflar</value>
   </data>

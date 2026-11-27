@@ -2253,6 +2253,21 @@
   <data name="Tq_TopicNo" xml:space="preserve">
     <value>Тема {0}</value>
   </data>
+  <data name="Tq_BoxLabel" xml:space="preserve">
+    <value>Коробка {0}</value>
+  </data>
+  <data name="Tq_BoxTopics" xml:space="preserve">
+    <value>Темы {0}–{1}</value>
+  </data>
+  <data name="Tq_PickTopic" xml:space="preserve">
+    <value>Выберите тему, чтобы послушать слова.</value>
+  </data>
+  <data name="Tq_AllTopics" xml:space="preserve">
+    <value>Все темы книги</value>
+  </data>
+  <data name="Tq_BackTopics" xml:space="preserve">
+    <value>Темы</value>
+  </data>
   <data name="TE_TeamsTitle" xml:space="preserve">
     <value>Команды</value>
   </data>
