@@ -12,6 +12,10 @@
 
 .tc-card { margin-bottom: 14px; padding: 16px; border-radius: 20px; background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 5px; }
 .tc-new-row { display: flex; gap: 10px; }
+/* the buttons under the name of a team: report, rename, archive, delete */
+.tc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.tc-actions .lp-btn { text-decoration: none; display: inline-flex; width: auto; }
+.lp-btn.adm-danger-outline { color: var(--lp-error); border-color: var(--lp-error); }
 .tc-new-row .lp-input { margin-bottom: 0; flex: 1; min-width: 0; }
 .tc-empty { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; padding: 18px 10px; font-weight: 700; color: var(--lp-muted); }
 .tc-empty p { margin: 0; max-width: 420px; }
