@@ -96,3 +96,12 @@ Then `docker compose up -d api`.
 - an explicit HTTP timeout of the calls;
 - whether the GET checkout link must use `test.paycom.uz` in the sandbox (the sandbox page says so for the POST form; we use the same host);
 - the pages "where to find the key", "sample server", "Subscribe API" and "payment button / QR code" were not read.
+
+## Setting the keys on the server (2026-11-27)
+
+The owner runs `tools\set-payme.ps1` himself (the key is typed hidden and goes to the server over ssh; it is never in the repository or in a chat).
+It backs up `.env` and `docker-compose.prod.yml`, adds the Payme lines to the `api` service once, writes `PAYME_LOGIN`, `PAYME_KEY`,
+`PAYME_MERCHANT_ID`, `PAYME_CHECKOUT_URL`, `PAYME_CHECK_IP`, recreates the api container and checks the Merchant API (without the key `-32504`,
+with the key `-31003`). Sandbox mode: the TEST KEY, `https://test.paycom.uz`, the caller address is not checked; production mode: the real KEY,
+`https://checkout.paycom.uz`, only Payme's addresses are let in. The tax data (`PAYME_MXIK`, `PAYME_PACKAGE_CODE`, `PAYME_VAT_PERCENT`) are added to the
+same `.env` later.
