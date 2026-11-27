@@ -149,6 +149,28 @@ public static class TelegramTexts
         ["btn_cancel"] = ["Отмена", "Bekor qilish", "Cancel"],
         ["btn_back"] = ["← Назад", "← Orqaga", "← Back"],
         ["toast_pw_done"] = ["Пароль сброшен", "Parol tiklandi", "Password reset"],
+        // the director's exam report (/examreport): a summary and the buttons that open the page /r/<token>/exams
+        ["examreport_title"] = ["📄 <b>Отчёт по экзаменам «{0}» {1}</b>", "📄 <b>«{0}» imtihonlar hisoboti, {1}</b>", "📄 <b>Exam report of “{0}” {1}</b>"],
+        ["examreport_p_week"] = ["за неделю", "bir hafta uchun", "for the week"],
+        ["examreport_p_month"] = ["за месяц", "bir oy uchun", "for the month"],
+        ["examreport_p_term"] = ["за учебный год", "o'quv yili uchun", "for the school year"],
+        ["examreport_none"] = [
+            "В этом периоде экзаменов не было. Когда учителя проведут экзамены по коду, результаты появятся здесь.",
+            "Bu davrda imtihonlar bo'lmagan. O'qituvchilar kod bilan imtihon o'tkazganda natijalar shu yerda ko'rinadi.",
+            "There were no exams in this period. When teachers hold exams by code, the results will appear here."],
+        ["examreport_totals"] = ["Проведено экзаменов: {0}, попыток: {1}", "O'tkazilgan imtihonlar: {0}, urinishlar: {1}", "Exams held: {0}, attempts: {1}"],
+        ["examreport_part"] = ["Участвовали: {0} из {1} учеников", "Qatnashdi: {0} / {1} o'quvchi", "Took part: {0} of {1} pupils"],
+        ["examreport_avg"] = ["Средний результат: {0}%", "O'rtacha natija: {0}%", "Average result: {0}%"],
+        ["examreport_best"] = ["🏆 Лучшая команда: {0} — {1}%", "🏆 Eng yaxshi jamoa: {0} — {1}%", "🏆 Best team: {0} — {1}%"],
+        ["examreport_weak"] = ["⚠️ Слабее всех: {0} — {1}%", "⚠️ Eng past natija: {0} — {1}%", "⚠️ Lowest: {0} — {1}%"],
+        ["examreport_silent"] = ["Без экзаменов за период: {0}", "Davrda imtihonsiz: {0}", "No exams in the period: {0}"],
+        ["examreport_btn"] = ["📄 Открыть отчёт", "📄 Hisobotni ochish", "📄 Open the report"],
+        ["examreport_btn_week"] = ["За неделю", "Hafta", "Week"],
+        ["examreport_btn_term"] = ["Учебный год", "O'quv yili", "School year"],
+        ["digest_examlink"] = [
+            "Отчёт по экзаменам по командам (с именами учеников):",
+            "Jamoalar bo'yicha imtihon hisoboti (o'quvchilar ismlari bilan):",
+            "Exam report by team (with pupil names):"],
         ["digest_empty"] = ["Пока в командах нет подтверждённых учеников.", "Hozircha jamoalarda tasdiqlangan o'quvchilar yo'q.", "There are no approved pupils in the teams yet."],
     };
 

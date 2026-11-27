@@ -12,7 +12,7 @@ namespace Jumbo.Api.Services.Telegram;
 
 // What the bot does: connects a chat to a school (/start <code>), sends the report on request (/report) and every
 // Monday (WeeklyDigest), switches the language (/lang) and disconnects (/stop).
-public class TelegramBotService(AppDbContext db, TelegramClient telegram, ReportService reports, ClassStatsService stats, TelegramNotifier notifier, TelegramPupilService pupils, PupilPasswordService passwords, IOptions<TelegramOptions> options, ILogger<TelegramBotService> log)
+public class TelegramBotService(AppDbContext db, TelegramClient telegram, ReportService reports, ExamReportService examReports, ClassStatsService stats, TelegramNotifier notifier, TelegramPupilService pupils, PupilPasswordService passwords, IOptions<TelegramOptions> options, ILogger<TelegramBotService> log)
 {
     private static readonly TimeSpan CodeLifetime = TimeSpan.FromDays(7);
     private readonly TelegramOptions _o = options.Value;
@@ -46,6 +46,7 @@ public class TelegramBotService(AppDbContext db, TelegramClient telegram, Report
             case "/team": await TeamAsync(chatId); break;
             case "/pending": await PendingAsync(chatId); break;
             case "/exams": await ExamsAsync(chatId); break;
+            case "/examreport": await ExamReportAsync(chatId); break;
             case "/absent": await AbsentAsync(chatId); break;
             case "/password": await PasswordAsync(chatId); break;
             case "/month": await ReportAsync(chatId, "month"); break;
@@ -255,6 +256,23 @@ public class TelegramBotService(AppDbContext db, TelegramClient telegram, Report
         await telegram.SendAsync(chatId, built is null
             ? TelegramTexts.Get(lang, "exam_none_week")
             : built.Value.Text.Replace("</b>\n\n", "</b> " + TelegramTexts.Get(lang, "exam_period_note") + "\n\n"));
+    }
+
+    // /examreport (director): the exam results of the whole school by teams. A short summary of the month and buttons that open the page
+    // /r/<token>/exams (the same secret link as the school report; created on demand) where the director reads and prints the full report.
+    private async Task ExamReportAsync(long chatId)
+    {
+        var lang = await LangOfAsync(chatId);
+        var me = await StaffOfChatAsync(chatId);
+        if (me is null) { await telegram.SendAsync(chatId, TelegramTexts.Get(lang, await db.TelegramConnections.AsNoTracking().AnyAsync(c => c.ChatId == chatId) ? "staff_only" : "notconnected")); return; }
+        if (me.Role != UserRole.Director) { await telegram.SendAsync(chatId, TelegramTexts.Get(lang, "director_only")); return; }
+
+        var school = await db.Schools.AsNoTracking().SingleOrDefaultAsync(s => s.SchoolId == me.SchoolId);
+        if (school is null) { await telegram.SendAsync(chatId, TelegramTexts.Get(lang, "notconnected")); return; }
+
+        var report = await examReports.BuildSchoolAsync(school, "month");
+        var link = await ActiveReportLinkAsync(school.SchoolId, me.UserId);
+        await telegram.SendAsync(chatId, ExamReportMessage.Build(report, lang), ExamReportMessage.Buttons(lang, _o.SiteUrl, link.Token, report.Period.Key));
     }
 
     // /absent: who has not practised for 3+ days, on demand.
@@ -590,6 +608,9 @@ public class TelegramBotService(AppDbContext db, TelegramClient telegram, Report
         }
         sb.Append('\n').Append(TelegramTexts.Get(c.Lang, "digest_link")).Append('\n')
           .Append($"{_o.SiteUrl.TrimEnd('/')}/r/{link.Token}");
+        // the exams of the school by teams (with the names of the pupils), behind the same link
+        sb.Append("\n\n").Append(TelegramTexts.Get(c.Lang, "digest_examlink")).Append('\n')
+          .Append($"{_o.SiteUrl.TrimEnd('/')}/r/{link.Token}/exams?period=month");
 
         var result = await telegram.SendAsync(chatId, sb.ToString());
         if (result == SendResult.Sent && period == "week")
@@ -607,16 +628,18 @@ public class TelegramBotService(AppDbContext db, TelegramClient telegram, Report
     }
 
     // The school's secret report link; created on demand (the same link the cabinet shows).
-    private async Task<SchoolReportLink> ActiveReportLinkAsync(TelegramConnection c)
+    private Task<SchoolReportLink> ActiveReportLinkAsync(TelegramConnection c) => ActiveReportLinkAsync(c.SchoolId!.Value, c.CreatedById);
+
+    private async Task<SchoolReportLink> ActiveReportLinkAsync(int schoolId, int createdById)
     {
-        var link = await db.SchoolReportLinks.Where(l => l.SchoolId == c.SchoolId && l.RevokedAt == null)
+        var link = await db.SchoolReportLinks.Where(l => l.SchoolId == schoolId && l.RevokedAt == null)
             .OrderByDescending(l => l.CreatedAt).FirstOrDefaultAsync();
         if (link is not null) return link;
 
         link = new SchoolReportLink
         {
-            SchoolId = c.SchoolId!.Value,
-            CreatedById = c.CreatedById,
+            SchoolId = schoolId,
+            CreatedById = createdById,
             Token = Convert.ToBase64String(System.Security.Cryptography.RandomNumberGenerator.GetBytes(32))
                 .Replace('+', '-').Replace('/', '_').TrimEnd('=')
         };

@@ -34,6 +34,7 @@ public static class TelegramProfile
         ["teachers"] = ["Учителя учебного заведения", "Muassasa o'qituvchilari", "Institution teachers"],
         ["pending"] = ["Заявки учеников", "O'quvchi arizalari", "Pupil requests"],
         ["exams"] = ["Результаты экзаменов", "Imtihon natijalari", "Exam results"],
+        ["examreport"] = ["📄 Отчёт по экзаменам школы по командам", "📄 Maktab imtihonlari hisoboti (jamoalar bo'yicha)", "📄 School exam report by team"],
         ["absent"] = ["Кто давно не занимался", "Kim shug'ullanmagan", "Who stopped practising"],
         ["password"] = ["Сброс пароля ученика", "O'quvchi parolini tiklash", "Reset a pupil's password"],
         ["report"] = ["Отчёт учебного заведения за неделю", "Haftalik hisobot", "Weekly institution report"],
@@ -51,7 +52,7 @@ public static class TelegramProfile
     private static readonly Dictionary<string, string[]> Menus = new()
     {
         ["teacher"] = ["team", "pending", "exams", "absent", "password", "report", "lang", "stop"],
-        ["director"] = ["team", "teachers", "pending", "exams", "absent", "password", "report", "month", "lang", "stop"],
+        ["director"] = ["team", "teachers", "pending", "exams", "examreport", "absent", "password", "report", "month", "lang", "stop"],
         ["recipient"] = ["report", "month", "lang", "stop"],
         ["pupil"] = ["me", "quiz", "goal", "top", "play", "remind", "lang", "stop"],
     };
