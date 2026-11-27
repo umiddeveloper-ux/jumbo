@@ -26,7 +26,19 @@ else
         <a class="tc-back" href="/teacher">← @Loc["TC_Back"]</a>
 
         <div class="tc-head">
-            <h1 class="tc-title">@_cls.Name @if (_cls.IsArchived) { <span class="tc-badge">@Loc["TC_Archived"]</span> }</h1>
+            <div class="tc-head-row">
+                <h1 class="tc-title">@_cls.Name @if (_cls.IsArchived) { <span class="tc-badge">@Loc["TC_Archived"]</span> }</h1>
+                @if (!_editing && !_confirmDelete)
+                {
+                    @* icons only, the name of each shows when the mouse is over it (and is read aloud by a screen reader) *@
+                    <div class="tc-icons">
+                        <a class="tc-ico" href="/teacher/class/@Id/report" title="@Loc["RP_OpenTeamReport"]" aria-label="@Loc["RP_OpenTeamReport"]">📊</a>
+                        <button type="button" class="tc-ico" disabled="@_busy" title="@Loc["TC_Rename"]" aria-label="@Loc["TC_Rename"]" @onclick="StartEdit">✎</button>
+                        <button type="button" class="tc-ico" disabled="@_busy" title="@(_cls.IsArchived ? Loc["TC_Unarchive"] : Loc["TC_Archive"])" aria-label="@(_cls.IsArchived ? Loc["TC_Unarchive"] : Loc["TC_Archive"])" @onclick="ToggleArchiveAsync">@(_cls.IsArchived ? "📂" : "🗄")</button>
+                        <button type="button" class="tc-ico tc-ico-danger" disabled="@_busy" title="@Loc["TC_DeleteClass"]" aria-label="@Loc["TC_DeleteClass"]" @onclick="() => _confirmDelete = true">🗑</button>
+                    </div>
+                }
+            </div>
             @if (!string.IsNullOrEmpty(_cls.TeacherName) && UserState.CurrentUser?.Role == UserRole.Director)
             {
                 <p class="tc-school">@Loc.Format("TC_Teacher", _cls.TeacherName)</p>
@@ -46,15 +58,6 @@ else
                     <span class="tc-confirm">@Loc.Format("TC_DeleteClassConfirm", _cls.Name)</span>
                     <button type="button" class="lp-btn lp-btn-sm adm-danger" disabled="@_busy" @onclick="DeleteClassAsync">@Loc["TC_Confirm"]</button>
                     <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" @onclick="() => _confirmDelete = false">@Loc["TC_Cancel"]</button>
-                </div>
-            }
-            else
-            {
-                <div class="tc-actions">
-                    <a class="lp-btn lp-btn-sm" href="/teacher/class/@Id/report">📊 @Loc["RP_OpenTeamReport"]</a>
-                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" disabled="@_busy" @onclick="StartEdit">✎ @Loc["TC_Rename"]</button>
-                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline" disabled="@_busy" @onclick="ToggleArchiveAsync">@(_cls.IsArchived ? Loc["TC_Unarchive"] : Loc["TC_Archive"])</button>
-                    <button type="button" class="lp-btn lp-btn-sm lp-btn-outline adm-danger-outline" disabled="@_busy" @onclick="() => _confirmDelete = true">🗑 @Loc["TC_DeleteClass"]</button>
                 </div>
             }
         </div>

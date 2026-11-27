@@ -12,10 +12,17 @@
 
 .tc-card { margin-bottom: 14px; padding: 16px; border-radius: 20px; background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 5px; }
 .tc-new-row { display: flex; gap: 10px; }
-/* the buttons under the name of a team: report, rename, archive, delete */
+/* the name of a team on the left, its icon buttons (report, rename, archive, delete) on the right */
+.tc-head-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.tc-head-row .tc-title { min-width: 0; }
+.tc-icons { display: flex; gap: 6px; flex-shrink: 0; margin-left: auto; }
+.tc-ico { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border-radius: 12px; font-size: 1.15rem; line-height: 1;
+          text-decoration: none; cursor: pointer; color: var(--lp-text); background: var(--lp-surface); border: 2px solid var(--lp-border); }
+.tc-ico:hover:not(:disabled), .tc-ico:focus-visible { border-color: var(--lp-primary); background: var(--lp-primary-soft); }
+.tc-ico:disabled { opacity: 0.5; cursor: default; }
+.tc-ico-danger:hover:not(:disabled), .tc-ico-danger:focus-visible { border-color: var(--lp-error); background: transparent; }
 .tc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
 .tc-actions .lp-btn { text-decoration: none; display: inline-flex; width: auto; }
-.lp-btn.adm-danger-outline { color: var(--lp-error); border-color: var(--lp-error); }
 .tc-new-row .lp-input { margin-bottom: 0; flex: 1; min-width: 0; }
 .tc-empty { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; padding: 18px 10px; font-weight: 700; color: var(--lp-muted); }
 .tc-empty p { margin: 0; max-width: 420px; }
