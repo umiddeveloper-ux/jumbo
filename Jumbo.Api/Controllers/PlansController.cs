@@ -72,7 +72,7 @@ public class PlansController(AppDbContext db, ICurrentUserService currentUser) :
         var inForce = Plans.Effective(user.Plan, user.PlanUntil, now);
 
         if (Plans.Rank(inForce) > Plans.Rank(plan)) return Conflict(new { error = "HIGHER_ACTIVE" });
-        var from = inForce == plan ? user.PlanUntil!.Value : now;
+        var from = Plans.PeriodStart(inForce, plan, user.PlanUntil, now);
         var until = DateTime.SpecifyKind(Plans.AddPeriod(from, period), DateTimeKind.Utc);
 
         // the money is taken only if it is there (no balance below zero, even when two purchases arrive together)

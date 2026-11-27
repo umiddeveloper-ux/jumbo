@@ -33,6 +33,11 @@ builder.Services.AddHttpClient<TelegramClient>(c => { c.BaseAddress = new Uri("h
     .RemoveAllLoggers();   // the request URL contains the bot token: it must never reach the logs
 builder.Services.AddScoped<PupilPasswordService>();
 builder.Services.AddScoped<PlacementService>();
+
+// Payme payment (variant A: an order per paid version). Keys come from the environment (Payme__Login, Payme__Key, ...); without them the Merchant API answers -32504.
+builder.Services.AddSingleton(TimeProvider.System);
+builder.Services.AddScoped<Jumbo.Api.Services.Payme.PaymeService>();
+builder.Services.AddHostedService<Jumbo.Api.Services.Payme.PaymeTimeoutService>();
 builder.Services.AddScoped<PlacementSeeder>();
 builder.Services.AddScoped<TelegramNotifier>();
 builder.Services.AddScoped<WebLinkService>();

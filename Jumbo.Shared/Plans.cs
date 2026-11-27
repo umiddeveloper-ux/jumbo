@@ -20,6 +20,13 @@ public static class Plans
     /// <summary>The end of a period that starts at <paramref name="from"/> (a month, or a year).</summary>
     public static DateTime AddPeriod(DateTime from, string period) => period == Year ? from.AddYears(1) : from.AddMonths(1);
 
+    /// <summary>The start of the period that a purchase of <paramref name="plan"/> adds: the same version that is in force goes on from the day it ends, another one starts now.</summary>
+    public static DateTime PeriodStart(string inForce, string plan, DateTime? paidUntil, DateTime nowUtc) =>
+        inForce == plan && paidUntil is { } until ? until : nowUtc;
+
+    /// <summary>The end of a period taken back (a refund): <paramref name="until"/> minus a month or a year.</summary>
+    public static DateTime SubtractPeriod(DateTime until, string period) => period == Year ? until.AddYears(-1) : until.AddMonths(-1);
+
     public static string Normalize(string? plan) => plan?.Trim().ToLowerInvariant() switch { Silver => Silver, Gold => Gold, _ => Bronze };
 
     public static int Rank(string? plan) => Normalize(plan) switch { Silver => 1, Gold => 2, _ => 0 };

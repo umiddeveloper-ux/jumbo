@@ -24,6 +24,14 @@ public class ApiFactory : WebApplicationFactory<Program>
             Environment.GetEnvironmentVariable("JUMBO_TEST_DB") ?? DefaultConnection);
         Environment.SetEnvironmentVariable("Telegram__BotToken", "");
         Environment.SetEnvironmentVariable("Admin__Usernames", "");
+        // the Payme payment: throwaway values of the tests (no real cash register, no real codes)
+        Environment.SetEnvironmentVariable("Payme__Login", PaymeRig.Login);
+        Environment.SetEnvironmentVariable("Payme__Key", PaymeRig.Key);
+        Environment.SetEnvironmentVariable("Payme__MerchantId", PaymeRig.MerchantId);
+        Environment.SetEnvironmentVariable("Payme__Mxik", "11111111111111111");
+        Environment.SetEnvironmentVariable("Payme__PackageCode", "1234567");
+        Environment.SetEnvironmentVariable("Payme__VatPercent", "12");
+        Environment.SetEnvironmentVariable("Payme__CheckIp", "false");
         Directory.CreateDirectory(_emptyContentRoot);
     }
 

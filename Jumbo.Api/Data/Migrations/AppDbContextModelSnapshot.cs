@@ -508,6 +508,139 @@ namespace Jumbo.Api.Data.Migrations
                     b.ToTable("markets", (string)null);
                 });
 
+            modelBuilder.Entity("Jumbo.Shared.Entities.PaymeTransaction", b =>
+                {
+                    b.Property<long>("PaymeTransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("payme_transaction_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("PaymeTransactionId"));
+
+                    b.Property<long>("AmountTiyin")
+                        .HasColumnType("bigint")
+                        .HasColumnName("amount_tiyin");
+
+                    b.Property<long>("CancelTimeMs")
+                        .HasColumnType("bigint")
+                        .HasColumnName("cancel_time_ms");
+
+                    b.Property<long>("CreateTimeMs")
+                        .HasColumnType("bigint")
+                        .HasColumnName("create_time_ms");
+
+                    b.Property<string>("PaymeId")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)")
+                        .HasColumnName("payme_id");
+
+                    b.Property<long>("PaymentOrderId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("payment_order_id");
+
+                    b.Property<long>("PerformTimeMs")
+                        .HasColumnType("bigint")
+                        .HasColumnName("perform_time_ms");
+
+                    b.Property<int?>("Reason")
+                        .HasColumnType("integer")
+                        .HasColumnName("reason");
+
+                    b.Property<int>("State")
+                        .HasColumnType("integer")
+                        .HasColumnName("state");
+
+                    b.Property<long>("TimeMs")
+                        .HasColumnType("bigint")
+                        .HasColumnName("time_ms");
+
+                    b.HasKey("PaymeTransactionId")
+                        .HasName("pk_payme_transactions");
+
+                    b.HasIndex("PaymeId")
+                        .IsUnique()
+                        .HasDatabaseName("ix_payme_transactions_payme_id");
+
+                    b.HasIndex("PaymentOrderId")
+                        .IsUnique()
+                        .HasDatabaseName("ix_payme_transactions_payment_order_id")
+                        .HasFilter("state IN (1, 2)");
+
+                    b.HasIndex("TimeMs")
+                        .HasDatabaseName("ix_payme_transactions_time_ms");
+
+                    b.HasIndex("State", "CreateTimeMs")
+                        .HasDatabaseName("ix_payme_transactions_state_create_time_ms");
+
+                    b.ToTable("payme_transactions", (string)null);
+                });
+
+            modelBuilder.Entity("Jumbo.Shared.Entities.PaymentOrder", b =>
+                {
+                    b.Property<long>("PaymentOrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("payment_order_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("PaymentOrderId"));
+
+                    b.Property<long>("AmountSum")
+                        .HasColumnType("bigint")
+                        .HasColumnName("amount_sum");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<DateTime?>("PaidAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("paid_at");
+
+                    b.Property<string>("Period")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)")
+                        .HasColumnName("period");
+
+                    b.Property<string>("Plan")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)")
+                        .HasColumnName("plan");
+
+                    b.Property<string>("PlanBefore")
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)")
+                        .HasColumnName("plan_before");
+
+                    b.Property<DateTime?>("PlanUntilAfter")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("plan_until_after");
+
+                    b.Property<DateTime?>("PlanUntilBefore")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("plan_until_before");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("PaymentOrderId")
+                        .HasName("pk_payment_orders");
+
+                    b.HasIndex("UserId", "PaymentOrderId")
+                        .HasDatabaseName("ix_payment_orders_user_id_payment_order_id");
+
+                    b.ToTable("payment_orders", (string)null);
+                });
+
             modelBuilder.Entity("Jumbo.Shared.Entities.PlacementAttempt", b =>
                 {
                     b.Property<int>("PlacementAttemptId")
@@ -1907,6 +2040,25 @@ namespace Jumbo.Api.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("fk_markets_svg_images_svg_image_id");
+                });
+
+            modelBuilder.Entity("Jumbo.Shared.Entities.PaymeTransaction", b =>
+                {
+                    b.HasOne("Jumbo.Shared.Entities.PaymentOrder", null)
+                        .WithMany()
+                        .HasForeignKey("PaymentOrderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("fk_payme_transactions_payment_orders_payment_order_id");
+                });
+
+            modelBuilder.Entity("Jumbo.Shared.Entities.PaymentOrder", b =>
+                {
+                    b.HasOne("Jumbo.Shared.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("fk_payment_orders_users_user_id");
                 });
 
             modelBuilder.Entity("Jumbo.Shared.Entities.PlacementAttempt", b =>
