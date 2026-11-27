@@ -48,3 +48,22 @@ public class PlacementAudioConfiguration : IEntityTypeConfiguration<PlacementAud
             .OnDelete(DeleteBehavior.Cascade);
     }
 }
+
+public class PlacementAttemptConfiguration : IEntityTypeConfiguration<PlacementAttempt>
+{
+    public void Configure(EntityTypeBuilder<PlacementAttempt> builder)
+    {
+        builder.ToTable("placement_results");
+        builder.HasKey(x => x.PlacementAttemptId);
+        builder.Property(x => x.PlacementAttemptId).HasColumnName("placement_result_id");
+        builder.Property(x => x.Stage).HasMaxLength(12);
+        builder.Property(x => x.Level).HasMaxLength(2);
+        builder.HasIndex(x => new { x.UserId, x.TakenAt });
+
+        // an account that is deleted takes its results with it
+        builder.HasOne<User>()
+            .WithMany()
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+    }
+}

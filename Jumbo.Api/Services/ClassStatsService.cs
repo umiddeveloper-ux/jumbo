@@ -97,6 +97,7 @@ public class ClassStatsService(AppDbContext db)
             .ToListAsync()).ToLookup(e => e.UserId);
 
         var books = await StudentProgress.CurrentBooksAsync(db, ids);
+        var cefr = await PlacementHistory.LatestAsync(db, ids);
 
         return users.Select(u =>
         {
@@ -117,6 +118,7 @@ public class ClassStatsService(AppDbContext db)
                 LastExamPercent = ex.Count > 0 ? Percent(ex[^1].CorrectCount, ex[^1].TotalCount) : null,
                 LastExamAt = ex.Count > 0 ? ex[^1].TakenAt : null,
                 CurrentBook = books.TryGetValue(u.UserId, out var book) ? book : null,
+                Cefr = cefr.TryGetValue(u.UserId, out var cr) ? PlacementHistory.Badge(cr) : null,
                 AvgExamPercent = ex.Count > 0 ? (int)Math.Round(ex.Average(e => e.CorrectCount * 100.0 / e.TotalCount)) : null
             };
         })

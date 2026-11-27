@@ -50,3 +50,24 @@ public class CardBoxesTests
         Assert.Equal(Enumerable.Range(1, 20), seen);
     }
 }
+
+public class PlacementLabelTests
+{
+    [Theory]
+    [InlineData("starter", "Pre-A1")]
+    [InlineData("a1", "A1")]
+    [InlineData("a1plus", "A1+")]
+    [InlineData("a2", "A2")]
+    [InlineData("b1plus", "B1+")]
+    [InlineData("b2plus", "B2+")]
+    [InlineData("nonsense", "")]
+    [InlineData(null, "")]
+    public void A_stage_has_a_short_label(string? stage, string label) => Assert.Equal(label, PlacementScoring.Label(stage));
+
+    [Fact]
+    public void Every_stage_the_scoring_gives_has_a_label()
+    {
+        var all = new[] { new double[] { }, [0.5], [0.7], [0.7, 0.5], [0.8, 0.8], [0.8, 0.8, 0.5], [0.8, 0.8, 0.8], [0.8, 0.8, 0.8, 0.5], [0.8, 0.8, 0.8, 0.8] };
+        foreach (var s in all) Assert.NotEmpty(PlacementScoring.Label(PlacementScoring.Evaluate(s).Stage));
+    }
+}

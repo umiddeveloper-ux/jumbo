@@ -96,6 +96,9 @@ public class ClassStudentDto
 
     // The book the pupil is working in now: the highest one with any played game or practised word; null before the first lesson.
     public int? CurrentBook { get; set; }
+
+    // The latest level test (CEFR) of the pupil, null when he has not taken it.
+    public PlacementBadgeDto? Cefr { get; set; }
 }
 
 public class ClassDetailDto
@@ -152,6 +155,9 @@ public class StudentProgressDto
     public int Streak { get; set; }
     public DateOnly? LastActiveDate { get; set; }
     public int? CurrentBook { get; set; }
+
+    // The latest level test (CEFR) of the pupil, null when he has not taken it.
+    public PlacementBadgeDto? Cefr { get; set; }
     public List<StudentBookDto> Books { get; set; } = new();
 }
 

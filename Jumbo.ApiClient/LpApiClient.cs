@@ -304,6 +304,18 @@ public class LpApiClient(HttpClient http)
 
     public async Task AdminDeleteAdAsync(int id) => (await http.DeleteAsync($"api/admin/ads/{id}")).EnsureSuccessStatusCode();
 
+    // ── the level test (CEFR) result of the signed-in learner
+    public async Task<PlacementSavedDto?> SavePlacementResultAsync(IEnumerable<double> shares)
+    {
+        var response = await http.PostAsJsonAsync("api/placement/result", new SavePlacementResultRequest { Shares = shares.ToList() });
+        if (response.StatusCode == System.Net.HttpStatusCode.NoContent) return null;      // a teacher / admin: nothing is stored
+        await EnsureOkAsync(response);
+        return await response.Content.ReadFromJsonAsync<PlacementSavedDto>();
+    }
+
+    public async Task<MyPlacementDto> GetMyPlacementAsync() =>
+        await http.GetFromJsonAsync<MyPlacementDto>("api/placement/my") ?? new MyPlacementDto();
+
     // ── the level test (admin): questions, reading texts, recorded voices. Errors come as the API's code (BAD_OPTIONS, NOT_AUDIO ...) in the message.
     private static async Task EnsureOrCodeAsync(HttpResponseMessage response)
     {

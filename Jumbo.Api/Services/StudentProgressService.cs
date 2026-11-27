@@ -122,7 +122,8 @@ public static class StudentProgress
             Streak = user.Streak,
             LastActiveDate = lastActive,
             CurrentBook = current,
-            Books = books
+            Books = books,
+            Cefr = (await PlacementHistory.LatestAsync(db, [userId])).TryGetValue(userId, out var cefr) ? PlacementHistory.Badge(cefr) : null
         };
     }
 }

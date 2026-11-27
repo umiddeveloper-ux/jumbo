@@ -40,6 +40,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<PlacementPassage> PlacementPassages => Set<PlacementPassage>();
     public DbSet<PlacementQuestion> PlacementQuestions => Set<PlacementQuestion>();
     public DbSet<PlacementAudio> PlacementAudios => Set<PlacementAudio>();
+    public DbSet<PlacementAttempt> PlacementAttempts => Set<PlacementAttempt>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -82,4 +82,13 @@ public static class PlacementScoring
     }
 
     public static bool GoesOn(double share) => share >= Known;
+
+    // A short label of a stage that needs no translation: Pre-A1, A1, A1+, A2, A2+ ... B2+ (what a teacher sees next to a pupil).
+    public static string Label(string? stage) => stage switch
+    {
+        "starter" => "Pre-A1",
+        "a1" => "A1", "a1plus" => "A1+", "a2" => "A2", "a2plus" => "A2+",
+        "b1" => "B1", "b1plus" => "B1+", "b2" => "B2", "b2plus" => "B2+",
+        _ => string.Empty
+    };
 }

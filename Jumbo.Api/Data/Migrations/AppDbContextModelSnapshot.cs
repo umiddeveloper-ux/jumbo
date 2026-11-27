@@ -508,6 +508,64 @@ namespace Jumbo.Api.Data.Migrations
                     b.ToTable("markets", (string)null);
                 });
 
+            modelBuilder.Entity("Jumbo.Shared.Entities.PlacementAttempt", b =>
+                {
+                    b.Property<int>("PlacementAttemptId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("placement_result_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PlacementAttemptId"));
+
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("character varying(2)")
+                        .HasColumnName("level");
+
+                    b.Property<int>("RecommendedBook")
+                        .HasColumnType("integer")
+                        .HasColumnName("recommended_book");
+
+                    b.Property<double?>("ShareA1")
+                        .HasColumnType("double precision")
+                        .HasColumnName("share_a1");
+
+                    b.Property<double?>("ShareA2")
+                        .HasColumnType("double precision")
+                        .HasColumnName("share_a2");
+
+                    b.Property<double?>("ShareB1")
+                        .HasColumnType("double precision")
+                        .HasColumnName("share_b1");
+
+                    b.Property<double?>("ShareB2")
+                        .HasColumnType("double precision")
+                        .HasColumnName("share_b2");
+
+                    b.Property<string>("Stage")
+                        .IsRequired()
+                        .HasMaxLength(12)
+                        .HasColumnType("character varying(12)")
+                        .HasColumnName("stage");
+
+                    b.Property<DateTime>("TakenAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("taken_at");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("PlacementAttemptId")
+                        .HasName("pk_placement_results");
+
+                    b.HasIndex("UserId", "TakenAt")
+                        .HasDatabaseName("ix_placement_results_user_id_taken_at");
+
+                    b.ToTable("placement_results", (string)null);
+                });
+
             modelBuilder.Entity("Jumbo.Shared.Entities.PlacementAudio", b =>
                 {
                     b.Property<int>("PlacementQuestionId")
@@ -1849,6 +1907,16 @@ namespace Jumbo.Api.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("fk_markets_svg_images_svg_image_id");
+                });
+
+            modelBuilder.Entity("Jumbo.Shared.Entities.PlacementAttempt", b =>
+                {
+                    b.HasOne("Jumbo.Shared.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_placement_results_users_user_id");
                 });
 
             modelBuilder.Entity("Jumbo.Shared.Entities.PlacementAudio", b =>
