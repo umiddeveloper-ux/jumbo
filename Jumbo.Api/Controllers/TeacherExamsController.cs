@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using Jumbo.Api.Auth;
 using Jumbo.Api.Data;
+using Jumbo.Api.Services;
 using Jumbo.Shared.Dtos;
 using Jumbo.Shared.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -168,7 +169,7 @@ public class TeacherExamsController(AppDbContext db, ICurrentUserService current
             .Where(u => u.ClassApproved && u.ClassId != null && ids.Contains(u.ClassId.Value))
             .Select(u => new { u.UserId, ClassId = u.ClassId!.Value })
             .ToListAsync();
-        var best = await BestByPupilAndBook(ids);
+        var best = await ExamStats.BestByPupilAndBookAsync(db, ids);
 
         return classes.Select(c =>
         {
@@ -201,7 +202,7 @@ public class TeacherExamsController(AppDbContext db, ICurrentUserService current
             .Where(u => u.ClassApproved && u.ClassId == classId)
             .Select(u => new { u.UserId, Name = ((u.FirstName ?? "") + " " + (u.LastName ?? "")).Trim() })
             .ToListAsync();
-        var best = await BestByPupilAndBook([classId]);
+        var best = await ExamStats.BestByPupilAndBookAsync(db, [classId]);
 
         var report = new ExamTeamReportDto { ClassId = cls.ClassId, Name = cls.Name };
         foreach (var p in pupils.OrderBy(p => p.Name, StringComparer.CurrentCultureIgnoreCase))
@@ -213,7 +214,7 @@ public class TeacherExamsController(AppDbContext db, ICurrentUserService current
                 if (byBook is not null && byBook.TryGetValue(b, out var ratio))
                 {
                     row.Percents.Add((int)Math.Round(ratio * 100));
-                    row.Words.Add((int)Math.Round(ExamReport.WordsPerBook * ratio));
+                    row.Words.Add(ExamStats.WordsOf(ratio));
                 }
                 else { row.Percents.Add(null); row.Words.Add(null); }
             }
@@ -229,21 +230,6 @@ public class TeacherExamsController(AppDbContext db, ICurrentUserService current
         ? db.SchoolClasses.AsNoTracking().Where(c => c.SchoolId == me.SchoolId)
         : db.SchoolClasses.AsNoTracking().Where(c => c.TeacherId == me.UserId);
 
-    // The best result (0..1) of every pupil in every book, over the exams by a teacher's code taken in the given teams.
-    // A free exam the pupil started themselves does not count.
-    private async Task<Dictionary<int, Dictionary<int, double>>> BestByPupilAndBook(List<int> classIds)
-    {
-        var rows = await (
-            from r in db.ExamResults.AsNoTracking()
-            join u in db.Users.AsNoTracking() on r.UserId equals u.UserId
-            where r.TeacherExamId != null && r.TotalCount > 0 && r.ClassId != null && classIds.Contains(r.ClassId.Value)
-                  && u.ClassApproved && u.ClassId == r.ClassId
-            select new { r.UserId, r.BookNumber, r.TotalCount, r.CorrectCount }).ToListAsync();
-
-        return rows.GroupBy(r => r.UserId).ToDictionary(
-            g => g.Key,
-            g => g.GroupBy(r => r.BookNumber).ToDictionary(b => b.Key, b => b.Max(r => (double)r.CorrectCount / r.TotalCount)));
-    }
 
     private static TeacherExamSummaryDto Summary(TeacherExam e, List<(int Total, int Correct)> results) => new()
     {

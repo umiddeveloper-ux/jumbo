@@ -24,6 +24,7 @@ builder.Services.AddScoped<RatingService>();
 builder.Services.AddScoped<AwardService>();
 builder.Services.AddScoped<ClassStatsService>();
 builder.Services.AddScoped<ReportService>();
+builder.Services.AddScoped<ExamReportService>();
 builder.Services.AddMemoryCache();
 builder.Services.AddSingleton<Jumbo.Api.Services.LoginThrottle>();      // protection against guessing passwords
 
