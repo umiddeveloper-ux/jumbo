@@ -2001,6 +2001,21 @@
   <data name="Placement_Saved" xml:space="preserve"><value>Результат сохранён в вашем профиле. Его видит ваш учитель.</value></data>
   <data name="Placement_GuestNote" xml:space="preserve"><value>Зарегистрируйтесь или войдите, и результат сохранится.</value></data>
   <data name="Placement_LastResult" xml:space="preserve"><value>Ваш последний результат: {0} · {1}</value></data>
+  <data name="PM_Pay" xml:space="preserve"><value>Оплатить картой: {0} {1}</value></data>
+  <data name="PP_Err_PAYMENTS_OFF" xml:space="preserve"><value>Оплата картой ещё не включена.</value></data>
+  <data name="PP_Err_TOO_MANY" xml:space="preserve"><value>Сегодня слишком много заказов. Попробуйте завтра.</value></data>
+  <data name="PM_Hint" xml:space="preserve"><value>Версия включается сразу, как только Payme подтвердит оплату.</value></data>
+  <data name="PM_Paid_Title" xml:space="preserve"><value>Оплата получена</value></data>
+  <data name="PM_Paid_Text" xml:space="preserve"><value>Версия {0} включена до {1}.</value></data>
+  <data name="PM_Wait_Title" xml:space="preserve"><value>Ждём оплату…</value></data>
+  <data name="PM_Wait_Text" xml:space="preserve"><value>Payme подтверждает платёж. Это занимает несколько секунд, оставайтесь на странице.</value></data>
+  <data name="PM_NotPaid_Title" xml:space="preserve"><value>Оплата не прошла</value></data>
+  <data name="PM_NotPaid_Text" xml:space="preserve"><value>Если деньги списались с карты, они вернутся. Можно попробовать ещё раз.</value></data>
+  <data name="PM_Check_Again" xml:space="preserve"><value>Проверить ещё раз</value></data>
+  <data name="PM_Back_Plans" xml:space="preserve"><value>К версиям</value></data>
+  <data name="PM_Order_NotFound" xml:space="preserve"><value>Заказ не найден.</value></data>
+  <data name="PM_AdminTitle" xml:space="preserve"><value>Платежи Payme (заказы)</value></data>
+  <data name="PM_AdminEmpty" xml:space="preserve"><value>Платежей пока нет.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>

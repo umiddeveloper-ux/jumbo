@@ -329,6 +329,23 @@ else
                     </div>
                 }
             </section>
+            <section class="adm-card">
+                <div class="settings-label">💳 @Loc["PM_AdminTitle"]</div>
+                @if (_payments.Count == 0)
+                {
+                    <p class="reg-help">@Loc["PM_AdminEmpty"]</p>
+                }
+                @foreach (var p in _payments)
+                {
+                    <div class="adm-row">
+                        <span class="reg-help">@p.CreatedAt.AddHours(5).ToString("dd.MM.yyyy HH:mm")</span>
+                        <b>#@p.OrderId</b> <span>@(p.UserName ?? "—")</span>
+                        <span>@p.Plan / @p.Period</span>
+                        <b>@Jumbo.Shared.Money.Format(p.AmountSum)</b>
+                        <span class="reg-help">@p.Status@(p.PaymeState is { } st ? $" · Payme {st}" : "")@(p.PaymeReason is { } rs ? $" ({rs})" : "")</span>
+                    </div>
+                }
+            </section>
         }
         else if (_tab == "plans")
         {
@@ -612,6 +629,7 @@ else
     private string _topUser = string.Empty, _topNote = string.Empty;
     private long? _topAmount;
     private List<BalanceTransactionDto> _balanceTx = new();
+    private List<AdminPaymentDto> _payments = new();
 
     // a price row of a version for a period (made when it is not there yet), for the input fields
     private PlanPriceDto PriceRef(string plan, string period)
@@ -707,7 +725,7 @@ else
         else if (tab == "videos") await LoadVideosAsync();
         else if (tab == "ads") { _adForm = null; _adPreview = false; try { _ads = await ApiClient.AdminGetAdsAsync(); } catch (Exception ex) { _error = ex.Message; } }
         else if (tab == "prices") { try { _priceRows = await ApiClient.GetPlanPricesAsync(); } catch (Exception ex) { _error = ex.Message; } }
-        else if (tab == "balance") { try { _balanceTx = await ApiClient.AdminGetBalanceTransactionsAsync(); } catch (Exception ex) { _error = ex.Message; } }
+        else if (tab == "balance") { try { _balanceTx = await ApiClient.AdminGetBalanceTransactionsAsync(); _payments = await ApiClient.AdminGetPaymentsAsync(); } catch (Exception ex) { _error = ex.Message; } }
         else if (tab == "plans") { try { _planUsers = await ApiClient.AdminGetPlansAsync(); } catch (Exception ex) { _error = ex.Message; } }
         else if (tab == "versions") { try { _versions = await ApiClient.AdminGetAppVersionsAsync(); } catch (Exception ex) { _error = ex.Message; } }
         else if (tab == "subscribers") { try { _subscribers = await ApiClient.AdminGetSubscribersAsync(); _feedback = await ApiClient.AdminGetFeedbackAsync(); } catch (Exception ex) { _error = ex.Message; } }

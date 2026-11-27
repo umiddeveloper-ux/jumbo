@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using Jumbo.Api.Services.Payme;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,9 @@ namespace Jumbo.Api.Controllers;
 public class PaymeController(PaymeService payme, IConfiguration config, IHostEnvironment env, ILogger<PaymeController> log) : ControllerBase
 {
     private const int MaxBody = 64 * 1024;
+
+    // readable UTF-8 instead of \uXXXX escapes (the answer is JSON, never HTML)
+    private static readonly JsonSerializerOptions Out = new() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping };
 
     [AcceptVerbs("GET", "POST", "PUT", "DELETE", "PATCH")]
     public async Task<IActionResult> Handle()
@@ -144,6 +148,6 @@ public class PaymeController(PaymeService payme, IConfiguration config, IHostEnv
 
     private ContentResult Json(object body) => new()
     {
-        Content = JsonSerializer.Serialize(body), ContentType = "application/json; charset=utf-8", StatusCode = StatusCodes.Status200OK,
+        Content = JsonSerializer.Serialize(body, Out), ContentType = "application/json; charset=utf-8", StatusCode = StatusCodes.Status200OK,
     };
 }

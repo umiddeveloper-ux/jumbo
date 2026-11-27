@@ -1,0 +1,124 @@
+@page "/plans/paid"
+@page "/plans/paid/{OrderRoute:long}"
+@rendermode InteractiveServer
+@implements IDisposable
+@using JumboWeb.Services
+@using Jumbo.Shared
+@using Jumbo.Shared.Dtos
+@using Jumbo.Shared.Entities
+@inject UserStateService UserState
+@inject LivesService Lives
+@inject LpApiClient ApiClient
+@inject AppLocalizer Loc
+
+<PageTitle>@Loc["Plan_Nav"]</PageTitle>
+
+@* The page the learner comes back to from the Payme page. Payme confirms the payment to the server by itself (Merchant API), a few seconds
+   later than the learner returns, so the page asks for the order until it is paid (every 3 seconds, about a minute). *@
+<div class="fs-wrap">
+    <div class="pm-return game-result-card">
+        @if (!_loaded)
+        {
+            <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+        }
+        else if (_order is null)
+        {
+            <div class="game-result-title">@Loc["PM_Order_NotFound"]</div>
+            <a class="lp-btn" href="/plans">@Loc["PM_Back_Plans"]</a>
+        }
+        else if (_order.Status == PaymentOrderStatus.Paid)
+        {
+            <div class="game-result-icon"><Tiger Mood="cheer" Size="140" /></div>
+            <div class="game-result-title">@Loc["PM_Paid_Title"]</div>
+            <p>@Loc.Format("PM_Paid_Text", Loc[PlansPage.PlanKey(_order.Plan)], PaidUntil)</p>
+            <a class="lp-btn" href="/plans">@Loc["PM_Back_Plans"]</a>
+        }
+        else if (_polling)
+        {
+            <span class="pm-spin" aria-hidden="true"></span>
+            <div class="game-result-title">@Loc["PM_Wait_Title"]</div>
+            <p>@Loc["PM_Wait_Text"]</p>
+        }
+        else
+        {
+            <div class="game-result-title">@Loc["PM_NotPaid_Title"]</div>
+            <p>@Loc["PM_NotPaid_Text"]</p>
+            <button type="button" class="lp-btn lp-btn-outline" @onclick="CheckAgainAsync">@Loc["PM_Check_Again"]</button>
+            <a class="lp-btn" href="/plans">@Loc["PM_Back_Plans"]</a>
+        }
+    </div>
+</div>
+
+@code {
+    /// <summary>The order number: in the path (the link Payme sends the learner back to) or in the query (?order=...).</summary>
+    [Parameter] public long? OrderRoute { get; set; }
+    [SupplyParameterFromQuery(Name = "order")] public long? OrderQuery { get; set; }
+
+    private const int PollSeconds = 3;
+    private const int MaxPolls = 20;          // about a minute
+
+    private PaymentOrderDto? _order;
+    private bool _loaded, _polling;
+    private CancellationTokenSource? _cts;
+
+    private long OrderId => OrderRoute ?? OrderQuery ?? 0;
+
+    private string PaidUntil => UserState.CurrentUser?.PlanUntil is { } until ? until.ToLocalTime().ToString("dd.MM.yyyy") : string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await LoadAsync();
+        _loaded = true;
+        _ = StartPollingAsync();            // not awaited: the page shows at once and follows the order
+    }
+
+    private async Task LoadAsync()
+    {
+        try { _order = OrderId > 0 ? await ApiClient.GetPaymentOrderAsync(OrderId) : null; }
+        catch { /* a failed call is the same as "not yet": the next poll asks again */ }
+    }
+
+    private async Task CheckAgainAsync() => await StartPollingAsync();
+
+    // Asks the order until it is paid. An order that nobody started to pay for 15 seconds (the learner went back from the Payme page) is not waited for.
+    private async Task StartPollingAsync()
+    {
+        _cts?.Cancel();
+        _cts = new CancellationTokenSource();
+        var token = _cts.Token;
+        if (_order is null || _order.Status == PaymentOrderStatus.Paid) { await OnPaidAsync(); return; }
+
+        _polling = true;
+        try
+        {
+            for (var i = 0; i < MaxPolls && !token.IsCancellationRequested; i++)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(PollSeconds), token);
+                await LoadAsync();
+                if (_order is null || _order.Status == PaymentOrderStatus.Paid || _order.Status == PaymentOrderStatus.Cancelled) break;
+                if (_order.Status == PaymentOrderStatus.New && i >= 4) break;
+                await InvokeAsync(StateHasChanged);
+            }
+        }
+        catch (OperationCanceledException) { return; }
+        finally { if (!token.IsCancellationRequested) _polling = false; }
+
+        await OnPaidAsync();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    // The version is on: it shows everywhere (the coin, the menu, the lives) without a reload.
+    private async Task OnPaidAsync()
+    {
+        if (_order?.Status != PaymentOrderStatus.Paid) return;
+        await UserState.RefreshAsync();
+        await Lives.InitAsync();
+    }
+
+    public void Dispose()
+    {
+        _cts?.Cancel();
+        _cts?.Dispose();
+    }
+}

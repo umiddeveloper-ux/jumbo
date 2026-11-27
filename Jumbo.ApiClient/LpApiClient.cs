@@ -379,6 +379,32 @@ public class LpApiClient(HttpClient http)
     public async Task<List<BalanceTransactionDto>> GetMyBalanceTransactionsAsync() =>
         await http.GetFromJsonAsync<List<BalanceTransactionDto>>("api/plans/transactions") ?? [];
 
+    // ---- Payme: orders of a paid version (the learner pays on the Payme page; Payme calls the Merchant API of the server) ----
+
+    public async Task<PaymentsConfigDto> GetPaymentsConfigAsync() =>
+        await http.GetFromJsonAsync<PaymentsConfigDto>("api/payments/config") ?? new PaymentsConfigDto();
+
+    /// <summary>Makes an order for a version and a period; the API answers with an error code (PAYMENTS_OFF, NO_PRICE, HIGHER_ACTIVE, TOO_MANY...) that is thrown as the message.</summary>
+    public async Task<CreatePaymentOrderResponse> CreatePaymentOrderAsync(string plan, string period, string lang)
+    {
+        var response = await http.PostAsJsonAsync("api/payments/orders", new CreatePaymentOrderRequest { Plan = plan, Period = period, Lang = lang });
+        if (!response.IsSuccessStatusCode)
+            throw new InvalidOperationException((await response.Content.ReadFromJsonAsync<ErrorResponse>())?.Error ?? response.StatusCode.ToString());
+        return (await response.Content.ReadFromJsonAsync<CreatePaymentOrderResponse>())!;
+    }
+
+    /// <summary>The state of the caller's own order; null when there is no such order.</summary>
+    public async Task<PaymentOrderDto?> GetPaymentOrderAsync(long orderId)
+    {
+        var response = await http.GetAsync($"api/payments/orders/{orderId}");
+        if (response.StatusCode == System.Net.HttpStatusCode.NotFound) return null;
+        response.EnsureSuccessStatusCode();
+        return await response.Content.ReadFromJsonAsync<PaymentOrderDto>();
+    }
+
+    public async Task<List<AdminPaymentDto>> AdminGetPaymentsAsync() =>
+        await http.GetFromJsonAsync<List<AdminPaymentDto>>("api/admin/payments") ?? [];
+
     /// <summary>Buys a version from the balance; the API answers with an error code (NOT_ENOUGH, NO_PRICE, HIGHER_ACTIVE...) that is thrown as the message.</summary>
     public async Task<PurchasePlanResponse?> PurchasePlanAsync(string plan, string period)
     {

@@ -1348,3 +1348,11 @@ input[type="checkbox"], input[type="radio"], input[type="range"], progress { acc
 .settings-label + .lp-input, .settings-label + .lp-select, .settings-label + .pw-wrap .lp-input { background-color: transparent; }
 .lp-field-label:has(+ .lp-input:focus), .lp-field-label:has(+ .lp-select:focus), .lp-field-label:has(+ .pw-wrap .lp-input:focus),
 .settings-label:has(+ .lp-input:focus), .settings-label:has(+ .lp-select:focus) { color: var(--lp-primary-text); }
+
+/* Payme: the pay button under a version, the page the learner returns to */
+.pm-btn { margin-top: 8px; }
+.pm-return { max-width: 520px; margin: 24px auto; text-align: center; }
+.pm-return p { color: var(--lp-muted); font-weight: 700; margin: 6px 0 14px; }
+.pm-return .lp-btn { display: flex; justify-content: center; width: 100%; max-width: 320px; margin: 8px auto 0; text-decoration: none; }
+.pm-spin { display: inline-block; width: 34px; height: 34px; border-radius: 50%; border: 4px solid var(--lp-border); border-top-color: var(--lp-primary); animation: pm-rot 0.9s linear infinite; margin: 8px 0; }
+@keyframes pm-rot { to { transform: rotate(360deg); } }

@@ -2001,6 +2001,21 @@
   <data name="Placement_Saved" xml:space="preserve"><value>Sonucun profilinde kaydedildi. Öğretmenin görebilir.</value></data>
   <data name="Placement_GuestNote" xml:space="preserve"><value>Kayıt ol veya giriş yap, sonucun saklansın.</value></data>
   <data name="Placement_LastResult" xml:space="preserve"><value>Son sonucun: {0} · {1}</value></data>
+  <data name="PM_Pay" xml:space="preserve"><value>Kartla öde: {0} {1}</value></data>
+  <data name="PP_Err_PAYMENTS_OFF" xml:space="preserve"><value>Kartla ödeme henüz açık değil.</value></data>
+  <data name="PP_Err_TOO_MANY" xml:space="preserve"><value>Bugün çok fazla sipariş var. Yarın tekrar deneyin.</value></data>
+  <data name="PM_Hint" xml:space="preserve"><value>Payme ödemeyi onaylar onaylamaz sürüm hemen açılır.</value></data>
+  <data name="PM_Paid_Title" xml:space="preserve"><value>Ödeme alındı</value></data>
+  <data name="PM_Paid_Text" xml:space="preserve"><value>{0} sürümü {1} tarihine kadar açık.</value></data>
+  <data name="PM_Wait_Title" xml:space="preserve"><value>Ödeme bekleniyor…</value></data>
+  <data name="PM_Wait_Text" xml:space="preserve"><value>Payme ödemeyi onaylıyor. Birkaç saniye sürer, bu sayfada kalın.</value></data>
+  <data name="PM_NotPaid_Title" xml:space="preserve"><value>Ödeme tamamlanmadı</value></data>
+  <data name="PM_NotPaid_Text" xml:space="preserve"><value>Kartınızdan para çekildiyse iade edilir. Tekrar deneyebilirsiniz.</value></data>
+  <data name="PM_Check_Again" xml:space="preserve"><value>Tekrar kontrol et</value></data>
+  <data name="PM_Back_Plans" xml:space="preserve"><value>Sürümlere dön</value></data>
+  <data name="PM_Order_NotFound" xml:space="preserve"><value>Sipariş bulunamadı.</value></data>
+  <data name="PM_AdminTitle" xml:space="preserve"><value>Payme ödemeleri (siparişler)</value></data>
+  <data name="PM_AdminEmpty" xml:space="preserve"><value>Henüz ödeme yok.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>

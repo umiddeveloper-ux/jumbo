@@ -1932,6 +1932,21 @@
   <data name="Placement_Saved" xml:space="preserve"><value>Natija profilingizda saqlandi. O‘qituvchingiz uni ko‘ra oladi.</value></data>
   <data name="Placement_GuestNote" xml:space="preserve"><value>Ro‘yxatdan o‘ting yoki kiring, natijangiz saqlanadi.</value></data>
   <data name="Placement_LastResult" xml:space="preserve"><value>Oxirgi natijangiz: {0} · {1}</value></data>
+  <data name="PM_Pay" xml:space="preserve"><value>Karta bilan to‘lash: {0} {1}</value></data>
+  <data name="PP_Err_PAYMENTS_OFF" xml:space="preserve"><value>Karta bilan to‘lash hali yoqilmagan.</value></data>
+  <data name="PP_Err_TOO_MANY" xml:space="preserve"><value>Bugun buyurtmalar juda ko‘p. Ertaga urinib ko‘ring.</value></data>
+  <data name="PM_Hint" xml:space="preserve"><value>Payme to‘lovni tasdiqlashi bilan tarif darhol yoqiladi.</value></data>
+  <data name="PM_Paid_Title" xml:space="preserve"><value>To‘lov qabul qilindi</value></data>
+  <data name="PM_Paid_Text" xml:space="preserve"><value>{0} tarifi {1} gacha yoqildi.</value></data>
+  <data name="PM_Wait_Title" xml:space="preserve"><value>To‘lov kutilmoqda…</value></data>
+  <data name="PM_Wait_Text" xml:space="preserve"><value>Payme to‘lovni tasdiqlayapti. Bir necha soniya ketadi, sahifada qoling.</value></data>
+  <data name="PM_NotPaid_Title" xml:space="preserve"><value>To‘lov amalga oshmadi</value></data>
+  <data name="PM_NotPaid_Text" xml:space="preserve"><value>Agar kartadan pul yechilgan bo‘lsa, qaytariladi. Yana urinib ko‘rishingiz mumkin.</value></data>
+  <data name="PM_Check_Again" xml:space="preserve"><value>Qayta tekshirish</value></data>
+  <data name="PM_Back_Plans" xml:space="preserve"><value>Tariflarga qaytish</value></data>
+  <data name="PM_Order_NotFound" xml:space="preserve"><value>Buyurtma topilmadi.</value></data>
+  <data name="PM_AdminTitle" xml:space="preserve"><value>Payme to‘lovlari (buyurtmalar)</value></data>
+  <data name="PM_AdminEmpty" xml:space="preserve"><value>Hozircha to‘lovlar yo‘q.</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Savollar: {0}</value>
   </data>

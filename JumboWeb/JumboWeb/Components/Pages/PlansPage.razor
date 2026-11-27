@@ -7,6 +7,8 @@
 @inject LivesService Lives
 @inject LpApiClient ApiClient
 @inject AppLocalizer Loc
+@inject UserPreferencesService Prefs
+@inject NavigationManager Nav
 
 <PageTitle>@Loc["Plan_Nav"]</PageTitle>
 
@@ -138,6 +140,14 @@ else
                                     @Loc.Format(Mine == plan ? "PP_Extend" : "PP_BuyFor", Money.Format(cost))
                                 </button>
                             }
+
+                            @* pay by card on the Payme page: the version is switched on when Payme confirms it (the balance is not needed) *@
+                            @if (_payme && UserState.IsRegistered && _confirm != (plan, _period) && price is { } payCost && Plans.Rank(Mine) <= Plans.Rank(plan))
+                            {
+                                <button type="button" class="lp-btn lp-btn-full lp-btn-outline pm-btn" disabled="@_busy" @onclick="() => PayAsync(plan)">
+                                    💳 @Loc.Format("PM_Pay", Money.Format(payCost), Loc["Money_Currency"])
+                                </button>
+                            }
                         }
                     </section>
                 }
@@ -182,7 +192,7 @@ else
 }
 
 @code {
-    private bool _loaded, _busy;
+    private bool _loaded, _busy, _payme;
     private string _period = Plans.Month;
     private string _message = string.Empty, _error = string.Empty;
     private (string Plan, string Period)? _confirm;
@@ -222,6 +232,8 @@ else
     {
         await UserState.EnsureLoadedAsync();
         try { _prices = await ApiClient.GetPlanPricesAsync(); } catch { /* shown as "price soon" */ }
+        try { var config = await ApiClient.GetPaymentsConfigAsync(); _payme = config.Enabled && config.MerchantConfigured; } catch { _payme = false; }
+        await Prefs.EnsureLoadedAsync();
         await LoadHistoryAsync();
         _loaded = true;
     }
@@ -230,6 +242,22 @@ else
     {
         if (!UserState.IsRegistered) return;
         try { _history = await ApiClient.GetMyBalanceTransactionsAsync(); } catch { _history = new(); }
+    }
+
+    // Makes the order and goes to the Payme page (the learner comes back to /plans/paid/{order}).
+    private async Task PayAsync(string plan)
+    {
+        _busy = true;
+        _message = _error = string.Empty;
+        try
+        {
+            var lang = Prefs.AppLangId switch { 2 => "ru", 3 => "uz", _ => "en" };
+            var order = await ApiClient.CreatePaymentOrderAsync(plan, _period, lang);
+            Nav.NavigateTo(order.CheckoutUrl, forceLoad: true);
+        }
+        catch (InvalidOperationException ex) { _error = Loc[$"PP_Err_{ex.Message}"]; }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _busy = false; }
     }
 
     private void AskAsync(string plan)
