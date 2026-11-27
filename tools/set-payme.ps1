@@ -34,7 +34,7 @@ foreach ($v in @($merchant, $login, $payKey)) {
 }
 if ($merchant -notmatch '^[0-9a-fA-F]{24}$') { Write-Host 'Note: a cash register id is normally 24 hex characters; check it if the test below fails.' -ForegroundColor Yellow }
 
-$checkout = if ($mode -eq 'sandbox') { 'https://test.paycom.uz' } else { 'https://checkout.paycom.uz' }
+$checkout = if ($mode -eq 'sandbox') { 'https://checkout.test.paycom.uz' } else { 'https://checkout.paycom.uz' }
 # in the sandbox the address of the caller is not checked (the key still is); in production only Payme's addresses are let in
 $checkIp = if ($mode -eq 'sandbox') { 'false' } else { 'true' }
 

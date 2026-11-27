@@ -38,7 +38,7 @@ which value, Payme tells it), the **key** (`Payme__Key`, 36 characters; the sand
 | `Payme__Login` | login of the Basic authorization | given by Payme |
 | `Payme__Key` | the key (password) of the cash register; the **test key in the sandbox**, the real key in production | given by Payme |
 | `Payme__MerchantId` | the cash register id; goes in the checkout link as `m` | `587f72c7...` |
-| `Payme__CheckoutUrl` | the Payme page: sandbox `https://test.paycom.uz`, production `https://checkout.paycom.uz` (the default) | |
+| `Payme__CheckoutUrl` | the Payme page: sandbox `https://checkout.test.paycom.uz` (the page `https://test.paycom.uz` is only the tester of the Merchant API), production `https://checkout.paycom.uz` (the default) | |
 | `Payme__ReturnBaseUrl` | the site the learner returns to (default `https://jumbo.uz`) | |
 | `Payme__Mxik` | the product code (MXIK / IKPU) of the service, from the accountant | check on `https://tasnif.soliq.uz/attribute/<code>` |
 | `Payme__PackageCode` | the unit of measure tied to that MXIK code | |
@@ -73,7 +73,7 @@ Then `docker compose up -d api`.
 2. The accountant gives the MXIK code, the package code and the VAT.
 3. Prices are set in the admin ("Prices"): without a price a version shows "Soon".
 4. Deploy the API (the migration `AddPayme` creates the tables), then the site. Nothing is switched on yet.
-5. **Sandbox**: set `Payme__Key` = the TEST_KEY, `Payme__MerchantId`, `Payme__CheckoutUrl=https://test.paycom.uz`, login. In the Payme sandbox
+5. **Sandbox**: set `Payme__Key` = the TEST_KEY, `Payme__MerchantId`, `Payme__CheckoutUrl=https://checkout.test.paycom.uz`, login. In the Payme sandbox
    (`https://test.paycom.uz`, enter the cash register id and the test key) run the scenarios one by one; each one must pass. They are covered by
    our tests (`Jumbo.Tests/PaymeTests.cs`): wrong login/key → -32504; wrong amount → -31001; unknown order → -31050...-31099; allow;
    create + the same call again; a second create for a waiting order → -31008; cancel a created one; perform + the same call again; check;
@@ -94,7 +94,7 @@ Then `docker compose up -d api`.
 - the exact login for the Basic authorization (Payme tells it);
 - the full list of account error codes in -31050...-31099 (we use -31050 not found, -31051 already paid or cancelled, -31052 version cannot be bought now, -31053 waiting for payment);
 - an explicit HTTP timeout of the calls;
-- whether the GET checkout link must use `test.paycom.uz` in the sandbox (the sandbox page says so for the POST form; we use the same host);
+- the sandbox checkout page is `https://checkout.test.paycom.uz` (found 2026-11-27: `test.paycom.uz` only shows the API tester); the cash register id answers "provider not found or blocked" on both checkout hosts until Payme activates it for payments;
 - the pages "where to find the key", "sample server", "Subscribe API" and "payment button / QR code" were not read.
 
 ## Setting the keys on the server (2026-11-27)
@@ -102,6 +102,6 @@ Then `docker compose up -d api`.
 The owner runs `tools\set-payme.ps1` himself (the key is typed hidden and goes to the server over ssh; it is never in the repository or in a chat).
 It backs up `.env` and `docker-compose.prod.yml`, adds the Payme lines to the `api` service once, writes `PAYME_LOGIN`, `PAYME_KEY`,
 `PAYME_MERCHANT_ID`, `PAYME_CHECKOUT_URL`, `PAYME_CHECK_IP`, recreates the api container and checks the Merchant API (without the key `-32504`,
-with the key `-31003`). Sandbox mode: the TEST KEY, `https://test.paycom.uz`, the caller address is not checked; production mode: the real KEY,
-`https://checkout.paycom.uz`, only Payme's addresses are let in. The tax data (`PAYME_MXIK`, `PAYME_PACKAGE_CODE`, `PAYME_VAT_PERCENT`) are added to the
+with the key `-31003`). Sandbox mode: the TEST KEY, `https://checkout.test.paycom.uz`, the caller address is not checked; production mode: the real KEY,
+`https://checkout.paycom.uz`, only Payme addresses are let in. The tax data (`PAYME_MXIK`, `PAYME_PACKAGE_CODE`, `PAYME_VAT_PERCENT`) are added to the
 same `.env` later.
