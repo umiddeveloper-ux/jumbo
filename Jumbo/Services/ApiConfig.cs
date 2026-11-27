@@ -17,6 +17,20 @@ public static class ApiConfig
         }
     }
 
+    // The picture files of the words: <site>/pics/{name}.webp (the API tells the address, relative to the site). A test build can take them from another
+    // host with JUMBO_PICS (the local site serves them from media-dev/pics).
+    public static string PicsBaseUrl
+    {
+        get
+        {
+#if DEBUG
+            var v = Environment.GetEnvironmentVariable("JUMBO_PICS");
+            if (!string.IsNullOrWhiteSpace(v)) return v.EndsWith('/') ? v : v + "/";
+#endif
+            return BaseUrl;
+        }
+    }
+
     public static string BaseUrl
     {
         get

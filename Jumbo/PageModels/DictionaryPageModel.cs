@@ -97,7 +97,7 @@ public partial class DictionaryPageModel : ObservableObject
                                 word.SvgImageId, transLangId);
                             translate = transWord?.WordName ?? word.WordName;
 
-                            var rawSvg = await _apiClient.GetSvgByIdAsync(word.SvgImageId);
+                            var rawSvg = await _apiClient.GetPictureSourceAsync(word.SvgImageId);
                             if (!string.IsNullOrWhiteSpace(rawSvg))
                                 svgHtml = SvgHtmlWrapper.Wrap(rawSvg);
                         }

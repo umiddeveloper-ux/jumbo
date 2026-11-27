@@ -141,7 +141,7 @@ public partial class SequenceGamePageModel : ObservableObject
             foreach (var enWord in enWords)
             {
                 var ruWord = await _apiClient.GetWordBySvgAndLanguageAsync(enWord.SvgImageId, transLangId);
-                var svg = await _apiClient.GetSvgByIdAsync(enWord.SvgImageId);
+                var svg = await _apiClient.GetPictureSourceAsync(enWord.SvgImageId);
 
                 allCards.Add(new SequenceCardViewModel
                 {

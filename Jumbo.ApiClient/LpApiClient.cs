@@ -126,12 +126,17 @@ public class LpApiClient(HttpClient http)
         {
             var cards = await ApiCache.GetListAsync($"cards/{subjectId}/{languageId}/{translationLanguageId}", ApiCache.Normal, async () =>
                 await http.GetFromJsonAsync<List<WordCardDto>>(
-                    $"api/words/by-subject/cards?subjectId={subjectId}&languageId={languageId}&translationLanguageId={translationLanguageId}") ?? []);
+                    $"api/words/by-subject/cards?subjectId={subjectId}&languageId={languageId}&translationLanguageId={translationLanguageId}&withSvg=false") ?? []);        // the text of a picture that has a file is not needed
             foreach (var c in cards)
             {
                 if (c.SvgImageId <= 0) continue;
+                // a picture with a file is kept as its address only (the 45 KB of text is not kept in memory even when an older server sends it)
                 if (!string.IsNullOrEmpty(c.Svg) || !string.IsNullOrEmpty(c.ImageUrl))
-                    ApiCache.Seed($"svg/{c.SvgImageId}", ApiCache.Long, new SvgImageResponse { Svg = c.Svg, ImageUrl = c.ImageUrl });
+                    ApiCache.Seed($"svg/{c.SvgImageId}", ApiCache.Long, new SvgImageResponse
+                    {
+                        Svg = string.IsNullOrEmpty(c.ImageUrl) ? c.Svg : string.Empty, ImageUrl = c.ImageUrl
+                    });
+                c.Svg = string.IsNullOrEmpty(c.ImageUrl) ? c.Svg : string.Empty;
                 if (c.TranslationWordId > 0 && c.TranslationWord is not null)
                     ApiCache.Seed($"word/by-svg/{c.SvgImageId}/{translationLanguageId}", ApiCache.Long, (Word?)new Word
                     {
@@ -148,6 +153,15 @@ public class LpApiClient(HttpClient http)
     {
         var response = await ApiCache.GetAsync($"svg/{id}", ApiCache.Long, () => http.GetFromJsonAsync<SvgImageResponse>($"api/svg-images/{id}"));
         return response?.Svg ?? string.Empty;
+    }
+
+    // For the apps: what to show for the picture of a word. A picture that has a file gives its address (/pics/{name}.webp, relative to the
+    // site: the app downloads it once, keeps it on the disk and draws it); a picture without a file (or an older server) gives the svg text as before.
+    public async Task<string> GetPictureSourceAsync(int id)
+    {
+        var response = await ApiCache.GetAsync($"svg/{id}", ApiCache.Long, () => http.GetFromJsonAsync<SvgImageResponse>($"api/svg-images/{id}?withSvg=false"));
+        if (response is null) return string.Empty;
+        return string.IsNullOrEmpty(response.ImageUrl) ? response.Svg : response.ImageUrl;
     }
 
     // For the website: what to put in the page for the picture of a word. A picture that has a file becomes a tiny svg that shows the file

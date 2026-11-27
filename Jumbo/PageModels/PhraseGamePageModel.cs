@@ -128,7 +128,7 @@ public partial class PhraseGamePageModel : ObservableObject
             foreach (var w in withExample)
             {
                 var trans = await _apiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, transLangId);
-                var svg = await _apiClient.GetSvgByIdAsync(w.SvgImageId);
+                var svg = await _apiClient.GetPictureSourceAsync(w.SvgImageId);
                 _rounds.Add(new Round(w.WordId, SvgHtmlWrapper.Wrap(svg), w.WordName, trans?.WordName ?? string.Empty,
                     w.Example!.Trim(), string.IsNullOrWhiteSpace(trans?.Example) ? w.Example.Trim() : trans!.Example!.Trim(), w.WordNumber, w.Level ?? string.Empty));
             }

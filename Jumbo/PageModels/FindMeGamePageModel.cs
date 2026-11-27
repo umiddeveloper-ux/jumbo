@@ -158,7 +158,7 @@ public partial class FindMeGamePageModel : ObservableObject
             foreach (var enWord in enWords)
             {
                 var ruWord = await _apiClient.GetWordBySvgAndLanguageAsync(enWord.SvgImageId, transLangId);
-                var rawSvg = await _apiClient.GetSvgByIdAsync(enWord.SvgImageId);
+                var rawSvg = await _apiClient.GetPictureSourceAsync(enWord.SvgImageId);
 
                 cards.Add(new GameCardViewModel
                 {

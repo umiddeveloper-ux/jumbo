@@ -189,4 +189,27 @@ public class PictureApiTests(ApiFactory api) : IClassFixture<ApiFactory>
         Assert.Equal(string.Empty, slim.Svg);
         Assert.Equal(card.ImageUrl, slim.ImageUrl);
     }
+
+    // App build 43+ asks withSvg=false: the text is left out per request (the setting stays off, the old apps do not ask and get the text).
+    [Fact]
+    public async Task A_client_can_ask_for_cards_and_pictures_without_the_svg_text()
+    {
+        var (picture, subjectId) = await NewTopicWithWordAsync(UniquePhoto());
+        using (var scope = api.Services.CreateScope()) await PictureBackfill.RunAsync(scope.ServiceProvider.GetRequiredService<AppDbContext>());
+        var english = await EnglishIdAsync();
+        var client = api.CreateClient();
+        var cardsUrl = $"/api/words/by-subject/cards?subjectId={subjectId}&languageId={english}&translationLanguageId={english}";
+        var address = PictureFiles.UrlOf(PictureFiles.FileNameOf(picture.SVG));
+
+        var slim = Assert.Single((await client.GetFromJsonAsync<List<WordCardDto>>(cardsUrl + "&withSvg=false"))!);
+        Assert.Equal(string.Empty, slim.Svg);
+        Assert.Equal(address, slim.ImageUrl);
+        var single = await client.GetFromJsonAsync<SvgImageResponse>($"/api/svg-images/{picture.SvgImageId}?withSvg=false");
+        Assert.Equal(string.Empty, single!.Svg);
+        Assert.Equal(address, single.ImageUrl);
+
+        // without the parameter nothing changes
+        Assert.Equal(picture.SVG, Assert.Single((await client.GetFromJsonAsync<List<WordCardDto>>(cardsUrl))!).Svg);
+        Assert.Equal(picture.SVG, (await client.GetFromJsonAsync<SvgImageResponse>($"/api/svg-images/{picture.SvgImageId}"))!.Svg);
+    }
 }

@@ -11,10 +11,10 @@ namespace Jumbo.Api.Controllers;
 public class SvgImagesController(AppDbContext db, IConfiguration config) : ControllerBase
 {
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<SvgImageResponse>> GetById(int id)
+    public async Task<ActionResult<SvgImageResponse>> GetById(int id, [FromQuery] bool withSvg = true)
     {
-        // Pictures:OmitSvg: the text of a picture that has a file is not sent (for clients that use ImageUrl; the old apps need the text)
-        var omitSvg = config.GetValue<bool>("Pictures:OmitSvg");
+        // Pictures:OmitSvg / withSvg=false: the text of a picture that has a file is not sent (for clients that use ImageUrl; the old apps need the text)
+        var omitSvg = !withSvg || config.GetValue<bool>("Pictures:OmitSvg");
         var picture = await db.SvgImages.AsNoTracking()
             .Where(s => s.SvgImageId == id)
             .Select(s => new { Svg = omitSvg && s.ImageFile != null ? string.Empty : s.SVG, s.ImageFile })

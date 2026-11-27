@@ -102,9 +102,11 @@ public class WordsController(AppDbContext db, SeedDataService seedDataService, I
 
     // The words of a topic with their translation and picture in one answer: a game used to ask for them one by one (about 30 requests).
     [HttpGet("by-subject/cards")]
-    public async Task<ActionResult<List<WordCardDto>>> GetCardsBySubject([FromQuery] int subjectId, [FromQuery] int languageId, [FromQuery] int translationLanguageId)
+    public async Task<ActionResult<List<WordCardDto>>> GetCardsBySubject([FromQuery] int subjectId, [FromQuery] int languageId, [FromQuery] int translationLanguageId,
+        [FromQuery] bool withSvg = true)
     {
-        var omitSvg = config.GetValue<bool>("Pictures:OmitSvg");
+        // withSvg=false (the apps that show the picture files, app build 43+): the text of a picture that has a file is not sent; the old apps do not ask and get it as before
+        var omitSvg = !withSvg || config.GetValue<bool>("Pictures:OmitSvg");
         var cards = await (
             from w in db.Words.AsNoTracking().Where(w => w.SubjectId == subjectId && w.LanguageId == languageId)
             join t in db.Words.AsNoTracking().Where(x => x.LanguageId == translationLanguageId) on w.SvgImageId equals t.SvgImageId into translations

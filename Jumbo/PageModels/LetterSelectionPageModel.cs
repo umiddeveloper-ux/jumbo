@@ -43,7 +43,7 @@ public partial class LetterSelectionPageModel : ObservableObject
 
             foreach (var word in words)
             {
-                var svg = await _apiClient.GetSvgByIdAsync(word.SvgImageId);
+                var svg = await _apiClient.GetPictureSourceAsync(word.SvgImageId);
                 PreviewWords.Add(new LetterWordPreview
                 {
                     WordName = word.WordName,

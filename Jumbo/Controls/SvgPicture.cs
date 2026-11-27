@@ -4,7 +4,8 @@ using Svg.Skia;
 namespace Jumbo.Controls;
 
 /// <summary>
-/// A picture drawn from SVG text (the pictures of words, topics, awards and market items come from the server as SVG). It replaces a
+/// A picture drawn from SVG text (the pictures of words, topics, awards and market items come from the server as SVG), or from a picture file
+/// of a word (the text is then its address /pics/{name}.webp: see PictureFile). It replaces a
 /// WebView per picture: every WebView is a whole browser, a page with forty of them was slow and heavy. Here the SVG is turned into a
 /// small bitmap once (a few milliseconds, kept in a cache) and shown by an ordinary Image. The text may be the bare svg or a page
 /// around it (see SvgHtmlWrapper): the part from "&lt;svg" to the last "&lt;/svg&gt;" is used.
@@ -42,8 +43,15 @@ public class SvgPicture : Image
             lock (Cache) Cache.TryGetValue(key, out png);
             if (png is null)
             {
+                // the address of a picture file (/pics/{name}.webp): the file comes from the disk (downloaded the first time), not from svg text
+                string? file = null;
+                if (text.StartsWith(Jumbo.Shared.PictureFiles.UrlPrefix, StringComparison.Ordinal))
+                {
+                    file = await PictureFile.EnsureAsync(text);          // the network wait is not inside the gate: others may draw meanwhile
+                    if (file is null) return;
+                }
                 await Gate.WaitAsync();
-                try { png = await Task.Run(() => ToPng(text, size)); }
+                try { png = await Task.Run(() => file is null ? ToPng(text, size) : PictureFile.ToPng(file, size)); }
                 finally { Gate.Release(); }
                 if (png is null) return;
                 lock (Cache)
