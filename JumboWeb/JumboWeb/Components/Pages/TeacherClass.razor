@@ -120,6 +120,7 @@ else
                         <div class="tc-cell-name">
                             <span class="tc-dot @ActivityClass(st)"></span>
                             <a class="tc-name-link" href="/teacher/class/@Id/student/@st.UserId">@st.Name @if (!string.IsNullOrEmpty(st.Username)) { <small class="tc-login">@@@st.Username</small> }</a>
+                            @if (st.Cefr is { } cefr) { <span class="cefr-badge" title="CEFR · @cefr.TakenAt.ToLocalTime().ToString("dd.MM.yyyy")">@Jumbo.Shared.PlacementScoring.Label(cefr.Stage)</span> }
                         </div>
                         <div data-label="@Loc["TC_ColBook"]">@(st.CurrentBook is { } cb ? $"📘 {cb}" : "—")</div>
                         <div data-label="@Loc["TC_ColLp"]">@PointsFormat.Compact(st.LpPoints)</div>

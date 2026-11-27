@@ -2,6 +2,10 @@
 @rendermode InteractiveServer
 @using JumboWeb.Services
 @inject AppLocalizer Loc
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@using Jumbo.Shared
+@using Jumbo.Shared.Dtos
 @inject NavigationManager Nav
 
 <PageTitle>@Loc["SiteLayout_TestNav"]</PageTitle>
@@ -27,5 +31,25 @@
         <p class="exam-note">@Loc["Placement_LevelsNote"]</p>
     </section>
 
+    @if (_last is { } last)
+    {
+        <p class="pl-last">🎯 <span>@Loc.Format("Placement_LastResult", PlacementScoring.Label(last.Stage), last.TakenAt.ToLocalTime().ToString("dd.MM.yyyy"))</span></p>
+    }
+
     <button type="button" class="lp-btn lp-btn-full" @onclick='() => Nav.NavigateTo("/test-my-level/quiz")'>@Loc["Placement_Start"] →</button>
 </div>
+
+@code {
+    // The last stored result of a signed-in learner (nothing for a visitor, a teacher or an admin).
+    private PlacementSavedDto? _last;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await UserState.EnsureLoadedAsync();
+            if (UserState.IsRegistered && !UserState.HidesLessons) _last = (await ApiClient.GetMyPlacementAsync()).Latest;
+        }
+        catch { }
+    }
+}

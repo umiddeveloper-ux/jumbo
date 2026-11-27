@@ -1929,6 +1929,9 @@
   <data name="PQ_Err_TOO_BIG" xml:space="preserve"><value>Fayl juda katta (5 MB gacha).</value></data>
   <data name="PQ_Err_BAD_TITLE" xml:space="preserve"><value>Matn sarlavhasini yozing.</value></data>
   <data name="PQ_Err_BAD_TEXT" xml:space="preserve"><value>Matnni yozing (5000 belgigacha).</value></data>
+  <data name="Placement_Saved" xml:space="preserve"><value>Natija profilingizda saqlandi. O‘qituvchingiz uni ko‘ra oladi.</value></data>
+  <data name="Placement_GuestNote" xml:space="preserve"><value>Ro‘yxatdan o‘ting yoki kiring, natijangiz saqlanadi.</value></data>
+  <data name="Placement_LastResult" xml:space="preserve"><value>Oxirgi natijangiz: {0} · {1}</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Savollar: {0}</value>
   </data>

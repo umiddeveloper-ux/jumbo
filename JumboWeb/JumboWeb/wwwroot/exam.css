@@ -216,3 +216,8 @@
 .pq-level { min-width: 2.2rem; text-align: center; padding: 2px 8px; border-radius: 99px; font-weight: 900; font-size: 0.8rem; color: #fff; background: var(--lp-primary); }
 .pq-skill { min-width: 5.5rem; font-size: 0.85rem; font-weight: 800; color: var(--lp-muted); }
 .pq-prompt { flex: 1; min-width: 0; }
+
+/* the learner's last level test result on the start page and the note on the result page */
+.pl-last { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 0 12px; font-weight: 800; color: var(--lp-primary-text); }
+
+.pl-keep { text-align: center; margin: 0 0 12px; }

@@ -241,3 +241,7 @@
     .jr-books, .jr-tools { display: none !important; }
     .jr-cell { height: 22px; }
 }
+
+/* the level (CEFR) a pupil got in the level test: next to his name in the team list */
+.cefr-badge { display: inline-flex; align-items: center; flex: none; white-space: nowrap; margin-left: 6px; padding: 1px 8px; border-radius: 999px; font-size: 0.74rem; font-weight: 900; letter-spacing: 0.02em;
+              color: var(--lp-primary-text); background: var(--lp-primary-soft); border: 1.5px solid var(--lp-primary); vertical-align: middle; }

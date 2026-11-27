@@ -1998,6 +1998,9 @@
   <data name="PQ_Err_TOO_BIG" xml:space="preserve"><value>Dosya çok büyük (en çok 5 MB).</value></data>
   <data name="PQ_Err_BAD_TITLE" xml:space="preserve"><value>Metnin başlığını yaz.</value></data>
   <data name="PQ_Err_BAD_TEXT" xml:space="preserve"><value>Metni yaz (en çok 5000 karakter).</value></data>
+  <data name="Placement_Saved" xml:space="preserve"><value>Sonucun profilinde kaydedildi. Öğretmenin görebilir.</value></data>
+  <data name="Placement_GuestNote" xml:space="preserve"><value>Kayıt ol veya giriş yap, sonucun saklansın.</value></data>
+  <data name="Placement_LastResult" xml:space="preserve"><value>Son sonucun: {0} · {1}</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>

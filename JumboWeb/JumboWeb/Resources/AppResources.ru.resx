@@ -1998,6 +1998,9 @@
   <data name="PQ_Err_TOO_BIG" xml:space="preserve"><value>Файл слишком большой (до 5 МБ).</value></data>
   <data name="PQ_Err_BAD_TITLE" xml:space="preserve"><value>Напишите заголовок текста.</value></data>
   <data name="PQ_Err_BAD_TEXT" xml:space="preserve"><value>Напишите текст (до 5000 символов).</value></data>
+  <data name="Placement_Saved" xml:space="preserve"><value>Результат сохранён в вашем профиле. Его видит ваш учитель.</value></data>
+  <data name="Placement_GuestNote" xml:space="preserve"><value>Зарегистрируйтесь или войдите, и результат сохранится.</value></data>
+  <data name="Placement_LastResult" xml:space="preserve"><value>Ваш последний результат: {0} · {1}</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>

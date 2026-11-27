@@ -25,6 +25,16 @@
             <div class="game-result-sub">@Loc["Placement_Stage_" + r.Stage + "_Text"]</div>
         </div>
 
+        @* A signed-in learner has the result stored (his teacher sees it); a visitor is told how to keep it. Teachers and admins store nothing. *@
+        @if (!UserState.IsRegistered)
+        {
+            <p class="exam-note pl-keep">@Loc["Placement_GuestNote"]</p>
+        }
+        else if (!UserState.HidesLessons)
+        {
+            <p class="exam-note pl-keep">✓ @Loc["Placement_Saved"]</p>
+        }
+
         @* Teachers and admins have no lessons: the book to start with is for learners. *@
         @if (!UserState.HidesLessons)
         {

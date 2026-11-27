@@ -29,6 +29,7 @@ else
         <header class="ts-head">
             <h1 class="tc-title">@_p.Name @if (!string.IsNullOrEmpty(_p.Username)) { <small class="tc-login">@@@_p.Username</small> }</h1>
             <div class="ts-chips">
+                <span class="ts-chip" title="@(_p.Cefr is { } tc ? tc.TakenAt.ToLocalTime().ToString("dd.MM.yyyy") : "")"><span>CEFR</span><b>@(_p.Cefr is { } cf ? Jumbo.Shared.PlacementScoring.Label(cf.Stage) : "—")</b></span>
                 <span class="ts-chip"><span>@Loc["TS_CurrentBook"]</span><b>@(_p.CurrentBook is { } cb ? cb.ToString() : "—")</b></span>
                 <span class="ts-chip"><span>@Loc["TS_TopicsDone"]</span><b>@_p.Books.Sum(b => b.TopicsDone)/@_p.Books.Sum(b => b.TopicsTotal)</b></span>
                 <span class="ts-chip"><span>@Loc["TS_WordsLearned"]</span><b>@_p.Books.Sum(b => b.WordsLearned)</b></span>

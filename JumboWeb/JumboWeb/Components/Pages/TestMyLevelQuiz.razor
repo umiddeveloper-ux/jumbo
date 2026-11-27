@@ -5,6 +5,7 @@
 @implements IDisposable
 @inject LpApiClient ApiClient
 @inject TestLevelStateService TestState
+@inject UserStateService UserState
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
 @inject IJSRuntime JS
@@ -209,7 +210,7 @@
             _index = _block.Questions.Count;
             return;
         }
-        Finish();
+        await FinishAsync();
     }
 
     private async Task ContinueAsync()
@@ -222,17 +223,32 @@
             if (!await LoadBlockAsync(PlacementScoring.Levels[_level]))
             {
                 // The next block could not be loaded: the result is what the blocks before it showed.
-                Finish();
+                await FinishAsync();
                 return;
             }
         }
-        catch { Finish(); return; }
+        catch { await FinishAsync(); return; }
         _busy = false;
     }
 
-    private void Finish()
+    private bool _finished;
+
+    private async Task FinishAsync()
     {
-        TestState.SetResults(_answers.ToList(), _shares.ToList());
+        if (_finished) return;                               // a double click on the last answer must not store the attempt twice
+        _finished = true;
+        var shares = _shares.ToList();
+        TestState.SetResults(_answers.ToList(), shares);
+
+        // A signed-in learner keeps the result (the server works out the stage itself; a visitor, a teacher or an admin stores nothing).
+        // A failure here must never stop the learner from seeing the result.
+        try
+        {
+            await UserState.EnsureLoadedAsync();
+            if (UserState.IsRegistered && shares.Count > 0) await ApiClient.SavePlacementResultAsync(shares);
+        }
+        catch { }
+
         Nav.NavigateTo("/test-my-level/results", replace: true);
     }
 

@@ -1998,6 +1998,9 @@
   <data name="PQ_Err_TOO_BIG" xml:space="preserve"><value>The file is too big (up to 5 MB).</value></data>
   <data name="PQ_Err_BAD_TITLE" xml:space="preserve"><value>Write the title of the text.</value></data>
   <data name="PQ_Err_BAD_TEXT" xml:space="preserve"><value>Write the text (up to 5000 characters).</value></data>
+  <data name="Placement_Saved" xml:space="preserve"><value>Your result is saved in your profile. Your teacher can see it.</value></data>
+  <data name="Placement_GuestNote" xml:space="preserve"><value>Register or sign in and your result will be kept.</value></data>
+  <data name="Placement_LastResult" xml:space="preserve"><value>Your last result: {0} · {1}</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} questions</value>
   </data>
