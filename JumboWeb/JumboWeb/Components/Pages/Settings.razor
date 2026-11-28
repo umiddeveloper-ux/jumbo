@@ -28,7 +28,7 @@ else if (Current is null)
         var plan = UserState.CurrentPlan;
         <div class="lp-card set-head">
             <div class="set-head-who">
-                <UserAvatar Svg="@me?.AvatarSvg" DisplayName="@me?.FirstName" Size="64" Frame="@me?.FrameKey" Plan="@plan" />
+                <MyAvatar Size="64" />
                 <div class="set-head-name">
                     <b>@($"{me?.FirstName} {me?.LastName}".Trim())</b>
                     <span>@Loc.Format("Plan_Yours", Loc[JumboWeb.Components.Pages.PlansPage.PlanKey(plan)])

@@ -8,7 +8,7 @@
     <span class="rt-row-avatar">
         @if (Entry.Name is not null)
         {
-            <UserAvatar Svg="@Entry.AvatarSvg" DisplayName="@Entry.Name" Size="44" Frame="@Entry.FrameKey" />
+            <UserAvatar Svg="@Entry.AvatarSvg" DisplayName="@Entry.Name" Size="44" Frame="@Entry.FrameKey" Book="@Entry.CurrentBook" Plan="@Entry.Plan" />
         }
         else
         {

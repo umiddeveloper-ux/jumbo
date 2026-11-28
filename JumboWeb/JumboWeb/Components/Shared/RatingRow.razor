@@ -7,7 +7,7 @@
     <span class="rate-avatar">
         @if (Entry.Name is not null && !string.IsNullOrEmpty(Entry.AvatarSvg))
         {
-            <UserAvatar Svg="@Entry.AvatarSvg" DisplayName="@Entry.Name" Size="40" Frame="@Entry.FrameKey" />
+            <UserAvatar Svg="@Entry.AvatarSvg" DisplayName="@Entry.Name" Size="40" Frame="@Entry.FrameKey" Book="@Entry.CurrentBook" Plan="@Entry.Plan" />
         }
         else if (Entry.Name is not null)
         {

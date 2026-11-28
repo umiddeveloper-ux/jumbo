@@ -1,13 +1,33 @@
-@if (Plan is null)
+@if (Book <= 0)
 {
-    @Avatar
+    @* no book known (a guest, a teacher, a hidden name): the avatar as it always was *@
+    @if (Plan is null)
+    {
+        @AvatarOf(Size, Frame)
+    }
+    else
+    {
+        @* with a version: a coin in the top-left corner (outside the round clip of the picture) *@
+        <span class="ua-wrap">
+            @AvatarOf(Size, Frame)
+            @Coin
+        </span>
+    }
 }
 else
 {
-    @* with a version: a coin in the top-left corner (outside the round clip of the picture) *@
+    @* the frame in the colour of the book the player is in (red A1, yellow A2, green B1, violet B2: the colours of the printed cards); a frame bought in the market
+       goes round it. The ring takes the room of the avatar (Size is the whole thing), so a list does not change its height. *@
     <span class="ua-wrap">
-        @Avatar
-        <span class="plan-coin plan-@PlanName" style="width:@(CoinSize)px;height:@(CoinSize)px;font-size:@(CoinSize * 0.62)px" title="@Loc[JumboWeb.Components.Pages.PlansPage.PlanKey(PlanName)]">★</span>
+        <span class="ua-ring ua-lv-@LevelClass @(string.IsNullOrEmpty(Frame) ? "" : "framed " + Frame)" title="@Tip"
+              style="width:@(Size)px;height:@(Size)px;--p:@(Ring + Gap)px;--g:@(Gap)px;--in:@(Inner)px">
+            @AvatarOf(Inner, null)
+            <span class="ua-sr">@Tip</span>
+        </span>
+        @if (Plan is not null)
+        {
+            @Coin
+        }
     </span>
 }
 
@@ -22,15 +42,33 @@ else
     /// <summary>The version in force (bronze / silver / gold): a coin is shown in the corner. Null: no coin (other people's avatars).</summary>
     [Parameter] public string? Plan { get; set; }
 
+    /// <summary>The book the player is in (1, 2, 3 ...): the avatar gets a frame in the colour of its level. 0: no such frame.</summary>
+    [Parameter] public int Book { get; set; }
+
     [Inject] private JumboWeb.Services.AppLocalizer Loc { get; set; } = null!;
 
     private string PlanName => Jumbo.Shared.Plans.Normalize(Plan);
 
     private int CoinSize => Math.Max(14, (int)(Size * 0.42));
 
+    // the thickness of the coloured ring and of the clear gap between it and the picture grow with the size of the avatar
+    private int Ring => Math.Max(2, (int)Math.Round(Size * 0.075));
+    private int Gap => Math.Max(1, (int)Math.Round(Size * 0.035));
+    private int Inner => Math.Max(12, Size - 2 * (Ring + Gap));
+
+    private string Level => Jumbo.Shared.LanguageLevels.ForBook(Book);
+    private string LevelClass => Level.ToLowerInvariant();
+
+    // "Book 3 · A1 · Silver" for the mouse and for a screen reader (the plan only where it is shown)
+    private string Tip => Plan is null
+        ? $"{Loc.Format("Common_BookLabel", Book)} · {Level}"
+        : $"{Loc.Format("Common_BookLabel", Book)} · {Level} · {Loc[JumboWeb.Components.Pages.PlansPage.PlanKey(PlanName)]}";
+
     private string Initial => string.IsNullOrWhiteSpace(DisplayName) ? "?" : DisplayName.Trim()[0].ToString().ToUpperInvariant();
 
-    private RenderFragment Avatar => @<div class="user-avatar @(string.IsNullOrEmpty(Frame) ? "" : "framed " + Frame)" style="width:@(Size)px;height:@(Size)px">
+    private RenderFragment Coin => @<span class="plan-coin plan-@PlanName" style="width:@(CoinSize)px;height:@(CoinSize)px;font-size:@(CoinSize * 0.62)px" title="@Loc[JumboWeb.Components.Pages.PlansPage.PlanKey(PlanName)]">★</span>;
+
+    private RenderFragment AvatarOf(int size, string? frame) => @<div class="user-avatar @(string.IsNullOrEmpty(frame) ? "" : "framed " + frame)" style="width:@(size)px;height:@(size)px">
         @if (!string.IsNullOrWhiteSpace(Svg) && Svg.StartsWith("data:"))
         {
             <img src="@Svg" alt="@DisplayName" />

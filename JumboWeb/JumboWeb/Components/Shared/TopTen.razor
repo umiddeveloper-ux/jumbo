@@ -38,7 +38,7 @@
                         <span class="top-tile-avatar">
                             @if (e.Name is not null)
                             {
-                                <UserAvatar Svg="@e.AvatarSvg" DisplayName="@e.Name" Size="64" Frame="@e.FrameKey" />
+                                <UserAvatar Svg="@e.AvatarSvg" DisplayName="@e.Name" Size="64" Frame="@e.FrameKey" Book="@e.CurrentBook" Plan="@e.Plan" />
                             }
                             else
                             {

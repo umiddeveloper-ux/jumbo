@@ -25,7 +25,7 @@
                 {
                     @* the avatar and the name open the settings (the version, the avatar, the profile) *@
                     <a class="site-user-card" href="/little-polyglot/settings" @onclick="CloseSidebar">
-                        <UserAvatar Svg="@UserState.CurrentUser?.AvatarSvg" DisplayName="@UserState.CurrentUser?.FirstName" Size="40" Frame="@UserState.CurrentUser?.FrameKey" Plan="@UserState.CurrentPlan" />
+                        <MyAvatar Size="40" />
                         <span class="site-user-name">@UserState.CurrentUser?.FirstName @UserState.CurrentUser?.LastName</span>
                     </a>
                 }
@@ -173,7 +173,7 @@
                     @if (UserState.IsRegistered)
                     {
                         <span class="site-mobile-user">
-                            <UserAvatar Svg="@UserState.CurrentUser?.AvatarSvg" DisplayName="@UserState.CurrentUser?.FirstName" Size="30" Frame="@UserState.CurrentUser?.FrameKey" Plan="@UserState.CurrentPlan" />
+                            <MyAvatar Size="30" />
                         </span>
                     }
                 </header>

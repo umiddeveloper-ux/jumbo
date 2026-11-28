@@ -17,7 +17,7 @@
                 <span class="rt-pod-avatar m@(Medal(e))">
                     @if (e.Name is not null)
                     {
-                        <UserAvatar Svg="@e.AvatarSvg" DisplayName="@e.Name" Size="@(slot.Position == 0 ? 84 : 64)" Frame="@e.FrameKey" />
+                        <UserAvatar Svg="@e.AvatarSvg" DisplayName="@e.Name" Size="@(slot.Position == 0 ? 84 : 64)" Frame="@e.FrameKey" Book="@e.CurrentBook" Plan="@e.Plan" />
                     }
                     else
                     {

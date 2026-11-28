@@ -1,0 +1,22 @@
+@implements IDisposable
+@using JumboWeb.Services
+@inject UserStateService UserState
+@inject PlayerStatsService Stats
+
+@* The avatar of the signed-in player (top bar, side menu, settings): the frame in the colour of the book he is in (the number the strip already holds: no extra
+   request; it follows the learner to the next book) and the coin of the version. Teachers and directors have no book: no coloured frame. *@
+<UserAvatar Svg="@UserState.CurrentUser?.AvatarSvg" DisplayName="@UserState.CurrentUser?.FirstName" Size="@Size" Frame="@UserState.CurrentUser?.FrameKey"
+            Plan="@UserState.CurrentPlan" Book="@Book" />
+
+@code {
+    [Parameter] public int Size { get; set; } = 40;
+
+    // 0 until the book is read from the server: a wrong colour for a moment is worse than none
+    private int Book => UserState.IsRegistered && !UserState.HidesLessons && Stats.Loaded ? Stats.CurrentBook : 0;
+
+    protected override void OnInitialized() => Stats.Changed += OnStatsChanged;
+
+    private void OnStatsChanged() => InvokeAsync(StateHasChanged);
+
+    public void Dispose() => Stats.Changed -= OnStatsChanged;
+}
