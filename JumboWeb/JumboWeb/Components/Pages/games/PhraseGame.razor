@@ -122,7 +122,7 @@ else if (_round is not null)
     private bool Blocked => Lives.IsBlocked;
 
     private const int MaxRounds = 15;
-    private const int LpReward = 8;
+    private static readonly int LpReward = Jumbo.Shared.GameRewards.Of("Phrase");
 
     [Parameter] public int SubjectId { get; set; }
     private TigerCoach? _coach;

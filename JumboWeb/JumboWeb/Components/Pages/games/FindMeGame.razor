@@ -104,7 +104,7 @@ else
         return ok;
     }
 
-    private const int LpReward = 5;
+    private static readonly int LpReward = Jumbo.Shared.GameRewards.Of("FindMe");
 
     [Parameter] public int SubjectId { get; set; }
 

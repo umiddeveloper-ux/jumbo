@@ -136,7 +136,7 @@ else
     private bool Blocked => Lives.IsBlocked;
 
     private const int MaxSteps = 15;
-    private const int LpReward = 10;
+    private static readonly int LpReward = Jumbo.Shared.GameRewards.Of("Steps");
 
     [Parameter] public int SubjectId { get; set; }
     private TigerCoach? _coach;

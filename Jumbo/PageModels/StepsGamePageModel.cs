@@ -12,7 +12,7 @@ public partial class StepsGamePageModel : ObservableObject
 {
     private const int MaxSteps = 15;
 
-    private const int LpReward = 10;
+    private static readonly int LpReward = Jumbo.Shared.GameRewards.Of("Steps");
 
     private readonly LpApiClient _apiClient;
     private readonly ModalErrorHandler _errorHandler;

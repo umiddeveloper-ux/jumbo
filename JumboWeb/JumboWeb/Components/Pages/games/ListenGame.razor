@@ -118,7 +118,7 @@ else
     }
 
     private const int TotalSteps = 15;   // one step for each of the 15 words of a topic
-    private const int LpReward = 7;
+    private static readonly int LpReward = Jumbo.Shared.GameRewards.Of("ListenAndFind");
 
     [Parameter] public int SubjectId { get; set; }
 

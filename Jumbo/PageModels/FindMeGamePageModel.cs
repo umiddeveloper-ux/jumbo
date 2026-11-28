@@ -11,7 +11,7 @@ namespace Jumbo.PageModels;
 [QueryProperty(nameof(GateBook), "gate")]
 public partial class FindMeGamePageModel : ObservableObject
 {
-    private const int LpReward = 5;
+    private static readonly int LpReward = Jumbo.Shared.GameRewards.Of("FindMe");
 
     private readonly LpApiClient _apiClient;
     private readonly ModalErrorHandler _errorHandler;

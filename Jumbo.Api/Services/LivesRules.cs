@@ -18,11 +18,8 @@ public static class LivesRules
     /// <summary>The LP a wrong answer costs when the lives are gone.</summary>
     public const int MistakeLpCost = 2;
 
-    /// <summary>The LP for a won game, by the game (the apps show the same numbers: LpReward in the games).</summary>
-    public static readonly IReadOnlyDictionary<string, int> GameRewards = new Dictionary<string, int>
-    {
-        ["FindMe"] = 5, ["Sequence"] = 7, ["ListenAndFind"] = 7, ["Steps"] = 10, ["Phrase"] = 8
-    };
+    /// <summary>The LP for a won game, by the game: the shared table (Jumbo.Shared.GameRewards), the same numbers the website and the app show.</summary>
+    public static IReadOnlyDictionary<string, int> GameRewards => Jumbo.Shared.GameRewards.ByGameType;
 
     public static bool Unlimited(User user, DateTime now) => Plans.NoLimits(Plans.Effective(user.Plan, user.PlanUntil, now));
 

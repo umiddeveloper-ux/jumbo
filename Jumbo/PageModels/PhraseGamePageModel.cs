@@ -36,7 +36,7 @@ public partial class PhraseSlot : ObservableObject
 public partial class PhraseGamePageModel : ObservableObject
 {
     private const int MaxRounds = 15;
-    private const int LpReward = 8;
+    private static readonly int LpReward = Jumbo.Shared.GameRewards.Of("Phrase");
 
     private readonly LpApiClient _apiClient;
     private readonly ModalErrorHandler _errorHandler;

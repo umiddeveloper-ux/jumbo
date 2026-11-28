@@ -119,7 +119,7 @@ else
         return ok;
     }
 
-    private const int LpReward = 7;
+    private static readonly int LpReward = Jumbo.Shared.GameRewards.Of("Sequence");
 
     [Parameter] public int SubjectId { get; set; }
 

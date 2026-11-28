@@ -13,7 +13,7 @@ namespace Jumbo.PageModels;
 public partial class ListenAndFindGamePageModel : ObservableObject
 {
     private const int TotalSteps = 15;   // one step for each of the 15 words of a topic
-    private const int LpReward = 7;
+    private static readonly int LpReward = Jumbo.Shared.GameRewards.Of("ListenAndFind");
 
     private readonly LpApiClient _apiClient;
     private readonly ModalErrorHandler _errorHandler;
