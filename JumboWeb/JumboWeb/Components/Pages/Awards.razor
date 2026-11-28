@@ -9,6 +9,7 @@
 @inject UserPreferencesService Prefs
 @inject UserStateService UserState
 @inject AppLocalizer Loc
+@inject FrameAssets Frames
 @inject IJSRuntime JS
 
 <PageTitle>@Loc["Awards_PageTitle"]</PageTitle>
@@ -32,7 +33,15 @@ else
             @foreach (var a in _awards)
             {
                 <div class="award-card @(!a.IsAchieved ? "not-achieved" : "")">
-                    <div class="award-svg">@((MarkupString)a.SvgHtml)</div>
+                    @if (!string.IsNullOrEmpty(a.ImageUrl))
+                    {
+                        @* "Book N: Completed": the frame of the book with its number, a file of the site (cached for a year) *@
+                        <div class="award-svg award-framed"><img src="@Frames.Versioned(a.ImageUrl)" alt="" loading="lazy" decoding="async" /></div>
+                    }
+                    else
+                    {
+                        <div class="award-svg">@((MarkupString)a.SvgHtml)</div>
+                    }
                     <div class="award-title">@a.Title</div>
                 </div>
             }
@@ -87,6 +96,7 @@ else
         {
             Title = a.Title,
             SvgHtml = a.SvgImage,
+            ImageUrl = a.ImageUrl,
             IsAchieved = a.IsAchieved
         }).ToList();
 
@@ -169,6 +179,7 @@ else
     {
         public string Title     { get; set; } = string.Empty;
         public string SvgHtml   { get; set; } = string.Empty;
+        public string? ImageUrl { get; set; }
         public bool IsAchieved  { get; set; }
     }
 }

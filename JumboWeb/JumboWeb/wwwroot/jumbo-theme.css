@@ -1175,6 +1175,8 @@ img.stat-ico { width: 14px; height: 14px; }
 .award-pop-glow { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, rgba(255, 226, 122, 0.95) 0 28%, rgba(255, 200, 0, 0.25) 55%, transparent 72%); animation: ap-glow 1.8s ease-in-out infinite; }
 .award-pop-svg { position: relative; width: 128px; height: 128px; animation: ap-medal .95s cubic-bezier(.2, 1.5, .4, 1) .15s both, ap-float 2.6s ease-in-out 1.1s infinite; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.3)); }
 .award-pop-svg svg { width: 100%; height: 100%; }
+.award-pop-svg.award-framed { width: 150px; height: 150px; }
+.award-pop-svg.award-framed img { width: 100%; height: 100%; display: block; }
 .award-pop-star { position: absolute; color: #FFC800; font-size: 1.5rem; line-height: 1; animation: ap-twinkle 1.4s ease-in-out infinite; }
 .award-pop-star.s1 { left: 6px; top: 22px; }
 .award-pop-star.s2 { right: 4px; top: 40px; font-size: 1.1rem; animation-delay: .4s; }
@@ -1219,37 +1221,17 @@ img.stat-ico { width: 14px; height: 14px; }
 @keyframes frame-shine { 0%, 100% { box-shadow: 0 0 0 3px #7EE8FF, 0 0 0 5px #3AA7E8, 0 0 8px 2px rgba(126, 232, 255, 0.5); } 50% { box-shadow: 0 0 0 3px #B5F3FF, 0 0 0 5px #3AA7E8, 0 0 18px 6px rgba(126, 232, 255, 0.9); } }
 @media (prefers-reduced-motion: reduce) { .user-avatar.frame_diamond { animation: none; } }
 
-/* the frame of an avatar in the colour of the book the player is in (the colours of the printed cards: A1 red, A2 yellow, B1 green, B2 violet).
-   A ring (a soft gradient with a glow), then a clear gap, then the picture; Size of the avatar is the whole thing. --p ring + gap, --g gap, --in the picture. */
-.ua-ring { --ra: #FF8A8C; --rb: #E5393B; --rc: #B02A2C; --ring-gap: var(--lp-surface, #fff);
-           position: relative; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-sizing: border-box; border-radius: 50%;
-           padding: var(--p); background: conic-gradient(from 200deg, var(--ra), var(--rb) 30%, var(--rc) 55%, var(--rb) 80%, var(--ra));
-           box-shadow: 0 0 0 1px color-mix(in srgb, var(--rc) 45%, transparent), 0 2px 7px color-mix(in srgb, var(--rb) 40%, transparent); }
-.ua-ring > .user-avatar { border-radius: 50%; box-shadow: 0 0 0 var(--g) var(--ring-gap); }
-.ua-lv-a1 { --ra: #FF9A9C; --rb: #E5393B; --rc: #B02A2C; }
-.ua-lv-a2 { --ra: #FFE388; --rb: #FFC21A; --rc: #D49A00; }
-.ua-lv-b1 { --ra: #7FD98C; --rb: #2F9E44; --rc: #237A33; }
-.ua-lv-b2 { --ra: #B9A0FF; --rb: #7C4DFF; --rc: #5B34C7; }
-:root[data-theme="dark"] .ua-lv-a1 { --ra: #FFA9AB; --rb: #FF6B6D; --rc: #D04A4C; }
-:root[data-theme="dark"] .ua-lv-a2 { --ra: #FFEBA0; --rb: #FFD54A; --rc: #E0B000; }
-:root[data-theme="dark"] .ua-lv-b1 { --ra: #9BEBA6; --rb: #5CD16A; --rc: #2F9E44; }
-:root[data-theme="dark"] .ua-lv-b2 { --ra: #CDBBFF; --rb: #A98BFF; --rc: #7A5AD8; }
-:root[data-theme="dark"] .ua-ring { --ring-gap: var(--lp-surface, #1c1c20); }
-/* a frame bought in the market goes round the ring (same rings as on the plain avatar) */
-.ua-ring.framed { margin: 5px; }
-.ua-ring.frame_bronze  { box-shadow: 0 0 0 3px #CD7F32, 0 0 0 5px #8C5520; }
-.ua-ring.frame_silver  { box-shadow: 0 0 0 3px #D5DBE3, 0 0 0 5px #8A94A3; }
-.ua-ring.frame_gold    { box-shadow: 0 0 0 3px #FFC800, 0 0 0 5px #E5A100, 0 0 12px 3px rgba(255, 200, 0, 0.6); }
-.ua-ring.frame_diamond { box-shadow: 0 0 0 3px #7EE8FF, 0 0 0 5px #3AA7E8, 0 0 14px 4px rgba(126, 232, 255, 0.75); animation: frame-shine 2.2s ease-in-out infinite; }
-@media (prefers-reduced-motion: reduce) { .ua-ring.frame_diamond { animation: none; } }
+/* the frame of an avatar: the ornate frame of the book the player is in (wwwroot/frames, made by tools/gen-frames.mjs). Size of the avatar is the outer edge of the ring;
+   the picture sits in the clear circle of the frame image, which is laid over it (the image is transparent in the middle) and grows a little beyond the box. */
+.ua-frame { position: relative; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-sizing: border-box; }
+.ua-frame > .user-avatar { border-radius: 50%; position: relative; z-index: 0; margin: 0; }
+.ua-frame-img { position: absolute; left: 50%; top: 50%; max-width: none; transform: translate(-50%, -50%); pointer-events: none; z-index: 1; }
 /* the text of the frame for a screen reader (the mouse has the title) */
 .ua-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-/* the orange top bar has a rounded square avatar: the ring follows it, and the narrow-screen rule that makes the picture 28px does not apply inside the ring */
-.lp-header-avatar .ua-ring { border-radius: 32%; }
-.lp-header-avatar .ua-ring > .user-avatar { border-radius: 24%; }
-.lp-header .ua-ring .user-avatar { width: var(--in) !important; height: var(--in) !important; }
-/* the podium: the ring replaces the medal ring (the step below the avatar and the crown keep the medal colours) */
-.rt-pod-avatar:has(.ua-ring) { padding: 0; border-color: transparent; background: transparent; box-shadow: none; }
+/* the orange top bar has a rounded square avatar; inside a frame it is round, and the narrow-screen rule that makes the picture 28px does not apply */
+.lp-header .ua-frame .user-avatar { width: var(--in) !important; height: var(--in) !important; border-radius: 50%; }
+/* the podium: the frame replaces the medal ring (the step below the avatar and the crown keep the medal colours) */
+.rt-pod-avatar:has(.ua-frame) { padding: 0; border-color: transparent; background: transparent; box-shadow: none; overflow: visible; margin: 14px 0 12px; }
 
 /* the badge by the name in the rating */
 .rate-badge { display: inline-flex; vertical-align: middle; margin-left: 5px; }

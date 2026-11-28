@@ -26,6 +26,7 @@ builder.Services.AddLocalization(options => options.ResourcesPath = "Resources")
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<AppDownloads>();
 builder.Services.AddSingleton<SiteCss>();
+builder.Services.AddSingleton<FrameAssets>();
 builder.Services.AddSingleton<TopicVideoStore>();
 builder.Services.AddScoped<SessionTokenAccessor>();
 builder.Services.AddScoped<CircuitHandler, CookieCircuitHandler>();
@@ -114,7 +115,7 @@ app.MapLegalPages();     // /privacy and /delete-account: plain HTML, open to ev
 // The school report pages behind the secret links (/r/<token>, /r/<token>/exams) show a school's figures and pupil names: never indexed.
 app.Use(async (context, next) =>
 {
-    if (context.Request.Path.StartsWithSegments("/r") || context.Request.Path.StartsWithSegments("/frames-preview")) context.Response.Headers["X-Robots-Tag"] = "noindex, nofollow";
+    if (context.Request.Path.StartsWithSegments("/r")) context.Response.Headers["X-Robots-Tag"] = "noindex, nofollow";
     await next();
 });
 
@@ -130,7 +131,6 @@ app.MapGet("/robots.txt", (HttpContext context) =>
         "Disallow: /admin\n" +
         "Disallow: /teacher\n" +
         "Disallow: /r/\n" +
-        "Disallow: /frames-preview/\n" +
         // /privacy and /delete-account are NOT blocked here on purpose: a robot must be able to read their "noindex" to drop them
         "\n" +
         "Sitemap: https://jumbo.uz/sitemap.xml\n", "text/plain; charset=utf-8");
@@ -208,6 +208,18 @@ if (app.Environment.IsDevelopment() && builder.Configuration["Media:PicturesRoot
         OnPrepareResponse = ctx => ctx.Context.Response.Headers.CacheControl = "public, max-age=31536000, immutable"
     });
 }
+// The frames of the avatars and the pictures of the awards (wwwroot/frames): the address carries ?v=<version of the files> (FrameAssets), so the browser keeps them for a year.
+// (MapStaticAssets serves the files and says "no-cache"; the header is changed just before the answer leaves, only for an address with the version.)
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path.StartsWithSegments("/frames") && context.Request.Query.ContainsKey("v"))
+        context.Response.OnStarting(() =>
+        {
+            if (context.Response.StatusCode == StatusCodes.Status200OK) context.Response.Headers.CacheControl = "public, max-age=31536000, immutable";
+            return Task.CompletedTask;
+        });
+    await next();
+});
 app.MapStaticAssets();
 
 // The recorded voice of a listening question of the level test: the site hands out what the API keeps (so no nginx setting is needed).

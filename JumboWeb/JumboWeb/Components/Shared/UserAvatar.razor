@@ -1,6 +1,7 @@
-@if (Book <= 0)
+@inject JumboWeb.Services.FrameAssets Frames
+@if (Book <= 0 || !string.IsNullOrEmpty(Frame))
 {
-    @* no book known (a guest, a teacher, a hidden name): the avatar as it always was *@
+    @* no book known (a guest, a teacher, a hidden name), or a frame bought in the market (the player chose it, so it REPLACES the frame of the book): the avatar as it always was *@
     @if (Plan is null)
     {
         @AvatarOf(Size, Frame)
@@ -16,12 +17,12 @@
 }
 else
 {
-    @* the frame in the colour of the book the player is in (red A1, yellow A2, green B1, violet B2: the colours of the printed cards); a frame bought in the market
-       goes round it. The ring takes the room of the avatar (Size is the whole thing), so a list does not change its height. *@
+    @* The frame of the book the player is in (frame-NN.svg, or the plain ring-NN.svg for an avatar up to 48 px). Size is the outer edge of the ring, so a list does not
+       change its height; the ornament of the big frame grows a little beyond it, over the free space round the avatar. The picture sits in the clear circle. *@
     <span class="ua-wrap">
-        <span class="ua-ring ua-lv-@LevelClass @(string.IsNullOrEmpty(Frame) ? "" : "framed " + Frame)" title="@Tip"
-              style="width:@(Size)px;height:@(Size)px;--p:@(Ring + Gap)px;--g:@(Gap)px;--in:@(Inner)px">
+        <span class="ua-frame" title="@Tip" style="width:@(Size)px;height:@(Size)px;--in:@(Inner)px">
             @AvatarOf(Inner, null)
+            <img class="ua-frame-img" src="@Frames.Url(Size <= RingMax ? "ring" : "frame", Book)" alt="" width="@Box" height="@Box" decoding="async" style="width:@(Box)px;height:@(Box)px" />
             <span class="ua-sr">@Tip</span>
         </span>
         @if (Plan is not null)
@@ -42,7 +43,7 @@ else
     /// <summary>The version in force (bronze / silver / gold): a coin is shown in the corner. Null: no coin (other people's avatars).</summary>
     [Parameter] public string? Plan { get; set; }
 
-    /// <summary>The book the player is in (1, 2, 3 ...): the avatar gets a frame in the colour of its level. 0: no such frame.</summary>
+    /// <summary>The book the player is in (1, 2, 3 ...): the avatar gets the frame of that book (the frame of book 14 for the books above 14). 0: no such frame.</summary>
     [Parameter] public int Book { get; set; }
 
     [Inject] private JumboWeb.Services.AppLocalizer Loc { get; set; } = null!;
@@ -51,13 +52,13 @@ else
 
     private int CoinSize => Math.Max(14, (int)(Size * 0.42));
 
-    // the thickness of the coloured ring and of the clear gap between it and the picture grow with the size of the avatar
-    private int Ring => Math.Max(2, (int)Math.Round(Size * 0.075));
-    private int Gap => Math.Max(1, (int)Math.Round(Size * 0.035));
-    private int Inner => Math.Max(12, Size - 2 * (Ring + Gap));
+    // The ring of the frame files lies at 62..72 of 100 round the clear circle of 62: Size is the outer edge of the ring (72), so the box of the file is Size / 0.72
+    // and the picture of the avatar is 60 % of the box (a small clear gap to the ring). Up to 48 px the plain ring is used (the ornament would turn to mush).
+    private const int RingMax = 48;
+    private int Box => (int)Math.Round(Size / 0.72);
+    private int Inner => Math.Max(12, (int)Math.Round(Box * 0.60));
 
     private string Level => Jumbo.Shared.LanguageLevels.ForBook(Book);
-    private string LevelClass => Level.ToLowerInvariant();
 
     // "Book 3 · A1 · Silver" for the mouse and for a screen reader (the plan only where it is shown)
     private string Tip => Plan is null

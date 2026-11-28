@@ -8,6 +8,7 @@
 @inject LivesService Lives
 @inject NavigationManager Nav
 @inject AppLocalizer Loc
+@inject FrameAssets Frames
 
 @* "You got an award!": a window with confetti, a shining picture of the award and Jumbo cheering, with the buttons "Awards" and "Close".
    The server says which awards are new (each is told once). It is asked after a page is opened and when the LP of the learner grow (a won
@@ -26,7 +27,14 @@
             <div class="award-pop-title">@Loc["Award_New"]</div>
             <div class="award-pop-medal">
                 <span class="award-pop-glow" aria-hidden="true"></span>
-                <span class="award-pop-svg">@((MarkupString)_current.SvgImage)</span>
+                @if (!string.IsNullOrEmpty(_current.ImageUrl))
+                {
+                    <span class="award-pop-svg award-framed"><img src="@Frames.Versioned(_current.ImageUrl)" alt="" decoding="async" /></span>
+                }
+                else
+                {
+                    <span class="award-pop-svg">@((MarkupString)_current.SvgImage)</span>
+                }
                 <span class="award-pop-star s1" aria-hidden="true">✦</span>
                 <span class="award-pop-star s2" aria-hidden="true">✦</span>
                 <span class="award-pop-star s3" aria-hidden="true">✦</span>

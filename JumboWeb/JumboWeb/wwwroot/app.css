@@ -274,6 +274,8 @@ html, body {
 .award-card.not-achieved { filter: grayscale(1); opacity: 0.45; }
 .award-svg { width: 54px; height: 54px; margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; }
 .award-svg svg { width: 54px; height: 54px; }
+.award-svg.award-framed { width: 84px; height: 84px; margin-bottom: 4px; }
+.award-svg.award-framed img { width: 100%; height: 100%; display: block; }
 .award-title { font-size: 0.85rem; color: var(--lp-text); line-height: 1.35; }
 .market-price { font-size: 0.85rem; font-weight: 700; color: var(--lp-accent); margin-top: 5px; }
 .lp-badge {
