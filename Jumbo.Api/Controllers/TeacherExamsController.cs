@@ -162,7 +162,7 @@ public class TeacherExamsController(AppDbContext db, ICurrentUserService current
         var me = await GetMeAsync();
         if (me.SchoolId is null) return Conflict(new { error = "NO_SCHOOL" });
 
-        var classes = await MyClasses(me).OrderBy(c => c.IsArchived).ThenBy(c => c.Name).ToListAsync();
+        var classes = (await MyClasses(me).ToListAsync()).OrderBy(c => c.IsArchived).ThenBy(c => c.Name, Jumbo.Shared.TeamNames.Natural).ToList();
         var ids = classes.Select(c => c.ClassId).ToList();
 
         var pupils = await db.Users.AsNoTracking()

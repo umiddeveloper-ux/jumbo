@@ -26,10 +26,10 @@ public class DirectoryController(AppDbContext db) : ControllerBase
     [HttpGet("schools/{schoolId:int}/teams")]
     public async Task<ActionResult<List<TeamOptionDto>>> Teams(int schoolId)
     {
-        return await db.SchoolClasses.AsNoTracking()
+        var teams = await db.SchoolClasses.AsNoTracking()
             .Where(c => c.SchoolId == schoolId && !c.IsArchived)
-            .OrderBy(c => c.Name)
             .Select(c => new TeamOptionDto { ClassId = c.ClassId, Name = c.Name })
             .ToListAsync();
+        return teams.OrderBy(t => t.Name, Jumbo.Shared.TeamNames.Natural).ToList();   // 3A before 10A
     }
 }

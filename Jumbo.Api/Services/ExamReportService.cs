@@ -27,10 +27,9 @@ public class ExamReportService(AppDbContext db)
     {
         var period = MakePeriod(periodKey, today);
 
-        var classes = await db.SchoolClasses.AsNoTracking()
+        var classes = (await db.SchoolClasses.AsNoTracking()
             .Where(c => c.SchoolId == school.SchoolId && !c.IsArchived)
-            .OrderBy(c => c.Name)
-            .ToListAsync();
+            .ToListAsync()).OrderBy(c => c.Name, Jumbo.Shared.TeamNames.Natural).ToList();   // 3A before 10A
         var classIds = classes.Select(c => c.ClassId).ToList();
 
         var pupils = await db.Users.AsNoTracking()

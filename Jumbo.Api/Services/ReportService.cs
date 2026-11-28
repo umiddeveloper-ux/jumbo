@@ -78,10 +78,9 @@ public class ReportService(AppDbContext db)
 
     public async Task<SchoolReportDto> BuildSchoolAsync(School school, string? periodKey)
     {
-        var classes = await db.SchoolClasses.AsNoTracking()
+        var classes = (await db.SchoolClasses.AsNoTracking()
             .Where(c => c.SchoolId == school.SchoolId && !c.IsArchived)
-            .OrderBy(c => c.Name)
-            .ToListAsync();
+            .ToListAsync()).OrderBy(c => c.Name, Jumbo.Shared.TeamNames.Natural).ToList();   // 3A before 10A
         return await BuildTeamsAsync(school, classes, periodKey, withClassIds: false);
     }
 

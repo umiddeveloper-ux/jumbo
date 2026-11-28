@@ -28,7 +28,7 @@ public class TeacherController(AppDbContext db, ICurrentUserService currentUser,
 
         var q = VisibleClasses(me);
         if (!includeArchived) q = q.Where(c => !c.IsArchived);
-        var classes = await q.OrderBy(c => c.IsArchived).ThenBy(c => c.Name).ToListAsync();
+        var classes = (await q.ToListAsync()).OrderBy(c => c.IsArchived).ThenBy(c => c.Name, Jumbo.Shared.TeamNames.Natural).ToList();   // 3A before 10A
         return await stats.GetClassesAsync(classes);
     }
 
@@ -180,7 +180,7 @@ public class TeacherController(AppDbContext db, ICurrentUserService currentUser,
         var me = await GetMeAsync();
         if (me.SchoolId is null) return Conflict(new { error = "NO_SCHOOL" });
         var school = await db.Schools.AsNoTracking().SingleAsync(s => s.SchoolId == me.SchoolId);
-        var classes = await VisibleClasses(me).Where(c => !c.IsArchived).OrderBy(c => c.Name).ToListAsync();
+        var classes = (await VisibleClasses(me).Where(c => !c.IsArchived).ToListAsync()).OrderBy(c => c.Name, Jumbo.Shared.TeamNames.Natural).ToList();
         return await reports.BuildTeamsAsync(school, classes, period, withClassIds: true);
     }
 
