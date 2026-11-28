@@ -1,6 +1,7 @@
 using Jumbo.Api.Auth;
 using Jumbo.Api.Data;
 using Jumbo.Api.Services;
+using Jumbo.Shared;
 using Jumbo.Shared.Dtos;
 using Jumbo.Shared.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -163,6 +164,10 @@ public class ProgressController(AppDbContext db, ICurrentUserService currentUser
         }
 
         await db.SaveChangesAsync();
+
+        // The game is won: the place the learner had saved in it is not needed any more (he starts a new round next time).
+        if (GameProgressRules.KeyOfGameType(request.GameType) is { } savedKey)
+            await db.GameProgresses.Where(g => g.UserId == userId && g.Game == savedKey && g.SubjectId == subjectId).ExecuteDeleteAsync();
 
         // The LP for the win are given here (by the game, with the limits of LivesService): the clients do not send a number of LP.
         // The answer is the learner's numbers now.

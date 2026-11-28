@@ -43,6 +43,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<PlacementAttempt> PlacementAttempts => Set<PlacementAttempt>();
     public DbSet<PaymentOrder> PaymentOrders => Set<PaymentOrder>();
     public DbSet<PaymeTransaction> PaymeTransactions => Set<PaymeTransaction>();
+    public DbSet<GameProgress> GameProgresses => Set<GameProgress>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

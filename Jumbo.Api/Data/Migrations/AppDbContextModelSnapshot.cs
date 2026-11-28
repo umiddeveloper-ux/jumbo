@@ -400,6 +400,62 @@ namespace Jumbo.Api.Data.Migrations
                     b.ToTable("feedback_messages", (string)null);
                 });
 
+            modelBuilder.Entity("Jumbo.Shared.Entities.GameProgress", b =>
+                {
+                    b.Property<int>("GameProgressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("game_progress_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("GameProgressId"));
+
+                    b.Property<int>("Done")
+                        .HasColumnType("integer")
+                        .HasColumnName("done");
+
+                    b.Property<string>("Game")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)")
+                        .HasColumnName("game");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("state");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("integer")
+                        .HasColumnName("subject_id");
+
+                    b.Property<int>("Total")
+                        .HasColumnType("integer")
+                        .HasColumnName("total");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("updated_at");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("GameProgressId")
+                        .HasName("pk_game_progress");
+
+                    b.HasIndex("SubjectId")
+                        .HasDatabaseName("ix_game_progress_subject_id");
+
+                    b.HasIndex("UpdatedAt")
+                        .HasDatabaseName("ix_game_progress_updated_at");
+
+                    b.HasIndex("UserId", "Game", "SubjectId")
+                        .IsUnique()
+                        .HasDatabaseName("ix_game_progress_user_id_game_subject_id");
+
+                    b.ToTable("game_progress", (string)null);
+                });
+
             modelBuilder.Entity("Jumbo.Shared.Entities.JournalMark", b =>
                 {
                     b.Property<int>("UserId")
@@ -2006,6 +2062,23 @@ namespace Jumbo.Api.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_exam_results_users_user_id");
+                });
+
+            modelBuilder.Entity("Jumbo.Shared.Entities.GameProgress", b =>
+                {
+                    b.HasOne("Jumbo.Shared.Entities.Subject", null)
+                        .WithMany()
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_game_progress_subjects_subject_id");
+
+                    b.HasOne("Jumbo.Shared.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_game_progress_users_user_id");
                 });
 
             modelBuilder.Entity("Jumbo.Shared.Entities.JournalMark", b =>

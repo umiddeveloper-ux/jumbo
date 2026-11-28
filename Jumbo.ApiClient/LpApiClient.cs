@@ -896,6 +896,37 @@ public class LpApiClient(HttpClient http)
         catch { return null; }          // an older server answers with nothing
     }
 
+    // Saved games: the place a learner left a game at, so that he can go on at the next visit (the website now, the app later).
+    // `state` is the game's own JSON text (with a version "v"); done/total are what the badges show.
+    public async Task SaveGameProgressAsync(string game, int subjectId, string state, int done, int total)
+    {
+        var response = await http.PutAsJsonAsync("api/games/progress", new SaveGameProgressRequest { Game = game, SubjectId = subjectId, State = state, Done = done, Total = total });
+        response.EnsureSuccessStatusCode();
+    }
+
+    /// <summary>The saved game of one game in one topic, or null (none, older than two weeks, a visitor, a teacher, or an older server).</summary>
+    public async Task<GameProgressDto?> GetGameProgressAsync(string game, int subjectId)
+    {
+        using var response = await http.GetAsync($"api/games/progress?game={Uri.EscapeDataString(game)}&subjectId={subjectId}");
+        if (response.StatusCode is System.Net.HttpStatusCode.NoContent or System.Net.HttpStatusCode.NotFound or System.Net.HttpStatusCode.Unauthorized) return null;
+        response.EnsureSuccessStatusCode();
+        return await response.Content.ReadFromJsonAsync<GameProgressDto>();
+    }
+
+    /// <summary>All the learner's saved games without their state (for the badges), the newest first. Empty for a visitor or an older server.</summary>
+    public async Task<List<GameProgressSummaryDto>> GetUnfinishedGamesAsync()
+    {
+        using var response = await http.GetAsync("api/games/progress/unfinished");
+        if (!response.IsSuccessStatusCode) return [];
+        return await response.Content.ReadFromJsonAsync<List<GameProgressSummaryDto>>() ?? [];
+    }
+
+    public async Task DeleteGameProgressAsync(string game, int subjectId)
+    {
+        using var response = await http.DeleteAsync($"api/games/progress?game={Uri.EscapeDataString(game)}&subjectId={subjectId}");
+        response.EnsureSuccessStatusCode();
+    }
+
     // Lives and LP: the server counts them
     public async Task<LivesStateDto?> GetLivesAsync() => await http.GetFromJsonAsync<LivesStateDto>("api/lives");
 
