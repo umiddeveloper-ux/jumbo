@@ -66,6 +66,32 @@ const wings = (id, nominal, list, extra = {}) => list.map(([a, d, lf]) => {
 }).join('');
 const range = (a, b, step) => { const o = []; for (let v = a; step > 0 ? v <= b + 1e-6 : v >= b - 1e-6; v += step) o.push(v); return o; };
 
+// leaves along two branches that rise from the bottom of the ring up both sides (angles are for the right side, 180 = bottom, small = top; the left
+// side is the mirror image); tilt turns each leaf from "straight out" (0) toward "along the ring, pointing up" (-90); every tip is kept inside r = 96
+const branch = (id, len, angles, tilt, { r = 70, s = 1 } = {}) => angles.map(a => {
+  const k = Math.min(s, fit(a, r, a + tilt, len));
+  return put(id, a, r, { rot: tilt, s: k }) + put(id, mirror(a), r, { rot: -tilt, flip: true, s: k });
+}).join('');
+// the thin stems of grain / lavender sprays: an arc on each side at radius r from angle a1 (low) to a2 (high)
+const stem = (r, a1, a2, w = 1.7) => {
+  const [x1, y1] = polar(a1, r), [x2, y2] = polar(a2, r), [x3, y3] = polar(360 - a1, r), [x4, y4] = polar(360 - a2, r);
+  return `<path d="M${f(x1)} ${f(y1)}A${r} ${r} 0 0 0 ${f(x2)} ${f(y2)}M${f(x3)} ${f(y3)}A${r} ${r} 0 0 1 ${f(x4)} ${f(y4)}" fill="none" stroke="url(#gr)" stroke-width="${w}" stroke-linecap="round"/>`;
+};
+// a grain kernel: round at the base, pointed at the tip; a lavender bud: short and plump; a flame leaf: the tip curls outward
+const grainP = (l, w) => `M0 0C${f(w * 1.5)} 0 ${f(w * 1.3)} ${f(-l * .6)} 0 ${f(-l)}C${f(-w * 1.3)} ${f(-l * .6)} ${f(-w * 1.5)} 0 0 0Z`;
+const budP = (l, w) => `M0 0C${f(w * 1.6)} ${f(-l * .1)} ${f(w * 1.5)} ${f(-l * .85)} 0 ${f(-l)}C${f(-w * 1.5)} ${f(-l * .85)} ${f(-w * 1.6)} ${f(-l * .1)} 0 0Z`;
+// a leaf of fire: a broad leaf whose tip is swept a little outward, like a tongue of flame laid along the ring
+const curlFlame = (l, w) => `M0 0C${f(w * 1.5)} ${f(-l * .15)} ${f(w * 1.0)} ${f(-l * .7)} ${f(w * .55)} ${f(-l)}C${f(-w * .25)} ${f(-l * .78)} ${f(-w * 1.5)} ${f(-l * .3)} 0 0Z`;
+// a fern frond: a thin curved stem with pairs of small leaflets that get shorter toward the tip
+const frondDef = (id, l) => {
+  let d = `<g id="${id}"><path d="M0 0Q${f(l * .07)} ${f(-l * .5)} 0 ${f(-l)}" fill="none" stroke="url(#gr)" stroke-width="1.3" stroke-linecap="round"/>`;
+  for (let i = 0; i < 6; i++) {
+    const y = -l * (.13 + i * .125), ll = 11 - i * 1.3;
+    d += `<path transform="translate(0 ${f(y)}) rotate(-54)" d="${leaf(ll, ll * .34)}" fill="url(#gv)"/><path transform="translate(0 ${f(y)}) rotate(54)" d="${leaf(ll, ll * .34)}" fill="url(#g)"/>`;
+  }
+  return d + `<path transform="translate(0 ${f(-l)})" d="${leaf(8, 2.8)}" fill="url(#gv)"/></g>`;
+};
+
 // the ring: a thick gradient circle with an inner shadow, a bright outer edge and a highlight arc
 const ring = (g, w = 10, r = 67) => {
   const [hx1, hy1] = polar(-62, r), [hx2, hy2] = polar(-14, r);
@@ -95,135 +121,124 @@ const commonDefs = m => grad('g', M[m]) + grad('gv', M[m], 'v') + grad('gr', [..
 const gemGrads = names => names.map(n => grad('gm-' + n, GEM[n])).join('');
 
 const FRAMES = {
-  1() { // bronze: two laurel branches meeting under an open book
-    const L = 'L', defs = commonDefs('bronze') + `<g id="l"><path d="${leaf(21, 7.5)}" fill="url(#gv)"/><path d="M0-1V-17" stroke="#fff" stroke-opacity=".35" stroke-width=".8"/></g>`
+  1() { // bronze: two dense laurel branches (two layers of leaves, berries) meeting under an open book
+    const defs = commonDefs('bronze') + `<g id="l"><path d="${leaf(21, 7.5)}" fill="url(#gv)"/><path d="M0-1V-17" stroke="#fff" stroke-opacity=".35" stroke-width=".8"/></g>`
       + `<g id="b"><circle r="2.3" fill="url(#gr)"/></g>`
       + `<g id="book"><path d="M0-3C-7-7-15-7-20-4V10C-15 7-7 7 0 11Z" fill="url(#cream)" stroke="url(#g)" stroke-width="2" stroke-linejoin="round"/><path d="M0-3C7-7 15-7 20-4V10C15 7 7 7 0 11Z" fill="url(#cream)" stroke="url(#g)" stroke-width="2" stroke-linejoin="round"/><path d="M-15 0C-10-2-6-2-3 0M-15 4C-10 2-6 2-3 4M15 0C10-2 6-2 3 0M15 4C10 2 6 2 3 4" fill="none" stroke="#b79a5a" stroke-width=".9"/></g>`;
-    let body = '';
-    for (const a of range(165, 38, -13)) { body += put('l', a, 70, { rot: -38 }) + put('l', mirror(a), 70, { rot: 38, flip: true }); }
-    for (const a of range(158, 45, -13)) { body += put('b', a, 77) + put('b', mirror(a), 77); }
+    let body = branch('l', 21, range(170, 34, -9), -60, { r: 69, s: .94 }) + branch('l', 21, range(164, 40, -9), -30);
+    for (const a of range(158, 44, -9)) body += put('b', a, 77) + put('b', mirror(a), 77);
     body += ring('g') + at('book', 100, 168);
     return [defs, body];
   },
-  2() { // silver: long slim willow leaves and a star under the ring
+  2() { // silver: dense long slim willow leaves in two layers and a star under the ring
     const defs = commonDefs('silver') + `<g id="l"><path d="${leaf(28, 4.6)}" fill="url(#gv)"/><path d="M0-1V-24" stroke="#fff" stroke-opacity=".5" stroke-width=".7"/></g><g id="s"><path d="${star(12)}" fill="url(#g)" stroke="url(#gr)" stroke-width="1.2" stroke-linejoin="round"/><path d="${star(5, .5)}" fill="#fff" fill-opacity=".45"/></g>`;
-    let body = '';
-    for (const a of range(172, 28, -9)) { body += put('l', a, 70, { rot: -62 }) + put('l', mirror(a), 70, { rot: 62, flip: true }); }
-    for (const a of range(165, 45, -15)) { body += put('l', a, 70, { rot: -22, s: .62 }) + put('l', mirror(a), 70, { rot: 22, flip: true, s: .62 }); }
-    body += ring('g') + at('s', 100, 176);
+    const body = branch('l', 28, range(172, 28, -7), -62) + branch('l', 28, range(166, 44, -11), -22, { s: .62 }) + ring('g') + at('s', 100, 176);
     return [defs, body];
   },
-  3() { // gold: paired olive leaves, a three-point crown on top, a ribbon bow at the bottom
+  3() { // gold: dense paired olive leaves, a three-point crown on top, a ribbon bow at the bottom
     const defs = commonDefs('gold') + gemGrads(['ruby', 'sapphire']) + gemDefs('gr1', 'gm-ruby') + gemDefs('gs1', 'gm-sapphire')
       + `<g id="l"><path d="${leaf(20, 6.5)}" fill="url(#gv)"/><path d="M0-1V-16" stroke="#fff" stroke-opacity=".4" stroke-width=".7"/></g>`
       + `<g id="crown"><path d="${crownPath(40, 26)}" fill="url(#gv)" stroke="url(#gr)" stroke-width="1.6" stroke-linejoin="round"/><path d="M-20-4H20" stroke="#fff" stroke-opacity=".5" stroke-width="1.2"/><circle cx="-18.5" cy="-14" r="2.6" fill="url(#g)"/><circle cx="0" cy="-22" r="3" fill="url(#g)"/><circle cx="18.5" cy="-14" r="2.6" fill="url(#g)"/></g>`
       + `<g id="bow"><path d="M0 0C-8-9-20-9-22-2C-20 5-10 5 0 0ZM0 0C8-9 20-9 22-2C20 5 10 5 0 0Z" fill="url(#gv)" stroke="url(#gr)" stroke-width="1.3" stroke-linejoin="round"/><path d="M-3 2L-12 14L-6 12L-3 16ZM3 2L12 14L6 12L3 16Z" fill="url(#gr)"/><circle r="3.4" fill="url(#g)" stroke="url(#gr)" stroke-width="1"/></g>`;
-    let body = '';
-    for (const a of range(158, 70, -17)) {
-      body += put('l', a, 70, { rot: -52 }) + put('l', a, 70, { rot: -8 });
-      body += put('l', mirror(a), 70, { rot: 52, flip: true }) + put('l', mirror(a), 70, { rot: 8, flip: true });
-    }
-    body += ring('g') + at('bow', 100, 171) + at('crown', 100, 38) + at('gr1', 100, 24, { s: .8 }) + at('gs1', 88, 28, { s: .45 }) + at('gs1', 112, 28, { s: .45 });
+    const body = branch('l', 20, range(160, 56, -9), -54) + branch('l', 20, range(156, 58, -9), -12)
+      + ring('g') + at('bow', 100, 171) + at('crown', 100, 38) + at('gr1', 100, 24, { s: .8 }) + at('gs1', 88, 28, { s: .45 }) + at('gs1', 112, 28, { s: .45 });
     return [defs, body];
   },
-  4() { // emerald: a bed of green crystals under the ring, tallest at the bottom
-    const defs = commonDefs('emerald') + gemGrads(['emerald', 'diamond']) + gemDefs('ge', 'gm-diamond')
-      + `<g id="s1"><path d="${shard(22, 7.5)}" fill="url(#gv)"/><path d="M0 0L0-20M-4.5-2L-2-15" stroke="#fff" stroke-opacity=".35" stroke-width=".8"/></g>`
-      + `<g id="s2"><path d="${shard(26, 8)}" fill="url(#g)"/><path d="M0 0L0-23M-5-2L-2-17" stroke="#fff" stroke-opacity=".4" stroke-width=".8"/></g>`;
-    let body = '';
-    for (const a of range(70, 290, 18)) { const big = Math.abs(a - 180) < 28; body += put(big ? 's2' : 's1', a, 68, { s: big ? 1.1 : 1 }); }
-    body += ring('g') + at('ge', 100, 26, { s: .9 });
+  4() { // emerald: broad overlapping jade leaves (three layers, with veins) rising along both sides, a diamond on top, an emerald below
+    const defs = commonDefs('emerald') + gemGrads(['emerald', 'diamond']) + gemDefs('ge', 'gm-diamond') + gemDefs('gb', 'gm-emerald')
+      + `<g id="l"><path d="${leaf(24, 11.5)}" fill="url(#gv)"/><path d="M0 0C11.5-6 9.2-19.2 0-24Z" fill="#fff" fill-opacity=".17"/><path d="M0-1V-20M0-7L6.5-12M0-7L-6.5-12M0-13L5-17M0-13L-5-17" stroke="#fff" stroke-opacity=".42" stroke-width=".7" fill="none" stroke-linecap="round"/></g>`
+      + `<g id="d"><path d="${leaf(24, 11.5)}" fill="url(#gr)"/><path d="M0-1V-20" stroke="#fff" stroke-opacity=".25" stroke-width=".7"/></g>`;
+    const body = branch('d', 24, range(170, 34, -10), -66, { r: 69 }) + branch('l', 24, range(165, 36, -10), -44) + branch('l', 24, range(160, 40, -10), -20, { s: .7 })
+      + ring('g') + at('ge', 100, 25, { s: .95 }) + at('gb', 100, 174, { s: 1.1 });
     return [defs, body];
   },
-  5() { // sapphire: two clusters of blue crystals fanning out like wings, a diamond on top and a gem below
+  5() { // sapphire: slender faceted willow leaves in two layers sweeping up, a diamond on top, a gem below
     const defs = commonDefs('sapphire') + gemGrads(['diamond', 'sapphire']) + gemDefs('gd', 'gm-diamond') + gemDefs('gb', 'gm-sapphire')
-      + `<g id="s1"><path d="${shard(20, 6)}" fill="url(#gv)"/></g><g id="s2"><path d="${shard(27, 7.5)}" fill="url(#g)"/><path d="M0 0L0-23M-3.6-1L-1.6-16" stroke="#fff" stroke-opacity=".45" stroke-width=".8"/></g>`;
-    let body = '';
-    const fan = [[28, 's1', 0], [44, 's2', 0], [60, 's1', 0], [76, 's2', 0], [92, 's2', 0], [108, 's2', 0], [124, 's1', 0], [140, 's2', 0], [156, 's1', 0]];
-    for (const [a, id] of fan) { body += put(id, a, 68) + put(id, mirror(a), 68); }
-    body += ring('g') + at('gd', 100, 23, { s: 1.15 }) + at('gb', 100, 172, { s: 1.1 });
+      + `<g id="l"><path d="${leaf(30, 5.2)}" fill="url(#gv)"/><path d="M0 0C-5.2-7.5-4.2-24 0-30Z" fill="#0c2a74" fill-opacity=".3"/><path d="M0 0C5.2-7.5 4.2-24 0-30Z" fill="#fff" fill-opacity=".22"/><path d="M0-1V-26" stroke="#fff" stroke-opacity=".5" stroke-width=".6"/></g>`;
+    const body = branch('l', 30, range(172, 30, -7.5), -58) + branch('l', 30, range(166, 42, -10), -26, { s: .66 })
+      + ring('g') + at('gd', 100, 23, { s: 1.15 }) + at('gb', 100, 172, { s: 1.1 });
     return [defs, body];
   },
-  6() { // ruby: curved claws sweeping around, a heart-cut ruby at the bottom
+  6() { // ruby: ears of wheat: rows of teardrop kernels along two curved stems, a heart-cut ruby at the bottom
     const defs = commonDefs('ruby') + gemGrads(['ruby']) + gemDefs('gr1', 'gm-ruby')
-      + `<g id="c1"><path d="${claw(20, 3.8)}" fill="url(#gv)"/></g><g id="c2"><path d="${claw(28, 4.6)}" fill="url(#g)"/></g>`;
-    let body = '';
-    for (let i = 0; i < 9; i++) { const a = 10 + i * 19; body += put(i % 2 ? 'c1' : 'c2', a, 67) + put(i % 2 ? 'c1' : 'c2', mirror(a), 67, { flip: true }); }
-    body += ring('g') + at('gr1', 100, 172, { s: 1.5 }) + at('gr1', 100, 25, { s: .8 });
+      + `<g id="k"><path d="${grainP(18, 5.4)}" fill="url(#gv)"/><path d="M-1.8-3.5C-3-8-2.6-12-.7-15" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1" stroke-linecap="round"/></g>`
+      + `<g id="k2"><path d="${grainP(15, 4.7)}" fill="url(#g)"/><path d="M-1.5-3C-2.5-7-2.2-10-.6-12.5" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width=".8" stroke-linecap="round"/></g>`;
+    const body = stem(74, 168, 26) + branch('k2', 15, range(163, 30, -8.5), -80, { r: 70.5 }) + branch('k', 18, range(167, 34, -8.5), -42, { r: 73 })
+      + put('k', 24, 73, { rot: -24 }) + put('k', 336, 73, { rot: 24, flip: true })
+      + ring('g') + at('gr1', 100, 172, { s: 1.5 }) + at('gr1', 100, 25, { s: .8 });
     return [defs, body];
   },
-  7() { // platinum: pale swept wings and a star on top
+  7() { // platinum: pale swept wings (ten feathers a side) and a star on top
     const defs = commonDefs('platinum') + `<g id="f1"><path d="${feather(30, 8)}" fill="url(#gv)" stroke="url(#gr)" stroke-width=".8"/><path d="M0-1C1-12 1-22 .5-28" stroke="#fff" stroke-opacity=".6" stroke-width=".8" fill="none"/></g><g id="f2"><path d="${feather(40, 9.5)}" fill="url(#gv)" stroke="url(#gr)" stroke-width=".8"/><path d="M0-1C1-14 1-30 .5-37" stroke="#fff" stroke-opacity=".6" stroke-width=".8" fill="none"/></g>`
       + `<g id="f3"><path d="${feather(50, 11)}" fill="url(#gv)" stroke="url(#gr)" stroke-width=".8"/><path d="M0-2C1.5-18 1.5-36 .6-47" stroke="#fff" stroke-opacity=".65" stroke-width=".9" fill="none"/></g><g id="s"><path d="${star(11)}" fill="url(#g)" stroke="url(#gr)" stroke-width="1.2" stroke-linejoin="round"/><path d="${star(4.5, .5)}" fill="#fff" fill-opacity=".6"/></g>`;
     let body = '';
-    body += wings('f3', 50, [[116, 84, .8], [107, 70, .95], [98, 54, 1], [89, 40, 1], [80, 26, 1], [71, 13, .9], [62, 3, .75]]);
+    body += wings('f3', 50, [[118, 86, .8], [111, 76, .9], [104, 64, .97], [97, 52, 1], [90, 40, 1], [83, 28, 1], [76, 17, 1], [69, 8, .92], [62, 0, .8], [55, -8, .65]]);
     body += ring('g') + at('s', 100, 21, { s: 1.15 });
     return [defs, body];
   },
-  8() { // amethyst: sparse purple crystals and an orbit with a pearl
-    const defs = commonDefs('amethyst') + gemGrads(['amethyst', 'pearl']) + gemDefs('ga', 'gm-amethyst')
-      + `<g id="s1"><path d="${shard(17, 6)}" fill="url(#gv)"/></g><g id="s2"><path d="${shard(27, 8)}" fill="url(#g)"/><path d="M0 0L0-22" stroke="#fff" stroke-opacity=".4" stroke-width=".8"/></g>`
-      + `<radialGradient id="pe" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#c9a6f0"/></radialGradient>`
-      + `<mask id="mk"><rect width="200" height="200" fill="#fff"/><circle cx="100" cy="100" r="69" fill="#000"/></mask>`;
-    let body = '';
-    for (let i = 0; i < 8; i++) body += put(i % 2 ? 's1' : 's2', 22.5 + i * 45, 69);
-    body += `<g mask="url(#mk)" transform="rotate(-24 100 100)"><ellipse cx="100" cy="100" rx="89" ry="38" fill="none" stroke="url(#gv)" stroke-width="3"/><ellipse cx="100" cy="100" rx="89" ry="38" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width=".8"/><circle cx="189" cy="100" r="5.2" fill="url(#pe)"/><circle cx="11" cy="100" r="3.2" fill="url(#pe)"/></g>`;
-    body += ring('g') + at('ga', 100, 26, { s: 1.0 });
+  8() { // amethyst: lavender sprays: rows of plump violet buds along two curved stems, slim leaves behind, a gem on top and a pearl below
+    const defs = commonDefs('amethyst') + gemGrads(['amethyst', 'pearl']) + gemDefs('ga', 'gm-amethyst') + gemDefs('gp', 'gm-pearl')
+      + `<g id="b1"><path d="${budP(11, 3.8)}" fill="url(#gv)"/><path d="M-1.4-2.5C-2-5-1.8-7-.6-8.5" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width=".8" stroke-linecap="round"/></g>`
+      + `<g id="b2"><path d="${budP(10, 3.6)}" fill="url(#g)"/></g>`
+      + `<g id="sl"><path d="${leaf(26, 3.4)}" fill="url(#gr)"/><path d="M0-1V-21" stroke="#fff" stroke-opacity=".3" stroke-width=".6"/></g>`;
+    const body = branch('sl', 26, range(170, 34, -17), -70, { r: 68 }) + stem(73.5, 168, 28) + branch('b2', 10, range(165, 31, -7.4), -78, { r: 70.5 }) + branch('b1', 11, range(168, 34, -7.4), -42, { r: 72.5 })
+      + ring('g') + at('ga', 100, 26, { s: 1.05 }) + at('gp', 100, 173, { s: 1.0 });
     return [defs, body];
   },
-  9() { // flame: swirling tongues of fire, an ember ring
+  9() { // flame: leaf-shaped flames whose tips curl outward, rising along both sides, a crest of flame on top, an ember ring
     const defs = grad('g', ['#ffd58a', '#ff8a1f', '#c1200a', '#5a0d05']) + grad('gv', M.flame, 'v') + grad('gr', [...M.flame].reverse()) + grad('in', ['#ffffff', '#fff3ae', '#ffcf3a', '#ffa000'], 'v') + grad('gold', M.gold)
-      + `<g id="t1"><path d="${flame(24, 7)}" fill="url(#gv)"/><path d="${flame(14, 3.6)}" fill="url(#in)"/></g><g id="t2"><path d="${flame(36, 9.5)}" fill="url(#gv)"/><path d="${flame(21, 5)}" fill="url(#in)"/></g>`;
-    let body = '';
-    for (let i = 0; i < 20; i++) { const a = i * 18, up = Math.max(0, Math.cos(a * Math.PI / 180)), len = 14 + 17 * up, big = i % 2 === 0, lean = a === 0 ? 0 : a < 180 ? -13 : a === 180 ? 0 : 13; body += put(big ? 't2' : 't1', a, 66, { rot: lean, s: len / (big ? 36 : 24) * (big ? 1 : 1.1) }); }
-    body += ring('g');
+      + `<g id="t2"><path d="${curlFlame(33, 9.5)}" fill="url(#g)"/><path d="${curlFlame(25, 6)}" fill="url(#gv)"/><path d="${curlFlame(14, 3)}" fill="url(#in)"/></g>`
+      + `<g id="t1"><path d="${curlFlame(22, 7)}" fill="url(#g)"/><path d="${curlFlame(16, 4.4)}" fill="url(#gv)"/><path d="${curlFlame(9, 2.2)}" fill="url(#in)"/></g>`
+      + `<g id="fl"><path d="${flame(38, 12)}" fill="url(#g)"/><path d="${flame(29, 8)}" fill="url(#gv)"/><path d="${flame(17, 4.4)}" fill="url(#in)"/></g>`;
+    const body = branch('t2', 33, range(170, 34, -9.5), -66, { r: 70 }) + branch('t1', 22, range(164, 40, -9.5), -34, { r: 71 })
+      + put('fl', 0, 70, { s: 1 }) + put('t1', 17, 71, { rot: -22 }) + put('t1', 343, 71, { rot: 22, flip: true })
+      + ring('g');
     return [defs, body];
   },
-  10() { // diamond: a fine ice crown of thin shards, sparkles, a snowflake on top
-    const defs = commonDefs('diamond') + `<g id="s1"><path d="${shard(13, 3.8)}" fill="url(#gv)"/></g><g id="s2"><path d="${shard(22, 4.8)}" fill="url(#g)"/><path d="M0 0L0-18" stroke="#fff" stroke-opacity=".7" stroke-width=".7"/></g><g id="sp"><path d="${sparkle(7)}" fill="#fff"/></g>`
+  10() { // diamond: ice-blue fern fronds of frost leaves in two layers, sparkles, a snowflake on top
+    const defs = commonDefs('diamond') + frondDef('fa', 28) + frondDef('fb', 19) + `<g id="sp"><path d="${sparkle(7)}" fill="#fff"/></g>`
       + `<g id="sn"><circle r="10" fill="url(#g)" stroke="url(#gr)" stroke-width="1.3"/><path d="M0-8V8M-7-4L7 4M-7 4L7-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle r="2" fill="#fff"/></g>`;
-    let body = '';
-    for (let i = 0; i < 28; i++) body += put(i % 2 ? 's1' : 's2', i * (360 / 28), 70.5);
-    body += ring('g') + at('sn', 100, 22) + put('sp', 40, 86, { rot: -40 }) + put('sp', 150, 88, { rot: -150, s: .8 }) + put('sp', 250, 85, { rot: -250, s: .7 });
+    const body = branch('fa', 28, range(172, 28, -11), -52) + branch('fb', 19, range(166, 40, -11), -24)
+      + ring('g') + at('sn', 100, 22) + put('sp', 40, 88, { rot: -40 }) + put('sp', 150, 90, { rot: -150, s: .8 }) + put('sp', 250, 87, { rot: -250, s: .7 });
     return [defs, body];
   },
-  11() { // crystal: a two-layer cluster of violet shards, a gem at the bottom
+  11() { // crystal: lilac feathery plumes in two layers wrapped almost all around, a gem at the bottom and a small one on top
     const defs = commonDefs('crystal') + grad('gd2', ['#b9a3f2', '#7a56d6', '#4b2c9d', '#2a1668'], 'v') + gemGrads(['amethyst']) + gemDefs('gg', 'gm-amethyst')
-      + `<g id="b"><path d="${shard(27, 8.4)}" fill="url(#gd2)"/></g><g id="fr"><path d="${shard(22, 6.8)}" fill="url(#gv)"/><path d="M0 0L0-18M-3.5-1L-1.6-12" stroke="#fff" stroke-opacity=".45" stroke-width=".7"/></g>`;
-    let body = '';
-    for (let i = 0; i < 12; i++) body += put('b', i * 30, 69);
-    for (let i = 0; i < 12; i++) body += put('fr', 15 + i * 30, 71);
-    body += ring('g') + at('gg', 100, 173, { s: 1.4 });
+      + `<g id="p1"><path d="${feather(30, 9)}" fill="url(#gd2)"/><path d="M0-2C2-12 2-22 1-28" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width=".8"/></g>`
+      + `<g id="p2"><path d="${feather(22, 7)}" fill="url(#gv)"/><path d="M0-2C1.5-9 1.5-16 .8-20" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width=".7"/></g>`;
+    const body = branch('p1', 30, range(172, 18, -8), -52) + branch('p2', 22, range(167, 24, -8.5), -28)
+      + ring('g') + at('gg', 100, 173, { s: 1.4 }) + at('gg', 100, 24, { s: .8 });
     return [defs, body];
   },
-  12() { // phoenix: gold-and-orange wings rising, a crest of flame, small tail flames
+  12() { // phoenix: gold-and-orange wings rising (ten feathers a side), a crest of flame, small tail flames
     const defs = grad('g', M.phoenix) + grad('gv', M.phoenix, 'v') + grad('gr', [...M.phoenix].reverse()) + grad('fl', ['#fff3b8', '#ffc83a', '#ff6a00', '#c1200a'], 'v') + grad('gold', M.gold)
       + `<g id="f1"><path d="${feather(32, 8.5)}" fill="url(#gv)" stroke="url(#gr)" stroke-width=".8"/></g><g id="f2"><path d="${feather(54, 12)}" fill="url(#gv)" stroke="url(#gr)" stroke-width=".8"/><path d="M0-34C1.5-38 1.5-45 .6-52" stroke="#d6420f" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>`
       + `<g id="fl"><path d="${flame(30, 8)}" fill="url(#fl)"/></g><g id="fs"><path d="${flame(16, 5)}" fill="url(#fl)"/></g>`;
     let body = '';
-    body += wings('f2', 54, [[120, 98, .8], [111, 82, .95], [102, 66, 1], [93, 50, 1], [84, 34, 1], [75, 20, .95], [66, 8, .8]]);
+    body += wings('f2', 54, [[120, 98, .8], [113, 88, .92], [106, 76, 1], [99, 64, 1], [92, 52, 1], [85, 40, 1], [78, 28, 1], [71, 17, .95], [64, 8, .85], [57, 0, .7]]);
     body += put('fs', 150, 68, { rot: 25 }) + put('fs', 210, 68, { rot: -25, flip: true }) + put('fs', 180, 68);
     body += ring('g') + put('fl', 0, 66, { s: .95 }) + put('fl', -24, 66, { s: .7, rot: -10 }) + put('fl', 24, 66, { s: .7, rot: 10 });
     return [defs, body];
   },
-  13() { // royal: a jewelled crown over a ring of pearls and a ribbon
+  13() { // royal: a jewelled crown over a dense ring of pearls and small gold leaves, and a ribbon
     const defs = commonDefs('gold') + gemGrads(['ruby', 'sapphire', 'emerald', 'pearl']) + gemDefs('gr1', 'gm-ruby') + gemDefs('gs1', 'gm-sapphire') + gemDefs('ge1', 'gm-emerald')
       + `<radialGradient id="pe" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#d8cfc7"/></radialGradient><g id="p"><circle r="3.6" fill="url(#pe)" stroke="url(#gr)" stroke-width=".8"/></g>`
+      + `<g id="lf"><path d="${leaf(14, 4.8)}" fill="url(#gv)"/><path d="M0-1V-11" stroke="#fff" stroke-opacity=".4" stroke-width=".6"/></g>`
       + `<g id="crown"><path d="${bigCrown(50, 34)}" fill="url(#gv)" stroke="url(#gr)" stroke-width="1.7" stroke-linejoin="round"/><path d="M-25-5H25" stroke="#fff" stroke-opacity=".5" stroke-width="1.3"/><circle cx="-15" cy="-30" r="2.8" fill="url(#pe)"/><circle cx="0" cy="-35" r="3.3" fill="url(#pe)"/><circle cx="15" cy="-30" r="2.8" fill="url(#pe)"/></g>`
       + `<g id="rib"><path d="M-30-3C-18 6-8 6 0 3C8 6 18 6 30-3L26 10C16 15 8 14 0 11C-8 14-16 15-26 10Z" fill="url(#gv)" stroke="url(#gr)" stroke-width="1.2" stroke-linejoin="round"/></g>`;
-    let body = '';
-    for (let i = 0; i < 12; i++) { const a = i * 30; if (Math.abs(((a + 180) % 360) - 180) < 40) continue; body += put('p', a, 76); }
+    let body = branch('lf', 14, range(152, 50, -11), -58, { r: 70 });
+    for (let i = 0; i < 24; i++) { const a = i * 15; if (Math.abs(((a + 180) % 360) - 180) < 32) continue; body += put('p', a, 76); }
     body += ring('g') + at('rib', 100, 174) + at('gr1', 100, 174, { s: .9 }) + at('crown', 100, 39)
       + at('gs1', 90, 25, { s: .5 }) + at('gr1', 100, 18, { s: .65 }) + at('gs1', 110, 25, { s: .5 })
       + put('ge1', 90, 67, { s: .75 }) + put('ge1', 270, 67, { s: .75 });
     return [defs, body];
   },
-  14() { // Jumbo Legend: big purple-and-gold wings, a crown, gems on the ring, stars
+  14() { // Jumbo Legend: big purple-and-gold wings (eleven feathers a side), a crown, gems on the ring, stars
     const defs = commonDefs('legend') + gemGrads(['amethyst', 'ruby', 'diamond']) + gemDefs('ga', 'gm-amethyst') + gemDefs('gr1', 'gm-ruby') + gemDefs('gd', 'gm-diamond')
       + `<g id="f1"><path d="${feather(34, 9)}" fill="url(#gv)" stroke="url(#gold)" stroke-width="1.1"/></g><g id="f2"><path d="${feather(58, 12.5)}" fill="url(#gv)" stroke="url(#gold)" stroke-width="1.1"/><path d="M0-3C1.5-20 1.5-40 .6-54" stroke="#fff" stroke-opacity=".5" stroke-width="1" fill="none"/></g>`
       + `<g id="crown"><path d="${bigCrown(44, 30)}" fill="url(#gold)" stroke="#8a5a00" stroke-width="1.4" stroke-linejoin="round"/><path d="M-22-4H22" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/></g><g id="sp"><path d="${sparkle(8)}" fill="#fff"/></g><g id="st"><path d="${star(6)}" fill="#fff" stroke="url(#gold)" stroke-width="1"/></g>`;
     let body = '';
-    body += wings('f2', 58, [[122, 100, .8], [113, 86, .95], [104, 70, 1], [95, 55, 1], [86, 40, 1], [77, 26, 1], [68, 13, .9], [59, 3, .75]]);
+    body += wings('f2', 58, [[122, 100, .8], [115, 90, .92], [108, 78, 1], [101, 66, 1], [94, 54, 1], [87, 42, 1], [80, 30, 1], [73, 19, 1], [66, 9, .92], [59, 1, .8], [52, -6, .65]]);
     body += ring('g') + at('crown', 100, 38) + at('gr1', 100, 22, { s: .7 }) + at('ga', 88, 29, { s: .45 }) + at('ga', 112, 29, { s: .45 })
       + put('gd', 90, 67, { s: .8 }) + put('gd', 270, 67, { s: .8 }) + put('ga', 180, 67, { s: .9 })
       + put('sp', 22, 90, { rot: -22, s: .8 }) + put('sp', 338, 90, { rot: 22, s: .8 });
