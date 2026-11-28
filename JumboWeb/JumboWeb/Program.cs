@@ -114,7 +114,7 @@ app.MapLegalPages();     // /privacy and /delete-account: plain HTML, open to ev
 // The school report pages behind the secret links (/r/<token>, /r/<token>/exams) show a school's figures and pupil names: never indexed.
 app.Use(async (context, next) =>
 {
-    if (context.Request.Path.StartsWithSegments("/r")) context.Response.Headers["X-Robots-Tag"] = "noindex, nofollow";
+    if (context.Request.Path.StartsWithSegments("/r") || context.Request.Path.StartsWithSegments("/frames-preview")) context.Response.Headers["X-Robots-Tag"] = "noindex, nofollow";
     await next();
 });
 
@@ -130,6 +130,7 @@ app.MapGet("/robots.txt", (HttpContext context) =>
         "Disallow: /admin\n" +
         "Disallow: /teacher\n" +
         "Disallow: /r/\n" +
+        "Disallow: /frames-preview/\n" +
         // /privacy and /delete-account are NOT blocked here on purpose: a robot must be able to read their "noindex" to drop them
         "\n" +
         "Sitemap: https://jumbo.uz/sitemap.xml\n", "text/plain; charset=utf-8");
