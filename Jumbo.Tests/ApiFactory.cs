@@ -48,14 +48,14 @@ public class ApiFactory : WebApplicationFactory<Program>
     }
 
     // A new learner (a unique login) and the client that speaks as him.
-    public async Task<(HttpClient client, int userId, string login, string password)> NewUserAsync(UserRole role = UserRole.Learner)
+    public async Task<(HttpClient client, int userId, string login, string password)> NewUserAsync(UserRole role = UserRole.Learner, int studyLanguageId = 1)
     {
         var login = "t" + Guid.NewGuid().ToString("N")[..12];
         const string password = "secret-123";
         var anon = CreateClient();
         var response = await anon.PostAsJsonAsync("/api/users/register", new RegisterUserRequest
         {
-            FirstName = "Test", LastName = "User", AppLanguageId = 1, StudyLanguageId = 1, TranslationLanguageId = 3,
+            FirstName = "Test", LastName = "User", AppLanguageId = 1, StudyLanguageId = studyLanguageId, TranslationLanguageId = 3,
             Username = login, Password = password,
         });
         response.EnsureSuccessStatusCode();

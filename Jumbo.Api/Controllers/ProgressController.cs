@@ -102,29 +102,21 @@ public class ProgressController(AppDbContext db, ICurrentUserService currentUser
     public async Task<ActionResult<int>> CurrentBook()
     {
         var userId = (await currentUser.GetUserIdAsync())!.Value;
-        var open = await UnlockedAsync(userId);
-
-        var topics = await db.Subjects.AsNoTracking()
-            .Where(s => open.Contains(s.BookId))
-            .OrderBy(s => s.BookId).ThenBy(s => s.SequenceNumber)
-            .Select(s => new { s.SubjectId, s.BookId })
-            .ToListAsync();
-        var won = (await db.UserSubjectProgresses.AsNoTracking()
-            .Where(p => p.UserId == userId && p.FindMeWon && p.ListenWon && (p.PhraseWon || (p.SequenceWon && p.StepsWon)))
-            .Select(p => p.SubjectId).ToListAsync()).ToHashSet();
-
-        var next = topics.FirstOrDefault(t => !won.Contains(t.SubjectId));
-        return next?.BookId ?? open.Max();
+        return await BookProgress.CurrentBookAsync(db, userId);
     }
 
-    private async Task<List<int>> UnlockedAsync(int userId)
+    // The numbers of the "welcome back" dialog (language, percent of the course, the book the learner is in). 204 for a teacher, a director and the admin.
+    [HttpGet("summary")]
+    public async Task<ActionResult<LearningSummaryDto>> Summary([FromServices] LearningSummaryService summary)
     {
-        var open = (await db.UserBookUnlocks.AsNoTracking().Where(u => u.UserId == userId).Select(u => u.BookNumber).ToListAsync()).ToHashSet();
-        var played = await StudentProgress.CurrentBooksAsync(db, [userId]);
-        var upTo = played.TryGetValue(userId, out var current) ? current : 1;
-        for (var b = 1; b <= Math.Max(1, upTo); b++) open.Add(b);
-        return open.OrderBy(b => b).ToList();
+        var userId = (await currentUser.GetUserIdAsync())!.Value;
+        var result = await summary.BuildAsync(userId);
+        if (result is null) return NoContent();
+        Response.Headers.CacheControl = "no-store";
+        return result;
     }
+
+    private Task<List<int>> UnlockedAsync(int userId) => BookProgress.UnlockedAsync(db, userId);
 
     [HttpGet("subjects")]
     public async Task<ActionResult<List<UserSubjectProgress>>> GetSubjects()

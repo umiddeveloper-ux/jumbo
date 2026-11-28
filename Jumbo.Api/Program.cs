@@ -23,6 +23,7 @@ builder.Services.AddScoped<Jumbo.Api.Services.LivesService>();      // lives and
 builder.Services.AddScoped<RatingService>();
 builder.Services.AddScoped<AwardService>();
 builder.Services.AddScoped<ClassStatsService>();
+builder.Services.AddScoped<LearningSummaryService>();   // the numbers of the welcome-back dialog
 builder.Services.AddScoped<ReportService>();
 builder.Services.AddScoped<ExamReportService>();
 builder.Services.AddMemoryCache();

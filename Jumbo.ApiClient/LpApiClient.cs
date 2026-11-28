@@ -493,6 +493,20 @@ public class LpApiClient(HttpClient http)
         return await response.Content.ReadFromJsonAsync<User>();
     }
 
+    /// <summary>The numbers of the welcome-back dialog (language, percent of the course, current book), or null (a visitor, a teacher, an older server, a failure).</summary>
+    public async Task<LearningSummaryDto?> GetLearningSummaryAsync()
+    {
+        try
+        {
+            using var response = await http.GetAsync("api/progress/summary");
+            if (response.StatusCode is System.Net.HttpStatusCode.NoContent or System.Net.HttpStatusCode.NotFound or System.Net.HttpStatusCode.Unauthorized) return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<LearningSummaryDto>();
+        }
+        catch (HttpRequestException) { return null; }
+        catch (System.Text.Json.JsonException) { return null; }
+    }
+
     // Progress
     public async Task<List<UsersWord>> GetUserWordsAsync() =>
         await http.GetFromJsonAsync<List<UsersWord>>("api/progress/words") ?? [];
