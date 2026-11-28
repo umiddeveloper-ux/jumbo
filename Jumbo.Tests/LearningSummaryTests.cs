@@ -41,6 +41,7 @@ public class LearningPercentTests
 
 // GET api/progress/summary: the numbers behind the welcome-back dialog. The test database has no books of its own, so the tests make their
 // topics in book 1 and the words in Turkish (language 4, which no other test fills) where an exact number is checked.
+[Collection("subjects")]
 public class LearningSummaryApiTests(ApiFactory api) : IClassFixture<ApiFactory>
 {
     private const int Turkish = 4;

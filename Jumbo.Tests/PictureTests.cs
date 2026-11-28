@@ -54,6 +54,7 @@ public class PictureFilesTests
     }
 }
 
+[Collection("subjects")]
 public class PictureApiTests(ApiFactory api) : IClassFixture<ApiFactory>
 {
     private static string Svg(byte[] photo) =>

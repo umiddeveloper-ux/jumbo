@@ -11,6 +11,7 @@ namespace Jumbo.Tests;
 
 // The leaderboard entries carry the book the player is in and the version in force (the site draws the frame of the avatar in the colour of the
 // book and the star of the version from them). Old fields and the order are unchanged.
+[Collection("subjects")]
 public class RatingFrameTests(ApiFactory api) : IClassFixture<ApiFactory>
 {
     private record Seeded(HttpClient Client, int UserId, string Name);

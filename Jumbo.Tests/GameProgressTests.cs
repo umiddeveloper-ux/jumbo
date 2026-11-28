@@ -70,6 +70,7 @@ public class GameProgressRulesTests
 }
 
 // The games a learner left half way are kept on the server (one saved game per learner, game and topic) so that he can go on at the next visit.
+[Collection("subjects")]
 public class GameProgressApiTests(ApiFactory api) : IClassFixture<ApiFactory>
 {
     private async Task<int> NewTopicAsync()
