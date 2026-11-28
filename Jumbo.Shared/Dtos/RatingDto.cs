@@ -40,5 +40,10 @@ public class RatingEntryDto
 
     public int Words { get; set; }
 
+    // The book the player is in now (0 = not known / hidden) and the version in force (bronze / silver / gold; null = not known / hidden):
+    // the site draws the frame of the avatar in the colour of the book and a star for the version.
+    public int CurrentBook { get; set; }
+    public string? Plan { get; set; }
+
     public bool IsMe { get; set; }
 }

@@ -1,4 +1,5 @@
 using Jumbo.Api.Data;
+using Jumbo.Shared;
 using Jumbo.Shared.Dtos;
 using Jumbo.Shared.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -63,7 +64,7 @@ public class RatingService(AppDbContext db)
             .Where(u => shown.Contains(u.UserId))
             .Select(u => new
             {
-                u.UserId, u.FirstName, u.LastName, u.Team, u.HideName, u.FrameKey, u.BadgeKey,
+                u.UserId, u.FirstName, u.LastName, u.Team, u.HideName, u.FrameKey, u.BadgeKey, u.Plan, u.PlanUntil, u.Role,
                 // Preset avatars are small inline <svg>; uploaded photos (data: URLs) are never exposed.
                 Avatar = u.AvatarSvg != null && u.AvatarSvg.StartsWith("<svg") ? u.AvatarSvg : null
             })
@@ -78,6 +79,10 @@ public class RatingService(AppDbContext db)
                      join sv in db.SvgImages.AsNoTracking() on mk.SvgImageId equals sv.SvgImageId
                      select new { mk.Key, sv.SVG }).ToDictionaryAsync(x => x.Key, x => x.SVG);
 
+        // the book each of them is in (one rule with the home page, a few queries for all) and the version in force
+        var books = await BookProgress.CurrentBooksAsync(db, shown);
+        var now = DateTime.UtcNow;
+
         RatingEntryDto Entry(int userId)
         {
             var u = info[userId];
@@ -90,6 +95,9 @@ public class RatingService(AppDbContext db)
                 FrameKey = u.HideName ? null : u.FrameKey,
                 BadgeSvg = u.HideName || u.BadgeKey is null ? null : badges.GetValueOrDefault(u.BadgeKey),
                 Words = points[userId],
+                // the frame of the avatar and the star of the version: for learners only, never for a hidden name
+                CurrentBook = u.HideName || u.Role != UserRole.Learner ? 0 : books.GetValueOrDefault(userId),
+                Plan = u.HideName || u.Role != UserRole.Learner ? null : Plans.Effective(u.Plan, u.PlanUntil, now),
                 IsMe = userId == meId
             };
         }
@@ -131,9 +139,12 @@ public class RatingService(AppDbContext db)
             .Select(u => new
             {
                 u.UserId, u.FirstName, u.LastName, u.Team,
+                u.Plan, u.PlanUntil, u.Role,
                 Avatar = u.AvatarSvg != null && u.AvatarSvg.StartsWith("<svg") ? u.AvatarSvg : null
             })
             .ToListAsync();
+        var books = await BookProgress.CurrentBooksAsync(db, pupilIds);
+        var now = DateTime.UtcNow;
 
         var ordered = pupils
             .Select(u => (User: u, Words: points.GetValueOrDefault(u.UserId)))
@@ -152,7 +163,9 @@ public class RatingService(AppDbContext db)
                 Name = $"{u.FirstName} {u.LastName}".Trim(),
                 Team = string.IsNullOrWhiteSpace(u.Team) ? null : u.Team,
                 AvatarSvg = u.Avatar,
-                Words = words
+                Words = words,
+                CurrentBook = u.Role == UserRole.Learner ? books.GetValueOrDefault(u.UserId) : 0,
+                Plan = u.Role == UserRole.Learner ? Plans.Effective(u.Plan, u.PlanUntil, now) : null
             });
         }
         result.Entries = entries;

@@ -19,20 +19,33 @@ public static class BookProgress
     }
 
     // The book the learner is in: the first open book that still has a topic with a game not won (the last open one when all are won).
-    public static async Task<int> CurrentBookAsync(AppDbContext db, int userId)
+    public static async Task<int> CurrentBookAsync(AppDbContext db, int userId) => (await CurrentBooksAsync(db, [userId]))[userId];
+
+    // The same for many learners at once (the leaderboard): a fixed number of queries, whatever the number of learners. One rule for both.
+    public static async Task<Dictionary<int, int>> CurrentBooksAsync(AppDbContext db, IReadOnlyCollection<int> userIds)
     {
-        var open = await UnlockedAsync(db, userId);
+        var result = new Dictionary<int, int>();
+        if (userIds.Count == 0) return result;
 
-        var topics = await db.Subjects.AsNoTracking()
-            .Where(s => open.Contains(s.BookId))
-            .OrderBy(s => s.BookId).ThenBy(s => s.SequenceNumber)
-            .Select(s => new { s.SubjectId, s.BookId })
-            .ToListAsync();
-        var won = (await db.UserSubjectProgresses.AsNoTracking()
-            .Where(p => p.UserId == userId && p.FindMeWon && p.ListenWon && (p.PhraseWon || (p.SequenceWon && p.StepsWon)))
-            .Select(p => p.SubjectId).ToListAsync()).ToHashSet();
+        var unlocks = (await db.UserBookUnlocks.AsNoTracking().Where(u => userIds.Contains(u.UserId))
+            .Select(u => new { u.UserId, u.BookNumber }).ToListAsync()).ToLookup(u => u.UserId, u => u.BookNumber);
+        var played = await StudentProgress.CurrentBooksAsync(db, userIds);
+        var topics = await db.Subjects.AsNoTracking().OrderBy(s => s.BookId).ThenBy(s => s.SequenceNumber)
+            .Select(s => new { s.SubjectId, s.BookId }).ToListAsync();
+        var wonRows = (await db.UserSubjectProgresses.AsNoTracking()
+            .Where(p => userIds.Contains(p.UserId) && p.FindMeWon && p.ListenWon && (p.PhraseWon || (p.SequenceWon && p.StepsWon)))
+            .Select(p => new { p.UserId, p.SubjectId }).ToListAsync()).ToLookup(p => p.UserId, p => p.SubjectId);
 
-        var next = topics.FirstOrDefault(t => !won.Contains(t.SubjectId));
-        return next?.BookId ?? open.Max();
+        foreach (var userId in userIds.Distinct())
+        {
+            var open = unlocks[userId].ToHashSet();
+            var upTo = played.TryGetValue(userId, out var current) ? current : 1;
+            for (var b = 1; b <= Math.Max(1, upTo); b++) open.Add(b);
+
+            var won = wonRows[userId].ToHashSet();
+            var next = topics.FirstOrDefault(t => open.Contains(t.BookId) && !won.Contains(t.SubjectId));
+            result[userId] = next?.BookId ?? open.Max();
+        }
+        return result;
     }
 }
