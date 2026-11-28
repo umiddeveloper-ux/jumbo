@@ -2082,6 +2082,21 @@
   <data name="XR_LinkOpen" xml:space="preserve">
     <value>Открыть отчёт по экзаменам</value>
   </data>
+  <data name="GP_ResumeTitle" xml:space="preserve">
+    <value>Продолжить игру?</value>
+  </data>
+  <data name="GP_ResumeSub" xml:space="preserve">
+    <value>Вы остановились на {0} из {1}.</value>
+  </data>
+  <data name="GP_Continue" xml:space="preserve">
+    <value>Продолжить</value>
+  </data>
+  <data name="GP_StartOver" xml:space="preserve">
+    <value>Начать заново</value>
+  </data>
+  <data name="GP_Badge" xml:space="preserve">
+    <value>Остановились на {0} из {1}</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>

@@ -1356,3 +1356,18 @@ input[type="checkbox"], input[type="radio"], input[type="range"], progress { acc
 .pm-return .lp-btn { display: flex; justify-content: center; width: 100%; max-width: 320px; margin: 8px auto 0; text-decoration: none; }
 .pm-spin { display: inline-block; width: 34px; height: 34px; border-radius: 50%; border: 4px solid var(--lp-border); border-top-color: var(--lp-primary); animation: pm-rot 0.9s linear infinite; margin: 8px 0; }
 @keyframes pm-rot { to { transform: rotate(360deg); } }
+
+/* ----- unfinished games: the "continue?" card and the progress chips ----- */
+.gp-resume .gp-bar { width: 100%; height: 10px; border-radius: 999px; background: var(--lp-border); overflow: hidden; margin: 0 0 16px; }
+.gp-resume .gp-bar span { display: block; height: 100%; border-radius: inherit; background: var(--lp-primary); transition: width 0.3s ease; }
+/* on the card of a game of the topic (the rows of the topic page) */
+.gp-chip { position: absolute; top: 50%; right: 14px; transform: translateY(-50%); min-width: 52px; height: 30px; padding: 0 10px; border-radius: 999px;
+           display: inline-flex; align-items: center; justify-content: center; gap: 4px; font-size: 0.82rem; font-weight: 900; line-height: 1;
+           color: var(--lp-primary-text); background: var(--lp-primary-soft); border: 2px solid var(--lp-primary); white-space: nowrap; }
+.gp-chip::before { content: "▶"; font-size: 0.62rem; }
+.lesson-card { position: relative; }
+/* on the card of a topic (the Games page) */
+.subject-card { position: relative; }
+.gp-chip.gp-corner { top: 6px; right: 6px; transform: none; min-width: 0; height: 24px; padding: 0 8px; font-size: 0.74rem; }
+/* on the marker of a topic on the way through a book */
+.gp-chip.gp-node { top: auto; bottom: -4px; right: -10px; transform: none; min-width: 0; height: 22px; padding: 0 7px; font-size: 0.72rem; background: var(--lp-surface); pointer-events: none; z-index: 3; }

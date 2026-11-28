@@ -2082,6 +2082,21 @@
   <data name="XR_LinkOpen" xml:space="preserve">
     <value>Sınav raporunu aç</value>
   </data>
+  <data name="GP_ResumeTitle" xml:space="preserve">
+    <value>Oyuna devam edelim mi?</value>
+  </data>
+  <data name="GP_ResumeSub" xml:space="preserve">
+    <value>{1} içinde {0}. adımda kaldınız.</value>
+  </data>
+  <data name="GP_Continue" xml:space="preserve">
+    <value>Devam et</value>
+  </data>
+  <data name="GP_StartOver" xml:space="preserve">
+    <value>Baştan başla</value>
+  </data>
+  <data name="GP_Badge" xml:space="preserve">
+    <value>{1} içinde {0}. adımda kaldı</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>

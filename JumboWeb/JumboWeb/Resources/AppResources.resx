@@ -2082,6 +2082,21 @@
   <data name="XR_LinkOpen" xml:space="preserve">
     <value>Open the exam report</value>
   </data>
+  <data name="GP_ResumeTitle" xml:space="preserve">
+    <value>Continue the game?</value>
+  </data>
+  <data name="GP_ResumeSub" xml:space="preserve">
+    <value>You stopped at {0} of {1}.</value>
+  </data>
+  <data name="GP_Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="GP_StartOver" xml:space="preserve">
+    <value>Start over</value>
+  </data>
+  <data name="GP_Badge" xml:space="preserve">
+    <value>Left at {0} of {1}</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} questions</value>
   </data>

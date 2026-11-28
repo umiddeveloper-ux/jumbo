@@ -20,7 +20,7 @@
     }
     else
     {
-        <TopicSnakeBody Path="Path" Progress="Progress" OnLocked="ShowLocked" />
+        <TopicSnakeBody Path="Path" Progress="Progress" Unfinished="Unfinished" OnLocked="ShowLocked" />
     }
 </div>
 
@@ -33,6 +33,8 @@
     [Parameter] public int Book { get; set; }
     [Parameter] public List<Subject> Path { get; set; } = new();
     [Parameter] public Dictionary<int, UserSubjectProgress> Progress { get; set; } = new();
+    // the topics with a game that was left half way (the newest one of each topic): a small "4/15" on the marker
+    [Parameter] public Dictionary<int, Jumbo.Shared.Dtos.GameProgressSummaryDto> Unfinished { get; set; } = new();
 
     private Subject? _needToPass;       // a locked topic was pressed: the topic to pass first
 

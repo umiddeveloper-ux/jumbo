@@ -56,6 +56,7 @@ builder.Services.AddScoped<ExamProgressStore>();
 builder.Services.AddScoped<BookGateService>();
 builder.Services.AddScoped<PlayerStatsService>();
 builder.Services.AddScoped<TestLevelStateService>();
+builder.Services.AddScoped<GameProgressService>();      // the place a learner left a game at (resume)
 
 var app = builder.Build();
 

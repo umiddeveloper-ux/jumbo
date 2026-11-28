@@ -41,6 +41,11 @@
                 <span class="snake-num">@(st == "done" ? "✓" : (p.Index + 1).ToString())</span>
                 @if (IsLocked(topic)) { <span class="snake-lock" aria-hidden="true">🔒</span> }
             </span>
+            @if (st != "done" && !IsLocked(topic) && Unfinished.TryGetValue(topic.SubjectId, out var left) && left.Done > 0)
+            {
+                @* a game of this topic was left half way: where the learner stopped *@
+                <span class="gp-chip gp-node" title="@Loc.Format("GP_Badge", left.Done, left.Total)">@left.Done/@left.Total</span>
+            }
         </button>
         <span class="snake-name side @(leftLane ? "l" : "r") @st" style="left: @Inv(p.LabelX / W * 100)%; top: @Inv(p.Y / g.Height * 100)%; width: @Inv(p.LabelW / W * 100)%">@topic.SubjectName</span>
     }
@@ -53,6 +58,7 @@
     [Parameter] public bool Wide { get; set; }          // (not used any more: one picture for every screen, like the app)
     [Parameter] public List<Subject> Path { get; set; } = new();
     [Parameter] public Dictionary<int, UserSubjectProgress> Progress { get; set; } = new();
+    [Parameter] public Dictionary<int, Jumbo.Shared.Dtos.GameProgressSummaryDto> Unfinished { get; set; } = new();
 
     /// <summary>A locked topic was pressed: the topic that has to be passed first.</summary>
     [Parameter] public EventCallback<Subject> OnLocked { get; set; }

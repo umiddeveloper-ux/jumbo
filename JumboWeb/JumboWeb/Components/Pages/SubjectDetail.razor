@@ -7,6 +7,7 @@
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
 @inject IJSRuntime JS
+@inject GameProgressService Progress
 
 <PageTitle>@(_subject is null ? Loc["SubjectDetail_FallbackTitle"] : Loc.Topic(_subject)) — Jumbo</PageTitle>
 
@@ -50,18 +51,21 @@ else
     <div class="lesson-grid">
         <div class="lesson-card @(_progress?.FindMeWon == true ? "passed" : "")" @onclick="GoToFindMe">
             @if (_progress?.FindMeWon == true) { <span class="lesson-check" aria-label="✓">✓</span> }
+            else if (Left("findme") is { } lf) { <span class="gp-chip" title="@Loc.Format("GP_Badge", lf.Done, lf.Total)">@lf.Done/@lf.Total</span> }
             <div class="lesson-icon"><img src="icons/lesson_findme.png" alt="" width="56" height="56" /></div>
             <div class="lesson-name">@Loc["Game_FindMeTitle"]</div>
             <div class="lesson-desc">@Loc["Game_FindMeDesc"]</div>
         </div>
         <div class="lesson-card @(_progress?.ListenWon == true ? "passed" : "")" @onclick="GoToListen">
             @if (_progress?.ListenWon == true) { <span class="lesson-check" aria-label="✓">✓</span> }
+            else if (Left("listen") is { } ll) { <span class="gp-chip" title="@Loc.Format("GP_Badge", ll.Done, ll.Total)">@ll.Done/@ll.Total</span> }
             <div class="lesson-icon"><img src="icons/lesson_listen.png" alt="" width="56" height="56" /></div>
             <div class="lesson-name">@Loc["Game_ListenTitle"]</div>
             <div class="lesson-desc">@Loc["Game_ListenDesc"]</div>
         </div>
         <div class="lesson-card @(_progress?.PhraseWon == true ? "passed" : "")" @onclick="GoToPhrase">
             @if (_progress?.PhraseWon == true) { <span class="lesson-check" aria-label="✓">✓</span> }
+            else if (Left("phrase") is { } lp) { <span class="gp-chip" title="@Loc.Format("GP_Badge", lp.Done, lp.Total)">@lp.Done/@lp.Total</span> }
             <div class="lesson-icon"><img src="icons/lesson_phrase.png" alt="" width="56" height="56" /></div>
             <div class="lesson-name">@Loc["Game_PhraseTitle"]</div>
             <div class="lesson-desc">@Loc["Game_PhraseDesc"]</div>
@@ -77,6 +81,10 @@ else
     private Jumbo.Shared.Entities.UserSubjectProgress? _progress;
     private bool _loaded;
     private Subject? _needToPass;      // the topic that has to be passed before this one
+    private List<Jumbo.Shared.Dtos.GameProgressSummaryDto> _unfinished = new();      // the games of this topic that the learner left half way
+
+    // where the learner stopped in a game of this topic (nothing when it has not been started, or just started)
+    private Jumbo.Shared.Dtos.GameProgressSummaryDto? Left(string game) => _unfinished.FirstOrDefault(u => u.Game == game && u.SubjectId == SubjectId && u.Done > 0);
 
     protected override async Task OnInitializedAsync()
     {
@@ -90,6 +98,7 @@ else
         var allProgress = new List<Jumbo.Shared.Entities.UserSubjectProgress>();
         try { allProgress = await ApiClient.GetUserSubjectProgressAsync(); } catch { }
         _progress = allProgress.FirstOrDefault(p => p.SubjectId == SubjectId);
+        _unfinished = (await Progress.UnfinishedAsync()).Where(u => u.SubjectId == SubjectId).ToList();
         if (_subject != null)
         {
             // A topic opens only after the topic before it is passed.

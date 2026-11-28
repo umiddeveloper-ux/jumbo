@@ -1,0 +1,21 @@
+@using JumboWeb.Services
+@inject AppLocalizer Loc
+
+@* A game that was left half way: "Continue (4 of 15)" or "Start over". Shown by a game before it starts when the learner has a saved game of it. *@
+<div class="game-result-card gp-resume">
+    <div class="game-result-icon"><Tiger Mood="idle" Size="140" /></div>
+    <div class="game-result-title">@Loc["GP_ResumeTitle"]</div>
+    <div class="game-result-sub">@Loc.Format("GP_ResumeSub", Done, Total)</div>
+    <div class="gp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="@Total" aria-valuenow="@Done"><span style="width: @Percent%"></span></div>
+    <button type="button" class="lp-btn lp-btn-full" @onclick="OnContinue">▶ @Loc["GP_Continue"]</button>
+    <button type="button" class="lp-btn lp-btn-full lp-btn-outline" @onclick="OnStartOver">↺ @Loc["GP_StartOver"]</button>
+</div>
+
+@code {
+    [Parameter] public int Done { get; set; }
+    [Parameter] public int Total { get; set; }
+    [Parameter] public EventCallback OnContinue { get; set; }
+    [Parameter] public EventCallback OnStartOver { get; set; }
+
+    private int Percent => Total <= 0 ? 0 : Math.Clamp(Done * 100 / Total, 0, 100);
+}

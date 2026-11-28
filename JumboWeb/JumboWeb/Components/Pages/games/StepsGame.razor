@@ -9,6 +9,9 @@
 @inject IJSRuntime JS
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
+@inject GameProgressService Progress
+@using Jumbo.Shared
+@using Jumbo.Shared.Dtos
 
 <PageTitle>@Loc["Game_StepsTitle"]</PageTitle>
 
@@ -27,11 +30,15 @@
 
 @if (Blocked)
 {
-    <BlockNotice Failed="@(false)" OnBack="GoBack" OnUnlocked="RestartGame" />
+    <BlockNotice Failed="@(false)" OnBack="GoBack" OnUnlocked="AfterUnlockAsync" />
 }
 else if (_isBusy)
 {
     <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_offer is not null)
+{
+    <GameResumeCard Done="_offer.Done" Total="_offer.Total" OnContinue="ResumeAsync" OnStartOver="StartOverAsync" />
 }
 else if (_hasNoData)
 {
@@ -157,15 +164,109 @@ else
         await LoadGame();
     }
 
-    private async Task LoadGame()
+    private async Task<WordData> BuildWordAsync(Jumbo.Shared.Entities.Word w)
+    {
+        var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+        var svg   = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
+        return new WordData(w.WordId, w.SvgImageId, w.WordName, trans?.WordName ?? w.WordName, svg, w.WordNumber, w.Level ?? string.Empty);
+    }
+
+    // A game the learner left half way: the saved place is offered first ("Continue" / "Start over").
+    private GameProgressDto? _offer;
+    private StepsState? _offerState;
+    private Dictionary<int, Jumbo.Shared.Entities.Word>? _offerWords;
+
+    private async Task<bool> TryOfferAsync()
+    {
+        var saved = await Progress.LoadAsync(GameProgressRules.Steps, SubjectId);
+        if (saved is null) return false;
+
+        // the words must still be the topic's words in the language that is studied, else the saved game is stale: start a new one
+        var state = GameStates.Read<StepsState>(saved.State);
+        Dictionary<int, Jumbo.Shared.Entities.Word>? all = null;
+        if (state is not null && state.Lang == Prefs.StudyLangId)
+            all = (await ApiClient.GetAllWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId)).GroupBy(w => w.WordId).ToDictionary(g => g.Key, g => g.First());
+        if (state is null || all is null || state.Words.Count is < 4 or > MaxSteps || state.Words.Distinct().Count() != state.Words.Count
+            || state.Words.Any(id => !all.ContainsKey(id)) || state.Question < 0 || state.Question >= state.Words.Count)
+        {
+            await Progress.DeleteAsync(GameProgressRules.Steps, SubjectId);
+            return false;
+        }
+
+        _offer = saved; _offerState = state; _offerWords = all;
+        _isBusy = false;
+        return true;
+    }
+
+    // "Continue": the same words in the same order, the step the learner was at, the helps that were left. A mistake ends this game, so a game that
+    // is saved has none; what the earlier steps cost was taken by the server then and is never charged again.
+    private async Task ResumeAsync()
+    {
+        var state = _offerState; var all = _offerWords;
+        if (state is null || all is null) return;
+        _offer = null; _offerState = null; _offerWords = null;
+        _isBusy = true;
+        StateHasChanged();
+
+        _gameWords.Clear(); _answers.Clear(); _steps.Clear();
+        foreach (var id in state.Words) _gameWords.Add(await BuildWordAsync(all[id]));
+        _totalSteps = _gameWords.Count;
+        for (int i = 1; i <= _totalSteps; i++)
+            _steps.Add(new StepItem { Num = i, IsMilestone = i % 5 == 0 || i == _totalSteps });
+
+        _canFiftyFifty = state.FiftyFifty;
+        _canAudience = state.Audience;
+        _showAudience = false;
+        _questionIndex = state.Question;
+        _currentStep = _questionIndex + 1;
+        UpdateStepHighlights();
+        _isBusy = false;
+        await LoadQuestion();
+    }
+
+    private async Task StartOverAsync()
+    {
+        _offer = null; _offerState = null; _offerWords = null;
+        _isBusy = true;
+        StateHasChanged();
+        await Progress.DeleteAsync(GameProgressRules.Steps, SubjectId);
+        await LoadGame(offerResume: false);
+    }
+
+    // After every right answer, and when a help is used: the step the learner is at now (best effort).
+    private void SaveProgress()
+    {
+        if (_isGameWon || _isGameOver || _gameWords.Count == 0 || _questionIndex == 0) return;
+        Progress.Save(GameProgressRules.Steps, SubjectId, new StepsState
+        {
+            Lang = Prefs.StudyLangId,
+            Words = _gameWords.Select(w => w.WordId).ToList(),
+            Question = _questionIndex,
+            FiftyFifty = _canFiftyFifty,
+            Audience = _canAudience
+        }, _questionIndex, _gameWords.Count);
+    }
+
+    // The 5-hour block is over: a game that was left half way is offered again.
+    private async Task AfterUnlockAsync()
+    {
+        await Lives.CheckRegenAsync();
+        if (!Lives.CanPlay) return;
+        await LoadGame();
+    }
+
+    private async Task LoadGame(bool offerResume = true)
     {
         _isBusy = true;
+        _offer = null; _offerState = null; _offerWords = null;
         _isGameOver = _isGameWon = _hasNoData = false;
         _canFiftyFifty = _canAudience = true;
         _showAudience = false;
         _gameWords.Clear(); _answers.Clear(); _steps.Clear();
 
         await Lives.CheckRegenAsync();
+
+        if (offerResume && await TryOfferAsync()) return;
 
         var words = await ApiClient.GetWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId, MaxSteps);
         if (words.Count < 4) { _hasNoData = true; _isBusy = false; return; }
@@ -177,13 +278,7 @@ else
             .OrderBy(w => rep.TryGetValue(w.WordId, out var c) ? c : 0)
             .Take(MaxSteps).ToList();
 
-        foreach (var w in sorted)
-        {
-            var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
-            var svg   = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
-            _gameWords.Add(new WordData(w.WordId, w.SvgImageId, w.WordName,
-                trans?.WordName ?? w.WordName, svg, w.WordNumber, w.Level ?? string.Empty));
-        }
+        foreach (var w in sorted) _gameWords.Add(await BuildWordAsync(w));
         _gameWords = _gameWords.OrderBy(_ => Random.Shared.Next()).ToList();
         _totalSteps = _gameWords.Count;
 
@@ -258,6 +353,7 @@ else
             {
                 _currentStep++;
                 UpdateStepHighlights();
+                SaveProgress();         // a learner who leaves now goes on from the next step
                 await LoadQuestion();
             }
         }
@@ -268,6 +364,7 @@ else
             var correct = _answers.FirstOrDefault(a => a.IsTarget);
             StateHasChanged();
             await Lives.TakeDamageAsync();
+            _ = Progress.DeleteAsync(GameProgressRules.Steps, SubjectId);        // a mistake ends this game: a new one starts next time
             await Task.Delay(400);
             if (correct != null) { correct.State = AnsState.Correct; StateHasChanged(); }
             await Task.Delay(1500);
@@ -282,6 +379,7 @@ else
         var wrong = _answers.Where(a => !a.IsTarget && a.IsVisible)
             .OrderBy(_ => Random.Shared.Next()).Take(2).ToList();
         foreach (var a in wrong) a.IsVisible = false;
+        SaveProgress();         // the help is used: it does not come back when the game is resumed
     }
 
     private void UseAudienceHelp()
@@ -309,6 +407,7 @@ else
             _audienceResults.Add(new AudienceBar { Letter = ans.Letter, Word = ans.Word, Percentage = pct, IsTarget = ans.IsTarget });
         }
         _showAudience = true;
+        SaveProgress();         // the help is used: it does not come back when the game is resumed
     }
 
     private void UpdateStepHighlights()
@@ -333,7 +432,7 @@ else
     {
         await Lives.CheckRegenAsync();
         if (!Lives.CanPlay) return;
-        await LoadGame();
+        await LoadGame(offerResume: false);
     }
 
     private enum AnsState { Normal, Correct, Wrong }

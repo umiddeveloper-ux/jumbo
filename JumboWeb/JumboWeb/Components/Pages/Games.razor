@@ -5,6 +5,7 @@
 @inject LpApiClient ApiClient
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
+@inject GameProgressService GameProgress
 
 <PageTitle>@Loc["Games_Title"] — Jumbo</PageTitle>
 
@@ -74,6 +75,11 @@ else
                     {
                         <div class="subject-passed">@Loc["Subjects_Passed"]</div>
                     }
+                    else if (Left(_game, sid) is { } left)
+                    {
+                        @* this game was left half way in this topic: where the learner stopped; the game offers to continue *@
+                        <span class="gp-chip gp-corner" title="@Loc.Format("GP_Badge", left.Done, left.Total)">@left.Done/@left.Total</span>
+                    }
                 </div>
             }
         </div>
@@ -109,6 +115,7 @@ else
         foreach (var b in _books)
             _subjectsByBook[b] = (await ApiClient.GetSubjectsByBookAsync(b)).OrderBy(s => s.SequenceNumber).ToList();
         _progress = (await ApiClient.GetUserSubjectProgressAsync()).ToDictionary(p => p.SubjectId);
+        _unfinished = await GameProgress.UnfinishedAsync();
 
         // Start in the book of the requested topic, else of the first topic that is not fully won, else the last book.
         var requested = SubjectParam is { } sp ? _subjectsByBook.Values.SelectMany(x => x).FirstOrDefault(s => s.SubjectId == sp) : null;
@@ -131,6 +138,11 @@ else
     }
 
     private List<Subject> TopicsOf(int book) => _subjectsByBook.TryGetValue(book, out var l) ? l : new();
+
+    private List<Jumbo.Shared.Dtos.GameProgressSummaryDto> _unfinished = new();      // the games the learner left half way
+
+    private Jumbo.Shared.Dtos.GameProgressSummaryDto? Left(string? game, int subjectId) =>
+        game is null ? null : _unfinished.FirstOrDefault(u => u.Game == game && u.SubjectId == subjectId && u.Done > 0);
 
     private bool Won(string? game, int subjectId) =>
         _progress.TryGetValue(subjectId, out var p) && (game == "sequence" ? p.SequenceWon : game == "steps" && p.StepsWon);

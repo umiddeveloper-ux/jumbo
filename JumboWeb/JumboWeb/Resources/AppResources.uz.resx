@@ -2013,6 +2013,21 @@
   <data name="XR_LinkOpen" xml:space="preserve">
     <value>Imtihon hisobotini ochish</value>
   </data>
+  <data name="GP_ResumeTitle" xml:space="preserve">
+    <value>O‘yinni davom ettiramizmi?</value>
+  </data>
+  <data name="GP_ResumeSub" xml:space="preserve">
+    <value>Siz {1} tadan {0} tasida to‘xtagansiz.</value>
+  </data>
+  <data name="GP_Continue" xml:space="preserve">
+    <value>Davom etish</value>
+  </data>
+  <data name="GP_StartOver" xml:space="preserve">
+    <value>Boshidan boshlash</value>
+  </data>
+  <data name="GP_Badge" xml:space="preserve">
+    <value>{1} tadan {0} tasida to‘xtagan</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Savollar: {0}</value>
   </data>

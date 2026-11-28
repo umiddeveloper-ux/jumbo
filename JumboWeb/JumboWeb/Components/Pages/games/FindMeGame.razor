@@ -10,6 +10,9 @@
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
 @inject BookGateService Gates
+@inject GameProgressService Progress
+@using Jumbo.Shared
+@using Jumbo.Shared.Dtos
 
 <PageTitle>@Loc["Game_FindMeTitle"]</PageTitle>
 
@@ -28,11 +31,15 @@
 
 @if (Blocked)
 {
-    <BlockNotice Failed="@(Gate > 0)" OnBack="GoBack" OnUnlocked="RestartGame" />
+    <BlockNotice Failed="@(Gate > 0)" OnBack="GoBack" OnUnlocked="AfterUnlockAsync" />
 }
 else if (_isBusy)
 {
     <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_offer is not null)
+{
+    <GameResumeCard Done="_offer.Done" Total="_offer.Total" OnContinue="ResumeAsync" OnStartOver="StartOverAsync" />
 }
 else if (_hasNoData)
 {
@@ -111,6 +118,7 @@ else
 
     private List<GameCard> _cards = new();
     private List<GameCard> _sequence = new();
+    private List<int> _allWordIds = new();       // all the words of the game, also the ones already found (they are put in the learner's words at the win)
     private Queue<GameCard> _unseen = new();
     private GameCard? _target;
     private bool _slotMode;
@@ -137,15 +145,122 @@ else
         StateHasChanged();
     }
 
-    private async Task LoadGame()
+    // A game the learner left half way (not in the check that opens a book): the saved place is offered first ("Continue" / "Start over").
+    private GameProgressDto? _offer;
+    private FindMeState? _offerState;
+    private Dictionary<int, Jumbo.Shared.Entities.Word>? _offerWords;
+
+    private async Task<bool> TryOfferAsync()
+    {
+        _offer = null; _offerState = null; _offerWords = null;
+        var saved = await Progress.LoadAsync(GameProgressRules.FindMe, SubjectId);
+        if (saved is null) return false;
+
+        // the words must still be the topic's words in the language that is studied, else the saved game is stale: start a new one
+        var state = GameStates.Read<FindMeState>(saved.State);
+        Dictionary<int, Jumbo.Shared.Entities.Word>? all = null;
+        if (state is not null && state.Lang == Prefs.StudyLangId)
+            all = (await ApiClient.GetAllWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId)).GroupBy(w => w.WordId).ToDictionary(g => g.Key, g => g.First());
+        var ids = state is null ? new List<int>() : state.Shown.Concat(state.Unseen).ToList();
+        if (state is null || all is null || ids.Count == 0 || ids.Distinct().Count() != ids.Count || ids.Any(id => !all.ContainsKey(id))
+            || state.Words.Count < ids.Count || state.Words.Count > 15 || state.Words.Distinct().Count() != state.Words.Count || state.Words.Any(id => !all.ContainsKey(id)) || ids.Any(id => !state.Words.Contains(id))
+            || state.Matched.Any(id => !state.Shown.Contains(id)))
+        {
+            await Progress.DeleteAsync(GameProgressRules.FindMe, SubjectId);
+            return false;
+        }
+
+        _offer = saved; _offerState = state; _offerWords = all;
+        _isBusy = false;
+        return true;
+    }
+
+    private async Task<GameCard> BuildCardAsync(Jumbo.Shared.Entities.Word w)
+    {
+        var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+        var svg   = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
+        return new GameCard
+        {
+            WordId = w.WordId, SvgImageId = w.SvgImageId,
+            EnglishWord = w.WordName,
+            TranslationWord = trans?.WordName ?? w.WordName,
+            SvgHtml = svg,
+            Number = w.WordNumber,
+            Level = w.Level ?? string.Empty
+        };
+    }
+
+    // "Continue": the same cards, in the same places, the same word asked, the found words counted. Nothing is charged again: the lives and LP that
+    // the mistakes cost were taken by the server when they were made.
+    private async Task ResumeAsync()
+    {
+        var state = _offerState; var all = _offerWords;
+        if (state is null || all is null) return;
+        _offer = null; _offerState = null; _offerWords = null;
+        _isBusy = true;
+        StateHasChanged();
+
+        _cards.Clear(); _sequence.Clear(); _unseen.Clear(); _target = null;
+        foreach (var id in state.Shown) _cards.Add(await BuildCardAsync(all[id]));
+        foreach (var id in state.Unseen) _unseen.Enqueue(await BuildCardAsync(all[id]));
+        foreach (var c in _cards.Where(c => state.Matched.Contains(c.WordId))) c.IsMatched = true;
+
+        _slotMode = true;
+        _sequence = _cards.Concat(_unseen).ToList();
+        _allWordIds = state.Words.ToList();
+        _totalWords = _allWordIds.Count;
+        _foundCount = Math.Clamp(state.Found, 0, _totalWords - 1);
+        _target = _cards.FirstOrDefault(c => c.WordId == state.Target && !c.IsMatched);
+        if (_target is not null) _currentWord = _target.EnglishWord;
+        else PickTarget();
+        _isBusy = false;
+    }
+
+    private async Task StartOverAsync()
+    {
+        _offer = null; _offerState = null; _offerWords = null;
+        _isBusy = true;
+        StateHasChanged();
+        await Progress.DeleteAsync(GameProgressRules.FindMe, SubjectId);
+        await LoadGame(offerResume: false);
+    }
+
+    // After every found word: where the learner is now (best effort, never in the check that opens a book).
+    private void SaveProgress()
+    {
+        if (Gate > 0 || _isGameWon || _isGameOver || _totalWords == 0) return;
+        Progress.Save(GameProgressRules.FindMe, SubjectId, new FindMeState
+        {
+            Lang = Prefs.StudyLangId,
+            Shown = _cards.Select(c => c.WordId).ToList(),
+            Unseen = _unseen.Select(c => c.WordId).ToList(),
+            Matched = _cards.Where(c => c.IsMatched).Select(c => c.WordId).ToList(),
+            Target = _target?.WordId ?? 0,
+            Found = _foundCount,
+            Words = _allWordIds
+        }, _foundCount, _totalWords);
+    }
+
+    // The 5-hour block is over: a game that was left half way is offered again.
+    private async Task AfterUnlockAsync()
+    {
+        await Lives.CheckRegenAsync();
+        if (Blocked) return;
+        await LoadGame();
+    }
+
+    private async Task LoadGame(bool offerResume = true)
     {
         _isBusy = true;
+        _offer = null; _offerState = null; _offerWords = null;
         _doneBook = null;
         _isGameOver = _isGameWon = _hasNoData = false;
         _cards.Clear(); _sequence.Clear(); _unseen.Clear(); _target = null;
         _currentIndex = _foundCount = 0;
 
         await Lives.CheckRegenAsync();
+
+        if (offerResume && Gate == 0 && await TryOfferAsync()) return;
 
         var words = Gate > 0
             ? await ApiClient.GetWordsByBookAsync(Gate - 1, Prefs.StudyLangId, 15)
@@ -161,22 +276,10 @@ else
             .Take(15).ToList();
 
         var allCards = new List<GameCard>();
-        foreach (var w in sorted)
-        {
-            var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
-            var svg   = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
-            allCards.Add(new GameCard
-            {
-                WordId = w.WordId, SvgImageId = w.SvgImageId,
-                EnglishWord = w.WordName,
-                TranslationWord = trans?.WordName ?? w.WordName,
-                SvgHtml = svg,
-                Number = w.WordNumber,
-                Level = w.Level ?? string.Empty
-            });
-        }
+        foreach (var w in sorted) allCards.Add(await BuildCardAsync(w));
 
         _totalWords = allCards.Count;
+        _allWordIds = allCards.Select(c => c.WordId).ToList();
         _sequence = allCards.OrderBy(_ => Random.Shared.Next()).ToList();
         if (_slotMode)
         {
@@ -235,13 +338,17 @@ else
                 if (Gate > 0) Gates.Pass(Gate, 1);
                 else
                 {
-                    await ApiClient.EnsureWordsExistAsync(_sequence.Select(c => c.WordId));
+                    await ApiClient.EnsureWordsExistAsync(_allWordIds);
                     Lives.Apply(await ApiClient.MarkGameWonAsync(SubjectId, "FindMe"));      // the server gives the LP (LpReward is only what is shown)
                     _doneBook = await ApiClient.GetBookIfTopicDoneAsync(SubjectId);          // all three games won: "Continue" goes to the snake
                 }
             }
-            else if (_slotMode) PickTarget();
-            else _currentWord = _sequence[_currentIndex].EnglishWord;
+            else
+            {
+                if (_slotMode) PickTarget();
+                else _currentWord = _sequence[_currentIndex].EnglishWord;
+                SaveProgress();         // a learner who leaves now goes on from here next time
+            }
         }
         else
         {
@@ -251,7 +358,11 @@ else
             await Task.Delay(500);
             card.ShowWrong = false;
 
-            if (!await HitAsync()) _isGameOver = true;
+            if (!await HitAsync())
+            {
+                _isGameOver = true;
+                if (Gate == 0) _ = Progress.DeleteAsync(GameProgressRules.FindMe, SubjectId);        // the game is lost: a new one starts next time
+            }
         }
     }
 
@@ -259,7 +370,7 @@ else
     {
         await Lives.CheckRegenAsync();
         if (Blocked) return;
-        await LoadGame();
+        await LoadGame(offerResume: false);
     }
 
     private int? _doneBook;      // set when this win finished the topic

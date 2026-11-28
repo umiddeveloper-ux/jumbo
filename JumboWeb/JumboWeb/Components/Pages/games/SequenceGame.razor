@@ -10,6 +10,9 @@
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
 @inject BookGateService Gates
+@inject GameProgressService Progress
+@using Jumbo.Shared
+@using Jumbo.Shared.Dtos
 
 <PageTitle>@Loc["Game_SequenceTitle"]</PageTitle>
 
@@ -34,11 +37,15 @@
 
 @if (Blocked)
 {
-    <BlockNotice Failed="@(Gate > 0)" OnBack="GoBack" OnUnlocked="RestartGame" />
+    <BlockNotice Failed="@(Gate > 0)" OnBack="GoBack" OnUnlocked="AfterUnlockAsync" />
 }
 else if (_isBusy)
 {
     <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_offer is not null)
+{
+    <GameResumeCard Done="_offer.Done" Total="_offer.Total" OnContinue="ResumeAsync" OnStartOver="StartOverAsync" />
 }
 else if (_hasNoData)
 {
@@ -139,11 +146,112 @@ else
         await LoadGame();
     }
 
-    private async Task LoadGame()
+    // A game the learner left half way (not in the check that opens a book): the saved place is offered first ("Continue" / "Start over").
+    private GameProgressDto? _offer;
+    private SequenceState? _offerState;
+    private Dictionary<int, Jumbo.Shared.Entities.Word>? _offerWords;
+
+    private async Task<bool> TryOfferAsync()
+    {
+        var saved = await Progress.LoadAsync(GameProgressRules.Sequence, SubjectId);
+        if (saved is null) return false;
+
+        // the words must still be the topic's words in the language that is studied, else the saved game is stale: start a new one
+        var state = GameStates.Read<SequenceState>(saved.State);
+        Dictionary<int, Jumbo.Shared.Entities.Word>? all = null;
+        if (state is not null && state.Lang == Prefs.StudyLangId)
+            all = (await ApiClient.GetAllWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId)).GroupBy(w => w.WordId).ToDictionary(g => g.Key, g => g.First());
+        var ids = state is null ? new List<int>() : state.Rounds.SelectMany(r => r).ToList();
+        if (state is null || all is null || state.Rounds.Count is < 1 or > 4 || state.Rounds.Any(r => r.Count is < 2 or > 4)
+            || ids.Distinct().Count() != ids.Count || ids.Any(id => !all.ContainsKey(id)) || state.Round < 0 || state.Round >= state.Rounds.Count)
+        {
+            await Progress.DeleteAsync(GameProgressRules.Sequence, SubjectId);
+            return false;
+        }
+
+        _offer = saved; _offerState = state; _offerWords = all;
+        _isBusy = false;
+        return true;
+    }
+
+    private async Task<SeqCard> BuildCardAsync(Jumbo.Shared.Entities.Word w)
+    {
+        var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+        var svg   = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
+        return new SeqCard
+        {
+            WordId = w.WordId, SvgImageId = w.SvgImageId,
+            TranslationWord = trans?.WordName ?? w.WordName,
+            EnglishWord = w.WordName,
+            SvgHtml = svg,
+            Number = w.WordNumber,
+            Level = w.Level ?? string.Empty
+        };
+    }
+
+    // "Continue": the same rounds, from the round the learner was at (it starts again with the countdown). The lives and LP that mistakes cost
+    // were taken by the server when they were made: nothing is charged again.
+    private async Task ResumeAsync()
+    {
+        var state = _offerState; var all = _offerWords;
+        if (state is null || all is null) return;
+        _offer = null; _offerState = null; _offerWords = null;
+        _isBusy = true;
+        StateHasChanged();
+
+        _rounds.Clear(); _cards.Clear();
+        foreach (var ids in state.Rounds)
+        {
+            var round = new List<SeqCard>();
+            foreach (var id in ids) round.Add(await BuildCardAsync(all[id]));
+            for (int j = 0; j < round.Count; j++) round[j].CorrectOrder = j + 1;
+            _rounds.Add(round);
+        }
+        _totalRounds = _rounds.Count;
+        _currentRoundIndex = state.Round;
+        _currentRound = _currentRoundIndex + 1;
+        _isBusy = false;
+        StateHasChanged();
+        await RunRound();
+    }
+
+    private async Task StartOverAsync()
+    {
+        _offer = null; _offerState = null; _offerWords = null;
+        _isBusy = true;
+        StateHasChanged();
+        await Progress.DeleteAsync(GameProgressRules.Sequence, SubjectId);
+        await LoadGame(offerResume: false);
+    }
+
+    // After every round that is right: the round the learner is at now (best effort, never in the check that opens a book).
+    private void SaveProgress()
+    {
+        if (Gate > 0 || _isGameWon || _isGameOver || _rounds.Count == 0) return;
+        Progress.Save(GameProgressRules.Sequence, SubjectId, new SequenceState
+        {
+            Lang = Prefs.StudyLangId,
+            Rounds = _rounds.Select(r => r.Select(c => c.WordId).ToList()).ToList(),
+            Round = _currentRoundIndex
+        }, _currentRoundIndex, _rounds.Count);
+    }
+
+    // The 5-hour block is over: a game that was left half way is offered again.
+    private async Task AfterUnlockAsync()
+    {
+        await Lives.CheckRegenAsync();
+        if (Blocked) return;
+        await LoadGame();
+    }
+
+    private async Task LoadGame(bool offerResume = true)
     {
         _isBusy = true;
+        _offer = null; _offerState = null; _offerWords = null;
         _isGameOver = _isGameWon = _hasNoData = false;
         _rounds.Clear(); _cards.Clear();
+
+        if (offerResume && Gate == 0 && await TryOfferAsync()) return;
 
         var words = Gate > 0
             ? await ApiClient.GetWordsByBookAsync(Gate - 1, Prefs.StudyLangId, 15)
@@ -158,20 +266,7 @@ else
             .Take(15).ToList();
 
         var allCards = new List<SeqCard>();
-        foreach (var w in sorted)
-        {
-            var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
-            var svg   = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
-            allCards.Add(new SeqCard
-            {
-                WordId = w.WordId, SvgImageId = w.SvgImageId,
-                TranslationWord = trans?.WordName ?? w.WordName,
-                EnglishWord = w.WordName,
-                SvgHtml = svg,
-                Number = w.WordNumber,
-                Level = w.Level ?? string.Empty
-            });
-        }
+        foreach (var w in sorted) allCards.Add(await BuildCardAsync(w));
 
         var shuffled = allCards.OrderBy(_ => Random.Shared.Next()).ToList();
         _rounds.Clear();
@@ -281,6 +376,7 @@ else
                 else
                 {
                     _currentRound = _currentRoundIndex + 1;
+                    SaveProgress();         // a learner who leaves now goes on from the next round
                     await RunRound();
                 }
             }
@@ -294,7 +390,11 @@ else
                 var alive = await HitAsync();
                 await Task.Delay(2000);
 
-                if (!alive) _isGameOver = true;
+                if (!alive)
+                {
+                    _isGameOver = true;
+                    if (Gate == 0) _ = Progress.DeleteAsync(GameProgressRules.Sequence, SubjectId);        // the game is lost: a new one starts next time
+                }
                 else await RunRound();
             }
         }
@@ -311,7 +411,7 @@ else
     {
         await Lives.CheckRegenAsync();
         if (Blocked) return;
-        await LoadGame();
+        await LoadGame(offerResume: false);
     }
 
     private void GoBack()

@@ -10,6 +10,9 @@
 @inject IJSRuntime JS
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
+@inject GameProgressService Progress
+@using Jumbo.Shared
+@using Jumbo.Shared.Dtos
 
 <PageTitle>@Loc["Game_PhraseTitle"]</PageTitle>
 
@@ -28,11 +31,15 @@
 
 @if (Blocked)
 {
-    <BlockNotice Failed="@(false)" OnBack="GoBack" OnUnlocked="RestartGame" />
+    <BlockNotice Failed="@(false)" OnBack="GoBack" OnUnlocked="AfterUnlockAsync" />
 }
 else if (_isBusy)
 {
     <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_offer is not null)
+{
+    <GameResumeCard Done="_offer.Done" Total="_offer.Total" OnContinue="ResumeAsync" OnStartOver="StartOverAsync" />
 }
 else if (_hasNoData)
 {
@@ -161,9 +168,96 @@ else if (_round is not null)
         }
     }
 
-    private async Task LoadGame()
+    // Only words that have an example sentence (in the language being studied) can make a round.
+    private static bool HasExample(Jumbo.Shared.Entities.Word w) =>
+        !string.IsNullOrWhiteSpace(w.Example) && w.Example!.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length >= 2;
+
+    private async Task<Round> BuildRoundAsync(Jumbo.Shared.Entities.Word w)
+    {
+        var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+        var svg = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
+        return new Round(w.WordId, svg, w.WordName, trans?.WordName ?? string.Empty,
+            w.Example!.Trim(), string.IsNullOrWhiteSpace(trans?.Example) ? w.Example.Trim() : trans!.Example!.Trim(), w.WordNumber, w.Level ?? string.Empty);
+    }
+
+    // A game the learner left half way: the saved place is offered first ("Continue" / "Start over").
+    private GameProgressDto? _offer;
+    private PhraseState? _offerState;
+    private Dictionary<int, Jumbo.Shared.Entities.Word>? _offerWords;
+
+    private async Task<bool> TryOfferAsync()
+    {
+        var saved = await Progress.LoadAsync(GameProgressRules.Phrase, SubjectId);
+        if (saved is null) return false;
+
+        // the words must still be the topic's words (with their example sentences) in the language that is studied, else the saved game is stale
+        var state = GameStates.Read<PhraseState>(saved.State);
+        Dictionary<int, Jumbo.Shared.Entities.Word>? all = null;
+        if (state is not null && state.Lang == Prefs.StudyLangId)
+            all = (await ApiClient.GetAllWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId)).GroupBy(w => w.WordId).ToDictionary(g => g.Key, g => g.First());
+        if (state is null || all is null || state.Rounds.Count is < 1 or > MaxRounds || state.Rounds.Distinct().Count() != state.Rounds.Count
+            || state.Rounds.Any(id => !all.TryGetValue(id, out var w) || !HasExample(w)) || state.Step < 0 || state.Step >= state.Rounds.Count)
+        {
+            await Progress.DeleteAsync(GameProgressRules.Phrase, SubjectId);
+            return false;
+        }
+
+        _offer = saved; _offerState = state; _offerWords = all;
+        _isBusy = false;
+        return true;
+    }
+
+    // "Continue": the same phrases, from the round the learner was at. The lives and LP that mistakes cost were taken by the server when they were
+    // made: nothing is charged again.
+    private async Task ResumeAsync()
+    {
+        var state = _offerState; var all = _offerWords;
+        if (state is null || all is null) return;
+        _offer = null; _offerState = null; _offerWords = null;
+        _isBusy = true;
+        StateHasChanged();
+
+        _rounds.Clear(); _round = null;
+        foreach (var id in state.Rounds) _rounds.Add(await BuildRoundAsync(all[id]));
+        _step = state.Step;
+        _isBusy = false;
+        await StartRound(_step);
+    }
+
+    private async Task StartOverAsync()
+    {
+        _offer = null; _offerState = null; _offerWords = null;
+        _isBusy = true;
+        StateHasChanged();
+        await Progress.DeleteAsync(GameProgressRules.Phrase, SubjectId);
+        await LoadGame(offerResume: false);
+    }
+
+    // After every right phrase: the round the learner is at now (best effort).
+    private void SaveProgress()
+    {
+        if (_isGameWon || _isGameOver || _rounds.Count == 0) return;
+        Progress.Save(GameProgressRules.Phrase, SubjectId, new PhraseState
+        {
+            Lang = Prefs.StudyLangId,
+            Rounds = _rounds.Select(r => r.WordId).ToList(),
+            Step = _step
+        }, _step, _rounds.Count);
+    }
+
+    // The 5-hour block is over: a game that was left half way is offered again.
+    private async Task AfterUnlockAsync()
+    {
+        await JS.InvokeVoidAsync("lp.stopSpeech");
+        await Lives.CheckRegenAsync();
+        if (!Lives.CanPlay) return;
+        await LoadGame();
+    }
+
+    private async Task LoadGame(bool offerResume = true)
     {
         _isBusy = true;
+        _offer = null; _offerState = null; _offerWords = null;
         _isGameOver = _isGameWon = _hasNoData = false;
         _doneBook = null;
         _rounds.Clear();
@@ -172,19 +266,13 @@ else if (_round is not null)
 
         await Lives.CheckRegenAsync();
 
-        // Only words that have an example sentence (in the language being studied) can make a round.
+        if (offerResume && await TryOfferAsync()) return;
+
         var words = await ApiClient.GetAllWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId);
-        var withExample = words.Where(w => !string.IsNullOrWhiteSpace(w.Example) && w.Example!.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length >= 2)
-            .OrderBy(_ => Random.Shared.Next()).Take(MaxRounds).ToList();
+        var withExample = words.Where(HasExample).OrderBy(_ => Random.Shared.Next()).Take(MaxRounds).ToList();
         if (withExample.Count == 0) { _hasNoData = true; _isBusy = false; return; }
 
-        foreach (var w in withExample)
-        {
-            var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
-            var svg = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
-            _rounds.Add(new Round(w.WordId, svg, w.WordName, trans?.WordName ?? string.Empty,
-                w.Example!.Trim(), string.IsNullOrWhiteSpace(trans?.Example) ? w.Example.Trim() : trans!.Example!.Trim(), w.WordNumber, w.Level ?? string.Empty));
-        }
+        foreach (var w in withExample) _rounds.Add(await BuildRoundAsync(w));
 
         _isBusy = false;
         await StartRound(0);
@@ -284,6 +372,7 @@ else if (_round is not null)
             }
             else
             {
+                SaveProgress();         // a learner who leaves now goes on from the next phrase
                 await StartRound(_step);
             }
         }
@@ -292,7 +381,12 @@ else if (_round is not null)
             _coach?.Oops();
             bool canPlay = await Lives.TakeDamageAsync();
             await Task.Delay(500);
-            if (!canPlay) { _isGameOver = true; return; }
+            if (!canPlay)
+            {
+                _isGameOver = true;
+                _ = Progress.DeleteAsync(GameProgressRules.Phrase, SubjectId);        // the game is lost: a new one starts next time
+                return;
+            }
             _interactive = true;           // the red / green marks stay until the next move
         }
     }
@@ -320,7 +414,7 @@ else if (_round is not null)
         await JS.InvokeVoidAsync("lp.stopSpeech");
         await Lives.CheckRegenAsync();
         if (!Lives.CanPlay) return;
-        await LoadGame();
+        await LoadGame(offerResume: false);
     }
 
     private int? _doneBook;      // set when this win finished the topic

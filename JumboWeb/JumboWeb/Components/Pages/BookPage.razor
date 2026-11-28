@@ -7,6 +7,7 @@
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
 @inject IJSRuntime JS
+@inject GameProgressService GameProgress
 
 <PageTitle>@Loc.Format("Subjects_PageTitle", BookNumber)</PageTitle>
 
@@ -23,7 +24,7 @@ else if (_path.Count == 0)
 }
 else
 {
-    <TopicSnake Book="BookNumber" Path="_path" Progress="_progress" />
+    <TopicSnake Book="BookNumber" Path="_path" Progress="_progress" Unfinished="_unfinished" />
 }
 
 @code {
@@ -31,6 +32,7 @@ else
 
     private List<Subject> _path = new();
     private Dictionary<int, UserSubjectProgress> _progress = new();
+    private Dictionary<int, Jumbo.Shared.Dtos.GameProgressSummaryDto> _unfinished = new();
     private bool _loaded;
     private int _loadedBook = -1;
 
@@ -48,6 +50,8 @@ else
 
         _path = (await ApiClient.GetSubjectsByBookAsync(BookNumber)).OrderBy(s => s.SequenceNumber).ToList();
         _progress = (await ApiClient.GetUserSubjectProgressAsync()).ToDictionary(p => p.SubjectId);
+        // the games the learner left half way (newest first): one small badge per topic
+        _unfinished = (await GameProgress.UnfinishedAsync()).GroupBy(u => u.SubjectId).ToDictionary(g => g.Key, g => g.First());
         _loaded = true;
     }
 }

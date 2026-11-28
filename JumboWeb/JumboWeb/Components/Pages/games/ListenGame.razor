@@ -10,6 +10,9 @@
 @inject AppLocalizer Loc
 @inject NavigationManager Nav
 @inject BookGateService Gates
+@inject GameProgressService Progress
+@using Jumbo.Shared
+@using Jumbo.Shared.Dtos
 
 <PageTitle>@Loc["Game_ListenTitle"]</PageTitle>
 
@@ -28,11 +31,15 @@
 
 @if (Blocked)
 {
-    <BlockNotice Failed="@(Gate > 0)" OnBack="GoBack" OnUnlocked="RestartGame" />
+    <BlockNotice Failed="@(Gate > 0)" OnBack="GoBack" OnUnlocked="AfterUnlockAsync" />
 }
 else if (_isBusy)
 {
     <div class="lp-spinner-wrap">@Loc["Common_Loading"]</div>
+}
+else if (_offer is not null)
+{
+    <GameResumeCard Done="_offer.Done" Total="_offer.Total" OnContinue="ResumeAsync" OnStartOver="StartOverAsync" />
 }
 else if (_hasNoData)
 {
@@ -141,9 +148,96 @@ else
         await LoadGame();
     }
 
-    private async Task LoadGame()
+    // A game the learner left half way (not in the check that opens a book): the saved place is offered first ("Continue" / "Start over").
+    private GameProgressDto? _offer;
+    private ListenState? _offerState;
+    private Dictionary<int, Jumbo.Shared.Entities.Word>? _offerWords;
+
+    private async Task<bool> TryOfferAsync()
+    {
+        var saved = await Progress.LoadAsync(GameProgressRules.Listen, SubjectId);
+        if (saved is null) return false;
+
+        // the words must still be the topic's words in the language that is studied, else the saved game is stale: start a new one
+        var state = GameStates.Read<ListenState>(saved.State);
+        Dictionary<int, Jumbo.Shared.Entities.Word>? all = null;
+        if (state is not null && state.Lang == Prefs.StudyLangId)
+            all = (await ApiClient.GetAllWordsBySubjectAndLanguageAsync(SubjectId, Prefs.StudyLangId)).GroupBy(w => w.WordId).ToDictionary(g => g.Key, g => g.First());
+        if (state is null || all is null || state.Words.Count == 0 || state.Words.Distinct().Count() != state.Words.Count
+            || state.Words.Any(id => !all.ContainsKey(id)) || state.Steps.Count != TotalSteps || state.Steps.Any(id => !state.Words.Contains(id))
+            || state.Step < 0 || state.Step >= TotalSteps)
+        {
+            await Progress.DeleteAsync(GameProgressRules.Listen, SubjectId);
+            return false;
+        }
+
+        _offer = saved; _offerState = state; _offerWords = all;
+        _isBusy = false;
+        return true;
+    }
+
+    private async Task<WordData> BuildWordAsync(Jumbo.Shared.Entities.Word w)
+    {
+        var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
+        var svg   = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
+        return new WordData(w.WordId, w.SvgImageId, w.WordName, trans?.WordName ?? w.WordName, svg, w.WordNumber, w.Level ?? string.Empty);
+    }
+
+    // "Continue": the same words and steps, the step the learner was at. The lives and LP that mistakes cost were taken by the server when they were
+    // made: nothing is charged again.
+    private async Task ResumeAsync()
+    {
+        var state = _offerState; var all = _offerWords;
+        if (state is null || all is null) return;
+        _offer = null; _offerState = null; _offerWords = null;
+        _isBusy = true;
+        StateHasChanged();
+
+        _allWords.Clear(); _stepTargets.Clear();
+        foreach (var id in state.Words) _allWords.Add(await BuildWordAsync(all[id]));
+        foreach (var id in state.Steps) _stepTargets.Add(_allWords.First(w => w.WordId == id));
+        _step = state.Step;
+        _stepIndex = -1;
+        _showWord = false;
+        _isBusy = false;
+        await LoadStep(_step);
+    }
+
+    private async Task StartOverAsync()
+    {
+        _offer = null; _offerState = null; _offerWords = null;
+        _isBusy = true;
+        StateHasChanged();
+        await Progress.DeleteAsync(GameProgressRules.Listen, SubjectId);
+        await LoadGame(offerResume: false);
+    }
+
+    // After every right answer: the step the learner is at now (best effort, never in the check that opens a book).
+    private void SaveProgress()
+    {
+        if (Gate > 0 || _isGameWon || _isGameOver || _stepTargets.Count == 0) return;
+        Progress.Save(GameProgressRules.Listen, SubjectId, new ListenState
+        {
+            Lang = Prefs.StudyLangId,
+            Words = _allWords.Select(w => w.WordId).ToList(),
+            Steps = _stepTargets.Select(w => w.WordId).ToList(),
+            Step = _step
+        }, _step, TotalSteps);
+    }
+
+    // The 5-hour block is over: a game that was left half way is offered again.
+    private async Task AfterUnlockAsync()
+    {
+        await JS.InvokeVoidAsync("lp.stopSpeech");
+        await Lives.CheckRegenAsync();
+        if (Blocked) return;
+        await LoadGame();
+    }
+
+    private async Task LoadGame(bool offerResume = true)
     {
         _isBusy = true;
+        _offer = null; _offerState = null; _offerWords = null;
         _isGameOver = _isGameWon = _hasNoData = false;
         _doneBook = null;
         _showWord = false;
@@ -151,6 +245,8 @@ else
         _step = 0; _stepIndex = -1;
 
         await Lives.CheckRegenAsync();
+
+        if (offerResume && Gate == 0 && await TryOfferAsync()) return;
 
         var words = Gate > 0
             ? await ApiClient.GetWordsByBookAsync(Gate - 1, Prefs.StudyLangId, 15)
@@ -164,13 +260,7 @@ else
             .OrderBy(w => rep.TryGetValue(w.WordId, out var c) ? c : 0)
             .Take(15).ToList();
 
-        foreach (var w in sorted)
-        {
-            var trans = await ApiClient.GetWordBySvgAndLanguageAsync(w.SvgImageId, Prefs.TransLangId);
-            var svg   = await ApiClient.GetPictureHtmlAsync(w.SvgImageId);
-            _allWords.Add(new WordData(w.WordId, w.SvgImageId, w.WordName,
-                trans?.WordName ?? w.WordName, svg, w.WordNumber, w.Level ?? string.Empty));
-        }
+        foreach (var w in sorted) _allWords.Add(await BuildWordAsync(w));
 
         var pool = _allWords.OrderBy(_ => Random.Shared.Next()).ToList();
         for (int i = 0; i < TotalSteps; i++)
@@ -232,6 +322,7 @@ else
             }
             else
             {
+                SaveProgress();         // a learner who leaves now goes on from the next step
                 await LoadStep(_stepIndex + 1);
             }
         }
@@ -244,7 +335,11 @@ else
             await Task.Delay(600);
             card.Result = ListenResult.None;
 
-            if (!canPlay) _isGameOver = true;
+            if (!canPlay)
+            {
+                _isGameOver = true;
+                if (Gate == 0) _ = Progress.DeleteAsync(GameProgressRules.Listen, SubjectId);        // the game is lost: a new one starts next time
+            }
             else _isInteractive = true;
         }
     }
@@ -262,7 +357,7 @@ else
         await JS.InvokeVoidAsync("lp.stopSpeech");
         await Lives.CheckRegenAsync();
         if (Blocked) return;
-        await LoadGame();
+        await LoadGame(offerResume: false);
     }
 
     private int? _doneBook;      // set when this win finished the topic
