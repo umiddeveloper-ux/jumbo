@@ -33,7 +33,8 @@ public class AwardsController(AppDbContext db, ICurrentUserService currentUser, 
                                   join a in db.Awards.AsNoTracking() on ua.AwardsId equals a.AwardId
                                   select a.SvgImageId).ToListAsync()).ToHashSet();
 
-        var awards = await db.Awards.AsNoTracking().Where(a => a.LanguageId == languageId).ToListAsync();
+        var awards = await db.Awards.AsNoTracking().Where(a => a.LanguageId == languageId).OrderBy(a => a.AwardId).ToListAsync();
+        var indexBySvg = await awardService.IndexBySvgAsync();
         var svgIds = awards.Select(a => a.SvgImageId).ToList();
         var svgLookup = await db.SvgImages.AsNoTracking()
             .Where(s => svgIds.Contains(s.SvgImageId))
@@ -43,7 +44,8 @@ public class AwardsController(AppDbContext db, ICurrentUserService currentUser, 
         {
             Title = a.AwardName,
             SvgImage = svgLookup.GetValueOrDefault(a.SvgImageId, string.Empty),
-            IsAchieved = achievedSet.Contains(a.SvgImageId)
+            IsAchieved = achievedSet.Contains(a.SvgImageId),
+            ImageUrl = AwardService.ImageUrlOf(indexBySvg.GetValueOrDefault(a.SvgImageId, -1))
         }).ToList();
     }
 }

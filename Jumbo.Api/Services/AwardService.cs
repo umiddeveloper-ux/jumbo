@@ -20,6 +20,18 @@ public class AwardService(AppDbContext db)
     // The LP an award pays: 0 = "You started learning", 1..14 = a book, 15..19 = a level.
     public static int BonusOf(int index) => index == 0 ? 20 : index <= BookAwards ? 100 : 300;
 
+    /// <summary>The picture of an award as a file of the site: "Book N: Completed" (index 1..14) has the frame of its book with the number (/frames/award-NN.svg); the others have none.</summary>
+    public static string? ImageUrlOf(int index) => index is >= 1 and <= BookAwards ? $"/frames/award-{index:00}.svg" : null;
+
+    /// <summary>The place of each award in the seed order (the same in every language: the rows of one award share the picture), by the id of the picture.</summary>
+    public async Task<Dictionary<int, int>> IndexBySvgAsync()
+    {
+        var order = await db.Awards.AsNoTracking().Where(a => a.LanguageId == EnglishLanguageId).OrderBy(a => a.AwardId).Select(a => a.SvgImageId).ToListAsync();
+        var map = new Dictionary<int, int>();
+        for (var i = 0; i < order.Count; i++) map.TryAdd(order[i], i);
+        return map;
+    }
+
     // A level is mastered when all the books of it are completed (see LanguageLevels).
     private static readonly (int FirstBook, int LastBook)[] LevelBooks = [(1, 3), (4, 6), (7, 10), (11, 14), (15, 15)];
 
@@ -99,7 +111,8 @@ public class AwardService(AppDbContext db)
             Title = a.AwardName,
             SvgImage = svgLookup.GetValueOrDefault(a.SvgImageId, string.Empty),
             IsAchieved = true,
-            LpBonus = bonusBySvg.GetValueOrDefault(a.SvgImageId)
+            LpBonus = bonusBySvg.GetValueOrDefault(a.SvgImageId),
+            ImageUrl = ImageUrlOf(order.FirstOrDefault(o => o.SvgImageId == a.SvgImageId) is { } oi ? oi.Index : -1)
         }).ToList();
     }
 }
