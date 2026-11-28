@@ -1874,4 +1874,35 @@ Verileri reklam için kullanmıyoruz ve satmıyoruz.</value>
   <data name="Foot_NeedSomething" xml:space="preserve">
     <value>Bir mesaj yazın veya haberleri işaretleyin.</value>
   </data>
+  <data name="GP_ResumeTitle" xml:space="preserve">
+    <value>Oyuna devam edelim mi?</value>
+  </data>
+  <data name="GP_ResumeSub" xml:space="preserve">
+    <value>{1} içinde {0}. adımda kaldınız.</value>
+  </data>
+  <data name="GP_Continue" xml:space="preserve">
+    <value>Devam et</value>
+  </data>
+  <data name="GP_StartOver" xml:space="preserve">
+    <value>Baştan başla</value>
+  </data>
+  <data name="GP_Badge" xml:space="preserve">
+    <value>{1} içinde {0}. adımda kaldı</value>
+  </data>
+  <data name="WB_Title" xml:space="preserve"><value>Tekrar hoş geldin</value></data>
+  <data name="WB_Hello" xml:space="preserve"><value>Merhaba, {0}!</value></data>
+  <data name="WB_Learning" xml:space="preserve"><value>{0} öğreniyorsun</value></data>
+  <data name="WB_LangEn" xml:space="preserve"><value>İngilizce</value></data>
+  <data name="WB_LangRu" xml:space="preserve"><value>Rusça</value></data>
+  <data name="WB_LangUz" xml:space="preserve"><value>Özbekçe</value></data>
+  <data name="WB_LangTr" xml:space="preserve"><value>Türkçe</value></data>
+  <data name="WB_Course" xml:space="preserve"><value>Kurs ilerlemesi</value></data>
+  <data name="WB_Words" xml:space="preserve"><value>{1} kelimeden {0} tanesi</value></data>
+  <data name="WB_Book" xml:space="preserve"><value>Kitabın: Kitap {0} ({1})</value></data>
+  <data name="WB_Topics" xml:space="preserve"><value>{1} konudan {0} tanesi geçildi</value></data>
+  <data name="WB_Streak" xml:space="preserve"><value>Seri: {0} gün</value></data>
+  <data name="WB_Close" xml:space="preserve"><value>Kapat</value></data>
+  <data name="GR_WinReward" xml:space="preserve">
+    <value>Kazanınca +{0} JO</value>
+  </data>
 </root>

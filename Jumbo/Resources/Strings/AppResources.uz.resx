@@ -1873,4 +1873,35 @@ Ma'lumotlardan reklama uchun foydalanmaymiz va ularni sotmaymiz.</value>
   <data name="Settings_AppTransLinkedHint" xml:space="preserve">
     <value>Ilova tili tarjima tili bilan birga o'zgaradi</value>
   </data>
+  <data name="GP_ResumeTitle" xml:space="preserve">
+    <value>O‘yinni davom ettiramizmi?</value>
+  </data>
+  <data name="GP_ResumeSub" xml:space="preserve">
+    <value>Siz {1} tadan {0} tasida to‘xtagansiz.</value>
+  </data>
+  <data name="GP_Continue" xml:space="preserve">
+    <value>Davom etish</value>
+  </data>
+  <data name="GP_StartOver" xml:space="preserve">
+    <value>Boshidan boshlash</value>
+  </data>
+  <data name="GP_Badge" xml:space="preserve">
+    <value>{1} tadan {0} tasida to‘xtagan</value>
+  </data>
+  <data name="WB_Title" xml:space="preserve"><value>Xush kelibsiz</value></data>
+  <data name="WB_Hello" xml:space="preserve"><value>Salom, {0}!</value></data>
+  <data name="WB_Learning" xml:space="preserve"><value>Siz {0} o‘rganyapsiz</value></data>
+  <data name="WB_LangEn" xml:space="preserve"><value>ingliz tilini</value></data>
+  <data name="WB_LangRu" xml:space="preserve"><value>rus tilini</value></data>
+  <data name="WB_LangUz" xml:space="preserve"><value>o‘zbek tilini</value></data>
+  <data name="WB_LangTr" xml:space="preserve"><value>turk tilini</value></data>
+  <data name="WB_Course" xml:space="preserve"><value>Kurs bo‘yicha natija</value></data>
+  <data name="WB_Words" xml:space="preserve"><value>{1} ta so‘zdan {0} tasi</value></data>
+  <data name="WB_Book" xml:space="preserve"><value>Sizning kitobingiz: {0}-kitob ({1})</value></data>
+  <data name="WB_Topics" xml:space="preserve"><value>{1} ta mavzudan {0} tasi o‘tildi</value></data>
+  <data name="WB_Streak" xml:space="preserve"><value>Ketma-ket: {0} kun</value></data>
+  <data name="WB_Close" xml:space="preserve"><value>Yopish</value></data>
+  <data name="GR_WinReward" xml:space="preserve">
+    <value>G‘alaba uchun +{0} JO</value>
+  </data>
 </root>

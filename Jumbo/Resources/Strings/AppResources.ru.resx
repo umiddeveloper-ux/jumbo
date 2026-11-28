@@ -1873,4 +1873,35 @@
   <data name="Settings_AppTransLinkedHint" xml:space="preserve">
     <value>Язык интерфейса меняется вместе с языком перевода</value>
   </data>
+  <data name="GP_ResumeTitle" xml:space="preserve">
+    <value>Продолжить игру?</value>
+  </data>
+  <data name="GP_ResumeSub" xml:space="preserve">
+    <value>Вы остановились на {0} из {1}.</value>
+  </data>
+  <data name="GP_Continue" xml:space="preserve">
+    <value>Продолжить</value>
+  </data>
+  <data name="GP_StartOver" xml:space="preserve">
+    <value>Начать заново</value>
+  </data>
+  <data name="GP_Badge" xml:space="preserve">
+    <value>Остановились на {0} из {1}</value>
+  </data>
+  <data name="WB_Title" xml:space="preserve"><value>С возвращением</value></data>
+  <data name="WB_Hello" xml:space="preserve"><value>Привет, {0}!</value></data>
+  <data name="WB_Learning" xml:space="preserve"><value>Вы изучаете {0}</value></data>
+  <data name="WB_LangEn" xml:space="preserve"><value>английский язык</value></data>
+  <data name="WB_LangRu" xml:space="preserve"><value>русский язык</value></data>
+  <data name="WB_LangUz" xml:space="preserve"><value>узбекский язык</value></data>
+  <data name="WB_LangTr" xml:space="preserve"><value>турецкий язык</value></data>
+  <data name="WB_Course" xml:space="preserve"><value>Прогресс по курсу</value></data>
+  <data name="WB_Words" xml:space="preserve"><value>{0} из {1} слов</value></data>
+  <data name="WB_Book" xml:space="preserve"><value>Ваша книга: {0} ({1})</value></data>
+  <data name="WB_Topics" xml:space="preserve"><value>Пройдено тем: {0} из {1}</value></data>
+  <data name="WB_Streak" xml:space="preserve"><value>Серия: {0} дн.</value></data>
+  <data name="WB_Close" xml:space="preserve"><value>Закрыть</value></data>
+  <data name="GR_WinReward" xml:space="preserve">
+    <value>+{0} JO за победу</value>
+  </data>
 </root>

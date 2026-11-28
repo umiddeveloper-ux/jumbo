@@ -15,6 +15,11 @@ public partial class GameKind : ObservableObject
     [ObservableProperty] private string _title = string.Empty;
     [ObservableProperty] private string _desc = string.Empty;
     [ObservableProperty] private bool _isSelected;
+
+    // The JO a won game gives (the shared table: the same numbers the server gives): the chip in the top right corner of the tile.
+    public int Reward => Jumbo.Shared.GameRewards.OfKey(Key);
+    public string RewardText => "+" + Reward;
+    public string RewardDescription => LocalizationManager.Format("GR_WinReward", Reward);
 }
 
 public partial class GameBookChip : ObservableObject

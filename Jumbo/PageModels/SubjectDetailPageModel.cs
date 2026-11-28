@@ -212,6 +212,11 @@ public partial class LessonItemViewModel : ObservableObject
     public string Desc { get; set; } = string.Empty;
     public string SvgIcon { get; set; } = string.Empty;
 
+    // The JO a won game gives (the shared table: the same numbers the server gives): the chip in the top right corner of the tile.
+    public int Reward => Jumbo.Shared.GameRewards.Of(Type);
+    public string RewardText => "+" + Reward;
+    public string RewardDescription => LocalizationManager.Format("GR_WinReward", Reward);
+
     [ObservableProperty]
     private bool _isPassed;
 }
