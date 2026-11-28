@@ -1,0 +1,105 @@
+/* =====================================================================
+   PALETTE PREVIEW "new": the palette of the colleagues' Figma redesign (file "Jumbo.uz - редизайн сайта", page Design System) put on the variables
+   of the whole site. NOT loaded and NOT active for anybody by default: App.razor adds this file and <html data-skin="new"> only for a visitor who
+   opened any address with ?palette=new (a cookie keeps it, ?palette=old removes it) and always on /new.
+   The list of the values, which are exact and which are estimated or derived: design/figma-palette.md.
+
+   Why not data-palette: that attribute already belongs to the colour themes bought in the market (they win over this preview).
+   Why :not(#_): one id in the selector beats every class/attribute rule of soft-colors.css and of the level colours without !important.
+   The colours of the level of a book (A1 red, A2 yellow, B1 green, B2 violet: <html data-level>) are NOT touched: they stay on the book pages.
+   ===================================================================== */
+
+/* ----- light ----- */
+:root[data-skin="new"]:not([data-palette]):not(#_) {
+    --lp-bg:             #FFF8EE;   /* bg/page */
+    --lp-surface:        #FFFFFF;   /* bg/surface */
+    --lp-hover-bg:       #FFEED9;   /* bg/surface-alt */
+    --lp-text:           #1E1B2D;   /* text/primary */
+    --lp-muted:          #5E5870;   /* text/secondary */
+    --lp-disabled-text:  #928DA7;   /* text/muted (3:1 on the page: for placeholders and disabled things only) */
+    --lp-border:         #EFE2CE;   /* border/default */
+    --lp-disabled-edge:  #E2CEB3;   /* border/strong */
+
+    --lp-brand:          #F18B0E;   /* brand/primary: the frame of the site (side menu, top bar) and the buttons */
+    --lp-brand-dark:     #DB7802;   /* brand/primary-hover */
+    --lp-on-brand:       #291700;   /* text/on-brand */
+    --lp-secondary:      #6B5BE8;   /* accent/violet */
+    --lp-accent:         #A15200;   /* the JO / lives text: a dark orange (the brand orange as text is only 2.4:1; this is 5.3:1 on the page) */
+
+    --lp-success:        #18AF9B;   /* accent/mint */
+    --lp-success-dark:   #0B7D6E;   /* DERIVED: mint dark enough for text (5:1) */
+    --lp-success-soft:   #DAF5F0;   /* accent/mint-soft */
+    --lp-error:          #EE587E;   /* accent/pink */
+    --lp-error-soft:     #FEE2EA;   /* accent/pink-soft */
+
+    --lp-radius:         20px;
+}
+/* the brand (no book level): the orange of the Figma */
+:root[data-skin="new"]:not([data-palette]):not([data-level]):not(#_) {
+    --lp-primary:        #F18B0E;   /* brand/primary */
+    --lp-primary-dark:   #DB7802;   /* brand/primary-hover */
+    --lp-primary-shadow: #C26A00;   /* DERIVED: the hover colour 12 % darker (the 3D edge of the chunky buttons) */
+    --lp-primary-soft:   #FFE6C4;   /* brand/soft */
+    --lp-primary-edge:   #FFCF91;   /* DERIVED: between brand/soft and the brand */
+    --lp-on-primary:     #291700;   /* text/on-brand */
+    --lp-primary-text:   #A15200;   /* DERIVED: the brand as the colour of a TEXT (5.3:1 on the page, 4.7:1 on brand/soft) */
+}
+/* the text that was drawn in a bright colour: readable shades of the Figma accents */
+:root[data-skin="new"]:not([data-theme="dark"]):not([data-palette]) .overall-progress-label b,
+:root[data-skin="new"]:not([data-theme="dark"]):not([data-palette]) .daily-msg,
+:root[data-skin="new"]:not([data-theme="dark"]):not([data-palette]) .lp-success-msg,
+:root[data-skin="new"]:not([data-theme="dark"]):not([data-palette]) .daily-card.met .daily-msg,
+:root[data-skin="new"]:not([data-theme="dark"]):not([data-palette]) .daily-card.met .daily-ring-inner { color: var(--lp-success-dark); }
+:root[data-skin="new"]:not([data-theme="dark"]):not([data-palette]) .validation-message,
+:root[data-skin="new"]:not([data-theme="dark"]):not([data-palette]) .stat-chip.block b { color: #B52B54; }   /* DERIVED: pink dark enough for text */
+
+/* ----- dark (the Figma dark swatches; the ones marked DERIVED are not in the Figma) ----- */
+:root[data-skin="new"][data-theme="dark"]:not([data-palette]):not(#_) {
+    --lp-bg:             #100D1A;   /* bg/page */
+    --lp-surface:        #1B1827;   /* bg/surface */
+    --lp-hover-bg:       #252138;   /* bg/surface-alt */
+    --lp-text:           #F6F1FF;   /* text/primary */
+    --lp-muted:          #ABA3C4;   /* text/secondary */
+    --lp-disabled-text:  #746C8D;   /* text/muted */
+    --lp-border:         #2F2B42;   /* border/default */
+    --lp-disabled-edge:  #423D5A;   /* border/strong */
+
+    --lp-brand:          #E8890C;   /* DERIVED: the current dark frame of the site (the Figma dark brand/primary #FD9E2D is for buttons, too bright for a big bar) */
+    --lp-brand-dark:     #C46F00;
+    --lp-on-brand:       #201100;   /* text/on-brand */
+    --lp-secondary:      #A392FD;   /* accent/violet */
+    --lp-accent:         #FFB25C;   /* brand/primary-hover (dark) */
+
+    --lp-success:        #49E1BF;   /* accent/mint */
+    --lp-success-dark:   #49E1BF;
+    --lp-success-soft:   #13382E;   /* accent/mint-soft */
+    --lp-error:          #FF86AF;   /* accent/pink */
+    --lp-error-soft:     #3A1C28;   /* accent/pink-soft */
+}
+:root[data-skin="new"][data-theme="dark"]:not([data-palette]):not([data-level]):not(#_) {
+    --lp-primary:        #FD9E2D;   /* brand/primary (dark) */
+    --lp-primary-dark:   #FFB25C;   /* brand/primary-hover (dark) */
+    --lp-primary-shadow: #C46F00;   /* DERIVED */
+    --lp-primary-soft:   #3A2712;   /* brand/soft (dark) */
+    --lp-primary-edge:   #7A4C0A;   /* DERIVED */
+    --lp-on-primary:     #201100;   /* text/on-brand (dark) */
+    --lp-primary-text:   #FD9E2D;   /* brand/primary (dark): 9:1 on the page */
+}
+
+/* ----- small readability patches: places whose text colour is hard-coded white and sits on the primary colour (on the brand orange white is only 2.3:1;
+   the same places are weak in the current palette too, here they follow the dark text/on-brand of the Figma) ----- */
+:root[data-skin="new"]:not([data-palette]):not([data-level]):not(#_) .book-chip.selected .book-chip-cur { color: var(--lp-on-primary); }
+/* the title of the login / register card is drawn in text/on-brand (dark brown) in the dark theme too, on a DARK card: invisible (the current site has the same fault) */
+:root[data-skin="new"][data-theme="dark"]:not([data-palette]):not(#_) .lp-register-title { color: var(--lp-text); }
+
+/* ----- the chip that switches the preview off (App.razor draws it only when the preview is on) ----- */
+.skin-chip {
+    position: fixed; left: 12px; bottom: 12px; z-index: 2147483000;
+    display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px;
+    font: 800 .82rem/1 'Nunito', system-ui, sans-serif; text-decoration: none;
+    color: #F6F1FF; background: #1E1B2D; border: 2px solid #6B5BE8; border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+}
+.skin-chip:hover, .skin-chip:focus-visible { background: #6B5BE8; color: #fff; outline: 2px solid #fff; outline-offset: 2px; }
+.skin-chip b { font-weight: 900; }
+@media print { .skin-chip { display: none; } }

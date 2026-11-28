@@ -115,7 +115,32 @@ app.MapLegalPages();     // /privacy and /delete-account: plain HTML, open to ev
 // The school report pages behind the secret links (/r/<token>, /r/<token>/exams) show a school's figures and pupil names: never indexed.
 app.Use(async (context, next) =>
 {
-    if (context.Request.Path.StartsWithSegments("/r")) context.Response.Headers["X-Robots-Tag"] = "noindex, nofollow";
+    // /r: the school reports. /new: the preview of the Figma redesign of the landing (not linked from anywhere, not for search engines).
+    if (context.Request.Path.StartsWithSegments("/r") || context.Request.Path.StartsWithSegments("/new")) context.Response.Headers["X-Robots-Tag"] = "noindex, nofollow";
+    await next();
+});
+
+// The preview of the new palette (design/figma-palette.md, wwwroot/palette-new.css): ?palette=new on any address turns it on for this browser
+// (a cookie for 30 days), ?palette=old turns it off. Everybody else sees the site as before. App.razor reads the answer from context.Items.
+app.Use(async (context, next) =>
+{
+    var asked = context.Request.Query["palette"].ToString();
+    var cookie = new CookieOptions { Path = "/", SameSite = SameSiteMode.Lax, Secure = context.Request.IsHttps, IsEssential = true };
+    if (asked == "new")
+    {
+        cookie.MaxAge = TimeSpan.FromDays(30);
+        context.Response.Cookies.Append("jumbo-skin", "new", cookie);
+        context.Items["jumbo.skin"] = "new";
+    }
+    else if (asked == "old")
+    {
+        context.Response.Cookies.Delete("jumbo-skin", cookie);
+        context.Items["jumbo.skin"] = "old";
+    }
+    else if (context.Request.Cookies["jumbo-skin"] == "new")
+    {
+        context.Items["jumbo.skin"] = "new";
+    }
     await next();
 });
 
@@ -131,6 +156,7 @@ app.MapGet("/robots.txt", (HttpContext context) =>
         "Disallow: /admin\n" +
         "Disallow: /teacher\n" +
         "Disallow: /r/\n" +
+        "Disallow: /new\n" +
         // /privacy and /delete-account are NOT blocked here on purpose: a robot must be able to read their "noindex" to drop them
         "\n" +
         "Sitemap: https://jumbo.uz/sitemap.xml\n", "text/plain; charset=utf-8");

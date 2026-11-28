@@ -1,10 +1,11 @@
 ﻿<!DOCTYPE html>
 @using JumboWeb.Services
 @inject SiteCss Css
-<html lang="@_lang" translate="no">
+<html lang="@_lang" translate="no" data-skin="@(_skinNew ? "new" : null)">
 
 <head>
     <meta charset="utf-8" />
+    @if (_isNewPage) { <meta name="robots" content="noindex,nofollow" /> }
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @* The site speaks the learner's language itself (four languages): a browser's own "translate this page" rewrites the text nodes behind Blazor's back, and
        the next update of the page then fails with "null is not an object (evaluating 'e.parentNode.insertBefore')" and the circuit dies (seen on an iPhone). *@
@@ -89,6 +90,9 @@
     @if (_lang == "ru") { <link rel="preload" href="fonts/nunito-400-900-cyrillic.woff2" as="font" type="font/woff2" crossorigin /> }
     @* ONE style sheet made of all the css files (see SiteCss): one request instead of a dozen that block the first paint *@
     <link rel="stylesheet" href="site.css?v=@Css.Version" />
+    @* the preview of the Figma palette: loaded only for a visitor who asked for it (?palette=new) and on /new; the page /new has a style sheet of its own *@
+    @if (_skinNew) { <link rel="stylesheet" href="@Assets["palette-new.css"]" /> }
+    @if (_isNewPage) { <link rel="stylesheet" href="@Assets["new-landing.css"]" /> }
     <link rel="stylesheet" href="@Assets["JumboWeb.styles.css"]" media="print" onload="this.media='all'" />
     <ImportMap />
     <link rel="icon" type="image/svg+xml" href="@Assets["favicon.svg"]" />
@@ -99,6 +103,11 @@
 </head>
 
 <body>
+    @if (_skinNew && !_isNewPage)
+    {
+        @* the way back from the preview: a plain link (a full page load drops the cookie on the server) *@
+        <a class="skin-chip" href="@(HttpContext?.Request.Path.Value ?? "/")?palette=old" aria-label="Palette preview: switch off">Palette: <b>new</b> ✕</a>
+    }
     <Routes AccessToken="@HttpContext?.Request.Cookies["access_token"]" Lang="@_lang" @rendermode="RouteMode" />
     <script src="@Assets["_framework/blazor.web.js"]"></script>
     <script>
@@ -681,7 +690,12 @@
     // The landing page of a visitor who is not signed in ("/" without the access_token cookie) is prerendered: the real page is in the first answer of
     // the server (fast first paint, search engines see the text) and the circuit takes it over a moment later. Every other page is drawn by the
     // circuit only (prerender: false), as before: they need the signed-in learner and a few of them call the browser at once.
-    private bool Prerender => HttpContext is { } c && c.Request.Path.Value == "/" && !c.Request.Cookies.ContainsKey("access_token");
+    // /new (the preview of the Figma landing) is prerendered too, for everybody.
+    private bool Prerender => HttpContext is { } c && ((c.Request.Path.Value == "/" && !c.Request.Cookies.ContainsKey("access_token")) || _isNewPage);
+
+    // /new is the preview of the colleagues' Figma redesign: it always shows the new palette; any other page only for a visitor who asked (?palette=new)
+    private bool _isNewPage => HttpContext?.Request.Path.Value is "/new" or "/new/";
+    private bool _skinNew => _isNewPage || (HttpContext?.Items["jumbo.skin"] as string) == "new";
 
     private IComponentRenderMode RouteMode => new InteractiveServerRenderMode(prerender: Prerender);
 
