@@ -433,6 +433,27 @@
                 var u = document.getElementById('login-username'), p = document.getElementById('login-password');
                 return [u ? u.value : '', p ? p.value : ''];
             },
+            // The welcome-back dialog: shown once per browser session (sessionStorage, one key per learner), cleared at sign-out.
+            welcome: {
+                _ref: null, _onKey: null,
+                seen: function (id) { try { return sessionStorage.getItem("lp.welcome." + id) === "1"; } catch (e) { return false; } },
+                mark: function (id) { try { sessionStorage.setItem("lp.welcome." + id, "1"); } catch (e) { } },
+                reset: function () {
+                    try { Object.keys(sessionStorage).filter(function (k) { return k.indexOf("lp.welcome.") === 0; }).forEach(function (k) { sessionStorage.removeItem(k); }); } catch (e) { }
+                },
+                open: function (ref) {
+                    this._ref = ref;
+                    document.body.style.overflow = "hidden";
+                    this._onKey = function (e) { if (e.key === "Escape" && lp.welcome._ref) lp.welcome._ref.invokeMethodAsync("CloseAsync"); };
+                    document.addEventListener("keydown", this._onKey);
+                    var b = document.getElementById("wb-close"); if (b) b.focus();
+                },
+                close: function () {
+                    document.body.style.overflow = "";
+                    if (this._onKey) document.removeEventListener("keydown", this._onKey);
+                    this._onKey = null; this._ref = null;
+                }
+            },
             focusExamInput: function (i) {
                 var el = document.querySelectorAll('.exam-quiz-input')[i];
                 if (el) el.focus();

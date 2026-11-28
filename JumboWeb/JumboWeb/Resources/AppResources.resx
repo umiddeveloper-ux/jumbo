@@ -2097,6 +2097,19 @@
   <data name="GP_Badge" xml:space="preserve">
     <value>Left at {0} of {1}</value>
   </data>
+  <data name="WB_Title" xml:space="preserve"><value>Welcome back</value></data>
+  <data name="WB_Hello" xml:space="preserve"><value>Hello, {0}!</value></data>
+  <data name="WB_Learning" xml:space="preserve"><value>You are learning {0}</value></data>
+  <data name="WB_LangEn" xml:space="preserve"><value>English</value></data>
+  <data name="WB_LangRu" xml:space="preserve"><value>Russian</value></data>
+  <data name="WB_LangUz" xml:space="preserve"><value>Uzbek</value></data>
+  <data name="WB_LangTr" xml:space="preserve"><value>Turkish</value></data>
+  <data name="WB_Course" xml:space="preserve"><value>Course progress</value></data>
+  <data name="WB_Words" xml:space="preserve"><value>{0} of {1} words</value></data>
+  <data name="WB_Book" xml:space="preserve"><value>Your book: Book {0} ({1})</value></data>
+  <data name="WB_Topics" xml:space="preserve"><value>{0} of {1} topics passed</value></data>
+  <data name="WB_Streak" xml:space="preserve"><value>{0}-day streak</value></data>
+  <data name="WB_Close" xml:space="preserve"><value>Close</value></data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} questions</value>
   </data>

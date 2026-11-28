@@ -1,0 +1,159 @@
+@using Jumbo.Shared
+@using Jumbo.Shared.Dtos
+@using JumboWeb.Services
+@implements IDisposable
+@inject LpApiClient ApiClient
+@inject UserStateService UserState
+@inject AppLocalizer Loc
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+@* The "welcome back" dialog: once per browser session, when a signed-in learner who has started learning lands on the home page or on a book
+   page. It tells the language, how much of the course is learned and which book the learner is in. It never shows over a game, an exam, the
+   level test, the public QR pages or the cabinets of teachers (the path is checked), and a failure to get the numbers shows nothing at all. *@
+@if (_summary is not null)
+{
+    var s = _summary;
+    <div class="wb-overlay" @onclick="CloseAsync">
+        <div class="wb-card" role="dialog" aria-modal="true" aria-labelledby="wb-title" @onclick:stopPropagation>
+            <div class="wb-tiger"><Tiger Mood="wave" Size="96" /></div>
+            <h2 id="wb-title" class="wb-title">@Loc.Format("WB_Hello", _name)</h2>
+            <p class="wb-learning">@Loc.Format("WB_Learning", LanguageName(s.StudyLanguageCode))</p>
+
+            <div class="wb-course">
+                <div class="wb-ring" role="img" aria-label="@(Loc["WB_Course"]): @s.CoursePercent%">
+                    <svg viewBox="0 0 120 120" aria-hidden="true">
+                        <circle class="wb-ring-track" cx="60" cy="60" r="52" />
+                        <circle class="wb-ring-fill" cx="60" cy="60" r="52" stroke-dasharray="@RingDash(s.CoursePercent)" transform="rotate(-90 60 60)" />
+                    </svg>
+                    <span class="wb-ring-num">@s.CoursePercent<small>%</small></span>
+                </div>
+                <div class="wb-course-text">
+                    <div class="wb-label">@Loc["WB_Course"]</div>
+                    <div class="wb-big">@Loc.Format("WB_Words", s.LearnedWords.ToString("N0"), s.TotalWords.ToString("N0"))</div>
+                </div>
+            </div>
+
+            @if (s.CurrentBook > 0)
+            {
+                <div class="wb-book">
+                    <div class="wb-book-head">
+                        <span>@Loc.Format("WB_Book", s.CurrentBook, s.Level)</span>
+                        <b>@s.BookPercent%</b>
+                    </div>
+                    <div class="wb-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@s.BookPercent">
+                        <span class="wb-bar-fill" style="width:@(s.BookPercent)%"></span>
+                    </div>
+                    @if (s.BookTopics > 0)
+                    {
+                        <div class="wb-sub">@Loc.Format("WB_Topics", s.BookTopicsPassed, s.BookTopics)</div>
+                    }
+                </div>
+            }
+
+            @if (s.Streak > 0)
+            {
+                <div class="wb-streak">🔥 @Loc.Format("WB_Streak", s.Streak)</div>
+            }
+
+            <button type="button" id="wb-close" class="lp-btn lp-btn-full wb-close" @onclick="CloseAsync">@Loc["WB_Close"]</button>
+        </div>
+    </div>
+}
+
+@code {
+    private LearningSummaryDto? _summary;
+    private bool _done;                    // decided for this page load (shown, or nothing to show)
+    private bool _needOpen;                // the dialog was just drawn: focus the button, listen to Esc
+    private bool _opened;
+    private bool _checking;
+    private DotNetObjectReference<WelcomeBackDialog>? _ref;
+
+    private string _name => UserState.CurrentUser?.FirstName ?? string.Empty;
+
+    protected override void OnInitialized() => Nav.LocationChanged += OnLocationChanged;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender) await TryShowAsync();
+        if (_needOpen && _summary is not null)
+        {
+            _needOpen = false;
+            _ref ??= DotNetObjectReference.Create(this);
+            try { await JS.InvokeVoidAsync("lp.welcome.open", _ref); _opened = true; } catch { }
+        }
+    }
+
+    private void OnLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
+    {
+        // leaving the page closes it (a link in the dialog does not exist, but the browser's Back does)
+        if (_summary is not null && !IsLandingPath()) _ = CloseAsync();
+        else if (!_done) _ = InvokeAsync(TryShowAsync);
+    }
+
+    // Only the home page and the pages of a book: little-polyglot and little-polyglot/book/{n}.
+    private bool IsLandingPath()
+    {
+        var path = Nav.ToBaseRelativePath(Nav.Uri);
+        var cut = path.IndexOfAny(['?', '#']);
+        if (cut >= 0) path = path[..cut];
+        path = path.Trim('/').ToLowerInvariant();
+        if (path == "little-polyglot") return true;
+        var parts = path.Split('/');
+        return parts.Length == 3 && parts[0] == "little-polyglot" && parts[1] == "book" && int.TryParse(parts[2], out _);
+    }
+
+    private async Task TryShowAsync()
+    {
+        if (_done || _checking || !IsLandingPath()) return;
+        _checking = true;
+        try
+        {
+            await UserState.EnsureLoadedAsync();
+            var user = UserState.CurrentUser;
+            if (user is null || user.Role != Jumbo.Shared.Entities.UserRole.Learner || UserState.HidesLessons) { _done = true; return; }
+
+            if (await JS.InvokeAsync<bool>("lp.welcome.seen", user.UserId)) { _done = true; return; }
+
+            var summary = await ApiClient.GetLearningSummaryAsync();
+            _done = true;
+            if (summary is not { HasStarted: true }) return;       // nothing learned yet (or no answer): no dialog, and no mark: it may come next time
+
+            await JS.InvokeVoidAsync("lp.welcome.mark", user.UserId);
+            _summary = summary;
+            _needOpen = true;
+            StateHasChanged();
+        }
+        catch { _done = true; }           // never an error for the learner
+        finally { _checking = false; }
+    }
+
+    private string LanguageName(string code) => code switch
+    {
+        "ru" => Loc["WB_LangRu"],
+        "uz" => Loc["WB_LangUz"],
+        "tr" => Loc["WB_LangTr"],
+        _ => Loc["WB_LangEn"],
+    };
+
+    // the ring: the length of the filled part and the rest of the circle (2 * pi * 52 = 326.7)
+    private static string RingDash(int percent) =>
+        FormattableString.Invariant($"{326.7 * Math.Clamp(percent, 0, 100) / 100.0:0.#} 326.7");
+
+    [JSInvokable]
+    public async Task CloseAsync()
+    {
+        if (_summary is null) return;
+        _summary = null;
+        _opened = false;
+        try { await JS.InvokeVoidAsync("lp.welcome.close"); } catch { }
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        Nav.LocationChanged -= OnLocationChanged;
+        if (_opened) { try { _ = JS.InvokeVoidAsync("lp.welcome.close"); } catch { } }
+        _ref?.Dispose();
+    }
+}

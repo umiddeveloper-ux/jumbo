@@ -281,6 +281,7 @@
     private async Task Logout()
     {
         UserState.Invalidate();
+        try { await JS.InvokeVoidAsync("lp.welcome.reset"); } catch { }      // the next sign-in shows the welcome dialog again
         await JS.InvokeVoidAsync("window.location.assign", "/session/logout");
     }
 

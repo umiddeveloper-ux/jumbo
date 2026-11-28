@@ -48,6 +48,7 @@
         </div>
 
         @if (!_isRegisterPage) { <AwardPopup /> }
+        @if (!_isRegisterPage) { <WelcomeBackDialog /> }
 
         @if (UserState.IsRegistered && !_isRegisterPage && !IsStaff)
         {
