@@ -7,6 +7,7 @@
 .tc-sub { margin: 22px 0 10px; font-size: 1.3rem; font-weight: 900; color: var(--lp-text); }
 .tc-back { display: inline-block; margin-bottom: 10px; font-weight: 800; color: var(--lp-primary-text); text-decoration: none; }
 .tc-back:hover { text-decoration: underline; }
+button.tc-back { padding: 0; font-family: inherit; font-size: inherit; background: none; border: 0; cursor: pointer; }
 .tc-head { margin-bottom: 6px; }
 .tc-badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 900; background: var(--lp-bg); color: var(--lp-muted); border: 2px solid var(--lp-border); }
 

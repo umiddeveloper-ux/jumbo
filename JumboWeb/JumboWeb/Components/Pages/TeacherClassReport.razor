@@ -17,7 +17,7 @@
 else if (_r is null)
 {
     <div class="tc">
-        <a class="tc-back" href="/teacher">← @Loc["TC_Back"]</a>
+        <a class="tc-back" href="/teacher/reports">@Loc["Common_BackArrow"]</a>
         <div class="lp-empty-state">@Loc["TC_ClassMissing"]</div>
     </div>
 }
@@ -26,7 +26,8 @@ else
     var t = _r.Totals;
     var attention = _r.Students.Where(s => s.Status == "absent").ToList();
     <div class="rp">
-        <a class="tc-back rp-noprint" href="/teacher/class/@Id">← @_r.TeamName</a>
+        @* "Back" goes to the page the teacher came from (the list of reports or the page of the team); opened directly: the list of reports *@
+        <button type="button" class="tc-back rp-noprint" @onclick='() => JS.InvokeVoidAsync("lp.goBack", "/teacher/reports")'>@Loc["Common_BackArrow"]</button>
 
         <header class="rp-head">
             <div>
