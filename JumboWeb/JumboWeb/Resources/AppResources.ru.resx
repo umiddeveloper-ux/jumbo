@@ -1051,6 +1051,12 @@
   <data name="Rating_ScopeAll" xml:space="preserve">
     <value>Вся страна</value>
   </data>
+  <data name="Rating_PeriodLabel" xml:space="preserve">
+    <value>Период</value>
+  </data>
+  <data name="Rating_ScopeLabel" xml:space="preserve">
+    <value>Показать рейтинг</value>
+  </data>
   <data name="Rating_Words" xml:space="preserve">
     <value>слов</value>
   </data>
