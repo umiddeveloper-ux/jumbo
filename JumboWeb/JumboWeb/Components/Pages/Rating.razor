@@ -13,30 +13,42 @@
             <h1 class="rate-title">🏆 @Loc["Rating_Title"]</h1>
             <p class="rate-sub">@Loc["Rating_Subtitle"]</p>
         </div>
-        <div class="rate-period" role="tablist">
-            <button type="button" role="tab" aria-selected="@(_period == "week" ? "true" : "false")" class="rate-chip @(_period == "week" ? "on" : "")" @onclick='() => SetPeriod("week")'>@Loc["Rating_Week"]</button>
-            <button type="button" role="tab" aria-selected="@(_period == "all" ? "true" : "false")" class="rate-chip @(_period == "all" ? "on" : "")" @onclick='() => SetPeriod("all")'>@Loc["Rating_AllTime"]</button>
-        </div>
     </div>
 
-    <div class="rate-tabs" role="tablist">
-        @if (IsStaff)
-        {
-            <button type="button" class="rate-tab @(_classId == 0 ? "on" : "")" @onclick="() => SetClass(0)">@Loc["Rating_TeacherAll"]</button>
-            @foreach (var c in _classes)
-            {
-                var cid = c.ClassId;
-                <button type="button" class="rate-tab @(_classId == cid ? "on" : "")" @onclick="() => SetClass(cid)">@c.Name</button>
-            }
-        }
-        else
-        {
-            @foreach (var (key, label) in Scopes)
-            {
-                var k = key;
-                <button type="button" class="rate-tab @(_scope == k ? "on" : "")" @onclick="() => SetScope(k)">@Loc[label]</button>
-            }
-        }
+    @* The period on the left as two icons, the scope (my team / institution / region / everyone, or a team of the teacher) on the right as a list. *@
+    <div class="rt-bar">
+        <div class="rt-seg" role="group" aria-label="@Loc["Rating_PeriodLabel"]">
+            <button type="button" class="@(_period == "week" ? "on" : "")" aria-pressed="@(_period == "week" ? "true" : "false")"
+                    title="@Loc["Rating_Week"]" aria-label="@Loc["Rating_Week"]" @onclick='() => SetPeriod("week")'>
+                @((MarkupString)WeekIcon)
+            </button>
+            <button type="button" class="@(_period == "all" ? "on" : "")" aria-pressed="@(_period == "all" ? "true" : "false")"
+                    title="@Loc["Rating_AllTime"]" aria-label="@Loc["Rating_AllTime"]" @onclick='() => SetPeriod("all")'>
+                @((MarkupString)AllTimeIcon)
+            </button>
+        </div>
+
+        <label class="rt-select">
+            <span class="rt-select-ico" aria-hidden="true">@((MarkupString)ScopeIcon)</span>
+            <select aria-label="@Loc["Rating_ScopeLabel"]" @onchange="OnScopeChanged">
+                @if (IsStaff)
+                {
+                    <option value="0" selected="@(_classId == 0)">@Loc["Rating_TeacherAll"]</option>
+                    @foreach (var c in _classes)
+                    {
+                        <option value="@c.ClassId" selected="@(_classId == c.ClassId)">@c.Name</option>
+                    }
+                }
+                else
+                {
+                    @foreach (var (key, label) in Scopes)
+                    {
+                        <option value="@key" selected="@(_scope == key)">@Loc[label]</option>
+                    }
+                }
+            </select>
+            <span class="rt-select-chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg></span>
+        </label>
     </div>
 
     @if (_loading)
@@ -82,10 +94,32 @@
         }
         else
         {
-            <div class="rate-list">
-                @foreach (var e in _data.Entries)
+            @* a fresh key per load, so the podium and the rows play their small entrance again when the period or the scope changes *@
+            @* the podium: only people who have points (a teacher also sees pupils with none: they have place 0 and go to the list) *@
+            var podium = _data.Entries.TakeWhile(e => e.Rank >= 1).Take(3).ToList();
+            <div @key="_loadId">
+                @if (podium.Count > 0)
                 {
-                    <RatingRow Entry="e" />
+                    <RatingPodium Entries="podium" />
+                }
+
+                @if (_data.Entries.Count > podium.Count)
+                {
+                    <div class="rt-list">
+                        @for (var i = podium.Count; i < _data.Entries.Count; i++)
+                        {
+                            <RatingListRow Entry="_data.Entries[i]" Index="@(i - podium.Count)" />
+                        }
+                    </div>
+                }
+
+                @* the player is outside the list: the own place is pinned under it, after a gap *@
+                @if (!IsStaff && _data.Me is { } mine && !_data.Entries.Any(e => e.IsMe))
+                {
+                    <div class="rt-gap" aria-hidden="true">⋯</div>
+                    <div class="rt-list">
+                        <RatingListRow Entry="mine" />
+                    </div>
                 }
             </div>
         }
@@ -110,9 +144,25 @@
     private string _scope = "all";
     private string _period = "week";
     private bool _loading = true;
+    private int _loadId;
     private RatingDto? _data;
 
     private string MissingKey => _scope switch { "team" => "Rating_MissingTeam", "school" => "Rating_MissingSchool", _ => "Rating_MissingRegion" };
+
+    // ── icons (24x24, drawn with the text colour) ─────────────────────────────
+    private const string CalendarBody = "<rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15.5\" rx=\"3.5\"/><path d=\"M8 3v4M16 3v4M3.5 10h17\"/>";
+    // a calendar with a 7: the last seven days
+    private static readonly string WeekIcon = "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">" + CalendarBody
+        + "<text x=\"12\" y=\"18.2\" text-anchor=\"middle\" font-size=\"8.6\" font-weight=\"900\" fill=\"currentColor\" stroke=\"none\">7</text></svg>";
+    // a calendar with the infinity sign: every day there has ever been
+    private static readonly string AllTimeIcon = "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">" + CalendarBody
+        + "<path d=\"M12 15.2c-.9-1.2-1.6-1.9-2.6-1.9a1.9 1.9 0 0 0 0 3.8c1 0 1.7-.7 2.6-1.9s1.6-1.9 2.6-1.9a1.9 1.9 0 0 1 0 3.8c-1 0-1.7-.7-2.6-1.9\" stroke-width=\"1.8\"/></svg>";
+
+    private string ScopeIcon => IsStaff || _scope == "team" ? TeamIcon : _scope switch { "school" => SchoolIcon, "region" => RegionIcon, _ => GlobeIcon };
+    private const string TeamIcon = "<svg viewBox=\"0 0 24 24\"><circle cx=\"9\" cy=\"8.5\" r=\"3\"/><path d=\"M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5\"/><circle cx=\"17\" cy=\"9.5\" r=\"2.4\"/><path d=\"M16.5 14.2c2.6-.2 4.5 1.6 4.5 4.3\"/></svg>";
+    private const string SchoolIcon = "<svg viewBox=\"0 0 24 24\"><path d=\"M3 20h18M5 20V10l7-5 7 5v10\"/><path d=\"M10 20v-5h4v5\"/></svg>";
+    private const string RegionIcon = "<svg viewBox=\"0 0 24 24\"><path d=\"M12 21s6.5-5.6 6.5-11a6.5 6.5 0 1 0-13 0c0 5.4 6.5 11 6.5 11z\"/><circle cx=\"12\" cy=\"10\" r=\"2.4\"/></svg>";
+    private const string GlobeIcon = "<svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M3.5 12h17M12 3.5c2.4 2.6 3.6 5.4 3.6 8.5S14.4 17.9 12 20.5C9.6 17.9 8.4 15.1 8.4 12S9.6 6.1 12 3.5z\"/></svg>";
 
     protected override async Task OnInitializedAsync()
     {
@@ -131,6 +181,13 @@
         await LoadAsync();
     }
 
+    private async Task OnScopeChanged(ChangeEventArgs e)
+    {
+        var value = e.Value?.ToString() ?? string.Empty;
+        if (IsStaff) await SetClass(int.TryParse(value, out var id) ? id : 0);
+        else if (Scopes.Any(s => s.Key == value)) await SetScope(value);
+    }
+
     private async Task SetScope(string scope) { if (_scope == scope) return; _scope = scope; await LoadAsync(); }
     private async Task SetClass(int classId) { if (_classId == classId) return; _classId = classId; await LoadAsync(); }
     private async Task SetPeriod(string period) { if (_period == period) return; _period = period; await LoadAsync(); }
@@ -140,6 +197,7 @@
         _loading = true;
         try { _data = IsStaff ? await ApiClient.TeacherGetRatingAsync(_classId, _period) : await ApiClient.GetRatingAsync(_scope, _period); }
         catch { _data = null; }
+        _loadId++;
         _loading = false;
     }
 }

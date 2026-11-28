@@ -1,0 +1,70 @@
+@using JumboWeb.Services
+@using Jumbo.Shared.Dtos
+@inject AppLocalizer Loc
+
+@* The first three of a leaderboard on a podium: the first one in the middle, taller, with a crown; the second on the left, the third on the right.
+   One or two entries are shown too (the podium just has fewer places). The medal colour follows the place (ties share a place). *@
+<div class="rt-podium n@(Entries.Count)" role="list">
+    @foreach (var slot in Slots)
+    {
+        var e = slot.Entry;
+        <div class="rt-pod p@(slot.Position + 1) @(e.IsMe ? "me" : "")" role="listitem" style="--d:@(slot.Position * 90)ms">
+            <div class="rt-pod-who">
+                @if (slot.Position == 0)
+                {
+                    <svg class="rt-crown" viewBox="0 0 28 22" aria-hidden="true"><path d="M2 6l6 5 6-9 6 9 6-5-2.2 14H4.2z" fill="#F2C94C" stroke="#C9971C" stroke-width="1.6" stroke-linejoin="round"/><circle cx="2.4" cy="6" r="1.8" fill="#F2C94C" stroke="#C9971C" stroke-width="1.2"/><circle cx="14" cy="2.4" r="1.8" fill="#F2C94C" stroke="#C9971C" stroke-width="1.2"/><circle cx="25.6" cy="6" r="1.8" fill="#F2C94C" stroke="#C9971C" stroke-width="1.2"/></svg>
+                }
+                <span class="rt-pod-avatar m@(Medal(e))">
+                    @if (e.Name is not null)
+                    {
+                        <UserAvatar Svg="@e.AvatarSvg" DisplayName="@e.Name" Size="@(slot.Position == 0 ? 84 : 64)" Frame="@e.FrameKey" />
+                    }
+                    else
+                    {
+                        <span class="rt-pod-hidden">🐘</span>
+                    }
+                </span>
+                <span class="rt-pod-name">
+                    <span class="rt-pod-name-text">@(e.Name ?? Loc["Rating_Hidden"])</span>
+                    @if (!string.IsNullOrEmpty(e.BadgeSvg))
+                    {
+                        <span class="rate-badge" aria-hidden="true">@((MarkupString)e.BadgeSvg)</span>
+                    }
+                </span>
+                @if (e.IsMe)
+                {
+                    <em class="rate-you">@Loc["Rating_You"]</em>
+                }
+                @if (!string.IsNullOrEmpty(e.Team))
+                {
+                    <span class="rt-pod-team">@e.Team</span>
+                }
+                <span class="rt-pod-points"><b>@e.Words</b> <small>@Loc["Rating_Words"]</small></span>
+            </div>
+            <div class="rt-pod-step m@(Medal(e))" aria-label="@e.Rank"><span>@e.Rank</span></div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<RatingEntryDto> Entries { get; set; } = default!;
+
+    private record Slot(int Position, RatingEntryDto Entry);
+
+    // left to right: 2nd, 1st, 3rd (with fewer entries: what there is, the first one still the tallest)
+    private IEnumerable<Slot> Slots
+    {
+        get
+        {
+            var all = Entries.Take(3).Select((e, i) => new Slot(i, e)).ToList();
+            return all.Count switch
+            {
+                3 => [all[1], all[0], all[2]],
+                2 => [all[1], all[0]],
+                _ => all
+            };
+        }
+    }
+
+    private static int Medal(RatingEntryDto e) => e.Rank is >= 1 and <= 3 ? e.Rank : 3;
+}

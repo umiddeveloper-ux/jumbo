@@ -1,0 +1,46 @@
+@using JumboWeb.Services
+@using Jumbo.Shared.Dtos
+@inject AppLocalizer Loc
+
+@* A line of the leaderboard below the podium: place, avatar, name, team, words. The row of the signed-in player is marked. *@
+<div class="rt-row @(Entry.IsMe ? "me" : "")" style="--i:@Math.Min(Index, 12)">
+    <span class="rt-rank">@(Entry.Rank == 0 ? "–" : Entry.Rank.ToString())</span>
+    <span class="rt-row-avatar">
+        @if (Entry.Name is not null)
+        {
+            <UserAvatar Svg="@Entry.AvatarSvg" DisplayName="@Entry.Name" Size="44" Frame="@Entry.FrameKey" />
+        }
+        else
+        {
+            <span class="rate-avatar-hidden">🐘</span>
+        }
+    </span>
+    <span class="rt-row-text">
+        <span class="rt-row-name">
+            <span class="rt-row-name-text">@(Entry.Name ?? Loc["Rating_Hidden"])</span>
+            @if (!string.IsNullOrEmpty(Entry.BadgeSvg))
+            {
+                <span class="rate-badge" aria-hidden="true">@((MarkupString)Entry.BadgeSvg)</span>
+            }
+            @if (Entry.IsMe)
+            {
+                <em class="rate-you">@Loc["Rating_You"]</em>
+            }
+        </span>
+        @if (!string.IsNullOrEmpty(Entry.Team))
+        {
+            <span class="rt-row-team">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 20v-2.5A4.5 4.5 0 0 1 11.5 13h1A4.5 4.5 0 0 1 17 17.5V20" /><circle cx="12" cy="7.5" r="3.2" /></svg>
+                @Entry.Team
+            </span>
+        }
+    </span>
+    <span class="rt-row-points"><b>@Entry.Words</b> <small>@Loc["Rating_Words"]</small></span>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public RatingEntryDto Entry { get; set; } = default!;
+
+    // the position in the list: the rows come in one after another (a small stagger)
+    [Parameter] public int Index { get; set; }
+}

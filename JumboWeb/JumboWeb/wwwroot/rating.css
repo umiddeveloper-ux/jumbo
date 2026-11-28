@@ -82,3 +82,122 @@
 .rate-name { display: flex; align-items: center; gap: 6px; }
 .rate-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .rate-you { margin-left: 0; flex-shrink: 0; }
+
+/* =====================================================================
+   The leaderboard page (Rating.razor): icon period switch, scope list, podium, rows
+   ===================================================================== */
+.rt-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 16px 0 14px; }
+
+/* the period: two icons (a calendar with 7, a calendar with the infinity sign) */
+.rt-seg { display: inline-flex; flex-shrink: 0; padding: 4px; gap: 4px; border-radius: 16px; background: var(--lp-surface); border: 2px solid var(--lp-border); }
+.rt-seg button {
+    width: 48px; height: 40px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 12px; cursor: pointer;
+    background: transparent; color: var(--lp-muted); transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+.rt-seg button:hover:not(.on) { color: var(--lp-primary-text); background: var(--lp-primary-soft); }
+.rt-seg button.on { background: var(--lp-primary); color: var(--lp-on-primary); box-shadow: 0 3px 0 var(--lp-primary-shadow); }
+.rt-seg button:focus-visible { outline: 3px solid var(--lp-primary-edge); outline-offset: 2px; }
+.rt-seg svg { width: 27px; height: 27px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* the scope: one list at the right end (a native select: good on phones and with a keyboard) */
+.rt-select { position: relative; display: inline-flex; align-items: center; min-width: 0; max-width: 64%; }
+.rt-select select {
+    appearance: none; -webkit-appearance: none; width: 100%; min-width: 0; margin: 0; cursor: pointer;
+    padding: 10px 40px 10px 44px; border-radius: 16px; font: inherit; font-weight: 900; font-size: 0.95rem; line-height: 1.3;
+    color: var(--lp-text); background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 4px;
+    text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
+}
+.rt-select select:hover { border-color: var(--lp-primary-edge); }
+.rt-select select:focus-visible { outline: 3px solid var(--lp-primary-edge); outline-offset: 2px; border-color: var(--lp-primary); }
+.rt-select select option { background: var(--lp-surface); color: var(--lp-text); }
+.rt-select-ico, .rt-select-chev { position: absolute; top: 50%; transform: translateY(-50%); display: flex; pointer-events: none; color: var(--lp-primary-text); }
+.rt-select-ico { left: 14px; }
+.rt-select-chev { right: 13px; color: var(--lp-muted); }
+.rt-select-ico svg, .rt-select-chev svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.rt-select-chev svg { width: 20px; height: 20px; }
+
+/* the podium: 2nd | 1st | 3rd */
+.rt-podium { display: flex; align-items: flex-end; justify-content: center; gap: 10px; max-width: 600px; margin: 6px auto 20px; }
+.rt-pod { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: stretch; animation: rt-rise 0.55s cubic-bezier(.2, .8, .25, 1) both; animation-delay: var(--d, 0ms); }
+.rt-pod.p1 { flex: 1.25 1 0; }
+.rt-pod-who { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 0 2px 8px; text-align: center; min-width: 0; }
+.rt-crown { width: 34px; height: 27px; margin-bottom: -4px; animation: rt-crown 2.6s ease-in-out infinite; transform-origin: 50% 100%; }
+.rt-pod-avatar { display: flex; padding: 3px; border-radius: 50%; border: 3px solid var(--lp-border); background: var(--lp-surface); box-shadow: 0 4px 0 rgba(0, 0, 0, 0.08); }
+.rt-pod-avatar.m1 { border-color: #F2C94C; box-shadow: 0 4px 0 #C9971C, 0 0 0 4px rgba(242, 201, 76, 0.22); }
+.rt-pod-avatar.m2 { border-color: #C9CED6; box-shadow: 0 4px 0 #9AA1AD; }
+.rt-pod-avatar.m3 { border-color: #E0A070; box-shadow: 0 4px 0 #B87438; }
+.rt-pod-hidden { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1.9rem; background: var(--lp-bg); border: 2px dashed var(--lp-border); }
+.rt-pod.p1 .rt-pod-hidden { width: 84px; height: 84px; font-size: 2.4rem; }
+.rt-pod-name { display: flex; align-items: center; justify-content: center; gap: 4px; max-width: 100%; font-weight: 900; font-size: 1rem; color: var(--lp-text); }
+.rt-pod.p1 .rt-pod-name { font-size: 1.1rem; }
+.rt-pod-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.rt-pod-team { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.8rem; font-weight: 700; color: var(--lp-muted); }
+.rt-pod-points { white-space: nowrap; }
+.rt-pod-points b { font-size: 1.35rem; font-weight: 900; color: var(--lp-primary-text); }
+.rt-pod.p1 .rt-pod-points b { font-size: 1.6rem; }
+.rt-pod-points small { font-size: 0.78rem; font-weight: 800; color: var(--lp-muted); }
+.rt-pod.me .rt-pod-name-text { color: var(--lp-primary-text); }
+.rt-pod .rate-you { margin: 0; }
+
+/* the steps under the people: the tallest for the first place */
+.rt-pod-step { display: flex; align-items: flex-start; justify-content: center; padding-top: 8px; border-radius: 16px 16px 6px 6px; font-weight: 900; font-size: 1.7rem; line-height: 1; color: #fff; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.18); }
+.rt-pod.p1 .rt-pod-step { height: 82px; font-size: 2.2rem; }
+.rt-pod.p2 .rt-pod-step { height: 58px; }
+.rt-pod.p3 .rt-pod-step { height: 44px; }
+.rt-pod-step.m1 { background: linear-gradient(180deg, #F7D774, #E3B232); box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.12); }
+.rt-pod-step.m2 { background: linear-gradient(180deg, #D9DDE3, #AEB4C0); box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.12); }
+.rt-pod-step.m3 { background: linear-gradient(180deg, #EBB989, #CC8447); box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.12); }
+.rt-podium.n1 { max-width: 260px; }
+.rt-podium.n2 { max-width: 420px; }
+
+/* the rows below the podium */
+.rt-list { display: flex; flex-direction: column; gap: 8px; }
+.rt-row {
+    display: grid; grid-template-columns: 34px 44px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 10px 14px;
+    border-radius: 18px; background: var(--lp-surface); border: 2px solid var(--lp-border); border-bottom-width: 4px;
+    animation: rt-fade 0.4s ease both; animation-delay: calc(var(--i, 0) * 45ms + 250ms);
+    transition: transform 0.15s, border-color 0.15s;
+}
+.rt-row:hover { transform: translateY(-1px); border-color: var(--lp-primary-edge); }
+.rt-row.me { border-color: var(--lp-primary); background: var(--lp-primary-soft); box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.12); }
+.rt-rank { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; font-weight: 900; font-size: 0.92rem; color: var(--lp-muted); background: var(--lp-bg); border: 2px solid var(--lp-border); }
+.rt-row.me .rt-rank { color: var(--lp-on-primary); background: var(--lp-primary); border-color: var(--lp-primary); }
+.rt-row-avatar { display: flex; width: 44px; height: 44px; }
+.rt-row-avatar .rate-avatar-hidden { width: 44px; height: 44px; }
+.rt-row-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.rt-row-name { display: flex; align-items: center; gap: 6px; min-width: 0; font-weight: 900; font-size: 1.05rem; color: var(--lp-text); }
+.rt-row-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.rt-row .rate-you { margin: 0; flex-shrink: 0; }
+.rt-row-team { display: flex; align-items: center; gap: 5px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.85rem; font-weight: 700; color: var(--lp-muted); }
+.rt-row-team svg { flex-shrink: 0; width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.rt-row-points { text-align: right; white-space: nowrap; }
+.rt-row-points b { font-size: 1.3rem; font-weight: 900; color: var(--lp-primary-text); }
+.rt-row-points small { font-size: 0.8rem; font-weight: 800; color: var(--lp-muted); }
+.rt-gap { margin: 6px 0; text-align: center; font-weight: 900; letter-spacing: 0.3em; color: var(--lp-muted); }
+
+@keyframes rt-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes rt-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes rt-crown { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg) translateY(-2px); } }
+@media (prefers-reduced-motion: reduce) {
+    .rt-pod, .rt-row, .rt-crown { animation: none; }
+    .rt-row, .rt-seg button { transition: none; }
+}
+
+@media (max-width: 480px) {
+    .rt-bar { gap: 8px; }
+    .rt-seg button { width: 44px; }
+    .rt-select select { padding-left: 40px; padding-right: 36px; font-size: 0.9rem; }
+    .rt-select-ico { left: 12px; }
+    .rt-podium { gap: 6px; }
+    .rt-pod-name { font-size: 0.92rem; }
+    .rt-pod.p1 .rt-pod-name { font-size: 1rem; }
+    .rt-pod-points b { font-size: 1.15rem; }
+    .rt-pod.p1 .rt-pod-points b { font-size: 1.4rem; }
+    .rt-pod-hidden { width: 52px; height: 52px; font-size: 1.6rem; }
+    .rt-pod.p1 .rt-pod-hidden { width: 72px; height: 72px; }
+    .rt-row { grid-template-columns: 30px 38px minmax(0, 1fr) auto; gap: 9px; padding: 9px 10px; }
+    .rt-rank { width: 28px; height: 28px; font-size: 0.85rem; }
+    .rt-row-avatar, .rt-row-avatar .rate-avatar-hidden { width: 38px; height: 38px; }
+    .rt-row-name { font-size: 0.98rem; }
+    .rt-row-points b { font-size: 1.15rem; }
+}
