@@ -1,11 +1,14 @@
 ﻿<!DOCTYPE html>
 @using JumboWeb.Services
 @inject SiteCss Css
-<html lang="@_lang">
+<html lang="@_lang" translate="no">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @* The site speaks the learner's language itself (four languages): a browser's own "translate this page" rewrites the text nodes behind Blazor's back, and
+       the next update of the page then fails with "null is not an object (evaluating 'e.parentNode.insertBefore')" and the circuit dies (seen on an iPhone). *@
+    <meta name="google" content="notranslate" />
     @* a prerendered page brings its own <title> (PageTitle); the others get this one until their component sets its own *@
     @if (!Prerender) { <title>@Meta.Title</title> }
     <meta name="description" content="@Meta.Description" />
