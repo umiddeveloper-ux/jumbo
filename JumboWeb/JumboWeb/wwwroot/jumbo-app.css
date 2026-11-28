@@ -130,7 +130,8 @@
 .lesson-desc { margin-top: 0; }
 .lesson-card:hover { transform: none; }
 .lesson-card:active { transform: none; border-bottom-width: 2px; }
-.lesson-check { top: 50%; transform: translateY(-50%); }
+/* the JO chip has the top right corner, the check mark goes to the lower right */
+.lesson-check { top: auto; bottom: 12px; transform: none; }
 
 /* ----- the game "Find me": the card is in the colour of the level, the word in dark / white ----- */
 .game-cards-grid4 .game-card {

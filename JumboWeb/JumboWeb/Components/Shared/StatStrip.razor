@@ -33,10 +33,11 @@
         }
         else
         {
-            <span class="stat-chip lives @(Lives.Lives <= 0 ? "empty" : "")" title="@Loc["Strip_Lives"]">
+            <a class="stat-chip lives @(Lives.Lives <= 0 ? "empty" : "")" href="/plans" title="@Loc["Strip_Lives"] · @Loc["Plan_Nav"]">
                 <img class="stat-ico" src="icons/ic_heart.svg" alt="" /><b>@(Lives.Unlimited ? "∞" : Lives.Lives.ToString())</b>
-            </span>
-            <span class="stat-chip lp" title="@Lives.LpExact JO"><img class="stat-ico" src="icons/ic_gem.svg" alt="" /><b>@PointsFormat.Compact(Lives.LpPoints)</b></span>
+            </a>
+            @* the lives and the JO open the versions: that is where a learner who runs out of them buys another one *@
+            <a class="stat-chip lp" href="/plans" title="@Lives.LpExact JO · @Loc["Plan_Nav"]"><img class="stat-ico" src="icons/ic_gem.svg" alt="" /><b>@PointsFormat.Compact(Lives.LpPoints)</b></a>
         }
     </div>
 }

@@ -2110,6 +2110,9 @@
   <data name="WB_Topics" xml:space="preserve"><value>Пройдено тем: {0} из {1}</value></data>
   <data name="WB_Streak" xml:space="preserve"><value>Серия: {0} дн.</value></data>
   <data name="WB_Close" xml:space="preserve"><value>Закрыть</value></data>
+  <data name="GR_WinReward" xml:space="preserve">
+    <value>+{0} JO за победу</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>

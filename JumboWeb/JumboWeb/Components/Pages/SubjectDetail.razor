@@ -52,6 +52,7 @@ else
         <div class="lesson-card @(_progress?.FindMeWon == true ? "passed" : "")" @onclick="GoToFindMe">
             @if (_progress?.FindMeWon == true) { <span class="lesson-check" aria-label="✓">✓</span> }
             else if (Left("findme") is { } lf) { <span class="gp-chip" title="@Loc.Format("GP_Badge", lf.Done, lf.Total)">@lf.Done/@lf.Total</span> }
+            <RewardChip Game="FindMe" />
             <div class="lesson-icon"><img src="icons/lesson_findme.png" alt="" width="56" height="56" /></div>
             <div class="lesson-name">@Loc["Game_FindMeTitle"]</div>
             <div class="lesson-desc">@Loc["Game_FindMeDesc"]</div>
@@ -59,6 +60,7 @@ else
         <div class="lesson-card @(_progress?.ListenWon == true ? "passed" : "")" @onclick="GoToListen">
             @if (_progress?.ListenWon == true) { <span class="lesson-check" aria-label="✓">✓</span> }
             else if (Left("listen") is { } ll) { <span class="gp-chip" title="@Loc.Format("GP_Badge", ll.Done, ll.Total)">@ll.Done/@ll.Total</span> }
+            <RewardChip Game="ListenAndFind" />
             <div class="lesson-icon"><img src="icons/lesson_listen.png" alt="" width="56" height="56" /></div>
             <div class="lesson-name">@Loc["Game_ListenTitle"]</div>
             <div class="lesson-desc">@Loc["Game_ListenDesc"]</div>
@@ -66,6 +68,7 @@ else
         <div class="lesson-card @(_progress?.PhraseWon == true ? "passed" : "")" @onclick="GoToPhrase">
             @if (_progress?.PhraseWon == true) { <span class="lesson-check" aria-label="✓">✓</span> }
             else if (Left("phrase") is { } lp) { <span class="gp-chip" title="@Loc.Format("GP_Badge", lp.Done, lp.Total)">@lp.Done/@lp.Total</span> }
+            <RewardChip Game="Phrase" />
             <div class="lesson-icon"><img src="icons/lesson_phrase.png" alt="" width="56" height="56" /></div>
             <div class="lesson-name">@Loc["Game_PhraseTitle"]</div>
             <div class="lesson-desc">@Loc["Game_PhraseDesc"]</div>

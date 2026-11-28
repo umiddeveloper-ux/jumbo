@@ -2110,6 +2110,9 @@
   <data name="WB_Topics" xml:space="preserve"><value>{0} of {1} topics passed</value></data>
   <data name="WB_Streak" xml:space="preserve"><value>{0}-day streak</value></data>
   <data name="WB_Close" xml:space="preserve"><value>Close</value></data>
+  <data name="GR_WinReward" xml:space="preserve">
+    <value>+{0} JO for a win</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} questions</value>
   </data>

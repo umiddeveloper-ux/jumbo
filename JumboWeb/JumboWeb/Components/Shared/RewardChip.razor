@@ -1,0 +1,22 @@
+@using JumboWeb.Services
+@inject AppLocalizer Loc
+
+@* The JO a won game gives, in the top right corner of a game tile: the gem and "+N" (the numbers are Jumbo.Shared.GameRewards, the same the server gives). *@
+@if (Jo > 0)
+{
+    <span class="reward-chip" title="@Loc.Format("GR_WinReward", Jo)" aria-label="@Loc.Format("GR_WinReward", Jo)"><img src="icons/ic_gem.svg" alt="" width="14" height="14" />+@Jo</span>
+}
+
+@code {
+    // the game as the server names it (FindMe, ListenAndFind, Phrase, Sequence, Steps) or by its key (findme, listen, phrase, sequence, steps)
+    [Parameter] public string Game { get; set; } = string.Empty;
+
+    private int Jo
+    {
+        get
+        {
+            var byType = Jumbo.Shared.GameRewards.Of(Game);
+            return byType > 0 ? byType : Jumbo.Shared.GameRewards.OfKey(Game);
+        }
+    }
+}

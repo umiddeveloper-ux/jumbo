@@ -2110,6 +2110,9 @@
   <data name="WB_Topics" xml:space="preserve"><value>{1} konudan {0} tanesi geçildi</value></data>
   <data name="WB_Streak" xml:space="preserve"><value>Seri: {0} gün</value></data>
   <data name="WB_Close" xml:space="preserve"><value>Kapat</value></data>
+  <data name="GR_WinReward" xml:space="preserve">
+    <value>Kazanınca +{0} JO</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>

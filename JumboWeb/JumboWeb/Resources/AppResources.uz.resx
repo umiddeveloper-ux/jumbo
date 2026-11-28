@@ -2041,6 +2041,9 @@
   <data name="WB_Topics" xml:space="preserve"><value>{1} ta mavzudan {0} tasi o‘tildi</value></data>
   <data name="WB_Streak" xml:space="preserve"><value>Ketma-ket: {0} kun</value></data>
   <data name="WB_Close" xml:space="preserve"><value>Yopish</value></data>
+  <data name="GR_WinReward" xml:space="preserve">
+    <value>G‘alaba uchun +{0} JO</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Savollar: {0}</value>
   </data>

@@ -23,6 +23,7 @@ else
         {
             var game = g;
             <div class="lesson-card @(_game == game.Key ? "on" : "")" role="button" @onclick="() => SelectGame(game.Key)">
+                <RewardChip Game="@game.Key" />
                 <div class="lesson-icon">@game.Icon</div>
                 <div class="lesson-name">@Loc[game.Title]</div>
                 <div class="lesson-desc">@Loc[game.Desc]</div>

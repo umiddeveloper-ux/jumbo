@@ -844,7 +844,13 @@ span[style*="0.85rem"] { font-size: 0.95rem !important; }
 .stat-strip::-webkit-scrollbar { display: none; }
 .stat-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 11px; border-radius: 999px; white-space: nowrap; font-size: 0.95rem; font-weight: 800; color: var(--lp-text); background: var(--lp-bg); border: 2px solid var(--lp-border); }
 .stat-chip b { font-weight: 900; }
+/* the lives and the JO are links to the versions (/plans) */
+a.stat-chip { text-decoration: none; cursor: pointer; }
+a.stat-chip:hover { text-decoration: none; filter: brightness(1.08); }
+a.stat-chip:focus-visible { outline: 2px solid var(--lp-primary); outline-offset: 2px; }
 .stat-ico { font-size: 1rem; line-height: 1; }
+/* every icon of the strip has the same size (the gem file is bigger than the others: it showed as a large gem on the pages with the site's own bar, like /plans) */
+img.stat-ico { width: 14px; height: 14px; }
 .stat-unit { font-size: 0.75rem; font-weight: 900; color: var(--lp-muted); }
 .stat-label { display: none; font-size: 0.78rem; font-weight: 800; color: var(--lp-muted); }
 .stat-chip.lives b { color: var(--lp-error); }
@@ -1366,6 +1372,13 @@ input[type="checkbox"], input[type="radio"], input[type="range"], progress { acc
            color: var(--lp-primary-text); background: var(--lp-primary-soft); border: 2px solid var(--lp-primary); white-space: nowrap; }
 .gp-chip::before { content: "▶"; font-size: 0.62rem; }
 .lesson-card { position: relative; }
+/* the JO a won game gives: the gem and +N in the top right corner of a game tile (the resume chip and the check mark keep to the right below it) */
+.reward-chip { position: absolute; top: 7px; right: 8px; z-index: 1; display: inline-flex; align-items: center; gap: 3px; height: 22px; padding: 0 8px 0 6px;
+               border-radius: 999px; font-size: 0.78rem; font-weight: 900; line-height: 1; white-space: nowrap; pointer-events: none;
+               color: var(--lp-text); background: var(--lp-surface); border: 2px solid var(--lp-border); }
+.reward-chip img { width: 14px; height: 14px; display: block; }
+/* the "continue" chip of a half-played game goes to the lower right, like the check mark of a passed one, so it never touches the JO chip */
+.lesson-card > .gp-chip { top: auto; bottom: 10px; transform: none; }
 /* on the card of a topic (the Games page) */
 .subject-card { position: relative; }
 .gp-chip.gp-corner { top: 6px; right: 6px; transform: none; min-width: 0; height: 24px; padding: 0 8px; font-size: 0.74rem; }
