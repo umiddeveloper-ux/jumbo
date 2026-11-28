@@ -2119,6 +2119,204 @@
   <data name="GR_WinReward" xml:space="preserve">
     <value>+{0} JO за победу</value>
   </data>
+  <data name="NH_PageTitle" xml:space="preserve">
+    <value>Jumbo — учим английский играя (превью дизайна)</value>
+  </data>
+  <data name="NH_PageDesc" xml:space="preserve">
+    <value>Jumbo — бесплатный сайт и приложение для детей: английские слова с картинками и озвучкой, весёлые игры, алфавит и слонёнок Jumbo.</value>
+  </data>
+  <data name="NH_PreviewBar" xml:space="preserve">
+    <value>Превью нового дизайна (Figma). Он ещё не опубликован.</value>
+  </data>
+  <data name="NH_PreviewLink" xml:space="preserve">
+    <value>Посмотреть весь сайт в новой палитре →</value>
+  </data>
+  <data name="NH_Skip" xml:space="preserve">
+    <value>Перейти к содержимому</value>
+  </data>
+  <data name="NH_MenuOpen" xml:space="preserve">
+    <value>Открыть меню</value>
+  </data>
+  <data name="NH_MenuClose" xml:space="preserve">
+    <value>Закрыть меню</value>
+  </data>
+  <data name="NH_NavLabel" xml:space="preserve">
+    <value>Главное меню</value>
+  </data>
+  <data name="NH_HeroBadge" xml:space="preserve">
+    <value>БЕСПЛАТНО</value>
+  </data>
+  <data name="NH_HeroBadgeText" xml:space="preserve">
+    <value>Английский для детей — на сайте и в приложении</value>
+  </data>
+  <data name="NH_HeroT1" xml:space="preserve">
+    <value>Учи английский,</value>
+  </data>
+  <data name="NH_HeroT2" xml:space="preserve">
+    <value>играя</value>
+  </data>
+  <data name="NH_HeroSub" xml:space="preserve">
+    <value>Слова по темам, весёлые игры и путешествие по 10 странам вместе со слонёнком Jumbo. Бесплатно — в школе, дома и в дороге.</value>
+  </data>
+  <data name="NH_SeeApp" xml:space="preserve">
+    <value>Смотреть приложение</value>
+  </data>
+  <data name="NH_Stat1" xml:space="preserve">
+    <value>стран на карте</value>
+  </data>
+  <data name="NH_Stat2" xml:space="preserve">
+    <value>весёлых игр</value>
+  </data>
+  <data name="NH_Stat3" xml:space="preserve">
+    <value>слов с картинками и озвучкой</value>
+  </data>
+  <data name="NH_Stat3Num" xml:space="preserve">
+    <value>3 000</value>
+  </data>
+  <data name="NH_FloatWord" xml:space="preserve">
+    <value>Apple</value>
+  </data>
+  <data name="NH_FloatWordTr" xml:space="preserve">
+    <value>яблоко</value>
+  </data>
+  <data name="NH_FloatStreak" xml:space="preserve">
+    <value>Серия дней</value>
+  </data>
+  <data name="NH_FloatStreakSub" xml:space="preserve">
+    <value>Играй каждый день</value>
+  </data>
+  <data name="NH_PhoneAlt" xml:space="preserve">
+    <value>Главный экран приложения Jumbo</value>
+  </data>
+  <data name="NH_HowBadge" xml:space="preserve">
+    <value>КАК ЭТО РАБОТАЕТ</value>
+  </data>
+  <data name="NH_HowTitle" xml:space="preserve">
+    <value>Три шага к новым словам</value>
+  </data>
+  <data name="NH_HowSub" xml:space="preserve">
+    <value>Учиться с Jumbo просто: выбирай тему, играй и возвращайся каждый день.</value>
+  </data>
+  <data name="NH_FeatBadge" xml:space="preserve">
+    <value>ЧТО ВНУТРИ</value>
+  </data>
+  <data name="NH_FeatTitle" xml:space="preserve">
+    <value>Всё, чтобы слова запоминались</value>
+  </data>
+  <data name="NH_FeatSub" xml:space="preserve">
+    <value>Картинки, звук, игры и повторение — в одном весёлом приложении.</value>
+  </data>
+  <data name="NH_GamesTitle" xml:space="preserve">
+    <value>5 весёлых игр</value>
+  </data>
+  <data name="NH_GamesDesc" xml:space="preserve">
+    <value>В каждой теме есть игры:</value>
+  </data>
+  <data name="NH_ChipApple" xml:space="preserve">
+    <value>яблоко</value>
+  </data>
+  <data name="NH_ChipCat" xml:space="preserve">
+    <value>кошка</value>
+  </data>
+  <data name="NH_ChipSun" xml:space="preserve">
+    <value>солнце</value>
+  </data>
+  <data name="NH_ChipSchool" xml:space="preserve">
+    <value>школа</value>
+  </data>
+  <data name="NH_RepTitle" xml:space="preserve">
+    <value>Словарь и повторение</value>
+  </data>
+  <data name="NH_RepDesc" xml:space="preserve">
+    <value>Найди любое слово, послушай его снова и пройди тему ещё раз, когда захочешь.</value>
+  </data>
+  <data name="NH_SoundTitle" xml:space="preserve">
+    <value>Озвучка и видео</value>
+  </data>
+  <data name="NH_SoundDesc" xml:space="preserve">
+    <value>Слушай, как звучит каждое слово, и смотри короткие видео к темам.</value>
+  </data>
+  <data name="NH_AppBadge" xml:space="preserve">
+    <value>ПРИЛОЖЕНИЕ ВНУТРИ</value>
+  </data>
+  <data name="NH_AppTitle" xml:space="preserve">
+    <value>Так выглядит Jumbo</value>
+  </data>
+  <data name="NH_AppSub" xml:space="preserve">
+    <value>Настоящие экраны приложения: темы на карте, игры, награды и словарь.</value>
+  </data>
+  <data name="NH_ShotAlt" xml:space="preserve">
+    <value>Экран приложения Jumbo</value>
+  </data>
+  <data name="NH_TopBadge" xml:space="preserve">
+    <value>РЕЙТИНГ</value>
+  </data>
+  <data name="NH_TopSub" xml:space="preserve">
+    <value>По количеству выученных слов.</value>
+  </data>
+  <data name="NH_TopCta" xml:space="preserve">
+    <value>Попасть в рейтинг</value>
+  </data>
+  <data name="NH_TeachBadge" xml:space="preserve">
+    <value>ДЛЯ УЧИТЕЛЕЙ</value>
+  </data>
+  <data name="NH_TeachTitle" xml:space="preserve">
+    <value>Jumbo для школ и учителей</value>
+  </data>
+  <data name="NH_TeachText" xml:space="preserve">
+    <value>Ученики учат слова на уроках и дома, а вы видите их успехи: команды, отчёты и экзамены.</value>
+  </data>
+  <data name="NH_TeachC1" xml:space="preserve">
+    <value>Команды и классы</value>
+  </data>
+  <data name="NH_TeachC2" xml:space="preserve">
+    <value>Отчёты по словам, экзаменам и активности</value>
+  </data>
+  <data name="NH_TeachC3" xml:space="preserve">
+    <value>Обзор для директора</value>
+  </data>
+  <data name="NH_TeachMore" xml:space="preserve">
+    <value>Подробнее для учителей</value>
+  </data>
+  <data name="NH_ClassTitle" xml:space="preserve">
+    <value>5 «А» класс</value>
+  </data>
+  <data name="NH_ClassSub" xml:space="preserve">
+    <value>28 учеников</value>
+  </data>
+  <data name="NH_Example" xml:space="preserve">
+    <value>Пример</value>
+  </data>
+  <data name="NH_Ex1" xml:space="preserve">
+    <value>Мадина</value>
+  </data>
+  <data name="NH_Ex2" xml:space="preserve">
+    <value>Тимур</value>
+  </data>
+  <data name="NH_Ex3" xml:space="preserve">
+    <value>Севара</value>
+  </data>
+  <data name="NH_Ex4" xml:space="preserve">
+    <value>Азиз</value>
+  </data>
+  <data name="NH_DlCta" xml:space="preserve">
+    <value>Начать на сайте</value>
+  </data>
+  <data name="NH_FbBadge" xml:space="preserve">
+    <value>ОБРАТНАЯ СВЯЗЬ</value>
+  </data>
+  <data name="NH_FbTitle" xml:space="preserve">
+    <value>Обратная связь и новости</value>
+  </data>
+  <data name="NH_FbWrite" xml:space="preserve">
+    <value>Напишите нам</value>
+  </data>
+  <data name="NH_TgText" xml:space="preserve">
+    <value>Новости, напоминания и быстрые ответы на вопросы — прямо в Telegram.</value>
+  </data>
+  <data name="NH_TgOpen" xml:space="preserve">
+    <value>Открыть в Telegram</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>Вопросов: {0}</value>
   </data>

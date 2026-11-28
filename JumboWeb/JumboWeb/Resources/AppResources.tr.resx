@@ -2119,6 +2119,204 @@
   <data name="GR_WinReward" xml:space="preserve">
     <value>Kazanınca +{0} JO</value>
   </data>
+  <data name="NH_PageTitle" xml:space="preserve">
+    <value>Jumbo — oynayarak İngilizce öğren (tasarım önizlemesi)</value>
+  </data>
+  <data name="NH_PageDesc" xml:space="preserve">
+    <value>Jumbo, çocuklar için ücretsiz site ve uygulama: resimli ve sesli İngilizce kelimeler, eğlenceli oyunlar, alfabe ve fil Jumbo.</value>
+  </data>
+  <data name="NH_PreviewBar" xml:space="preserve">
+    <value>Yeni tasarımın (Figma) önizlemesi. Henüz yayımlanmadı.</value>
+  </data>
+  <data name="NH_PreviewLink" xml:space="preserve">
+    <value>Tüm siteyi yeni renklerle gör →</value>
+  </data>
+  <data name="NH_Skip" xml:space="preserve">
+    <value>İçeriğe geç</value>
+  </data>
+  <data name="NH_MenuOpen" xml:space="preserve">
+    <value>Menüyü aç</value>
+  </data>
+  <data name="NH_MenuClose" xml:space="preserve">
+    <value>Menüyü kapat</value>
+  </data>
+  <data name="NH_NavLabel" xml:space="preserve">
+    <value>Ana menü</value>
+  </data>
+  <data name="NH_HeroBadge" xml:space="preserve">
+    <value>ÜCRETSİZ</value>
+  </data>
+  <data name="NH_HeroBadgeText" xml:space="preserve">
+    <value>Çocuklar için İngilizce — sitede ve uygulamada</value>
+  </data>
+  <data name="NH_HeroT1" xml:space="preserve">
+    <value>İngilizceyi</value>
+  </data>
+  <data name="NH_HeroT2" xml:space="preserve">
+    <value>oynayarak öğren</value>
+  </data>
+  <data name="NH_HeroSub" xml:space="preserve">
+    <value>Konulara göre kelimeler, eğlenceli oyunlar ve fil Jumbo ile 10 ülkeyi gezme. Ücretsiz — okulda, evde ve yolda.</value>
+  </data>
+  <data name="NH_SeeApp" xml:space="preserve">
+    <value>Uygulamayı gör</value>
+  </data>
+  <data name="NH_Stat1" xml:space="preserve">
+    <value>haritada ülke</value>
+  </data>
+  <data name="NH_Stat2" xml:space="preserve">
+    <value>eğlenceli oyun</value>
+  </data>
+  <data name="NH_Stat3" xml:space="preserve">
+    <value>resimli ve sesli kelime</value>
+  </data>
+  <data name="NH_Stat3Num" xml:space="preserve">
+    <value>3.000</value>
+  </data>
+  <data name="NH_FloatWord" xml:space="preserve">
+    <value>Apple</value>
+  </data>
+  <data name="NH_FloatWordTr" xml:space="preserve">
+    <value>elma</value>
+  </data>
+  <data name="NH_FloatStreak" xml:space="preserve">
+    <value>Günlük seri</value>
+  </data>
+  <data name="NH_FloatStreakSub" xml:space="preserve">
+    <value>Her gün oyna</value>
+  </data>
+  <data name="NH_PhoneAlt" xml:space="preserve">
+    <value>Jumbo uygulamasının ana ekranı</value>
+  </data>
+  <data name="NH_HowBadge" xml:space="preserve">
+    <value>NASIL ÇALIŞIR</value>
+  </data>
+  <data name="NH_HowTitle" xml:space="preserve">
+    <value>Yeni kelimelere üç adım</value>
+  </data>
+  <data name="NH_HowSub" xml:space="preserve">
+    <value>Jumbo ile öğrenmek kolay: bir konu seç, oyna ve her gün geri gel.</value>
+  </data>
+  <data name="NH_FeatBadge" xml:space="preserve">
+    <value>İÇİNDE NE VAR</value>
+  </data>
+  <data name="NH_FeatTitle" xml:space="preserve">
+    <value>Kelimelerin akılda kalması için her şey</value>
+  </data>
+  <data name="NH_FeatSub" xml:space="preserve">
+    <value>Resimler, ses, oyunlar ve tekrar — tek bir neşeli uygulamada.</value>
+  </data>
+  <data name="NH_GamesTitle" xml:space="preserve">
+    <value>5 eğlenceli oyun</value>
+  </data>
+  <data name="NH_GamesDesc" xml:space="preserve">
+    <value>Her konunun oyunları var:</value>
+  </data>
+  <data name="NH_ChipApple" xml:space="preserve">
+    <value>elma</value>
+  </data>
+  <data name="NH_ChipCat" xml:space="preserve">
+    <value>kedi</value>
+  </data>
+  <data name="NH_ChipSun" xml:space="preserve">
+    <value>güneş</value>
+  </data>
+  <data name="NH_ChipSchool" xml:space="preserve">
+    <value>okul</value>
+  </data>
+  <data name="NH_RepTitle" xml:space="preserve">
+    <value>Sözlük ve tekrar</value>
+  </data>
+  <data name="NH_RepDesc" xml:space="preserve">
+    <value>İstediğin kelimeyi bul, tekrar dinle ve bir konuyu canın istediğinde yeniden oyna.</value>
+  </data>
+  <data name="NH_SoundTitle" xml:space="preserve">
+    <value>Ses ve video</value>
+  </data>
+  <data name="NH_SoundDesc" xml:space="preserve">
+    <value>Her kelimenin nasıl okunduğunu dinle ve konulara ait kısa videolar izle.</value>
+  </data>
+  <data name="NH_AppBadge" xml:space="preserve">
+    <value>UYGULAMANIN İÇİ</value>
+  </data>
+  <data name="NH_AppTitle" xml:space="preserve">
+    <value>Jumbo böyle görünüyor</value>
+  </data>
+  <data name="NH_AppSub" xml:space="preserve">
+    <value>Uygulamanın gerçek ekranları: haritadaki konular, oyunlar, ödüller ve sözlük.</value>
+  </data>
+  <data name="NH_ShotAlt" xml:space="preserve">
+    <value>Jumbo uygulamasının ekranı</value>
+  </data>
+  <data name="NH_TopBadge" xml:space="preserve">
+    <value>SIRALAMA</value>
+  </data>
+  <data name="NH_TopSub" xml:space="preserve">
+    <value>Öğrenilen kelime sayısına göre.</value>
+  </data>
+  <data name="NH_TopCta" xml:space="preserve">
+    <value>Sıralamaya gir</value>
+  </data>
+  <data name="NH_TeachBadge" xml:space="preserve">
+    <value>ÖĞRETMENLER İÇİN</value>
+  </data>
+  <data name="NH_TeachTitle" xml:space="preserve">
+    <value>Okullar ve öğretmenler için Jumbo</value>
+  </data>
+  <data name="NH_TeachText" xml:space="preserve">
+    <value>Öğrenciler kelimeleri derste ve evde öğrenir, siz de ilerlemelerini görürsünüz: takımlar, raporlar ve sınavlar.</value>
+  </data>
+  <data name="NH_TeachC1" xml:space="preserve">
+    <value>Takımlar ve sınıflar</value>
+  </data>
+  <data name="NH_TeachC2" xml:space="preserve">
+    <value>Kelime, sınav ve etkinlik raporları</value>
+  </data>
+  <data name="NH_TeachC3" xml:space="preserve">
+    <value>Müdür için genel bakış</value>
+  </data>
+  <data name="NH_TeachMore" xml:space="preserve">
+    <value>Öğretmenler için ayrıntılar</value>
+  </data>
+  <data name="NH_ClassTitle" xml:space="preserve">
+    <value>5-A sınıfı</value>
+  </data>
+  <data name="NH_ClassSub" xml:space="preserve">
+    <value>28 öğrenci</value>
+  </data>
+  <data name="NH_Example" xml:space="preserve">
+    <value>Örnek</value>
+  </data>
+  <data name="NH_Ex1" xml:space="preserve">
+    <value>Madina</value>
+  </data>
+  <data name="NH_Ex2" xml:space="preserve">
+    <value>Timur</value>
+  </data>
+  <data name="NH_Ex3" xml:space="preserve">
+    <value>Sevara</value>
+  </data>
+  <data name="NH_Ex4" xml:space="preserve">
+    <value>Aziz</value>
+  </data>
+  <data name="NH_DlCta" xml:space="preserve">
+    <value>Sitede başla</value>
+  </data>
+  <data name="NH_FbBadge" xml:space="preserve">
+    <value>GERİ BİLDİRİM</value>
+  </data>
+  <data name="NH_FbTitle" xml:space="preserve">
+    <value>Geri bildirim ve haberler</value>
+  </data>
+  <data name="NH_FbWrite" xml:space="preserve">
+    <value>Bize yazın</value>
+  </data>
+  <data name="NH_TgText" xml:space="preserve">
+    <value>Haberler, hatırlatmalar ve sorulara hızlı yanıtlar — doğrudan Telegram'da.</value>
+  </data>
+  <data name="NH_TgOpen" xml:space="preserve">
+    <value>Telegram'da aç</value>
+  </data>
   <data name="TE_Questions" xml:space="preserve">
     <value>{0} soru</value>
   </data>

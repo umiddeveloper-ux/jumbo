@@ -1,0 +1,446 @@
+@page "/new"
+@layout BlankLayout
+@using JumboWeb.Services
+@inject AppLocalizer Loc
+@inject UserStateService UserState
+@inject UserPreferencesService Prefs
+@inject LpApiClient ApiClient
+@inject AppDownloads Downloads
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>@Loc["NH_PageTitle"]</PageTitle>
+<HeadContent>
+    <meta name="description" content="@Loc["NH_PageDesc"]" />
+</HeadContent>
+
+@* PREVIEW of the colleagues' Figma redesign of the landing (design/figma-palette.md). Not linked from anywhere, not for search engines.
+   It always shows the new palette (App.razor puts palette-new.css and new-landing.css on this address) and has its own look-and-feel:
+   every class here starts with "nh-". The old landing at "/" is not touched. *@
+<a class="nh-skip" href="/new#main">@Loc["NH_Skip"]</a>
+
+<div class="nh-preview">
+    <span>@Loc["NH_PreviewBar"]</span>
+    <a href="/?palette=new">@Loc["NH_PreviewLink"]</a>
+</div>
+
+<header class="nh-header">
+    <div class="nh-wrap nh-header-in">
+        <a class="nh-logo" href="/new" aria-label="@Loc["Common_BrandName"]">
+            <img src="favicon.svg" alt="" width="40" height="40" />
+            <span>@Loc["Common_BrandName"]</span>
+        </a>
+
+        <nav class="nh-nav @(_menu ? "open" : "")" id="nh-nav" aria-label="@Loc["NH_NavLabel"]">
+            <a href="/new#app" @onclick="CloseMenu">@Loc["Nav_App"]</a>
+            <a href="/new#top" @onclick="CloseMenu">@Loc["Nav_Top"]</a>
+            <a href="/new#how" @onclick="CloseMenu">@Loc["Nav_How"]</a>
+            <a href="/new#features" @onclick="CloseMenu">@Loc["Nav_Feat"]</a>
+            <a href="/new#teachers" @onclick="CloseMenu">@Loc["FS_Nav"]</a>
+            <div class="nh-nav-actions">
+                <a class="nh-btn nh-btn-ghost" href="/login">@Loc["Land_Login"]</a>
+                <a class="nh-btn nh-btn-primary" href="/register">@Loc["Land_Register"]</a>
+            </div>
+        </nav>
+
+        <div class="nh-tools">
+            <LanguageSwitcher />
+            <ThemeToggle />
+            <a class="nh-btn nh-btn-ghost nh-hide-sm" href="/login">@Loc["Land_Login"]</a>
+            <a class="nh-btn nh-btn-primary nh-hide-sm" href="/register">@Loc["Land_Register"]</a>
+            <button type="button" class="nh-burger" aria-controls="nh-nav" aria-expanded="@(_menu ? "true" : "false")"
+                    aria-label="@(_menu ? Loc["NH_MenuClose"] : Loc["NH_MenuOpen"])" @onclick="() => _menu = !_menu">
+                @if (_menu) { <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg> }
+                else { <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg> }
+            </button>
+        </div>
+    </div>
+</header>
+
+<main id="main" class="nh">
+    @* ───────── Hero ───────── *@
+    <section class="nh-hero" aria-labelledby="nh-h1">
+        <div class="nh-wrap nh-hero-in">
+            <div class="nh-hero-text">
+                <p class="nh-eyebrow"><b>@Loc["NH_HeroBadge"]</b> <span>@Loc["NH_HeroBadgeText"]</span></p>
+                <h1 id="nh-h1" class="nh-h1">@Loc["NH_HeroT1"]<br /><em>@Loc["NH_HeroT2"]</em></h1>
+                <p class="nh-lead">@Loc["NH_HeroSub"]</p>
+                <div class="nh-actions">
+                    <a class="nh-btn nh-btn-primary nh-btn-lg" href="/register">@Loc["Land_Register"] @Arrow</a>
+                    <a class="nh-btn nh-btn-outline nh-btn-lg" href="/new#shots">@Loc["NH_SeeApp"]</a>
+                </div>
+                <dl class="nh-stats">
+                    <div><dt>@Loc["NH_Stat1"]</dt><dd class="c-sky">10</dd></div>
+                    <div><dt>@Loc["NH_Stat2"]</dt><dd class="c-violet">5</dd></div>
+                    <div><dt>@Loc["NH_Stat3"]</dt><dd class="c-mint">@Loc["NH_Stat3Num"]</dd></div>
+                </dl>
+            </div>
+
+            <div class="nh-hero-art" id="app">
+                <span class="nh-blob b1" aria-hidden="true"></span>
+                <span class="nh-blob b2" aria-hidden="true"></span>
+                <span class="nh-blob b3" aria-hidden="true"></span>
+                <div class="nh-phone">
+                    <img src="@Shot(1)" alt="@Loc["NH_PhoneAlt"]" width="440" height="982" fetchpriority="high" />
+                </div>
+                <div class="nh-float f1" aria-hidden="true">
+                    <span class="nh-float-ico c-yellow">@((MarkupString)Icon("flame"))</span>
+                    <span><b>@Loc["NH_FloatStreak"]</b><small>@Loc["NH_FloatStreakSub"]</small></span>
+                </div>
+                <div class="nh-float f2" aria-hidden="true">
+                    <span class="nh-float-ico c-sky">@((MarkupString)Icon("volume"))</span>
+                    <span><b>@Loc["NH_FloatWord"]</b><small>@Loc["NH_FloatWordTr"]</small></span>
+                </div>
+                <img class="nh-mascot" src="jumbo.webp" alt="" width="180" height="262" loading="eager" />
+            </div>
+        </div>
+    </section>
+
+    @* ───────── How it works ───────── *@
+    <section class="nh-section" id="how" aria-labelledby="nh-how">
+        <div class="nh-wrap">
+            <header class="nh-head">
+                <p class="nh-badge b-sky">@Loc["NH_HowBadge"]</p>
+                <h2 id="nh-how" class="nh-h2">@Loc["NH_HowTitle"]</h2>
+                <p class="nh-sub">@Loc["NH_HowSub"]</p>
+            </header>
+            <ol class="nh-steps">
+                <li class="nh-card"><span class="nh-step-ico c-sky">@((MarkupString)Icon("map"))</span><span class="nh-step-num n-sky" aria-hidden="true">01</span><h3>@Loc["Land_How1Title"]</h3><p>@Loc["Land_How1Desc"]</p></li>
+                <li class="nh-card"><span class="nh-step-ico c-violet">@((MarkupString)Icon("gamepad"))</span><span class="nh-step-num n-violet" aria-hidden="true">02</span><h3>@Loc["Land_How2Title"]</h3><p>@Loc["Land_How2Desc"]</p></li>
+                <li class="nh-card"><span class="nh-step-ico c-yellow">@((MarkupString)Icon("flame"))</span><span class="nh-step-num n-yellow" aria-hidden="true">03</span><h3>@Loc["Land_How3Title"]</h3><p>@Loc["Land_How3Desc"]</p></li>
+            </ol>
+        </div>
+    </section>
+
+    @* ───────── Features (bento) ───────── *@
+    <section class="nh-section nh-alt" id="features" aria-labelledby="nh-feat">
+        <div class="nh-wrap">
+            <header class="nh-head">
+                <p class="nh-badge b-violet">@Loc["NH_FeatBadge"]</p>
+                <h2 id="nh-feat" class="nh-h2">@Loc["NH_FeatTitle"]</h2>
+                <p class="nh-sub">@Loc["NH_FeatSub"]</p>
+            </header>
+            <div class="nh-bento">
+                <article class="nh-tile t-sky span-2">
+                    <span class="nh-tile-ico">@((MarkupString)Icon("book"))</span>
+                    <h3>@Loc["Land_Feat1Title"]</h3>
+                    <p>@Loc["Land_Feat1Desc"]</p>
+                    <ul class="nh-words" aria-hidden="true">
+                        <li><i class="w-pink">A</i><span><b>Apple</b><small>@Loc["NH_ChipApple"]</small></span></li>
+                        <li><i class="w-violet">C</i><span><b>Cat</b><small>@Loc["NH_ChipCat"]</small></span></li>
+                        <li><i class="w-yellow">S</i><span><b>Sun</b><small>@Loc["NH_ChipSun"]</small></span></li>
+                        <li><i class="w-mint">S</i><span><b>School</b><small>@Loc["NH_ChipSchool"]</small></span></li>
+                    </ul>
+                </article>
+                <article class="nh-tile t-violet">
+                    <span class="nh-tile-ico">@((MarkupString)Icon("gamepad"))</span>
+                    <h3>@Loc["NH_GamesTitle"]</h3>
+                    <p>@Loc["NH_GamesDesc"]</p>
+                    <ul class="nh-games">
+                        <li>@Loc["Game_FindMeTitle"]</li>
+                        <li>@Loc["Game_SequenceTitle"]</li>
+                        <li>@Loc["Game_ListenTitle"]</li>
+                        <li>@Loc["Game_PhraseTitle"]</li>
+                        <li>@Loc["Game_StepsTitle"]</li>
+                    </ul>
+                </article>
+                <article class="nh-tile t-yellow">
+                    <span class="nh-tile-ico">Aa</span>
+                    <h3>@Loc["Land_Feat3Title"]</h3>
+                    <p>@Loc["Land_Feat3Desc"]</p>
+                    <ul class="nh-letters" aria-hidden="true"><li class="w-pink">A</li><li class="w-sky">B</li><li class="w-mint">C</li><li class="w-violet">D</li></ul>
+                </article>
+                <article class="nh-tile t-mint">
+                    <span class="nh-tile-ico">@((MarkupString)Icon("repeat"))</span>
+                    <h3>@Loc["NH_RepTitle"]</h3>
+                    <p>@Loc["NH_RepDesc"]</p>
+                </article>
+                <article class="nh-tile t-pink">
+                    <span class="nh-tile-ico">@((MarkupString)Icon("volume"))</span>
+                    <h3>@Loc["NH_SoundTitle"]</h3>
+                    <p>@Loc["NH_SoundDesc"]</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    @* ───────── The app inside: the real screens ───────── *@
+    <section class="nh-section" id="shots" aria-labelledby="nh-shots">
+        <div class="nh-wrap">
+            <header class="nh-head">
+                <p class="nh-badge b-mint">@Loc["NH_AppBadge"]</p>
+                <h2 id="nh-shots" class="nh-h2">@Loc["NH_AppTitle"]</h2>
+                <p class="nh-sub">@Loc["NH_AppSub"]</p>
+            </header>
+        </div>
+        <ul class="nh-shots" tabindex="0" aria-label="@Loc["NH_AppTitle"]">
+            @for (var i = 1; i <= 7; i++)
+            {
+                <li><span class="nh-phone small"><img src="@Shot(i)" alt="@Loc["NH_ShotAlt"] @i" width="440" height="982" loading="lazy" decoding="async" /></span></li>
+            }
+        </ul>
+    </section>
+
+    @* ───────── Top 10 (the real ranking) ───────── *@
+    <section class="nh-section nh-alt" id="top" aria-labelledby="nh-top">
+        <div class="nh-wrap nh-top">
+            <div class="nh-top-text">
+                <p class="nh-badge b-pink">@Loc["NH_TopBadge"]</p>
+                <h2 id="nh-top" class="nh-h2">@Loc["Top_Title"]</h2>
+                <p class="nh-sub">@Loc["NH_TopSub"] @(UserState.IsRegistered ? "" : Loc["Top_GuestCta"])</p>
+                <a class="nh-btn nh-btn-primary nh-btn-lg" href="@(UserState.IsRegistered ? "/rating" : "/register")">@Loc["NH_TopCta"] @Arrow</a>
+            </div>
+            <div class="nh-board">
+                <div class="nh-board-head">
+                    <h3><span class="c-yellow-text">@((MarkupString)Icon("trophy"))</span> @Loc["Top_Title"]</h3>
+                    <div class="nh-tabs" role="tablist">
+                        <button type="button" role="tab" aria-selected="@(_period == "week" ? "true" : "false")" class="@(_period == "week" ? "on" : "")" @onclick='() => SetPeriod("week")'>@Loc["Rating_Week"]</button>
+                        <button type="button" role="tab" aria-selected="@(_period == "all" ? "true" : "false")" class="@(_period == "all" ? "on" : "")" @onclick='() => SetPeriod("all")'>@Loc["Rating_AllTime"]</button>
+                    </div>
+                </div>
+                @if (_loading)
+                {
+                    <p class="nh-board-empty">@Loc["Common_Loading"]</p>
+                }
+                else if (_top is null || _top.Entries.Count == 0)
+                {
+                    <p class="nh-board-empty">@Loc["Rating_NoPlace"]</p>
+                }
+                else
+                {
+                    <ol class="nh-rows">
+                        @foreach (var e in _top.Entries)
+                        {
+                            <li class="nh-row r@(e.Rank is >= 1 and <= 3 ? e.Rank : 0)">
+                                <span class="nh-rank">@e.Rank</span>
+                                <span class="nh-row-av">
+                                    @if (e.Name is not null) { <UserAvatar Svg="@e.AvatarSvg" DisplayName="@e.Name" Size="40" Frame="@e.FrameKey" Book="@e.CurrentBook" Plan="@e.Plan" /> }
+                                    else { <span class="nh-hidden-av" aria-hidden="true">🐘</span> }
+                                </span>
+                                <span class="nh-row-name"><b>@(e.Name ?? Loc["Rating_Hidden"])</b>@if (!string.IsNullOrEmpty(e.Team)) { <small>@e.Team</small> }</span>
+                                <span class="nh-row-words"><b>@e.Words</b> <small>@Loc["Rating_Words"]</small></span>
+                            </li>
+                        }
+                    </ol>
+                }
+            </div>
+        </div>
+    </section>
+
+    @* ───────── For teachers ───────── *@
+    <section class="nh-section" id="teachers" aria-labelledby="nh-teach">
+        <div class="nh-wrap">
+            <div class="nh-teach">
+                <div class="nh-teach-text">
+                    <p class="nh-badge b-yellow-dark">@Loc["NH_TeachBadge"]</p>
+                    <h2 id="nh-teach" class="nh-h2">@Loc["NH_TeachTitle"]</h2>
+                    <p class="nh-sub">@Loc["NH_TeachText"]</p>
+                    <ul class="nh-checks">
+                        <li>@((MarkupString)Icon("check")) @Loc["NH_TeachC1"]</li>
+                        <li>@((MarkupString)Icon("check")) @Loc["NH_TeachC2"]</li>
+                        <li>@((MarkupString)Icon("check")) @Loc["NH_TeachC3"]</li>
+                    </ul>
+                    <a class="nh-btn nh-btn-primary nh-btn-lg" href="/for-schools">@Loc["NH_TeachMore"] @Arrow</a>
+                </div>
+                <div class="nh-class" role="img" aria-label="@Loc["NH_Example"]: @Loc["NH_ClassTitle"]">
+                    <span class="nh-example">@Loc["NH_Example"]</span>
+                    <h3>@Loc["NH_ClassTitle"]</h3>
+                    <p>@Loc["NH_ClassSub"]</p>
+                    <ul>
+                        <li><span>@Loc["NH_Ex1"]</span><i style="--w:100%" class="p-violet"></i><b>1 242</b></li>
+                        <li><span>@Loc["NH_Ex2"]</span><i style="--w:85%" class="p-sky"></i><b>1 053</b></li>
+                        <li><span>@Loc["NH_Ex3"]</span><i style="--w:70%" class="p-pink"></i><b>864</b></li>
+                        <li><span>@Loc["NH_Ex4"]</span><i style="--w:49%" class="p-mint"></i><b>608</b></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @* ───────── Download ───────── *@
+    <section class="nh-section nh-tight" id="download" aria-labelledby="nh-dl">
+        <div class="nh-wrap">
+            <div class="nh-dl">
+                <div class="nh-dl-text">
+                    <h2 id="nh-dl" class="nh-h2">@Loc["Dl_Title"]</h2>
+                    <p>@Loc["Dl_Text"]</p>
+                    <div class="nh-stores">
+                        @Store(Apple, Loc["Dl_Get"], "App Store", Downloads.IosUrl)
+                        @Store(Play, Loc["Dl_Avail"], AndroidName, Downloads.AndroidUrl)
+                    </div>
+                    <a class="nh-btn nh-btn-dark" href="/register">@Loc["NH_DlCta"] @Arrow</a>
+                </div>
+                <div class="nh-dl-art" aria-hidden="true">
+                    <span class="nh-circle c1"></span><span class="nh-circle c2"></span>
+                    <img src="jumbo.webp" alt="" width="260" height="379" loading="lazy" decoding="async" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @* ───────── Feedback and news ───────── *@
+    <section class="nh-section nh-alt" id="contact" aria-labelledby="nh-fb">
+        <div class="nh-wrap">
+            <header class="nh-head">
+                <p class="nh-badge b-mint">@Loc["NH_FbBadge"]</p>
+                <h2 id="nh-fb" class="nh-h2">@Loc["NH_FbTitle"]</h2>
+                <p class="nh-sub">@Loc["Foot_SubscribeHint"]</p>
+            </header>
+            <div class="nh-fb">
+                <div class="nh-card nh-form-card">
+                    <h3>@Loc["NH_FbWrite"]</h3>
+                    @if (_state == "done")
+                    {
+                        <p class="nh-ok" role="status">✓ @Loc["Foot_Subscribed"]</p>
+                    }
+                    else
+                    {
+                        <form class="nh-form" @onsubmit="SubscribeAsync" @onsubmit:preventDefault="true">
+                            @* a field that people never see: a robot fills it in *@
+                            <input class="nh-trap" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" @bind="_trap" />
+                            <input class="nh-input" type="email" inputmode="email" autocomplete="email" maxlength="200" required
+                                   placeholder="@Loc["Foot_EmailPlaceholder"]" aria-label="@Loc["Foot_EmailPlaceholder"]" @bind="_email" @bind:event="oninput" />
+                            <textarea class="nh-input nh-textarea" rows="4" maxlength="1000" placeholder="@Loc["Foot_MessagePlaceholder"]"
+                                      aria-label="@Loc["Foot_MessagePlaceholder"]" @bind="_message" @bind:event="oninput"></textarea>
+                            <label class="nh-check"><input type="checkbox" @bind="_news" /> <span>@Loc["Foot_NewsCheck"]</span></label>
+                            <button type="submit" class="nh-btn nh-btn-primary" disabled="@(_state == "sending")">@(_state == "sending" ? Loc["Foot_Sending"] : Loc["Foot_SubscribeButton"]) @Arrow</button>
+                        </form>
+                        @if (_state == "bad") { <p class="nh-err" role="alert">@Loc["Foot_BadEmail"]</p> }
+                        else if (_state == "empty") { <p class="nh-err" role="alert">@Loc["Foot_NeedSomething"]</p> }
+                        else if (_state == "fail") { <p class="nh-err" role="alert">@Loc["Foot_Failed"]</p> }
+                        <p class="nh-consent">@Loc["Foot_Consent"] <a href="/privacy">@Loc["Foot_Privacy"]</a></p>
+                    }
+                </div>
+                <div class="nh-card nh-tg">
+                    <span class="nh-tg-ico">@((MarkupString)Icon("send"))</span>
+                    <h3>@Loc["Foot_Bot"]</h3>
+                    <p>@Loc["NH_TgText"]</p>
+                    <p class="nh-tg-name">@@JumboUzBot</p>
+                    <a class="nh-btn nh-btn-outline" href="https://t.me/JumboUzBot" target="_blank" rel="noopener">@Loc["NH_TgOpen"] @Arrow</a>
+                    <div class="nh-share">
+                        <span>@Loc["Foot_Share"]</span>
+                        <a href="https://t.me/share/url?url=@ShareUrl&text=@ShareText" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://wa.me/?text=@ShareText%20@ShareUrl" target="_blank" rel="noopener">WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=@ShareUrl" target="_blank" rel="noopener">Facebook</a>
+                        <a href="https://twitter.com/intent/tweet?url=@ShareUrl&text=@ShareText" target="_blank" rel="noopener">X</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="nh-footer">
+    <div class="nh-wrap nh-footer-in">
+        <div class="nh-footer-brand">
+            <a class="nh-logo" href="/new"><img src="favicon.svg" alt="" width="36" height="36" /><span>@Loc["Common_BrandName"]</span></a>
+            <p>@Loc["Foot_Tagline"]</p>
+        </div>
+        <nav aria-label="@Loc["Foot_Site"]">
+            <h2>@Loc["Foot_Site"]</h2>
+            <ul>
+                <li><a href="/plans">@Loc["Plan_Nav"]</a></li>
+                <li><a href="/for-schools">@Loc["Foot_Schools"]</a></li>
+                <li><a href="/login">@Loc["Land_Login"]</a></li>
+                <li><a href="/register">@Loc["Land_Register"]</a></li>
+                <li><a href="/privacy">@Loc["Foot_Privacy"]</a></li>
+                <li><a href="/delete-account">@Loc["Foot_Delete"]</a></li>
+            </ul>
+        </nav>
+    </div>
+    <p class="nh-copy">© @DateTime.UtcNow.Year @Loc["Common_BrandName"]</p>
+</footer>
+
+@code {
+    private bool _menu;
+    private string _period = "week";
+    private bool _loading = true;
+    private Jumbo.Shared.Dtos.RatingDto? _top;
+    private string _email = string.Empty, _message = string.Empty, _trap = string.Empty, _state = "idle";
+    private bool _news = true;
+
+    private static MarkupString Arrow => new(Icon("arrow"));
+
+    // the screens of the app: Uzbek for the Uzbek page, Russian for the others (the app has these two sets of pictures)
+    private string Shot(int n) => $"new/app-{(Prefs.AppLangId == 3 ? "uz" : "ru")}-{n}.webp";
+
+    private string ShareUrl => Uri.EscapeDataString(Nav.ToAbsoluteUri("/").ToString());
+    private string ShareText => Uri.EscapeDataString(Loc["Foot_ShareText"]);
+
+    // "Google Play" when the link goes to the store, "Android (APK)" when it is the apk of the site (as in the old landing)
+    private string AndroidName => Downloads.AndroidUrl is { } u && u.Contains("play.google.com", StringComparison.OrdinalIgnoreCase) ? "Google Play"
+        : Downloads.AndroidUrl is null ? "Google Play" : "Android (APK)";
+
+    private void CloseMenu() => _menu = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UserState.EnsureLoadedAsync();
+        await Prefs.EnsureLoadedAsync();
+        await LoadTopAsync();
+    }
+
+    private async Task SetPeriod(string period)
+    {
+        if (_period == period) return;
+        _period = period;
+        await LoadTopAsync();
+    }
+
+    private async Task LoadTopAsync()
+    {
+        _loading = true;
+        try { _top = await ApiClient.GetTopRatingAsync(_period, 10); }
+        catch { _top = null; }
+        _loading = false;
+    }
+
+    // the same call and the same checks as the form of the old footer (LandFooter): the e-mail, a message, the wish for the news; a honeypot for robots
+    private async Task SubscribeAsync()
+    {
+        if (_state == "sending") return;
+        if (!string.IsNullOrEmpty(_trap)) { _state = "done"; return; }
+        if (string.IsNullOrWhiteSpace(_message) && !_news) { _state = "empty"; return; }
+        _state = "sending";
+        try
+        {
+            var lang = Prefs.AppLangId switch { 2 => "ru", 3 => "uz", 4 => "tr", _ => "en" };
+            _state = await ApiClient.SubscribeAsync(_email, lang, _message, _news) ? "done" : "bad";
+        }
+        catch { _state = "fail"; }
+    }
+
+    private RenderFragment Store(string svg, string small, string big, string? url) => @<text>
+        @if (url is null)
+        {
+            <span class="nh-store soon"><span class="nh-store-ico">@((MarkupString)svg)</span><span class="nh-store-lbl"><small>@small</small><b>@big</b></span><em>@Loc["Land_Soon"]</em></span>
+        }
+        else
+        {
+            <a class="nh-store" href="@url" target="@(url.StartsWith("http", StringComparison.OrdinalIgnoreCase) ? "_blank" : null)" rel="noopener"><span class="nh-store-ico">@((MarkupString)svg)</span><span class="nh-store-lbl"><small>@small</small><b>@big</b></span></a>
+        }
+    </text>;
+
+    private const string Apple = "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M16.37 12.64c-.03-2.67 2.18-3.95 2.28-4.01-1.24-1.82-3.18-2.07-3.87-2.1-1.65-.17-3.22.97-4.06.97-.84 0-2.13-.95-3.5-.92-1.8.03-3.46 1.05-4.39 2.66-1.87 3.24-.48 8.04 1.34 10.67.89 1.29 1.95 2.73 3.34 2.68 1.34-.05 1.85-.87 3.47-.87 1.62 0 2.08.87 3.5.84 1.45-.02 2.36-1.31 3.24-2.61 1.02-1.5 1.44-2.95 1.47-3.02-.03-.01-2.82-1.08-2.85-4.29zM13.7 4.78c.74-.9 1.24-2.14 1.1-3.38-1.07.04-2.36.71-3.13 1.61-.69.79-1.29 2.06-1.13 3.28 1.19.09 2.4-.6 3.16-1.51z\"/></svg>";
+    private const string Play = "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M4.6 2.4c-.3.3-.5.8-.5 1.4v16.4c0 .6.2 1.1.5 1.4l.1.1L13.9 12.5v-.2L4.7 2.3l-.1.1zm12.3 6.2-3-3L4.7 2.3l.1-.1c.5-.3 1.1-.3 1.7.1l10.4 6zm0 6.8-3-3 3-3 3.5 2c.9.5.9 1.4 0 1.9l-3.5 2.1zM13.9 12.5l3 3-10.4 6c-.6.4-1.2.4-1.7.1l-.1-.1 9.2-9z\"/></svg>";
+
+    // small line icons of the page (24x24, stroke = currentColor)
+    private static string Icon(string name)
+    {
+        var d = name switch
+        {
+            "arrow" => "M5 12h14M13 6l6 6-6 6",
+            "map" => "M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14",
+            "gamepad" => "M6 12h4M8 10v4M15 13h.01M18 11h.01M7 6h10a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5v-2a5 5 0 0 1 5-5z",
+            "flame" => "M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 .5 1.5 1.5 2 2 2 0-3-1-5 1-8z",
+            "book" => "M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2zM22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z",
+            "repeat" => "M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3",
+            "volume" => "M11 5 6 9H3v6h3l5 4zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13",
+            "check" => "M5 12.5l4.5 4.5L19 7.5",
+            "trophy" => "M8 4h8v5a4 4 0 0 1-8 0zM8 6H4v1a3 3 0 0 0 3 3M16 6h4v1a3 3 0 0 1-3 3M12 13v4M8 21h8M10 17h4",
+            "send" => "M22 3 2 11l7 3 3 7 3-5 7-13zM9 14l13-11",
+            _ => ""
+        };
+        return $"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"{d}\"/></svg>";
+    }
+}
